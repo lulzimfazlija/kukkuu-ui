@@ -24,13 +24,13 @@
             "newlines-between": "always"
           }
         ],
-        "max-len": [ "warn", { "code": 120}],
+        "max-len": ["warn", { "code": 120 }],
         "no-console": "warn",
         "no-plusplus": "error",
         "no-undef": "warn",
         "no-trailing-spaces": "warn",
         "object-curly-spacing": ["warn", "always"],
-        "sort-keys": ["warn", "asc", {"caseSensitive": true, "natural": true, "minKeys": 2}]
+        "sort-keys": ["warn", "asc", { "caseSensitive": true, "natural": true, "minKeys": 2 }]
       }
     }
   ]
