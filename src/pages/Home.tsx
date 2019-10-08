@@ -1,5 +1,5 @@
 import React from 'react';
-import {RouteProps} from 'react-router';
+import { RouteProps } from 'react-router';
 
 import PageLayout from '../common/layout/PageLayout';
 
