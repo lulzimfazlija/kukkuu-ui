@@ -13,7 +13,7 @@
         "arrow-spacing": "warn",
         "array-bracket-spacing": ["warn", "never"],
         "brace-style": "off",
-        "comma-dangle":"off",
+        "comma-dangle": "off",
         "import/order": [
           "error",
           {
@@ -26,6 +26,7 @@
           }
         ],
         "max-len": [ "warn", { "code":  120}],
+        "no-console": "warn",
         "no-plusplus": "error",
         "no-undef": "warn",
         "no-trailing-spaces": "warn",
