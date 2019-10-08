@@ -4,15 +4,14 @@
     {
       "files": ["**/*.tsx", "**/*.ts"],
       "rules": {
-        "@typescript-eslint/brace-style": ["error"],
+        "@typescript-eslint/brace-style": ["error", "1tbs", { "allowSingleLine": true }],
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/func-call-spacing": ["error"],
-        "@typescript-eslint/member-ordering": ["warn", { "default": ["method", "constructor", "field"] }],
+        "@typescript-eslint/member-ordering": ["warn"],
         "@typescript-eslint/no-require-imports": ["error"],
         "react/no-unused-prop-types": ["warn", { "skipShapeProps": true }],
         "arrow-spacing": "warn",
         "array-bracket-spacing": ["warn", "never"],
-        "brace-style": "off",
         "comma-dangle": "off",
         "import/order": [
           "error",
@@ -25,7 +24,7 @@
             "newlines-between": "always"
           }
         ],
-        "max-len": [ "warn", { "code":  120}],
+        "max-len": [ "warn", { "code": 120}],
         "no-console": "warn",
         "no-plusplus": "error",
         "no-undef": "warn",
