@@ -1,0 +1,24 @@
+sudo: false
+language: node_js
+node_js:
+  - '12'
+cache:
+  yarn: true
+  directories:
+    - node_modules
+install:
+  - yarn
+jobs:
+  include:
+    - stage: "Lint"
+      name: "Run code linting"
+      script: yarn lint
+    - stage: "Test"
+      name: "Run tests"
+      script: yarn ci
+    - stage: "Build"
+      name: "Run (test) build"
+      script: yarn build
+      if: branch IN (master, develop)
+after_success:
+  - ./node_modules/.bin/codecov < coverage/lcov.info  
