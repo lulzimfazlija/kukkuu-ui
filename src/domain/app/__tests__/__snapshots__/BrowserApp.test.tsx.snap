@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders snapshot correctly 1`] = `
+Array [
+  <header
+    className="header"
+  >
+    <svg>
+      HelsinkiLogo.svg
+    </svg>
+    <h1
+      className="appName"
+    >
+      Godchildren of culture
+    </h1>
+  </header>,
+  "Home",
+]
+`;
