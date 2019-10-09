@@ -1,7 +1,7 @@
 import React from 'react';
 import { RouteProps } from 'react-router';
 
-import PageLayout from '../common/layout/PageLayout';
+import PageLayout from '../../common/layout/PageLayout';
 
 type Props = RouteProps & {};
 

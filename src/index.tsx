@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import './index.css';
-import BrowserApp from './BrowserApp';
+import BrowserApp from './domain/app/BrowserApp';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<BrowserApp />, document.getElementById('root'));
