@@ -1,5 +1,5 @@
 {
-  "extends": ["react-app", "plugin:@typescript-eslint/recommended"],
+  "extends": ["react-app", "plugin:@typescript-eslint/recommended", "prettier"],
   "overrides": [
     {
       "files": ["**/*.tsx", "**/*.ts"],
@@ -10,9 +10,7 @@
         "@typescript-eslint/member-ordering": ["warn"],
         "@typescript-eslint/no-require-imports": ["error"],
         "react/no-unused-prop-types": ["warn", { "skipShapeProps": true }],
-        "arrow-spacing": "warn",
         "array-bracket-spacing": ["warn", "never"],
-        "comma-dangle": "off",
         "import/order": [
           "error",
           {
@@ -28,10 +26,13 @@
         "no-console": "warn",
         "no-plusplus": "error",
         "no-undef": "warn",
-        "no-trailing-spaces": "warn",
         "object-curly-spacing": ["warn", "always"],
         "sort-keys": ["warn", "asc", { "caseSensitive": true, "natural": true, "minKeys": 2 }]
       }
     }
-  ]
+  ],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error"
+  }
 }

@@ -5,25 +5,23 @@ import en from './en.json';
 import fi from './fi.json';
 import sv from './sv.json';
 
-i18n
-  .use(initReactI18next)
-  .init({
-    fallbackLng: 'en',
-    interpolation: {
-      escapeValue: false
+i18n.use(initReactI18next).init({
+  fallbackLng: 'en',
+  interpolation: {
+    escapeValue: false,
+  },
+  lng: 'en',
+  resources: {
+    en: {
+      translation: en,
     },
-    lng: 'en',
-    resources: {
-      en: {
-        translation: en,
-      },
-      fi: {
-        translation: fi,
-      },
-      sv: {
-        translation: sv,
-      },
+    fi: {
+      translation: fi,
     },
-  });
+    sv: {
+      translation: sv,
+    },
+  },
+});
 
 export default i18n;

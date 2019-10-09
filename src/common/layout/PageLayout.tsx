@@ -9,10 +9,10 @@ type Props = {
 function PageLayout(props: Props) {
   return (
     <>
-      <Header/>
+      <Header />
       {props.children}
     </>
   );
-};
+}
 
 export default PageLayout;
