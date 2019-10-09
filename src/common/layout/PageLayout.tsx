@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 
-import Header from '../header/Header';
+import Header from '../../domain/app/header/Header';
 
 type Props = {
   children: ReactNode;
