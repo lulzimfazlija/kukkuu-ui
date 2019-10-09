@@ -19,7 +19,7 @@ jobs:
     - stage: "Build"
       name: "Run (test) build"
       script: yarn build
-      if: branch IN (master, develop, feature/KK-31-ci-cd-config)
+      if: branch IN (master, develop)
     - stage: "Codecov"
       name: "Sending code coverage to Codecov.io"
       script: codecov < coverage/lcov.info 
