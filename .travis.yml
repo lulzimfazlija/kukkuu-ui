@@ -20,6 +20,5 @@ jobs:
       name: "Run (test) build"
       script: yarn build
       if: branch IN (master, develop)
-    - stage: "Codecov"
-      name: "Sending code coverage to Codecov.io"
-      script: ./node_modules/.bin/codecov < coverage/lcov.info 
+after_success:
+  - ./node_modules/.bin/codecov < coverage/lcov.info  
