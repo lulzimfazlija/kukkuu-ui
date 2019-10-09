@@ -9,16 +9,17 @@ cache:
 install:
   - yarn
 jobs:
-  - stage: "Lint"
-    name: "Run code linting"
-    script: yarn lint
-  - stage: "Test"
-    name: "Run tests"
-    script: yarn ci
-  - stage: "Build"
-    name: "Run (test) build"
-    script: yarn build
-    if: branch in (master, develop, feature/KK-31-ci-cd-config)
-  - stage: "Codecov"
-    name: "Sending code coverage to Codecov.io"
-    script: codecov < coverage/lcov.info 
+  include:
+    - stage: "Lint"
+      name: "Run code linting"
+      script: yarn lint
+    - stage: "Test"
+      name: "Run tests"
+      script: yarn ci
+    - stage: "Build"
+      name: "Run (test) build"
+      script: yarn build
+      if: branch IN (master, develop, feature/KK-31-ci-cd-config)
+    - stage: "Codecov"
+      name: "Sending code coverage to Codecov.io"
+      script: codecov < coverage/lcov.info 
