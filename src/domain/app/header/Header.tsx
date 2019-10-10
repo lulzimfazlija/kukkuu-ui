@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import styles from './Header.module.scss';
+import styles from './header.module.scss';
 
 type Props = {};
 
