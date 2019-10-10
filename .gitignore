@@ -14,4 +14,6 @@ psd
 thumb
 sketch
 
+.env
+
 # End of https://www.gitignore.io/api/react
