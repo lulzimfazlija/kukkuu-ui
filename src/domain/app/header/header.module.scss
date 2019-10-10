@@ -6,9 +6,8 @@ $header-height: 5em;
 
 .header {
   align-items: center;
-  border-bottom: 2px solid black;
   display: flex;
-  padding: 10px;
+  padding: 0 10px;
   height: $header-height;
 }
 
@@ -17,7 +16,7 @@ $header-height: 5em;
 }
 
 .logo {
-  @include helsinki-logo($hel-black);
+  @include helsinki-logo(black);
   background-position: center;
   width: $logo-width;
   height: inherit;

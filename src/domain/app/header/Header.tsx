@@ -1,16 +1,15 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
 import styles from './header.module.scss';
+import { formatMessage } from '../../../common/translation/utils';
 
 type Props = {};
 
 function Header(props: Props) {
-  const { t } = useTranslation();
   return (
     <header className={styles.header}>
       <span className={styles.logo}></span>
-      <h1 className={styles.appName}>{t('appName')}</h1>
+      <h1 className={styles.appName}>{formatMessage('appName')}</h1>
     </header>
   );
 }
