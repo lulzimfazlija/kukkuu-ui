@@ -6,7 +6,8 @@ import './assets/styles/main.scss';
 
 import BrowserApp from './domain/app/BrowserApp';
 import * as serviceWorker from './serviceWorker';
-if (process.env.REACT_APP_SENTRY_ENVIRONMENT) {
+
+if (process.env.NODE_ENV !== 'development') {
   Sentry.init({
     dsn: process.env.REACT_APP_SENTRY_DSN,
     environment: process.env.REACT_APP_SENTRY_ENVIRONMENT,
