@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ReactComponent as HelsinkiLogo } from '../../../common/assets/svg/HelsinkiLogo.svg';
+import { ReactComponent as HelsinkiLogo } from '../../../assets/icons/svg/HelsinkiLogo.svg';
 import styles from './Header.module.css';
 
 type Props = {};

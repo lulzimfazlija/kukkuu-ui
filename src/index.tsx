@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import './index.css';
+import './assets/styles/index.scss';
+
 import BrowserApp from './domain/app/BrowserApp';
 import * as serviceWorker from './serviceWorker';
 
