@@ -1,8 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ReactComponent as HelsinkiLogo } from '../../../common/assets/svg/HelsinkiLogo.svg';
-import styles from './Header.module.css';
+import styles from './header.module.scss';
 
 type Props = {};
 
@@ -10,7 +9,7 @@ function Header(props: Props) {
   const { t } = useTranslation();
   return (
     <header className={styles.header}>
-      <HelsinkiLogo />
+      <span className={styles.logo}></span>
       <h1 className={styles.appName}>{t('appName')}</h1>
     </header>
   );
