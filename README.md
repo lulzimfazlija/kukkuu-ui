@@ -3,7 +3,7 @@
 ## Getting started
 
 - Clone the repo.
-- Create `.env.development` from default `.env` if you need to modify some environment variable.
+- Create `.env.local` from default `.env` if you need to modify some environment variable. For more, check [this](https://create-react-app.dev/docs/adding-custom-environment-variables#docsNav)
 - Run `yarn start`.
 
 For isolated developing environment, you can use our Docker instructions.
