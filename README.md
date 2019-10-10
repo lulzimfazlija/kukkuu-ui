@@ -1,4 +1,12 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# UI for Kulttuurin kummilapset / Godchildren of Culture
+
+## Getting started
+
+- Clone the repo.
+- Create `.env.development` from default `.env` if you need to modify some environment variable.
+- Run `yarn start`.
+
+For isolated developing environment, you can use our Docker instructions.
 
 ## Available Scripts
 
