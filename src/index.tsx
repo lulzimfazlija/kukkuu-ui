@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as Sentry from '@sentry/browser';
 
-import './index.css';
+import './assets/styles/main.scss';
+
 import BrowserApp from './domain/app/BrowserApp';
 import * as serviceWorker from './serviceWorker';
 if (process.env.REACT_APP_SENTRY_ENVIRONMENT) {

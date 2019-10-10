@@ -1,0 +1,12 @@
+@import './vendor/normalize';
+@import 'fonts';
+
+body {
+  margin: 0;
+}
+
+// Override globally all text to use Helsinki font.
+
+* {
+  font-family: $font-family-base;
+}

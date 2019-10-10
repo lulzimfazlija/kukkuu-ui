@@ -5,9 +5,9 @@ Array [
   <header
     className="header"
   >
-    <svg>
-      HelsinkiLogo.svg
-    </svg>
+    <span
+      className="logo"
+    />
     <h1
       className="appName"
     >

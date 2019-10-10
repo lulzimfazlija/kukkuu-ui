@@ -10,15 +10,12 @@ install:
   - yarn
 jobs:
   include:
-    - stage: "Lint"
-      name: "Run code linting"
-      script: yarn lint
     - stage: "Test"
-      name: "Run tests"
-      script: yarn ci
+      name: "Run code linting and test"
+      script: yarn lint && yarn ci
     - stage: "Build"
       name: "Run (test) build"
-      script: yarn build
       if: branch IN (master, develop)
+      script: yarn build
 after_success:
   - ./node_modules/.bin/codecov < coverage/lcov.info  
