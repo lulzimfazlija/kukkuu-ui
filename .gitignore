@@ -6,9 +6,11 @@ logs
 **/*.back.*
 
 node_modules
-bower_componets
+bower_components
 coverage
 *.sublime*
+
+.env*.local
 
 psd
 thumb
