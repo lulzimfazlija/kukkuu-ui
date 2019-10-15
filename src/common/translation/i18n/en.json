@@ -1,3 +1,6 @@
 {
-  "appName": "Godchildren of culture"
+  "appName": "Godchildren of culture",
+  "footer": {
+    "copyrightText": "© Copyright 2017 • Kaikki oikeudet pidätetään •"
+  }
 }
