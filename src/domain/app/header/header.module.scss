@@ -1,15 +1,19 @@
-@import 'mixins';
-@import 'colors';
+@import "mixins";
+@import "colors";
+@import "variables";
 
-$logo-width: 5em;
-$header-height: 5em;
+$logoHeight: 2.5rem;
+$logoWidth: 5.5rem;
 
-.header {
-  align-items: center;
-  border-bottom: 2px solid black;
+.headerWrapper {
+  display: grid;
+}
+
+.navbarTop {
+  height: 100%;
   display: flex;
-  padding: 10px;
-  height: $header-height;
+  flex-direction: row;
+  align-items: center;
 }
 
 .appName {
@@ -19,6 +23,6 @@ $header-height: 5em;
 .logo {
   @include helsinki-logo($hel-black);
   background-position: center;
-  width: $logo-width;
-  height: inherit;
+  height: $logoHeight;
+  width: $logoWidth;
 }

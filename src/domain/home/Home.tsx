@@ -1,12 +1,16 @@
 import React from 'react';
 import { RouteProps } from 'react-router';
 
-import PageLayout from '../../common/layout/PageLayout';
+import Layout from '../app/layout/Layout';
 
 type Props = RouteProps & {};
 
 function Home(props: Props) {
-  return <PageLayout>Home</PageLayout>;
+  return (
+    <Layout>
+      <div className="home">Foo</div>
+    </Layout>
+  );
 }
 
 export default Home;
