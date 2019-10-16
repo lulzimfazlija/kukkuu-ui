@@ -1,3 +1,6 @@
+[![codecov](https://codecov.io/gh/City-of-Helsinki/kukkuu-ui/branch/develop/graph/badge.svg)](https://codecov.io/gh/City-of-Helsinki/kukkuu-ui)
+[![Build Status](https://travis-ci.org/City-of-Helsinki/kukkuu-ui.svg?branch=develop)](https://travis-ci.org/City-of-Helsinki/kukkuu-ui)
+
 # UI for Kulttuurin kummilapset / Godchildren of Culture
 
 ## Getting started
