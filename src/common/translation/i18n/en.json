@@ -2,5 +2,17 @@
   "appName": "Godchildren of culture",
   "footer": {
     "copyrightText": "© Copyright 2017 • All right reserved •"
+  },
+  "homePage": {
+    "hero": {
+      "heading": "Kulttuurin Kummilapset 2020",
+      "descriptionText": "Helsingin Kaupunginorkesteri kutsuu kummilapsikseen kaikki vuonna 2020 syntyneet Helsinkiläislapset! Lapsi perheineen kutsutaan kahdesti vuodessa nauttimaan KHO:n järjestämästä kulttuurista täysin ilmaiseksi! Liity mukaan!",
+      "socialSecurityNumberField": {
+        "input": {
+          "label": "Lapsen henkiötunnus"
+        },
+        "buttonText": "Ilmoittaudu mukaan"
+      }
+    }
   }
 }

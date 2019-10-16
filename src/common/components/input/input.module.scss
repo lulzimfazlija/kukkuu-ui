@@ -1,0 +1,27 @@
+@import 'fonts';
+@import 'variables';
+
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+
+
+    input {
+        flex: 1;
+    }
+}
+
+.textInput {
+    margin: $baseMargin 0;
+
+    label {
+        text-align: left;
+        font-size: $font-size-sm;
+        margin-bottom: $baseMargin * 0.25;
+        font-weight: $font-weight-bold;
+    }
+
+    input {
+         min-height: $inputHeight;   
+    }  
+}

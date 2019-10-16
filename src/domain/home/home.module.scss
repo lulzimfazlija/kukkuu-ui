@@ -1,0 +1,33 @@
+@import "layout";
+@import "variables";
+@import "colors";
+
+.home {
+    display: grid;
+
+    .hero {
+        display: grid;
+        text-align: center;
+
+        @include respond-above(sm) {
+            grid-template-columns: 1fr 3fr 1fr;
+            
+            .heroContainer {
+                grid-column: 2;
+            }
+        }
+
+        .description {
+            line-height: $baseLineHeight;
+        }
+
+        .submitButton {
+            background: lighten($hel-summer, 20%);
+            button {
+                background: transparent;
+                border: none;
+            }
+        }
+        
+    }
+}

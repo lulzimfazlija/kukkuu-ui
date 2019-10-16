@@ -22,12 +22,12 @@ $logoWidth: 9.5rem;
     background-position: center;
     height: $logoHeight;
     width: $logoWidth;
-    margin-bottom: $base-margin;
+    margin-bottom: $baseMargin;
 }
 
 .copyright{
     border-top: 1px solid $hel-black;
-    padding-top: $base-padding;
+    padding-top: $basePadding;
 
     p {
         margin: 0;
