@@ -9,9 +9,15 @@
     }
 }
 
-@include respond-above(sm) {
+@include respond-between(sm, lg) {
     .container {
         grid-template-columns: 1fr 10fr 1fr;
+    }
+}
+
+@include respond-above(lg) {
+    .container {
+        grid-template-columns: 1fr 2fr 1fr;
     }
 }
 
