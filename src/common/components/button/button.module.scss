@@ -2,10 +2,7 @@
 @import 'variables';
 
 .buttonWrapper {
-    display: flex;
-
     button {
-        flex: 1;
         border: 1px solid $black;
         color: $black;
         text-align: center;
