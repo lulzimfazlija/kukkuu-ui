@@ -1,12 +1,26 @@
-import { Route, Switch } from 'react-router';
-import React from 'react';
+import { Route, Switch, RouteComponentProps, Redirect } from 'react-router';
+import React, { FunctionComponent } from 'react';
 
 import Home from '../home/Home';
+import NotFound from '../notFound/NotFound';
+import { changeLanguage } from '../../common/translation/utils';
+import { SUPPORT_LANGUAGES } from '../../common/translation/constants';
 
-const App: React.FC = () => {
+const App: FunctionComponent<
+  RouteComponentProps<{ locale: SUPPORT_LANGUAGES }>
+> = ({
+  match: {
+    params: { locale },
+  },
+}) => {
+  changeLanguage(locale);
+
   return (
     <Switch>
-      <Route path="/" component={Home} />
+      <Redirect exact path={`/${locale}/`} to={`/${locale}/home`} />
+      <Route exact path={`/${locale}/home`} component={Home} />
+
+      <Route component={NotFound} />
     </Switch>
   );
 };

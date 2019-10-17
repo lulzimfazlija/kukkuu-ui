@@ -11,3 +11,6 @@ import i18n from './i18n/i18nInit';
  * @param args Format arguments, check ts definition / i18next documentation
  */
 export const formatMessage: FormatFunction = args => i18n.t(args);
+
+export const changeLanguage = (language: string) =>
+  i18n.changeLanguage(language);

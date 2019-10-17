@@ -14,5 +14,8 @@
         "buttonText": "Ilmoittaudu mukaan"
       }
     }
+  },
+  "notFound": {
+    "text": "You lost?"
   }
 }
