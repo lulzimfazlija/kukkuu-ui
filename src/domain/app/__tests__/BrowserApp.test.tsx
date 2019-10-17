@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import { MemoryRouter } from 'react-router';
 
 import BrowserApp, { appRoutes } from '../BrowserApp';
@@ -9,7 +9,7 @@ const wrapperCreator = (route: string) =>
   mount(<MemoryRouter initialEntries={[route]}>{appRoutes}</MemoryRouter>);
 
 it('renders snapshot correctly', () => {
-  const tree = shallow(<BrowserApp />);
+  const tree = mount(<BrowserApp />);
   expect(tree.html()).toMatchSnapshot();
 });
 
