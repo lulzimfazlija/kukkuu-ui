@@ -4,8 +4,11 @@ import React, { FunctionComponent } from 'react';
 import Home from '../home/Home';
 import NotFound from '../notFound/NotFound';
 import { changeLanguage } from '../../common/translation/utils';
+import { SUPPORT_LANGUAGES } from '../../common/translation/constants';
 
-const App: FunctionComponent<RouteComponentProps<{ locale: string }>> = ({
+const App: FunctionComponent<
+  RouteComponentProps<{ locale: SUPPORT_LANGUAGES }>
+> = ({
   match: {
     params: { locale },
   },
