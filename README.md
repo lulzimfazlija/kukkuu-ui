@@ -72,6 +72,12 @@ We recommend using VS Code's debugger.
 See more detailed instructions here:
 https://create-react-app.dev/docs/debugging-tests#debugging-tests-in-chrome
 
+### Debug Redux state
+Redux internal state can be visualized with [Redux-devtools](https://github.com/zalmoxisus/redux-devtools-extension)
+
+1. Follow instructions in [here](https://github.com/zalmoxisus/redux-devtools-extension)
+2. Explore.
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
