@@ -4,12 +4,12 @@ import { handleActions } from 'redux-actions';
 import {
   RegistrationFactory,
   RegistrationState,
-} from '../types/RegistrationTypes';
+} from '../types/RegistrationTypes';
 import { REGISTRATION_ACTIONS } from '../constants/RegistrationActionConstants';
 
 const defaultState: RegistrationFactory = Record({
   formValues: {
-    socialSecurityId: '',
+    childId: '',
   },
 });
 

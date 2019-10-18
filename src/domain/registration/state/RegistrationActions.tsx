@@ -1,7 +1,7 @@
 import { createAction } from 'redux-actions';
 
 import { REGISTRATION_ACTIONS } from '../constants/RegistrationActionConstants';
-import { RegistrationFormValues } from '../types/\u001DRegistrationTypes';
+import { RegistrationFormValues } from '../types/RegistrationTypes';
 
 const setFormValues = createAction(
   REGISTRATION_ACTIONS.SET_FORM_VALUES,

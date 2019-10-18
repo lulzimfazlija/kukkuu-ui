@@ -1,7 +1,7 @@
 import { Record, RecordOf } from 'immutable';
 
 export interface RegistrationFormValues {
-  socialSecurityId: string;
+  childId: string;
 }
 
 export interface RegistrationProps {
