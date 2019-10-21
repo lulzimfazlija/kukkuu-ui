@@ -5,13 +5,16 @@ import {
   RegistrationState,
   RegistrationProps,
 } from '../types/RegistrationTypes';
-import { REGISTRATION_ACTIONS } from '../constants/RegistrationActionConstants';
+import {
+  REGISTRATION_ACTIONS,
+  VERIFY_STATUS,
+} from '../constants/RegistrationActionConstants';
 
-const defaultState = Record<RegistrationProps>({
+export const defaultRegistrationData = Record<RegistrationProps>({
   formValues: {
     childBirthday: '',
     childHomeCity: '',
-    verifyInformation: false,
+    verifyInformation: VERIFY_STATUS.UNVERIFIED,
   },
 });
 
@@ -20,7 +23,7 @@ export default handleActions<RegistrationState>(
     [REGISTRATION_ACTIONS.SET_FORM_VALUES]: (state, action) =>
       state.mergeIn('formValues', action.payload),
     [REGISTRATION_ACTIONS.RESET_FORM_VALUES]: state =>
-      state.mergeIn('formValues', defaultState().formValues),
+      state.mergeIn('formValues', defaultRegistrationData().formValues),
   },
-  defaultState()
+  defaultRegistrationData()
 );

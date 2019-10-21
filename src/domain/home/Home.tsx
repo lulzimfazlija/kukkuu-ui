@@ -3,9 +3,8 @@ import { RouteProps } from 'react-router';
 
 import Layout from '../app/layout/Layout';
 import { formatMessage } from '../../common/translation/utils';
-import Input from '../../common/components/input/Input';
-import Button from '../../common/components/button/Button';
 import styles from './home.module.scss';
+import HomePreliminaryForm from './form/HomePreliminaryForm';
 
 type Props = RouteProps & {};
 
@@ -19,19 +18,7 @@ function Home(props: Props) {
             <p className={styles.description}>
               {formatMessage('homePage.hero.descriptionText')}
             </p>
-            <div className="socialSecurityNumberField">
-              <Input
-                label={formatMessage(
-                  'homePage.hero.socialSecurityNumberField.input.label'
-                )}
-                id="socialSecurityNumberInput"
-              />
-              <Button className={styles.submitButton}>
-                {formatMessage(
-                  'homePage.hero.socialSecurityNumberField.buttonText'
-                )}
-              </Button>
-            </div>
+            <HomePreliminaryForm />
           </div>
         </div>
       </div>

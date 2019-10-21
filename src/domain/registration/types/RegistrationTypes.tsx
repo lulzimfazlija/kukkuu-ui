@@ -1,9 +1,11 @@
 import { Record, RecordOf } from 'immutable';
 
+import { VERIFY_STATUS } from '../constants/RegistrationActionConstants';
+
 export interface RegistrationFormValues {
   childBirthday: string;
   childHomeCity: string;
-  verifyInformation: boolean;
+  verifyInformation: VERIFY_STATUS;
 }
 
 export interface RegistrationProps {

@@ -5,19 +5,15 @@ import styles from './homePreliminaryForm.module.scss';
 import Input from '../../../common/components/input/Input';
 import { formatMessage } from '../../../common/translation/utils';
 import Button from '../../../common/components/button/Button';
+import { RegistrationProps } from '../../registration/types/RegistrationTypes';
+import { defaultRegistrationData } from '../../registration/state/RegistrationReducers';
 
 export default function HomePreliminaryForm() {
   return (
     <div className={styles.homeForm}>
       <Formik
-        initialValues={{
-          formValues: {
-            childBirthDay: '',
-            childHomeCity: '',
-            verifyInformation: false,
-          },
-        }}
-        onSubmit={(values, { setSubmitting }) => {
+        initialValues={defaultRegistrationData()}
+        onSubmit={(values: RegistrationProps, { setSubmitting }) => {
           setSubmitting(false);
         }}
       >
@@ -32,7 +28,9 @@ export default function HomePreliminaryForm() {
               )}
               onChange={handleChange}
               value={values.formValues.childBirthday}
-              validationError={errors.childBirthday}
+              validationError={
+                errors.formValues && errors.formValues.childBirthday
+              }
             />
 
             <Input
@@ -44,7 +42,9 @@ export default function HomePreliminaryForm() {
               )}
               onChange={handleChange}
               value={values.formValues.childHomeCity}
-              validationError={errors.childHomeCity}
+              validationError={
+                errors.formValues && errors.formValues.childHomeCity
+              }
             />
 
             <Input
@@ -55,8 +55,10 @@ export default function HomePreliminaryForm() {
               name="preliminaryFormVerifyInformationField"
               id="formValuesVerifyInformation"
               onChange={handleChange}
-              value={values.formValues.verityInformation}
-              validationError={errors.verifyInformation}
+              value={values.formValues.verifyInformation}
+              validationError={
+                errors.formValues && errors.formValues.childBirthday
+              }
             />
 
             <Button type="submit" disabled={isSubmitting}>
