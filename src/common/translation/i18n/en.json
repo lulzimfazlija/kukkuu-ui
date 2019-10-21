@@ -7,11 +7,23 @@
     "hero": {
       "heading": "Kulttuurin Kummilapset 2020",
       "descriptionText": "Helsingin Kaupunginorkesteri kutsuu kummilapsikseen kaikki vuonna 2020 syntyneet Helsinkiläislapset! Lapsi perheineen kutsutaan kahdesti vuodessa nauttimaan KHO:n järjestämästä kulttuurista täysin ilmaiseksi! Liity mukaan!",
-      "socialSecurityNumberField": {
+      "buttonText": "Ilmoittaudu mukaan"
+    },
+    "preliminaryForm": {
+      "childBirthDay": {
         "input": {
-          "label": "Lapsen henkiötunnus"
-        },
-        "buttonText": "Ilmoittaudu mukaan"
+          "label": "Lapsen syntymäaika"
+        }
+      },
+      "childHomeCity": {
+        "input": {
+          "label": "Lapsen kotipaikkakunta"
+        }
+      },
+      "verifyInformation": {
+        "checkbox": {
+          "label": "Vakuutan antamani tiedot oikeaksi."
+        }
       }
     }
   },

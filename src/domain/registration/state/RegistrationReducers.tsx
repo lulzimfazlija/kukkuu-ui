@@ -2,14 +2,16 @@ import { Record } from 'immutable';
 import { handleActions } from 'redux-actions';
 
 import {
-  RegistrationFactory,
   RegistrationState,
+  RegistrationProps,
 } from '../types/RegistrationTypes';
 import { REGISTRATION_ACTIONS } from '../constants/RegistrationActionConstants';
 
-const defaultState: RegistrationFactory = Record({
+const defaultState = Record<RegistrationProps>({
   formValues: {
-    childId: '',
+    childBirthday: '',
+    childHomeCity: '',
+    verifyInformation: false,
   },
 });
 

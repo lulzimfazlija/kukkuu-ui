@@ -1,5 +1,6 @@
 @import 'fonts';
 @import 'variables';
+@import 'colors';
 
 .inputWrapper {
     display: flex;
@@ -24,4 +25,15 @@
     input {
          min-height: $inputHeight;   
     }  
+}
+
+.inputError {
+    input {
+        background: $hel-metro;
+        border-color: $hel-metro;
+    }
+    
+    small {
+        color: $hel-metro;
+    }
 }
