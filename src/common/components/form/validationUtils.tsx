@@ -5,7 +5,7 @@ import {
   DEFAULT_DATE_FORMAT,
 } from '../../time/constants';
 
-export const validateBirthDay = (value: string | undefined) => {
+const validateBirthDay = (value: string | undefined) => {
   if (!value) {
     return formatMessage('validation.general.required');
   }
@@ -23,3 +23,5 @@ export const validateBirthDay = (value: string | undefined) => {
     return formatMessage('validation.date.nonSupported');
   }
 };
+
+export { validateBirthDay };
