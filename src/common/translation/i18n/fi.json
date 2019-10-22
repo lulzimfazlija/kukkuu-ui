@@ -1,1 +1,22 @@
-{"appName":"Kulttuurin kummilapset","footer":{"copyrightText":"Kulttuurin kummilapset"},"homePage":{"hero":{"heading":"Kulttuurin kummilapset","descriptionText":"Helsingin Kaupunginorkesteri kutsuu kummilapsikseen kaikki vuonna 2020 syntyneet Helsinkiläislapset! Lapsi perheineen kutsutaan kahdesti vuodessa nauttimaan KHO:n järjestämästä kulttuurista täysin ilmaiseksi! Liity mukaan!","socialSecurityNumberField":{"input":{"label":"Kulttuurin kummilapset"},"buttonText":"Kulttuurin kummilapset"}}},"notFound":{"text":"Oletko hukassa?"},"sanityCheck":"kukkuu.fi"}
+{
+  "appName": "Kulttuurin kummilapset",
+  "footer": {
+    "copyrightText": "Kulttuurin kummilapset"
+  },
+  "homePage": {
+    "hero": {
+      "heading": "Kulttuurin kummilapset",
+      "descriptionText": "Helsingin Kaupunginorkesteri kutsuu kummilapsikseen kaikki vuonna 2020 syntyneet Helsinkiläislapset! Lapsi perheineen kutsutaan kahdesti vuodessa nauttimaan KHO:n järjestämästä kulttuurista täysin ilmaiseksi! Liity mukaan!",
+      "socialSecurityNumberField": {
+        "input": {
+          "label": "Kulttuurin kummilapset"
+        },
+        "buttonText": "Kulttuurin kummilapset"
+      }
+    }
+  },
+  "notFound": {
+    "text": "Oletko hukassa?"
+  },
+  "sanityCheck": "kukkuu.fi"
+}

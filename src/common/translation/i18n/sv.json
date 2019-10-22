@@ -1,1 +1,22 @@
-{"appName":"Kulturens fadderbarn","footer":{"copyrightText":"Kulturens fadderbarn"},"homePage":{"hero":{"heading":"Kulturens fadderbarn 2020","descriptionText":"Kulturens fadderbarn","socialSecurityNumberField":{"input":{"label":"Kulturens fadderbarn"},"buttonText":"Kulturens fadderbarn"}}},"notFound":{"text":"Kulturens fadderbarn"},"sanityCheck":"kukkuu.sv"}
+{
+  "appName": "Kulturens fadderbarn",
+  "footer": {
+    "copyrightText": "Kulturens fadderbarn"
+  },
+  "homePage": {
+    "hero": {
+      "heading": "Kulturens fadderbarn 2020",
+      "descriptionText": "Kulturens fadderbarn",
+      "socialSecurityNumberField": {
+        "input": {
+          "label": "Kulturens fadderbarn"
+        },
+        "buttonText": "Kulturens fadderbarn"
+      }
+    }
+  },
+  "notFound": {
+    "text": "Kulturens fadderbarn"
+  },
+  "sanityCheck": "kukkuu.sv"
+}

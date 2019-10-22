@@ -1,1 +1,22 @@
-{"appName":"Godchildren of Culture","footer":{"copyrightText":"© Copyright 2019 • All right reserved •"},"homePage":{"hero":{"heading":"Godchildren of Culture 2020","descriptionText":"Helsinki Philharmonic Orchestra invites everybody born in 2020 to be it's Godchildren of Culture. Join us!!","socialSecurityNumberField":{"input":{"label":"Child's birthdate"},"buttonText":"Register"}}},"notFound":{"text":"You lost?"},"sanityCheck":"kukkuu.en"}
+{
+  "appName": "Godchildren of Culture",
+  "footer": {
+    "copyrightText": "© Copyright 2019 • All right reserved •"
+  },
+  "homePage": {
+    "hero": {
+      "heading": "Godchildren of Culture 2020",
+      "descriptionText": "Helsinki Philharmonic Orchestra invites everybody born in 2020 to be it's Godchildren of Culture. Join us!!",
+      "socialSecurityNumberField": {
+        "input": {
+          "label": "Child's birthdate"
+        },
+        "buttonText": "Register"
+      }
+    }
+  },
+  "notFound": {
+    "text": "You lost?"
+  },
+  "sanityCheck": "kukkuu.en"
+}

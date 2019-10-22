@@ -31,7 +31,7 @@ const getTranslations = async (language: string) => {
 };
 
 const writeJSONFile = (path: string, data: object) => {
-  fs.writeFile(path, JSON.stringify(data), 'utf8', function(err) {
+  fs.writeFile(path, JSON.stringify(data, null, 2), 'utf8', function(err) {
     if (err) {
       // FIXME: If writing fails due to permission error,
       // we still get "Done" instead of exit(1).
