@@ -1,30 +1,30 @@
 {
-  "appName": "Godchildren of culture",
+  "appName": "Godchildren of Culture",
   "footer": {
-    "copyrightText": "© Copyright 2017 • All right reserved •"
+    "copyrightText": "© Copyright 2019 • All right reserved •"
   },
   "homePage": {
     "hero": {
-      "heading": "Kulttuurin Kummilapset 2020",
+      "heading": "Godchildren of Culture 2020",
       "descriptionText": "Helsingin Kaupunginorkesteri kutsuu kummilapsikseen kaikki vuonna 2020 syntyneet Helsinkiläislapset! Lapsi perheineen kutsutaan kahdesti vuodessa nauttimaan KHO:n järjestämästä kulttuurista täysin ilmaiseksi! Liity mukaan!",
       "buttonText": "Ilmoittaudu mukaan"
     },
     "preliminaryForm": {
       "childBirthDay": {
         "input": {
-          "label": "Lapsen syntymäaika",
+          "label": "Child's birthday",
           "placeholder": "Enter child's birthday in YYYY-MM-DD format"
         }
       },
       "childHomeCity": {
         "input": {
-          "label": "Lapsen kotipaikkakunta",
-          "placeholder": "Enter hometown city, currently only Helsinki supported"
+          "label": "Child's home town",
+          "placeholder": "Enter hometown city, currently only Helsinki is supported"
         }
       },
       "verifyInformation": {
         "checkbox": {
-          "label": "Vakuutan antamani tiedot oikeaksi."
+          "label": "I assure that the information I provide is correct"
         }
       }
     }
@@ -41,5 +41,6 @@
       "required": "Required",
       "nonSupportedCity": "Not supported city"
     }
-  }
+  },
+  "sanityCheck": "kukkuu.en"
 }
