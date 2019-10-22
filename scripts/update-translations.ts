@@ -1,9 +1,13 @@
 import * as fs from 'fs';
 import * as path from 'path';
+import { promisify } from 'util';
 
 import fetch from 'node-fetch';
 // @ts-ignore
 import * as i18nextConverter from 'i18next-json-csv-converter';
+
+// Promises are more fun than callbacks
+const writeFile = promisify(fs.writeFile);
 
 const languages = process.env.TRANSLATION_LANGUAGES.split(',');
 const project = process.env.TRANSLATION_PROJECT_NAME;
@@ -30,21 +34,19 @@ const getTranslations = async (language: string) => {
   return translations;
 };
 
-const writeJSONFile = (path: string, data: object) => {
-  fs.writeFile(path, JSON.stringify(data, null, 2), 'utf8', function(err) {
-    if (err) {
-      // FIXME: If writing fails due to permission error,
-      // we still get "Done" instead of exit(1).
-      throw new Error(err.message); // eslint-disable-line
-    }
-  });
+const writeJSONFile = async (path: string, data: object) => {
+  await writeFile(path, JSON.stringify(data, null, 2), 'utf8');
 };
 
 const fetchAll = async () => {
   await Promise.all(
     languages.map(async lang => {
-      const res = await getTranslations(lang);
-      writeJSONFile(`${pathToLocales}/${lang}.json`, res);
+      try {
+        const res = await getTranslations(lang);
+        await writeJSONFile(`${pathToLocales}/${lang}.json`, res);
+      } catch (err) {
+        throw err;
+      }
     })
   );
 };
