@@ -1,22 +1,46 @@
 {
-  "appName": "Kulttuurin kummilapset",
+  "appName": "Kulttuurin Kummilapset",
   "footer": {
-    "copyrightText": "Kulttuurin kummilapset"
+    "copyrightText": "© Copyright 2019 • All right reserved •"
   },
   "homePage": {
     "hero": {
-      "heading": "Kulttuurin kummilapset",
+      "heading": "Kulttuurin Kummilapset 2020",
       "descriptionText": "Helsingin Kaupunginorkesteri kutsuu kummilapsikseen kaikki vuonna 2020 syntyneet Helsinkiläislapset! Lapsi perheineen kutsutaan kahdesti vuodessa nauttimaan KHO:n järjestämästä kulttuurista täysin ilmaiseksi! Liity mukaan!",
-      "socialSecurityNumberField": {
+      "buttonText": "Ilmoittaudu mukaan"
+    },
+    "preliminaryForm": {
+      "childBirthDay": {
         "input": {
-          "label": "Kulttuurin kummilapset"
-        },
-        "buttonText": "Kulttuurin kummilapset"
+          "label": "Lapsen syntymäaika",
+          "placeholder": "Enter child's birthday in YYYY-MM-DD format"
+        }
+      },
+      "childHomeCity": {
+        "input": {
+          "label": "Lapsen kotipaikkakunta",
+          "placeholder": "Enter hometown city, currently only Helsinki supported"
+        }
+      },
+      "verifyInformation": {
+        "checkbox": {
+          "label": "Vakuutan antamani tiedot oikeaksi."
+        }
       }
     }
   },
   "notFound": {
     "text": "Oletko hukassa?"
+  },
+  "validation": {
+    "date": {
+      "invalidFormat": "Please enter date with correct format",
+      "nonSupported": "Input date is not supported"
+    },
+    "general": {
+      "required": "Required",
+      "nonSupportedCity": "Not supported city"
+    }
   },
   "sanityCheck": "kukkuu.fi"
 }
