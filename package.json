@@ -35,12 +35,13 @@
     "typescript": "3.6.3"
   },
   "scripts": {
-    "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --watchAll=false",
-    "test:debug": "react-scripts --inspect-brk test --runInBand --no-cache",
     "ci": "CI=true yarn test --verbose --runInBand --coverage",
-    "lint": "eslint --ext js,ts,tsx src"
+    "lint": "eslint --ext js,ts,tsx src",
+    "start": "react-scripts start",
+    "update-translations": "ts-node  -P ./scripts/tsconfig.json -r dotenv/config scripts/update-translations.ts",
+    "test": "react-scripts test --watchAll=false",
+    "test:debug": "react-scripts --inspect-brk test --runInBand --no-cache"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -58,10 +59,14 @@
     ]
   },
   "devDependencies": {
+    "@types/node-fetch": "^2.5.2",
     "codecov": "^3.6.1",
     "eslint-config-prettier": "^6.4.0",
     "eslint-plugin-prettier": "^3.1.1",
-    "prettier": "^1.18.2"
+    "i18next-json-csv-converter": "^0.2.0",
+    "node-fetch": "^2.6.0",
+    "prettier": "^1.18.2",
+    "ts-node": "^8.4.1"
   },
   "jest": {
     "collectCoverageFrom": [
