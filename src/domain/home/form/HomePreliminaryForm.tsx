@@ -7,7 +7,11 @@ import Button from '../../../common/components/button/Button';
 import { RegistrationProps } from '../../registration/types/RegistrationTypes';
 import { defaultRegistrationData } from '../../registration/state/RegistrationReducers';
 import InputField from '../../../common/components/form/fields/InputField';
-import { validateBirthDay } from '../../../common/components/form/validationUtils';
+import {
+  validateBirthDay,
+  validateEqual,
+} from '../../../common/components/form/validationUtils';
+import { SUPPORTED_CITY } from '../../app/constants';
 
 export default function HomePreliminaryForm() {
   return (
@@ -32,8 +36,11 @@ export default function HomePreliminaryForm() {
                 'homePage.preliminaryForm.childBirthDay.input.label'
               )}
               value={values.childBirthday}
-              validate={(value: string | undefined) => validateBirthDay(value)}
+              validate={validateBirthDay}
               component={InputField}
+              placeholder={formatMessage(
+                'homePage.preliminaryForm.childBirthDay.input.placeholder'
+              )}
               required
             />
 
@@ -46,6 +53,16 @@ export default function HomePreliminaryForm() {
               onChange={handleChange}
               value={values.childHomeCity}
               component={InputField}
+              placeholder={formatMessage(
+                'homePage.preliminaryForm.childHomeCity.input.placeholder'
+              )}
+              validate={(value: string | number) =>
+                validateEqual(
+                  value,
+                  SUPPORTED_CITY.HELSINKI,
+                  formatMessage('validation.general.nonSupportedCity')
+                )
+              }
               required
             />
 

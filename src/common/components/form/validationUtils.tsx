@@ -5,7 +5,13 @@ import {
   DEFAULT_DATE_FORMAT,
 } from '../../time/constants';
 
-const validateBirthDay = (value: string | undefined) => {
+/** validateBirthDay()
+ * Validate user input child birthday.
+ * This app only target recently born child, so we support child which born after 2019 only.
+ * Input time which come from future is not accepted
+ * @param value Input value.
+ */
+const validateBirthDay = (value: string | number | undefined) => {
   if (!value) {
     return formatMessage('validation.general.required');
   }
@@ -24,4 +30,28 @@ const validateBirthDay = (value: string | undefined) => {
   }
 };
 
-export { validateBirthDay };
+/**
+ * validateEqual()
+ * Usually to check if user is located in supported area.
+ * Can be used widely to check in many different case.
+ * @param value Input value
+ * @param comparedValue Value to compare
+ * @param errorMessage Error message when not match
+ */
+const validateEqual = (
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  value: any,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  comparedValue: any,
+  errorMessage: string
+) => {
+  if (!value) {
+    return formatMessage('validation.general.required');
+  }
+
+  if (value !== comparedValue) {
+    return errorMessage;
+  }
+};
+
+export { validateBirthDay, validateEqual };

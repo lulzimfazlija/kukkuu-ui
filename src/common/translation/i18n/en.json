@@ -12,12 +12,14 @@
     "preliminaryForm": {
       "childBirthDay": {
         "input": {
-          "label": "Lapsen syntymäaika"
+          "label": "Lapsen syntymäaika",
+          "placeholder": "Enter child's birthday in YYYY-MM-DD format"
         }
       },
       "childHomeCity": {
         "input": {
-          "label": "Lapsen kotipaikkakunta"
+          "label": "Lapsen kotipaikkakunta",
+          "placeholder": "Enter hometown city, currently only Helsinki supported"
         }
       },
       "verifyInformation": {
@@ -36,7 +38,8 @@
       "nonSupported": "Input date is not supported"
     },
     "general": {
-      "required": "Required"
+      "required": "Required",
+      "nonSupportedCity": "Not supported city"
     }
   }
 }

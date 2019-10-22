@@ -1,4 +1,4 @@
-import { validateBirthDay } from '../validationUtils';
+import { validateBirthDay, validateEqual } from '../validationUtils';
 
 describe('Form validation utilities - ', () => {
   describe('validateBirthDay', () => {
@@ -21,6 +21,20 @@ describe('Form validation utilities - ', () => {
     test('return wrong non-supported message if kid birthday is in future or before supported year', () => {
       const error = validateBirthDay('2020-12-12');
       expect(error).toEqual('Input date is not supported');
+    });
+  });
+
+  describe('validateEqual', () => {
+    test('return require text if value is empty', () => {
+      const error = validateEqual('', 'foo', 'bar');
+
+      expect(error).toEqual('Required');
+    });
+
+    test('return error text if value is not equal', () => {
+      const error = validateEqual('ble', 'foo', 'bar');
+
+      expect(error).toEqual('bar');
     });
   });
 });
