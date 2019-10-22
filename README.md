@@ -38,6 +38,12 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `yarn update-translations`
+
+Fetches translation data from our Google Spreadsheet and updates translation files. See `.env` for configuration.
+
+You still need to update jest snapshots and add the translation files to the git repository manually. 
+
 ## Docker
 
 `docker-compose up` to start the dockerized dev-environment. Not for production!!!  
