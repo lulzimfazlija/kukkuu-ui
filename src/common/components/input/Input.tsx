@@ -15,7 +15,7 @@ interface InputProps extends InputElementAttributes {
   label: string | ReactElement;
   id: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  validationError?: string | FormikErrors<any>;
+  validationError: FormikErrors<any> | undefined | string | boolean;
 }
 const Input: FunctionComponent<InputProps> = ({
   type = 'text',
@@ -38,7 +38,7 @@ const Input: FunctionComponent<InputProps> = ({
     >
       <label htmlFor={id}>{label}</label>
       <input type={type} id={id} {...rest} />
-      <small>{validationError}</small>
+      <small className={styles.inputError}>{validationError}</small>
     </div>
   );
 };

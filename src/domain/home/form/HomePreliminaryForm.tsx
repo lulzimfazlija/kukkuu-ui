@@ -1,72 +1,72 @@
 import React from 'react';
-import { Formik } from 'formik';
+import { Formik, Field } from 'formik';
 
 import styles from './homePreliminaryForm.module.scss';
-import Input from '../../../common/components/input/Input';
 import { formatMessage } from '../../../common/translation/utils';
 import Button from '../../../common/components/button/Button';
 import { RegistrationProps } from '../../registration/types/RegistrationTypes';
 import { defaultRegistrationData } from '../../registration/state/RegistrationReducers';
+import InputField from '../../../common/components/form/fields/InputField';
+import { validateBirthDay } from '../../../common/components/form/validationUtils';
 
 export default function HomePreliminaryForm() {
   return (
     <div className={styles.homeForm}>
       <Formik
-        initialValues={defaultRegistrationData()}
+        initialValues={defaultRegistrationData().toJS().formValues}
         onSubmit={(values: RegistrationProps, { setSubmitting }) => {
           setSubmitting(false);
         }}
-      >
-        {({ values, errors, handleChange, handleSubmit, isSubmitting }) => (
+        render={({
+          values,
+          handleChange,
+          handleSubmit,
+          isSubmitting,
+          isValid,
+        }) => (
           <form onSubmit={handleSubmit}>
-            <Input
+            <Field
               type="text"
-              id="formValuesChildBirthday"
-              name="preliminaryFormChildBirthdayField"
+              name="childBirthday"
               label={formatMessage(
                 'homePage.preliminaryForm.childBirthDay.input.label'
               )}
-              onChange={handleChange}
-              value={values.formValues.childBirthday}
-              validationError={
-                errors.formValues && errors.formValues.childBirthday
-              }
+              value={values.childBirthday}
+              validate={(value: string | undefined) => validateBirthDay(value)}
+              component={InputField}
+              required
             />
 
-            <Input
+            <Field
               type="text"
-              id="formValuesChildHomeCity"
-              name="preliminaryFormChildHomeCityField"
+              name="childHomeCity"
               label={formatMessage(
                 'homePage.preliminaryForm.childHomeCity.input.label'
               )}
               onChange={handleChange}
-              value={values.formValues.childHomeCity}
-              validationError={
-                errors.formValues && errors.formValues.childHomeCity
-              }
+              value={values.childHomeCity}
+              component={InputField}
+              required
             />
 
-            <Input
+            <Field
               type="checkbox"
               label={formatMessage(
                 'homePage.preliminaryForm.verifyInformation.checkbox.label'
               )}
-              name="preliminaryFormVerifyInformationField"
-              id="formValuesVerifyInformation"
+              name="verifyInformation"
               onChange={handleChange}
-              value={values.formValues.verifyInformation}
-              validationError={
-                errors.formValues && errors.formValues.childBirthday
-              }
+              value={values.verifyInformation}
+              component={InputField}
+              required
             />
 
-            <Button type="submit" disabled={isSubmitting}>
+            <Button type="submit" disabled={isSubmitting || !isValid}>
               {formatMessage('homePage.hero.buttonText')}
             </Button>
           </form>
         )}
-      </Formik>
+      />
     </div>
   );
 }

@@ -29,5 +29,14 @@
   },
   "notFound": {
     "text": "You lost?"
+  },
+  "validation": {
+    "date": {
+      "invalidFormat": "Please enter date with correct format",
+      "nonSupported": "Input date is not supported"
+    },
+    "general": {
+      "required": "Required"
+    }
   }
 }

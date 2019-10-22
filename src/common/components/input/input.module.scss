@@ -8,7 +8,7 @@
 
 
     input {
-        flex: 1;
+        padding: $buttonPadding;
     }
 }
 
@@ -29,11 +29,12 @@
 
 .inputError {
     input {
-        background: $hel-metro;
-        border-color: $hel-metro;
+        border:1px solid $red;
     }
     
     small {
-        color: $hel-metro;
+        text-align: left;
+        color: $red;
+        margin-top: $sm-margin;
     }
 }
