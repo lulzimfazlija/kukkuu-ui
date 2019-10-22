@@ -19,15 +19,6 @@
 
         .description {
             line-height: $baseLineHeight;
-        }
-
-        .submitButton {
-            background: lighten($hel-summer, 20%);
-            button {
-                background: transparent;
-                border: none;
-            }
-        }
-        
+        }    
     }
 }

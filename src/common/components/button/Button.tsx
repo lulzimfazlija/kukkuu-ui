@@ -15,7 +15,7 @@ const Button: FunctionComponent<ButtonProps> = ({
   ...rest
 }) => {
   return (
-    <div className={joinClassNames(styles.buttonWrapper, className)}>
+    <div className={joinClassNames(className, styles.buttonWrapper)}>
       <button type="button" {...rest}>
         {children}
       </button>

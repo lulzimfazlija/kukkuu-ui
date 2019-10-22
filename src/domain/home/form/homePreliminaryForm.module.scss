@@ -1,3 +1,33 @@
+@import 'variables';
+@import 'colors';
+@import 'layout';
 .homeForm {
-    
+    padding: $basePadding;
+
+    form {
+        display: grid;
+        gap: $baseMargin 0;
+    }
+
+    .inputWrapper {
+        display: grid;
+        
+        @include respond-above(md) {
+            grid-template-columns: 1fr 1fr;
+            gap: 0 $baseMargin;
+        }
+    }
+}
+
+.submitButton {
+    button {
+        background: lighten($hel-summer, 20%);
+
+        border: none !important;
+        width: 100%;
+
+        &:disabled {
+            background: $hel-gray;
+        }
+    }
 }

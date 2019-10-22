@@ -29,44 +29,49 @@ export default function HomePreliminaryForm() {
           isValid,
         }) => (
           <form onSubmit={handleSubmit}>
-            <Field
-              type="text"
-              name="childBirthday"
-              label={formatMessage(
-                'homePage.preliminaryForm.childBirthDay.input.label'
-              )}
-              value={values.childBirthday}
-              validate={validateBirthDay}
-              component={InputField}
-              placeholder={formatMessage(
-                'homePage.preliminaryForm.childBirthDay.input.placeholder'
-              )}
-              required
-            />
+            <div className={styles.inputWrapper}>
+              <Field
+                className={styles.childBirthDay}
+                type="text"
+                name="childBirthday"
+                label={formatMessage(
+                  'homePage.preliminaryForm.childBirthDay.input.label'
+                )}
+                value={values.childBirthday}
+                validate={validateBirthDay}
+                component={InputField}
+                placeholder={formatMessage(
+                  'homePage.preliminaryForm.childBirthDay.input.placeholder'
+                )}
+                required
+              />
+
+              <Field
+                className={styles.childHomeCity}
+                type="text"
+                name="childHomeCity"
+                label={formatMessage(
+                  'homePage.preliminaryForm.childHomeCity.input.label'
+                )}
+                onChange={handleChange}
+                value={values.childHomeCity}
+                component={InputField}
+                placeholder={formatMessage(
+                  'homePage.preliminaryForm.childHomeCity.input.placeholder'
+                )}
+                validate={(value: string | number) =>
+                  validateEqual(
+                    value,
+                    SUPPORTED_CITY.HELSINKI,
+                    formatMessage('validation.general.nonSupportedCity')
+                  )
+                }
+                required
+              />
+            </div>
 
             <Field
-              type="text"
-              name="childHomeCity"
-              label={formatMessage(
-                'homePage.preliminaryForm.childHomeCity.input.label'
-              )}
-              onChange={handleChange}
-              value={values.childHomeCity}
-              component={InputField}
-              placeholder={formatMessage(
-                'homePage.preliminaryForm.childHomeCity.input.placeholder'
-              )}
-              validate={(value: string | number) =>
-                validateEqual(
-                  value,
-                  SUPPORTED_CITY.HELSINKI,
-                  formatMessage('validation.general.nonSupportedCity')
-                )
-              }
-              required
-            />
-
-            <Field
+              className={styles.verifyInformationCheckbox}
               type="checkbox"
               label={formatMessage(
                 'homePage.preliminaryForm.verifyInformation.checkbox.label'
@@ -78,7 +83,11 @@ export default function HomePreliminaryForm() {
               required
             />
 
-            <Button type="submit" disabled={isSubmitting || !isValid}>
+            <Button
+              type="submit"
+              className={styles.submitButton}
+              disabled={isSubmitting || !isValid}
+            >
               {formatMessage('homePage.hero.buttonText')}
             </Button>
           </form>

@@ -36,8 +36,10 @@ const Input: FunctionComponent<InputProps> = ({
         [`${type}Input`]: true,
       })}
     >
-      <label htmlFor={id}>{label}</label>
-      <input type={type} id={id} {...rest} />
+      <div className={styles.inputTypeWrapper}>
+        <label htmlFor={id}>{label}</label>
+        <input type={type} id={id} {...rest} />
+      </div>
       <small className={styles.inputError}>{validationError}</small>
     </div>
   );
