@@ -18,9 +18,9 @@ describe('Form validation utilities - ', () => {
       expect(error).toEqual('Please enter date with correct format');
     });
 
-    test('return wrong non-supported message if kid birthday is in future or before supported year', () => {
+    test('return wrong unsupported message if kid birthday is in future or before supported year', () => {
       const error = validateBirthDay('2020-12-12');
-      expect(error).toEqual('Input date is not supported');
+      expect(error).toEqual('Input date is unsupported');
     });
   });
 

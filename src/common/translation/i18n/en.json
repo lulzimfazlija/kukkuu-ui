@@ -39,7 +39,7 @@
     },
     "general": {
       "required": "Required",
-      "nonSupportedCity": "Not supported city"
+      "unSupportedCity": "Unsupported city"
     }
   },
   "sanityCheck": "kukkuu.en"
