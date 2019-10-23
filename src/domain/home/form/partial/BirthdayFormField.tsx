@@ -5,7 +5,11 @@ import InputField from '../../../../common/components/form/fields/input/InputFie
 import { formatMessage } from '../../../../common/translation/utils';
 import styles from './birthdayFormField.module.scss';
 
-export default function BirthdayFormField() {
+export default function BirthdayFormField({
+  error,
+}: {
+  error: string | undefined;
+}) {
   return (
     <div className={styles.birthdayField}>
       <label>
@@ -44,7 +48,7 @@ export default function BirthdayFormField() {
           min={2019}
         />
       </div>
-      <small></small>
+      <small className={styles.error}>{error}</small>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Formik, Field } from 'formik';
+import { Formik, Field, FormikErrors } from 'formik';
 
 import styles from './homePreliminaryForm.module.scss';
 import { formatMessage } from '../../../common/translation/utils';
@@ -7,10 +7,37 @@ import Button from '../../../common/components/button/Button';
 import { RegistrationProps } from '../../registration/types/RegistrationTypes';
 import { defaultRegistrationData } from '../../registration/state/RegistrationReducers';
 import InputField from '../../../common/components/form/fields/input/InputField';
-import { validateEqual } from '../../../common/components/form/validationUtils';
+import {
+  validateEqual,
+  validateBirthDay,
+} from '../../../common/components/form/validationUtils';
 import { SUPPORTED_CITY } from '../../app/constants';
 import BirthdayFormField from './partial/BirthdayFormField';
 
+interface HomeFormValues extends RegistrationProps {
+  childBirthdayDay: number;
+  childBirthdayMonth: number;
+  childBirthdayYear: number;
+  childHomeCity: string;
+  verifyInformation: boolean;
+  childBirthday?: string;
+}
+
+const validate = (values: HomeFormValues) => {
+  const errors: FormikErrors<HomeFormValues> = {};
+
+  if (
+    values.childBirthdayDay &&
+    values.childBirthdayMonth &&
+    values.childBirthdayYear
+  ) {
+    errors.childBirthday = validateBirthDay(
+      `${values.childBirthdayDay}.${values.childBirthdayMonth}.${values.childBirthdayYear}`
+    );
+  }
+
+  return errors;
+};
 export default function HomePreliminaryForm() {
   return (
     <div className={styles.homeForm}>
@@ -19,16 +46,18 @@ export default function HomePreliminaryForm() {
         onSubmit={(values: RegistrationProps, { setSubmitting }) => {
           setSubmitting(false);
         }}
+        validate={validate}
         render={({
           values,
           handleChange,
           handleSubmit,
           isSubmitting,
           isValid,
+          errors,
         }) => (
           <form onSubmit={handleSubmit}>
             <div className={styles.inputWrapper}>
-              <BirthdayFormField />
+              <BirthdayFormField error={errors.childBirthday} />
 
               <Field
                 className={styles.childHomeCity}
@@ -47,7 +76,7 @@ export default function HomePreliminaryForm() {
                   validateEqual(
                     value,
                     SUPPORTED_CITY.HELSINKI,
-                    formatMessage('validation.general.nonSupportedCity')
+                    formatMessage('validation.general.unSupportedCity')
                   )
                 }
               />

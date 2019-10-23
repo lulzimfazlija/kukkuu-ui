@@ -26,7 +26,7 @@ const validateBirthDay = (value: string | number | undefined) => {
   const supportedStart = newMoment(SUPPORTED_START_BIRTHDAY);
 
   if (inputMoment < supportedStart || inputMoment > nowMoment) {
-    return formatMessage('validation.date.nonSupported');
+    return formatMessage('validation.date.unSupported');
   }
 };
 

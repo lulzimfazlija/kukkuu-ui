@@ -42,8 +42,8 @@
   },
   "validation": {
     "date": {
-      "invalidFormat": "Please enter date with correct format",
-      "nonSupported": "Input date is not supported"
+      "invalidFormat": "Invalid date input",
+      "unSupported": "Input date is not supported"
     },
     "general": {
       "required": "Required",
