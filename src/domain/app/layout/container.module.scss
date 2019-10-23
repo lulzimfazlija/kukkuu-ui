@@ -9,13 +9,13 @@
     }
 }
 
-@include respond-between(sm, lg) {
+@include respond-between(sm, xlg) {
     .container {
         grid-template-columns: 1fr 10fr 1fr;
     }
 }
 
-@include respond-above(lg) {
+@include respond-above(xlg) {
     .container {
         grid-template-columns: 1fr 2fr 1fr;
     }

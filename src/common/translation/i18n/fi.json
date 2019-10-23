@@ -13,7 +13,15 @@
       "childBirthDay": {
         "input": {
           "label": "Lapsen syntymäaika",
-          "placeholder": "Enter child's birthday in YYYY-MM-DD format"
+          "day": {
+            "placeholder": "pv"
+          },
+          "month": {
+            "placeholder": "kk"
+          },
+          "year": {
+            "placeholder": "vuosi"
+          }
         }
       },
       "childHomeCity": {

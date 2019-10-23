@@ -1,0 +1,25 @@
+@import 'layout';
+@import 'variables';
+@import 'fonts';
+
+.birthdayField {
+    text-align: left;
+    display: grid;
+
+    label {
+        font-size: $font-size-sm;
+        font-weight: $font-weight-bold;
+        margin-bottom: $baseMargin * 0.25;
+        display: inline-block;
+    }
+
+    .inputWrapper {
+        display: grid;
+        grid-template-columns: 1fr 0.2fr 1fr 0.2fr 1fr;
+        align-items: center;
+    }
+    
+    .dot {
+        text-align: center;
+    }
+}

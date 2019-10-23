@@ -6,12 +6,10 @@ import { formatMessage } from '../../../common/translation/utils';
 import Button from '../../../common/components/button/Button';
 import { RegistrationProps } from '../../registration/types/RegistrationTypes';
 import { defaultRegistrationData } from '../../registration/state/RegistrationReducers';
-import InputField from '../../../common/components/form/fields/InputField';
-import {
-  validateBirthDay,
-  validateEqual,
-} from '../../../common/components/form/validationUtils';
+import InputField from '../../../common/components/form/fields/input/InputField';
+import { validateEqual } from '../../../common/components/form/validationUtils';
 import { SUPPORTED_CITY } from '../../app/constants';
+import BirthdayFormField from './partial/BirthdayFormField';
 
 export default function HomePreliminaryForm() {
   return (
@@ -30,21 +28,7 @@ export default function HomePreliminaryForm() {
         }) => (
           <form onSubmit={handleSubmit}>
             <div className={styles.inputWrapper}>
-              <Field
-                className={styles.childBirthDay}
-                type="text"
-                name="childBirthday"
-                label={formatMessage(
-                  'homePage.preliminaryForm.childBirthDay.input.label'
-                )}
-                value={values.childBirthday}
-                validate={validateBirthDay}
-                component={InputField}
-                placeholder={formatMessage(
-                  'homePage.preliminaryForm.childBirthDay.input.placeholder'
-                )}
-                required
-              />
+              <BirthdayFormField />
 
               <Field
                 className={styles.childHomeCity}
@@ -66,7 +50,6 @@ export default function HomePreliminaryForm() {
                     formatMessage('validation.general.nonSupportedCity')
                   )
                 }
-                required
               />
             </div>
 

@@ -12,7 +12,7 @@ type InputElementAttributes = React.DetailedHTMLProps<
 interface InputProps extends InputElementAttributes {
   type: string;
   className?: string;
-  label: string | ReactElement;
+  label: string | ReactElement | undefined;
   id: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   validationError: FormikErrors<any> | undefined | string | boolean;
@@ -37,7 +37,7 @@ const Input: FunctionComponent<InputProps> = ({
       })}
     >
       <div className={styles.inputTypeWrapper}>
-        <label htmlFor={id}>{label}</label>
+        {label && <label htmlFor={id}>{label}</label>}
         <input type={type} id={id} {...rest} />
       </div>
       <small className={styles.inputError}>{validationError}</small>

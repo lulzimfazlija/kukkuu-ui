@@ -1,7 +1,7 @@
 import React from 'react';
 import { FieldProps } from 'formik';
 
-import Input from '../../input/Input';
+import Input from '../../../input/Input';
 import styles from './inputField.module.scss';
 
 interface InputField extends FieldProps {

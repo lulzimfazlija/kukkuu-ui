@@ -13,7 +13,7 @@
     display: grid;
 }
 
-.textInput {
+.textInput, .numberInput {
     .inputTypeWrapper {
         label {
             font-size: $font-size-sm;

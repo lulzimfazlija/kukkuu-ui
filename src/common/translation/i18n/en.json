@@ -13,7 +13,15 @@
       "childBirthDay": {
         "input": {
           "label": "Child's birthday",
-          "placeholder": "Enter child's birthday in YYYY-MM-DD format"
+          "day": {
+            "placeholder": "day"
+          },
+          "month": {
+            "placeholder": "month"
+          },
+          "year": {
+            "placeholder": "year"
+          }
         }
       },
       "childHomeCity": {
