@@ -11,7 +11,6 @@ import {
   validateEqual,
   validateBirthDay,
 } from '../../../common/components/form/validationUtils';
-import { SUPPORTED_CITY } from '../../app/constants';
 import BirthdayFormField from './partial/BirthdayFormField';
 
 interface HomeFormValues extends RegistrationProps {
@@ -75,7 +74,9 @@ export default function HomePreliminaryForm() {
                 validate={(value: string | number) =>
                   validateEqual(
                     value,
-                    SUPPORTED_CITY.HELSINKI,
+                    formatMessage(
+                      'homePage.preliminaryForm.childHomeCity.supportCity'
+                    ),
                     formatMessage('validation.general.unSupportedCity')
                   )
                 }

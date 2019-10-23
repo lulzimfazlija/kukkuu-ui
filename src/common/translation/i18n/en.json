@@ -28,7 +28,8 @@
         "input": {
           "label": "Child's home town",
           "placeholder": "Enter hometown city, currently only Helsinki is supported"
-        }
+        },
+        "supportCity": "\u001dHelsinki"
       },
       "verifyInformation": {
         "checkbox": {

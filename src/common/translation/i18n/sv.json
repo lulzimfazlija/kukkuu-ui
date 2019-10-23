@@ -28,7 +28,8 @@
         "input": {
           "label": "Lapsen kotipaikkakunta",
           "placeholder": "Enter hometown city, currently only Helsingfors supported"
-        }
+        },
+        "supportCity": "Helsinki"
       },
       "verifyInformation": {
         "checkbox": {
