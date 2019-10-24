@@ -1,6 +1,7 @@
 import React from 'react';
 import { RouteProps } from 'react-router';
 
+import authenticate from '../../oidc/authenticate';
 import Layout from '../app/layout/Layout';
 import { formatMessage } from '../../common/translation/utils';
 import styles from './home.module.scss';
@@ -22,6 +23,7 @@ function Home(props: Props) {
           </div>
         </div>
       </div>
+      <button onClick={authenticate}>Authenticate using tunnistamo</button>
     </Layout>
   );
 }
