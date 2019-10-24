@@ -5,13 +5,27 @@ import {
   DEFAULT_DATE_FORMAT,
 } from '../../time/constants';
 
+/**
+ * validateRequire()
+ * Check if field is required.
+ * @param value zsx
+ * @param customMessage
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const validateRequire = (value?: any, customMessage?: string) => {
+  if (!value) {
+    return customMessage || formatMessage('validation.general.required');
+  }
+};
+export { validateBirthDay, validateEqual };
+
 /** validateBirthDay()
  * Validate user input child birthday.
  * This app only target recently born child, so we support child which born after 2019 only.
  * Input time which come from future is not accepted
  * @param value Input value.
  */
-const validateBirthDay = (value: string | number | undefined) => {
+const validateBirthDay = (value?: string | number) => {
   if (!value) {
     return formatMessage('validation.general.required');
   }
@@ -53,5 +67,3 @@ const validateEqual = (
     return errorMessage;
   }
 };
-
-export { validateBirthDay, validateEqual };

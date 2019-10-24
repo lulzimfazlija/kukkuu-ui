@@ -33,7 +33,10 @@
       },
       "verifyInformation": {
         "checkbox": {
-          "label": "Vakuutan antamani tiedot oikeaksi."
+          "label": "Vakuutan antamani tiedot oikeaksi.",
+          "required": {
+            "label": "This checkbox have to be ticked to continue"
+          }
         }
       }
     }

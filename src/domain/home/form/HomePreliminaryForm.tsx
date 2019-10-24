@@ -1,27 +1,32 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { Formik, Field, FormikErrors } from 'formik';
+import { connect } from 'react-redux';
 
 import styles from './homePreliminaryForm.module.scss';
 import { formatMessage } from '../../../common/translation/utils';
 import Button from '../../../common/components/button/Button';
-import { RegistrationProps } from '../../registration/types/RegistrationTypes';
-import { defaultRegistrationData } from '../../registration/state/RegistrationReducers';
 import InputField from '../../../common/components/form/fields/input/InputField';
 import {
   validateEqual,
   validateBirthDay,
+  validateRequire,
 } from '../../../common/components/form/validationUtils';
 import BirthdayFormField from './partial/BirthdayFormField';
+import { setFormValues } from '../../registration/state/RegistrationActions';
+import { RegistrationFormValues } from '../../registration/types/RegistrationTypes';
 
-interface HomeFormValues extends RegistrationProps {
-  childBirthdayDay: number;
-  childBirthdayMonth: number;
-  childBirthdayYear: number;
+interface HomeFormValues {
+  childBirthdayDay: number | string;
+  childBirthdayMonth: number | string;
+  childBirthdayYear: number | string;
   childHomeCity: string;
   verifyInformation: boolean;
   childBirthday?: string;
 }
 
+interface Props {
+  setFormValues: (values: RegistrationFormValues) => void;
+}
 const validate = (values: HomeFormValues) => {
   const errors: FormikErrors<HomeFormValues> = {};
 
@@ -33,17 +38,32 @@ const validate = (values: HomeFormValues) => {
     errors.childBirthday = validateBirthDay(
       `${values.childBirthdayDay}.${values.childBirthdayMonth}.${values.childBirthdayYear}`
     );
+
+    if (!errors.childBirthday) {
+      // Delete the property manually so form will be valid when this is undefined.
+      delete errors.childBirthday;
+    }
   }
 
   return errors;
 };
-export default function HomePreliminaryForm() {
+const HomePreliminaryForm: FunctionComponent<Props> = props => {
   return (
     <div className={styles.homeForm}>
       <Formik
-        initialValues={defaultRegistrationData().toJS().formValues}
-        onSubmit={(values: RegistrationProps, { setSubmitting }) => {
-          setSubmitting(false);
+        initialValues={{
+          childBirthdayDay: '',
+          childBirthdayMonth: '',
+          childBirthdayYear: '',
+          childHomeCity: '',
+          verifyInformation: false,
+        }}
+        onSubmit={(values: HomeFormValues) => {
+          props.setFormValues({
+            childBirthday: `${values.childBirthdayDay}.${values.childBirthdayMonth}.${values.childBirthdayYear}`,
+            childHomeCity: values.childHomeCity,
+            verifyInformation: values.verifyInformation,
+          });
         }}
         validate={validate}
         render={({
@@ -93,7 +113,12 @@ export default function HomePreliminaryForm() {
               onChange={handleChange}
               value={values.verifyInformation}
               component={InputField}
-              required
+              validate={(value: boolean) =>
+                validateRequire(
+                  value,
+                  'homePage.preliminaryForm.verifyInformation.checkbox.required.label'
+                )
+              }
             />
 
             <Button
@@ -108,4 +133,12 @@ export default function HomePreliminaryForm() {
       />
     </div>
   );
-}
+};
+
+const actions = {
+  setFormValues,
+};
+export default connect(
+  null,
+  actions
+)(HomePreliminaryForm);
