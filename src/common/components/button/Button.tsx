@@ -3,12 +3,19 @@ import joinClassNames from 'classnames';
 
 import styles from './button.module.scss';
 
-const Button: FunctionComponent<{
+type ReactButton = React.ButtonHTMLAttributes<HTMLButtonElement>;
+
+interface ButtonProps extends ReactButton {
   className?: string;
   children: ReactNode;
-}> = ({ children, className, ...rest }) => {
+}
+const Button: FunctionComponent<ButtonProps> = ({
+  children,
+  className,
+  ...rest
+}) => {
   return (
-    <div className={joinClassNames(styles.buttonWrapper, className)}>
+    <div className={joinClassNames(className, styles.buttonWrapper)}>
       <button type="button" {...rest}>
         {children}
       </button>

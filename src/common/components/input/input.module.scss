@@ -1,27 +1,56 @@
 @import 'fonts';
 @import 'variables';
+@import 'colors';
 
 .inputWrapper {
-    display: flex;
-    flex-direction: column;
-
-
+    display: grid;
     input {
-        flex: 1;
+        padding: $buttonPadding;
     }
 }
 
-.textInput {
-    margin: $baseMargin 0;
+.inputTypeWrapper {
+    display: grid;
+}
 
-    label {
+.textInput, .numberInput {
+    .inputTypeWrapper {
+        label {
+            font-size: $font-size-sm;
+            margin-bottom: $baseMargin * 0.25;
+            font-weight: $font-weight-bold;
+        }
         text-align: left;
-        font-size: $font-size-sm;
-        margin-bottom: $baseMargin * 0.25;
-        font-weight: $font-weight-bold;
-    }
 
+        input {
+            min-height: $inputHeight;  
+        }  
+    }
+}
+
+.checkboxInput {
+    .inputTypeWrapper {    
+        grid-auto-flow: column;
+        grid-template-columns: $baseMargin*2 1fr;
+        align-items: center;
+        input {
+            grid-column: 1;
+            min-height: $inputHeight;  
+        }
+        label {
+            text-align: left;
+        }  
+    }
+}
+
+.inputError {
     input {
-         min-height: $inputHeight;   
-    }  
+        border:1px solid $red;
+    }
+    
+    small {
+        text-align: left;
+        color: $red;
+        margin-top: $sm-margin;
+    }
 }

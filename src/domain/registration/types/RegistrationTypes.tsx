@@ -1,7 +1,9 @@
 import { Record, RecordOf } from 'immutable';
 
 export interface RegistrationFormValues {
-  childId: string;
+  childBirthday: string;
+  childHomeCity: string;
+  verifyInformation: boolean;
 }
 
 export interface RegistrationProps {

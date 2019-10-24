@@ -13,14 +13,23 @@
       "childBirthDay": {
         "input": {
           "label": "Lapsen syntymäaika",
-          "placeholder": "Enter child's birthday in YYYY-MM-DD format"
+          "day": {
+            "placeholder": "pv"
+          },
+          "month": {
+            "placeholder": "kk"
+          },
+          "year": {
+            "placeholder": "vuosi"
+          }
         }
       },
       "childHomeCity": {
         "input": {
           "label": "Lapsen kotipaikkakunta",
           "placeholder": "Enter hometown city, currently only Helsinki supported"
-        }
+        },
+        "supportCity": "Helsinki"
       },
       "verifyInformation": {
         "checkbox": {
@@ -34,12 +43,12 @@
   },
   "validation": {
     "date": {
-      "invalidFormat": "Please enter date with correct format",
-      "nonSupported": "Input date is not supported"
+      "invalidFormat": "Invalid date input",
+      "unSupported": "Input date is not supported"
     },
     "general": {
       "required": "Required",
-      "nonSupportedCity": "Not supported city"
+      "unSupportedCity": "Unsupported city"
     }
   },
   "sanityCheck": "kukkuu.fi"

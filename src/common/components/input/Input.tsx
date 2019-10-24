@@ -1,24 +1,46 @@
 import React, { FunctionComponent, ReactElement } from 'react';
-import joinClassNames from 'classnames';
+import classnames from 'classnames/bind';
+import { FormikErrors } from 'formik';
 
 import styles from './input.module.scss';
 
-const Input: FunctionComponent<{
-  type?: string;
+type InputElementAttributes = React.DetailedHTMLProps<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+>;
+
+interface InputProps extends InputElementAttributes {
+  type: string;
   className?: string;
-  label: string | ReactElement;
+  label: string | ReactElement | undefined;
   id: string;
-}> = ({ type = 'text', className, label, id, ...rest }) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  validationError: FormikErrors<any> | undefined | string | boolean;
+}
+const Input: FunctionComponent<InputProps> = ({
+  type = 'text',
+  className,
+  label,
+  id,
+  validationError,
+  ...rest
+}) => {
+  const cx = classnames.bind(styles);
+
   return (
     <div
-      className={joinClassNames(
-        styles.inputWrapper,
-        className,
-        styles[`${type}Input`]
-      )}
+      className={cx({
+        className: true,
+        inputError: !!validationError,
+        inputWrapper: true,
+        [`${type}Input`]: true,
+      })}
     >
-      <label htmlFor={id}>{label}</label>
-      <input type={type} id={id} {...rest} />
+      <div className={styles.inputTypeWrapper}>
+        {label && <label htmlFor={id}>{label}</label>}
+        <input type={type} id={id} {...rest} />
+      </div>
+      <small className={styles.inputError}>{validationError}</small>
     </div>
   );
 };
