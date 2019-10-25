@@ -49,6 +49,49 @@ You still need to update jest snapshots and add the translation files to the git
 `docker-compose up` to start the dockerized dev-environment. Not for production!!!  
 `docker-compose down` stops the container.
 
+## Setting up development environment locally with docker
+
+### Set tunnistamo hostname
+Add the following line to your hosts file (`/etc/hosts` on mac and linux):
+
+    127.0.0.1 tunnistamo-backend
+
+### Create a new OAuth app on GitHub
+Go to https://github.com/settings/developers/ and add a new app with the following settings:
+
+- Application name: can be anything, e.g. local tunnistamo
+- Homepage URL: http://tunnistamo-backend:8000
+- Authorization callback URL: http://tunnistamo-backend:8000/accounts/github/login/callback/
+
+Save. You'll need the created **Client ID** and **Client Secret** for configuring tunnistamo in the next step.
+
+### Install local tunnistamo
+Clone https://github.com/City-of-Helsinki/tunnistamo/. If [this PR](https://github.com/City-of-Helsinki/tunnistamo/pull/94) has not been merged yet, use [this fork](https://github.com/andersinno/tunnistamo/tree/docker-refactor) instead.
+
+Follow the instructions for setting up tunnistamo locally. Before running `docker-compose up` set the following settings in tunnistamo roots `docker-compose.env.yaml`:
+
+- SOCIAL_AUTH_GITHUB_KEY: **Client ID** from the GitHub OAuth app
+- SOCIAL_AUTH_GITHUB_SECRET: **Client Secret** from the GitHub OAuth app
+
+After you've got tunnistamo running locally, login to tunnistamo admin and add the following Redirect URI to the [*Profiles* client](http://tunnistamo-backend:8000/admin/oidc_provider/client/1/change/#id__redirect_uris):
+
+    http://localhost:3000/callback
+
+### Install kukkuu locally
+Clone the repository (https://github.com/City-of-Helsinki/kukkuu). Follow the instructions for running kukkuu with docker. Before running `docker-compose up` set the following settings in kukkuu roots `docker-compose up`:
+
+- OIDC_SECRET: leave empty, it's not needed
+- OIDC_ENDPOINT: http://tunnistamo-backend:8000/openid
+
+### kukkuu-ui
+
+Run `docker-compose up`, now the app should be running at `http://localhost:3000/`!
+`docker-compose down` stops the container.
+
+OR
+
+Run `yarn && yarn start`
+
 ## Debugging
 ### Debugging project in VS Code
 

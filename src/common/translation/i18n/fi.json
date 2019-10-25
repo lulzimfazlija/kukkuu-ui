@@ -35,10 +35,15 @@
         "checkbox": {
           "label": "Vakuutan antamani tiedot oikeaksi.",
           "required": {
-            "label": "This checkbox have to be ticked to continue"
+            "label": "This checkbox has to be ticked to continue"
           }
         }
       }
+    }
+  },
+  "authentication": {
+    "redirect": {
+      "text": "Ohjataan tunnistautumiseen..."
     }
   },
   "notFound": {
