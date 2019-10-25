@@ -1,7 +1,7 @@
 import React from 'react';
 import { RouteProps } from 'react-router';
 
-import authenticate from '../../oidc/authenticate';
+import authenticate from '../auth/authenticate';
 import Layout from '../app/layout/Layout';
 import { formatMessage } from '../../common/translation/utils';
 import styles from './home.module.scss';

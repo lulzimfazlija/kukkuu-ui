@@ -5,9 +5,9 @@ import { Provider } from 'react-redux';
 import { OidcProvider, loadUser } from 'redux-oidc';
 
 import App from './App';
-import userManager from '../../oidc/userManager';
-import enableOidcLogging from '../../oidc/enableOidcLogging';
-import OidcCallback from '../../oidc/OidcCallback';
+import userManager from '../auth/userManager';
+import enableOidcLogging from '../auth/enableOidcLogging';
+import OidcCallback from '../auth/OidcCallback';
 import { SUPPORT_LANGUAGES } from '../../common/translation/constants';
 import store from './state/AppStore';
 
