@@ -138,6 +138,9 @@ const HomePreliminaryForm: FunctionComponent<Props> = props => {
 const actions = {
   setFormValues,
 };
+
+export const UnconnectedHomePreliminaryForm = HomePreliminaryForm;
+
 export default connect(
   null,
   actions

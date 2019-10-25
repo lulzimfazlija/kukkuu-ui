@@ -1,12 +1,18 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { MemoryRouter } from 'react-router';
+import { Provider } from 'react-redux';
 
+import store from '../state/AppStore';
 import BrowserApp, { appRoutes } from '../BrowserApp';
 import App from '../App';
 
 const wrapperCreator = (route: string) =>
-  mount(<MemoryRouter initialEntries={[route]}>{appRoutes}</MemoryRouter>);
+  mount(
+    <Provider store={store}>
+      <MemoryRouter initialEntries={[route]}>{appRoutes}</MemoryRouter>
+    </Provider>
+  );
 
 it('renders snapshot correctly', () => {
   const tree = mount(<BrowserApp />);
@@ -16,7 +22,12 @@ it('renders snapshot correctly', () => {
 it('redirect user from root to /fi/home by default', () => {
   const wrapper = wrapperCreator('/');
 
-  expect(wrapper.children().props().history.location.pathname).toBe('/fi/home');
+  expect(
+    wrapper
+      .children()
+      .children()
+      .props().history.location.pathname
+  ).toBe('/fi/home');
 });
 
 it('user from root will be redirect to App with guarantee fi locale', () => {

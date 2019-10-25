@@ -12,12 +12,11 @@ import {
  * @param customMessage
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const validateRequire = (value?: any, customMessage?: string) => {
+const validateRequire = (value?: any, customMessage?: string) => {
   if (!value) {
     return customMessage || formatMessage('validation.general.required');
   }
 };
-export { validateBirthDay, validateEqual };
 
 /** validateBirthDay()
  * Validate user input child birthday.
@@ -67,3 +66,5 @@ const validateEqual = (
     return errorMessage;
   }
 };
+
+export { validateBirthDay, validateEqual, validateRequire };

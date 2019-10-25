@@ -1,14 +1,11 @@
-import React from 'react';
-import { RouteProps } from 'react-router';
+import React, { FunctionComponent } from 'react';
 
 import Layout from '../app/layout/Layout';
 import { formatMessage } from '../../common/translation/utils';
 import styles from './home.module.scss';
 import HomePreliminaryForm from './form/HomePreliminaryForm';
 
-type Props = RouteProps & {};
-
-function Home(props: Props) {
+const Home: FunctionComponent = () => {
   return (
     <Layout>
       <div className={styles.home}>
@@ -24,6 +21,6 @@ function Home(props: Props) {
       </div>
     </Layout>
   );
-}
+};
 
 export default Home;
