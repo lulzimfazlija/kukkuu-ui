@@ -1,26 +1,21 @@
-import { Record } from 'immutable';
-import { handleActions } from 'redux-actions';
+import { createReducer } from 'redux-starter-kit';
 
-import {
-  RegistrationState,
-  RegistrationProps,
-} from '../types/RegistrationTypes';
+import { RegistrationData } from '../types/RegistrationTypes';
 import { REGISTRATION_ACTIONS } from '../constants/RegistrationActionConstants';
 
-export const defaultRegistrationData = Record<RegistrationProps>({
+export const defaultRegistrationData: RegistrationData = {
   formValues: {
     childBirthday: '',
     childHomeCity: '',
     verifyInformation: false,
   },
-});
+};
 
-export default handleActions<RegistrationState>(
-  {
-    [REGISTRATION_ACTIONS.SET_FORM_VALUES]: (state, action) =>
-      state.mergeIn('formValues', action.payload),
-    [REGISTRATION_ACTIONS.RESET_FORM_VALUES]: state =>
-      state.mergeIn('formValues', defaultRegistrationData().formValues),
-  },
-  defaultRegistrationData()
-);
+export default createReducer(defaultRegistrationData, {
+  [REGISTRATION_ACTIONS.SET_FORM_VALUES]: (state, action) =>
+    Object.assign({}, state, { formValues: action.payload }),
+  [REGISTRATION_ACTIONS.RESET_FORM_VALUES]: state =>
+    Object.assign({}, state, {
+      formValues: defaultRegistrationData.formValues,
+    }),
+});

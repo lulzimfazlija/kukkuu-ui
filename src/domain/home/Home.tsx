@@ -1,5 +1,4 @@
-import React from 'react';
-import { RouteProps } from 'react-router';
+import React, { FunctionComponent } from 'react';
 
 import authenticate from '../auth/authenticate';
 import Layout from '../app/layout/Layout';
@@ -7,9 +6,7 @@ import { formatMessage } from '../../common/translation/utils';
 import styles from './home.module.scss';
 import HomePreliminaryForm from './form/HomePreliminaryForm';
 
-type Props = RouteProps & {};
-
-function Home(props: Props) {
+const Home: FunctionComponent = () => {
   return (
     <Layout>
       <div className={styles.home}>
@@ -26,6 +23,6 @@ function Home(props: Props) {
       <button onClick={authenticate}>Authenticate using tunnistamo</button>
     </Layout>
   );
-}
+};
 
 export default Home;

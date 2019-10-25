@@ -1,5 +1,3 @@
-import { RegistrationState } from '../../registration/types/RegistrationTypes';
+import rootReducer from '../state/AppReducers';
 
-export interface Store {
-  registration: RegistrationState;
-}
+export type StoreState = ReturnType<typeof rootReducer>;
