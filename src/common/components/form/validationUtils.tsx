@@ -8,7 +8,7 @@ import {
 /**
  * validateRequire()
  * Check if field is required.
- * @param value zsx
+ * @param value
  * @param customMessage
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
