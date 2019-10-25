@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from 'react';
 
-import authenticate from '../auth/authenticate';
 import Layout from '../app/layout/Layout';
 import { formatMessage } from '../../common/translation/utils';
 import styles from './home.module.scss';
@@ -20,7 +19,6 @@ const Home: FunctionComponent = () => {
           </div>
         </div>
       </div>
-      <button onClick={authenticate}>Authenticate using tunnistamo</button>
     </Layout>
   );
 };

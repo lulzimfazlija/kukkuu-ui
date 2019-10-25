@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { Formik, Field, FormikErrors } from 'formik';
 import { connect } from 'react-redux';
 
+import authenticate from '../../auth/authenticate';
 import styles from './homePreliminaryForm.module.scss';
 import { formatMessage } from '../../../common/translation/utils';
 import Button from '../../../common/components/button/Button';
@@ -64,6 +65,7 @@ const HomePreliminaryForm: FunctionComponent<Props> = props => {
             childHomeCity: values.childHomeCity,
             verifyInformation: values.verifyInformation,
           });
+          authenticate();
         }}
         validate={validate}
         render={({
