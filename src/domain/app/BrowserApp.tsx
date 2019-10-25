@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Switch, Route, Redirect } from 'react-router';
 import { Provider } from 'react-redux';
-import { OidcProvider, loadUser } from 'redux-oidc';
+import { OidcProvider } from 'redux-oidc';
 
 import App from './App';
 import userManager from '../auth/userManager';
@@ -16,8 +16,6 @@ const localeParam = `:locale(${SUPPORT_LANGUAGES.EN}|${SUPPORT_LANGUAGES.FI}|${S
 if (process.env.NODE_ENV !== 'production') {
   enableOidcLogging();
 }
-
-loadUser(store, userManager);
 
 // Export for testing purpose
 export const appRoutes = (
