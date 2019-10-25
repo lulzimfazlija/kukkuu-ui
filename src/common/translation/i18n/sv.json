@@ -35,14 +35,16 @@
         "checkbox": {
           "label": "Vakuutan antamani tiedot oikeaksi.",
           "required": {
-            "label": "This checkbox have to be ticked to continue"
+            "label": "This checkbox has to be ticked to continue"
           }
         }
       }
     }
   },
-  "oidc": {
-    "redirecting": "Omdirigerar..."
+  "authentication": {
+    "redirect": {
+      "text": "Omdirigerar..."
+    }
   },
   "notFound": {
     "text": "Er du fortapt?"

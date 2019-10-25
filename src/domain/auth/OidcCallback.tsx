@@ -19,7 +19,7 @@ function OidcCallback(props: RouteChildrenProps) {
       errorCallback={onError}
       userManager={userManager}
     >
-      <p>{formatMessage('oidc.redirecting')}</p>
+      <p>{formatMessage('authentication.redirect.text')}</p>
     </CallbackComponent>
   );
 }

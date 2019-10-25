@@ -35,7 +35,7 @@
         "checkbox": {
           "label": "I assure that the information I provide is correct",
           "required": {
-            "label": "This checkbox have to be ticked to continue"
+            "label": "This checkbox has to be ticked to continue"
           }
         }
       }
@@ -44,8 +44,10 @@
   "notFound": {
     "text": "You lost?"
   },
-  "oidc": {
-    "redirecting": "Redirecting..."
+  "authentication": {
+    "redirect": {
+      "text": "Redirecting..."
+    }
   },
   "validation": {
     "date": {
