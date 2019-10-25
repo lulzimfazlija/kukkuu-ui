@@ -1,9 +1,9 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 
 import Home from '../Home';
+import { mountWithProvider } from '../../../common/test/testUtils';
 
 it('renders snapshot correctly', () => {
-  const home = shallow(<Home />);
+  const home = mountWithProvider(<Home />);
   expect(home.html()).toMatchSnapshot();
 });
