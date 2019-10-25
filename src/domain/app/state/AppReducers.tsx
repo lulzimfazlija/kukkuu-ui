@@ -3,6 +3,6 @@ import { reducer as oidcReducer } from 'redux-oidc';
 
 import registrationReducer from '../../registration/state/RegistrationReducers';
 export default combineReducers({
-  oidc: oidcReducer,
+  authentication: oidcReducer,
   registration: registrationReducer,
 });
