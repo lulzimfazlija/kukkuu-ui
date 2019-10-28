@@ -58,11 +58,19 @@ const validateEqual = (
   comparedValue: any,
   errorMessage: string
 ) => {
+  let cloneValue = value;
+  let cloneComparedValue = comparedValue;
+
   if (!value) {
     return formatMessage('validation.general.required');
   }
 
-  if (value !== comparedValue) {
+  if (typeof value === 'string' && typeof comparedValue === 'string') {
+    cloneValue = value.toLowerCase();
+    cloneComparedValue = comparedValue.toLowerCase();
+  }
+
+  if (cloneValue !== cloneComparedValue) {
     return errorMessage;
   }
 };

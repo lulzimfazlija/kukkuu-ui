@@ -1,4 +1,8 @@
-import { validateBirthDay, validateEqual } from '../validationUtils';
+import {
+  validateBirthDay,
+  validateEqual,
+  validateRequire,
+} from '../validationUtils';
 
 describe('Form validation utilities - ', () => {
   describe('validateBirthDay', () => {
@@ -35,6 +39,36 @@ describe('Form validation utilities - ', () => {
       const error = validateEqual('ble', 'foo', 'bar');
 
       expect(error).toEqual('bar');
+    });
+
+    test('return error text if value is not equal in type', () => {
+      const error = validateEqual('31', 31, 'bar');
+
+      expect(error).toEqual('bar');
+    });
+
+    test('return error text if value is not equal in type', () => {
+      const error = validateEqual('31', 31, 'bar');
+
+      expect(error).toEqual('bar');
+    });
+
+    test('will not return error text if value and compared value is different in lower/uppercase', () => {
+      const error = validateEqual('foo', 'fOo', 'bar');
+
+      expect(error).toBeUndefined();
+    });
+  });
+
+  describe('validateRequire', () => {
+    test('will show error if field is empty', () => {
+      const error = validateRequire('');
+      expect(error).toBeDefined();
+    });
+
+    test('will show custom error message if field is empty and custom message is defined', () => {
+      const error = validateRequire('', 'foo');
+      expect(error).toEqual('foo');
     });
   });
 });
