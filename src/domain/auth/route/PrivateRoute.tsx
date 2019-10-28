@@ -3,14 +3,16 @@ import { Route, Redirect, RouteProps } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { isAuthenticatedSelector } from '../authSelectors';
+import { StoreState } from '../../app/types/stateTypes';
 
-interface Props extends RouteProps {
+interface AuthProps {
   isAuthenticated: boolean;
 }
+export type PrivateRouteProps = RouteProps & AuthProps;
 
-const PrivateRoute: FunctionComponent<Props> = ({
+const PrivateRoute: FunctionComponent<PrivateRouteProps> = ({
   isAuthenticated,
-  children,
+  component,
   ...rest
 }) => {
   return (
@@ -18,7 +20,7 @@ const PrivateRoute: FunctionComponent<Props> = ({
       {...rest}
       render={({ location }) =>
         isAuthenticated ? (
-          children
+          component
         ) : (
           <Redirect
             to={{
@@ -34,5 +36,9 @@ const PrivateRoute: FunctionComponent<Props> = ({
 
 const UnconnectedPrivateRoute = PrivateRoute;
 
+const mapStateToProps = (state: StoreState) => ({
+  isAuthenticated: isAuthenticatedSelector(state),
+});
+
 export { UnconnectedPrivateRoute };
-export default connect(isAuthenticatedSelector)(PrivateRoute);
+export default connect(mapStateToProps)(PrivateRoute);
