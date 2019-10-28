@@ -1,6 +1,7 @@
 import { FormatFunction } from 'i18next';
 
 import i18n from './i18n/i18nInit';
+import { SUPPORT_LANGUAGES } from './constants';
 
 /**
  * formatMessage()
@@ -14,3 +15,6 @@ export const formatMessage: FormatFunction = args => i18n.t(args);
 
 export const changeLanguage = (language: string) =>
   i18n.changeLanguage(language);
+
+export const getCurrentLanguage = () =>
+  i18n.options.lng || SUPPORT_LANGUAGES.FI;
