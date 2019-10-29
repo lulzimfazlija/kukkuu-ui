@@ -28,11 +28,9 @@ const App: FunctionComponent<
       <Switch>
         <Redirect exact path={`/${locale}/`} to={`/${locale}/home`} />
         <Route exact path={`/${locale}/home`} component={Home} />
-        <PrivateRoute
-          component={RegistrationForm}
-          exact
-          path={`/${locale}/registration/form`}
-        />
+        <PrivateRoute exact path={`/${locale}/registration/form`}>
+          <RegistrationForm />
+        </PrivateRoute>
         <Route component={NotFound} />
       </Switch>
     </LoadingSpinner>
