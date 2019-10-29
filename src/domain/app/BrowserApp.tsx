@@ -10,10 +10,8 @@ import enableOidcLogging from '../auth/enableOidcLogging';
 import OidcCallback from '../auth/OidcCallback';
 import { SUPPORT_LANGUAGES } from '../../common/translation/constants';
 import store from './state/AppStore';
-import { getCurrentLanguage } from '../../common/translation/utils';
 
 const localeParam = `:locale(${SUPPORT_LANGUAGES.EN}|${SUPPORT_LANGUAGES.FI}|${SUPPORT_LANGUAGES.SV})`;
-const currentLanguage = getCurrentLanguage();
 
 if (process.env.NODE_ENV !== 'production') {
   enableOidcLogging();
@@ -27,9 +25,7 @@ export const appRoutes = (
     <Route path={`/${localeParam}/*`} component={App} />
     <Route exact path={`/${localeParam}/callback`} component={OidcCallback} />
     <Route
-      render={props => (
-        <Redirect to={`/${currentLanguage}/${props.location.pathname}`} />
-      )}
+      render={props => <Redirect to={`/fi${props.location.pathname}`} />}
     />
   </Switch>
 );
