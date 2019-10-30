@@ -11,6 +11,7 @@ import enableOidcLogging from '../auth/enableOidcLogging';
 import OidcCallback from '../auth/OidcCallback';
 import { SUPPORT_LANGUAGES } from '../../common/translation/constants';
 import { persistor, store } from './state/AppStore';
+import LoadingSpinner from '../../common/components/spinner/LoadingSpinner';
 
 const localeParam = `:locale(${SUPPORT_LANGUAGES.EN}|${SUPPORT_LANGUAGES.FI}|${SUPPORT_LANGUAGES.SV})`;
 
@@ -33,7 +34,10 @@ export const appRoutes = (
 const BrowserApp: FunctionComponent = () => {
   return (
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+      <PersistGate
+        loading={<LoadingSpinner isLoading={true} />}
+        persistor={persistor}
+      >
         <OidcProvider store={store} userManager={userManager}>
           <BrowserRouter>{appRoutes}</BrowserRouter>
         </OidcProvider>
