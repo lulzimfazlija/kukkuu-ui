@@ -1,8 +1,18 @@
 import { configureStore, getDefaultMiddleware, Store } from 'redux-starter-kit';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 import { loadUser, USER_FOUND } from 'redux-oidc';
 
 import userManager from '../../auth/userManager';
 import rootReducer from './AppReducers';
+
+const persistConfig = {
+  key: 'root',
+  storage,
+  blacklist: ['authentication'],
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store: Store = configureStore({
   devTools: true,
@@ -11,9 +21,10 @@ const store: Store = configureStore({
       ignoredActions: [USER_FOUND],
     },
   }),
-  reducer: rootReducer,
+  reducer: persistedReducer,
 });
 
+const persistor = persistStore(store);
 loadUser(store, userManager);
 
-export default store;
+export { persistor, store };
