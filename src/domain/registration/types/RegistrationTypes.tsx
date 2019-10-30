@@ -1,7 +1,17 @@
 export interface RegistrationFormValues {
-  childBirthday: string;
-  childHomeCity: string;
-  verifyInformation: boolean;
+  child?: {
+    birthday: string;
+    firstName: string;
+    lastName: string;
+    homeCity: string;
+  };
+  verifyInformation?: boolean;
+  guardian?: {
+    phoneNumber: string;
+    firstName: string;
+    lastName: string;
+    relationship: string;
+  };
 }
 
 export interface RegistrationData {

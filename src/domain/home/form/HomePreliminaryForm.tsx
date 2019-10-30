@@ -61,8 +61,10 @@ const HomePreliminaryForm: FunctionComponent<Props> = props => {
         }}
         onSubmit={(values: HomeFormValues) => {
           props.setFormValues({
-            childBirthday: `${values.childBirthdayDay}.${values.childBirthdayMonth}.${values.childBirthdayYear}`,
-            childHomeCity: values.childHomeCity,
+            child: {
+              birthday: `${values.childBirthdayDay}.${values.childBirthdayMonth}.${values.childBirthdayYear}`,
+              homeCity: values.childHomeCity,
+            },
             verifyInformation: values.verifyInformation,
           });
           authenticate();
