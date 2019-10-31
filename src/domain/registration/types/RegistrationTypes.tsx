@@ -11,6 +11,7 @@ export interface RegistrationFormValues {
     firstName: string;
     lastName: string;
     relationship: string;
+    email: string;
   };
 }
 

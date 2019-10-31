@@ -10,6 +10,7 @@ import enableOidcLogging from '../auth/enableOidcLogging';
 import OidcCallback from '../auth/OidcCallback';
 import { SUPPORT_LANGUAGES } from '../../common/translation/constants';
 import store from './state/AppStore';
+import PageLayout from './layout/Layout';
 
 const localeParam = `:locale(${SUPPORT_LANGUAGES.EN}|${SUPPORT_LANGUAGES.FI}|${SUPPORT_LANGUAGES.SV})`;
 
@@ -19,15 +20,17 @@ if (process.env.NODE_ENV !== 'production') {
 
 // Export for testing purpose
 export const appRoutes = (
-  <Switch>
-    <Route exact path="/callback" component={OidcCallback} />
-    <Redirect exact path="/" to="/fi/home" />
-    <Route path={`/${localeParam}/*`} component={App} />
-    <Route exact path={`/${localeParam}/callback`} component={OidcCallback} />
-    <Route
-      render={props => <Redirect to={`/fi${props.location.pathname}`} />}
-    />
-  </Switch>
+  <PageLayout>
+    <Switch>
+      <Route exact path="/callback" component={OidcCallback} />
+      <Redirect exact path="/" to="/fi/home" />
+      <Route path={`/${localeParam}/*`} component={App} />
+      <Route exact path={`/${localeParam}/callback`} component={OidcCallback} />
+      <Route
+        render={props => <Redirect to={`/fi${props.location.pathname}`} />}
+      />
+    </Switch>
+  </PageLayout>
 );
 const BrowserApp: FunctionComponent = () => {
   return (

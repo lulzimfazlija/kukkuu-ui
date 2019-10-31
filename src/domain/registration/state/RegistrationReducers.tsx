@@ -12,6 +12,7 @@ export const defaultRegistrationData: RegistrationData = {
       lastName: '',
     },
     guardian: {
+      email: '',
       firstName: '',
       lastName: '',
       phoneNumber: '',
