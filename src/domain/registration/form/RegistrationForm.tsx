@@ -9,10 +9,12 @@ import InputField from '../../../common/components/form/fields/input/InputField'
 import SelectField from '../../../common/components/form/fields/select/SelectField';
 import { setFormValues } from '../../registration/state/RegistrationActions';
 import { RegistrationFormValues } from '../../registration/types/RegistrationTypes';
-import { defaultRegistrationData } from '../state/RegistrationReducers';
+import { StoreState } from '../../app/types/stateTypes';
+import { registrationFormDataSelector } from '../state/RegistrationSelectors';
 
 interface Props {
   setFormValues: (values: RegistrationFormValues) => void;
+  initialValues: RegistrationFormValues;
 }
 
 class RegistrationForm extends Component<Props> {
@@ -23,12 +25,10 @@ class RegistrationForm extends Component<Props> {
   };
 
   render() {
+    const { initialValues } = this.props;
     return (
       <div className={styles.registrationForm}>
-        <Formik
-          initialValues={defaultRegistrationData.formValues}
-          onSubmit={this.handleSubmit}
-        >
+        <Formik initialValues={initialValues} onSubmit={this.handleSubmit}>
           {({ values, handleChange, isSubmitting, handleSubmit, isValid }) => (
             <form onSubmit={handleSubmit}>
               <div className={styles.childInfo}>
@@ -198,9 +198,13 @@ const actions = {
   setFormValues,
 };
 
+const mapStateToProps = (state: StoreState) => ({
+  initialValues: registrationFormDataSelector(state),
+});
+
 export const UnconnectedRegistrationForm = RegistrationForm;
 
 export default connect(
-  null,
+  mapStateToProps,
   actions
 )(RegistrationForm);
