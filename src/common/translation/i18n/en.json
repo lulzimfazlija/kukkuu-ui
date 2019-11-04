@@ -10,7 +10,7 @@
       "buttonText": "Ilmoittaudu mukaan"
     },
     "preliminaryForm": {
-      "childBirthDay": {
+      "childBirthday": {
         "input": {
           "label": "Child's birthday",
           "day": {
