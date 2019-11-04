@@ -27,7 +27,7 @@ interface HomeFormValues {
     homeCity: string;
   };
   verifyInformation: boolean;
-  childBirthDay?: string;
+  childBirthday?: string;
 }
 
 interface Props {
@@ -60,11 +60,11 @@ class HomePreliminaryForm extends Component<Props> {
     const errors: FormikErrors<HomeFormValues> = {};
 
     if (day && month && year) {
-      errors.childBirthDay = validateBirthDay(`${day}.${month}.${year}`);
+      errors.childBirthday = validateBirthDay(`${day}.${month}.${year}`);
 
-      if (!errors.childBirthDay) {
+      if (!errors.childBirthday) {
         // Delete the property manually so form will be valid when this is undefined.
-        delete errors.childBirthDay;
+        delete errors.childBirthday;
       }
     }
     return errors;

@@ -14,7 +14,7 @@ const BirthdayFormField: FunctionComponent<FieldArrayRenderProps> = ({
   return (
     <div className={styles.birthdayField}>
       <label>
-        {formatMessage('homePage.preliminaryForm.childBirthDay.input.label')}
+        {formatMessage('homePage.preliminaryForm.childBirthday.input.label')}
       </label>
       <div className={styles.inputWrapper}>
         <Field
@@ -22,7 +22,7 @@ const BirthdayFormField: FunctionComponent<FieldArrayRenderProps> = ({
           name="child.birthday.day"
           component={InputField}
           placeholder={formatMessage(
-            'homePage.preliminaryForm.childBirthDay.input.day.placeholder'
+            'homePage.preliminaryForm.childBirthday.input.day.placeholder'
           )}
           validate={(value: number) => validateRequire(value)}
           min={1}
@@ -35,7 +35,7 @@ const BirthdayFormField: FunctionComponent<FieldArrayRenderProps> = ({
           component={InputField}
           validate={(value: number) => validateRequire(value)}
           placeholder={formatMessage(
-            'homePage.preliminaryForm.childBirthDay.input.month.placeholder'
+            'homePage.preliminaryForm.childBirthday.input.month.placeholder'
           )}
           min={1}
           max={12}
@@ -47,7 +47,7 @@ const BirthdayFormField: FunctionComponent<FieldArrayRenderProps> = ({
           component={InputField}
           validate={(value: number) => validateRequire(value)}
           placeholder={formatMessage(
-            'homePage.preliminaryForm.childBirthDay.input.year.placeholder'
+            'homePage.preliminaryForm.childBirthday.input.year.placeholder'
           )}
           min={2019}
         />
