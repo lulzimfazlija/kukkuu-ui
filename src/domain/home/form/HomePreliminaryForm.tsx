@@ -10,7 +10,7 @@ import InputField from '../../../common/components/form/fields/input/InputField'
 import {
   validateEqual,
   validateRequire,
-  validateBirthDay,
+  validateBirthday,
 } from '../../../common/components/form/validationUtils';
 import BirthdayFormField from './partial/BirthdayFormField';
 import { setFormValues } from '../../registration/state/RegistrationActions';
@@ -60,7 +60,7 @@ class HomePreliminaryForm extends Component<Props> {
     const errors: FormikErrors<HomeFormValues> = {};
 
     if (day && month && year) {
-      errors.childBirthday = validateBirthDay(`${day}.${month}.${year}`);
+      errors.childBirthday = validateBirthday(`${day}.${month}.${year}`);
 
       if (!errors.childBirthday) {
         // Delete the property manually so form will be valid when this is undefined.
