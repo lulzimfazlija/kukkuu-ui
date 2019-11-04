@@ -156,11 +156,6 @@ class RegistrationForm extends Component<Props> {
                   options={[
                     { label: 'Parents', value: 'parents' },
                     { label: 'Spouse', value: 'spouse' },
-                    {
-                      label:
-                        'I dont know man, some bird brought this kid to me',
-                      value: 'god',
-                    },
                   ]}
                   placeholder={formatMessage(
                     'registration.form.guardian.relationship.input.placeholder'

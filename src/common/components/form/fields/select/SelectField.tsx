@@ -1,29 +1,51 @@
 import React, { Component } from 'react';
+import { FieldProps } from 'formik';
+
+import styles from './selectField.module.scss';
 
 type SelectOption = {
   label: string;
-  value: string | string[] | number;
+  value: string | string[] | undefined;
 };
 type SelectOptions = SelectOption[];
 
 type Props = {
   options: SelectOptions;
-  name: string;
+  value?: string | string[];
+  onChange: () => void;
+  label: string;
   id: string;
 };
 
-class SelectField extends Component<Props> {
+class SelectField extends Component<Props & FieldProps> {
   render() {
-    const { options, name, id } = this.props;
+    const {
+      options,
+      onChange,
+      value,
+      field,
+      form,
+      label,
+      id,
+      ...rest
+    } = this.props;
 
     return (
-      <select name={name} id={id}>
-        {options.map(selectOption => (
-          <option value={selectOption.value} key={selectOption.label}>
-            {selectOption.label}
-          </option>
-        ))}
-      </select>
+      <div className={styles.selectField}>
+        {label && <label htmlFor={id}>{label}</label>}
+        <select
+          onChange={onChange}
+          id={id}
+          value={value || options[0].value}
+          {...rest}
+        >
+          {options.map(selectOption => (
+            <option value={selectOption.value} key={selectOption.label}>
+              {selectOption.label}
+            </option>
+          ))}
+        </select>
+      </div>
     );
   }
 }
