@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Home from '../home/Home';
 import NotFound from '../notFound/NotFound';
 import { changeLanguage } from '../../common/translation/utils';
-import { SUPPORT_LANGUAGES } from '../../common/translation/constants';
+import { SUPPORT_LANGUAGES } from '../../common/translation/TranslationConstants';
 import PrivateRoute from '../auth/route/PrivateRoute';
 import RegistrationForm from '../registration/form/RegistrationForm';
 import LoadingSpinner from '../../common/components/spinner/LoadingSpinner';

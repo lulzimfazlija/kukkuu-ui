@@ -9,7 +9,7 @@ import App from './App';
 import userManager from '../auth/userManager';
 import enableOidcLogging from '../auth/enableOidcLogging';
 import OidcCallback from '../auth/OidcCallback';
-import { SUPPORT_LANGUAGES } from '../../common/translation/constants';
+import { SUPPORT_LANGUAGES } from '../../common/translation/TranslationConstants';
 import PageLayout from './layout/Layout';
 import { persistor, store } from './state/AppStore';
 import LoadingSpinner from '../../common/components/spinner/LoadingSpinner';

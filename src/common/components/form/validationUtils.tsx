@@ -3,7 +3,7 @@ import { newMoment } from '../../time/utils';
 import {
   SUPPORTED_START_BIRTHDAY,
   DEFAULT_DATE_FORMAT,
-} from '../../time/constants';
+} from '../../time/TimeConstants';
 
 /**
  * validateRequire()
