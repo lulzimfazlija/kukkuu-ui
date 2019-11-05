@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import { ApolloProvider } from '@apollo/react-hooks';
 import { BrowserRouter } from 'react-router-dom';
 import { Switch, Route, Redirect } from 'react-router';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -6,10 +7,11 @@ import { Provider } from 'react-redux';
 import { OidcProvider } from 'redux-oidc';
 
 import App from './App';
-import userManager from '../auth/userManager';
+import graphqlClient from '../api/client';
 import enableOidcLogging from '../auth/enableOidcLogging';
 import OidcCallback from '../auth/OidcCallback';
 import { SUPPORT_LANGUAGES } from '../../common/translation/TranslationConstants';
+import userManager from '../auth/userManager';
 import PageLayout from './layout/Layout';
 import { persistor, store } from './state/AppStore';
 import LoadingSpinner from '../../common/components/spinner/LoadingSpinner';
@@ -48,7 +50,9 @@ const BrowserApp: FunctionComponent = () => {
         persistor={persistor}
       >
         <OidcProvider store={store} userManager={userManager}>
-          <BrowserRouter>{appRoutes}</BrowserRouter>
+          <ApolloProvider client={graphqlClient}>
+            <BrowserRouter>{appRoutes}</BrowserRouter>
+          </ApolloProvider>
         </OidcProvider>
       </PersistGate>
     </Provider>
