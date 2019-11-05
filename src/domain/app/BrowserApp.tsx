@@ -34,7 +34,6 @@ export const appRoutes = (
       <Route exact path="/callback" component={OidcCallback} />
       <Redirect exact path="/" to="/fi/home" />
       <Route path={`/${localeParam}/*`} component={App} />
-      <Route exact path={`/${localeParam}/callback`} component={OidcCallback} />
       <Route
         render={props => <Redirect to={`/fi${props.location.pathname}`} />}
       />

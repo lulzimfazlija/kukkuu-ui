@@ -3,7 +3,7 @@ import { Route, Redirect, RouteProps } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { isAuthenticatedSelector } from '../state/authSelectors';
-import { StoreState } from '../../app/types/stateTypes';
+import { StoreState } from '../../app/types/AppTypes';
 import { getCurrentLanguage } from '../../../common/translation/utils';
 
 interface AuthProps {
@@ -22,7 +22,7 @@ const PrivateRoute: FunctionComponent<PrivateRouteProps> = ({
     <Route
       {...rest}
       render={({ location }) =>
-        isAuthenticated ? (
+        !isAuthenticated ? (
           children
         ) : (
           <Redirect

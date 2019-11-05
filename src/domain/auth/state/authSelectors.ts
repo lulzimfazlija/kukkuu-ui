@@ -1,4 +1,4 @@
-import { StoreState } from '../../app/types/stateTypes';
+import { StoreState } from '../../app/types/AppTypes';
 
 export const idTokenSelector = (state: StoreState) =>
   state.authentication.api.apiToken;

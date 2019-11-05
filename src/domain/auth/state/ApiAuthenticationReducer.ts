@@ -1,7 +1,7 @@
 import { createReducer } from 'redux-starter-kit';
 
 import { ApiAuthenticationData } from '../types/ApiAuthenticationTypes';
-import { API_AUTHENTICATION_ACTIONS } from '../constants/ApiAuthenticationActions';
+import { API_AUTHENTICATION_ACTIONS } from '../constants/ApiAuthenticationActionConstants';
 
 export const defaultApiAuthenticationData: ApiAuthenticationData = {
   isFetchingToken: false,
