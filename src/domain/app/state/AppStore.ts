@@ -1,9 +1,8 @@
 import { configureStore, getDefaultMiddleware, Store } from 'redux-starter-kit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { loadUser, USER_FOUND } from 'redux-oidc';
+import { USER_FOUND } from 'redux-oidc';
 
-import userManager from '../../auth/userManager';
 import rootReducer from './AppReducers';
 
 const persistConfig = {
@@ -25,6 +24,5 @@ const store: Store = configureStore({
 });
 
 const persistor = persistStore(store);
-loadUser(store, userManager);
 
 export { persistor, store };
