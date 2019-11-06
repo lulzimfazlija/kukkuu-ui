@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { Route, Redirect, RouteProps } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { isAuthenticatedSelector } from '../state/authSelectors';
+import { isAuthenticatedSelector } from '../state/AuthenticationSelectors';
 import { StoreState } from '../../app/types/AppTypes';
 import { getCurrentLanguage } from '../../../common/translation/utils';
 
@@ -22,7 +22,7 @@ const PrivateRoute: FunctionComponent<PrivateRouteProps> = ({
     <Route
       {...rest}
       render={({ location }) =>
-        !isAuthenticated ? (
+        isAuthenticated ? (
           children
         ) : (
           <Redirect

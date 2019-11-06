@@ -15,7 +15,7 @@ import {
 import BirthdayFormField from './partial/BirthdayFormField';
 import { setFormValues } from '../../registration/state/RegistrationActions';
 import { RegistrationFormValues } from '../../registration/types/RegistrationTypes';
-import { defaultRegistration../../app/types/AppTypesation/state/RegistrationReducers';
+import { defaultRegistrationData } from '../../registration/state/RegistrationReducers';
 
 interface HomeFormValues {
   child: {

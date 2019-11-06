@@ -1,9 +1,9 @@
 import { createReducer } from 'redux-starter-kit';
 
-import { ApiAuthenticationData } from '../types/ApiAuthenticationTypes';
-import { API_AUTHENTICATION_ACTIONS } from '../constants/ApiAuthenticationActionConstants';
+import { BackendAuthenticationData } from '../types/BackendAuthenticationTypes';
+import { API_AUTHENTICATION_ACTIONS } from '../constants/BackendAuthenticationActionConstants';
 
-export const defaultApiAuthenticationData: ApiAuthenticationData = {
+export const defaultApiAuthenticationData: BackendAuthenticationData = {
   isFetchingToken: false,
   isAuthenticated: false,
   apiToken: null,
@@ -17,7 +17,7 @@ export default createReducer(defaultApiAuthenticationData, {
     Object.assign({}, state, {
       isFetchingToken: false,
       isAuthenticated: true,
-      apiToken: action.payload,
+      apiToken: Object.values(action.payload)[0],
     }),
   [API_AUTHENTICATION_ACTIONS.FETCH_TOKEN_ERROR]: (state, action) =>
     Object.assign({}, state, {

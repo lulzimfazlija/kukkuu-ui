@@ -9,19 +9,20 @@ import {
   changeLanguage,
   getCurrentLanguage,
 } from '../../common/translation/utils';
-import { SUPPORT_LANGUAGES }./types/AppTypesn/translation/TranslationConstants';
 import PrivateRoute from '../auth/route/PrivateRoute';
 import RegistrationForm from '../registration/form/RegistrationForm';
 import LoadingSpinner from '../../common/components/spinner/LoadingSpinner';
-import { StoreState } from './types/stateTypes';
-import { isLoadingUserSelector } from '../auth/state/authSelectors';
+import { StoreState } from './types/AppTypes';
+import { isLoadingUserSelector } from '../auth/state/AuthenticationSelectors';
 import { store } from './state/AppStore';
 import userManager from '../auth/userManager';
-import { startFetchingToken } from '../auth/state/ApiAuthenticationActions';
+import { SUPPORT_LANGUAGES } from '../../common/translation/TranslationConstants';
+import { authenticateWithBackend } from '../auth/authenticate';
 
 class App extends React.Component<
   RouteComponentProps<{ locale: SUPPORT_LANGUAGES }> & {
     isLoadingUser: boolean;
+    fetchApiToken: (accessToken: string) => void;
   }
 > {
   componentDidMount() {
@@ -36,7 +37,11 @@ class App extends React.Component<
       changeLanguage(locale);
     }
 
-    loadUser(store, userManager);
+    loadUser(store, userManager).then(user => {
+      if (user) {
+        this.props.fetchApiToken(user.access_token);
+      }
+    });
   }
   public render() {
     const {
@@ -66,7 +71,7 @@ const mapStateToProps = (state: StoreState) => ({
 });
 
 const actions = {
-  startFetchingApiToken: startFetchingToken,
+  fetchApiToken: authenticateWithBackend,
 };
 
 export const UnconnectedApp = App;

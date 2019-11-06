@@ -1,17 +1,37 @@
+import axios, { AxiosResponse } from 'axios';
 
 import userManager from './userManager';
 import { StoreThunk } from '../app/types/AppTypes';
-import { startFetchingToken } from './state/ApiAuthenticationActions';
-import axios from 'axios';
+import {
+  startFetchingToken,
+  fetchTokenSuccess,
+  fetchTokenError,
+} from './state/BackendAuthenticationActions';
+import { TUNNISTAMO_API_TOKEN_ENDPOINT } from '../api/constants/ApiConstants';
+import { BackendTokenResponse } from './types/BackendAuthenticationTypes';
 
 export default function(): void {
   userManager.signinRedirect();
 }
 
-export const authenticateWithBackend = (): StoreThunk => async dispatch => {
+export const authenticateWithBackend = (
+  accessToken: string
+): StoreThunk => async dispatch => {
   try {
     dispatch(startFetchingToken());
 
-    const token = await axios
+    const res: AxiosResponse<BackendTokenResponse> = await axios.post(
+      TUNNISTAMO_API_TOKEN_ENDPOINT,
+      {},
+      {
+        headers: {
+          Authorization: `bearer ${accessToken}`,
+        },
+      }
+    );
+
+    dispatch(fetchTokenSuccess(res.data));
+  } catch (error) {
+    dispatch(fetchTokenError(error));
   }
-}
+};

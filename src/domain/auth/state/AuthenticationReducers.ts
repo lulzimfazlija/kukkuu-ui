@@ -1,9 +1,9 @@
 import { reducer as oidcReducer } from 'redux-oidc';
 import { combineReducers } from 'redux';
 
-import apiAuthenticationReducer from './ApiAuthenticationReducer';
+import backendAuthenticationReducer from './BackendAuthenticationReducer';
 
 export default combineReducers({
   tunnistamo: oidcReducer,
-  api: apiAuthenticationReducer,
+  backend: backendAuthenticationReducer,
 });
