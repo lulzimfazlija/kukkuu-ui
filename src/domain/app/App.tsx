@@ -41,6 +41,8 @@ class App extends React.Component<
       if (user) {
         this.props.fetchApiToken(user.access_token);
       }
+
+      // TODO: add error handler
     });
   }
   public render() {

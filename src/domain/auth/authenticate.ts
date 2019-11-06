@@ -33,5 +33,6 @@ export const authenticateWithBackend = (
     dispatch(fetchTokenSuccess(res.data));
   } catch (error) {
     dispatch(fetchTokenError(error));
+    // TODO: add error-handler
   }
 };
