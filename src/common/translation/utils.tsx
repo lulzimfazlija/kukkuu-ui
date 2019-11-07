@@ -16,5 +16,4 @@ export const formatMessage: FormatFunction = args => i18n.t(args);
 export const changeLanguage = (language: string) =>
   i18n.changeLanguage(language);
 
-export const getCurrentLanguage = () =>
-  i18n.options.lng || SUPPORT_LANGUAGES.FI;
+export const getCurrentLanguage = () => i18n.language || SUPPORT_LANGUAGES.FI;
