@@ -13,6 +13,8 @@ export default new ApolloClient({
       });
     } catch (e) {
       // User not authenticated
+      // eslint-disable-next-line no-console
+      console.error(e);
       // TODO: add error-handler
     }
   },
