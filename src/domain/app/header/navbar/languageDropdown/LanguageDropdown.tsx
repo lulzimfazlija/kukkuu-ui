@@ -1,15 +1,14 @@
 import * as React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
-import { getCurrentLanguage } from '../../../../../common/translation/utils';
 import styles from './languageDropdown.module.scss';
 import Select from '../../../../../common/components/select/Select';
 import { SUPPORT_LANGUAGES } from '../../../../../common/translation/TranslationConstants';
-import { updateURLParam } from '../../../../../common/route/RouteUtils';
+import { updateLocaleParam } from '../../../../../common/route/RouteUtils';
 
 const LanguageDropdown: React.FunctionComponent = () => {
-  const currentLanguage = getCurrentLanguage();
-
+  const { i18n } = useTranslation();
   const history = useHistory();
   const location = useLocation();
 
@@ -19,6 +18,8 @@ const LanguageDropdown: React.FunctionComponent = () => {
       label: language.toUpperCase(),
     };
   });
+  const currentLanguage = i18n.languages[0];
+
   return (
     <div className={styles.languageDropdown}>
       <Select
@@ -26,7 +27,11 @@ const LanguageDropdown: React.FunctionComponent = () => {
         value={currentLanguage}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           history.push(
-            updateURLParam(location.pathname, currentLanguage, e.target.value)
+            updateLocaleParam(
+              location.pathname,
+              currentLanguage,
+              e.target.value
+            )
           )
         }
         id="languageDropdownNavbar"

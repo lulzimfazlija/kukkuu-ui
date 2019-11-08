@@ -1,3 +1,7 @@
-export const updateURLParam = (url: string, param: string, value: string) => {
-  return url.replace(`/${param}/`, `/${value}/`);
+export const updateLocaleParam = (
+  url: string,
+  currentLocale: string,
+  value: string
+) => {
+  return url.replace(`/${currentLocale}/`, `/${value}/`);
 };
