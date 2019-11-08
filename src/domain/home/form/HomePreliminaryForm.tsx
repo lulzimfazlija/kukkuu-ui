@@ -16,22 +16,13 @@ import BirthdayFormField from './partial/BirthdayFormField';
 import { setFormValues } from '../../registration/state/RegistrationActions';
 import { RegistrationFormValues } from '../../registration/types/RegistrationTypes';
 import { defaultRegistrationData } from '../../registration/state/RegistrationReducers';
-
-interface HomeFormValues {
-  child: {
-    birthday: {
-      day: string | number;
-      month: string | number;
-      year: string | number;
-    };
-    homeCity: string;
-  };
-  verifyInformation: boolean;
-  childBirthday?: string;
-}
+import { StoreState } from '../../app/types/AppTypes';
+import { HomeFormValues } from './types/HomeFormTypes';
+import { convertFormValues } from './HomePreliminaryFormUtils';
 
 interface Props {
   setFormValues: (values: RegistrationFormValues) => void;
+  stateFormValues: RegistrationFormValues;
 }
 
 class HomePreliminaryForm extends Component<Props> {
@@ -71,20 +62,11 @@ class HomePreliminaryForm extends Component<Props> {
   };
 
   render() {
+    const { stateFormValues } = this.props;
     return (
       <div className={styles.homeForm}>
         <Formik
-          initialValues={{
-            child: {
-              birthday: {
-                day: '',
-                month: '',
-                year: '',
-              },
-              homeCity: '',
-            },
-            verifyInformation: false,
-          }}
+          initialValues={convertFormValues(stateFormValues)}
           onSubmit={this.handleSubmit}
           validate={this.validate}
         >
@@ -161,9 +143,13 @@ const actions = {
   setFormValues,
 };
 
+const mapStateToProps = (state: StoreState) => ({
+  stateFormValues: state.registration.formValues,
+});
+
 export const UnconnectedHomePreliminaryForm = HomePreliminaryForm;
 
 export default connect(
-  null,
+  mapStateToProps,
   actions
 )(HomePreliminaryForm);
