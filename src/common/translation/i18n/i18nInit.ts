@@ -1,27 +1,31 @@
-import i18n from 'i18next';
+import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
 import en from './en.json';
 import fi from './fi.json';
 import sv from './sv.json';
 
-i18n.use(initReactI18next).init({
-  fallbackLng: 'en',
-  interpolation: {
-    escapeValue: false,
-  },
-  lng: 'en',
-  resources: {
-    en: {
-      translation: en,
+const i18nInit = (initLocale: string) => {
+  i18next.use(initReactI18next).init({
+    fallbackLng: 'en',
+    interpolation: {
+      escapeValue: false,
     },
-    fi: {
-      translation: fi,
+    lng: initLocale || 'en',
+    resources: {
+      en: {
+        translation: en,
+      },
+      fi: {
+        translation: fi,
+      },
+      sv: {
+        translation: sv,
+      },
     },
-    sv: {
-      translation: sv,
-    },
-  },
-});
+  });
 
-export default i18n;
+  return i18next;
+};
+
+export default i18nInit;

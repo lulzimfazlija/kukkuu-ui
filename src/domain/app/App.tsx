@@ -6,10 +6,6 @@ import { I18nextProvider } from 'react-i18next';
 
 import Home from '../home/Home';
 import NotFound from '../notFound/NotFound';
-import {
-  changeLanguage,
-  getCurrentLanguage,
-} from '../../common/translation/utils';
 import PrivateRoute from '../auth/route/PrivateRoute';
 import RegistrationForm from '../registration/form/RegistrationForm';
 import LoadingSpinner from '../../common/components/spinner/LoadingSpinner';
@@ -18,29 +14,17 @@ import { isLoadingUserSelector } from '../auth/state/AuthenticationSelectors';
 import { store } from './state/AppStore';
 import userManager from '../auth/userManager';
 import { authenticateWithBackend } from '../auth/authenticate';
-import i18n from '../../common/translation/i18n/i18nInit';
+import i18nInit from '../../common/translation/i18n/i18nInit';
 import { fetchTokenError } from '../auth/state/BackendAuthenticationActions';
 
-class App extends React.Component<
-  RouteComponentProps<{ locale: string }> & {
-    isLoadingUser: boolean;
-    fetchApiToken: (accessToken: string) => void;
-    fetchApiTokenError: (errors: object) => void;
-  }
-> {
+type AppProps = RouteComponentProps<{ locale: string }> & {
+  isLoadingUser: boolean;
+  fetchApiToken: (accessToken: string) => void;
+  fetchApiTokenError: (errors: object) => void;
+};
+
+class App extends React.Component<AppProps> {
   componentDidMount() {
-    const {
-      match: {
-        params: { locale },
-      },
-    } = this.props;
-
-    const currentLocale = getCurrentLanguage();
-
-    if (currentLocale !== locale) {
-      changeLanguage(locale);
-    }
-
     loadUser(store, userManager)
       .then(user => {
         if (user) {
@@ -51,6 +35,7 @@ class App extends React.Component<
       })
       .catch(error => this.props.fetchApiTokenError(error));
   }
+
   public render() {
     const {
       isLoadingUser,
@@ -61,7 +46,7 @@ class App extends React.Component<
 
     return (
       <LoadingSpinner isLoading={isLoadingUser}>
-        <I18nextProvider i18n={i18n}>
+        <I18nextProvider i18n={i18nInit(locale)}>
           <Switch>
             <Redirect exact path={`/${locale}/`} to={`/${locale}/home`} />
             <Route exact path={`/${locale}/home`} component={Home} />
