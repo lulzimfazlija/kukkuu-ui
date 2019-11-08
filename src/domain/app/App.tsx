@@ -45,8 +45,9 @@ class App extends React.Component<
       .then(user => {
         if (user) {
           this.props.fetchApiToken(user.access_token || '');
+        } else {
+          this.props.fetchApiTokenError({ message: 'No user found' });
         }
-        this.props.fetchApiTokenError({ message: 'No user found' });
       })
       .catch(error => this.props.fetchApiTokenError(error));
   }
