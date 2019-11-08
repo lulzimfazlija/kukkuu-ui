@@ -19,11 +19,13 @@ import { store } from './state/AppStore';
 import userManager from '../auth/userManager';
 import { authenticateWithBackend } from '../auth/authenticate';
 import i18n from '../../common/translation/i18n/i18nInit';
+import { fetchTokenError } from '../auth/state/BackendAuthenticationActions';
 
 class App extends React.Component<
   RouteComponentProps<{ locale: string }> & {
     isLoadingUser: boolean;
     fetchApiToken: (accessToken: string) => void;
+    fetchApiTokenError: (errors: object) => void;
   }
 > {
   componentDidMount() {
@@ -39,13 +41,14 @@ class App extends React.Component<
       changeLanguage(locale);
     }
 
-    loadUser(store, userManager).then(user => {
-      if (user) {
-        this.props.fetchApiToken(user.access_token);
-      }
-
-      // TODO: add error handler
-    });
+    loadUser(store, userManager)
+      .then(user => {
+        if (user) {
+          this.props.fetchApiToken(user.access_token || '');
+        }
+        this.props.fetchApiTokenError({ message: 'No user found' });
+      })
+      .catch(error => this.props.fetchApiTokenError(error));
   }
   public render() {
     const {
@@ -78,6 +81,7 @@ const mapStateToProps = (state: StoreState) => ({
 
 const actions = {
   fetchApiToken: authenticateWithBackend,
+  fetchApiTokenError: fetchTokenError,
 };
 
 export const UnconnectedApp = App;
