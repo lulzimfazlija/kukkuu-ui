@@ -1,4 +1,5 @@
-import { formatMessage } from '../../translation/utils';
+import { TFunction } from 'i18next';
+
 import { newMoment } from '../../time/utils';
 import {
   SUPPORTED_START_BIRTHDAY,
@@ -12,9 +13,9 @@ import {
  * @param customMessage
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const validateRequire = (value?: any, customMessage?: string) => {
+const validateRequire = (value: any, t: TFunction, customMessage?: string) => {
   if (!value) {
-    return customMessage || formatMessage('validation.general.required');
+    return customMessage || t('validation.general.required');
   }
 };
 
@@ -24,22 +25,22 @@ const validateRequire = (value?: any, customMessage?: string) => {
  * Input time which come from future is not accepted
  * @param value Input value.
  */
-const validateBirthday = (value?: string | number) => {
+const validateBirthday = (value: string | number, t: TFunction) => {
   if (!value) {
-    return formatMessage('validation.general.required');
+    return t('validation.general.required');
   }
 
   const inputMoment = newMoment(value, DEFAULT_DATE_FORMAT);
   const nowMoment = newMoment();
 
   if (!inputMoment.isValid()) {
-    return formatMessage('validation.date.invalidFormat');
+    return t('validation.date.invalidFormat');
   }
 
   const supportedStart = newMoment(SUPPORTED_START_BIRTHDAY);
 
   if (inputMoment < supportedStart || inputMoment > nowMoment) {
-    return formatMessage('validation.date.unSupported');
+    return t('validation.date.unSupported');
   }
 };
 
@@ -56,13 +57,14 @@ const validateEqual = (
   value: any,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   comparedValue: any,
-  errorMessage: string
+  errorMessage: string,
+  t: TFunction
 ) => {
   let cloneValue = value;
   let cloneComparedValue = comparedValue;
 
   if (!value) {
-    return formatMessage('validation.general.required');
+    return t('validation.general.required');
   }
 
   if (typeof value === 'string' && typeof comparedValue === 'string') {

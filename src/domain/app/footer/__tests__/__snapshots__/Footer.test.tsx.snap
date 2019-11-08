@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders snapshot correctly 1`] = `"<footer class=\\"footerWrapper\\"><div class=\\"container\\"><div class=\\"footer\\"><div class=\\"helsinkiLogo\\"></div><div class=\\"copyright\\"><p>© Copyright 2019 • All right reserved •</p></div></div></div></footer>"`;
+exports[`renders snapshot correctly 1`] = `"<footer class=\\"footerWrapper\\"><div class=\\"container\\"><div class=\\"footer\\"><div class=\\"helsinkiLogo\\"></div><div class=\\"copyright\\"><p>footer.copyrightText</p></div></div></div></footer>"`;

@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { FunctionComponent } from 'react';
 import { Formik, Field, FieldArray, FormikErrors } from 'formik';
 import { connect } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import authenticate from '../../auth/authenticate';
 import styles from './homePreliminaryForm.module.scss';
-import { formatMessage } from '../../../common/translation/utils';
 import Button from '../../../common/components/button/Button';
 import InputField from '../../../common/components/form/fields/input/InputField';
 import {
@@ -25,10 +25,13 @@ interface Props {
   stateFormValues: RegistrationFormValues;
 }
 
-class HomePreliminaryForm extends Component<Props> {
-  handleSubmit = (values: HomeFormValues) => {
-    const { setFormValues } = this.props;
+const HomePreliminaryForm: FunctionComponent<Props> = ({
+  setFormValues,
+  stateFormValues,
+}) => {
+  const { t } = useTranslation();
 
+  const handleSubmit = (values: HomeFormValues) => {
     const defaultFormValues = defaultRegistrationData.formValues;
     const payload = Object.assign({}, defaultFormValues, {
       child: {
@@ -42,7 +45,7 @@ class HomePreliminaryForm extends Component<Props> {
     authenticate();
   };
 
-  validate = (values: HomeFormValues) => {
+  const validate = (values: HomeFormValues) => {
     const {
       child: {
         birthday: { day, month, year },
@@ -51,7 +54,7 @@ class HomePreliminaryForm extends Component<Props> {
     const errors: FormikErrors<HomeFormValues> = {};
 
     if (day && month && year) {
-      errors.childBirthday = validateBirthday(`${day}.${month}.${year}`);
+      errors.childBirthday = validateBirthday(`${day}.${month}.${year}`, t);
 
       if (!errors.childBirthday) {
         // Delete the property manually so form will be valid when this is undefined.
@@ -60,84 +63,78 @@ class HomePreliminaryForm extends Component<Props> {
     }
     return errors;
   };
-
-  render() {
-    const { stateFormValues } = this.props;
-    return (
-      <div className={styles.homeForm}>
-        <Formik
-          initialValues={convertFormValues(stateFormValues)}
-          onSubmit={this.handleSubmit}
-          validate={this.validate}
-        >
-          {({ values, handleChange, handleSubmit, isSubmitting, isValid }) => (
-            <form onSubmit={handleSubmit}>
-              <div className={styles.inputWrapper}>
-                <FieldArray
-                  name="child.birthday"
-                  render={props => <BirthdayFormField {...props} />}
-                />
-
-                <Field
-                  className={styles.childHomeCity}
-                  type="text"
-                  name="child.homeCity"
-                  label={formatMessage(
-                    'homePage.preliminaryForm.childHomeCity.input.label'
-                  )}
-                  onChange={handleChange}
-                  value={values.child.homeCity}
-                  component={InputField}
-                  placeholder={formatMessage(
-                    'homePage.preliminaryForm.childHomeCity.input.placeholder'
-                  )}
-                  validate={(value: string | number) =>
-                    validateEqual(
-                      value,
-                      formatMessage(
-                        'homePage.preliminaryForm.childHomeCity.supportCity'
-                      ),
-                      formatMessage('validation.general.unSupportedCity')
-                    )
-                  }
-                />
-              </div>
+  return (
+    <div className={styles.homeForm}>
+      <Formik
+        initialValues={convertFormValues(stateFormValues)}
+        onSubmit={handleSubmit}
+        validate={validate}
+      >
+        {({ values, handleChange, handleSubmit, isSubmitting, isValid }) => (
+          <form onSubmit={handleSubmit}>
+            <div className={styles.inputWrapper}>
+              <FieldArray
+                name="child.birthday"
+                render={props => <BirthdayFormField {...props} />}
+              />
 
               <Field
-                className={styles.verifyInformationCheckbox}
-                type="checkbox"
-                label={formatMessage(
-                  'homePage.preliminaryForm.verifyInformation.checkbox.label'
-                )}
-                name="verifyInformation"
+                className={styles.childHomeCity}
+                type="text"
+                name="child.homeCity"
+                label={t('homePage.preliminaryForm.childHomeCity.input.label')}
                 onChange={handleChange}
-                value={values.verifyInformation}
-                checked={values.verifyInformation}
+                value={values.child.homeCity}
                 component={InputField}
-                validate={(value: boolean) =>
-                  validateRequire(
+                placeholder={t(
+                  'homePage.preliminaryForm.childHomeCity.input.placeholder'
+                )}
+                validate={(value: string | number) =>
+                  validateEqual(
                     value,
-                    formatMessage(
-                      'homePage.preliminaryForm.verifyInformation.checkbox.required.label'
-                    )
+                    t('homePage.preliminaryForm.childHomeCity.supportCity'),
+                    t('validation.general.unSupportedCity'),
+                    t
                   )
                 }
               />
+            </div>
 
-              <Button
-                type="submit"
-                className={styles.submitButton}
-                disabled={isSubmitting || !isValid}
-              >
-                {formatMessage('homePage.hero.buttonText')}
-              </Button>
-            </form>
-          )}
-        </Formik>
-      </div>
-    );
-  }
-}
+            <Field
+              className={styles.verifyInformationCheckbox}
+              type="checkbox"
+              label={t(
+                'homePage.preliminaryForm.verifyInformation.checkbox.label'
+              )}
+              name="verifyInformation"
+              onChange={handleChange}
+              value={values.verifyInformation}
+              checked={values.verifyInformation}
+              component={InputField}
+              validate={(value: boolean) =>
+                validateRequire(
+                  value,
+                  t,
+                  t(
+                    'homePage.preliminaryForm.verifyInformation.checkbox.required.label'
+                  )
+                )
+              }
+            />
+
+            <Button
+              type="submit"
+              className={styles.submitButton}
+              disabled={isSubmitting || !isValid}
+            >
+              {t('homePage.hero.buttonText')}
+            </Button>
+          </form>
+        )}
+      </Formik>
+    </div>
+  );
+};
 
 const actions = {
   setFormValues,

@@ -1,11 +1,13 @@
 import React from 'react';
 import { CallbackComponent } from 'redux-oidc';
 import { RouteChildrenProps } from 'react-router';
+import { useTranslation } from 'react-i18next';
 
-import { formatMessage } from '../../common/translation/utils';
 import userManager from './userManager';
 
 function OidcCallback(props: RouteChildrenProps) {
+  const { t } = useTranslation();
+
   const onSuccess = (user: object) => {
     props.history.push('/');
   };
@@ -19,7 +21,7 @@ function OidcCallback(props: RouteChildrenProps) {
       errorCallback={onError}
       userManager={userManager}
     >
-      <p>{formatMessage('authentication.redirect.text')}</p>
+      <p>{t('authentication.redirect.text')}</p>
     </CallbackComponent>
   );
 }
