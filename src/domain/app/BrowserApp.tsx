@@ -28,7 +28,6 @@ if (process.env.NODE_ENV !== 'production') {
 export const AppRoutes: FunctionComponent = () => {
   const { i18n } = useTranslation();
   const currentLocale = getCurrentLanguage(i18n);
-
   return (
     <PageLayout>
       <Switch>
@@ -43,9 +42,11 @@ export const AppRoutes: FunctionComponent = () => {
         <Redirect exact path="/" to={`/${currentLocale}/home`} />
         <Route path={`/${localeParam}/*`} component={App} />
         <Route
-          render={props => (
-            <Redirect to={`/${currentLocale}${props.location.pathname}`} />
-          )}
+          render={props => {
+            return (
+              <Redirect to={`/${currentLocale}${props.location.pathname}`} />
+            );
+          }}
         />
       </Switch>
     </PageLayout>

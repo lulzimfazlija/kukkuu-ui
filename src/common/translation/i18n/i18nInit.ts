@@ -5,6 +5,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import en from './en.json';
 import fi from './fi.json';
 import sv from './sv.json';
+import { SUPPORT_LANGUAGES } from '../TranslationConstants';
 
 i18n
   .use(LanguageDetector)
@@ -25,6 +26,11 @@ i18n
     interpolation: {
       escapeValue: false,
     },
+    whitelist: [
+      SUPPORT_LANGUAGES.EN,
+      SUPPORT_LANGUAGES.FI,
+      SUPPORT_LANGUAGES.SV,
+    ],
     resources: {
       en: {
         translation: en,
