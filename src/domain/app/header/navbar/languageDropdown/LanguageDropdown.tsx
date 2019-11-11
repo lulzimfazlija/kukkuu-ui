@@ -18,7 +18,8 @@ const LanguageDropdown: React.FunctionComponent = () => {
       label: language.toUpperCase(),
     };
   });
-  const currentLanguage = i18n.languages[0];
+  console.log(i18n);
+  const currentLanguage = 'fi';
 
   return (
     <div className={styles.languageDropdown}>

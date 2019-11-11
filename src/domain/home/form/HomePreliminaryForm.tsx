@@ -8,7 +8,6 @@ import styles from './homePreliminaryForm.module.scss';
 import Button from '../../../common/components/button/Button';
 import InputField from '../../../common/components/form/fields/input/InputField';
 import {
-  validateEqual,
   validateRequire,
   validateBirthday,
 } from '../../../common/components/form/validationUtils';
@@ -54,7 +53,7 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
     const errors: FormikErrors<HomeFormValues> = {};
 
     if (day && month && year) {
-      errors.childBirthday = validateBirthday(`${day}.${month}.${year}`, t);
+      errors.childBirthday = validateBirthday(`${day}.${month}.${year}`);
 
       if (!errors.childBirthday) {
         // Delete the property manually so form will be valid when this is undefined.
@@ -89,14 +88,6 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
                 placeholder={t(
                   'homePage.preliminaryForm.childHomeCity.input.placeholder'
                 )}
-                validate={(value: string | number) =>
-                  validateEqual(
-                    value,
-                    t('homePage.preliminaryForm.childHomeCity.supportCity'),
-                    t('validation.general.unSupportedCity'),
-                    t
-                  )
-                }
               />
             </div>
 
@@ -114,10 +105,7 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
               validate={(value: boolean) =>
                 validateRequire(
                   value,
-                  t,
-                  t(
-                    'homePage.preliminaryForm.verifyInformation.checkbox.required.label'
-                  )
+                  'homePage.preliminaryForm.verifyInformation.checkbox.required.label'
                 )
               }
             />
