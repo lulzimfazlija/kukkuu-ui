@@ -22,7 +22,8 @@ i18n
         'subdomain',
       ],
     },
-    fallbackLng: 'en',
+    lng: 'fi',
+    fallbackLng: 'fi',
     interpolation: {
       escapeValue: false,
     },
