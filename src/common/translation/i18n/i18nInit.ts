@@ -1,17 +1,30 @@
-import i18next from 'i18next';
+import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
 
 import en from './en.json';
 import fi from './fi.json';
 import sv from './sv.json';
 
-const i18nInit = (initLocale: string) => {
-  i18next.use(initReactI18next).init({
+i18n
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    detection: {
+      order: [
+        'path',
+        'querystring',
+        'cookie',
+        'localStorage',
+        'navigator',
+        'htmlTag',
+        'subdomain',
+      ],
+    },
     fallbackLng: 'en',
     interpolation: {
       escapeValue: false,
     },
-    lng: initLocale || 'en',
     resources: {
       en: {
         translation: en,
@@ -25,7 +38,4 @@ const i18nInit = (initLocale: string) => {
     },
   });
 
-  return i18next;
-};
-
-export default i18nInit;
+export default i18n;

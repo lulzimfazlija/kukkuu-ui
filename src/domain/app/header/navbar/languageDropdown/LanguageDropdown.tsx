@@ -6,6 +6,7 @@ import styles from './languageDropdown.module.scss';
 import Select from '../../../../../common/components/select/Select';
 import { SUPPORT_LANGUAGES } from '../../../../../common/translation/TranslationConstants';
 import { updateLocaleParam } from '../../../../../common/route/RouteUtils';
+import { getCurrentLanguage } from '../../../../../common/translation/TranslationUtils';
 
 const LanguageDropdown: React.FunctionComponent = () => {
   const { i18n } = useTranslation();
@@ -18,23 +19,23 @@ const LanguageDropdown: React.FunctionComponent = () => {
       label: language.toUpperCase(),
     };
   });
-  console.log(i18n);
-  const currentLanguage = 'fi';
+  const currentLanguage = getCurrentLanguage(i18n);
 
   return (
     <div className={styles.languageDropdown}>
       <Select
         options={languageOptions}
         value={currentLanguage}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+          i18n.changeLanguage(e.target.value);
           history.push(
             updateLocaleParam(
               location.pathname,
               currentLanguage,
               e.target.value
             )
-          )
-        }
+          );
+        }}
         id="languageDropdownNavbar"
       />
     </div>
