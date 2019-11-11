@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { Formik, Field, FieldArray, FormikErrors } from 'formik';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { useHistory } from 'react-router-dom';
 
 import authenticate from '../../auth/authenticate';
 import styles from './homePreliminaryForm.module.scss';
@@ -16,10 +17,12 @@ import { setFormValues } from '../../registration/state/RegistrationActions';
 import { RegistrationFormValues } from '../../registration/types/RegistrationTypes';
 import { defaultRegistrationData } from '../../registration/state/RegistrationReducers';
 import { StoreState } from '../../app/types/AppTypes';
+import { isAuthenticatedSelector } from '../../auth/state/AuthenticationSelectors';
 import { HomeFormValues } from './types/HomeFormTypes';
 import { convertFormValues } from './HomePreliminaryFormUtils';
 
 interface Props {
+  isAuthenticated: boolean;
   setFormValues: (values: RegistrationFormValues) => void;
   stateFormValues: RegistrationFormValues;
 }
@@ -27,8 +30,10 @@ interface Props {
 const HomePreliminaryForm: FunctionComponent<Props> = ({
   setFormValues,
   stateFormValues,
+  isAuthenticated,
 }) => {
   const { t } = useTranslation();
+  const history = useHistory();
 
   const handleSubmit = (values: HomeFormValues) => {
     const defaultFormValues = defaultRegistrationData.formValues;
@@ -41,7 +46,8 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
     });
 
     setFormValues(payload);
-    authenticate();
+    if (isAuthenticated) history.push('/registration/form');
+    else authenticate(`/registration/form`);
   };
 
   const validate = (values: HomeFormValues) => {
@@ -129,6 +135,7 @@ const actions = {
 };
 
 const mapStateToProps = (state: StoreState) => ({
+  isAuthenticated: isAuthenticatedSelector(state),
   stateFormValues: state.registration.formValues,
 });
 

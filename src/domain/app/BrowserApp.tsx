@@ -10,13 +10,13 @@ import { useTranslation } from 'react-i18next';
 import App from './App';
 import graphqlClient from '../api/client';
 import enableOidcLogging from '../auth/enableOidcLogging';
-import OidcCallback from '../auth/OidcCallback';
 import { SUPPORT_LANGUAGES } from '../../common/translation/TranslationConstants';
 import userManager from '../auth/userManager';
 import PageLayout from './layout/Layout';
 import { persistor, store } from './state/AppStore';
 import LoadingSpinner from '../../common/components/spinner/LoadingSpinner';
 import { getCurrentLanguage } from '../../common/translation/TranslationUtils';
+import OidcCallback from '../auth/OidcCallback';
 
 const localeParam = `:locale(${SUPPORT_LANGUAGES.EN}|${SUPPORT_LANGUAGES.FI}|${SUPPORT_LANGUAGES.SV})`;
 
