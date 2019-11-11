@@ -144,4 +144,4 @@ export const UnconnectedHomePreliminaryForm = HomePreliminaryForm;
 export default connect(
   mapStateToProps,
   actions
-)(withRouter(HomePreliminaryForm));
+)(HomePreliminaryForm);

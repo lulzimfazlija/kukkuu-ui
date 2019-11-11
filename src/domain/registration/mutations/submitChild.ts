@@ -1,6 +1,17 @@
+import { useMutation } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 
-const submitChild = gql`
+import { SubmitChildValues } from '../types/RegistrationTypes';
+import { submitChild } from '../../api/generatedTypes/submitChild';
+/*
+import {
+  submitChild,
+  submitChild_submitChild,
+  submitChild_submitChild_child,
+} from '../../../domain/api/generatedTypes/submitChild';
+
+*/
+const submitChildMutationQuery = gql`
   mutation submitChild(
     $birthdate: Date!
     $firstName: String
@@ -37,4 +48,4 @@ const submitChild = gql`
   }
 `;
 
-export default submitChild;
+export default submitChildMutationQuery;
