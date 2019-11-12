@@ -9,10 +9,7 @@ import {
   isAuthenticatedSelector,
   userSelector,
 } from '../../../auth/state/AuthenticationSelectors';
-import {
-  loginToTunnistamo,
-  logoutTunnistamo,
-} from '../../../auth/authenticate';
+import { loginTunnistamo, logoutTunnistamo } from '../../../auth/authenticate';
 
 const UserDropdown: React.FunctionComponent = () => {
   const { t } = useTranslation();
@@ -37,7 +34,7 @@ const UserDropdown: React.FunctionComponent = () => {
     : [
         {
           label: t('authentication.login.text'),
-          onClick: () => loginToTunnistamo(),
+          onClick: () => loginTunnistamo(),
         },
       ];
   return <Dropdown options={dropdownOptions} />;
