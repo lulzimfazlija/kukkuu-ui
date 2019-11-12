@@ -17,6 +17,11 @@ exports[`Navbar render normally 1`] = `
       Kulttuurin Kummilapset
     </h3>
   </div>
-  <LanguageDropdown />
+  <div
+    className="languageWrapper"
+  >
+    <UserDropdown />
+    <LanguageDropdown />
+  </div>
 </div>
 `;
