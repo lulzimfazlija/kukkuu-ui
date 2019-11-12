@@ -43,9 +43,14 @@ const RegistrationForm: FunctionComponent<Props> = ({
               setFormValues(e);
               //e.preventDefault();
               const z = convertFormValuesToSubmitChildMutation(e);
-              submitChild({
-                variables: { z },
-              });
+              console.log(z);
+              try {
+                submitChild({
+                  variables: z,
+                });
+              } catch (err) {
+                console.log(err);
+              }
             }}
           >
             {({

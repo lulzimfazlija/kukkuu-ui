@@ -12,7 +12,7 @@ export const convertFormValuesToSubmitChildMutation = (
   stateFormValues: RegistrationFormValues
 ): SubmitChildValues => {
   return {
-    birthdate: '2019-01-01',
+    birthdate: '2019-10-13',
     firstName: 'a',
     lastName: 'b',
     guardianFirstName: 'c',
