@@ -10,9 +10,13 @@ import {
 import { TUNNISTAMO_API_TOKEN_ENDPOINT } from '../api/constants/ApiConstants';
 import { BackendTokenResponse } from './types/BackendAuthenticationTypes';
 
-export default function(path: string): void {
+export const loginToTunnistamo = (path?: string) => {
   userManager.signinRedirect(path ? { data: { path: path } } : {});
-}
+};
+
+export const logoutTunnistamo = (path?: string) => {
+  userManager.signoutRedirect(path ? { data: { path: path } } : {});
+};
 
 export const authenticateWithBackend = (
   accessToken: string

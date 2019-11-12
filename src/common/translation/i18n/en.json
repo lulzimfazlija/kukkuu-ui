@@ -108,13 +108,26 @@
       }
     }
   },
-  "notFound": {
-    "text": "You lost?"
-  },
   "authentication": {
     "redirect": {
       "text": "Redirecting..."
+    },
+    "login": {
+      "text": "Login"
+    },
+    "logout": {
+      "text": "Logout"
     }
+  },
+  "navbar": {
+    "profileDropdown": {
+      "openCityProfile": {
+        "text": "Open user profile on omaHelsinki"
+      }
+    }
+  },
+  "notFound": {
+    "text": "You lost?"
   },
   "validation": {
     "date": {

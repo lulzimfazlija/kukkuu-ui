@@ -4,6 +4,8 @@
 .selectWrapper {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     label {
         font-size: $font-size-sm;
         margin-bottom: $baseMargin * 0.25;

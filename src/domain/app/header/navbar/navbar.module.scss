@@ -28,3 +28,10 @@ $logoWidth: 5.5rem;
     height: $logoHeight;
     width: $logoWidth;
 }
+
+.languageWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+}

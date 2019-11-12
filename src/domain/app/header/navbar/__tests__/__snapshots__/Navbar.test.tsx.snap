@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar render normally 1`] = `
+<div
+  className="navbarTop"
+>
+  <div
+    className="logoWrapper"
+  >
+    <div
+      className="logo"
+      onClick={[Function]}
+    />
+    <h3
+      className="appName"
+    >
+      Kulttuurin Kummilapset
+    </h3>
+  </div>
+  <LanguageDropdown />
+</div>
+`;
