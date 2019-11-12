@@ -32,6 +32,7 @@ export const AppRoutes: FunctionComponent = () => {
     <PageLayout>
       <Switch>
         <Route
+          exact
           path="/silent_renew"
           render={() => {
             userManager.signinSilentCallback();

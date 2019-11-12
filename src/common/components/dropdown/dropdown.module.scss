@@ -1,0 +1,65 @@
+@import 'colors';
+@import 'variables';
+
+$navbarIconSize: 1rem;
+
+.dropdownWrapper {
+    overflow: hidden;
+    float: left;
+    
+    button {
+        display: flex;
+        justify-items: center;
+        border: none;
+        outline: none;
+        background-color: inherit;
+        margin: 0;
+        span {
+            margin-right: 0.5rem;
+        }
+        
+        div {
+            img {
+                height: $navbarIconSize;
+                width: $navbarIconSize;
+                margin-top: 0.15rem;
+            }
+            display: inline;
+        }
+    }
+}
+
+.dropdownContent {
+    position: absolute;
+    border: 1px solid $hel-gray;
+    background: $hel-white;
+    .dropdownContentOption {
+
+        &:not(:last-child) {
+            border-bottom: 1px solid $hel-gray;
+        }
+
+        button {
+            width: 100%;
+            min-height: $inputHeight;
+            padding: $buttonPadding;
+            display: flex;
+            span {
+                flex-basis: calc(100% - 1rem);
+                text-align: left;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+        }
+
+        display: block;
+        &:hover {
+            background-color: $hel-gray;
+        }
+    }
+}
+
+.dropdownOpen {
+    display: block !important;
+}
