@@ -37,7 +37,14 @@ const RegistrationForm: FunctionComponent<Props> = ({
           setFormValues(e);
           try {
             submitChild({
-              variables: e,
+              variables: {
+                birthdate: e.child.birthdate,
+                firstName: e.child.firstName,
+                lastName: e.child.lastName,
+                guardianFirstName: e.guardian.firstName,
+                guardianLastName: e.guardian.lastName,
+                email: e.guardian.email,
+              },
             });
           } catch (err) {
             // TODO: Error handling.
