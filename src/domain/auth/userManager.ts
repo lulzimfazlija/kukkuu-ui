@@ -14,6 +14,7 @@ const settings: UserManagerSettings = {
   response_type: 'id_token token',
   silent_redirect_uri: `${location}/silent_renew`,
   scope: process.env.REACT_APP_OIDC_SCOPE,
+  post_logout_redirect_uri: `${location}/`,
 };
 /* eslint-enable @typescript-eslint/camelcase */
 
