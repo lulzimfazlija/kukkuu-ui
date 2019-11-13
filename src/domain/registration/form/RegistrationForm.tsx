@@ -25,6 +25,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
   setFormValues,
   initialValues,
 }) => {
+  // TODO: Do something with the data we get from the backend.
   const [submitChild, { data }] = useMutation(submitChildMutationQuery);
   const { t } = useTranslation();
 
@@ -34,13 +35,13 @@ const RegistrationForm: FunctionComponent<Props> = ({
         initialValues={initialValues}
         onSubmit={e => {
           setFormValues(e);
-          console.log(e);
           try {
             submitChild({
               variables: e,
             });
           } catch (err) {
-            console.log(err);
+            // TODO: Error handling.
+            console.error(err);
           }
         }}
       >
