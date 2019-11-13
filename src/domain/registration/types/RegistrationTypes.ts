@@ -18,12 +18,3 @@ export interface RegistrationFormValues {
 export interface RegistrationData {
   formValues: RegistrationFormValues;
 }
-
-export interface SubmitChildValues {
-  birthdate: string;
-  firstName: string;
-  lastName: string;
-  guardianFirstName: string;
-  guardianLastName: string;
-  email: string;
-}
