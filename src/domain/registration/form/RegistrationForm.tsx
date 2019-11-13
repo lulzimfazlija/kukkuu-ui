@@ -26,7 +26,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
   initialValues,
 }) => {
   // TODO: Do something with the data we get from the backend.
-  const [submitChild, { data }] = useMutation(submitChildMutationQuery);
+  const [submitChild] = useMutation(submitChildMutationQuery);
   const { t } = useTranslation();
 
   return (
