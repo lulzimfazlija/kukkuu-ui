@@ -50,17 +50,17 @@ const RegistrationForm: FunctionComponent<Props> = ({
             <div className={styles.childInfo}>
               <Field
                 type="text"
-                name="child.birthday"
-                label={t('registration.form.child.birthday.input.label')}
+                name="child.birthdate"
+                label={t('registration.form.child.birthdate.input.label')}
                 onChange={handleChange}
                 value={formatTime(
-                  newMoment(values.child.birthday),
+                  newMoment(values.child.birthdate),
                   DEFAULT_DATE_FORMAT
                 )}
                 component={InputField}
                 disabled={true}
                 placeholder={t(
-                  'registration.form.child.birthday.input.placeholder'
+                  'registration.form.child.birthdate.input.placeholder'
                 )}
               />
               <Field
