@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 
-import authenticate from '../../auth/authenticate';
+import { loginTunnistamo } from '../../auth/authenticate';
 import styles from './homePreliminaryForm.module.scss';
 import Button from '../../../common/components/button/Button';
 import InputField from '../../../common/components/form/fields/input/InputField';
@@ -53,7 +53,7 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
 
     setFormValues(payload);
     if (isAuthenticated) history.push('/registration/form');
-    else authenticate(`/registration/form`);
+    else loginTunnistamo(`/registration/form`);
   };
 
   const validate = (values: HomeFormValues) => {

@@ -9,3 +9,6 @@ export const isLoadingUserSelector = (state: StoreState) =>
 
 export const isAuthenticatedSelector = (state: StoreState) =>
   state.authentication.backend.isAuthenticated;
+
+export const userSelector = (state: StoreState) =>
+  state.authentication.tunnistamo.user;

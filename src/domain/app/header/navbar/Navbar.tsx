@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 import styles from './navbar.module.scss';
 import LanguageDropdown from './languageDropdown/LanguageDropdown';
+import UserDropdown from '../userDropdown/UserDropdown';
 
 const Navbar: React.FunctionComponent = props => {
   const { t } = useTranslation();
@@ -15,7 +16,10 @@ const Navbar: React.FunctionComponent = props => {
         <div className={styles.logo} onClick={() => history.push('/')}></div>
         <h3 className={styles.appName}>{t('appName')}</h3>
       </div>
-      <LanguageDropdown />
+      <div className={styles.languageWrapper}>
+        <UserDropdown />
+        <LanguageDropdown />
+      </div>
     </div>
   );
 };
