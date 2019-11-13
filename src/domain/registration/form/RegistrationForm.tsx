@@ -14,6 +14,8 @@ import { RegistrationFormValues } from '../types/RegistrationTypes';
 import { StoreState } from '../../app/types/AppTypes';
 import { registrationFormDataSelector } from '../state/RegistrationSelectors';
 import { convertFormValuesToSubmitChildMutation } from './RegistrationFormUtils';
+import { formatTime, newMoment } from '../../../common/time/utils';
+import { DEFAULT_DATE_FORMAT } from '../../../common/time/TimeConstants';
 
 interface Props {
   setFormValues: (values: RegistrationFormValues) => void;
@@ -59,8 +61,12 @@ const RegistrationForm: FunctionComponent<Props> = ({
                 name="child.birthday"
                 label={t('registration.form.child.birthday.input.label')}
                 onChange={handleChange}
-                value={values.child.birthday}
+                value={formatTime(
+                  newMoment(values.child.birthday),
+                  DEFAULT_DATE_FORMAT
+                )}
                 component={InputField}
+                disabled={true}
                 placeholder={t(
                   'registration.form.child.birthday.input.placeholder'
                 )}

@@ -20,6 +20,7 @@ import { StoreState } from '../../app/types/AppTypes';
 import { isAuthenticatedSelector } from '../../auth/state/AuthenticationSelectors';
 import { HomeFormValues } from './types/HomeFormTypes';
 import { convertFormValues } from './HomePreliminaryFormUtils';
+import { newMoment, formatTime } from '../../../common/time/utils';
 
 interface Props {
   isAuthenticated: boolean;
@@ -39,7 +40,12 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
     const defaultFormValues = defaultRegistrationData.formValues;
     const payload = Object.assign({}, defaultFormValues, {
       child: {
-        birthday: `${values.child.birthday.day}.${values.child.birthday.month}.${values.child.birthday.year}`,
+        birthday: formatTime(
+          newMoment(
+            `${values.child.birthday.year}.${values.child.birthday.month}.${values.child.birthday.day}`
+          )
+        ),
+        // Ensure date that saved in redux store was using backend time format.
         homeCity: values.child.homeCity,
       },
       verifyInformation: values.verifyInformation,
