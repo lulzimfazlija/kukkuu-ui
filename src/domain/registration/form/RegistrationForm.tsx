@@ -48,6 +48,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
             });
           } catch (err) {
             // TODO: Error handling.
+            // eslint-disable-next-line no-console
             console.error(err);
           }
         }}
