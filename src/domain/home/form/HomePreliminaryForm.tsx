@@ -42,7 +42,8 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
       child: {
         birthday: formatTime(
           newMoment(
-            `${values.child.birthday.year}.${values.child.birthday.month}.${values.child.birthday.day}`
+            `${values.child.birthday.year}-${values.child.birthday.month}-${values.child.birthday.day}`,
+            'YYYY-MM-DD'
           )
         ),
         // Ensure date that saved in redux store was using backend time format.
