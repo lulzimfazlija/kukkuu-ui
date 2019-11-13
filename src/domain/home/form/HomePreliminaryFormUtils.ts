@@ -1,7 +1,6 @@
 import { get } from 'lodash';
 
 import { RegistrationFormValues } from '../../registration/types/RegistrationTypes';
-import { DEFAULT_DATE_FORMAT } from '../../../common/time/TimeConstants';
 import { newMoment } from '../../../common/time/utils';
 import { HomeFormValues } from './types/HomeFormTypes';
 
@@ -14,10 +13,7 @@ export const convertFormValues = (
   stateFormValues: RegistrationFormValues
 ): HomeFormValues => {
   if (get(stateFormValues, 'child.birthday')) {
-    const birthdayMoment = newMoment(
-      stateFormValues.child.birthday,
-      DEFAULT_DATE_FORMAT
-    );
+    const birthdayMoment = newMoment(stateFormValues.child.birthday);
     return {
       child: {
         birthday: {
