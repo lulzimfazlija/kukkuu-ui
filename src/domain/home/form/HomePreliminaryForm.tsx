@@ -20,6 +20,7 @@ import { StoreState } from '../../app/types/AppTypes';
 import { isAuthenticatedSelector } from '../../auth/state/AuthenticationSelectors';
 import { HomeFormValues } from './types/HomeFormTypes';
 import { convertFormValues } from './HomePreliminaryFormUtils';
+import { newMoment, formatTime } from '../../../common/time/utils';
 
 interface Props {
   isAuthenticated: boolean;
@@ -37,14 +38,24 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
 
   const handleSubmit = (values: HomeFormValues) => {
     const defaultFormValues = defaultRegistrationData.formValues;
-    const payload = Object.assign({}, defaultFormValues, {
-      child: {
-        birthdate: `${values.child.birthdate.day}.${values.child.birthdate.month}.${values.child.birthdate.year}`,
-        homeCity: values.child.homeCity,
+    const payload = {
+      ...defaultFormValues,
+      ...{
+        child: {
+          birthdate: formatTime(
+            newMoment(
+              `${values.child.birthdate.year}-${values.child.birthdate.month}-${values.child.birthdate.day}`,
+              'YYYY-MM-DD'
+            )
+          ),
+          // Ensure date that saved in redux store was using backend time format.
+          firstName: stateFormValues.child.firstName,
+          lastName: stateFormValues.child.firstName,
+          homeCity: values.child.homeCity,
+        },
+        verifyInformation: values.verifyInformation,
       },
-      verifyInformation: values.verifyInformation,
-    });
-
+    };
     setFormValues(payload);
     if (isAuthenticated) history.push('/registration/form');
     else loginTunnistamo(`/registration/form`);

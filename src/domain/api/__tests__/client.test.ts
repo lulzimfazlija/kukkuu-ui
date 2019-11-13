@@ -2,8 +2,6 @@ import { gql } from 'apollo-boost';
 
 import client from '../client';
 
-jest.mock('../../auth/getAuthenticatedUser');
-
 describe('graphql client', () => {
   beforeEach(() => {
     global.fetch.resetMocks();
@@ -29,9 +27,6 @@ describe('graphql client', () => {
     } catch (e) {}
 
     const fetchOptions = global.fetch.mock.calls[0][1];
-    expect(fetchOptions.headers).toHaveProperty(
-      'Authorization',
-      'Bearer foo.bar.baz'
-    );
+    expect(fetchOptions.headers).toHaveProperty('Authorization', 'Bearer null');
   });
 });

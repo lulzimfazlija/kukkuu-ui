@@ -1,6 +1,6 @@
 import { gql } from 'apollo-boost';
 
-const submitChild = gql`
+const submitChildMutationQuery = gql`
   mutation submitChild(
     $birthdate: Date!
     $firstName: String
@@ -37,4 +37,4 @@ const submitChild = gql`
   }
 `;
 
-export default submitChild;
+export default submitChildMutationQuery;

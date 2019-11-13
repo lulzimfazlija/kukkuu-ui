@@ -1,6 +1,6 @@
 import { StoreState } from '../../app/types/AppTypes';
 
-export const idTokenSelector = (state: StoreState) =>
+export const apiTokenSelector = (state: StoreState) =>
   state.authentication.backend.apiToken;
 
 export const isLoadingUserSelector = (state: StoreState) =>
