@@ -13,7 +13,6 @@ import { setFormValues } from '../state/RegistrationActions';
 import { RegistrationFormValues } from '../types/RegistrationTypes';
 import { StoreState } from '../../app/types/AppTypes';
 import { registrationFormDataSelector } from '../state/RegistrationSelectors';
-import { convertFormValuesToSubmitChildMutation } from './RegistrationFormUtils';
 import { formatTime, newMoment } from '../../../common/time/utils';
 import { DEFAULT_DATE_FORMAT } from '../../../common/time/TimeConstants';
 
@@ -26,14 +25,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
   setFormValues,
   initialValues,
 }) => {
-  const handleSubmit = (values: RegistrationFormValues) => {
-    // eslint-disable-next-line @typescript-eslint/camelcase
-    //const submitValues: SubmitChildValues = convertFormValuesToSubmitChildMutation(
-    //  values
-    //);
-  };
   const [submitChild, { data }] = useMutation(submitChildMutationQuery);
-  console.log(data);
   const { t } = useTranslation();
 
   return (
@@ -42,11 +34,10 @@ const RegistrationForm: FunctionComponent<Props> = ({
         initialValues={initialValues}
         onSubmit={e => {
           setFormValues(e);
-          const z = convertFormValuesToSubmitChildMutation(e);
-          console.log(z);
+          console.log(e);
           try {
             submitChild({
-              variables: z,
+              variables: e,
             });
           } catch (err) {
             console.log(err);
