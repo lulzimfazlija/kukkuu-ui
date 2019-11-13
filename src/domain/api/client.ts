@@ -1,16 +1,12 @@
 import ApolloClient from 'apollo-boost';
 
-import { StoreState } from '../app/types/AppTypes';
 import { store } from '../app/state/AppStore';
-
-function select(state: StoreState) {
-  return state.authentication.backend.apiToken;
-}
+import { apiTokenSelector } from '../auth/state/AuthenticationSelectors';
 
 export default new ApolloClient({
   request: async operation => {
     try {
-      const token = select(store.getState());
+      const token = apiTokenSelector(store.getState());
       operation.setContext({
         headers: {
           Authorization: `Bearer ${token}`,
