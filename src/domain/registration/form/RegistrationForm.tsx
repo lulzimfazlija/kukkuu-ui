@@ -12,9 +12,8 @@ import submitChildMutationQuery from '../mutations/submitChild';
 import { setFormValues } from '../state/RegistrationActions';
 import { RegistrationFormValues } from '../types/RegistrationTypes';
 import { StoreState } from '../../app/types/AppTypes';
-import { registrationFormDataSelector } from '../state/RegistrationSelectors';
-import { formatTime, newMoment } from '../../../common/time/utils';
-import { DEFAULT_DATE_FORMAT } from '../../../common/time/TimeConstants';
+import { userSelector } from '../../auth/state/AuthenticationSelectors';
+import { initialFormDataSelector } from './RegistrationFormSelectors';
 
 interface Props {
   setFormValues: (values: RegistrationFormValues) => void;
@@ -33,17 +32,17 @@ const RegistrationForm: FunctionComponent<Props> = ({
     <div className={styles.registrationForm}>
       <Formik
         initialValues={initialValues}
-        onSubmit={e => {
-          setFormValues(e);
+        onSubmit={values => {
+          setFormValues(values);
           try {
             submitChild({
               variables: {
-                birthdate: e.child.birthdate,
-                firstName: e.child.firstName,
-                lastName: e.child.lastName,
-                guardianFirstName: e.guardian.firstName,
-                guardianLastName: e.guardian.lastName,
-                email: e.guardian.email,
+                birthdate: values.child.birthdate,
+                firstName: values.child.firstName,
+                lastName: values.child.lastName,
+                guardianFirstName: values.guardian.firstName,
+                guardianLastName: values.guardian.lastName,
+                email: values.guardian.email,
               },
             });
           } catch (err) {
@@ -56,32 +55,6 @@ const RegistrationForm: FunctionComponent<Props> = ({
         {({ values, handleChange, isSubmitting, handleSubmit, isValid }) => (
           <form onSubmit={handleSubmit}>
             <div className={styles.childInfo}>
-              <Field
-                type="text"
-                name="child.birthdate"
-                label={t('registration.form.child.birthdate.input.label')}
-                onChange={handleChange}
-                value={formatTime(
-                  newMoment(values.child.birthdate),
-                  DEFAULT_DATE_FORMAT
-                )}
-                component={InputField}
-                disabled={true}
-                placeholder={t(
-                  'registration.form.child.birthdate.input.placeholder'
-                )}
-              />
-              <Field
-                type="text"
-                name="child.homeCity"
-                label={t('registration.form.child.homeCity.input.label')}
-                onChange={handleChange}
-                value={values.child.homeCity}
-                component={InputField}
-                placeholder={t(
-                  'registration.form.child.homeCity.input.placeholder'
-                )}
-              />
               <div className={styles.childName}>
                 <Field
                   type="text"
@@ -113,8 +86,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
                 type="text"
                 name="guardian.email"
                 label={t('registration.form.guardian.email.input.label')}
-                onChange={handleChange}
-                value={values.guardian.email}
+                disabled={!!values.guardian.email}
                 component={InputField}
                 placeholder={t(
                   'registration.form.guardian.email.input.placeholder'
@@ -173,12 +145,12 @@ const RegistrationForm: FunctionComponent<Props> = ({
               />
               <Field
                 type="checkbox"
-                checked={values.verifyInformation}
-                name="verifyInformation"
-                label={t('registration.form.verifyInformation.input.label')}
+                checked={values.agree}
+                name="agree"
+                label={t('registration.form.agree.input.label')}
                 onChange={handleChange}
                 component={InputField}
-                value={values.verifyInformation}
+                value={values.agree}
               />
             </div>
 
@@ -201,7 +173,8 @@ const actions = {
 };
 
 const mapStateToProps = (state: StoreState) => ({
-  initialValues: registrationFormDataSelector(state),
+  initialValues: initialFormDataSelector(state),
+  tunnistamoUserValues: userSelector(state),
 });
 
 export const UnconnectedRegistrationForm = RegistrationForm;

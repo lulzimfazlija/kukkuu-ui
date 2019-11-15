@@ -18,6 +18,7 @@ export const defaultRegistrationData: RegistrationData = {
       phoneNumber: '',
       relationship: '',
     },
+    agree: false,
     verifyInformation: false,
   },
 };
