@@ -37,19 +37,6 @@ const RegistrationForm: FunctionComponent<Props> = ({
   const [submitChild] = useMutation(submitChildMutationQuery);
   const { t } = useTranslation();
 
-  let tunnistamoProfile: TunnistamoProfile = {
-    familyName: '',
-    givenName: '',
-    email: '',
-  };
-  if (tunnistamoUserValues) {
-    tunnistamoProfile = {
-      familyName: tunnistamoUserValues.profile.family_name,
-      givenName: tunnistamoUserValues.profile.given_name,
-      email: tunnistamoUserValues.profile.email,
-    };
-  }
-
   return (
     <div className={styles.registrationForm}>
       <Formik
@@ -109,7 +96,9 @@ const RegistrationForm: FunctionComponent<Props> = ({
                 name="guardian.email"
                 label={t('registration.form.guardian.email.input.label')}
                 onChange={handleChange}
-                value={values.guardian.email || tunnistamoProfile.email}
+                value={
+                  tunnistamoUserValues && tunnistamoUserValues.profile.email
+                }
                 component={InputField}
                 disabled={true}
                 placeholder={t(
@@ -137,7 +126,8 @@ const RegistrationForm: FunctionComponent<Props> = ({
                   value={
                     values.guardian.firstName
                       ? values.guardian.firstName
-                      : tunnistamoProfile.givenName
+                      : tunnistamoUserValues &&
+                        tunnistamoUserValues.profile.given_name
                   }
                   component={InputField}
                   placeholder={t(
@@ -152,7 +142,8 @@ const RegistrationForm: FunctionComponent<Props> = ({
                   value={
                     values.guardian.lastName
                       ? values.guardian.lastName
-                      : tunnistamoProfile.familyName
+                      : tunnistamoUserValues &&
+                        tunnistamoUserValues.profile.family_name
                   }
                   component={InputField}
                   placeholder={t(
