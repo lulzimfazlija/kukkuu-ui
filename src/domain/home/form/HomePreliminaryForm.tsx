@@ -42,16 +42,23 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
       ...defaultFormValues,
       ...{
         child: {
+          // Ensure date that saved in redux store was using backend time format:
           birthdate: formatTime(
             newMoment(
               `${values.child.birthdate.year}-${values.child.birthdate.month}-${values.child.birthdate.day}`,
               'YYYY-MM-DD'
             )
           ),
-          // Ensure date that saved in redux store was using backend time format.
           firstName: stateFormValues.child.firstName,
-          lastName: stateFormValues.child.firstName,
+          lastName: stateFormValues.child.lastName,
           homeCity: values.child.homeCity,
+        },
+        guardian: {
+          firstName: stateFormValues.guardian.firstName,
+          lastName: stateFormValues.guardian.lastName,
+          phoneNumber: stateFormValues.guardian.phoneNumber,
+          relationship: stateFormValues.guardian.relationship,
+          email: stateFormValues.guardian.email,
         },
         verifyInformation: values.verifyInformation,
       },
