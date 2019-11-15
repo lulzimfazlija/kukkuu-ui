@@ -15,7 +15,6 @@ import {
 import BirthdateFormField from './partial/BirthdateFormField';
 import { setFormValues } from '../../registration/state/RegistrationActions';
 import { RegistrationFormValues } from '../../registration/types/RegistrationTypes';
-import { defaultRegistrationData } from '../../registration/state/RegistrationReducers';
 import { StoreState } from '../../app/types/AppTypes';
 import { isAuthenticatedSelector } from '../../auth/state/AuthenticationSelectors';
 import { HomeFormValues } from './types/HomeFormTypes';
@@ -37,27 +36,22 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
   const history = useHistory();
 
   const handleSubmit = (values: HomeFormValues) => {
-    const defaultFormValues = defaultRegistrationData.formValues;
     const payload = {
-      ...defaultFormValues,
-      ...{
-        child: {
-          // Ensure date that saved in redux store was using backend time format:
-          ...defaultFormValues.child,
-          ...{
-            birthdate: formatTime(
-              newMoment(
-                `${values.child.birthdate.year}-${values.child.birthdate.month}-${values.child.birthdate.day}`,
-                'YYYY-MM-DD'
-              )
-            ),
-            homeCity: values.child.homeCity,
-          },
-        },
-        guardian: defaultFormValues.guardian,
-        agree: defaultFormValues.agree,
-        verifyInformation: values.verifyInformation,
+      child: {
+        // Ensure date that saved in redux store was using backend time format:
+        birthdate: formatTime(
+          newMoment(
+            `${values.child.birthdate.year}-${values.child.birthdate.month}-${values.child.birthdate.day}`,
+            'YYYY-MM-DD'
+          )
+        ),
+        homeCity: values.child.homeCity,
+        firstName: stateFormValues.child.firstName,
+        lastName: stateFormValues.child.lastName,
       },
+      guardian: stateFormValues.guardian,
+      agree: stateFormValues.agree,
+      verifyInformation: values.verifyInformation,
     };
     setFormValues(payload);
     if (isAuthenticated) history.push('/registration/form');
