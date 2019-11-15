@@ -3,7 +3,6 @@ import { Formik, Field } from 'formik';
 import { connect } from 'react-redux';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
-import { User } from 'oidc-client';
 
 import styles from './registrationForm.module.scss';
 import Button from '../../../common/components/button/Button';
@@ -13,25 +12,17 @@ import submitChildMutationQuery from '../mutations/submitChild';
 import { setFormValues } from '../state/RegistrationActions';
 import { RegistrationFormValues } from '../types/RegistrationTypes';
 import { StoreState } from '../../app/types/AppTypes';
-import { registrationFormDataSelector } from '../state/RegistrationSelectors';
 import { userSelector } from '../../auth/state/AuthenticationSelectors';
+import { initialFormDataSelector } from './RegistrationFormSelectors';
 
 interface Props {
   setFormValues: (values: RegistrationFormValues) => void;
   initialValues: RegistrationFormValues;
-  tunnistamoUserValues: User | undefined; // Should never be undefined! Typing help needed :-)
-}
-
-interface TunnistamoProfile {
-  familyName: string;
-  givenName: string;
-  email: string;
 }
 
 const RegistrationForm: FunctionComponent<Props> = ({
   setFormValues,
   initialValues,
-  tunnistamoUserValues,
 }) => {
   // TODO: Do something with the data we get from the backend.
   const [submitChild] = useMutation(submitChildMutationQuery);
@@ -41,17 +32,17 @@ const RegistrationForm: FunctionComponent<Props> = ({
     <div className={styles.registrationForm}>
       <Formik
         initialValues={initialValues}
-        onSubmit={e => {
-          setFormValues(e);
+        onSubmit={values => {
+          setFormValues(values);
           try {
             submitChild({
               variables: {
-                birthdate: e.child.birthdate,
-                firstName: e.child.firstName,
-                lastName: e.child.lastName,
-                guardianFirstName: e.guardian.firstName,
-                guardianLastName: e.guardian.lastName,
-                email: e.guardian.email,
+                birthdate: values.child.birthdate,
+                firstName: values.child.firstName,
+                lastName: values.child.lastName,
+                guardianFirstName: values.guardian.firstName,
+                guardianLastName: values.guardian.lastName,
+                email: values.guardian.email,
               },
             });
           } catch (err) {
@@ -96,11 +87,8 @@ const RegistrationForm: FunctionComponent<Props> = ({
                 name="guardian.email"
                 label={t('registration.form.guardian.email.input.label')}
                 onChange={handleChange}
-                value={
-                  tunnistamoUserValues && tunnistamoUserValues.profile.email
-                }
+                value={values.guardian.email}
                 component={InputField}
-                disabled={true}
                 placeholder={t(
                   'registration.form.guardian.email.input.placeholder'
                 )}
@@ -123,12 +111,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
                   name="guardian.firstName"
                   label={t('registration.form.guardian.firstName.input.label')}
                   onChange={handleChange}
-                  value={
-                    values.guardian.firstName
-                      ? values.guardian.firstName
-                      : tunnistamoUserValues &&
-                        tunnistamoUserValues.profile.given_name
-                  }
+                  value={values.guardian.firstName}
                   component={InputField}
                   placeholder={t(
                     'registration.form.guardian.firstName.input.placeholder'
@@ -139,12 +122,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
                   name="guardian.lastName"
                   label={t('registration.form.guardian.lastName.input.label')}
                   onChange={handleChange}
-                  value={
-                    values.guardian.lastName
-                      ? values.guardian.lastName
-                      : tunnistamoUserValues &&
-                        tunnistamoUserValues.profile.family_name
-                  }
+                  value={values.guardian.lastName}
                   component={InputField}
                   placeholder={t(
                     'registration.form.guardian.lastName.input.placeholder'
@@ -196,7 +174,7 @@ const actions = {
 };
 
 const mapStateToProps = (state: StoreState) => ({
-  initialValues: registrationFormDataSelector(state),
+  initialValues: initialFormDataSelector(state),
   tunnistamoUserValues: userSelector(state),
 });
 
