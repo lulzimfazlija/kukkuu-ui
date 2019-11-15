@@ -86,8 +86,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
                 type="text"
                 name="guardian.email"
                 label={t('registration.form.guardian.email.input.label')}
-                onChange={handleChange}
-                value={values.guardian.email}
+                disabled={!!values.guardian.email}
                 component={InputField}
                 placeholder={t(
                   'registration.form.guardian.email.input.placeholder'

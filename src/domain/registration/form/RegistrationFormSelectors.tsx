@@ -6,16 +6,16 @@ import { userSelector } from '../../auth/state/AuthenticationSelectors';
 export const initialFormDataSelector = createSelector(
   registrationFormDataSelector,
   userSelector,
-  (initialFormData, userData) => {
+  (formData, userData) => {
     if (userData) {
-      const newGuardian = Object.assign({}, initialFormData.guardian, {
+      const newGuardian = Object.assign({}, formData.guardian, {
         email: userData.profile.email,
-        firstName: userData.profile.given_name,
-        lastName: userData.profile.family_name,
+        firstName: formData.guardian.firstName || userData.profile.given_name,
+        lastName: formData.guardian.lastName || userData.profile.family_name,
       });
-      return Object.assign({}, initialFormData, { guardian: newGuardian });
+      return Object.assign({}, formData, { guardian: newGuardian });
     }
 
-    return initialFormData;
+    return formData;
   }
 );
