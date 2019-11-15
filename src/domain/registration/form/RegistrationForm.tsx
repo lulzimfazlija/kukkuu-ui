@@ -3,6 +3,7 @@ import { Formik, Field } from 'formik';
 import { connect } from 'react-redux';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
+import { User } from 'oidc-client';
 
 import styles from './registrationForm.module.scss';
 import Button from '../../../common/components/button/Button';
@@ -15,19 +16,26 @@ import { StoreState } from '../../app/types/AppTypes';
 import { registrationFormDataSelector } from '../state/RegistrationSelectors';
 import { formatTime, newMoment } from '../../../common/time/utils';
 import { DEFAULT_DATE_FORMAT } from '../../../common/time/TimeConstants';
+import { userSelector } from '../../auth/state/AuthenticationSelectors';
 
 interface Props {
   setFormValues: (values: RegistrationFormValues) => void;
   initialValues: RegistrationFormValues;
+  tunnistamoUserValues: User | undefined; // Should never be undefined! Typing help needed :-)
 }
 
 const RegistrationForm: FunctionComponent<Props> = ({
   setFormValues,
   initialValues,
+  tunnistamoUserValues,
 }) => {
   // TODO: Do something with the data we get from the backend.
   const [submitChild] = useMutation(submitChildMutationQuery);
   const { t } = useTranslation();
+
+  const tunnistamoEmail = tunnistamoUserValues
+    ? tunnistamoUserValues.profile.email
+    : '';
 
   return (
     <div className={styles.registrationForm}>
@@ -78,6 +86,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
                 onChange={handleChange}
                 value={values.child.homeCity}
                 component={InputField}
+                disabled={true}
                 placeholder={t(
                   'registration.form.child.homeCity.input.placeholder'
                 )}
@@ -114,8 +123,13 @@ const RegistrationForm: FunctionComponent<Props> = ({
                 name="guardian.email"
                 label={t('registration.form.guardian.email.input.label')}
                 onChange={handleChange}
-                value={values.guardian.email}
+                value={
+                  values.guardian.email
+                    ? values.guardian.email
+                    : tunnistamoEmail
+                }
                 component={InputField}
+                disabled={true}
                 placeholder={t(
                   'registration.form.guardian.email.input.placeholder'
                 )}
@@ -202,6 +216,7 @@ const actions = {
 
 const mapStateToProps = (state: StoreState) => ({
   initialValues: registrationFormDataSelector(state),
+  tunnistamoUserValues: userSelector(state),
 });
 
 export const UnconnectedRegistrationForm = RegistrationForm;
