@@ -50,10 +50,6 @@ const RegistrationForm: FunctionComponent<Props> = ({
     };
   }
 
-  tunnistamoUserValues
-    ? console.log(tunnistamoUserValues)
-    : console.log('not logged in');
-
   return (
     <div className={styles.registrationForm}>
       <Formik
