@@ -36,6 +36,7 @@ exports[`renders snapshot correctly 1`] = `
               setFormValues={[Function]}
               stateFormValues={
                 Object {
+                  "agree": false,
                   "child": Object {
                     "birthdate": "",
                     "firstName": "",
