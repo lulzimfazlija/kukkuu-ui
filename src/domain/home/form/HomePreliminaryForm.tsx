@@ -36,7 +36,7 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
   const history = useHistory();
 
   const handleSubmit = (values: HomeFormValues) => {
-    const payload = {
+    const payload = Object.assign({}, stateFormValues, {
       child: {
         // Ensure date that saved in redux store was using backend time format:
         birthdate: formatTime(
@@ -49,10 +49,8 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
         firstName: stateFormValues.child.firstName,
         lastName: stateFormValues.child.lastName,
       },
-      guardian: stateFormValues.guardian,
-      agree: stateFormValues.agree,
       verifyInformation: values.verifyInformation,
-    };
+    });
     setFormValues(payload);
     if (isAuthenticated) history.push('/registration/form');
     else loginTunnistamo(`/registration/form`);
