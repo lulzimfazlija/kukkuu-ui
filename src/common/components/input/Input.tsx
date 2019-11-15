@@ -17,13 +17,14 @@ const Input: FunctionComponent<InputProps> = ({
   type = 'text',
   className,
   label,
+  required,
   id,
   ...rest
 }) => {
   return (
     <div className={classnames(styles.inputWrapper, styles[`${type}Input`])}>
       <div className={styles.inputTypeWrapper}>
-        {label && <label htmlFor={id}>{label}</label>}
+        {label && <label htmlFor={id}>{required ? `${label}*` : label}</label>}
         <input type={type} id={id} {...rest} />
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Formik, Field } from 'formik';
+import { Formik } from 'formik';
 import { connect } from 'react-redux';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
@@ -15,6 +15,7 @@ import { StoreState } from '../../app/types/AppTypes';
 import { registrationFormDataSelector } from '../state/RegistrationSelectors';
 import { formatTime, newMoment } from '../../../common/time/utils';
 import { DEFAULT_DATE_FORMAT } from '../../../common/time/TimeConstants';
+import EnhancedInputField from '../../../common/components/form/fields/input/EnhancedInputField';
 
 interface Props {
   setFormValues: (values: RegistrationFormValues) => void;
@@ -56,7 +57,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
         {({ values, handleChange, isSubmitting, handleSubmit, isValid }) => (
           <form onSubmit={handleSubmit}>
             <div className={styles.childInfo}>
-              <Field
+              <EnhancedInputField
                 type="text"
                 name="child.birthdate"
                 label={t('registration.form.child.birthdate.input.label')}
@@ -71,7 +72,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
                   'registration.form.child.birthdate.input.placeholder'
                 )}
               />
-              <Field
+              <EnhancedInputField
                 type="text"
                 name="child.homeCity"
                 label={t('registration.form.child.homeCity.input.label')}
@@ -83,7 +84,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
                 )}
               />
               <div className={styles.childName}>
-                <Field
+                <EnhancedInputField
                   type="text"
                   name="child.firstName"
                   label={t('registration.form.child.firstName.input.label')}
@@ -94,7 +95,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
                     'registration.form.child.firstName.input.placeholder'
                   )}
                 />
-                <Field
+                <EnhancedInputField
                   type="text"
                   name="child.lastName"
                   label={t('registration.form.child.lastName.input.label')}
@@ -109,7 +110,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
             </div>
 
             <div className={styles.guardianInfo}>
-              <Field
+              <EnhancedInputField
                 type="text"
                 name="guardian.email"
                 label={t('registration.form.guardian.email.input.label')}
@@ -121,7 +122,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
                 )}
               />
 
-              <Field
+              <EnhancedInputField
                 type="text"
                 name="guardian.phoneNumber"
                 label={t('registration.form.guardian.phoneNumber.input.label')}
@@ -133,7 +134,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
                 )}
               />
               <div className={styles.guardianName}>
-                <Field
+                <EnhancedInputField
                   type="text"
                   name="guardian.firstName"
                   label={t('registration.form.guardian.firstName.input.label')}
@@ -144,7 +145,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
                     'registration.form.guardian.firstName.input.placeholder'
                   )}
                 />
-                <Field
+                <EnhancedInputField
                   type="text"
                   name="guardian.lastName"
                   label={t('registration.form.guardian.lastName.input.label')}
@@ -156,7 +157,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
                   )}
                 />
               </div>
-              <Field
+              <EnhancedInputField
                 name="guardian.relationship"
                 label={t('registration.form.guardian.relationship.input.label')}
                 onChange={handleChange}
@@ -171,7 +172,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
                   'registration.form.guardian.relationship.input.placeholder'
                 )}
               />
-              <Field
+              <EnhancedInputField
                 type="checkbox"
                 checked={values.verifyInformation}
                 name="verifyInformation"

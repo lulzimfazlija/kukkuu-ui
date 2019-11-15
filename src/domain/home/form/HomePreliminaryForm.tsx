@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Formik, Field, FieldArray, FormikErrors } from 'formik';
+import { Formik, FieldArray, FormikErrors } from 'formik';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
@@ -8,10 +8,7 @@ import { loginTunnistamo } from '../../auth/authenticate';
 import styles from './homePreliminaryForm.module.scss';
 import Button from '../../../common/components/button/Button';
 import InputField from '../../../common/components/form/fields/input/InputField';
-import {
-  validateRequire,
-  validateBirthdate,
-} from '../../../common/components/form/validationUtils';
+import { validateBirthdate } from '../../../common/components/form/validationUtils';
 import BirthdateFormField from './partial/BirthdateFormField';
 import { setFormValues } from '../../registration/state/RegistrationActions';
 import { RegistrationFormValues } from '../../registration/types/RegistrationTypes';
@@ -21,6 +18,7 @@ import { isAuthenticatedSelector } from '../../auth/state/AuthenticationSelector
 import { HomeFormValues } from './types/HomeFormTypes';
 import { convertFormValues } from './HomePreliminaryFormUtils';
 import { newMoment, formatTime } from '../../../common/time/utils';
+import EnhancedInputField from '../../../common/components/form/fields/input/EnhancedInputField';
 
 interface Props {
   isAuthenticated: boolean;
@@ -94,13 +92,14 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
                 render={props => <BirthdateFormField {...props} />}
               />
 
-              <Field
+              <EnhancedInputField
                 className={styles.childHomeCity}
                 type="text"
                 name="child.homeCity"
                 label={t('homePage.preliminaryForm.childHomeCity.input.label')}
                 onChange={handleChange}
                 value={values.child.homeCity}
+                required={true}
                 component={InputField}
                 placeholder={t(
                   'homePage.preliminaryForm.childHomeCity.input.placeholder'
@@ -108,7 +107,7 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
               />
             </div>
 
-            <Field
+            <EnhancedInputField
               className={styles.verifyInformationCheckbox}
               type="checkbox"
               label={t(
@@ -118,13 +117,8 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
               onChange={handleChange}
               value={values.verifyInformation}
               checked={values.verifyInformation}
+              required={true}
               component={InputField}
-              validate={(value: boolean) =>
-                validateRequire(
-                  value,
-                  'homePage.preliminaryForm.verifyInformation.checkbox.required.label'
-                )
-              }
             />
 
             <Button

@@ -1,10 +1,11 @@
 import React, { FunctionComponent } from 'react';
-import { Field, FieldArrayRenderProps } from 'formik';
+import { FieldArrayRenderProps } from 'formik';
 import { useTranslation } from 'react-i18next';
 
 import InputField from '../../../../common/components/form/fields/input/InputField';
 import styles from './birthdateFormField.module.scss';
 import { validateRequire } from '../../../../common/components/form/validationUtils';
+import EnhancedInputField from '../../../../common/components/form/fields/input/EnhancedInputField';
 
 const BirthdateFormField: FunctionComponent<FieldArrayRenderProps> = ({
   form: { errors },
@@ -16,7 +17,7 @@ const BirthdateFormField: FunctionComponent<FieldArrayRenderProps> = ({
     <div className={styles.birthdateField}>
       <label>{t('homePage.preliminaryForm.childBirthdate.input.label')}</label>
       <div className={styles.inputWrapper}>
-        <Field
+        <EnhancedInputField
           type="number"
           name="child.birthdate.day"
           component={InputField}
@@ -28,7 +29,7 @@ const BirthdateFormField: FunctionComponent<FieldArrayRenderProps> = ({
           max={31}
         />
         <div className={styles.dot}>.</div>
-        <Field
+        <EnhancedInputField
           type="number"
           name="child.birthdate.month"
           component={InputField}
@@ -40,7 +41,7 @@ const BirthdateFormField: FunctionComponent<FieldArrayRenderProps> = ({
           max={12}
         />
         <div className={styles.dot}>.</div>
-        <Field
+        <EnhancedInputField
           type="number"
           name="child.birthdate.year"
           component={InputField}
