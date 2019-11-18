@@ -12,15 +12,9 @@ import submitChildMutationQuery from '../mutations/submitChild';
 import { setFormValues } from '../state/RegistrationActions';
 import { RegistrationFormValues } from '../types/RegistrationTypes';
 import { StoreState } from '../../app/types/AppTypes';
-<<<<<<< HEAD
-import { registrationFormDataSelector } from '../state/RegistrationSelectors';
-import { formatTime, newMoment } from '../../../common/time/utils';
-import { DEFAULT_DATE_FORMAT } from '../../../common/time/TimeConstants';
-import EnhancedInputField from '../../../common/components/form/fields/input/EnhancedInputField';
-=======
 import { userSelector } from '../../auth/state/AuthenticationSelectors';
 import { initialFormDataSelector } from './RegistrationFormSelectors';
->>>>>>> 099d7e5fb34c71c942922d42636bb0ab1f652c7f
+import EnhancedInputField from '../../../common/components/form/fields/input/EnhancedInputField';
 
 interface Props {
   setFormValues: (values: RegistrationFormValues) => void;
@@ -62,35 +56,6 @@ const RegistrationForm: FunctionComponent<Props> = ({
         {({ values, handleChange, isSubmitting, handleSubmit, isValid }) => (
           <form onSubmit={handleSubmit}>
             <div className={styles.childInfo}>
-<<<<<<< HEAD
-              <EnhancedInputField
-                type="text"
-                name="child.birthdate"
-                label={t('registration.form.child.birthdate.input.label')}
-                onChange={handleChange}
-                value={formatTime(
-                  newMoment(values.child.birthdate),
-                  DEFAULT_DATE_FORMAT
-                )}
-                component={InputField}
-                disabled={true}
-                placeholder={t(
-                  'registration.form.child.birthdate.input.placeholder'
-                )}
-              />
-              <EnhancedInputField
-                type="text"
-                name="child.homeCity"
-                label={t('registration.form.child.homeCity.input.label')}
-                onChange={handleChange}
-                value={values.child.homeCity}
-                component={InputField}
-                placeholder={t(
-                  'registration.form.child.homeCity.input.placeholder'
-                )}
-              />
-=======
->>>>>>> 099d7e5fb34c71c942922d42636bb0ab1f652c7f
               <div className={styles.childName}>
                 <EnhancedInputField
                   type="text"
