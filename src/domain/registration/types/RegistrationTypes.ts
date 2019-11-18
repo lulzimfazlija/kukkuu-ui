@@ -5,7 +5,6 @@ export interface RegistrationFormValues {
     lastName: string;
     homeCity: string;
   };
-  verifyInformation: boolean;
   guardian: {
     phoneNumber: string;
     firstName: string;
@@ -13,6 +12,8 @@ export interface RegistrationFormValues {
     relationship: string;
     email: string;
   };
+  agree: boolean;
+  verifyInformation: boolean;
 }
 
 export interface RegistrationData {

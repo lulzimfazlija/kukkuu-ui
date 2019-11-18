@@ -70,12 +70,15 @@ Go to https://github.com/settings/developers/ and add a new app with the followi
 Save. You'll need the created **Client ID** and **Client Secret** for configuring tunnistamo in the next step.
 
 ### Install local tunnistamo
-Clone https://github.com/City-of-Helsinki/tunnistamo/. If [this PR](https://github.com/City-of-Helsinki/tunnistamo/pull/94) has not been merged yet, use [this fork](https://github.com/andersinno/tunnistamo/tree/docker-refactor) instead.
+Clone https://github.com/City-of-Helsinki/tunnistamo/. 
 
 Follow the instructions for setting up tunnistamo locally. Before running `docker-compose up` set the following settings in tunnistamo roots `docker-compose.env.yaml`:
 
 - SOCIAL_AUTH_GITHUB_KEY: **Client ID** from the GitHub OAuth app
 - SOCIAL_AUTH_GITHUB_SECRET: **Client Secret** from the GitHub OAuth app
+
+As of Nov 15 2019 there is a bug in tunnistamo with cors, a workaround is to set this line in `tunnistamo/settings.py`:
+`CORS_URLS_REGEX = r'.*/(\.well-known/openid-configuration|v1|openid|api-tokens|jwt-token).*'`
 
 After you've got tunnistamo running locally, ssh to the tunnistamo docker container: 
 
@@ -84,17 +87,17 @@ After you've got tunnistamo running locally, ssh to the tunnistamo docker contai
 and execute the following four commands inside your docker container:
 
 ```bash
-./manage.py add_oidc_client -n kukkuu-ui -t "id_token token" -u http://localhost:3000/callback -i https://api.hel.fi/auth/kukkuu-ui -m github -s dev
+./manage.py add_oidc_client -n kukkuu-ui -t "id_token token" -u "http://localhost:3000/callback" "http://localhost:3000/silent_renew" -i https://api.hel.fi/auth/kukkuu-ui -m github -s dev
 ./manage.py add_oidc_client -n kukkuu-api -t "code" -u http://localhost:8081/return -i https://api.hel.fi/auth/kukkuu -m github -s dev -c
-./manage.py add_oidc_api -n kukkuu -d https://api.hel.fi/auth -s email -c https://api.hel.fi/auth/kukkuu
+./manage.py add_oidc_api -n kukkuu -d https://api.hel.fi/auth -s email,profile -c https://api.hel.fi/auth/kukkuu
 ./manage.py add_oidc_api_scope -an kukkuu -c https://api.hel.fi/auth/kukkuu-ui -n "Kulttuurin kummilapset" -d"Lorem ipsum"
 ```
 
 ### Install kukkuu locally
-Clone the repository (https://github.com/City-of-Helsinki/kukkuu). Follow the instructions for running kukkuu with docker. Before running `docker-compose up` set the following settings in kukkuu roots `docker-compose up`:
+Clone the repository (https://github.com/City-of-Helsinki/kukkuu). Follow the instructions for running kukkuu with docker. Before running `docker-compose up` set the following settings in kukkuu roots `docker-compose.env.yaml`:
 
-- OIDC_SECRET: leave empty, it's not needed
-- OIDC_ENDPOINT: http://tunnistamo-backend:8000/openid
+- CORS_ORIGIN_ALLOW_ALL=1
+- TOKEN_AUTH_AUTHSERVER_URL=http://tunnistamo-backend:8000/openid
 
 ### kukkuu-ui
 
