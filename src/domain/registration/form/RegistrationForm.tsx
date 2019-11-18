@@ -12,10 +12,15 @@ import submitChildMutationQuery from '../mutations/submitChild';
 import { setFormValues } from '../state/RegistrationActions';
 import { RegistrationFormValues } from '../types/RegistrationTypes';
 import { StoreState } from '../../app/types/AppTypes';
+<<<<<<< HEAD
 import { registrationFormDataSelector } from '../state/RegistrationSelectors';
 import { formatTime, newMoment } from '../../../common/time/utils';
 import { DEFAULT_DATE_FORMAT } from '../../../common/time/TimeConstants';
 import EnhancedInputField from '../../../common/components/form/fields/input/EnhancedInputField';
+=======
+import { userSelector } from '../../auth/state/AuthenticationSelectors';
+import { initialFormDataSelector } from './RegistrationFormSelectors';
+>>>>>>> 099d7e5fb34c71c942922d42636bb0ab1f652c7f
 
 interface Props {
   setFormValues: (values: RegistrationFormValues) => void;
@@ -34,17 +39,17 @@ const RegistrationForm: FunctionComponent<Props> = ({
     <div className={styles.registrationForm}>
       <Formik
         initialValues={initialValues}
-        onSubmit={e => {
-          setFormValues(e);
+        onSubmit={values => {
+          setFormValues(values);
           try {
             submitChild({
               variables: {
-                birthdate: e.child.birthdate,
-                firstName: e.child.firstName,
-                lastName: e.child.lastName,
-                guardianFirstName: e.guardian.firstName,
-                guardianLastName: e.guardian.lastName,
-                email: e.guardian.email,
+                birthdate: values.child.birthdate,
+                firstName: values.child.firstName,
+                lastName: values.child.lastName,
+                guardianFirstName: values.guardian.firstName,
+                guardianLastName: values.guardian.lastName,
+                email: values.guardian.email,
               },
             });
           } catch (err) {
@@ -57,6 +62,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
         {({ values, handleChange, isSubmitting, handleSubmit, isValid }) => (
           <form onSubmit={handleSubmit}>
             <div className={styles.childInfo}>
+<<<<<<< HEAD
               <EnhancedInputField
                 type="text"
                 name="child.birthdate"
@@ -83,6 +89,8 @@ const RegistrationForm: FunctionComponent<Props> = ({
                   'registration.form.child.homeCity.input.placeholder'
                 )}
               />
+=======
+>>>>>>> 099d7e5fb34c71c942922d42636bb0ab1f652c7f
               <div className={styles.childName}>
                 <EnhancedInputField
                   type="text"
@@ -114,8 +122,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
                 type="text"
                 name="guardian.email"
                 label={t('registration.form.guardian.email.input.label')}
-                onChange={handleChange}
-                value={values.guardian.email}
+                disabled={!!values.guardian.email}
                 component={InputField}
                 placeholder={t(
                   'registration.form.guardian.email.input.placeholder'
@@ -174,12 +181,12 @@ const RegistrationForm: FunctionComponent<Props> = ({
               />
               <EnhancedInputField
                 type="checkbox"
-                checked={values.verifyInformation}
-                name="verifyInformation"
-                label={t('registration.form.verifyInformation.input.label')}
+                checked={values.agree}
+                name="agree"
+                label={t('registration.form.agree.input.label')}
                 onChange={handleChange}
                 component={InputField}
-                value={values.verifyInformation}
+                value={values.agree}
               />
             </div>
 
@@ -202,7 +209,8 @@ const actions = {
 };
 
 const mapStateToProps = (state: StoreState) => ({
-  initialValues: registrationFormDataSelector(state),
+  initialValues: initialFormDataSelector(state),
+  tunnistamoUserValues: userSelector(state),
 });
 
 export const UnconnectedRegistrationForm = RegistrationForm;
