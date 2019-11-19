@@ -682,7 +682,6 @@ exports[`renders snapshot correctly 1`] = `
                         placeholder="Enter hometown city, currently only Helsinki supported"
                         required={true}
                         type="text"
-                        validate={[Function]}
                         value=""
                       >
                         <Field
