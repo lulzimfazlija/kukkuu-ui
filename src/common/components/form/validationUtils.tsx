@@ -3,6 +3,7 @@ import {
   SUPPORTED_START_BIRTHDATE,
   DEFAULT_DATE_FORMAT,
 } from '../../time/TimeConstants';
+import { RegistrationFormValues } from '../../../domain/registration/types/RegistrationTypes';
 
 /**
  * validateRequire()
@@ -18,9 +19,7 @@ const validateRequire = (value: any, customMessage?: string) => {
 };
 
 /** validateBirthdate()
- * Validate user input child birthdate.
- * This app only target recently born child, so we support child which born after 2019 only.
- * Input time which come from future is not accepted
+ * Validate user input child birthdate. Dates in the future are not valid.
  * @param value Input value.
  */
 const validateBirthdate = (value: string | number) => {
@@ -31,11 +30,71 @@ const validateBirthdate = (value: string | number) => {
     return 'validation.date.invalidFormat';
   }
 
-  const supportedStart = newMoment(SUPPORTED_START_BIRTHDATE);
-
-  if (inputMoment < supportedStart || inputMoment > nowMoment) {
+  if (inputMoment > nowMoment) {
     return 'validation.date.unSupported';
   }
+};
+
+/** isBirthdateEligible()
+ * Check if child is eligible for participation.
+ *
+ * Only children born in 2020 is eligible for this service.
+ * During development we allow dates in 2019.
+ * @param {string} Input value.
+ * @returns {boolean}
+ */
+const isBirthdateEligible = (value: string) => {
+  const inputMoment = newMoment(value);
+  const supportedStart = newMoment(SUPPORTED_START_BIRTHDATE);
+
+  if (inputMoment.isBefore(supportedStart)) {
+    return false;
+  }
+  return true;
+};
+
+const isCityEligible = (city: string) => {
+  console.log(city);
+  const error = validateEqual(
+    city,
+    ['Helsinki', 'Helsingfors'],
+    'error shmerror'
+  );
+  console.log(error);
+  if (error) return false;
+  else return true;
+};
+
+const isChildEligible = (values: RegistrationFormValues) => {
+  /*
+                validate={(value: string) =>
+                  validateEqual(
+                    value,
+                    [
+                      t('homePage.preliminaryForm.childHomeCity.supportCity', {
+                        lng: SUPPORT_LANGUAGES.FI,
+                      }),
+                      t('homePage.preliminaryForm.childHomeCity.supportCity', {
+                        lng: SUPPORT_LANGUAGES.SV,
+                      }),
+                    ],
+                    t('validation.general.unSupportedCity')
+                  )
+                }
+
+  */
+  /*const cities = [
+    t('homePage.preliminaryForm.childHomeCity.supportCity', {
+      lng: SUPPORT_LANGUAGES.FI,
+    }),
+    t('homePage.preliminaryForm.childHomeCity.supportCity', {
+      lng: SUPPORT_LANGUAGES.SV,
+    }),
+  ];*/
+  return (
+    isBirthdateEligible(values.child.birthdate) &&
+    isCityEligible(values.child.homeCity)
+  );
 };
 
 /**
@@ -77,4 +136,4 @@ const validateEqual = (
   }
 };
 
-export { validateBirthdate, validateEqual, validateRequire };
+export { isChildEligible, validateBirthdate, validateEqual, validateRequire };

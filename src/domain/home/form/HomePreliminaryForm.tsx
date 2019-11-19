@@ -9,8 +9,8 @@ import styles from './homePreliminaryForm.module.scss';
 import Button from '../../../common/components/button/Button';
 import InputField from '../../../common/components/form/fields/input/InputField';
 import {
+  isChildEligible,
   validateBirthdate,
-  validateEqual,
 } from '../../../common/components/form/validationUtils';
 import BirthdateFormField from './partial/BirthdateFormField';
 import { setFormValues } from '../../registration/state/RegistrationActions';
@@ -21,7 +21,7 @@ import { HomeFormValues } from './types/HomeFormTypes';
 import { convertFormValues } from './HomePreliminaryFormUtils';
 import { newMoment, formatTime } from '../../../common/time/utils';
 import EnhancedInputField from '../../../common/components/form/fields/input/EnhancedInputField';
-import { SUPPORT_LANGUAGES } from '../../../common/translation/TranslationConstants';
+import NotEligible from './notEligible/notEligible';
 
 interface Props {
   isAuthenticated: boolean;
@@ -54,7 +54,9 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
       verifyInformation: values.verifyInformation,
     });
     setFormValues(payload);
-    if (isAuthenticated) history.push('/registration/form');
+    if (!isChildEligible(payload)) {
+      history.push('/registration/not-eligible');
+    } else if (isAuthenticated) history.push('/registration/form');
     else loginTunnistamo(`/registration/form`);
   };
 
@@ -101,20 +103,6 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
                 label={t('homePage.preliminaryForm.childHomeCity.input.label')}
                 onChange={handleChange}
                 value={values.child.homeCity}
-                validate={(value: string) =>
-                  validateEqual(
-                    value,
-                    [
-                      t('homePage.preliminaryForm.childHomeCity.supportCity', {
-                        lng: SUPPORT_LANGUAGES.FI,
-                      }),
-                      t('homePage.preliminaryForm.childHomeCity.supportCity', {
-                        lng: SUPPORT_LANGUAGES.SV,
-                      }),
-                    ],
-                    t('validation.general.unSupportedCity')
-                  )
-                }
                 required={true}
                 component={InputField}
                 placeholder={t(

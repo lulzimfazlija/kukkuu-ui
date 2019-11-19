@@ -5,6 +5,7 @@ import { loadUser } from 'redux-oidc';
 
 import Home from '../home/Home';
 import NotFound from '../notFound/NotFound';
+import NotEligible from '../home/form/notEligible/notEligible';
 import PrivateRoute from '../auth/route/PrivateRoute';
 import RegistrationForm from '../registration/form/RegistrationForm';
 import LoadingSpinner from '../../common/components/spinner/LoadingSpinner';
@@ -47,6 +48,11 @@ class App extends React.Component<AppProps> {
         <Switch>
           <Redirect exact path={`/${locale}/`} to={`/${locale}/home`} />
           <Route exact path={`/${locale}/home`} component={Home} />
+          <Route
+            exact
+            path={`/${locale}/registration/not-eligible`}
+            component={NotEligible}
+          />
           <PrivateRoute exact path={`/${locale}/registration/form`}>
             <RegistrationForm />
           </PrivateRoute>

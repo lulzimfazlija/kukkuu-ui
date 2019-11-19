@@ -41,6 +41,9 @@
       }
     }
   },
+  "notEligible": {
+    "notEligibleText": "Your child is unfortunately not eligible for the Godchildren of Culture program due to their birthdate or home town."
+  },
   "registration": {
     "form": {
       "child": {

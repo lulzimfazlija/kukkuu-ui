@@ -41,6 +41,9 @@
       }
     }
   },
+  "notEligible": {
+    "notEligibleText": "Valitettavasti lapsen syntymävuosi tai kotipaikkakunta eivät oikeuta häntä kulttuurin kummilapset toimintaan."
+  },
   "registration": {
     "form": {
       "child": {
