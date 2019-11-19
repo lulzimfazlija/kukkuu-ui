@@ -21,7 +21,6 @@ import { HomeFormValues } from './types/HomeFormTypes';
 import { convertFormValues } from './HomePreliminaryFormUtils';
 import { newMoment, formatTime } from '../../../common/time/utils';
 import EnhancedInputField from '../../../common/components/form/fields/input/EnhancedInputField';
-import NotEligible from './notEligible/notEligible';
 
 interface Props {
   isAuthenticated: boolean;
