@@ -1,9 +1,5 @@
 import { newMoment } from '../../time/utils';
-import {
-  SUPPORTED_START_BIRTHDATE,
-  DEFAULT_DATE_FORMAT,
-} from '../../time/TimeConstants';
-import { RegistrationFormValues } from '../../../domain/registration/types/RegistrationTypes';
+import { DEFAULT_DATE_FORMAT } from '../../time/TimeConstants';
 
 /**
  * validateRequire()
@@ -19,7 +15,7 @@ const validateRequire = (value: any, customMessage?: string) => {
 };
 
 /** validateBirthdate()
- * Validate user input child birthdate. Dates in the future are not valid.
+ * Validate input birth hdate. Dates in the future are not valid.
  * @param value Input value.
  */
 const validateBirthdate = (value: string | number) => {
@@ -33,43 +29,6 @@ const validateBirthdate = (value: string | number) => {
   if (inputMoment > nowMoment) {
     return 'validation.date.unSupported';
   }
-};
-
-/** isBirthdateEligible()
- * Check if child is eligible for participation.
- *
- * Only children born in 2020 is eligible for this service.
- * During development we allow dates in 2019.
- * @param {string} Input value.
- * @returns {boolean}
- */
-const isBirthdateEligible = (value: string) => {
-  const inputMoment = newMoment(value);
-  const supportedStart = newMoment(SUPPORTED_START_BIRTHDATE);
-
-  if (inputMoment.isBefore(supportedStart)) {
-    return false;
-  }
-  return true;
-};
-
-const isCityEligible = (city: string) => {
-  console.log(city);
-  const error = validateEqual(
-    city,
-    ['Helsinki', 'Helsingfors'],
-    'error shmerror'
-  );
-  console.log(error);
-  if (error) return false;
-  else return true;
-};
-
-const isChildEligible = (values: RegistrationFormValues) => {
-  return (
-    isBirthdateEligible(values.child.birthdate) &&
-    isCityEligible(values.child.homeCity)
-  );
 };
 
 /**
@@ -111,4 +70,4 @@ const validateEqual = (
   }
 };
 
-export { isChildEligible, validateBirthdate, validateEqual, validateRequire };
+export { validateBirthdate, validateEqual, validateRequire };

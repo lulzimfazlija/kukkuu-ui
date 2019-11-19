@@ -8,10 +8,8 @@ import { loginTunnistamo } from '../../auth/authenticate';
 import styles from './homePreliminaryForm.module.scss';
 import Button from '../../../common/components/button/Button';
 import InputField from '../../../common/components/form/fields/input/InputField';
-import {
-  isChildEligible,
-  validateBirthdate,
-} from '../../../common/components/form/validationUtils';
+import { validateBirthdate } from '../../../common/components/form/validationUtils';
+import { isChildEligible } from '../../registration/notEligible/notEligibleUtils';
 import BirthdateFormField from './partial/BirthdateFormField';
 import { setFormValues } from '../../registration/state/RegistrationActions';
 import { RegistrationFormValues } from '../../registration/types/RegistrationTypes';
