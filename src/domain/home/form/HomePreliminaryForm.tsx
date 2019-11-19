@@ -83,8 +83,8 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
         initialValues={convertFormValues(stateFormValues)}
         onSubmit={handleSubmit}
         validate={validate}
-        initialErrors={{ childBirthdate: validateBirthdate('') }}
         // To make sure form will not be valid to submit at first load
+        initialErrors={{ childBirthdate: validateBirthdate('') }}
       >
         {({ values, handleChange, handleSubmit, isSubmitting, isValid }) => (
           <form onSubmit={handleSubmit}>
