@@ -1,3 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders snapshot correctly 1`] = `"<div class=\\"inputWrapper textInput\\"><div class=\\"inputTypeWrapper\\"><label for=\\"foo\\">bar</label><input type=\\"text\\" id=\\"foo\\"/></div></div>"`;
+exports[`renders snapshot correctly 1`] = `
+<div
+  className="inputWrapper textInput"
+>
+  <div
+    className="inputTypeWrapper"
+  >
+    <label
+      htmlFor="foo"
+    >
+      bar
+    </label>
+    <input
+      id="foo"
+      type="text"
+    />
+  </div>
+</div>
+`;

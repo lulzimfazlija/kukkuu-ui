@@ -9,7 +9,7 @@ type InputElementAttributes = React.DetailedHTMLProps<
 >;
 
 interface InputProps extends InputElementAttributes {
-  type: string;
+  type?: string;
   label: string | ReactElement | undefined;
   id: string;
 }

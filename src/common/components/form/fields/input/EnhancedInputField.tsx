@@ -4,7 +4,7 @@ import { Field, FieldAttributes } from 'formik';
 import { validateRequire } from '../../validationUtils';
 
 interface Props {
-  required: boolean;
+  required?: boolean;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
