@@ -66,31 +66,6 @@ const isCityEligible = (city: string) => {
 };
 
 const isChildEligible = (values: RegistrationFormValues) => {
-  /*
-                validate={(value: string) =>
-                  validateEqual(
-                    value,
-                    [
-                      t('homePage.preliminaryForm.childHomeCity.supportCity', {
-                        lng: SUPPORT_LANGUAGES.FI,
-                      }),
-                      t('homePage.preliminaryForm.childHomeCity.supportCity', {
-                        lng: SUPPORT_LANGUAGES.SV,
-                      }),
-                    ],
-                    t('validation.general.unSupportedCity')
-                  )
-                }
-
-  */
-  /*const cities = [
-    t('homePage.preliminaryForm.childHomeCity.supportCity', {
-      lng: SUPPORT_LANGUAGES.FI,
-    }),
-    t('homePage.preliminaryForm.childHomeCity.supportCity', {
-      lng: SUPPORT_LANGUAGES.SV,
-    }),
-  ];*/
   return (
     isBirthdateEligible(values.child.birthdate) &&
     isCityEligible(values.child.homeCity)
