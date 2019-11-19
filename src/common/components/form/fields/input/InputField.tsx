@@ -22,7 +22,6 @@ const InputField: React.ComponentType<InputField> = ({
   const inputError = touch && error ? error : null;
 
   const { t } = useTranslation();
-
   return (
     <div
       className={classnames(styles.inputField, {

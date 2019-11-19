@@ -24,10 +24,6 @@ const validateRequire = (value: any, customMessage?: string) => {
  * @param value Input value.
  */
 const validateBirthdate = (value: string | number) => {
-  if (!value) {
-    return 'validation.general.required';
-  }
-
   const inputMoment = newMoment(value, DEFAULT_DATE_FORMAT);
   const nowMoment = newMoment();
 
@@ -60,13 +56,20 @@ const validateEqual = (
   let cloneValue = value;
   let cloneComparedValue = comparedValue;
 
-  if (!value) {
-    return 'validation.general.required';
-  }
-
   if (typeof value === 'string' && typeof comparedValue === 'string') {
     cloneValue = value.toLowerCase();
     cloneComparedValue = comparedValue.toLowerCase();
+  }
+
+  if (typeof value === 'string' && Array.isArray(comparedValue)) {
+    const match = comparedValue.find(c => {
+      cloneValue = typeof value === 'string' ? value.toLowerCase() : value;
+      cloneComparedValue = typeof c === 'string' ? c.toLowerCase() : c;
+
+      return cloneValue === cloneComparedValue;
+    });
+
+    if (!match) return errorMessage;
   }
 
   if (cloneValue !== cloneComparedValue) {

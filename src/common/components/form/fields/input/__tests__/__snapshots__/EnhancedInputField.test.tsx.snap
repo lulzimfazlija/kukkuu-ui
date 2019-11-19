@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EnhancedInputField  render normally 1`] = `
+<Field
+  id="bar"
+  name="foo"
+  required={true}
+  validate={[Function]}
+/>
+`;

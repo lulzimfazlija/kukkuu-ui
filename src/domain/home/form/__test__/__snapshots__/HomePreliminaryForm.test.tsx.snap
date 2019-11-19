@@ -5,6 +5,11 @@ exports[`renders snapshot correctly 1`] = `
   className="homeForm"
 >
   <Formik
+    initialErrors={
+      Object {
+        "childBirthdate": "validation.date.invalidFormat",
+      }
+    }
     initialValues={
       Object {
         "child": Object {
