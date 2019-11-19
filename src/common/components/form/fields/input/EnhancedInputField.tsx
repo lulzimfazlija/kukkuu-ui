@@ -10,15 +10,17 @@ interface Props {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const EnhancedInputField: React.FC<Props & FieldAttributes<any>> = ({
   required,
+  value,
   validate,
   ...rest
 }) => {
-  let customValidate = validate;
-
-  if (required) {
-    customValidate = validateRequire || validate;
-  }
-  return <Field validate={customValidate} required={required} {...rest} />;
+  return (
+    <Field
+      validate={required && !value ? validateRequire : validate}
+      required={required}
+      {...rest}
+    />
+  );
 };
 
 export default EnhancedInputField;

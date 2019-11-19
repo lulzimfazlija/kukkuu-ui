@@ -8,7 +8,10 @@ import { loginTunnistamo } from '../../auth/authenticate';
 import styles from './homePreliminaryForm.module.scss';
 import Button from '../../../common/components/button/Button';
 import InputField from '../../../common/components/form/fields/input/InputField';
-import { validateBirthdate } from '../../../common/components/form/validationUtils';
+import {
+  validateBirthdate,
+  validateEqual,
+} from '../../../common/components/form/validationUtils';
 import BirthdateFormField from './partial/BirthdateFormField';
 import { setFormValues } from '../../registration/state/RegistrationActions';
 import { RegistrationFormValues } from '../../registration/types/RegistrationTypes';
@@ -18,6 +21,7 @@ import { HomeFormValues } from './types/HomeFormTypes';
 import { convertFormValues } from './HomePreliminaryFormUtils';
 import { newMoment, formatTime } from '../../../common/time/utils';
 import EnhancedInputField from '../../../common/components/form/fields/input/EnhancedInputField';
+import { SUPPORT_LANGUAGES } from '../../../common/translation/TranslationConstants';
 
 interface Props {
   isAuthenticated: boolean;
@@ -72,12 +76,14 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
     }
     return errors;
   };
+
   return (
     <div className={styles.homeForm}>
       <Formik
         initialValues={convertFormValues(stateFormValues)}
         onSubmit={handleSubmit}
         validate={validate}
+        isInitialValid={false}
       >
         {({ values, handleChange, handleSubmit, isSubmitting, isValid }) => (
           <form onSubmit={handleSubmit}>
@@ -94,6 +100,20 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
                 label={t('homePage.preliminaryForm.childHomeCity.input.label')}
                 onChange={handleChange}
                 value={values.child.homeCity}
+                validate={(value: string) =>
+                  validateEqual(
+                    value,
+                    [
+                      t('homePage.preliminaryForm.childHomeCity.supportCity', {
+                        lng: SUPPORT_LANGUAGES.FI,
+                      }),
+                      t('homePage.preliminaryForm.childHomeCity.supportCity', {
+                        lng: SUPPORT_LANGUAGES.SV,
+                      }),
+                    ],
+                    t('validation.general.unSupportedCity')
+                  )
+                }
                 required={true}
                 component={InputField}
                 placeholder={t(
