@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { loadUser } from 'redux-oidc';
 
 import Home from '../home/Home';
-import NotFound from '../notFound/NotFound';
+import NotFound from './notFound/NotFound';
 import NotEligible from '../home/form/notEligible/notEligible';
 import PrivateRoute from '../auth/route/PrivateRoute';
 import RegistrationForm from '../registration/form/RegistrationForm';
