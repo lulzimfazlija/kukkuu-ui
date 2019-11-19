@@ -6,12 +6,6 @@ import {
 
 describe('Form validation utilities - ', () => {
   describe('validateBirthdate', () => {
-    test('return require text if value is empty', () => {
-      const error = validateBirthdate('');
-
-      expect(error).toEqual('validation.general.required');
-    });
-
     test('return wrong format error if user try to input number, or general text', () => {
       const error = validateBirthdate('foo');
       expect(error).toEqual('validation.date.invalidFormat');
@@ -29,12 +23,6 @@ describe('Form validation utilities - ', () => {
   });
 
   describe('validateEqual', () => {
-    test('return require text if value is empty', () => {
-      const error = validateEqual('', 'foo', 'bar');
-
-      expect(error).toEqual('validation.general.required');
-    });
-
     test('return error text if value is not equal', () => {
       const error = validateEqual('ble', 'foo', 'bar');
 
@@ -56,6 +44,16 @@ describe('Form validation utilities - ', () => {
     test('will not return error text if value and compared value is different in lower/uppercase', () => {
       const error = validateEqual('foo', 'fOo', 'bar');
 
+      expect(error).toBeUndefined();
+    });
+
+    test('support multiple string compare, return error if no match', () => {
+      const error = validateEqual('foo', ['nah'], 'bar');
+      expect(error).toEqual('bar');
+    });
+
+    test('support multiple string compare, also in uppercase, return error if no match', () => {
+      const error = validateEqual('Foo', ['fOo', 'bar'], 'bar');
       expect(error).toBeUndefined();
     });
   });

@@ -63,8 +63,8 @@ const validateEqual = (
 
   if (typeof value === 'string' && Array.isArray(comparedValue)) {
     const match = comparedValue.find(c => {
-      cloneValue = value === 'string' ? value.toLowerCase() : value;
-      cloneComparedValue = c === 'string' ? c.toLowerCase() : c;
+      cloneValue = typeof value === 'string' ? value.toLowerCase() : value;
+      cloneComparedValue = typeof c === 'string' ? c.toLowerCase() : c;
 
       return cloneValue === cloneComparedValue;
     });
