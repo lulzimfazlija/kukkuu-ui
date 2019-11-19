@@ -1,5 +1,4 @@
 import { isChildEligible } from '../notEligibleUtils';
-import { SUPPORTED_START_BIRTHDATE } from '../../../../common/time/TimeConstants';
 import { RegistrationFormValues } from '../../types/RegistrationTypes';
 
 const values: RegistrationFormValues = {
@@ -25,7 +24,7 @@ describe('notEligibleUtils.test.ts', () => {
     values.child.homeCity = 'Yokohama';
     expect(isChildEligible(values)).toEqual(false);
   });
-  test('Verify that all cities in REACT_APP_ELIGIBLE_CITIES are valid', () => {
+  test('Verify that all cities in REACT_APP_ELIGIBLE_CITIES are eligible', () => {
     const eligibleCities: string = process.env.REACT_APP_ELIGIBLE_CITIES || '';
     const cities = eligibleCities.split(',') || [];
     cities.forEach(city => {
@@ -33,7 +32,7 @@ describe('notEligibleUtils.test.ts', () => {
       expect(isChildEligible(values)).toEqual(true);
     });
   });
-  test('Verify that all cities in REACT_APP_ELIGIBLE_CITIES in uppercase are valid', () => {
+  test('Verify that all cities in REACT_APP_ELIGIBLE_CITIES in uppercase are eligible', () => {
     const eligibleCities: string = process.env.REACT_APP_ELIGIBLE_CITIES || '';
     const cities = eligibleCities.toUpperCase().split(',') || [];
     cities.forEach(city => {
@@ -41,12 +40,20 @@ describe('notEligibleUtils.test.ts', () => {
       expect(isChildEligible(values)).toEqual(true);
     });
   });
-  test('Verify that a date too far into the past is not valid', () => {
+  test('Verify that a date too far into the past is not eligible', () => {
     values.child.birthdate = '2019-10-31';
     expect(isChildEligible(values)).toEqual(false);
   });
-  test('Verify that a date after supported start date is valid', () => {
+  test('Verify that a date after supported start date is eligible', () => {
     values.child.birthdate = '2019-11-11';
     expect(isChildEligible(values)).toEqual(true);
+  });
+  test('Verify that an empty date is not eligible', () => {
+    values.child.birthdate = '';
+    expect(isChildEligible(values)).toEqual(false);
+  });
+  test('Verify that an invalid date is not eligible', () => {
+    values.child.birthdate = 'Not so fast';
+    expect(isChildEligible(values)).toEqual(false);
   });
 });

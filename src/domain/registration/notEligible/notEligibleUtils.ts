@@ -14,6 +14,8 @@ const isBirthdateEligible = (value: string) => {
   const inputMoment = newMoment(value);
   const supportedStart = newMoment(SUPPORTED_START_BIRTHDATE);
 
+  if (!inputMoment.isValid()) return false;
+
   if (inputMoment.isBefore(supportedStart)) {
     return false;
   }
