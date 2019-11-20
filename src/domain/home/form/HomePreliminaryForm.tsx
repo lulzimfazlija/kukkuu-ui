@@ -22,17 +22,19 @@ import { convertFormValues } from './HomePreliminaryFormUtils';
 import { newMoment, formatTime } from '../../../common/time/utils';
 import EnhancedInputField from '../../../common/components/form/fields/input/EnhancedInputField';
 import { SUPPORT_LANGUAGES } from '../../../common/translation/TranslationConstants';
-
+import { registrationFormDataSelector } from '../../registration/state/RegistrationSelectors';
 interface Props {
   isAuthenticated: boolean;
   setFormValues: (values: RegistrationFormValues) => void;
   stateFormValues: RegistrationFormValues;
+  initialValues: HomeFormValues;
 }
 
 const HomePreliminaryForm: FunctionComponent<Props> = ({
   setFormValues,
   stateFormValues,
   isAuthenticated,
+  initialValues,
 }) => {
   const { t } = useTranslation();
   const history = useHistory();
@@ -80,13 +82,17 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
   return (
     <div className={styles.homeForm}>
       <Formik
-        initialValues={convertFormValues(stateFormValues)}
+        initialValues={initialValues}
         onSubmit={handleSubmit}
         validate={validate}
-        // To make sure form will not be valid to submit at first load
-        initialErrors={{ childBirthdate: validateBirthdate('') }}
+        // To not be able to submit form at first mount
+        initialErrors={
+          stateFormValues.child.birthdate
+            ? {}
+            : { childBirthdate: validateBirthdate('') }
+        }
       >
-        {({ values, handleChange, handleSubmit, isSubmitting, isValid }) => (
+        {({ handleSubmit, isSubmitting, isValid }) => (
           <form onSubmit={handleSubmit}>
             <div className={styles.inputWrapper}>
               <FieldArray
@@ -96,11 +102,8 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
 
               <EnhancedInputField
                 className={styles.childHomeCity}
-                type="text"
                 name="child.homeCity"
                 label={t('homePage.preliminaryForm.childHomeCity.input.label')}
-                onChange={handleChange}
-                value={values.child.homeCity}
                 validate={(value: string) =>
                   validateEqual(
                     value,
@@ -130,9 +133,6 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
                 'homePage.preliminaryForm.verifyInformation.checkbox.label'
               )}
               name="verifyInformation"
-              onChange={handleChange}
-              value={values.verifyInformation}
-              checked={values.verifyInformation}
               required={true}
               component={InputField}
             />
@@ -155,10 +155,14 @@ const actions = {
   setFormValues,
 };
 
-const mapStateToProps = (state: StoreState) => ({
-  isAuthenticated: isAuthenticatedSelector(state),
-  stateFormValues: state.registration.formValues,
-});
+const mapStateToProps = (state: StoreState) => {
+  const stateFormData = registrationFormDataSelector(state);
+  return {
+    isAuthenticated: isAuthenticatedSelector(state),
+    stateFormValues: stateFormData,
+    initialValues: convertFormValues(stateFormData),
+  };
+};
 
 export const UnconnectedHomePreliminaryForm = HomePreliminaryForm;
 

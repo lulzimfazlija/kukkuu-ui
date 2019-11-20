@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { FieldArrayRenderProps } from 'formik';
+import { FieldArrayRenderProps, getIn } from 'formik';
 import { useTranslation } from 'react-i18next';
 
 import InputField from '../../../../common/components/form/fields/input/InputField';
@@ -8,9 +8,10 @@ import { validateRequire } from '../../../../common/components/form/validationUt
 import EnhancedInputField from '../../../../common/components/form/fields/input/EnhancedInputField';
 
 const BirthdateFormField: FunctionComponent<FieldArrayRenderProps> = ({
-  form: { errors },
+  form: { errors, touched },
 }) => {
-  const error = errors['childBIRTHDATE'];
+  const fieldTouched = getIn(touched, 'child.birthdate.day');
+  const error = errors['childBirthdate'];
   const { t } = useTranslation();
 
   return (
@@ -52,7 +53,8 @@ const BirthdateFormField: FunctionComponent<FieldArrayRenderProps> = ({
           min={2019}
         />
       </div>
-      <div className={styles.error}>{error}</div>
+      {/* not to display error at first render until input got touched */}
+      {fieldTouched && <div className={styles.error}>{error}</div>}
     </div>
   );
 };

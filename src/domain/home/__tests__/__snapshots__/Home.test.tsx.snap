@@ -32,6 +32,19 @@ exports[`renders snapshot correctly 1`] = `
           </p>
           <Connect(HomePreliminaryForm)>
             <HomePreliminaryForm
+              initialValues={
+                Object {
+                  "child": Object {
+                    "birthdate": Object {
+                      "day": "",
+                      "month": "",
+                      "year": "",
+                    },
+                    "homeCity": "",
+                  },
+                  "verifyInformation": false,
+                }
+              }
               isAuthenticated={false}
               setFormValues={[Function]}
               stateFormValues={
@@ -666,9 +679,6 @@ exports[`renders snapshot correctly 1`] = `
                                   </Field>
                                 </EnhancedInputField>
                               </div>
-                              <div
-                                className="error"
-                              />
                             </div>
                           </BirthdateFormField>
                         </FieldArrayInner>
@@ -678,22 +688,17 @@ exports[`renders snapshot correctly 1`] = `
                         component={[Function]}
                         label="Lapsen kotipaikkakunta"
                         name="child.homeCity"
-                        onChange={[Function]}
                         placeholder="Enter hometown city, currently only Helsinki supported"
                         required={true}
-                        type="text"
                         validate={[Function]}
-                        value=""
                       >
                         <Field
                           className="childHomeCity"
                           component={[Function]}
                           label="Lapsen kotipaikkakunta"
                           name="child.homeCity"
-                          onChange={[Function]}
                           placeholder="Enter hometown city, currently only Helsinki supported"
                           required={true}
-                          type="text"
                           validate={[Function]}
                         >
                           <InputField
@@ -772,10 +777,8 @@ exports[`renders snapshot correctly 1`] = `
                               }
                             }
                             label="Lapsen kotipaikkakunta"
-                            onChange={[Function]}
                             placeholder="Enter hometown city, currently only Helsinki supported"
                             required={true}
-                            type="text"
                           >
                             <div
                               className="inputField"
@@ -788,7 +791,6 @@ exports[`renders snapshot correctly 1`] = `
                                 onChange={[Function]}
                                 placeholder="Enter hometown city, currently only Helsinki supported"
                                 required={true}
-                                type="text"
                                 value=""
                               >
                                 <div
@@ -820,29 +822,23 @@ exports[`renders snapshot correctly 1`] = `
                       </EnhancedInputField>
                     </div>
                     <EnhancedInputField
-                      checked={false}
                       className="verifyInformationCheckbox"
                       component={[Function]}
                       label="Vakuutan antamani tiedot oikeaksi."
                       name="verifyInformation"
-                      onChange={[Function]}
                       required={true}
                       type="checkbox"
-                      value={false}
                     >
                       <Field
-                        checked={false}
                         className="verifyInformationCheckbox"
                         component={[Function]}
                         label="Vakuutan antamani tiedot oikeaksi."
                         name="verifyInformation"
-                        onChange={[Function]}
                         required={true}
                         type="checkbox"
                         validate={[Function]}
                       >
                         <InputField
-                          checked={false}
                           className="verifyInformationCheckbox"
                           field={
                             Object {
@@ -919,14 +915,13 @@ exports[`renders snapshot correctly 1`] = `
                             }
                           }
                           label="Vakuutan antamani tiedot oikeaksi."
-                          onChange={[Function]}
                           required={true}
                           type="checkbox"
                         >
                           <div
                             className="inputField"
                           >
-                            <Input
+                            <Checkbox
                               checked={false}
                               className="verifyInformationCheckbox"
                               label="Vakuutan antamani tiedot oikeaksi."
@@ -934,29 +929,30 @@ exports[`renders snapshot correctly 1`] = `
                               onBlur={[Function]}
                               onChange={[Function]}
                               required={true}
-                              type="checkbox"
                               value={false}
                             >
                               <div
-                                className="inputWrapper checkboxInput"
+                                className="inputWrapper checkboxInput verifyInformationCheckbox"
                               >
                                 <div
                                   className="inputTypeWrapper"
                                 >
-                                  <label>
-                                    Vakuutan antamani tiedot oikeaksi.*
-                                  </label>
                                   <input
                                     checked={false}
-                                    name="verifyInformation"
+                                    id="verifyInformation"
                                     onBlur={[Function]}
                                     onChange={[Function]}
                                     type="checkbox"
                                     value={false}
                                   />
+                                  <label
+                                    htmlFor="verifyInformation"
+                                  >
+                                    Vakuutan antamani tiedot oikeaksi.*
+                                  </label>
                                 </div>
                               </div>
-                            </Input>
+                            </Checkbox>
                             <div
                               className="inputErrorMessage"
                             />
