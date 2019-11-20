@@ -31,3 +31,10 @@
         }
     }
 }
+
+.verifyInformationCheckbox {
+    input[type=checkbox]:checked + label:before {
+        background-color: $hel-summer !important;
+        border: 1px solid $hel-summer !important;
+    }
+}

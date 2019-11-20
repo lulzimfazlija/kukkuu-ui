@@ -23,7 +23,6 @@ import { newMoment, formatTime } from '../../../common/time/utils';
 import EnhancedInputField from '../../../common/components/form/fields/input/EnhancedInputField';
 import { SUPPORT_LANGUAGES } from '../../../common/translation/TranslationConstants';
 import { registrationFormDataSelector } from '../../registration/state/RegistrationSelectors';
-
 interface Props {
   isAuthenticated: boolean;
   setFormValues: (values: RegistrationFormValues) => void;
@@ -93,7 +92,7 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
             : { childBirthdate: validateBirthdate('') }
         }
       >
-        {({ values, handleChange, handleSubmit, isSubmitting, isValid }) => (
+        {({ handleSubmit, isSubmitting, isValid }) => (
           <form onSubmit={handleSubmit}>
             <div className={styles.inputWrapper}>
               <FieldArray
@@ -103,11 +102,8 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
 
               <EnhancedInputField
                 className={styles.childHomeCity}
-                type="text"
                 name="child.homeCity"
                 label={t('homePage.preliminaryForm.childHomeCity.input.label')}
-                onChange={handleChange}
-                value={values.child.homeCity}
                 validate={(value: string) =>
                   validateEqual(
                     value,
@@ -137,9 +133,6 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
                 'homePage.preliminaryForm.verifyInformation.checkbox.label'
               )}
               name="verifyInformation"
-              onChange={handleChange}
-              value={values.verifyInformation}
-              checked={values.verifyInformation}
               required={true}
               component={InputField}
             />
