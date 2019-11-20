@@ -30,15 +30,30 @@
 
 .checkboxInput {
     .inputTypeWrapper {    
-        grid-auto-flow: column;
-        grid-template-columns: $baseMargin*2 1fr;
-        align-items: center;
         input {
-            grid-column: 1;
-            min-height: $inputHeight;  
+            display: none;
         }
         label {
-            text-align: left;
-        }  
+            position: relative;
+            padding-left: $checkboxPaddingLeft;
+
+            &:before {
+                display: inline-block;
+                content: '';
+                width: $checkboxHeight;
+                height: $checkboxHeight;
+                position: absolute;
+                left: 0;
+                background-color: $white;
+                border: 1px solid $black;
+            }
+        }
+
+        input[type=checkbox]:checked + label:before {
+            background-image: url('../../../assets/icons/svg/checkbox.svg');
+            background-size: contain;
+            text-align: center;
+            background-color: blue;
+        }
     }
 }

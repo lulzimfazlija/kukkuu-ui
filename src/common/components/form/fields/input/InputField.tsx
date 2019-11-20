@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import Input from '../../../input/Input';
 import styles from './inputField.module.scss';
+import Checkbox from '../../../input/Checkbox';
 
 interface InputField extends FieldProps {
   id: string;
@@ -15,6 +16,7 @@ interface InputField extends FieldProps {
 const InputField: React.ComponentType<InputField> = ({
   field,
   form: { errors, touched },
+  type,
   ...rest
 }) => {
   const error = getIn(errors, field.name);
@@ -28,7 +30,11 @@ const InputField: React.ComponentType<InputField> = ({
         [styles.inputError]: !!inputError,
       })}
     >
-      <Input {...field} {...rest} />
+      {type === 'checkbox' ? (
+        <Checkbox {...field} {...rest} />
+      ) : (
+        <Input {...field} {...rest} type={type} />
+      )}
       <div className={styles.inputErrorMessage}>{t(inputError)}</div>
     </div>
   );

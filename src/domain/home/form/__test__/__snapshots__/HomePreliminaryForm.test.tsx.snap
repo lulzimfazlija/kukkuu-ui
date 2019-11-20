@@ -10,19 +10,6 @@ exports[`renders snapshot correctly 1`] = `
         "childBirthdate": "validation.date.invalidFormat",
       }
     }
-    initialValues={
-      Object {
-        "child": Object {
-          "birthdate": Object {
-            "day": "",
-            "month": "",
-            "year": "",
-          },
-          "homeCity": "",
-        },
-        "verifyInformation": false,
-      }
-    }
     onSubmit={[Function]}
     validate={[Function]}
   >
