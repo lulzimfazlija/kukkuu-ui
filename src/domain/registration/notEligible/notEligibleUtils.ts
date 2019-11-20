@@ -7,11 +7,11 @@ import { RegistrationFormValues } from '../types/RegistrationTypes';
  *
  * Only children born in 2020 is eligible for this service.
  * During development we allow dates in 2019.
- * @param {string} Input value.
+ * @param {string} birthdate in YYYY-MM-DD format.
  * @returns {boolean}
  */
 const isBirthdateEligible = (value: string) => {
-  const inputMoment = newMoment(value);
+  const inputMoment = newMoment(value, 'YYYY-MM-DD');
   const supportedStart = newMoment(SUPPORTED_START_BIRTHDATE);
 
   if (!inputMoment.isValid()) return false;
