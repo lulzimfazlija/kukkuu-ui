@@ -11,6 +11,10 @@
 
 For isolated developing environment, you can use our Docker instructions.
 
+### .env variables
+
+Change REACT_APP_ELIGIBLE_CITIES if you wish to use the project in another city or municipality.
+
 ## Available Scripts
 
 In the project directory, you can run:

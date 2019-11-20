@@ -8,10 +8,8 @@ import { loginTunnistamo } from '../../auth/authenticate';
 import styles from './homePreliminaryForm.module.scss';
 import Button from '../../../common/components/button/Button';
 import InputField from '../../../common/components/form/fields/input/InputField';
-import {
-  validateBirthdate,
-  validateEqual,
-} from '../../../common/components/form/validationUtils';
+import { validateDate } from '../../../common/components/form/validationUtils';
+import { isChildEligible } from '../../registration/notEligible/NotEligibleUtils';
 import BirthdateFormField from './partial/BirthdateFormField';
 import { setFormValues } from '../../registration/state/RegistrationActions';
 import { RegistrationFormValues } from '../../registration/types/RegistrationTypes';
@@ -21,7 +19,6 @@ import { HomeFormValues } from './types/HomeFormTypes';
 import { convertFormValues } from './HomePreliminaryFormUtils';
 import { newMoment, formatTime } from '../../../common/time/utils';
 import EnhancedInputField from '../../../common/components/form/fields/input/EnhancedInputField';
-import { SUPPORT_LANGUAGES } from '../../../common/translation/TranslationConstants';
 import { registrationFormDataSelector } from '../../registration/state/RegistrationSelectors';
 interface Props {
   isAuthenticated: boolean;
@@ -56,8 +53,17 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
       verifyInformation: values.verifyInformation,
     });
     setFormValues(payload);
-    if (isAuthenticated) history.push('/registration/form');
-    else loginTunnistamo(`/registration/form`);
+    handleRedirect(payload);
+  };
+
+  const handleRedirect = (payload: RegistrationFormValues) => {
+    if (isChildEligible(payload)) {
+      history.push('/registration/not-eligible');
+    } else if (isAuthenticated) {
+      history.push('/registration/form');
+    } else {
+      loginTunnistamo(`/registration/form`);
+    }
   };
 
   const validate = (values: HomeFormValues) => {
@@ -69,7 +75,7 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
     const errors: FormikErrors<HomeFormValues> = {};
 
     if (day && month && year) {
-      errors.childBirthdate = validateBirthdate(`${day}.${month}.${year}`);
+      errors.childBirthdate = validateDate(`${day}.${month}.${year}`);
 
       if (!errors.childBirthdate) {
         // Delete the property manually so form will be valid when this is undefined.
@@ -89,7 +95,7 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
         initialErrors={
           stateFormValues.child.birthdate
             ? {}
-            : { childBirthdate: validateBirthdate('') }
+            : { childBirthdate: validateDate('') }
         }
       >
         {({ handleSubmit, isSubmitting, isValid }) => (
@@ -104,20 +110,6 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
                 className={styles.childHomeCity}
                 name="child.homeCity"
                 label={t('homePage.preliminaryForm.childHomeCity.input.label')}
-                validate={(value: string) =>
-                  validateEqual(
-                    value,
-                    [
-                      t('homePage.preliminaryForm.childHomeCity.supportCity', {
-                        lng: SUPPORT_LANGUAGES.FI,
-                      }),
-                      t('homePage.preliminaryForm.childHomeCity.supportCity', {
-                        lng: SUPPORT_LANGUAGES.SV,
-                      }),
-                    ],
-                    t('validation.general.unSupportedCity')
-                  )
-                }
                 required={true}
                 component={InputField}
                 placeholder={t(

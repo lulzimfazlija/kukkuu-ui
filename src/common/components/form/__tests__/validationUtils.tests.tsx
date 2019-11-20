@@ -1,23 +1,23 @@
 import {
-  validateBirthdate,
+  validateDate,
   validateEqual,
   validateRequire,
 } from '../validationUtils';
 
 describe('Form validation utilities - ', () => {
-  describe('validateBirthdate', () => {
+  describe('validateDate', () => {
     test('return wrong format error if user try to input number, or general text', () => {
-      const error = validateBirthdate('foo');
+      const error = validateDate('foo');
       expect(error).toEqual('validation.date.invalidFormat');
     });
 
     test('return wrong format error if user try to wrong format date', () => {
-      const error = validateBirthdate('1f10.149.13');
+      const error = validateDate('1f10.149.13');
       expect(error).toEqual('validation.date.invalidFormat');
     });
 
     test('return wrong unsupported message if kid birthdate is in future or before supported year', () => {
-      const error = validateBirthdate('12.12.2100');
+      const error = validateDate('12.12.2100');
       expect(error).toEqual('validation.date.unSupported');
     });
   });
