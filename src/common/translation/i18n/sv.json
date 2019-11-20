@@ -28,8 +28,7 @@
         "input": {
           "label": "Lapsen kotipaikkakunta",
           "placeholder": "Enter hometown city, currently only Helsingfors supported"
-        },
-        "supportCity": "Helsingfors"
+        }
       },
       "verifyInformation": {
         "checkbox": {
@@ -41,10 +40,10 @@
       }
     }
   },
-  "notEligible": {
-    "notEligibleText": "Ditt barn kan inte bli med. Sori. "
-  },
   "registration": {
+    "notEligible": {
+      "text": "Ditt barn kan inte bli med. Sori. "
+    },
     "form": {
       "child": {
         "homeCity": {

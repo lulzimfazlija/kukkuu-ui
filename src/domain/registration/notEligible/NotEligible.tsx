@@ -2,7 +2,6 @@ import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import styles from './notEligible.module.scss';
-//import { useHistory } from 'react-router-dom';
 
 const NotEligible: FunctionComponent = () => {
   const { t } = useTranslation();
@@ -15,7 +14,7 @@ const NotEligible: FunctionComponent = () => {
             {t('homePage.hero.descriptionText')}
           </p>
           <p className={styles.notEligible}>
-            {t('notEligible.notEligibleText')}
+            {t('registration.notEligible.text')}
           </p>
         </div>
       </div>
