@@ -51,10 +51,15 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
       verifyInformation: values.verifyInformation,
     });
     setFormValues(payload);
-    if (!isChildEligible(payload)) {
-      history.push('/registration/not-eligible');
-    } else if (isAuthenticated) history.push('/registration/form');
-    else loginTunnistamo(`/registration/form`);
+    handleRedirect(payload);
+  };
+
+  const handleRedirect = (payload: RegistrationFormValues) => {
+    !isChildEligible(payload)
+      ? history.push('/registration/not-eligible')
+      : isAuthenticated
+      ? history.push('/registration/form')
+      : loginTunnistamo(`/registration/form`);
   };
 
   const validate = (values: HomeFormValues) => {
