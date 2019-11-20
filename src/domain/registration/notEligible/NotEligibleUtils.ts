@@ -28,7 +28,7 @@ const isBirthdateEligible = (value: string) => {
  */
 const getEligibleCities = () => {
   const eligibleCities = process.env.REACT_APP_ELIGIBLE_CITIES || 'helsinki';
-  return eligibleCities.toLocaleLowerCase().split(',');
+  return eligibleCities.toLowerCase().split(',');
 };
 
 const isCityEligible = (city: string) => {
