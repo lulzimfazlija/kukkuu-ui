@@ -14,11 +14,12 @@ const validateRequire = (value: any, customMessage?: string) => {
   }
 };
 
-/** validateBirthdate()
- * Validate input birth hdate. Dates in the future are not valid.
- * @param value Input value.
+/** validateDate()
+ * Validate input date. Dates in the future are not valid.
+ * @param {string|number} value Input value.
+ * @returns {string} translation key
  */
-const validateBirthdate = (value: string | number) => {
+const validateDate = (value: string | number) => {
   const inputMoment = newMoment(value, DEFAULT_DATE_FORMAT);
   const nowMoment = newMoment();
 
@@ -70,4 +71,4 @@ const validateEqual = (
   }
 };
 
-export { validateBirthdate, validateEqual, validateRequire };
+export { validateDate, validateEqual, validateRequire };

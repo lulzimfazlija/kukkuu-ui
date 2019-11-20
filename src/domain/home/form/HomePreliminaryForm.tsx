@@ -8,7 +8,7 @@ import { loginTunnistamo } from '../../auth/authenticate';
 import styles from './homePreliminaryForm.module.scss';
 import Button from '../../../common/components/button/Button';
 import InputField from '../../../common/components/form/fields/input/InputField';
-import { validateBirthdate } from '../../../common/components/form/validationUtils';
+import { validateDate } from '../../../common/components/form/validationUtils';
 import { isChildEligible } from '../../registration/notEligible/NotEligibleUtils';
 import BirthdateFormField from './partial/BirthdateFormField';
 import { setFormValues } from '../../registration/state/RegistrationActions';
@@ -73,7 +73,7 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
     const errors: FormikErrors<HomeFormValues> = {};
 
     if (day && month && year) {
-      errors.childBirthdate = validateBirthdate(`${day}.${month}.${year}`);
+      errors.childBirthdate = validateDate(`${day}.${month}.${year}`);
 
       if (!errors.childBirthdate) {
         // Delete the property manually so form will be valid when this is undefined.
@@ -90,7 +90,7 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
         onSubmit={handleSubmit}
         validate={validate}
         // To make sure form will not be valid to submit at first load
-        initialErrors={{ childBirthdate: validateBirthdate('') }}
+        initialErrors={{ childBirthdate: validateDate('') }}
       >
         {({ values, handleChange, handleSubmit, isSubmitting, isValid }) => (
           <form onSubmit={handleSubmit}>
