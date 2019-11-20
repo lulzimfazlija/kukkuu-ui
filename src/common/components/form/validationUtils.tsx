@@ -1,8 +1,5 @@
 import { newMoment } from '../../time/utils';
-import {
-  SUPPORTED_START_BIRTHDATE,
-  DEFAULT_DATE_FORMAT,
-} from '../../time/TimeConstants';
+import { DEFAULT_DATE_FORMAT } from '../../time/TimeConstants';
 
 /**
  * validateRequire()
@@ -17,13 +14,12 @@ const validateRequire = (value: any, customMessage?: string) => {
   }
 };
 
-/** validateBirthdate()
- * Validate user input child birthdate.
- * This app only target recently born child, so we support child which born after 2019 only.
- * Input time which come from future is not accepted
- * @param value Input value.
+/** validateDate()
+ * Validate input date. Dates in the future are not valid.
+ * @param {string|number} value Input value.
+ * @returns {string} translation key
  */
-const validateBirthdate = (value: string | number) => {
+const validateDate = (value: string | number) => {
   const inputMoment = newMoment(value, DEFAULT_DATE_FORMAT);
   const nowMoment = newMoment();
 
@@ -31,9 +27,7 @@ const validateBirthdate = (value: string | number) => {
     return 'validation.date.invalidFormat';
   }
 
-  const supportedStart = newMoment(SUPPORTED_START_BIRTHDATE);
-
-  if (inputMoment < supportedStart || inputMoment > nowMoment) {
+  if (inputMoment > nowMoment) {
     return 'validation.date.unSupported';
   }
 };
@@ -77,4 +71,4 @@ const validateEqual = (
   }
 };
 
-export { validateBirthdate, validateEqual, validateRequire };
+export { validateDate, validateEqual, validateRequire };
