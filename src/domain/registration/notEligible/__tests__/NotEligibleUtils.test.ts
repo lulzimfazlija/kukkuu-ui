@@ -1,4 +1,4 @@
-import { isChildEligible } from '../notEligibleUtils';
+import { isChildEligible } from '../NotEligibleUtils';
 import { RegistrationFormValues } from '../../types/RegistrationTypes';
 
 const values: RegistrationFormValues = {

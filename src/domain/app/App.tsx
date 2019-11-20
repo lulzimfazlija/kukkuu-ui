@@ -5,7 +5,7 @@ import { loadUser } from 'redux-oidc';
 
 import Home from '../home/Home';
 import NotFound from './notFound/NotFound';
-import NotEligible from '../registration/notEligible/notEligible';
+import NotEligible from '../registration/notEligible/NotEligible';
 import PrivateRoute from '../auth/route/PrivateRoute';
 import RegistrationForm from '../registration/form/RegistrationForm';
 import LoadingSpinner from '../../common/components/spinner/LoadingSpinner';

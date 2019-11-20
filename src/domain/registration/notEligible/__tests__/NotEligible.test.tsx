@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import NotEligible from '../notEligible';
+import NotEligible from '../NotEligible';
 
 it('renders snapshot correctly', () => {
   const element = shallow(<NotEligible />);
