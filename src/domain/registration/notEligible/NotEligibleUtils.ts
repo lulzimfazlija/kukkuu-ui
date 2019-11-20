@@ -22,14 +22,25 @@ const isBirthdateEligible = (value: string) => {
   return true;
 };
 
-const isCityEligible = (city: string) => {
-  let eligibleCities = process.env.REACT_APP_ELIGIBLE_CITIES;
-  if (!eligibleCities) throw new Error('eligibleCities is not defined in .env');
-  eligibleCities = eligibleCities.toLowerCase();
-  if (eligibleCities.includes(city.toLowerCase())) return true;
-  else return false;
+/** getEligibleCities()
+ * Get an array of supported cities from .env
+ * @returns {Array} Supported cities
+ */
+const getEligibleCities = () => {
+  const eligibleCities = process.env.REACT_APP_ELIGIBLE_CITIES || 'helsinki';
+  return eligibleCities.toLocaleLowerCase().split(',');
 };
 
+const isCityEligible = (city: string) => {
+  const eligibleCities = getEligibleCities();
+  return eligibleCities.includes(city.toLowerCase());
+};
+
+/**isChildEligible
+ * Check is child is eligible for the Godchildren of Culture program
+ * @param {RegistrationFormValues} values submitted from form
+ * @returns {boolean} if the child is eligible
+ */
 const isChildEligible = (values: RegistrationFormValues) => {
   return (
     isBirthdateEligible(values.child.birthdate) &&
@@ -37,4 +48,4 @@ const isChildEligible = (values: RegistrationFormValues) => {
   );
 };
 
-export { isChildEligible };
+export { getEligibleCities, isChildEligible };

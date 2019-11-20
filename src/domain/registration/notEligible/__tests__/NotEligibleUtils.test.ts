@@ -1,4 +1,4 @@
-import { isChildEligible } from '../NotEligibleUtils';
+import { getEligibleCities, isChildEligible } from '../NotEligibleUtils';
 import { RegistrationFormValues } from '../../types/RegistrationTypes';
 
 const values: RegistrationFormValues = {
@@ -31,6 +31,13 @@ describe('notEligibleUtils.test.ts', () => {
       values.child.homeCity = city;
       expect(isChildEligible(values)).toEqual(true);
     });
+  });
+  test('Verify that getEligibleCities returns an array of eligible cities', () => {
+    const eligibleCitiesTest: string =
+      process.env.REACT_APP_ELIGIBLE_CITIES || '';
+    const citiesTest = eligibleCitiesTest.split(',') || [];
+    const eligibleCities = getEligibleCities();
+    expect(eligibleCities).toEqual(citiesTest);
   });
   test('Verify that all cities in REACT_APP_ELIGIBLE_CITIES in uppercase are eligible', () => {
     const eligibleCities: string = process.env.REACT_APP_ELIGIBLE_CITIES || '';
