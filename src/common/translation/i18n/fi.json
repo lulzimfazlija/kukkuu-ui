@@ -28,8 +28,7 @@
         "input": {
           "label": "Lapsen kotipaikkakunta",
           "placeholder": "Enter hometown city, currently only Helsinki supported"
-        },
-        "supportCity": "Helsinki"
+        }
       },
       "verifyInformation": {
         "checkbox": {
@@ -42,6 +41,9 @@
     }
   },
   "registration": {
+    "notEligible": {
+      "text": "Valitettavasti lapsen syntymävuosi tai kotipaikkakunta eivät oikeuta häntä kulttuurin kummilapset toimintaan."
+    },
     "form": {
       "child": {
         "homeCity": {

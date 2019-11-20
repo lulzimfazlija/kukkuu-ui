@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import styles from './select.module.scss';
 
@@ -24,6 +25,8 @@ const Select: React.FunctionComponent<SelectProps> = ({
   id,
   ...rest
 }) => {
+  const { t } = useTranslation();
+
   return (
     <div className={styles.selectWrapper}>
       {label && <label htmlFor={id}>{label}</label>}
@@ -33,6 +36,11 @@ const Select: React.FunctionComponent<SelectProps> = ({
         value={value || options[0].value}
         {...rest}
       >
+        {
+          <option value="null" key="no selection">
+            {t('common.select.default.text')}
+          </option>
+        }
         {options.map(selectOption => (
           <option value={selectOption.value} key={selectOption.label}>
             {selectOption.label}

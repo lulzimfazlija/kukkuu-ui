@@ -28,8 +28,7 @@
         "input": {
           "label": "Child's home town",
           "placeholder": "Enter hometown city, currently only Helsinki is supported"
-        },
-        "supportCity": "Helsinki"
+        }
       },
       "verifyInformation": {
         "checkbox": {
@@ -42,6 +41,9 @@
     }
   },
   "registration": {
+    "notEligible": {
+      "text": "Your child is unfortunately not eligible for the Godchildren of Culture program due to their birthdate or home town."
+    },
     "form": {
       "child": {
         "homeCity": {
@@ -137,6 +139,13 @@
     "general": {
       "required": "Required",
       "unSupportedCity": "Unsupported city"
+    }
+  },
+  "common": {
+    "select": {
+      "default": {
+        "text": "Choose"
+      }
     }
   },
   "sanityCheck": "kukkuu.en"

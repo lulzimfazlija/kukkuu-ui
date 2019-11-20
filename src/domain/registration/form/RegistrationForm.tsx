@@ -53,87 +53,38 @@ const RegistrationForm: FunctionComponent<Props> = ({
           }
         }}
       >
-        {({ values, handleChange, isSubmitting, handleSubmit, isValid }) => (
+        {({ isSubmitting, handleSubmit, isValid }) => (
           <form onSubmit={handleSubmit}>
             <div className={styles.childInfo}>
+              <EnhancedInputField
+                name="child.birthdate"
+                label={t('homePage.preliminaryForm.childBirthdate.input.label')}
+                disabled={true}
+                component={InputField}
+              />
+
               <div className={styles.childName}>
                 <EnhancedInputField
-                  type="text"
                   name="child.firstName"
                   label={t('registration.form.child.firstName.input.label')}
-                  onChange={handleChange}
-                  value={values.child.firstName}
                   component={InputField}
                   placeholder={t(
                     'registration.form.child.firstName.input.placeholder'
                   )}
                 />
                 <EnhancedInputField
-                  type="text"
                   name="child.lastName"
                   label={t('registration.form.child.lastName.input.label')}
-                  onChange={handleChange}
-                  value={values.child.lastName}
                   component={InputField}
                   placeholder={t(
                     'registration.form.child.lastName.input.placeholder'
                   )}
                 />
               </div>
-            </div>
 
-            <div className={styles.guardianInfo}>
-              <EnhancedInputField
-                type="text"
-                name="guardian.email"
-                label={t('registration.form.guardian.email.input.label')}
-                disabled={!!values.guardian.email}
-                component={InputField}
-                placeholder={t(
-                  'registration.form.guardian.email.input.placeholder'
-                )}
-              />
-
-              <EnhancedInputField
-                type="text"
-                name="guardian.phoneNumber"
-                label={t('registration.form.guardian.phoneNumber.input.label')}
-                onChange={handleChange}
-                value={values.guardian.phoneNumber}
-                component={InputField}
-                placeholder={t(
-                  'registration.form.guardian.phoneNumber.input.placeholder'
-                )}
-              />
-              <div className={styles.guardianName}>
-                <EnhancedInputField
-                  type="text"
-                  name="guardian.firstName"
-                  label={t('registration.form.guardian.firstName.input.label')}
-                  onChange={handleChange}
-                  value={values.guardian.firstName}
-                  component={InputField}
-                  placeholder={t(
-                    'registration.form.guardian.firstName.input.placeholder'
-                  )}
-                />
-                <EnhancedInputField
-                  type="text"
-                  name="guardian.lastName"
-                  label={t('registration.form.guardian.lastName.input.label')}
-                  onChange={handleChange}
-                  value={values.guardian.lastName}
-                  component={InputField}
-                  placeholder={t(
-                    'registration.form.guardian.lastName.input.placeholder'
-                  )}
-                />
-              </div>
               <EnhancedInputField
                 name="guardian.relationship"
                 label={t('registration.form.guardian.relationship.input.label')}
-                onChange={handleChange}
-                value={values.guardian.relationship}
                 component={SelectField}
                 id="registration.form.guardian.relationship.select"
                 options={[
@@ -144,14 +95,52 @@ const RegistrationForm: FunctionComponent<Props> = ({
                   'registration.form.guardian.relationship.input.placeholder'
                 )}
               />
+            </div>
+
+            <div className={styles.guardianInfo}>
+              <EnhancedInputField
+                name="guardian.email"
+                label={t('registration.form.guardian.email.input.label')}
+                component={InputField}
+                placeholder={t(
+                  'registration.form.guardian.email.input.placeholder'
+                )}
+              />
+
+              <EnhancedInputField
+                type="text"
+                name="guardian.phoneNumber"
+                label={t('registration.form.guardian.phoneNumber.input.label')}
+                component={InputField}
+                placeholder={t(
+                  'registration.form.guardian.phoneNumber.input.placeholder'
+                )}
+              />
+              <div className={styles.guardianName}>
+                <EnhancedInputField
+                  type="text"
+                  name="guardian.firstName"
+                  label={t('registration.form.guardian.firstName.input.label')}
+                  component={InputField}
+                  placeholder={t(
+                    'registration.form.guardian.firstName.input.placeholder'
+                  )}
+                />
+                <EnhancedInputField
+                  type="text"
+                  name="guardian.lastName"
+                  label={t('registration.form.guardian.lastName.input.label')}
+                  component={InputField}
+                  placeholder={t(
+                    'registration.form.guardian.lastName.input.placeholder'
+                  )}
+                />
+              </div>
               <EnhancedInputField
                 type="checkbox"
-                checked={values.agree}
                 name="agree"
                 label={t('registration.form.agree.input.label')}
-                onChange={handleChange}
                 component={InputField}
-                value={values.agree}
               />
             </div>
 
