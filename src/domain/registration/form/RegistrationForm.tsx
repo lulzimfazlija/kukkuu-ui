@@ -55,7 +55,9 @@ const RegistrationForm: FunctionComponent<Props> = ({
       >
         {({ isSubmitting, handleSubmit, isValid }) => (
           <form onSubmit={handleSubmit}>
+            <h1>{t('registration.heading')}</h1>
             <div className={styles.childInfo}>
+              <h2>{t('registration.form.child.info.heading')}</h2>
               <EnhancedInputField
                 name="child.birthdate"
                 label={t('homePage.preliminaryForm.childBirthdate.input.label')}
@@ -83,21 +85,22 @@ const RegistrationForm: FunctionComponent<Props> = ({
               </div>
 
               <EnhancedInputField
-                name="guardian.relationship"
-                label={t('registration.form.guardian.relationship.input.label')}
+                name="child.relationship"
+                label={t('registration.form.child.relationship.input.label')}
                 component={SelectField}
-                id="registration.form.guardian.relationship.select"
+                id="registration.form.child.relationship.select"
                 options={[
                   { label: 'Parents', value: 'parents' },
                   { label: 'Spouse', value: 'spouse' },
                 ]}
                 placeholder={t(
-                  'registration.form.guardian.relationship.input.placeholder'
+                  'registration.form.child.relationship.input.placeholder'
                 )}
               />
             </div>
 
             <div className={styles.guardianInfo}>
+              <h2>{t('registration.form.guardian.info.heading')}</h2>
               <EnhancedInputField
                 name="guardian.email"
                 label={t('registration.form.guardian.email.input.label')}

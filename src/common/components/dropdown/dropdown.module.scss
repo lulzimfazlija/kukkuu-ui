@@ -14,17 +14,17 @@ $navbarIconSize: 1rem;
         outline: none;
         background-color: inherit;
         margin: 0;
+        align-items: center;
+        
         span {
-            margin-right: 0.5rem;
+            margin-right: 0.25rem;
         }
         
         div {
             img {
                 height: $navbarIconSize;
                 width: $navbarIconSize;
-                margin-top: 0.15rem;
             }
-            display: inline;
         }
     }
 }
