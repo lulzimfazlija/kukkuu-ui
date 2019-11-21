@@ -109,6 +109,12 @@
             "label": "Guardian relation with child",
             "placeholder": "Please put guardian relation"
           }
+        },
+        "postalCode": {
+          "input": {
+            "label": "Child's postal code",
+            "placeholder": "Please put child's postal code"
+          }
         }
       },
       "guardian": {

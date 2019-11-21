@@ -26,6 +26,7 @@ const BirthdateFormField: FunctionComponent<FieldArrayRenderProps> = ({
             'homePage.preliminaryForm.childBirthdate.input.day.placeholder'
           )}
           validate={(value: number) => validateRequire(value)}
+          required={true}
           min={1}
           max={31}
         />
@@ -33,6 +34,7 @@ const BirthdateFormField: FunctionComponent<FieldArrayRenderProps> = ({
         <EnhancedInputField
           type="number"
           name="child.birthdate.month"
+          required={true}
           component={InputField}
           validate={(value: number) => validateRequire(value)}
           placeholder={t(
@@ -44,6 +46,7 @@ const BirthdateFormField: FunctionComponent<FieldArrayRenderProps> = ({
         <div className={styles.dot}>.</div>
         <EnhancedInputField
           type="number"
+          required={true}
           name="child.birthdate.year"
           component={InputField}
           validate={(value: number) => validateRequire(value)}

@@ -16,6 +16,10 @@ import { StoreState } from '../../app/types/AppTypes';
 import { userSelector } from '../../auth/state/AuthenticationSelectors';
 import { initialFormDataSelector } from './RegistrationFormSelectors';
 import EnhancedInputField from '../../../common/components/form/fields/input/EnhancedInputField';
+import { formatTime, newMoment } from '../../../common/time/utils';
+import { DEFAULT_DATE_FORMAT } from '../../../common/time/TimeConstants';
+import { SUPPORT_LANGUAGES } from '../../../common/translation/TranslationConstants';
+import { validateRequire } from '../../../common/components/form/validationUtils';
 
 interface Props {
   setFormValues: (values: RegistrationFormValues) => void;
@@ -32,142 +36,178 @@ const RegistrationForm: FunctionComponent<Props> = ({
   const history = useHistory();
 
   return (
-    <div className={styles.registrationForm}>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={values => {
-          setFormValues(values);
-          try {
-            submitChild({
-              variables: {
-                birthdate: values.child.birthdate,
-                firstName: values.child.firstName,
-                lastName: values.child.lastName,
-                guardianFirstName: values.guardian.firstName,
-                guardianLastName: values.guardian.lastName,
-                email: values.guardian.email,
-              },
-            });
-            history.push('/registration/success');
-          } catch (err) {
-            // TODO: Error handling.
-            // eslint-disable-next-line no-console
-            console.error(err);
+    <div className={styles.registrationFormContainer}>
+      <div className={styles.registrationForm}>
+        <Formik
+          initialValues={initialValues}
+          initialErrors={
+            (!initialValues.agree && {
+              agree: validateRequire(''),
+            }) ||
+            {}
           }
-        }}
-      >
-        {({ values, handleChange, isSubmitting, handleSubmit, isValid }) => (
-          <form onSubmit={handleSubmit}>
-            <div className={styles.childInfo}>
-              <div className={styles.childName}>
+          onSubmit={values => {
+            setFormValues(values);
+            try {
+              submitChild({
+                variables: {
+                  birthdate: values.child.birthdate,
+                  firstName: values.child.firstName,
+                  lastName: values.child.lastName,
+                  guardianFirstName: values.guardian.firstName,
+                  guardianLastName: values.guardian.lastName,
+                  email: values.guardian.email,
+                },
+              });
+              history.push('/registration/success');
+            } catch (err) {
+              // TODO: Error handling.
+              // eslint-disable-next-line no-console
+              console.error(err);
+            }
+          }}
+        >
+          {({ values, isSubmitting, handleSubmit, isValid, errors }) => (
+            <form onSubmit={handleSubmit}>
+              <h1>{t('registration.heading')}</h1>
+              <div className={styles.childInfo}>
+                <h2>{t('registration.form.child.info.heading')}</h2>
+                <div className={styles.childBirthdate}>
+                  <label>
+                    {t('registration.form.child.birthdate.input.label')}
+                  </label>
+                  <p>
+                    {formatTime(
+                      newMoment(values.child.birthdate),
+                      DEFAULT_DATE_FORMAT
+                    )}
+                  </p>
+                </div>
+
+                <div className={styles.childName}>
+                  <EnhancedInputField
+                    name="child.firstName"
+                    label={t('registration.form.child.firstName.input.label')}
+                    component={InputField}
+                    placeholder={t(
+                      'registration.form.child.firstName.input.placeholder'
+                    )}
+                  />
+                  <EnhancedInputField
+                    name="child.lastName"
+                    label={t('registration.form.child.lastName.input.label')}
+                    component={InputField}
+                    placeholder={t(
+                      'registration.form.child.lastName.input.placeholder'
+                    )}
+                  />
+                </div>
+
                 <EnhancedInputField
-                  type="text"
-                  name="child.firstName"
-                  label={t('registration.form.child.firstName.input.label')}
-                  onChange={handleChange}
-                  value={values.child.firstName}
+                  name="child.postalCode"
+                  type="number"
+                  label={t('registration.form.child.postalCode.input.label')}
                   component={InputField}
                   placeholder={t(
-                    'registration.form.child.firstName.input.placeholder'
+                    'registration.form.child.postalCode.input.placeholder'
                   )}
                 />
+
                 <EnhancedInputField
-                  type="text"
-                  name="child.lastName"
-                  label={t('registration.form.child.lastName.input.label')}
-                  onChange={handleChange}
-                  value={values.child.lastName}
-                  component={InputField}
+                  name="child.relationship"
+                  label={t('registration.form.child.relationship.input.label')}
+                  component={SelectField}
+                  id="registration.form.child.relationship.select"
+                  options={[
+                    { label: 'Parents', value: 'parents' },
+                    { label: 'Spouse', value: 'spouse' },
+                  ]}
                   placeholder={t(
-                    'registration.form.child.lastName.input.placeholder'
+                    'registration.form.child.relationship.input.placeholder'
                   )}
                 />
               </div>
-            </div>
 
-            <div className={styles.guardianInfo}>
-              <EnhancedInputField
-                type="text"
-                name="guardian.email"
-                label={t('registration.form.guardian.email.input.label')}
-                disabled={!!values.guardian.email}
-                component={InputField}
-                placeholder={t(
-                  'registration.form.guardian.email.input.placeholder'
-                )}
-              />
+              <div className={styles.guardianInfo}>
+                <h2>{t('registration.form.guardian.info.heading')}</h2>
+                <div className={styles.guardianEmail}>
+                  <label>
+                    {t('registration.form.guardian.email.input.label')}
+                  </label>
+                  <p>{values.guardian.email}</p>
+                </div>
 
-              <EnhancedInputField
-                type="text"
-                name="guardian.phoneNumber"
-                label={t('registration.form.guardian.phoneNumber.input.label')}
-                onChange={handleChange}
-                value={values.guardian.phoneNumber}
-                component={InputField}
-                placeholder={t(
-                  'registration.form.guardian.phoneNumber.input.placeholder'
-                )}
-              />
-              <div className={styles.guardianName}>
                 <EnhancedInputField
-                  type="text"
-                  name="guardian.firstName"
-                  label={t('registration.form.guardian.firstName.input.label')}
-                  onChange={handleChange}
-                  value={values.guardian.firstName}
+                  name="guardian.phoneNumber"
+                  required={true}
+                  label={t(
+                    'registration.form.guardian.phoneNumber.input.label'
+                  )}
                   component={InputField}
                   placeholder={t(
-                    'registration.form.guardian.firstName.input.placeholder'
+                    'registration.form.guardian.phoneNumber.input.placeholder'
+                  )}
+                />
+                <div className={styles.guardianName}>
+                  <EnhancedInputField
+                    type="text"
+                    required={true}
+                    name="guardian.firstName"
+                    label={t(
+                      'registration.form.guardian.firstName.input.label'
+                    )}
+                    component={InputField}
+                    placeholder={t(
+                      'registration.form.guardian.firstName.input.placeholder'
+                    )}
+                  />
+                  <EnhancedInputField
+                    type="text"
+                    required={true}
+                    name="guardian.lastName"
+                    label={t('registration.form.guardian.lastName.input.label')}
+                    component={InputField}
+                    placeholder={t(
+                      'registration.form.guardian.lastName.input.placeholder'
+                    )}
+                  />
+                </div>
+
+                <EnhancedInputField
+                  name="preferLanguage"
+                  label={t('registration.form.guardian.language.input.label')}
+                  required={true}
+                  component={SelectField}
+                  options={[
+                    { label: 'English', value: SUPPORT_LANGUAGES.EN },
+                    { label: 'Suomi', value: SUPPORT_LANGUAGES.FI },
+                    { label: 'Svenska', value: SUPPORT_LANGUAGES.SV },
+                  ]}
+                  placeholder={t(
+                    'registration.form.guardian.language.input.placeholder'
                   )}
                 />
                 <EnhancedInputField
-                  type="text"
-                  name="guardian.lastName"
-                  label={t('registration.form.guardian.lastName.input.label')}
-                  onChange={handleChange}
-                  value={values.guardian.lastName}
+                  className={styles.agreeBtn}
+                  type="checkbox"
+                  name="agree"
+                  required={true}
+                  label={t('registration.form.agree.input.label')}
                   component={InputField}
-                  placeholder={t(
-                    'registration.form.guardian.lastName.input.placeholder'
-                  )}
                 />
               </div>
-              <EnhancedInputField
-                name="guardian.relationship"
-                label={t('registration.form.guardian.relationship.input.label')}
-                onChange={handleChange}
-                value={values.guardian.relationship}
-                component={SelectField}
-                id="registration.form.guardian.relationship.select"
-                options={[
-                  { label: 'Parents', value: 'parents' },
-                  { label: 'Spouse', value: 'spouse' },
-                ]}
-                placeholder={t(
-                  'registration.form.guardian.relationship.input.placeholder'
-                )}
-              />
-              <EnhancedInputField
-                type="checkbox"
-                checked={values.agree}
-                name="agree"
-                label={t('registration.form.agree.input.label')}
-                onChange={handleChange}
-                component={InputField}
-                value={values.agree}
-              />
-            </div>
 
-            <Button
-              type="submit"
-              className={styles.submitButton}
-              disabled={isSubmitting || !isValid}
-            >
-              {t('homePage.hero.buttonText')}
-            </Button>
-          </form>
-        )}
-      </Formik>
+              <Button
+                type="submit"
+                className={styles.submitButton}
+                disabled={isSubmitting || !isValid}
+              >
+                {t('homePage.hero.buttonText')}
+              </Button>
+            </form>
+          )}
+        </Formik>
+      </div>
     </div>
   );
 };

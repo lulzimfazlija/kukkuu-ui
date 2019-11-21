@@ -24,6 +24,7 @@ const LanguageDropdown: React.FunctionComponent = () => {
   return (
     <div className={styles.languageDropdown}>
       <Select
+        autoSelect={true}
         options={languageOptions}
         value={currentLanguage}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,7 +37,7 @@ const LanguageDropdown: React.FunctionComponent = () => {
             )
           );
         }}
-        id="languageDropdownNavbar"
+        name="languageDropdownNavbar"
       />
     </div>
   );

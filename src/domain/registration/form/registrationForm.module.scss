@@ -1,0 +1,46 @@
+@import 'fonts';
+@import 'variables';
+@import 'colors';
+@import 'layout';
+@import '../../home/form/homePreliminaryForm.module.scss';
+
+.registrationFormContainer {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    margin-bottom: $baseMargin;
+}
+
+.registrationForm {
+    grid-column: 2;
+}
+
+.childBirthdate,
+.guardianEmail {
+    display: flex;
+    flex-direction: column;
+    
+    label {
+        font-size: $font-size-sm;
+        margin-bottom: $baseMargin * 0.25;
+        font-weight: $font-weight-bold;
+    }
+
+    p {
+        padding: $buttonPadding;
+        padding-left: 0;
+        line-height: $inputHeight;
+        margin: 0;
+    }
+}
+
+.childName, .guardianName {
+    @include respond-above(md) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: $baseMargin;
+    }
+}
+
+.agreeBtn {
+    margin: $baseMargin 0;
+}
