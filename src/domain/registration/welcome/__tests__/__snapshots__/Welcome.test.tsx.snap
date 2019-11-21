@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders snapshot correctly 1`] = `
+<div
+  className="welcome"
+>
+  <h1>
+    Tervetuloa kulttuurin kummilapseksi!
+  </h1>
+  <Icon
+    alt="Tada!"
+    className="tada"
+    src="tada.svg"
+  />
+  <form>
+    <Button
+      className="submitButton"
+      type="submit"
+    >
+      Profiilillesi
+    </Button>
+  </form>
+</div>
+`;
