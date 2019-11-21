@@ -10,7 +10,6 @@ interface Props {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const EnhancedInputField: React.FC<Props & FieldAttributes<any>> = ({
   required,
-  name,
   validate,
   ...rest
 }) => {
@@ -23,14 +22,7 @@ const EnhancedInputField: React.FC<Props & FieldAttributes<any>> = ({
       return validate(value);
     }
   };
-  return (
-    <Field
-      validate={handleValidation}
-      required={required}
-      name={name}
-      {...rest}
-    />
-  );
+  return <Field validate={handleValidation} required={required} {...rest} />;
 };
 
 export default EnhancedInputField;
