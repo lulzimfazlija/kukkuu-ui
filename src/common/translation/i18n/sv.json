@@ -109,6 +109,12 @@
             "label": "Guardian relation with child",
             "placeholder": "Please put guardian relation"
           }
+        },
+        "postalCode": {
+          "input": {
+            "label": "Child's postal code",
+            "placeholder": "Please put child's postal code"
+          }
         }
       },
       "guardian": {
@@ -138,11 +144,23 @@
             "label": "Guardian phone number",
             "placeholder": "Please put guardian phone number"
           }
+        },
+        "language": {
+          "input": {
+            "label": "Guardian application prefer language",
+            "placeholder": "Please put guardian prefer language"
+          }
         }
       },
       "verifyInformation": {
         "input": {
           "label": "Agree to continue"
+        }
+      },
+      "agree": {
+        "input": {
+          "placeholder": "Accept this to continue",
+          "label": "I accept terms and conditions of the service"
         }
       }
     },

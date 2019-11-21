@@ -37,7 +37,7 @@ const LanguageDropdown: React.FunctionComponent = () => {
             )
           );
         }}
-        id="languageDropdownNavbar"
+        name="languageDropdownNavbar"
       />
     </div>
   );

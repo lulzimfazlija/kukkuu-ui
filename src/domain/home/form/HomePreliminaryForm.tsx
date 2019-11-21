@@ -8,7 +8,10 @@ import { loginTunnistamo } from '../../auth/authenticate';
 import styles from './homePreliminaryForm.module.scss';
 import Button from '../../../common/components/button/Button';
 import InputField from '../../../common/components/form/fields/input/InputField';
-import { validateDate } from '../../../common/components/form/validationUtils';
+import {
+  validateDate,
+  validateRequire,
+} from '../../../common/components/form/validationUtils';
 import { isChildEligible } from '../../registration/notEligible/NotEligibleUtils';
 import BirthdateFormField from './partial/BirthdateFormField';
 import { setFormValues } from '../../registration/state/RegistrationActions';
@@ -49,6 +52,7 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
         homeCity: values.child.homeCity,
         firstName: stateFormValues.child.firstName,
         lastName: stateFormValues.child.lastName,
+        postalCode: stateFormValues.child.postalCode,
       },
       verifyInformation: values.verifyInformation,
     });
@@ -93,51 +97,56 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
         validate={validate}
         // To not be able to submit form at first mount
         initialErrors={
-          stateFormValues.child.birthdate
-            ? {}
-            : { childBirthdate: validateDate('') }
+          (!stateFormValues.verifyInformation && {
+            verifyInformation: validateRequire(''),
+          }) ||
+          {}
         }
       >
-        {({ handleSubmit, isSubmitting, isValid }) => (
-          <form onSubmit={handleSubmit}>
-            <div className={styles.inputWrapper}>
-              <FieldArray
-                name="child.birthdate"
-                render={props => <BirthdateFormField {...props} />}
-              />
+        {({ handleSubmit, isSubmitting, isValid }) => {
+          return (
+            <form onSubmit={handleSubmit}>
+              <div className={styles.inputWrapper}>
+                <FieldArray
+                  name="child.birthdate"
+                  render={props => <BirthdateFormField {...props} />}
+                />
+
+                <EnhancedInputField
+                  className={styles.childHomeCity}
+                  name="child.homeCity"
+                  label={t(
+                    'homePage.preliminaryForm.childHomeCity.input.label'
+                  )}
+                  required={true}
+                  component={InputField}
+                  placeholder={t(
+                    'homePage.preliminaryForm.childHomeCity.input.placeholder'
+                  )}
+                />
+              </div>
 
               <EnhancedInputField
-                className={styles.childHomeCity}
-                name="child.homeCity"
-                label={t('homePage.preliminaryForm.childHomeCity.input.label')}
+                className={styles.verifyInformationCheckbox}
+                type="checkbox"
+                label={t(
+                  'homePage.preliminaryForm.verifyInformation.checkbox.label'
+                )}
+                name="verifyInformation"
                 required={true}
                 component={InputField}
-                placeholder={t(
-                  'homePage.preliminaryForm.childHomeCity.input.placeholder'
-                )}
               />
-            </div>
 
-            <EnhancedInputField
-              className={styles.verifyInformationCheckbox}
-              type="checkbox"
-              label={t(
-                'homePage.preliminaryForm.verifyInformation.checkbox.label'
-              )}
-              name="verifyInformation"
-              required={true}
-              component={InputField}
-            />
-
-            <Button
-              type="submit"
-              className={styles.submitButton}
-              disabled={isSubmitting || !isValid}
-            >
-              {t('homePage.hero.buttonText')}
-            </Button>
-          </form>
-        )}
+              <Button
+                type="submit"
+                className={styles.submitButton}
+                disabled={isSubmitting || !isValid}
+              >
+                {t('homePage.hero.buttonText')}
+              </Button>
+            </form>
+          );
+        }}
       </Formik>
     </div>
   );

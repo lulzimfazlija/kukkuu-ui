@@ -4,6 +4,7 @@ export interface RegistrationFormValues {
     firstName: string;
     lastName: string;
     homeCity: string;
+    postalCode: number;
   };
   guardian: {
     phoneNumber: string;
@@ -12,6 +13,7 @@ export interface RegistrationFormValues {
     relationship: string;
     email: string;
   };
+  preferLanguage: string;
   agree: boolean;
   verifyInformation: boolean;
 }

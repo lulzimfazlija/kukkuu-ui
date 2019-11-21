@@ -30,20 +30,25 @@
 
 .checkboxInput {
     .inputTypeWrapper {    
+        padding: $buttonPadding;
+        padding-left: 0;
+        
         input {
             display: none;
         }
         label {
             position: relative;
             padding-left: $checkboxPaddingLeft;
+            line-height: $inputHeight;
 
             &:before {
                 display: inline-block;
                 content: '';
+                left: 0;
+                top: 25%;
                 width: $checkboxHeight;
                 height: $checkboxHeight;
                 position: absolute;
-                left: 0;
                 background-color: $white;
                 border: 1px solid $black;
             }
@@ -53,7 +58,7 @@
             background-image: url('../../../assets/icons/svg/checkbox.svg');
             background-size: contain;
             text-align: center;
-            background-color: blue;
+            background-color: $hel-bus;
         }
     }
 }
