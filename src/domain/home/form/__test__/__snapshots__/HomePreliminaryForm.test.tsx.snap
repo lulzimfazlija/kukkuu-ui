@@ -7,7 +7,7 @@ exports[`renders snapshot correctly 1`] = `
   <Formik
     initialErrors={
       Object {
-        "childBirthdate": "validation.date.invalidFormat",
+        "verifyInformation": "validation.general.required",
       }
     }
     onSubmit={[Function]}
