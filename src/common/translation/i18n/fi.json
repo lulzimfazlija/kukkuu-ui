@@ -21,6 +21,9 @@
       "default": {
         "text": "Valitse"
       }
+    },
+    "goBack": {
+      "text": "Return to registration page"
     }
   },
   "footer": {

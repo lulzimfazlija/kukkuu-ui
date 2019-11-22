@@ -21,6 +21,9 @@
       "default": {
         "text": "Välg"
       }
+    },
+    "goBack": {
+      "text": "Return to registration page"
     }
   },
   "footer": {

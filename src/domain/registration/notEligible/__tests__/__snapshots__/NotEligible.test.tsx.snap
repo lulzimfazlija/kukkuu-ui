@@ -18,11 +18,27 @@ exports[`renders snapshot correctly 1`] = `
       >
         Helsingin Kaupunginorkesteri kutsuu kummilapsikseen kaikki vuonna 2020 syntyneet Helsinkiläislapset! Lapsi perheineen kutsutaan kahdesti vuodessa nauttimaan KHO:n järjestämästä kulttuurista täysin ilmaiseksi! Liity mukaan!
       </p>
-      <p
+      <div
         className="notEligible"
       >
-        Valitettavasti lapsen syntymävuosi tai kotipaikkakunta eivät oikeuta häntä kulttuurin kummilapset toimintaan.
-      </p>
+        <Icon
+          alt="Non eligible face"
+          className="notEligibleFace"
+          src="adultFace.svg"
+        />
+        <p>
+          Valitettavasti lapsen syntymävuosi tai kotipaikkakunta eivät oikeuta häntä kulttuurin kummilapset toimintaan.
+        </p>
+      </div>
+      <div
+        className="goBackButton"
+      >
+        <Button
+          onClick={[Function]}
+        >
+          Return to registration page
+        </Button>
+      </div>
     </div>
   </div>
 </div>

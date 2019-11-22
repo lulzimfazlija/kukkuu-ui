@@ -15,7 +15,7 @@ const Icon: React.FunctionComponent<IconProps> = ({
   ...rest
 }) => {
   return (
-    <div className={classnames(styles.inputWrapper, className)}>
+    <div className={classnames(styles.imgWrapper, className)}>
       <img src={src} alt={alt} {...rest} />
     </div>
   );
