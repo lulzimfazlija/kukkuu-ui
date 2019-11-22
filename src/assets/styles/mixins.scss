@@ -78,3 +78,19 @@
   border-top-color: $alt-color;
   animation: spinner 1s linear infinite;
 }
+
+/**
+A yellow button style which used a lot in the app.
+*/
+@mixin button() {
+  button {
+    background: lighten($hel-summer, 20%);
+
+    border: none !important;
+    width: 100%;
+
+    &:disabled {
+        background: $hel-gray;
+    }
+  }
+}

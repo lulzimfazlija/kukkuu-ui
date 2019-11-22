@@ -21,6 +21,9 @@
       "default": {
         "text": "Valitse"
       }
+    },
+    "goBack": {
+      "text": "Go back to your previous page"
     }
   },
   "footer": {

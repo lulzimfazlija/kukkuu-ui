@@ -1,6 +1,8 @@
 @import 'variables';
 @import 'colors';
 @import 'layout';
+@import 'mixins';
+
 .homeForm {
     padding: $basePadding;
 
@@ -20,16 +22,7 @@
 }
 
 .submitButton {
-    button {
-        background: lighten($hel-summer, 20%);
-
-        border: none !important;
-        width: 100%;
-
-        &:disabled {
-            background: $hel-gray;
-        }
-    }
+    @include button();
 }
 
 .verifyInformationCheckbox {

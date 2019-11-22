@@ -2,7 +2,7 @@
 @import 'variables';
 @import 'colors';
 @import 'layout';
-@import '../../home/form/homePreliminaryForm.module.scss';
+@import 'mixins';
 
 .registrationFormContainer {
     display: grid;
@@ -43,4 +43,8 @@
 
 .agreeBtn {
     margin: $baseMargin 0;
+}
+
+.submitButton {
+    @include button();
 }

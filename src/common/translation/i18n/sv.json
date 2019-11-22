@@ -21,6 +21,9 @@
       "default": {
         "text": "Välg"
       }
+    },
+    "goBack": {
+      "text": "Go back to your previous page"
     }
   },
   "footer": {
