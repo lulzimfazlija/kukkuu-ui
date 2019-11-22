@@ -22,7 +22,7 @@ exports[`renders snapshot correctly 1`] = `
         className="notEligible"
       >
         <Icon
-          alt="Non eligible really sad face"
+          alt="Non eligible face"
           className="notEligibleFace"
           src="adultFace.svg"
         />
@@ -36,7 +36,7 @@ exports[`renders snapshot correctly 1`] = `
         <Button
           onClick={[Function]}
         >
-          Go back to your previous page
+          Return to registration page
         </Button>
       </div>
     </div>
