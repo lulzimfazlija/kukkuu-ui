@@ -11,7 +11,7 @@ describe('graphql client', () => {
     global.fetch.mockResponse(
       JSON.stringify({
         data: {
-          dummy: null,
+          children: { __typename: 'ChildNodeConnection' },
         },
       })
     );
@@ -19,8 +19,10 @@ describe('graphql client', () => {
     try {
       await client.query({
         query: gql`
-          query DummyQuery {
-            dummy
+          query ChildrenQuery {
+            children {
+              __typename
+            }
           }
         `,
       });
