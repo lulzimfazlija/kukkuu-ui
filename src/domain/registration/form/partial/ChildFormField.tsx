@@ -50,7 +50,8 @@ const ChildFormField: React.FunctionComponent<ChildFormFieldProps> = ({
           />
         </div>
 
-        <EnhancedInputField
+        {/* Enable me when postalCode is supported from backend */}
+        {/* <EnhancedInputField
           name={`children[${childIndex}].postalCode`}
           type="number"
           label={t('registration.form.child.postalCode.input.label')}
@@ -58,7 +59,7 @@ const ChildFormField: React.FunctionComponent<ChildFormFieldProps> = ({
           placeholder={t(
             'registration.form.child.postalCode.input.placeholder'
           )}
-        />
+        /> */}
 
         <EnhancedInputField
           name={`children[${childIndex}].relationship`}
