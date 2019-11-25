@@ -1,6 +1,6 @@
 import { newMoment } from '../../../common/time/utils';
 import { SUPPORTED_START_BIRTHDATE } from '../../../common/time/TimeConstants';
-import { RegistrationFormValues } from '../types/RegistrationTypes';
+import { Child } from '../../child/types/ChildTypes';
 
 /** isBirthdateEligible()
  * Check if child is eligible for participation.
@@ -38,14 +38,11 @@ const isCityEligible = (city: string) => {
 
 /**isChildEligible
  * Check is child is eligible for the Godchildren of Culture program
- * @param {RegistrationFormValues} values submitted from form
+ * @param {child} child child info submitted from form
  * @returns {boolean} if the child is eligible
  */
-const isChildEligible = (values: RegistrationFormValues) => {
-  return (
-    isBirthdateEligible(values.child.birthdate) &&
-    isCityEligible(values.child.homeCity)
-  );
+const isChildEligible = (child: Child) => {
+  return isBirthdateEligible(child.birthdate) && isCityEligible(child.homeCity);
 };
 
 export { getEligibleCities, isChildEligible };

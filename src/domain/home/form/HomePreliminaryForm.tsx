@@ -41,19 +41,21 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
 
   const handleSubmit = (values: HomeFormValues) => {
     const payload = Object.assign({}, stateFormValues, {
-      child: {
-        // Ensure date that saved in redux store was using backend time format:
-        birthdate: formatTime(
-          newMoment(
-            `${values.child.birthdate.year}-${values.child.birthdate.month}-${values.child.birthdate.day}`,
-            'YYYY-MM-DD'
-          )
-        ),
-        homeCity: values.child.homeCity,
-        firstName: stateFormValues.child.firstName,
-        lastName: stateFormValues.child.lastName,
-        postalCode: stateFormValues.child.postalCode,
-      },
+      children: [
+        {
+          // Ensure date that saved in redux store was using backend time format:
+          birthdate: formatTime(
+            newMoment(
+              `${values.child.birthdate.year}-${values.child.birthdate.month}-${values.child.birthdate.day}`,
+              'YYYY-MM-DD'
+            )
+          ),
+          homeCity: values.child.homeCity,
+          firstName: stateFormValues.children[0].firstName,
+          lastName: stateFormValues.children[0].lastName,
+          postalCode: stateFormValues.children[0].postalCode,
+        },
+      ],
       verifyInformation: values.verifyInformation,
     });
     setFormValues(payload);
@@ -61,7 +63,7 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
   };
 
   const handleRedirect = (payload: RegistrationFormValues) => {
-    if (!isChildEligible(payload)) {
+    if (!isChildEligible(payload.children[0])) {
       history.push('/registration/not-eligible');
     } else if (isAuthenticated) {
       history.push('/registration/form');

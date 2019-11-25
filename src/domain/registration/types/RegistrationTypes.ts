@@ -1,11 +1,7 @@
+import { Children } from '../../child/types/ChildTypes';
+
 export interface RegistrationFormValues {
-  child: {
-    birthdate: string;
-    firstName: string;
-    lastName: string;
-    homeCity: string;
-    postalCode: number;
-  };
+  children: Children;
   guardian: {
     phoneNumber: string;
     firstName: string;

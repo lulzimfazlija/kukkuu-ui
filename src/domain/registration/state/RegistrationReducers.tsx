@@ -5,13 +5,15 @@ import { REGISTRATION_ACTIONS } from '../constants/RegistrationActionConstants';
 
 export const defaultRegistrationData: RegistrationData = {
   formValues: {
-    child: {
-      birthdate: '',
-      firstName: '',
-      homeCity: '',
-      lastName: '',
-      postalCode: 0,
-    },
+    children: [
+      {
+        birthdate: '',
+        firstName: '',
+        homeCity: '',
+        lastName: '',
+        postalCode: '',
+      },
+    ],
     guardian: {
       email: '',
       firstName: '',
@@ -32,4 +34,11 @@ export default createReducer(defaultRegistrationData, {
     Object.assign({}, state, {
       formValues: defaultRegistrationData.formValues,
     }),
+  [REGISTRATION_ACTIONS.ADD_CHILD]: (state, action) => {
+    const newFormValues = Object.assign({}, state.formValues, {
+      children: state.formValues.children.push(action.payload),
+    });
+
+    return Object.assign({}, state, { formValues: newFormValues });
+  },
 });

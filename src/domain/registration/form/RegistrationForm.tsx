@@ -1,9 +1,10 @@
 import React, { FunctionComponent } from 'react';
-import { Formik } from 'formik';
+import { Formik, FieldArray } from 'formik';
 import { connect } from 'react-redux';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
+import { omit } from 'lodash';
 
 import styles from './registrationForm.module.scss';
 import Button from '../../../common/components/button/Button';
@@ -16,11 +17,9 @@ import { StoreState } from '../../app/types/AppTypes';
 import { userSelector } from '../../auth/state/AuthenticationSelectors';
 import { initialFormDataSelector } from './RegistrationFormSelectors';
 import EnhancedInputField from '../../../common/components/form/fields/input/EnhancedInputField';
-import { formatTime, newMoment } from '../../../common/time/utils';
-import { DEFAULT_DATE_FORMAT } from '../../../common/time/TimeConstants';
 import { SUPPORT_LANGUAGES } from '../../../common/translation/TranslationConstants';
 import { validateRequire } from '../../../common/components/form/validationUtils';
-
+import ChildFormField from './partial/ChildFormField';
 interface Props {
   setFormValues: (values: RegistrationFormValues) => void;
   initialValues: RegistrationFormValues;
@@ -50,17 +49,15 @@ const RegistrationForm: FunctionComponent<Props> = ({
           }
           onSubmit={values => {
             setFormValues(values);
-            const childInput = [
-              {
-                birthdate: values.child.birthdate,
-                firstName: values.child.firstName,
-                lastName: values.child.lastName,
-              },
-            ];
+
+            const backendSupportChildren = values.children.map(child =>
+              omit(child, ['postalCode', 'homeCity'])
+            );
+            // TODO: Backend / frontend data synchonization. Omit unsupported field for future development.
             try {
               submitChildrenAndGuardian({
                 variables: {
-                  children: childInput,
+                  children: backendSupportChildren,
                   guardianFirstName: values.guardian.firstName,
                   guardianLastName: values.guardian.lastName,
                   email: values.guardian.email,
@@ -77,64 +74,21 @@ const RegistrationForm: FunctionComponent<Props> = ({
           {({ values, isSubmitting, handleSubmit, isValid, errors }) => (
             <form onSubmit={handleSubmit}>
               <h1>{t('registration.heading')}</h1>
-              <div className={styles.childInfo}>
-                <h2>{t('registration.form.child.info.heading')}</h2>
-                <div className={styles.childBirthdate}>
-                  <label>
-                    {t('registration.form.child.birthdate.input.label')}
-                  </label>
-                  <p>
-                    {formatTime(
-                      newMoment(values.child.birthdate),
-                      DEFAULT_DATE_FORMAT
-                    )}
-                  </p>
-                </div>
-
-                <div className={styles.childName}>
-                  <EnhancedInputField
-                    name="child.firstName"
-                    label={t('registration.form.child.firstName.input.label')}
-                    component={InputField}
-                    placeholder={t(
-                      'registration.form.child.firstName.input.placeholder'
-                    )}
-                  />
-                  <EnhancedInputField
-                    name="child.lastName"
-                    label={t('registration.form.child.lastName.input.label')}
-                    component={InputField}
-                    placeholder={t(
-                      'registration.form.child.lastName.input.placeholder'
-                    )}
-                  />
-                </div>
-
-                <EnhancedInputField
-                  name="child.postalCode"
-                  type="number"
-                  label={t('registration.form.child.postalCode.input.label')}
-                  component={InputField}
-                  placeholder={t(
-                    'registration.form.child.postalCode.input.placeholder'
-                  )}
-                />
-
-                <EnhancedInputField
-                  name="child.relationship"
-                  label={t('registration.form.child.relationship.input.label')}
-                  component={SelectField}
-                  id="registration.form.child.relationship.select"
-                  options={[
-                    { label: 'Parents', value: 'parents' },
-                    { label: 'Spouse', value: 'spouse' },
-                  ]}
-                  placeholder={t(
-                    'registration.form.child.relationship.input.placeholder'
-                  )}
+              <div className={styles.childrenInfo}>
+                <FieldArray
+                  name="children"
+                  render={arrayHelpers =>
+                    values.children &&
+                    values.children.map((child, index) => (
+                      <ChildFormField
+                        arrayHelpers={arrayHelpers}
+                        child={child}
+                        childIndex={index}
+                      />
+                    ))
+                  }
                 />
               </div>
-
               <div className={styles.guardianInfo}>
                 <h2>{t('registration.form.guardian.info.heading')}</h2>
                 <div className={styles.guardianEmail}>
