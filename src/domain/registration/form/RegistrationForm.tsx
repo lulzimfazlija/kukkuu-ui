@@ -61,6 +61,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
                   guardianFirstName: values.guardian.firstName,
                   guardianLastName: values.guardian.lastName,
                   email: values.guardian.email,
+                  phoneNumber: values.guardian.phoneNumber,
                 },
               });
               history.push('/registration/success');

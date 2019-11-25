@@ -186,5 +186,8 @@
       "required": "Required",
       "unSupportedCity": "Unsupported city"
     }
+  },
+  "profile": {
+    "heading": "Gudbarn"
   }
 }
