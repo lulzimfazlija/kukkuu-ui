@@ -9,6 +9,7 @@ import EnhancedInputField from '../../../../common/components/form/fields/input/
 import InputField from '../../../../common/components/form/fields/input/InputField';
 import SelectField from '../../../../common/components/form/fields/select/SelectField';
 import { Child } from '../../../child/types/ChildTypes';
+import { RelationshipTypeEnum } from '../../../api/generatedTypes/globalTypes';
 
 interface ChildFormFieldProps {
   child: Child;
@@ -50,8 +51,7 @@ const ChildFormField: React.FunctionComponent<ChildFormFieldProps> = ({
           />
         </div>
 
-        {/* Enable me when postalCode is supported from backend */}
-        {/* <EnhancedInputField
+        <EnhancedInputField
           name={`children[${childIndex}].postalCode`}
           type="number"
           label={t('registration.form.child.postalCode.input.label')}
@@ -59,7 +59,7 @@ const ChildFormField: React.FunctionComponent<ChildFormFieldProps> = ({
           placeholder={t(
             'registration.form.child.postalCode.input.placeholder'
           )}
-        /> */}
+        />
 
         <EnhancedInputField
           name={`children[${childIndex}].relationship`}
@@ -67,8 +67,22 @@ const ChildFormField: React.FunctionComponent<ChildFormFieldProps> = ({
           component={SelectField}
           id="registration.form.child.relationship.select"
           options={[
-            { label: 'Parents', value: 'parents' },
-            { label: 'Spouse', value: 'spouse' },
+            {
+              label: RelationshipTypeEnum.ADVOCATE,
+              value: RelationshipTypeEnum.ADVOCATE,
+            },
+            {
+              label: RelationshipTypeEnum.OTHER_GUARDIAN,
+              value: RelationshipTypeEnum.OTHER_GUARDIAN,
+            },
+            {
+              label: RelationshipTypeEnum.OTHER_RELATION,
+              value: RelationshipTypeEnum.OTHER_RELATION,
+            },
+            {
+              label: RelationshipTypeEnum.PARENT,
+              value: RelationshipTypeEnum.PARENT,
+            },
           ]}
           placeholder={t(
             'registration.form.child.relationship.input.placeholder'

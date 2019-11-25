@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
+import { omit } from 'lodash';
 
 import styles from './registrationForm.module.scss';
 import Button from '../../../common/components/button/Button';
@@ -19,7 +20,6 @@ import EnhancedInputField from '../../../common/components/form/fields/input/Enh
 import { SUPPORT_LANGUAGES } from '../../../common/translation/TranslationConstants';
 import { validateRequire } from '../../../common/components/form/validationUtils';
 import ChildFormField from './partial/ChildFormField';
-
 interface Props {
   setFormValues: (values: RegistrationFormValues) => void;
   initialValues: RegistrationFormValues;
@@ -49,10 +49,15 @@ const RegistrationForm: FunctionComponent<Props> = ({
           }
           onSubmit={values => {
             setFormValues(values);
+
+            const backendSupportChildren = values.children.map(child =>
+              omit(child, ['postalCode', 'homeCity'])
+            );
+            // TODO: Backend / frontend data synchonization. Omit unsupported field for future development.
             try {
               submitChildrenAndGuardian({
                 variables: {
-                  children: values.children,
+                  children: backendSupportChildren,
                   guardianFirstName: values.guardian.firstName,
                   guardianLastName: values.guardian.lastName,
                   email: values.guardian.email,
