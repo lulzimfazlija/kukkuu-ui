@@ -30,7 +30,7 @@ const converted: HomeFormValues = {
       month: 1,
       year: 2019,
     },
-    homeCity: 'Yokohama',
+    homeCity: 'Helsinki',
   },
   verifyInformation: false,
 };

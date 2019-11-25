@@ -50,13 +50,15 @@ exports[`renders snapshot correctly 1`] = `
               stateFormValues={
                 Object {
                   "agree": false,
-                  "child": Object {
-                    "birthdate": "",
-                    "firstName": "",
-                    "homeCity": "",
-                    "lastName": "",
-                    "postalCode": 0,
-                  },
+                  "children": Array [
+                    Object {
+                      "birthdate": "",
+                      "firstName": "",
+                      "homeCity": "",
+                      "lastName": "",
+                      "postalCode": "",
+                    },
+                  ],
                   "guardian": Object {
                     "email": "",
                     "firstName": "",
