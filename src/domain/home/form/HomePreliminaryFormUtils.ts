@@ -12,8 +12,8 @@ import { HomeFormValues } from './types/HomeFormTypes';
 export const convertFormValues = (
   stateFormValues: RegistrationFormValues
 ): HomeFormValues => {
-  if (get(stateFormValues, 'child.birthdate')) {
-    const birthdateMoment = newMoment(stateFormValues.child.birthdate);
+  if (get(stateFormValues, 'children[0].birthdate')) {
+    const birthdateMoment = newMoment(stateFormValues.children[0].birthdate);
     return {
       child: {
         birthdate: {
@@ -21,7 +21,7 @@ export const convertFormValues = (
           month: birthdateMoment.month() + 1,
           year: birthdateMoment.year(),
         },
-        homeCity: stateFormValues.child.homeCity,
+        homeCity: stateFormValues.children[0].homeCity,
       },
       verifyInformation: stateFormValues.verifyInformation,
     };

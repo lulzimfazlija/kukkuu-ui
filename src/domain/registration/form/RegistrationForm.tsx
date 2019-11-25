@@ -50,17 +50,11 @@ const RegistrationForm: FunctionComponent<Props> = ({
           }
           onSubmit={values => {
             setFormValues(values);
-            const childInput = [
-              {
-                birthdate: values.child.birthdate,
-                firstName: values.child.firstName,
-                lastName: values.child.lastName,
-              },
-            ];
+
             try {
               submitChildrenAndGuardian({
                 variables: {
-                  children: childInput,
+                  children: values.children,
                   guardianFirstName: values.guardian.firstName,
                   guardianLastName: values.guardian.lastName,
                   email: values.guardian.email,
@@ -85,7 +79,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
                   </label>
                   <p>
                     {formatTime(
-                      newMoment(values.child.birthdate),
+                      newMoment(values.children[0].birthdate),
                       DEFAULT_DATE_FORMAT
                     )}
                   </p>
