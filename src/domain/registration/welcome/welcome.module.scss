@@ -3,8 +3,15 @@
 @import 'layout';
 
 .welcome {
-    text-align: center;
-    .tada {
-        margin: $baseMargin;
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+}
+
+.tada {
+    display: block;
+    height: 4*$imgHeight;
+    width: 4*$imgHeight;
+    margin: $baseMargin auto;
 }
