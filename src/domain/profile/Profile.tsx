@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 
+import NoUpcomingEvents from './components/noUpcomingEvents/NoUpcomingEvents';
 import { StoreState } from '../app/types/AppTypes';
 import { userSelector } from '../auth/state/AuthenticationSelectors';
 import { Children } from '../child/types/ChildTypes';
@@ -63,6 +64,7 @@ const Profile: FunctionComponent = () => {
         {guardian.firstName} {guardian.lastName}
       </div>
       <div>{guardian.phone}</div>
+      <NoUpcomingEvents />
     </div>
   );
 };
