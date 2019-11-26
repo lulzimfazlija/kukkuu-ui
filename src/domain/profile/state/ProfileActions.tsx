@@ -2,6 +2,6 @@ import { createAction } from 'redux-starter-kit';
 
 import { PROFILE_ACTIONS } from '../constants/ProfileActionConstants';
 
-const fetchProfile = createAction(PROFILE_ACTIONS.LOAD_PROFILE);
+const profileToStore = createAction(PROFILE_ACTIONS.PROFILE_TO_STORE);
 
-export { fetchProfile };
+export { profileToStore };

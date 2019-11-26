@@ -17,7 +17,7 @@ import { authenticateWithBackend } from '../auth/authenticate';
 import { fetchTokenError } from '../auth/state/BackendAuthenticationActions';
 import Welcome from '../registration/welcome/Welcome';
 import Profile from '../profile/Profile';
-import { fetchProfile } from '../profile/state/ProfileActions';
+import { profileToStore } from '../profile/state/ProfileActions';
 
 type AppProps = RouteComponentProps<{ locale: string }> & {
   isLoadingUser: boolean;
@@ -81,7 +81,7 @@ const mapStateToProps = (state: StoreState) => ({
 const actions = {
   fetchApiToken: authenticateWithBackend,
   fetchApiTokenError: fetchTokenError,
-  fetchProfile: fetchProfile,
+  profileToStore: profileToStore,
 };
 
 export const UnconnectedApp = App;

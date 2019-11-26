@@ -1,6 +1,5 @@
 import { createReducer } from 'redux-starter-kit';
 
-//import { string } from 'prop-types';
 import ProfileValues from '../types/ProfileTypes';
 import { PROFILE_ACTIONS } from '../constants/ProfileActionConstants';
 
@@ -9,6 +8,6 @@ export const defaultProfileValules: ProfileValues = {
 };
 
 export default createReducer(defaultProfileValules, {
-  [PROFILE_ACTIONS.LOAD_PROFILE]: (state, action) =>
+  [PROFILE_ACTIONS.PROFILE_TO_STORE]: (state, action) =>
     Object.assign({}, state, { profileValues: action.payload }),
 });
