@@ -11,7 +11,9 @@ import { TUNNISTAMO_API_TOKEN_ENDPOINT } from '../api/constants/ApiConstants';
 import { BackendTokenResponse } from './types/BackendAuthenticationTypes';
 
 export const loginTunnistamo = (path?: string) => {
-  userManager.signinRedirect(path ? { data: { path: path } } : {});
+  userManager.signinRedirect(
+    path ? { data: { path: path } } : { data: { path: '/profile' } }
+  );
 };
 
 export const logoutTunnistamo = (path?: string) => {
