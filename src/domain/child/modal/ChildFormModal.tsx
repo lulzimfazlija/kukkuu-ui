@@ -3,28 +3,29 @@ import { Formik, Form, FieldArray } from 'formik';
 import { useTranslation } from 'react-i18next';
 
 import Modal from '../../../common/components/modal/Modal';
-import styles from './childModalForm.module.scss';
+import styles from './childFormModal.module.scss';
 import BirthdateFormField from '../../home/form/partial/BirthdateFormField';
 import EnhancedInputField from '../../../common/components/form/fields/input/EnhancedInputField';
 import InputField from '../../../common/components/form/fields/input/InputField';
 import Button from '../../../common/components/button/Button';
 import SelectField from '../../../common/components/form/fields/select/SelectField';
 import { CHILD_RELATIONSHIP_OPTIONS } from '../constants/ChildRelationshipConstants';
+import { Child } from '../types/ChildTypes';
 
-interface ChildModalFormValues {
+export interface ChildFormModalValues extends Omit<Child, 'birthdate'> {
   birthdate: {
-    day: number;
-    month: number;
-    year: number;
+    day: number | string;
+    month: number | string;
+    year: number | string;
   };
 }
-interface ChildModalFormProps {
-  initialValues: ChildModalFormValues;
+interface ChildFormModalProps {
+  initialValues: ChildFormModalValues;
   label: string;
-  onSubmit: (values: ChildModalFormValues) => void;
+  onSubmit: (values: ChildFormModalValues) => void;
 }
 
-const ChildModalForm: React.FunctionComponent<ChildModalFormProps> = ({
+const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
   initialValues,
   label,
   onSubmit,
@@ -32,7 +33,7 @@ const ChildModalForm: React.FunctionComponent<ChildModalFormProps> = ({
   const [isOpen, toggleOpen] = React.useState(false);
   const { t } = useTranslation();
   return (
-    <div className={styles.childModalFormWrapper}>
+    <div className={styles.childFormModalWrapper}>
       <Modal isOpen={isOpen} label={label}>
         <Formik initialValues={initialValues} onSubmit={onSubmit}>
           {({ isSubmitting, isValid }) => (
@@ -115,4 +116,4 @@ const ChildModalForm: React.FunctionComponent<ChildModalFormProps> = ({
   );
 };
 
-export default ChildModalForm;
+export default ChildFormModal;

@@ -23,6 +23,7 @@ import { convertFormValues } from './HomePreliminaryFormUtils';
 import { newMoment, formatTime } from '../../../common/time/utils';
 import EnhancedInputField from '../../../common/components/form/fields/input/EnhancedInputField';
 import { registrationFormDataSelector } from '../../registration/state/RegistrationSelectors';
+import { BACKEND_DATE_FORMAT } from '../../../common/time/TimeConstants';
 interface Props {
   isAuthenticated: boolean;
   setFormValues: (values: RegistrationFormValues) => void;
@@ -47,7 +48,7 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
           birthdate: formatTime(
             newMoment(
               `${values.child.birthdate.year}-${values.child.birthdate.month}-${values.child.birthdate.day}`,
-              'YYYY-MM-DD'
+              BACKEND_DATE_FORMAT
             )
           ),
           homeCity: values.child.homeCity,
