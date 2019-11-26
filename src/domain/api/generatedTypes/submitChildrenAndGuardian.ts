@@ -19,7 +19,7 @@ export interface submitChildrenAndGuardian_submitChildrenAndGuardian_guardian {
   __typename: "GuardianNode";
   firstName: string;
   lastName: string;
-  email: string;
+  phoneNumber: string;
 }
 
 export interface submitChildrenAndGuardian_submitChildrenAndGuardian {
@@ -36,5 +36,5 @@ export interface submitChildrenAndGuardianVariables {
   children?: (ChildInput | null)[] | null;
   guardianFirstName: string;
   guardianLastName: string;
-  email: string;
+  phoneNumber: string;
 }

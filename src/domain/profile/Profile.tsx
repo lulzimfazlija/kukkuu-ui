@@ -16,7 +16,6 @@ const profileQuery = gql`
         node {
           firstName
           lastName
-          email
           children {
             edges {
               node {
@@ -40,7 +39,6 @@ const Profile: FunctionComponent = () => {
   if (error) return <div>Error! {error.message}</div>;
 
   const guardian = {
-    email: data.guardians.edges[0].node.email,
     phone: data.guardians.edges[0].node.phone,
     firstName: data.guardians.edges[0].node.firstName,
     lastName: data.guardians.edges[0].node.lastName,
@@ -60,7 +58,7 @@ const Profile: FunctionComponent = () => {
           </div>
         ))}
       </div>
-      <div>{guardian.email}</div>
+      <div>TODO: email</div>
       <div>
         {guardian.firstName} {guardian.lastName}
       </div>

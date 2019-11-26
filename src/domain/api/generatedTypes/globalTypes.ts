@@ -17,6 +17,7 @@ export interface ChildInput {
   firstName?: string | null;
   lastName?: string | null;
   birthdate: any;
+  postalCode?: string | null;
   relationship?: RelationshipInput | null;
 }
 
