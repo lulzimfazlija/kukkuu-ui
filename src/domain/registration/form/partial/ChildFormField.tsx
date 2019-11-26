@@ -9,7 +9,7 @@ import EnhancedInputField from '../../../../common/components/form/fields/input/
 import InputField from '../../../../common/components/form/fields/input/InputField';
 import SelectField from '../../../../common/components/form/fields/select/SelectField';
 import { Child } from '../../../child/types/ChildTypes';
-import { RelationshipTypeEnum } from '../../../api/generatedTypes/globalTypes';
+import { CHILD_RELATIONSHIP_OPTIONS } from '../../../child/constants/ChildRelationshipConstants';
 
 interface ChildFormFieldProps {
   child: Child;
@@ -66,24 +66,7 @@ const ChildFormField: React.FunctionComponent<ChildFormFieldProps> = ({
           label={t('registration.form.child.relationship.input.label')}
           component={SelectField}
           id="registration.form.child.relationship.select"
-          options={[
-            {
-              label: RelationshipTypeEnum.ADVOCATE,
-              value: RelationshipTypeEnum.ADVOCATE,
-            },
-            {
-              label: RelationshipTypeEnum.OTHER_GUARDIAN,
-              value: RelationshipTypeEnum.OTHER_GUARDIAN,
-            },
-            {
-              label: RelationshipTypeEnum.OTHER_RELATION,
-              value: RelationshipTypeEnum.OTHER_RELATION,
-            },
-            {
-              label: RelationshipTypeEnum.PARENT,
-              value: RelationshipTypeEnum.PARENT,
-            },
-          ]}
+          options={CHILD_RELATIONSHIP_OPTIONS}
           placeholder={t(
             'registration.form.child.relationship.input.placeholder'
           )}
