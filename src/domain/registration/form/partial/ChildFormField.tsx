@@ -41,12 +41,14 @@ const ChildFormField: React.FunctionComponent<ChildFormFieldProps> = ({
       <div className={styles.childInfo}>
         <div className={styles.heading}>
           <h2>{t('registration.form.child.info.heading')}</h2>
-          <Button
-            onClick={() => dispatch(deleteChildFromFormValues(childIndex))}
-          >
-            {t('child.form.modal.delete.label')}
-            <Icon src={deleteIcon} alt="Delete child icon" />
-          </Button>
+          {childIndex !== 0 && (
+            <Button
+              onClick={() => dispatch(deleteChildFromFormValues(childIndex))}
+            >
+              {t('child.form.modal.delete.label')}
+              <Icon src={deleteIcon} alt="Delete child icon" />
+            </Button>
+          )}
         </div>
         <div className={styles.childFixedInfo}>
           <div className={styles.childBirthdate}>
