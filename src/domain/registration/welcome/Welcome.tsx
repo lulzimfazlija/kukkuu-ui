@@ -15,11 +15,12 @@ const Welcome: FunctionComponent = () => {
     <div className={styles.welcome}>
       <h1>{t('registration.welcome.hero.header')}</h1>
       <Icon src={tadaImage} className={styles.tada} alt="Tada!" />
-      <form onSubmit={() => history.push('/profile')}>
-        <Button className={homeFormStyles.submitButton} type="submit">
-          {t('common.profile.goToProfile.buttonText')}
-        </Button>
-      </form>
+      <Button
+        onClick={() => history.push('/profile')}
+        className={homeFormStyles.submitButton}
+      >
+        {t('common.profile.goToProfile.buttonText')}
+      </Button>
     </div>
   );
 };
