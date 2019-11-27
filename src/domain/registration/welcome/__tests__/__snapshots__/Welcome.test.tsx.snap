@@ -12,15 +12,11 @@ exports[`renders snapshot correctly 1`] = `
     className="tada"
     src="tada.svg"
   />
-  <form
-    onSubmit={[Function]}
+  <Button
+    className="submitButton"
+    onClick={[Function]}
   >
-    <Button
-      className="submitButton"
-      type="submit"
-    >
-      Profiilillesi
-    </Button>
-  </form>
+    Profiilillesi
+  </Button>
 </div>
 `;
