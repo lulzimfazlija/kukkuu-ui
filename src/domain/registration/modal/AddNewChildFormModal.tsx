@@ -12,7 +12,10 @@ import { formatTime, newMoment } from '../../../common/time/utils';
 import { BACKEND_DATE_FORMAT } from '../../../common/time/TimeConstants';
 import { Child } from '../../child/types/ChildTypes';
 
-const AddChildModalForm: React.FunctionComponent = props => {
+const AddNewChildFormModal: React.FunctionComponent<{
+  isOpen: boolean;
+  setIsOpen: (value: boolean) => void;
+}> = ({ isOpen, setIsOpen }) => {
   const primaryChildData = useSelector(primaryChildFormDataSelector);
   const dispatch = useDispatch();
   const { t } = useTranslation();
@@ -29,6 +32,7 @@ const AddChildModalForm: React.FunctionComponent = props => {
         )
       ),
     });
+
     dispatch(addChildToFormValues(payload));
   };
   return (
@@ -36,8 +40,10 @@ const AddChildModalForm: React.FunctionComponent = props => {
       initialValues={initialFormData}
       onSubmit={onSubmit}
       label={t('child.form.modal.add.label')}
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
     />
   );
 };
 
-export default AddChildModalForm;
+export default AddNewChildFormModal;

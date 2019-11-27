@@ -1,0 +1,7 @@
+@import 'mixins';
+@import 'variables';
+
+.submitButton {
+    @include button();
+    margin-top: $largeMargin;
+}

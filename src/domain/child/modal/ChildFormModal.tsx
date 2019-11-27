@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Formik, Form, FieldArray } from 'formik';
+import { Formik, FieldArray } from 'formik';
 import { useTranslation } from 'react-i18next';
 
 import Modal from '../../../common/components/modal/Modal';
@@ -23,21 +23,24 @@ interface ChildFormModalProps {
   initialValues: ChildFormModalValues;
   label: string;
   onSubmit: (values: ChildFormModalValues) => void;
+  isOpen: boolean;
+  setIsOpen: (value: boolean) => void;
 }
 
 const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
   initialValues,
   label,
   onSubmit,
+  isOpen,
+  setIsOpen,
 }) => {
-  const [isOpen, toggleOpen] = React.useState(false);
   const { t } = useTranslation();
   return (
     <div className={styles.childFormModalWrapper}>
-      <Modal isOpen={isOpen} label={label}>
+      <Modal isOpen={isOpen} label={label} toggleModal={setIsOpen}>
         <Formik initialValues={initialValues} onSubmit={onSubmit}>
-          {({ isSubmitting, isValid }) => (
-            <Form>
+          {({ isSubmitting, isValid, handleSubmit }) => (
+            <form onSubmit={handleSubmit}>
               <FieldArray
                 name="birthdate"
                 render={props => <BirthdateFormField {...props} />}
@@ -58,7 +61,6 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
                 className={styles.childHomeCity}
                 name="postalCode"
                 label={t('registration.form.child.postalCode.input.label')}
-                required={true}
                 component={InputField}
                 placeholder={t(
                   'registration.form.child.postalCode.input.placeholder'
@@ -95,20 +97,13 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
               />
 
               <Button
-                className={styles.cancelButton}
-                onClick={() => toggleOpen(false)}
-              >
-                {t('common.modal.cancel.text')}
-              </Button>
-              <Button
                 type="submit"
                 className={styles.submitButton}
-                onClick={() => toggleOpen(false)}
                 disabled={isSubmitting || !isValid}
               >
                 {t('homePage.hero.buttonText')}
               </Button>
-            </Form>
+            </form>
           )}
         </Formik>
       </Modal>

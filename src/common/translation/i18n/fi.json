@@ -205,10 +205,12 @@
     "form": {
       "modal": {
         "add": {
-          "text": "Add child"
+          "text": "Add child",
+          "label": "Add new child"
         },
         "edit": {
-          "text": "Edit"
+          "text": "Edit",
+          "label": ""
         }
       }
     }

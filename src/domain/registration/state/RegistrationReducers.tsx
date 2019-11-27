@@ -28,17 +28,13 @@ export const defaultRegistrationData: RegistrationData = {
 };
 
 export default createReducer(defaultRegistrationData, {
-  [REGISTRATION_ACTIONS.SET_FORM_VALUES]: (state, action) =>
-    Object.assign({}, state, { formValues: action.payload }),
-  [REGISTRATION_ACTIONS.RESET_FORM_VALUES]: state =>
-    Object.assign({}, state, {
-      formValues: defaultRegistrationData.formValues,
-    }),
+  [REGISTRATION_ACTIONS.SET_FORM_VALUES]: (state, action) => {
+    state.formValues = action.payload;
+  },
+  [REGISTRATION_ACTIONS.RESET_FORM_VALUES]: state => {
+    state.formValues = defaultRegistrationData.formValues;
+  },
   [REGISTRATION_ACTIONS.ADD_CHILD]: (state, action) => {
-    const newFormValues = Object.assign({}, state.formValues, {
-      children: state.formValues.children.push(action.payload),
-    });
-
-    return Object.assign({}, state, { formValues: newFormValues });
+    state.formValues.children = [...state.formValues.children, action.payload];
   },
 });

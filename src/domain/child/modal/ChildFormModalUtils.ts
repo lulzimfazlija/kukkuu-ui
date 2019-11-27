@@ -7,7 +7,7 @@ export const getChildFormModalInitialData = (child: Child) => {
     return {
       day: birthdateMoment.days(),
       month: birthdateMoment.month() - 1,
-      year: birthdateMoment.years(),
+      year: birthdateMoment.year(),
     };
   }
 

@@ -1,0 +1,59 @@
+@import 'variables';
+@import 'colors';
+@import 'fonts';
+
+.modal {
+    position: relative;
+    background-color: $white;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba($hel-gray, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modalContent {
+    .closeButton {
+        text-align: right;
+        
+        button {
+            padding: 0;
+            border: none;
+            height: $largeMargin;
+            width: $largeMargin;
+            font-weight: $font-weight-bold;
+            font-size: $font-size-lg;
+            margin-right: $baseMargin;
+        }
+    }
+}
+
+.modalChildren {
+    padding: $xlargeMargin;
+    padding-top: 0;
+}
+
+.heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: $xlargeMargin 0 $baseMargin 0;
+
+    .happyChild {
+        height: $largeMargin;
+        width: $largeMargin;
+        margin: 0 $baseMargin;
+    }
+
+    h1 {
+        margin: 0;
+        flex-grow: 1;
+    }
+}
