@@ -219,8 +219,6 @@ exports[`renders snapshot correctly 1`] = `
     }
   }
 >
-  <Profile
-    profileToStore={[MockFunction]}
-  />
+  <Connect(Profile) />
 </ApolloProvider>
 `;

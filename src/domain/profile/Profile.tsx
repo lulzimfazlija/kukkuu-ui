@@ -3,13 +3,10 @@ import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
 
 import NoUpcomingEvents from './components/noUpcomingEvents/NoUpcomingEvents';
-import { StoreState } from '../app/types/AppTypes';
 import { profileToStore } from './state/ProfileActions';
 import { GuardianValues } from './types/ProfileTypes';
-import { userSelector } from '../auth/state/AuthenticationSelectors';
 import { Children } from '../child/types/ChildTypes';
 import { normalizeChildren } from '../child/childUtils';
 import profileQuery from './queries/ProfileQuery';
@@ -78,13 +75,7 @@ const actions = {
   profileToStore,
 };
 
-const mapStateToProps = (state: StoreState) => ({
-  tunnistamoUserValues: userSelector(state),
-});
-
-export const UnconnectedProfile = Profile;
-
 export default connect(
-  mapStateToProps,
+  null,
   actions
 )(Profile);
