@@ -12,28 +12,8 @@ import { GuardianValues } from './types/ProfileTypes';
 import { userSelector } from '../auth/state/AuthenticationSelectors';
 import { Children } from '../child/types/ChildTypes';
 import { normalizeChildren } from '../child/childUtils';
+import profileQuery from './queries/ProfileQuery';
 
-const profileQuery = gql`
-  query profileQuery {
-    guardians {
-      edges {
-        node {
-          firstName
-          lastName
-          children {
-            edges {
-              node {
-                firstName
-                lastName
-                birthdate
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
 interface Props {
   profileToStore: (values: GuardianValues) => void;
 }
