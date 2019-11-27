@@ -1,12 +1,18 @@
 import { newMoment } from '../../../common/time/utils';
 import { Child } from '../types/ChildTypes';
 
-export const getChildFormModalInitialData = (child: Child) => {
+/**
+ * Transform initial data to feed to form
+ * Almost similar with the one from
+ * src/domain/home/form/HomePreliminaryFormUtils.ts
+ */
+
+export const getChildInitialFormBirthdate = (child: Child) => {
   if (child.birthdate) {
     const birthdateMoment = newMoment(child.birthdate);
     return {
-      day: birthdateMoment.days(),
-      month: birthdateMoment.month() - 1,
+      day: birthdateMoment.date(),
+      month: birthdateMoment.month() + 1,
       year: birthdateMoment.year(),
     };
   }

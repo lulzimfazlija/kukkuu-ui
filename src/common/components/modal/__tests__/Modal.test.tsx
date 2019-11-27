@@ -5,7 +5,7 @@ import Modal from '../Modal';
 
 it('renders snapshot correctly', () => {
   const spinner = shallow(
-    <Modal isOpen={false} label="foo">
+    <Modal isOpen={false} label="foo" toggleModal={jest.fn()}>
       foo
     </Modal>
   );
