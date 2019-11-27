@@ -2,7 +2,7 @@
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
 
-import { ChildInput } from "./globalTypes";
+import { ChildInput, Language } from "./globalTypes";
 
 // ====================================================
 // GraphQL mutation operation: submitChildrenAndGuardian
@@ -20,6 +20,7 @@ export interface submitChildrenAndGuardian_submitChildrenAndGuardian_guardian {
   firstName: string;
   lastName: string;
   phoneNumber: string;
+  language: Language | null;
 }
 
 export interface submitChildrenAndGuardian_submitChildrenAndGuardian {
@@ -37,4 +38,5 @@ export interface submitChildrenAndGuardianVariables {
   guardianFirstName: string;
   guardianLastName: string;
   phoneNumber: string;
+  language: Language;
 }

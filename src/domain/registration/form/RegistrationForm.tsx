@@ -62,6 +62,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
                   guardianLastName: values.guardian.lastName,
                   email: values.guardian.email,
                   phoneNumber: values.guardian.phoneNumber,
+                  language: values.preferLanguage.toUpperCase(), // This is an Enum in the backend
                 },
               });
               history.push('/registration/success');

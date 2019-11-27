@@ -6,6 +6,7 @@ const submitChildrenAndGuardianMutation = gql`
     $guardianFirstName: String!
     $guardianLastName: String!
     $phoneNumber: String!
+    $language: Language!
   ) {
     submitChildrenAndGuardian(
       input: {
@@ -14,6 +15,7 @@ const submitChildrenAndGuardianMutation = gql`
           lastName: $guardianLastName
           firstName: $guardianFirstName
           phoneNumber: $phoneNumber
+          language: $language
         }
       }
     ) {
@@ -26,6 +28,7 @@ const submitChildrenAndGuardianMutation = gql`
         firstName
         lastName
         phoneNumber
+        language
       }
     }
   }
