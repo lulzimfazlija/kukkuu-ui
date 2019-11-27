@@ -6,6 +6,8 @@ import { gql } from 'apollo-boost';
 
 import NoUpcomingEvents from './components/noUpcomingEvents/NoUpcomingEvents';
 import { StoreState } from '../app/types/AppTypes';
+import { profileToStore } from './state/ProfileActions';
+import { GuardianValues } from './types/ProfileTypes';
 import { userSelector } from '../auth/state/AuthenticationSelectors';
 import { Children } from '../child/types/ChildTypes';
 import { normalizeChildren } from '../child/childUtils';
@@ -31,8 +33,11 @@ const profileQuery = gql`
     }
   }
 `;
+interface Props {
+  profileToStore: (values: GuardianValues) => void;
+}
 
-const Profile: FunctionComponent = () => {
+const Profile: FunctionComponent<Props> = ({ profileToStore }) => {
   const { loading, error, data } = useQuery(profileQuery);
   const { t } = useTranslation();
 
@@ -48,6 +53,16 @@ const Profile: FunctionComponent = () => {
   const children: Children = normalizeChildren(
     data.guardians.edges[0].node.children.edges
   );
+
+  const profileValues: GuardianValues = {
+    firstName: guardian.firstName,
+    lastName: guardian.lastName,
+    phoneNumber: guardian.phone,
+    children,
+  };
+
+  const payload = Object.assign({}, profileValues, {});
+  profileToStore(payload);
 
   return (
     <div>
@@ -69,10 +84,17 @@ const Profile: FunctionComponent = () => {
   );
 };
 
+const actions = {
+  profileToStore,
+};
+
 const mapStateToProps = (state: StoreState) => ({
   tunnistamoUserValues: userSelector(state),
 });
 
 export const UnconnectedProfile = Profile;
 
-export default connect(mapStateToProps)(Profile);
+export default connect(
+  mapStateToProps,
+  actions
+)(Profile);

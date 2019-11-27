@@ -23,7 +23,6 @@ type AppProps = RouteComponentProps<{ locale: string }> & {
   isLoadingUser: boolean;
   fetchApiToken: (accessToken: string) => void;
   fetchApiTokenError: (errors: object) => void;
-  fetchProfile: () => void;
 };
 
 class App extends React.Component<AppProps> {
@@ -32,7 +31,6 @@ class App extends React.Component<AppProps> {
       .then(user => {
         if (user) {
           this.props.fetchApiToken(user.access_token || '');
-          this.props.fetchProfile();
         } else {
           this.props.fetchApiTokenError({ message: 'No user found' });
         }
