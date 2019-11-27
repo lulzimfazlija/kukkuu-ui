@@ -8,13 +8,10 @@ const NoUpcomingEvents: FunctionComponent = () => {
   const { t } = useTranslation();
   return (
     <div>
-      <h1>{t('profile.noupcomingevents.hero.header')}</h1>
-      <p>Tänne ilmaantuvat sinulle lähetetyt tapahtumakutsut.</p>
+      <h1>{t('profile.noupcomingevents.hero.heading')}</h1>
+      <p>{t('profile.noupcomingevents.text1')}</p>
       <Icon src={envelopeWithStars} alt="Envelope with stars" />
-      <p>
-        Pääset myös ilmoittautumaan tapahtumiin ja perumaan ilmoittautumisesi
-        mikäli et jostain syystä pääsekään tapahtumaan.
-      </p>
+      <p>{t('profile.noupcomingevents.text2')}</p>
     </div>
   );
 };
