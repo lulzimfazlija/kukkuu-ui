@@ -219,6 +219,6 @@ exports[`renders snapshot correctly 1`] = `
     }
   }
 >
-  <Connect(Profile) />
+  <Profile />
 </ApolloProvider>
 `;

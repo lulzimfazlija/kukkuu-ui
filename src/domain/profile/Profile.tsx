@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
@@ -11,14 +11,11 @@ import { Children } from '../child/types/ChildTypes';
 import { normalizeChildren } from '../child/childUtils';
 import profileQuery from './queries/ProfileQuery';
 
-interface Props {
-  profileToStore: (values: GuardianValues) => void;
-}
-
-const Profile: FunctionComponent<Props> = ({ profileToStore }) => {
+const Profile: FunctionComponent = () => {
   const { loading, error, data } = useQuery(profileQuery);
   const { t } = useTranslation();
   const history = useHistory();
+  const dispatch = useDispatch();
 
   if (loading) return <div>'Loading...'</div>;
   if (error) return <div>Error! {error.message}</div>;
@@ -47,8 +44,8 @@ const Profile: FunctionComponent<Props> = ({ profileToStore }) => {
       children,
     };
 
-    const payload = Object.assign({}, profileValues, {});
-    profileToStore(payload);
+    const payload: GuardianValues = Object.assign({}, profileValues, {});
+    dispatch(profileToStore(payload));
 
     return (
       <div>
@@ -71,11 +68,4 @@ const Profile: FunctionComponent<Props> = ({ profileToStore }) => {
   }
 };
 
-const actions = {
-  profileToStore,
-};
-
-export default connect(
-  null,
-  actions
-)(Profile);
+export default Profile;
