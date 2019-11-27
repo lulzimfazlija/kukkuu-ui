@@ -46,26 +46,31 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
                 render={props => <BirthdateFormField {...props} />}
               />
 
-              <EnhancedInputField
-                className={styles.childHomeCity}
-                name="homeCity"
-                label={t('homePage.preliminaryForm.childHomeCity.input.label')}
-                required={true}
-                component={InputField}
-                placeholder={t(
-                  'homePage.preliminaryForm.childHomeCity.input.placeholder'
-                )}
-              />
+              <div className={styles.childInfo}>
+                <EnhancedInputField
+                  className={styles.childHomeCity}
+                  name="homeCity"
+                  label={t(
+                    'homePage.preliminaryForm.childHomeCity.input.label'
+                  )}
+                  required={true}
+                  component={InputField}
+                  placeholder={t(
+                    'homePage.preliminaryForm.childHomeCity.input.placeholder'
+                  )}
+                />
 
-              <EnhancedInputField
-                className={styles.childHomeCity}
-                name="postalCode"
-                label={t('registration.form.child.postalCode.input.label')}
-                component={InputField}
-                placeholder={t(
-                  'registration.form.child.postalCode.input.placeholder'
-                )}
-              />
+                <EnhancedInputField
+                  className={styles.childPostalCode}
+                  name="postalCode"
+                  label={t('registration.form.child.postalCode.input.label')}
+                  component={InputField}
+                  placeholder={t(
+                    'registration.form.child.postalCode.input.placeholder'
+                  )}
+                />
+              </div>
+
               <div className={styles.childName}>
                 <EnhancedInputField
                   name="firstName"
@@ -101,7 +106,7 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
                 className={styles.submitButton}
                 disabled={isSubmitting || !isValid}
               >
-                {t('homePage.hero.buttonText')}
+                {t('child.form.modal.add.label')}
               </Button>
             </form>
           )}

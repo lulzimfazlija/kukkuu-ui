@@ -211,6 +211,9 @@
         "edit": {
           "text": "Edit",
           "label": "Edit child information"
+        },
+        "delete": {
+          "label": "Remove"
         }
       }
     }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>Icons/Close/48</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="32.4496947 11 23.9987788 19.4509159 15.5478628 11 11 15.5503053 19.4509159 24.0012212 11 32.4521372 15.5478628 37.0024425 23.9987788 28.553969 32.4496947 37.0024425 37 32.4521372 28.5490841 24.0012212 37 15.5503053"></polygon>
+    </defs>
+    <g id="Icons/Close/48" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Bounding-box" x="0" y="0" width="48" height="48"></rect>
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Color" fill="#000000" xlink:href="#path-1"></use>
+    </g>
+</svg>

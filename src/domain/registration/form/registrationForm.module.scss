@@ -33,7 +33,7 @@
     }
 }
 
-.childName, .guardianName {
+.guardianName {
     @include respond-above(md) {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -41,10 +41,29 @@
     }
 }
 
-.agreeBtn {
-    margin: $baseMargin 0;
-}
-
 .submitButton {
     @include button();
+}
+
+.addNewChildButton {
+    display: flex;
+    justify-content: center;
+
+    button {
+        background: transparent;
+        width: 50%;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        
+        > div {
+            padding-right: 5px;
+        }
+        img {
+            transform: rotate(45deg);
+        }
+    }
+    margin-bottom: $largeMargin;
 }

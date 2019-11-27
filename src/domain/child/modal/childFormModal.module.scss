@@ -1,7 +1,16 @@
 @import 'mixins';
 @import 'variables';
+@import 'layout';
 
 .submitButton {
     @include button();
     margin-top: $largeMargin;
+}
+
+.childName, .childInfo {
+    @include respond-above(md) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: $baseMargin;
+    }
 }

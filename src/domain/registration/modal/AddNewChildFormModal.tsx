@@ -34,6 +34,7 @@ const AddNewChildFormModal: React.FunctionComponent<{
     });
 
     dispatch(addChildToFormValues(payload));
+    setIsOpen(false);
   };
   return (
     <ChildFormModal

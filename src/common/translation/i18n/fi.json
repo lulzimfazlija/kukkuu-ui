@@ -210,7 +210,10 @@
         },
         "edit": {
           "text": "Edit",
-          "label": ""
+          "label": "Edit child information"
+        },
+        "delete": {
+          "label": "Remove"
         }
       }
     }

@@ -11,4 +11,13 @@ const addChildToFormValues = createAction<Child>(
   REGISTRATION_ACTIONS.ADD_CHILD
 );
 
-export { setFormValues, resetFormValues, addChildToFormValues };
+const deleteChildFromFormValues = createAction<number>(
+  REGISTRATION_ACTIONS.DELETE_CHILD
+);
+
+export {
+  setFormValues,
+  resetFormValues,
+  addChildToFormValues,
+  deleteChildFromFormValues,
+};

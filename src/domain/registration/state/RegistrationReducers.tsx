@@ -37,4 +37,7 @@ export default createReducer(defaultRegistrationData, {
   [REGISTRATION_ACTIONS.ADD_CHILD]: (state, action) => {
     state.formValues.children = [...state.formValues.children, action.payload];
   },
+  [REGISTRATION_ACTIONS.DELETE_CHILD]: (state, action) => {
+    state.formValues.children.splice(action.payload, 1);
+  },
 });
