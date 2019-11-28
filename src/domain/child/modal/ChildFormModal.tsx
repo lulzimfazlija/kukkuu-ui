@@ -106,7 +106,7 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
               <Button
                 type="submit"
                 className={styles.submitButton}
-                disabled={isSubmitting || !isValid}
+                disabled={isSubmitting}
               >
                 {t('child.form.modal.add.label')}
               </Button>
