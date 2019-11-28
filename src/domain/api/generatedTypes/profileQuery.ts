@@ -7,14 +7,12 @@
 // ====================================================
 
 export interface profileQuery_guardians_edges_node_children_edges_node {
-  __typename: "ChildMutationOutputNode";
   firstName: string;
   lastName: string;
   birthdate: any;
 }
 
 export interface profileQuery_guardians_edges_node_children_edges {
-  __typename: "ChildMutationOutputNodeEdge";
   /**
    * The item at the end of the edge
    */
@@ -22,7 +20,6 @@ export interface profileQuery_guardians_edges_node_children_edges {
 }
 
 export interface profileQuery_guardians_edges_node_children {
-  __typename: "ChildMutationOutputNodeConnection";
   /**
    * Contains the nodes in this connection.
    */
@@ -30,14 +27,14 @@ export interface profileQuery_guardians_edges_node_children {
 }
 
 export interface profileQuery_guardians_edges_node {
-  __typename: "GuardianNode";
   firstName: string;
   lastName: string;
+  email: string | null;
+  phoneNumber: string;
   children: profileQuery_guardians_edges_node_children;
 }
 
 export interface profileQuery_guardians_edges {
-  __typename: "GuardianNodeEdge";
   /**
    * The item at the end of the edge
    */
@@ -45,7 +42,6 @@ export interface profileQuery_guardians_edges {
 }
 
 export interface profileQuery_guardians {
-  __typename: "GuardianNodeConnection";
   /**
    * Contains the nodes in this connection.
    */

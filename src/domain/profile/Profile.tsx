@@ -3,55 +3,34 @@ import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
-
+import { get } from 'lodash';
+import {profileQuery as ProfileQueryType} from '../api/generatedTypes/profileQuery'
 import NoUpcomingEvents from './components/noUpcomingEvents/NoUpcomingEvents';
-import { profileToStore } from './state/ProfileActions';
-import { GuardianValues } from './types/ProfileTypes';
-import { Children } from '../child/types/ChildTypes';
-import { normalizeChildren } from '../child/childUtils';
+import { saveProfile } from './state/ProfileActions';
 import profileQuery from './queries/ProfileQuery';
+import LoadingSpinner from '../../common/components/spinner/LoadingSpinner';
+import { normalizeProfileData } from './ProfileUtils';
+import { Profile } from './type/ProfileTypes';
 
 const Profile: FunctionComponent = () => {
-  const { loading, error, data } = useQuery(profileQuery);
+  const { loading, error, data } = useQuery<ProfileQueryType>(profileQuery);
   const { t } = useTranslation();
   const history = useHistory();
   const dispatch = useDispatch();
+  let profile
 
-  if (loading) return <div>'Loading...'</div>;
-  if (error) return <div>Error! {error.message}</div>;
-
-  /*
-   * If the guardian does not exist in the api, they have not registered and we want to send them to the front page.
-   */
-  if (data.guardians.edges.length === 0) {
+  if (loading) return <div><LoadingSpinner isLoading={true}/></div>;
+  if (error || !get(data, 'guardians.edges[0]') || !data) {
     history.push('/home');
-    return <div>No profile exists</div>;
   } else {
-    const guardian = {
-      phone: data.guardians.edges[0].node.phone,
-      firstName: data.guardians.edges[0].node.firstName,
-      lastName: data.guardians.edges[0].node.lastName,
-    };
-
-    const children: Children = normalizeChildren(
-      data.guardians.edges[0].node.children.edges
-    );
-
-    const profileValues: GuardianValues = {
-      firstName: guardian.firstName,
-      lastName: guardian.lastName,
-      phoneNumber: guardian.phone,
-      children,
-    };
-
-    const payload: GuardianValues = Object.assign({}, profileValues, {});
-    dispatch(profileToStore(payload));
-
+    profile = normalizeProfileData(data);
+    if(profile) dispatch(saveProfile(profile as Profile));
+  }
     return (
       <div>
         <h1>{t('profile.heading')}</h1>
         <div>
-          {children.map(child => (
+          {profile && profile.children.map(child ? (
             <div>
               {child.firstName} {child.lastName} {child.birthdate}
             </div>

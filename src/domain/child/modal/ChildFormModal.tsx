@@ -39,7 +39,7 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
     <div className={styles.childFormModalWrapper}>
       <Modal isOpen={isOpen} label={label} toggleModal={setIsOpen}>
         <Formik initialValues={initialValues} onSubmit={onSubmit}>
-          {({ isSubmitting, isValid, handleSubmit }) => (
+          {({ isSubmitting, handleSubmit }) => (
             <form onSubmit={handleSubmit}>
               <FieldArray
                 name="birthdate"

@@ -1,6 +1,5 @@
-import { gql } from 'apollo-boost';
-
 import client from '../client';
+import childrenQuery from '../../child/queries/ChildQueries';
 
 describe('graphql client', () => {
   beforeEach(() => {
@@ -18,13 +17,7 @@ describe('graphql client', () => {
 
     try {
       await client.query({
-        query: gql`
-          query ChildrenQuery {
-            children {
-              __typename
-            }
-          }
-        `,
+        query: childrenQuery,
       });
     } catch (e) {}
 

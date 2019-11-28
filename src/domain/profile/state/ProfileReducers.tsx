@@ -1,28 +1,27 @@
 import { createReducer } from 'redux-starter-kit';
 
-import { ProfileData } from '../types/ProfileTypes';
 import { PROFILE_ACTIONS } from '../constants/ProfileActionConstants';
+import { Profile } from '../type/ProfileTypes';
 
-// TODO: Improve the structure of the data.
-export const defaultProfileValules: ProfileData = {
-  guardian: {
-    firstName: '',
-    lastName: '',
-    phoneNumber: '',
-    children: [
-      {
-        firstName: '',
-        lastName: '',
-        birthdate: '',
-        postalCode: '',
-        homeCity: '',
-      },
-    ],
-  },
+export const defaultProfileData: Profile = {
+  firstName: '',
+  lastName: '',
+  phoneNumber: '',
+  email: '',
+  children: [
+    {
+      firstName: '',
+      lastName: '',
+      birthdate: '',
+    },
+  ],
 };
 
-export default createReducer(defaultProfileValules, {
-  [PROFILE_ACTIONS.PROFILE_TO_STORE]: (state, action) => {
-    state.guardian = action.payload;
+export default createReducer(defaultProfileData, {
+  [PROFILE_ACTIONS.SAVE_PROFILE]: (state, action) => {
+    state = action.payload;
+  },
+  [PROFILE_ACTIONS.CLEAR_PROFILE]: state => {
+    state = defaultProfileData;
   },
 });

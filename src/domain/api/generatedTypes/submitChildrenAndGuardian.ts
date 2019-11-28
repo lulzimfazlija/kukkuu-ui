@@ -9,14 +9,12 @@ import { ChildInput, Language } from "./globalTypes";
 // ====================================================
 
 export interface submitChildrenAndGuardian_submitChildrenAndGuardian_children {
-  __typename: "ChildMutationOutputNode";
   birthdate: any;
   firstName: string;
   lastName: string;
 }
 
 export interface submitChildrenAndGuardian_submitChildrenAndGuardian_guardian {
-  __typename: "GuardianNode";
   firstName: string;
   lastName: string;
   phoneNumber: string;
@@ -24,7 +22,6 @@ export interface submitChildrenAndGuardian_submitChildrenAndGuardian_guardian {
 }
 
 export interface submitChildrenAndGuardian_submitChildrenAndGuardian {
-  __typename: "SubmitChildrenAndGuardianMutationPayload";
   children: (submitChildrenAndGuardian_submitChildrenAndGuardian_children | null)[] | null;
   guardian: submitChildrenAndGuardian_submitChildrenAndGuardian_guardian | null;
 }

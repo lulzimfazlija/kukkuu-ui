@@ -7,6 +7,8 @@ const profileQuery = gql`
         node {
           firstName
           lastName
+          email
+          phoneNumber
           children {
             edges {
               node {
