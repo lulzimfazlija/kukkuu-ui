@@ -31,15 +31,13 @@ const ChildFormField: React.FunctionComponent<ChildFormFieldProps> = ({
   const dispatch = useDispatch();
   return (
     <div className={styles.childField} key={childIndex}>
-      <div className={styles.childIcon}>
-        <Icon
-          src={happyChildIcon}
-          className={styles.childImage}
-          alt="Oh lord a happy child again"
-        />
-      </div>
       <div className={styles.childInfo}>
         <div className={styles.heading}>
+          <Icon
+            src={happyChildIcon}
+            className={styles.childImage}
+            alt="Oh lord a happy child again"
+          />
           <h2>{t('registration.form.child.info.heading')}</h2>
           {childIndex !== 0 && (
             <Button

@@ -2,14 +2,10 @@
 @import 'layout';
 @import 'fonts';
 
-.childIcon {
-    display: flex;
-    justify-content: center;
-    
-    .childImage {
-        height: $largeMargin;
-        width: $largeMargin;
-    }
+.childImage {
+    height: $largeMargin;
+    width: $largeMargin;
+    padding-right: $basePadding;
 }
 
 .childField {
@@ -45,9 +41,11 @@
 .heading {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
 
+    h2 {
+        flex-grow: 1;
+    }
     button {
         padding: 0;
         border: none;

@@ -6,11 +6,11 @@ import ChildFormModal, {
   ChildFormModalValues,
 } from '../../child/modal/ChildFormModal';
 import { primaryChildFormDataSelector } from '../state/RegistrationSelectors';
-import { getChildInitialFormBirthdate } from '../../child/modal/ChildFormModalUtils';
 import { addChildToFormValues } from '../state/RegistrationActions';
 import { formatTime, newMoment } from '../../../common/time/utils';
 import { BACKEND_DATE_FORMAT } from '../../../common/time/TimeConstants';
 import { Child } from '../../child/types/ChildTypes';
+import { defaultRegistrationData } from '../state/RegistrationReducers';
 
 const AddNewChildFormModal: React.FunctionComponent<{
   isOpen: boolean;
@@ -19,9 +19,20 @@ const AddNewChildFormModal: React.FunctionComponent<{
   const primaryChildData = useSelector(primaryChildFormDataSelector);
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const initialFormData = Object.assign({}, primaryChildData, {
-    birthdate: getChildInitialFormBirthdate(primaryChildData),
-  });
+  const initialFormData = Object.assign(
+    {},
+    defaultRegistrationData.formValues.children[0],
+    {
+      homeCity: primaryChildData.homeCity,
+      relationship: primaryChildData.relationship,
+      postalCode: primaryChildData.postalCode,
+      birthdate: {
+        day: '',
+        month: '',
+        year: '',
+      },
+    }
+  );
 
   const onSubmit = (values: ChildFormModalValues) => {
     const payload: Child = Object.assign({}, values, {
