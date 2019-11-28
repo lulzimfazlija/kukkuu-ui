@@ -24,6 +24,17 @@
     },
     "goBack": {
       "text": "Return to registration page"
+    },
+    "modal": {
+      "close": {
+        "text": "x"
+      },
+      "cancel": {
+        "text": "Cancel"
+      },
+      "submit": {
+        "text": "Submit"
+      }
     }
   },
   "footer": {
@@ -188,6 +199,30 @@
     }
   },
   "profile": {
-    "heading": "Kummilapset"
+    "heading": "Kummilapset",
+    "noupcomingevents": {
+      "hero": {
+        "heading": "Tapahtumakutsut"
+      },
+      "text1": "Tänne ilmaantuvat sinulle lähetetyt tapahtumakutsut.",
+      "text2": "Pääset myös ilmoittautumaan tapahtumiin ja perumaan ilmoittautumisesi mikäli et jostain syystä pääsekään tapahtumaan."
+    }
+  },
+  "child": {
+    "form": {
+      "modal": {
+        "add": {
+          "text": "Add child",
+          "label": "Add new child"
+        },
+        "edit": {
+          "text": "Edit",
+          "label": "Edit child information"
+        },
+        "delete": {
+          "label": "Remove"
+        }
+      }
+    }
   }
 }

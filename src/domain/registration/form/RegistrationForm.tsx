@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import { Formik, FieldArray } from 'formik';
 import { connect } from 'react-redux';
 import { useMutation } from '@apollo/react-hooks';
@@ -20,6 +20,10 @@ import EnhancedInputField from '../../../common/components/form/fields/input/Enh
 import { SUPPORT_LANGUAGES } from '../../../common/translation/TranslationConstants';
 import { validateRequire } from '../../../common/components/form/validationUtils';
 import ChildFormField from './partial/ChildFormField';
+import AddNewChildFormModal from '../modal/AddNewChildFormModal';
+import Icon from '../../../common/components/icon/Icon';
+import addIcon from '../../../assets/icons/svg/delete.svg';
+
 interface Props {
   setFormValues: (values: RegistrationFormValues) => void;
   initialValues: RegistrationFormValues;
@@ -35,11 +39,13 @@ const RegistrationForm: FunctionComponent<Props> = ({
   );
   const { t } = useTranslation();
   const history = useHistory();
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className={styles.registrationFormContainer}>
       <div className={styles.registrationForm}>
         <Formik
+          enableReinitialize={true}
           initialValues={initialValues}
           initialErrors={
             (!initialValues.agree && {
@@ -73,22 +79,38 @@ const RegistrationForm: FunctionComponent<Props> = ({
             }
           }}
         >
-          {({ values, isSubmitting, handleSubmit, isValid, errors }) => (
+          {({ values, isSubmitting, handleSubmit, isValid }) => (
             <form onSubmit={handleSubmit}>
               <h1>{t('registration.heading')}</h1>
               <div className={styles.childrenInfo}>
                 <FieldArray
                   name="children"
-                  render={arrayHelpers =>
-                    values.children &&
-                    values.children.map((child, index) => (
-                      <ChildFormField
-                        arrayHelpers={arrayHelpers}
-                        child={child}
-                        childIndex={index}
-                      />
-                    ))
-                  }
+                  render={arrayHelpers => {
+                    return (
+                      <>
+                        {values.children &&
+                          values.children.map((child, index) => (
+                            <ChildFormField
+                              key={index}
+                              arrayHelpers={arrayHelpers}
+                              child={child}
+                              childIndex={index}
+                            />
+                          ))}
+                        <AddNewChildFormModal
+                          isOpen={isOpen}
+                          setIsOpen={setIsOpen}
+                        />
+                        <Button
+                          className={styles.addNewChildButton}
+                          onClick={() => setIsOpen(true)}
+                        >
+                          <Icon src={addIcon} alt="Add child icon"></Icon>
+                          {t('child.form.modal.add.label')}
+                        </Button>
+                      </>
+                    );
+                  }}
                 />
               </div>
               <div className={styles.guardianInfo}>
@@ -163,7 +185,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
               <Button
                 type="submit"
                 className={styles.submitButton}
-                disabled={isSubmitting || !isValid}
+                disabled={isSubmitting}
               >
                 {t('homePage.hero.buttonText')}
               </Button>
