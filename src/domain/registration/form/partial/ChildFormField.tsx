@@ -66,6 +66,7 @@ const ChildFormField: React.FunctionComponent<ChildFormFieldProps> = ({
           <EnhancedInputField
             name={`children[${childIndex}].firstName`}
             label={t('registration.form.child.firstName.input.label')}
+            autoComplete="new-password"
             component={InputField}
             placeholder={t(
               'registration.form.child.firstName.input.placeholder'
@@ -73,6 +74,7 @@ const ChildFormField: React.FunctionComponent<ChildFormFieldProps> = ({
           />
           <EnhancedInputField
             name={`children[${childIndex}].lastName`}
+            autoComplete="new-password"
             label={t('registration.form.child.lastName.input.label')}
             component={InputField}
             placeholder={t(

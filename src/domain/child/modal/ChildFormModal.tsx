@@ -76,12 +76,14 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
                   name="firstName"
                   label={t('registration.form.child.firstName.input.label')}
                   component={InputField}
+                  autoComplete="new-password"
                   placeholder={t(
                     'registration.form.child.firstName.input.placeholder'
                   )}
                 />
                 <EnhancedInputField
                   name="lastName"
+                  autoComplete="new-password"
                   label={t('registration.form.child.lastName.input.label')}
                   component={InputField}
                   placeholder={t(
