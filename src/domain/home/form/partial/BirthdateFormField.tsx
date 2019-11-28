@@ -8,6 +8,7 @@ import { validateRequire } from '../../../../common/components/form/validationUt
 import EnhancedInputField from '../../../../common/components/form/fields/input/EnhancedInputField';
 
 const BirthdateFormField: FunctionComponent<FieldArrayRenderProps> = ({
+  name,
   form: { errors, touched },
 }) => {
   const fieldTouched = getIn(touched, 'child.birthdate.day');
@@ -20,7 +21,7 @@ const BirthdateFormField: FunctionComponent<FieldArrayRenderProps> = ({
       <div className={styles.inputWrapper}>
         <EnhancedInputField
           type="number"
-          name="child.birthdate.day"
+          name={`${name}.day`}
           component={InputField}
           placeholder={t(
             'homePage.preliminaryForm.childBirthdate.input.day.placeholder'
@@ -33,7 +34,7 @@ const BirthdateFormField: FunctionComponent<FieldArrayRenderProps> = ({
         <div className={styles.dot}>.</div>
         <EnhancedInputField
           type="number"
-          name="child.birthdate.month"
+          name={`${name}.month`}
           required={true}
           component={InputField}
           validate={(value: number) => validateRequire(value)}
@@ -47,7 +48,7 @@ const BirthdateFormField: FunctionComponent<FieldArrayRenderProps> = ({
         <EnhancedInputField
           type="number"
           required={true}
-          name="child.birthdate.year"
+          name={`${name}.year`}
           component={InputField}
           validate={(value: number) => validateRequire(value)}
           placeholder={t(

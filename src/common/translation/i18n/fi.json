@@ -24,6 +24,17 @@
     },
     "goBack": {
       "text": "Return to registration page"
+    },
+    "modal": {
+      "close": {
+        "text": "x"
+      },
+      "cancel": {
+        "text": "Cancel"
+      },
+      "submit": {
+        "text": "Submit"
+      }
     }
   },
   "footer": {
@@ -185,6 +196,26 @@
     "general": {
       "required": "Required",
       "unSupportedCity": "Unsupported city"
+    }
+  },
+  "profile": {
+    "heading": "Kummilapset"
+  },
+  "child": {
+    "form": {
+      "modal": {
+        "add": {
+          "text": "Add child",
+          "label": "Add new child"
+        },
+        "edit": {
+          "text": "Edit",
+          "label": "Edit child information"
+        },
+        "delete": {
+          "label": "Remove"
+        }
+      }
     }
   }
 }

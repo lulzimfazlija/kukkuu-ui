@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as Sentry from '@sentry/browser';
-
 import './assets/styles/main.scss';
+import Modal from 'react-modal';
 
 import BrowserApp from './domain/app/BrowserApp';
 import * as serviceWorker from './serviceWorker';
+
 import './common/translation/i18n/i18nInit';
+Modal.setAppElement('#root');
+
 if (process.env.NODE_ENV !== 'development') {
   Sentry.init({
     dsn: process.env.REACT_APP_SENTRY_DSN,
