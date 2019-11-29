@@ -5,6 +5,7 @@ const profileQuery = gql`
     guardians {
       edges {
         node {
+          id
           firstName
           lastName
           email
@@ -12,6 +13,7 @@ const profileQuery = gql`
           children {
             edges {
               node {
+                id
                 firstName
                 lastName
                 birthdate

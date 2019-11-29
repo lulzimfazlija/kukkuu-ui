@@ -4,6 +4,7 @@ import { PROFILE_ACTIONS } from '../constants/ProfileActionConstants';
 import { ProfileType } from '../type/ProfileTypes';
 
 export const defaultProfileData: ProfileType = {
+  id: '',
   firstName: '',
   lastName: '',
   phoneNumber: '',
