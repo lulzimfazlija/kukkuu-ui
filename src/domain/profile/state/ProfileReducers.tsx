@@ -1,9 +1,9 @@
 import { createReducer } from 'redux-starter-kit';
 
 import { PROFILE_ACTIONS } from '../constants/ProfileActionConstants';
-import { Profile } from '../type/ProfileTypes';
+import { ProfileType } from '../type/ProfileTypes';
 
-export const defaultProfileData: Profile = {
+export const defaultProfileData: ProfileType = {
   firstName: '',
   lastName: '',
   phoneNumber: '',
