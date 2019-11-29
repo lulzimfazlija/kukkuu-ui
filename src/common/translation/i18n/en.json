@@ -199,7 +199,13 @@
     }
   },
   "profile": {
-    "heading": "Godchildren"
+    "heading": "Godchildren",
+    "noupcomingevents": {
+      "hero": {
+        "heading": "Event invitations"
+      },
+      "text": "Event invitations sent to you will show up here. <br/> You can register for events and cancel your registration if you for some reason are not able to go."
+    }
   },
   "child": {
     "form": {
@@ -217,5 +223,11 @@
         }
       }
     }
+  },
+  "CHILD_RELATIONSHIP_OPTIONS": {
+    "ADVOCATE": "Legal guardian",
+    "OTHER_GUARDIAN": "Other guardian",
+    "OTHER_RELATION": "Other close relation",
+    "PARENT": "Parent"
   }
 }

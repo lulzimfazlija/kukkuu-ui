@@ -56,8 +56,9 @@ const RegistrationForm: FunctionComponent<Props> = ({
           onSubmit={values => {
             setFormValues(values);
 
+            // FIXME: Ensure that relationship is submitted to backend
             const backendSupportChildren = values.children.map(child =>
-              omit(child, ['postalCode', 'homeCity'])
+              omit(child, ['postalCode', 'homeCity', 'relationship'])
             );
             // TODO: Backend / frontend data synchonization. Omit unsupported field for future development.
             try {
@@ -66,7 +67,8 @@ const RegistrationForm: FunctionComponent<Props> = ({
                   children: backendSupportChildren,
                   guardianFirstName: values.guardian.firstName,
                   guardianLastName: values.guardian.lastName,
-                  email: values.guardian.email,
+                  phoneNumber: values.guardian.phoneNumber,
+                  language: values.preferLanguage.toUpperCase(), // This is an Enum in the backend
                 },
               });
               history.push('/registration/success');

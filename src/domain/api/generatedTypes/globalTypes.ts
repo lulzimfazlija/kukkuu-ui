@@ -6,6 +6,15 @@
 // START Enums and Input Objects
 //==============================================================
 
+/**
+ * An enumeration.
+ */
+export enum Language {
+  EN = "EN",
+  FI = "FI",
+  SV = "SV",
+}
+
 export enum RelationshipTypeEnum {
   ADVOCATE = "ADVOCATE",
   OTHER_GUARDIAN = "OTHER_GUARDIAN",
@@ -17,6 +26,7 @@ export interface ChildInput {
   firstName?: string | null;
   lastName?: string | null;
   birthdate: any;
+  postalCode?: string | null;
   relationship?: RelationshipInput | null;
 }
 

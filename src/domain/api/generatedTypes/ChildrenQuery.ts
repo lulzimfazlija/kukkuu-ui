@@ -6,21 +6,64 @@
 // GraphQL query operation: ChildrenQuery
 // ====================================================
 
-export interface ChildrenQuery_children_pageInfo {
-  __typename: "PageInfo";
+export interface ChildrenQuery_children_edges_node_guardians_edges_node {
   /**
-   * When paginating forwards, are there more items?
+   * The ID of the object.
    */
-  hasNextPage: boolean;
+  id: string;
+}
+
+export interface ChildrenQuery_children_edges_node_guardians_edges {
+  /**
+   * The item at the end of the edge
+   */
+  node: ChildrenQuery_children_edges_node_guardians_edges_node | null;
+}
+
+export interface ChildrenQuery_children_edges_node_guardians {
+  /**
+   * Contains the nodes in this connection.
+   */
+  edges: (ChildrenQuery_children_edges_node_guardians_edges | null)[];
+}
+
+export interface ChildrenQuery_children_edges_node_relationships_edges_node {
+  /**
+   * The ID of the object.
+   */
+  id: string;
+}
+
+export interface ChildrenQuery_children_edges_node_relationships_edges {
+  /**
+   * The item at the end of the edge
+   */
+  node: ChildrenQuery_children_edges_node_relationships_edges_node | null;
+}
+
+export interface ChildrenQuery_children_edges_node_relationships {
+  /**
+   * Contains the nodes in this connection.
+   */
+  edges: (ChildrenQuery_children_edges_node_relationships_edges | null)[];
 }
 
 export interface ChildrenQuery_children_edges_node {
-  __typename: "ChildNode";
+  /**
+   * The ID of the object.
+   */
+  id: string;
+  createdAt: any;
+  updatedAt: any;
   firstName: string;
+  lastName: string;
+  birthdate: any;
+  postalCode: string;
+  guardians: ChildrenQuery_children_edges_node_guardians;
+  relationships: ChildrenQuery_children_edges_node_relationships;
 }
 
 export interface ChildrenQuery_children_edges {
-  __typename: "ChildNodeEdge";
   /**
    * The item at the end of the edge
    */
@@ -28,11 +71,6 @@ export interface ChildrenQuery_children_edges {
 }
 
 export interface ChildrenQuery_children {
-  __typename: "ChildNodeConnection";
-  /**
-   * Pagination data for this connection.
-   */
-  pageInfo: ChildrenQuery_children_pageInfo;
   /**
    * Contains the nodes in this connection.
    */
