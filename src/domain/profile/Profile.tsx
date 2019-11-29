@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { useHistory } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { get } from 'lodash';
 
@@ -16,18 +15,13 @@ import styles from './profile.module.scss';
 const Profile: FunctionComponent = () => {
   const { loading, error, data } = useQuery<ProfileQueryType>(profileQuery);
   const { t } = useTranslation();
-  const history = useHistory();
   const dispatch = useDispatch();
   let profile;
 
-  if (loading)
-    return (
-      <div>
-        <LoadingSpinner isLoading={true} />
-      </div>
-    );
+  if (loading) return <LoadingSpinner isLoading={true} />;
   if (error || !get(data, 'guardians.edges[0]') || !data) {
-    history.push('/home');
+    // Temporarily comment out cause of invalid state update
+    // history.push('/home');
   } else {
     profile = normalizeProfileData(data);
     if (profile) dispatch(saveProfile(profile));

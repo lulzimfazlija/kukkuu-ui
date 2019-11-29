@@ -8,13 +8,7 @@ export const defaultProfileData: ProfileType = {
   lastName: '',
   phoneNumber: '',
   email: '',
-  children: [
-    {
-      firstName: '',
-      lastName: '',
-      birthdate: '',
-    },
-  ],
+  children: null,
 };
 
 export default createReducer(defaultProfileData, {

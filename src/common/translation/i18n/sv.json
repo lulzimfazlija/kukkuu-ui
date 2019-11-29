@@ -204,8 +204,7 @@
       "hero": {
         "heading": "Evenemanginvitationer"
       },
-      "text1": "Event invitations sent to you will show up here.",
-      "text2": "You can register for events and cancel your registration if you for some reason are not able to go."
+      "text": "Event invitations sent to you will show up here. </br> You can register for events and cancel your registration if you for some reason are not able to go."
     }
   },
   "child": {
@@ -224,5 +223,12 @@
         }
       }
     }
+  },
+  "#REF!": "#REF!",
+  "CHILD_RELATIONSHIP_OPTIONS": {
+    "ADVOCATE": "Verge",
+    "OTHER_GUARDIAN": "Annen verge",
+    "OTHER_RELATION": "Annen nær relasjon",
+    "PARENT": "Forelder"
   }
 }
