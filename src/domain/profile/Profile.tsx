@@ -20,7 +20,7 @@ const Profile: FunctionComponent = () => {
 
   if (loading) return <LoadingSpinner isLoading={true} />;
   if (error || !get(data, 'guardians.edges[0]') || !data) {
-    // Temporarily comment out cause of invalid state update
+    // TODO: Fix this, temporarily comment out cause of invalid state update
     // history.push('/home');
   } else {
     profile = normalizeProfileData(data);
