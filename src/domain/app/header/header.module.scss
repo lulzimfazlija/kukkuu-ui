@@ -1,4 +1,7 @@
 .headerWrapper {
   display: grid;
+  > div {
+    padding: 0;
+  }
 }
 

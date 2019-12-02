@@ -6,7 +6,7 @@
 
 .registrationFormContainer {
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 1fr minmax(auto, $containerFormMaxWidth) 1fr;
     margin-bottom: $baseMargin;
 }
 
@@ -51,7 +51,6 @@
 
     button {
         background: transparent;
-        width: 50%;
         padding: 0;
         display: flex;
         flex-direction: row;
