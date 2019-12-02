@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import styles from './modal.module.scss';
 import Button from '../button/Button';
 import Icon from '../icon/Icon';
-import happyChildIcon from '../../../assets/icons/svg/happyChild.svg';
+import happyChildIcon from '../../../assets/icons/svg/childFaceHappy.svg';
 
 interface ModalProps {
   isOpen: boolean;
@@ -38,7 +38,7 @@ const Modal: React.FunctionComponent<ModalProps> = ({
                 src={happyChildIcon}
                 alt="Happy happy child"
               ></Icon>
-
+              {/* TODO: add a generic Icon */}
               <h1>{label}</h1>
               <Button
                 className={styles.closeButton}
