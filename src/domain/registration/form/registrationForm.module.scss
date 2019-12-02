@@ -9,14 +9,16 @@
     display: grid;
 }
 
-.registrationForm {
-    grid-column: 2;
-}
-
 .registrationWhiteContainer,
 .registrationGrayContainer {
     display: grid;
-    grid-template-columns: 1fr minmax(auto, $containerFormMaxWidth) 1fr;
+    @include respond-above(md) {
+        grid-template-columns: 1fr minmax(auto, $containerFormMaxWidth) 1fr;
+    }
+
+    @include respond-below(md) {
+        grid-template-columns: 1fr 10fr 1fr;
+    }
 };
 
 .childBirthdate,
