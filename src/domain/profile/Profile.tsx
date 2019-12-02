@@ -32,7 +32,10 @@ const Profile: FunctionComponent = () => {
       <div className={styles.profileWrapper}>
         <h1>{t('profile.heading')}</h1>
         <div className={styles.childInfo}>
-          {profile && profile.children.map(child => <p>{child.firstName}</p>)}
+          {profile &&
+            profile.children.map(child => (
+              <p key={child.id}>{child.firstName}</p>
+            ))}
         </div>
 
         <NoUpcomingEvents />

@@ -14,11 +14,11 @@ import {
 } from '../../../common/components/form/validationUtils';
 import { isChildEligible } from '../../registration/notEligible/NotEligibleUtils';
 import BirthdateFormField from './partial/BirthdateFormField';
-import { setFormValues } from '../../registration/state/RegistrationActions';
+import { setHomeFormValues } from '../../registration/state/RegistrationActions';
 import { RegistrationFormValues } from '../../registration/types/RegistrationTypes';
 import { StoreState } from '../../app/types/AppTypes';
 import { isAuthenticatedSelector } from '../../auth/state/AuthenticationSelectors';
-import { HomeFormValues } from './types/HomeFormTypes';
+import { HomeFormValues, HomeFormPayload } from './types/HomeFormTypes';
 import { convertFormValues } from './HomePreliminaryFormUtils';
 import { newMoment, formatTime } from '../../../common/time/utils';
 import EnhancedInputField from '../../../common/components/form/fields/input/EnhancedInputField';
@@ -26,13 +26,13 @@ import { registrationFormDataSelector } from '../../registration/state/Registrat
 import { BACKEND_DATE_FORMAT } from '../../../common/time/TimeConstants';
 interface Props {
   isAuthenticated: boolean;
-  setFormValues: (values: RegistrationFormValues) => void;
+  setHomeFormValues: (values: HomeFormPayload) => void;
   stateFormValues: RegistrationFormValues;
   initialValues: HomeFormValues;
 }
 
 const HomePreliminaryForm: FunctionComponent<Props> = ({
-  setFormValues,
+  setHomeFormValues,
   stateFormValues,
   isAuthenticated,
   initialValues,
@@ -41,30 +41,24 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
   const history = useHistory();
 
   const handleSubmit = (values: HomeFormValues) => {
-    const payload = Object.assign({}, stateFormValues, {
-      children: [
-        {
-          // Ensure date that saved in redux store was using backend time format:
-          birthdate: formatTime(
-            newMoment(
-              `${values.child.birthdate.year}-${values.child.birthdate.month}-${values.child.birthdate.day}`,
-              BACKEND_DATE_FORMAT
-            )
-          ),
-          homeCity: values.child.homeCity,
-          firstName: stateFormValues.children[0].firstName,
-          lastName: stateFormValues.children[0].lastName,
-          postalCode: stateFormValues.children[0].postalCode,
-        },
-      ],
+    const payload: HomeFormPayload = {
+      child: {
+        birthdate: formatTime(
+          newMoment(
+            `${values.child.birthdate.year}-${values.child.birthdate.month}-${values.child.birthdate.day}`,
+            BACKEND_DATE_FORMAT
+          )
+        ),
+        homeCity: values.child.homeCity,
+      },
       verifyInformation: values.verifyInformation,
-    });
-    setFormValues(payload);
+    };
+    setHomeFormValues(payload);
     handleRedirect(payload);
   };
 
-  const handleRedirect = (payload: RegistrationFormValues) => {
-    if (!isChildEligible(payload.children[0])) {
+  const handleRedirect = (payload: HomeFormPayload) => {
+    if (!isChildEligible(payload.child)) {
       history.push('/registration/not-eligible');
     } else if (isAuthenticated) {
       history.push('/registration/form');
@@ -156,7 +150,7 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
 };
 
 const actions = {
-  setFormValues,
+  setHomeFormValues,
 };
 
 const mapStateToProps = (state: StoreState) => {

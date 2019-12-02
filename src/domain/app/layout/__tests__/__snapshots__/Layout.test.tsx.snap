@@ -7,9 +7,7 @@ exports[`renders snapshot correctly 1`] = `
   <Header />
   <div
     className="pageBody"
-  >
-    <Container />
-  </div>
+  />
   <Footer />
 </div>
 `;
