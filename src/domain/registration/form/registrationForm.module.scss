@@ -3,16 +3,23 @@
 @import 'colors';
 @import 'layout';
 @import 'mixins';
+@import './partial/childFormField.module.scss';
 
 .registrationFormContainer {
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    margin-bottom: $baseMargin;
 }
 
-.registrationForm {
-    grid-column: 2;
-}
+.registrationWhiteContainer,
+.registrationGrayContainer {
+    display: grid;
+    @include respond-above(md) {
+        grid-template-columns: 1fr minmax(auto, $containerFormMaxWidth) 1fr;
+    }
+
+    @include respond-below(md) {
+        grid-template-columns: 1fr 10fr 1fr;
+    }
+};
 
 .childBirthdate,
 .guardianEmail {
@@ -43,21 +50,21 @@
 
 .submitButton {
     @include button();
+    margin: $largeMargin 0;
 }
 
 .addNewChildButton {
     display: flex;
-    justify-content: center;
 
     button {
         background: transparent;
-        width: 50%;
-        padding: 0;
+        margin: $baseMargin 0;
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: center;
-        
+        border: none;
+        width: 100%;
+
         > div {
             padding-right: 5px;
         }
@@ -65,5 +72,26 @@
             transform: rotate(45deg);
         }
     }
-    margin-bottom: $largeMargin;
+}
+
+.grayBackground, .registrationGrayContainer {
+    @include background($hel-light);
+}
+
+.registrationWhiteContainer {
+    background: $white;
+
+    > * {
+        grid-column: 2;
+    }
+}
+
+.registrationGrayContainer {
+    > * {
+        grid-column: 2;
+    }
+}
+
+.guardianInfo {
+    padding-top: $baseMargin;
 }

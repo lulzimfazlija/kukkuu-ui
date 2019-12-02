@@ -12,7 +12,7 @@ import SelectField from '../../../../common/components/form/fields/select/Select
 import { Child } from '../../../child/types/ChildTypes';
 import { getTranslatedRelationshipOptions } from '../../../child/ChildUtils';
 import Icon from '../../../../common/components/icon/Icon';
-import happyChildIcon from '../../../../assets/icons/svg/happyChild.svg';
+import happyChildIcon from '../../../../assets/icons/svg/childFaceHappy.svg';
 import deleteIcon from '../../../../assets/icons/svg/delete.svg';
 import Button from '../../../../common/components/button/Button';
 import { deleteChildFromFormValues } from '../../state/RegistrationActions';

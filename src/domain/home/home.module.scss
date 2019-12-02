@@ -10,7 +10,7 @@
         text-align: center;
 
         @include respond-above(sm) {
-            grid-template-columns: 1fr 10fr 1fr;
+            grid-template-columns: 1fr minmax(auto, $containerFormMaxWidth) 1fr;
             
             .heroContainer {
                 grid-column: 2;
