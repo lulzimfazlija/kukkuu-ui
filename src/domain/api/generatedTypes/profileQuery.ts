@@ -7,6 +7,10 @@
 // ====================================================
 
 export interface profileQuery_guardians_edges_node_children_edges_node {
+  /**
+   * The ID of the object.
+   */
+  id: string;
   firstName: string;
   lastName: string;
   birthdate: any;
@@ -27,6 +31,10 @@ export interface profileQuery_guardians_edges_node_children {
 }
 
 export interface profileQuery_guardians_edges_node {
+  /**
+   * The ID of the object.
+   */
+  id: string;
   firstName: string;
   lastName: string;
   email: string | null;
