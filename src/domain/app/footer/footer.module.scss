@@ -11,8 +11,8 @@ $logoWidth: 5rem;
 }
 
 .footerWrapper {
-    @include koro('basic', $hel-light, 1000);
-    
+    @include divider($hel-light);
+    position: relative;
     display: grid;
     align-items: center;
 }

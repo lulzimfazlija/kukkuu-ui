@@ -38,6 +38,20 @@
   }
 }
 
+@mixin divider($color: $white) {
+  background-color: $color;
+
+  &::before {
+    display: block;
+    position: absolute;
+    content: '';
+    height: $korosHeight;
+    width: 100%;
+    top: -$korosHeight;
+    @include koro('basic', $color, 1000);
+  }
+}
+
 // Helsinki logo
 
 @mixin helsinki-logo($_color) {
@@ -93,4 +107,8 @@ A yellow button style which used a lot in the app.
         background: $hel-gray;
     }
   }
+}
+
+@mixin background($color) {
+  background: lighten($color, 3%);
 }

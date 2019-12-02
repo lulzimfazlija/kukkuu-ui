@@ -7,21 +7,24 @@ import Button from '../../../common/components/button/Button';
 import Icon from '../../../common/components/icon/Icon';
 import styles from './welcome.module.scss';
 import homeFormStyles from '../../home/form/homePreliminaryForm.module.scss';
+import Container from '../../app/layout/Container';
 
 const Welcome: FunctionComponent = () => {
   const { t } = useTranslation();
   const history = useHistory();
   return (
-    <div className={styles.welcome}>
-      <h1>{t('registration.welcome.hero.header')}</h1>
-      <Icon src={tadaImage} className={styles.tada} alt="Tada!" />
-      <Button
-        onClick={() => history.push('/profile')}
-        className={homeFormStyles.submitButton}
-      >
-        {t('common.profile.goToProfile.buttonText')}
-      </Button>
-    </div>
+    <Container>
+      <div className={styles.welcome}>
+        <h1>{t('registration.welcome.hero.header')}</h1>
+        <Icon src={tadaImage} className={styles.tada} alt="Tada!" />
+        <Button
+          onClick={() => history.push('/profile')}
+          className={homeFormStyles.submitButton}
+        >
+          {t('common.profile.goToProfile.buttonText')}
+        </Button>
+      </div>
+    </Container>
   );
 };
 
