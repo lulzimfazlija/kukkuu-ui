@@ -30,6 +30,13 @@ export interface ChildInput {
   relationship?: RelationshipInput | null;
 }
 
+export interface GuardianInput {
+  firstName: string;
+  lastName: string;
+  phoneNumber?: string | null;
+  language: Language;
+}
+
 export interface RelationshipInput {
   type?: RelationshipTypeEnum | null;
 }
