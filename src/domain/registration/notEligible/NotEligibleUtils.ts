@@ -41,7 +41,7 @@ const isCityEligible = (city: string) => {
  * @param {child} child child info submitted from form
  * @returns {boolean} if the child is eligible
  */
-const isChildEligible = (child: Child) => {
+const isChildEligible = (child: Pick<Child, 'birthdate' | 'homeCity'>) => {
   return isBirthdateEligible(child.birthdate) && isCityEligible(child.homeCity);
 };
 

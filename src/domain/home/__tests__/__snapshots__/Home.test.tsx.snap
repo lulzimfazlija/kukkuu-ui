@@ -46,7 +46,7 @@ exports[`renders snapshot correctly 1`] = `
                 }
               }
               isAuthenticated={false}
-              setFormValues={[Function]}
+              setHomeFormValues={[Function]}
               stateFormValues={
                 Object {
                   "agree": false,
