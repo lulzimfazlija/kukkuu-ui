@@ -10,3 +10,12 @@ export interface HomeFormValues {
   verifyInformation: boolean;
   childBirthdate?: string;
 }
+
+export interface HomeFormPayload {
+  verifyInformation: boolean;
+  child: {
+    birthdate: string;
+    // TODO: Give me proper type
+    homeCity: string;
+  };
+}

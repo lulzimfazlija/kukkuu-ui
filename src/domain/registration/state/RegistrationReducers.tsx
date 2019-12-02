@@ -40,4 +40,9 @@ export default createReducer(defaultRegistrationData, {
   [REGISTRATION_ACTIONS.DELETE_CHILD]: (state, action) => {
     state.formValues.children.splice(action.payload, 1);
   },
+  [REGISTRATION_ACTIONS.SET_HOME_FORM_VALUES]: (state, action) => {
+    state.formValues.children[0].birthdate = action.payload.child.birthdate;
+    state.formValues.children[0].homeCity = action.payload.child.homeCity;
+    state.formValues.verifyInformation = action.payload.verifyInformation;
+  },
 });
