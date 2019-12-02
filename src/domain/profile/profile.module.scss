@@ -1,0 +1,5 @@
+@import 'mixins';
+
+.grayBackground {
+    @include background($hel-light);
+}
