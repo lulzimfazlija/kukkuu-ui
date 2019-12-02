@@ -54,7 +54,6 @@ const BirthdateFormField: FunctionComponent<FieldArrayRenderProps> = ({
           placeholder={t(
             'homePage.preliminaryForm.childBirthdate.input.year.placeholder'
           )}
-          min={2019}
         />
       </div>
       {/* not to display error at first render until input got touched */}

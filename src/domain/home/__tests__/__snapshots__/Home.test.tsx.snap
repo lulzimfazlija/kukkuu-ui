@@ -565,7 +565,6 @@ exports[`renders snapshot correctly 1`] = `
                                     </div>
                                     <EnhancedInputField
                                       component={[Function]}
-                                      min={2019}
                                       name="child.birthdate.year"
                                       placeholder="vuosi"
                                       required={true}
@@ -574,7 +573,6 @@ exports[`renders snapshot correctly 1`] = `
                                     >
                                       <Field
                                         component={[Function]}
-                                        min={2019}
                                         name="child.birthdate.year"
                                         placeholder="vuosi"
                                         required={true}
@@ -655,7 +653,6 @@ exports[`renders snapshot correctly 1`] = `
                                               },
                                             }
                                           }
-                                          min={2019}
                                           placeholder="vuosi"
                                           required={true}
                                           type="number"
@@ -664,7 +661,6 @@ exports[`renders snapshot correctly 1`] = `
                                             className="inputField"
                                           >
                                             <Input
-                                              min={2019}
                                               name="child.birthdate.year"
                                               onBlur={[Function]}
                                               onChange={[Function]}
@@ -680,7 +676,6 @@ exports[`renders snapshot correctly 1`] = `
                                                   className="inputTypeWrapper"
                                                 >
                                                   <input
-                                                    min={2019}
                                                     name="child.birthdate.year"
                                                     onBlur={[Function]}
                                                     onChange={[Function]}
