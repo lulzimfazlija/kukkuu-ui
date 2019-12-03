@@ -35,6 +35,13 @@
       "submit": {
         "text": "Submit"
       }
+    },
+    "form": {
+      "leave": {
+        "warning": {
+          "text": "Are you sure to leave ? You will lose all unsaved data."
+        }
+      }
     }
   },
   "footer": {
@@ -232,5 +239,6 @@
     "OTHER_GUARDIAN": "Annen verge",
     "OTHER_RELATION": "Annen nær relasjon",
     "PARENT": "Forelder"
-  }
+  },
+  "#REF!": "#REF!"
 }

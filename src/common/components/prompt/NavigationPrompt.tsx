@@ -10,19 +10,16 @@ const NavigationPropmt: React.FunctionComponent<NavigationPropmtProps> = ({
   isHalfFilling,
   warningMessage,
 }) => {
-  const isPromptExisted = !window.onbeforeunload;
-
-  if (isHalfFilling && isPromptExisted !== null) {
-    window.onbeforeunload = () => true;
+  const promptExists = !!window.onbeforeunload;
+  const message = warningMessage || 'Are you sure to leave?';
+  if (isHalfFilling && promptExists !== null) {
+    window.onbeforeunload = () => message;
   } else {
     window.onbeforeunload = null;
   }
 
-  return isPromptExisted ? (
-    <Prompt
-      when={isHalfFilling}
-      message={warningMessage || 'Are you sure to leave?'}
-    />
+  return promptExists ? (
+    <Prompt when={isHalfFilling} message={message} />
   ) : null;
 };
 

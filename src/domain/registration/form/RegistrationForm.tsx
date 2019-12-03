@@ -44,6 +44,10 @@ const RegistrationForm: FunctionComponent<Props> = ({
   const { t } = useTranslation();
   const history = useHistory();
   const [isOpen, setIsOpen] = useState(false);
+
+  // if isFilling is true, means that user is have started filling out the form
+  // without finishing it yet, changing page URL / reload will make user lose all
+  // his/her local form state
   const [isFilling, setFormIsFilling] = useState(false);
 
   return (
@@ -116,6 +120,10 @@ const RegistrationForm: FunctionComponent<Props> = ({
                             isOpen={isOpen}
                             setIsOpen={setIsOpen}
                             addChild={payload => {
+                              // When user add child first instead of other input
+                              // validate wont be invoked -> isFilling still false but
+                              // user do have unfinished work
+                              // this function was invoked here to make sure in that case
                               setFormIsFilling(true);
                               arrayHelpers.push(payload);
                             }}
