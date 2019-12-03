@@ -14,6 +14,17 @@ const validateRequire = (value: any, customMessage?: string) => {
   }
 };
 
+/** validatePostalCode()
+ * Validate postal code. We allow Finnish format: Five numbers that
+ * can have leading zeroes. Example: 00100.
+ * @param {string} value Input value.
+ * @returns {string} translation key
+ */
+const validatePostalCode = (value: string): string | undefined => {
+  const valid: boolean = /^\d{5}$/.test(value);
+  if (!valid) return 'validation.postalCode.invalidFormat';
+};
+
 /** validateDate()
  * Validate input date. Dates in the future are not valid.
  * @param {string|number} value Input value.
@@ -71,4 +82,4 @@ const validateEqual = (
   }
 };
 
-export { validateDate, validateEqual, validateRequire };
+export { validateDate, validateEqual, validatePostalCode, validateRequire };
