@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { ArrayHelpers } from 'formik';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
 
 import styles from './childFormField.module.scss';
 import { formatTime, newMoment } from '../../../../common/time/utils';
@@ -15,7 +14,6 @@ import Icon from '../../../../common/components/icon/Icon';
 import happyChildIcon from '../../../../assets/icons/svg/childFaceHappy.svg';
 import deleteIcon from '../../../../assets/icons/svg/delete.svg';
 import Button from '../../../../common/components/button/Button';
-import { deleteChildFromFormValues } from '../../state/RegistrationActions';
 
 interface ChildFormFieldProps {
   child: Child;
@@ -26,9 +24,9 @@ interface ChildFormFieldProps {
 const ChildFormField: React.FunctionComponent<ChildFormFieldProps> = ({
   child,
   childIndex,
+  arrayHelpers,
 }) => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
   return (
     <div className={styles.childField} key={childIndex}>
       <div className={styles.childInfo}>
@@ -40,9 +38,7 @@ const ChildFormField: React.FunctionComponent<ChildFormFieldProps> = ({
           />
           <h2>{t('registration.form.child.info.heading')}</h2>
           {childIndex !== 0 && (
-            <Button
-              onClick={() => dispatch(deleteChildFromFormValues(childIndex))}
-            >
+            <Button onClick={() => arrayHelpers.remove(childIndex)}>
               {t('child.form.modal.delete.label')}
               <Icon src={deleteIcon} alt="Delete child icon" />
             </Button>
