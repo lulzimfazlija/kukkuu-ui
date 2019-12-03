@@ -80,7 +80,6 @@ const ChildFormField: React.FunctionComponent<ChildFormFieldProps> = ({
 
         <EnhancedInputField
           name={`children[${childIndex}].postalCode`}
-          type="number"
           label={t('registration.form.child.postalCode.input.label')}
           component={InputField}
           validate={(value: string) => validatePostalCode(value)}
