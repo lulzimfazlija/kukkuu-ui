@@ -115,7 +115,10 @@ const RegistrationForm: FunctionComponent<Props> = ({
                           <AddNewChildFormModal
                             isOpen={isOpen}
                             setIsOpen={setIsOpen}
-                            addChild={arrayHelpers.push}
+                            addChild={payload => {
+                              setFormIsFilling(true);
+                              arrayHelpers.push(payload);
+                            }}
                           />
                           {values.children &&
                             values.children.map((child, index) => (
