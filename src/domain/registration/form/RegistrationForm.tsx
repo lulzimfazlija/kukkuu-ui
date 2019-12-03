@@ -60,16 +60,9 @@ const RegistrationForm: FunctionComponent<Props> = ({
               setFormValues(values);
 
               // FIXME: Ensure that relationship is submitted to backend
-              const backendSupportChildren = values.children.map(child => {
-                const c = omit(child, [
-                  'postalCode',
-                  'homeCity',
-                  'relationship',
-                ]);
-                // Here is the meat of relationshiop:
-                // c.relationship = [child.relationship];
-                return c;
-              });
+              const backendSupportChildren = values.children.map(child =>
+                omit(child, ['postalCode', 'homeCity', 'relationship'])
+              );
               const backendSupportGuardian = {
                 firstName: values.guardian.firstName,
                 lastName: values.guardian.lastName,
