@@ -3,26 +3,19 @@ import { gql } from 'apollo-boost';
 const submitChildrenAndGuardianMutation = gql`
   mutation submitChildrenAndGuardian(
     $children: [ChildInput]
-    $guardianFirstName: String!
-    $guardianLastName: String!
-    $phoneNumber: String!
-    $language: Language!
+    $guardian: GuardianInput!
   ) {
     submitChildrenAndGuardian(
-      input: {
-        children: $children
-        guardian: {
-          lastName: $guardianLastName
-          firstName: $guardianFirstName
-          phoneNumber: $phoneNumber
-          language: $language
-        }
-      }
+      input: { children: $children, guardian: $guardian }
     ) {
       children {
         birthdate
         firstName
         lastName
+        postalCode
+        relationship {
+          type
+        }
       }
       guardian {
         firstName
