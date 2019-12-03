@@ -196,6 +196,9 @@
     "general": {
       "required": "Required",
       "unSupportedCity": "Unsupported city"
+    },
+    "postalCode": {
+      "invalidFormat": "Inte riktigt format"
     }
   },
   "profile": {
