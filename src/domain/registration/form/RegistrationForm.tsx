@@ -26,6 +26,7 @@ import Icon from '../../../common/components/icon/Icon';
 import addIcon from '../../../assets/icons/svg/delete.svg';
 import happyAdultIcon from '../../../assets/icons/svg/adultFaceHappy.svg';
 import Container from '../../app/layout/Container';
+import NavigationPropmt from '../../../common/components/prompt/NavigationPrompt';
 
 interface Props {
   setFormValues: (values: RegistrationFormValues) => void;
@@ -44,8 +45,18 @@ const RegistrationForm: FunctionComponent<Props> = ({
   const history = useHistory();
   const [isOpen, setIsOpen] = useState(false);
 
+  // if isFilling is true, means that user is have started filling out the form
+  // without finishing it yet, changing page URL / reload will make user lose all
+  // his/her local form state
+  const [isFilling, setFormIsFilling] = useState(false);
+
   return (
     <Container className={styles.grayBackground}>
+      <NavigationPropmt
+        isHalfFilling={isFilling}
+        warningMessage={t('common.form.leave.warning.text')}
+      />
+
       <div className={styles.registrationFormContainer}>
         <div className={styles.registrationForm}>
           <Formik
@@ -56,7 +67,13 @@ const RegistrationForm: FunctionComponent<Props> = ({
               }) ||
               {}
             }
+            validate={() => {
+              if (!isFilling) {
+                setFormIsFilling(true);
+              }
+            }}
             onSubmit={values => {
+              setFormIsFilling(false);
               setFormValues(values);
 
               // FIXME: Ensure that relationship is submitted to backend
@@ -85,7 +102,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
               }
             }}
           >
-            {({ values, isSubmitting, handleSubmit, isValid }) => (
+            {({ values, isSubmitting, handleSubmit }) => (
               <form onSubmit={handleSubmit}>
                 <div className={styles.registrationGrayContainer}>
                   <h1>{t('registration.heading')}</h1>
@@ -101,19 +118,32 @@ const RegistrationForm: FunctionComponent<Props> = ({
                     name="children"
                     render={arrayHelpers => {
                       return (
-                        values.children &&
-                        values.children.map((child, index) => (
-                          <ChildFormField
-                            key={index}
-                            arrayHelpers={arrayHelpers}
-                            child={child}
-                            childIndex={index}
+                        <>
+                          <AddNewChildFormModal
+                            isOpen={isOpen}
+                            setIsOpen={setIsOpen}
+                            addChild={payload => {
+                              // When user add child first instead of other input
+                              // validate wont be invoked -> isFilling still false but
+                              // user do have unfinished work
+                              // this function was invoked here to make sure in that case
+                              setFormIsFilling(true);
+                              arrayHelpers.push(payload);
+                            }}
                           />
-                        ))
+                          {values.children &&
+                            values.children.map((child, index) => (
+                              <ChildFormField
+                                key={index}
+                                arrayHelpers={arrayHelpers}
+                                child={child}
+                                childIndex={index}
+                              />
+                            ))}
+                        </>
                       );
                     }}
                   />
-                  <AddNewChildFormModal isOpen={isOpen} setIsOpen={setIsOpen} />
                 </div>
                 <div className={styles.registrationGrayContainer}>
                   <Button

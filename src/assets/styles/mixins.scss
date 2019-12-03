@@ -98,7 +98,7 @@ A yellow button style which used a lot in the app.
 */
 @mixin button() {
   button {
-    background: lighten($hel-summer, 20%);
+    background: $hel-summer;
 
     border: none !important;
     width: 100%;

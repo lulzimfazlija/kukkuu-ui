@@ -1,12 +1,11 @@
 import * as React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import ChildFormModal, {
   ChildFormModalValues,
 } from '../../child/modal/ChildFormModal';
 import { primaryChildFormDataSelector } from '../state/RegistrationSelectors';
-import { addChildToFormValues } from '../state/RegistrationActions';
 import { formatTime, newMoment } from '../../../common/time/utils';
 import { BACKEND_DATE_FORMAT } from '../../../common/time/TimeConstants';
 import { Child } from '../../child/types/ChildTypes';
@@ -15,9 +14,9 @@ import { defaultRegistrationData } from '../state/RegistrationReducers';
 const AddNewChildFormModal: React.FunctionComponent<{
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
-}> = ({ isOpen, setIsOpen }) => {
+  addChild: (payload: Child) => void;
+}> = ({ isOpen, setIsOpen, addChild }) => {
   const primaryChildData = useSelector(primaryChildFormDataSelector);
-  const dispatch = useDispatch();
   const { t } = useTranslation();
   const initialFormData = Object.assign(
     {},
@@ -43,8 +42,7 @@ const AddNewChildFormModal: React.FunctionComponent<{
         )
       ),
     });
-
-    dispatch(addChildToFormValues(payload));
+    addChild(payload);
     setIsOpen(false);
   };
   return (
