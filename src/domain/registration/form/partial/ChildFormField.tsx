@@ -16,6 +16,7 @@ import happyChildIcon from '../../../../assets/icons/svg/childFaceHappy.svg';
 import deleteIcon from '../../../../assets/icons/svg/delete.svg';
 import Button from '../../../../common/components/button/Button';
 import { deleteChildFromFormValues } from '../../state/RegistrationActions';
+import { validatePostalCode } from '../../../../common/components/form/validationUtils';
 
 interface ChildFormFieldProps {
   child: Child;
@@ -86,6 +87,7 @@ const ChildFormField: React.FunctionComponent<ChildFormFieldProps> = ({
           type="number"
           label={t('registration.form.child.postalCode.input.label')}
           component={InputField}
+          validate={(value: string) => validatePostalCode(value)}
           placeholder={t(
             'registration.form.child.postalCode.input.placeholder'
           )}

@@ -1,6 +1,7 @@
 import {
   validateDate,
   validateEqual,
+  validatePostalCode,
   validateRequire,
 } from '../validationUtils';
 
@@ -54,6 +55,28 @@ describe('Form validation utilities - ', () => {
 
     test('support multiple string compare, also in uppercase, return error if no match', () => {
       const error = validateEqual('Foo', ['fOo', 'bar'], 'bar');
+      expect(error).toBeUndefined();
+    });
+  });
+
+  describe('validatePostalCode', () => {
+    test('postal code has characters', () => {
+      const error = validatePostalCode('a111b');
+      expect(error).toEqual('validation.postalCode.invalidFormat');
+    });
+
+    test('postal code is of wrong length', () => {
+      const error = validatePostalCode('001100');
+      expect(error).toEqual('validation.postalCode.invalidFormat');
+    });
+
+    test('postal code is empty', () => {
+      const error = validatePostalCode('');
+      expect(error).toEqual('validation.postalCode.invalidFormat');
+    });
+
+    test('valid postal code', () => {
+      const error = validatePostalCode('00100');
       expect(error).toBeUndefined();
     });
   });
