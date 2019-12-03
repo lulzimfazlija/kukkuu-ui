@@ -268,7 +268,7 @@ exports[`renders snapshot correctly 1`] = `
                                   className="birthdateField"
                                 >
                                   <label>
-                                    Lapsen syntymäaika
+                                    Lapsen syntymäaika*
                                   </label>
                                   <div
                                     className="inputWrapper"

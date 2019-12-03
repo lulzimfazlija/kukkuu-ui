@@ -7,6 +7,7 @@ exports[`renders snapshot correctly 1`] = `
   <Modal
     isOpen={false}
     label="foo"
+    setFormIsFilling={[Function]}
     toggleModal={[MockFunction]}
   >
     <Formik
@@ -19,7 +20,8 @@ exports[`renders snapshot correctly 1`] = `
           "postalCode": "",
         }
       }
-      onSubmit={[MockFunction]}
+      onSubmit={[Function]}
+      validate={[Function]}
     >
       <Component />
     </Formik>
