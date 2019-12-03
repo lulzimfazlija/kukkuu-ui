@@ -17,7 +17,9 @@ const BirthdateFormField: FunctionComponent<FieldArrayRenderProps> = ({
 
   return (
     <div className={styles.birthdateField}>
-      <label>{t('homePage.preliminaryForm.childBirthdate.input.label')}</label>
+      <label>{`${t(
+        'homePage.preliminaryForm.childBirthdate.input.label'
+      )}*`}</label>
       <div className={styles.inputWrapper}>
         <EnhancedInputField
           type="number"
