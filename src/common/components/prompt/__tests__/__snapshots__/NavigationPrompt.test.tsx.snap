@@ -1,3 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders snapshot correctly 1`] = `""`;
+exports[`renders snapshot correctly 1`] = `
+<Prompt
+  message="Are you sure to leave?"
+  when={true}
+/>
+`;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { MockedProvider } from '@apollo/react-testing';
+import toJson from 'enzyme-to-json';
 
 import { UnconnectedRegistrationForm } from '../RegistrationForm';
 import { defaultRegistrationData } from '../../state/RegistrationReducers';
@@ -14,5 +15,5 @@ it('renders snapshot correctly', () => {
       />
     </MockedProvider>
   );
-  expect(element.html()).toMatchSnapshot();
+  expect(toJson(element)).toMatchSnapshot();
 });
