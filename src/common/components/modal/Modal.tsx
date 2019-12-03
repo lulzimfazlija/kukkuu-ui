@@ -11,6 +11,7 @@ interface ModalProps {
   isOpen: boolean;
   label: string;
   toggleModal: (value: boolean) => void;
+  setFormIsFilling: (value: boolean) => void;
 }
 
 const Modal: React.FunctionComponent<ModalProps> = ({
@@ -18,20 +19,30 @@ const Modal: React.FunctionComponent<ModalProps> = ({
   label,
   children,
   toggleModal,
+  setFormIsFilling,
 }) => {
   const { t } = useTranslation();
 
+  const onClose = () => {
+    if (setFormIsFilling) {
+      setFormIsFilling(false);
+    }
+    toggleModal(false);
+  };
   return (
     <div className={styles.modalWrapper}>
       {isOpen && (
         <ReactModal
           isOpen={isOpen}
-          onRequestClose={() => toggleModal(false)}
+          onRequestClose={onClose}
           contentLabel={label}
           className={styles.modal}
           overlayClassName={styles.overlay}
         >
           <div className={styles.modalContent}>
+            <Button className={styles.closeButton} onClick={onClose}>
+              {t('common.modal.close.text')}
+            </Button>
             <div className={styles.heading}>
               <Icon
                 className={styles.happyChild}
@@ -40,12 +51,6 @@ const Modal: React.FunctionComponent<ModalProps> = ({
               ></Icon>
               {/* TODO: add a generic Icon */}
               <h1>{label}</h1>
-              <Button
-                className={styles.closeButton}
-                onClick={() => toggleModal(false)}
-              >
-                {t('common.modal.close.text')}
-              </Button>
             </div>
             <div className={styles.modalChildren}>{children}</div>
           </div>

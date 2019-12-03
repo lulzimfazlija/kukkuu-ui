@@ -11,6 +11,7 @@ import Button from '../../../common/components/button/Button';
 import SelectField from '../../../common/components/form/fields/select/SelectField';
 import { Child } from '../types/ChildTypes';
 import { getTranslatedRelationshipOptions } from '../ChildUtils';
+import NavigationPropmt from '../../../common/components/prompt/NavigationPrompt';
 
 export interface ChildFormModalValues extends Omit<Child, 'birthdate'> {
   birthdate: {
@@ -35,11 +36,34 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
   setIsOpen,
 }) => {
   const { t } = useTranslation();
-
+  const [isFilling, setFormIsFilling] = React.useState(false);
   return (
     <div className={styles.childFormModalWrapper}>
-      <Modal isOpen={isOpen} label={label} toggleModal={setIsOpen}>
-        <Formik initialValues={initialValues} onSubmit={onSubmit}>
+      {isOpen && (
+        <NavigationPropmt
+          warningMessage={t('common.form.leave.warning.text')}
+          isHalfFilling={isFilling}
+        />
+      )}
+
+      <Modal
+        isOpen={isOpen}
+        label={label}
+        toggleModal={setIsOpen}
+        setFormIsFilling={setFormIsFilling}
+      >
+        <Formik
+          validate={() => {
+            if (!isFilling) {
+              setFormIsFilling(true);
+            }
+          }}
+          initialValues={initialValues}
+          onSubmit={(values: ChildFormModalValues) => {
+            setFormIsFilling(false);
+            onSubmit(values);
+          }}
+        >
           {({ isSubmitting, handleSubmit }) => (
             <form onSubmit={handleSubmit}>
               <FieldArray

@@ -26,6 +26,7 @@ import Icon from '../../../common/components/icon/Icon';
 import addIcon from '../../../assets/icons/svg/delete.svg';
 import happyAdultIcon from '../../../assets/icons/svg/adultFaceHappy.svg';
 import Container from '../../app/layout/Container';
+import NavigationPropmt from '../../../common/components/prompt/NavigationPrompt';
 
 interface Props {
   setFormValues: (values: RegistrationFormValues) => void;
@@ -43,13 +44,18 @@ const RegistrationForm: FunctionComponent<Props> = ({
   const { t } = useTranslation();
   const history = useHistory();
   const [isOpen, setIsOpen] = useState(false);
+  const [isFilling, setFormIsFilling] = useState(false);
 
   return (
     <Container className={styles.grayBackground}>
+      <NavigationPropmt
+        isHalfFilling={isFilling}
+        warningMessage={t('common.form.leave.warning.text')}
+      />
+
       <div className={styles.registrationFormContainer}>
         <div className={styles.registrationForm}>
           <Formik
-            enableReinitialize={true}
             initialValues={initialValues}
             initialErrors={
               (!initialValues.agree && {
@@ -57,7 +63,13 @@ const RegistrationForm: FunctionComponent<Props> = ({
               }) ||
               {}
             }
+            validate={() => {
+              if (!isFilling) {
+                setFormIsFilling(true);
+              }
+            }}
             onSubmit={values => {
+              setFormIsFilling(false);
               setFormValues(values);
 
               // FIXME: Ensure that relationship is submitted to backend
@@ -83,7 +95,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
               }
             }}
           >
-            {({ values, isSubmitting, handleSubmit, isValid }) => (
+            {({ values, isSubmitting, handleSubmit }) => (
               <form onSubmit={handleSubmit}>
                 <div className={styles.registrationGrayContainer}>
                   <h1>{t('registration.heading')}</h1>
@@ -99,19 +111,25 @@ const RegistrationForm: FunctionComponent<Props> = ({
                     name="children"
                     render={arrayHelpers => {
                       return (
-                        values.children &&
-                        values.children.map((child, index) => (
-                          <ChildFormField
-                            key={index}
-                            arrayHelpers={arrayHelpers}
-                            child={child}
-                            childIndex={index}
+                        <>
+                          <AddNewChildFormModal
+                            isOpen={isOpen}
+                            setIsOpen={setIsOpen}
+                            addChild={arrayHelpers.push}
                           />
-                        ))
+                          {values.children &&
+                            values.children.map((child, index) => (
+                              <ChildFormField
+                                key={index}
+                                arrayHelpers={arrayHelpers}
+                                child={child}
+                                childIndex={index}
+                              />
+                            ))}
+                        </>
                       );
                     }}
                   />
-                  <AddNewChildFormModal isOpen={isOpen} setIsOpen={setIsOpen} />
                 </div>
                 <div className={styles.registrationGrayContainer}>
                   <Button
