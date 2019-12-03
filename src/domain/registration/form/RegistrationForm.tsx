@@ -49,7 +49,6 @@ const RegistrationForm: FunctionComponent<Props> = ({
       <div className={styles.registrationFormContainer}>
         <div className={styles.registrationForm}>
           <Formik
-            enableReinitialize={true}
             initialValues={initialValues}
             initialErrors={
               (!initialValues.agree && {
@@ -64,15 +63,18 @@ const RegistrationForm: FunctionComponent<Props> = ({
               const backendSupportChildren = values.children.map(child =>
                 omit(child, ['postalCode', 'homeCity', 'relationship'])
               );
+              const backendSupportGuardian = {
+                firstName: values.guardian.firstName,
+                lastName: values.guardian.lastName,
+                phoneNumber: values.guardian.phoneNumber,
+                language: values.preferLanguage.toUpperCase(), // This is an Enum in the backend
+              };
               // TODO: Backend / frontend data synchonization. Omit unsupported field for future development.
               try {
                 submitChildrenAndGuardian({
                   variables: {
                     children: backendSupportChildren,
-                    guardianFirstName: values.guardian.firstName,
-                    guardianLastName: values.guardian.lastName,
-                    phoneNumber: values.guardian.phoneNumber,
-                    language: values.preferLanguage.toUpperCase(), // This is an Enum in the backend
+                    guardian: backendSupportGuardian,
                   },
                 });
                 history.push('/registration/success');
