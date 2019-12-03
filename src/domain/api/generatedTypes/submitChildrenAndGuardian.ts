@@ -2,16 +2,22 @@
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
 
-import { ChildInput, GuardianInput, Language } from "./globalTypes";
+import { ChildInput, GuardianInput, RelationshipType, Language } from "./globalTypes";
 
 // ====================================================
 // GraphQL mutation operation: submitChildrenAndGuardian
 // ====================================================
 
+export interface submitChildrenAndGuardian_submitChildrenAndGuardian_children_relationship {
+  type: RelationshipType | null;
+}
+
 export interface submitChildrenAndGuardian_submitChildrenAndGuardian_children {
   birthdate: any;
   firstName: string;
   lastName: string;
+  postalCode: string;
+  relationship: submitChildrenAndGuardian_submitChildrenAndGuardian_children_relationship | null;
 }
 
 export interface submitChildrenAndGuardian_submitChildrenAndGuardian_guardian {

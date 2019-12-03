@@ -76,9 +76,8 @@ const RegistrationForm: FunctionComponent<Props> = ({
               setFormIsFilling(false);
               setFormValues(values);
 
-              // FIXME: Ensure that relationship is submitted to backend
               const backendSupportChildren = values.children.map(child =>
-                omit(child, ['postalCode', 'homeCity', 'relationship'])
+                omit(child, ['homeCity'])
               );
               const backendSupportGuardian = {
                 firstName: values.guardian.firstName,
