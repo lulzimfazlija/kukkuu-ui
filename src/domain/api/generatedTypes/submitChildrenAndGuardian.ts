@@ -8,8 +8,22 @@ import { ChildInput, GuardianInput, RelationshipType, Language } from "./globalT
 // GraphQL mutation operation: submitChildrenAndGuardian
 // ====================================================
 
-export interface submitChildrenAndGuardian_submitChildrenAndGuardian_children_relationship {
+export interface submitChildrenAndGuardian_submitChildrenAndGuardian_children_relationships_edges_node {
   type: RelationshipType | null;
+}
+
+export interface submitChildrenAndGuardian_submitChildrenAndGuardian_children_relationships_edges {
+  /**
+   * The item at the end of the edge
+   */
+  node: submitChildrenAndGuardian_submitChildrenAndGuardian_children_relationships_edges_node | null;
+}
+
+export interface submitChildrenAndGuardian_submitChildrenAndGuardian_children_relationships {
+  /**
+   * Contains the nodes in this connection.
+   */
+  edges: (submitChildrenAndGuardian_submitChildrenAndGuardian_children_relationships_edges | null)[];
 }
 
 export interface submitChildrenAndGuardian_submitChildrenAndGuardian_children {
@@ -17,7 +31,7 @@ export interface submitChildrenAndGuardian_submitChildrenAndGuardian_children {
   firstName: string;
   lastName: string;
   postalCode: string;
-  relationship: submitChildrenAndGuardian_submitChildrenAndGuardian_children_relationship | null;
+  relationships: submitChildrenAndGuardian_submitChildrenAndGuardian_children_relationships;
 }
 
 export interface submitChildrenAndGuardian_submitChildrenAndGuardian_guardian {

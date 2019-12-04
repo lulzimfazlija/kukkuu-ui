@@ -13,8 +13,12 @@ const submitChildrenAndGuardianMutation = gql`
         firstName
         lastName
         postalCode
-        relationship {
-          type
+        relationships {
+          edges {
+            node {
+              type
+            }
+          }
         }
       }
       guardian {
