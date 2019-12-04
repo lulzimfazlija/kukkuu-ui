@@ -89,7 +89,7 @@ const ChildFormField: React.FunctionComponent<ChildFormFieldProps> = ({
         />
 
         <EnhancedInputField
-          name={`children[${childIndex}].relationship`}
+          name={`children[${childIndex}].relationship.type`}
           label={t('registration.form.child.relationship.input.label')}
           component={SelectField}
           id="registration.form.child.relationship.select"

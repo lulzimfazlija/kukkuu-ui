@@ -9,6 +9,7 @@ export const defaultProfileData: ProfileType = {
   lastName: '',
   phoneNumber: '',
   email: '',
+  language: null,
   children: null,
 };
 

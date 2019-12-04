@@ -15,6 +15,16 @@ export enum Language {
   SV = "SV",
 }
 
+/**
+ * An enumeration.
+ */
+export enum RelationshipType {
+  ADVOCATE = "ADVOCATE",
+  OTHER_GUARDIAN = "OTHER_GUARDIAN",
+  OTHER_RELATION = "OTHER_RELATION",
+  PARENT = "PARENT",
+}
+
 export enum RelationshipTypeEnum {
   ADVOCATE = "ADVOCATE",
   OTHER_GUARDIAN = "OTHER_GUARDIAN",

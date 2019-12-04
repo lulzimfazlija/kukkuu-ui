@@ -10,6 +10,7 @@ const profileQuery = gql`
           lastName
           email
           phoneNumber
+          language
           children {
             edges {
               node {
@@ -17,6 +18,14 @@ const profileQuery = gql`
                 firstName
                 lastName
                 birthdate
+                postalCode
+                relationships {
+                  edges {
+                    node {
+                      type
+                    }
+                  }
+                }
               }
             }
           }
