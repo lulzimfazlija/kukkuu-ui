@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 
-import Icon from '../../../../common/components/icon/Icon';
-import envelopeWithStars from '../../../../assets/icons/svg/envelopeWithStars.svg';
+import Icon from '../../../common/components/icon/Icon';
+import envelopeWithStars from '../../../assets/icons/svg/envelopeWithStars.svg';
 
 const NoUpcomingEvents: FunctionComponent = () => {
   const { t } = useTranslation();

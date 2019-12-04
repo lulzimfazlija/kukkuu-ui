@@ -51,7 +51,7 @@
     "hero": {
       "buttonText": "Bli med",
       "descriptionText": "Svenska",
-      "heading": "Kulturens fadderbarn 2020"
+      "heading": "Onnea! Grattis! Congratulations!"
     },
     "preliminaryForm": {
       "childBirthdate": {
@@ -71,7 +71,7 @@
       "childHomeCity": {
         "input": {
           "label": "Lapsen kotipaikkakunta",
-          "placeholder": "Enter hometown city, currently only Helsingfors supported"
+          "placeholder": "Lisää kotipaikkakunta"
         }
       },
       "verifyInformation": {
@@ -186,7 +186,9 @@
       }
     },
     "notEligible": {
-      "text": "Ditt barn kan inte bli med. Sori. "
+      "text": "Ditt barn kan inte bli med. Sori. ",
+      "title": "Inte bli med",
+      "buttonText": "Finn passende kulturarrangementer for ditt barn herfra!"
     },
     "welcome": {
       "hero": {
@@ -215,6 +217,11 @@
         "heading": "Evenemanginvitationer"
       },
       "text": "Event invitations sent to you will show up here. </br> You can register for events and cancel your registration if you for some reason are not able to go."
+    },
+    "children": {
+      "noChild": {
+        "text": "No child have been added"
+      }
     }
   },
   "child": {
@@ -239,5 +246,8 @@
     "OTHER_GUARDIAN": "Annen verge",
     "OTHER_RELATION": "Annen nær relasjon",
     "PARENT": "Forelder"
+  },
+  "partners": {
+    "2020": "2020 Helsingin kaupunginorkesteri"
   }
 }

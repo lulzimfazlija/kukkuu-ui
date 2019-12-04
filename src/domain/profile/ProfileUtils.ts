@@ -20,6 +20,9 @@ export const normalizeProfileData = (data: ProfileQueryType) => {
 };
 
 export const normalizeChildren = (data: ProfileChildrenType) => {
+  if (!data || !data.edges) {
+    return [];
+  }
   const nodes = data.edges.map(edge => (edge ? edge.node : edge));
   return nodes.filter((node): node is ChildType => Boolean(node));
 };
