@@ -27,12 +27,12 @@ exports[`renders snapshot correctly 1`] = `
               className="heroContainer"
             >
               <h1>
-                Kulttuurin Kummilapset 2020
+                Onnea! Grattis! Congratulations!
               </h1>
               <p
                 className="description"
               >
-                Helsingin Kaupunginorkesteri kutsuu kummilapsikseen kaikki vuonna 2020 syntyneet Helsinkiläislapset! Lapsi perheineen kutsutaan kahdesti vuodessa nauttimaan KHO:n järjestämästä kulttuurista täysin ilmaiseksi! Liity mukaan!
+                Helsingin Kaupunginorkesteri kutsuu kummilapsikseen kaikki vuonna 2020 syntyneet Helsinkiläislapset! Lapsi perheineen kutsutaan kahdesti vuodessa nauttimaan HKO:n järjestämästä kulttuurista täysin ilmaiseksi! Liity mukaan!
               </p>
               <Connect(HomePreliminaryForm)>
                 <HomePreliminaryForm
@@ -703,7 +703,7 @@ exports[`renders snapshot correctly 1`] = `
                             component={[Function]}
                             label="Lapsen kotipaikkakunta"
                             name="child.homeCity"
-                            placeholder="Enter hometown city, currently only Helsinki supported"
+                            placeholder="Lisää lapsen kotipaikkakunta"
                             required={true}
                           >
                             <Field
@@ -711,7 +711,7 @@ exports[`renders snapshot correctly 1`] = `
                               component={[Function]}
                               label="Lapsen kotipaikkakunta"
                               name="child.homeCity"
-                              placeholder="Enter hometown city, currently only Helsinki supported"
+                              placeholder="Lisää lapsen kotipaikkakunta"
                               required={true}
                               validate={[Function]}
                             >
@@ -791,7 +791,7 @@ exports[`renders snapshot correctly 1`] = `
                                   }
                                 }
                                 label="Lapsen kotipaikkakunta"
-                                placeholder="Enter hometown city, currently only Helsinki supported"
+                                placeholder="Lisää lapsen kotipaikkakunta"
                                 required={true}
                               >
                                 <div
@@ -803,7 +803,7 @@ exports[`renders snapshot correctly 1`] = `
                                     name="child.homeCity"
                                     onBlur={[Function]}
                                     onChange={[Function]}
-                                    placeholder="Enter hometown city, currently only Helsinki supported"
+                                    placeholder="Lisää lapsen kotipaikkakunta"
                                     required={true}
                                     value=""
                                   >
@@ -820,7 +820,7 @@ exports[`renders snapshot correctly 1`] = `
                                           name="child.homeCity"
                                           onBlur={[Function]}
                                           onChange={[Function]}
-                                          placeholder="Enter hometown city, currently only Helsinki supported"
+                                          placeholder="Lisää lapsen kotipaikkakunta"
                                           type="text"
                                           value=""
                                         />
@@ -838,7 +838,7 @@ exports[`renders snapshot correctly 1`] = `
                         <EnhancedInputField
                           className="verifyInformationCheckbox"
                           component={[Function]}
-                          label="Vakuutan antamani tiedot oikeaksi."
+                          label="Vakuutan antamani tiedot oikeaksi"
                           name="verifyInformation"
                           required={true}
                           type="checkbox"
@@ -846,7 +846,7 @@ exports[`renders snapshot correctly 1`] = `
                           <Field
                             className="verifyInformationCheckbox"
                             component={[Function]}
-                            label="Vakuutan antamani tiedot oikeaksi."
+                            label="Vakuutan antamani tiedot oikeaksi"
                             name="verifyInformation"
                             required={true}
                             type="checkbox"
@@ -928,7 +928,7 @@ exports[`renders snapshot correctly 1`] = `
                                   },
                                 }
                               }
-                              label="Vakuutan antamani tiedot oikeaksi."
+                              label="Vakuutan antamani tiedot oikeaksi"
                               required={true}
                               type="checkbox"
                             >
@@ -938,7 +938,7 @@ exports[`renders snapshot correctly 1`] = `
                                 <Checkbox
                                   checked={false}
                                   className="verifyInformationCheckbox"
-                                  label="Vakuutan antamani tiedot oikeaksi."
+                                  label="Vakuutan antamani tiedot oikeaksi"
                                   name="verifyInformation"
                                   onBlur={[Function]}
                                   onChange={[Function]}
@@ -962,7 +962,7 @@ exports[`renders snapshot correctly 1`] = `
                                       <label
                                         htmlFor="verifyInformation"
                                       >
-                                        Vakuutan antamani tiedot oikeaksi.*
+                                        Vakuutan antamani tiedot oikeaksi*
                                       </label>
                                     </div>
                                   </div>

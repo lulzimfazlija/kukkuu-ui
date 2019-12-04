@@ -12,12 +12,12 @@ exports[`renders snapshot correctly 1`] = `
         className="heroContainer"
       >
         <h1>
-          Kulttuurin Kummilapset 2020
+          Onnea! Grattis! Congratulations!
         </h1>
         <p
           className="description"
         >
-          Helsingin Kaupunginorkesteri kutsuu kummilapsikseen kaikki vuonna 2020 syntyneet Helsinkiläislapset! Lapsi perheineen kutsutaan kahdesti vuodessa nauttimaan KHO:n järjestämästä kulttuurista täysin ilmaiseksi! Liity mukaan!
+          Helsingin Kaupunginorkesteri kutsuu kummilapsikseen kaikki vuonna 2020 syntyneet Helsinkiläislapset! Lapsi perheineen kutsutaan kahdesti vuodessa nauttimaan HKO:n järjestämästä kulttuurista täysin ilmaiseksi! Liity mukaan!
         </p>
         <div
           className="notEligible"
