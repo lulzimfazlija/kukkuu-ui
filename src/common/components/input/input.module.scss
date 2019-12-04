@@ -32,9 +32,13 @@
     .inputTypeWrapper {    
         padding: $buttonPadding;
         padding-left: 0;
-        
+        display: inline-grid;
+        position: relative;
         input {
-            display: none;
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
         }
         label {
             position: relative;
