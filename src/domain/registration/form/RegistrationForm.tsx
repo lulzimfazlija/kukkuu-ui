@@ -220,14 +220,12 @@ const RegistrationForm: FunctionComponent<Props> = ({
                     label={t('registration.form.guardian.language.input.label')}
                     required={true}
                     component={SelectField}
-                    default={'sv'}
                     options={[
                       { label: 'English', value: SUPPORT_LANGUAGES.EN },
                       { label: 'Suomi', value: SUPPORT_LANGUAGES.FI },
                       {
                         label: 'Svenska',
                         value: SUPPORT_LANGUAGES.SV,
-                        selected: 'selected',
                       },
                     ]}
                     placeholder={t(
