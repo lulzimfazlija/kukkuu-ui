@@ -2,7 +2,7 @@
 
 exports[`renders snapshot correctly 1`] = `
 <PageWrapper
-  title="Ei oikeutta - Kulttuurin kummilapset"
+  title="registration.notEligible.title"
 >
   <div
     className="home"

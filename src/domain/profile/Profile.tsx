@@ -28,10 +28,7 @@ const Profile: FunctionComponent = () => {
     if (profile) dispatch(saveProfile(profile));
   }
   return (
-    <PageWrapper
-      className={styles.grayBackground}
-      title={`${t('profile.heading')} - ${t('appName')}`}
-    >
+    <PageWrapper className={styles.grayBackground} title={'profile.heading'}>
       <div className={styles.profileWrapper}>
         <h1>{t('profile.heading')}</h1>
         <div className={styles.childInfo}>

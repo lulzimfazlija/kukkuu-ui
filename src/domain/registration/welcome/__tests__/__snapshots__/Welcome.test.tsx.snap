@@ -2,7 +2,7 @@
 
 exports[`renders snapshot correctly 1`] = `
 <PageWrapper
-  title="Tervetuloa kulttuurin kummilapseksi! - Kulttuurin kummilapset"
+  title="registration.welcome.hero.header"
 >
   <div
     className="welcome"

@@ -9,7 +9,7 @@ const Home: FunctionComponent = () => {
   const { t } = useTranslation();
 
   return (
-    <PageWrapper title={t('appName')}>
+    <PageWrapper>
       <div className={styles.home}>
         <div className={styles.hero}>
           <div className={styles.heroContainer}>

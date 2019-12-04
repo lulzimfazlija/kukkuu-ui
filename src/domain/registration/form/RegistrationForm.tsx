@@ -53,7 +53,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
   return (
     <PageWrapper
       className={styles.grayBackground}
-      title={`${t('registration.heading')} - ${t('appName')}`}
+      title={'registration.heading'}
     >
       <NavigationPropmt
         isHalfFilling={isFilling}

@@ -13,9 +13,7 @@ const Welcome: FunctionComponent = () => {
   const { t } = useTranslation();
   const history = useHistory();
   return (
-    <PageWrapper
-      title={`${t('registration.welcome.hero.header')} - ${t('appName')}`}
-    >
+    <PageWrapper title={'registration.welcome.hero.header'}>
       <div className={styles.welcome}>
         <h1>{t('registration.welcome.hero.header')}</h1>
         <Icon src={tadaImage} className={styles.tada} alt="Tada!" />
