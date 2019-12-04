@@ -1,47 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders snapshot correctly 1`] = `
-<Container>
-  <div
-    className="home"
+<HelmetProvider
+  context={Object {}}
+>
+  <Helmet
+    defer={true}
+    encodeSpecialCharacters={true}
   >
+    <title>
+      Ei oikeutta
+       - 
+      Kulttuurin kummilapset
+    </title>
+  </Helmet>
+  <Container>
     <div
-      className="hero"
+      className="home"
     >
       <div
-        className="heroContainer"
+        className="hero"
       >
-        <h1>
-          Kulttuurin Kummilapset 2020
-        </h1>
-        <p
-          className="description"
-        >
-          Helsingin Kaupunginorkesteri kutsuu kummilapsikseen kaikki vuonna 2020 syntyneet Helsinkiläislapset! Lapsi perheineen kutsutaan kahdesti vuodessa nauttimaan KHO:n järjestämästä kulttuurista täysin ilmaiseksi! Liity mukaan!
-        </p>
         <div
-          className="notEligible"
+          className="heroContainer"
         >
-          <Icon
-            alt="Non eligible face"
-            className="notEligibleFace"
-            src="adultFace.svg"
-          />
-          <p>
-            Valitettavasti lapsen syntymävuosi tai kotipaikkakunta eivät oikeuta häntä kulttuurin kummilapset toimintaan.
-          </p>
-        </div>
-        <div
-          className="goBackButton"
-        >
-          <Button
-            onClick={[Function]}
+          <div
+            className="notEligible"
           >
-            Return to registration page
-          </Button>
+            <Icon
+              alt="Non eligible face"
+              className="notEligibleFace"
+              src="adultFace.svg"
+            />
+            <p>
+              Valitettavasti lapsen syntymävuosi tai kotipaikkakunta eivät oikeuta häntä kulttuurin kummilapset toimintaan.
+            </p>
+          </div>
+          <div
+            className="goBackButton"
+          >
+            <Button
+              onClick={[Function]}
+            >
+              Löydä lapsille sopivia kulttuuritapahtumia täältä!
+            </Button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</Container>
+  </Container>
+</HelmetProvider>
 `;

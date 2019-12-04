@@ -1,24 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders snapshot correctly 1`] = `
-<Container>
-  <div
-    className="welcome"
+<HelmetProvider
+  context={Object {}}
+>
+  <Helmet
+    defer={true}
+    encodeSpecialCharacters={true}
   >
-    <h1>
+    <title>
       Tervetuloa kulttuurin kummilapseksi!
-    </h1>
-    <Icon
-      alt="Tada!"
-      className="tada"
-      src="tada.svg"
-    />
-    <Button
-      className="submitButton"
-      onClick={[Function]}
+       - 
+      Kulttuurin kummilapset
+    </title>
+  </Helmet>
+  <Container>
+    <div
+      className="welcome"
     >
-      Profiilillesi
-    </Button>
-  </div>
-</Container>
+      <h1>
+        Tervetuloa kulttuurin kummilapseksi!
+      </h1>
+      <Icon
+        alt="Tada!"
+        className="tada"
+        src="tada.svg"
+      />
+      <Button
+        className="submitButton"
+        onClick={[Function]}
+      >
+        Oma kummilapsiprofiili
+      </Button>
+    </div>
+  </Container>
+</HelmetProvider>
 `;

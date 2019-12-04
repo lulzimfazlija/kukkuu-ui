@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
@@ -28,19 +29,26 @@ const Profile: FunctionComponent = () => {
     if (profile) dispatch(saveProfile(profile));
   }
   return (
-    <Container className={styles.grayBackground}>
-      <div className={styles.profileWrapper}>
-        <h1>{t('profile.heading')}</h1>
-        <div className={styles.childInfo}>
-          {profile &&
-            profile.children.map(child => (
-              <p key={child.id}>{child.firstName}</p>
-            ))}
-        </div>
+    <HelmetProvider>
+      <Helmet>
+        <title>
+          {t('profile.heading')} - {t('appName')}
+        </title>
+      </Helmet>
+      <Container className={styles.grayBackground}>
+        <div className={styles.profileWrapper}>
+          <h1>{t('profile.heading')}</h1>
+          <div className={styles.childInfo}>
+            {profile &&
+              profile.children.map(child => (
+                <p key={child.id}>{child.firstName}</p>
+              ))}
+          </div>
 
-        <NoUpcomingEvents />
-      </div>
-    </Container>
+          <NoUpcomingEvents />
+        </div>
+      </Container>
+    </HelmetProvider>
   );
 };
 
