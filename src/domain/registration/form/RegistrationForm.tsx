@@ -25,8 +25,8 @@ import AddNewChildFormModal from '../modal/AddNewChildFormModal';
 import Icon from '../../../common/components/icon/Icon';
 import addIcon from '../../../assets/icons/svg/delete.svg';
 import happyAdultIcon from '../../../assets/icons/svg/adultFaceHappy.svg';
-import Container from '../../app/layout/Container';
 import NavigationPropmt from '../../../common/components/prompt/NavigationPrompt';
+import PageWrapper from '../../app/layout/PageWrapper';
 
 interface Props {
   setFormValues: (values: RegistrationFormValues) => void;
@@ -51,7 +51,10 @@ const RegistrationForm: FunctionComponent<Props> = ({
   const [isFilling, setFormIsFilling] = useState(false);
 
   return (
-    <Container className={styles.grayBackground}>
+    <PageWrapper
+      className={styles.grayBackground}
+      title={'registration.heading'}
+    >
       <NavigationPropmt
         isHalfFilling={isFilling}
         warningMessage={t('common.form.leave.warning.text')}
@@ -220,7 +223,10 @@ const RegistrationForm: FunctionComponent<Props> = ({
                     options={[
                       { label: 'English', value: SUPPORT_LANGUAGES.EN },
                       { label: 'Suomi', value: SUPPORT_LANGUAGES.FI },
-                      { label: 'Svenska', value: SUPPORT_LANGUAGES.SV },
+                      {
+                        label: 'Svenska',
+                        value: SUPPORT_LANGUAGES.SV,
+                      },
                     ]}
                     placeholder={t(
                       'registration.form.guardian.language.input.placeholder'
@@ -248,7 +254,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
           </Formik>
         </div>
       </div>
-    </Container>
+    </PageWrapper>
   );
 };
 

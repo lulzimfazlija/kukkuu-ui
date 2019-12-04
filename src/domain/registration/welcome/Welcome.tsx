@@ -7,13 +7,13 @@ import Button from '../../../common/components/button/Button';
 import Icon from '../../../common/components/icon/Icon';
 import styles from './welcome.module.scss';
 import homeFormStyles from '../../home/form/homePreliminaryForm.module.scss';
-import Container from '../../app/layout/Container';
+import PageWrapper from '../../app/layout/PageWrapper';
 
 const Welcome: FunctionComponent = () => {
   const { t } = useTranslation();
   const history = useHistory();
   return (
-    <Container>
+    <PageWrapper title={'registration.welcome.hero.header'}>
       <div className={styles.welcome}>
         <h1>{t('registration.welcome.hero.header')}</h1>
         <Icon src={tadaImage} className={styles.tada} alt="Tada!" />
@@ -24,7 +24,7 @@ const Welcome: FunctionComponent = () => {
           {t('common.profile.goToProfile.buttonText')}
         </Button>
       </div>
-    </Container>
+    </PageWrapper>
   );
 };
 

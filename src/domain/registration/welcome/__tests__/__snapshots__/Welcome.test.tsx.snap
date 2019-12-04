@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders snapshot correctly 1`] = `
-<Container>
+<PageWrapper
+  title="registration.welcome.hero.header"
+>
   <div
     className="welcome"
   >
@@ -17,8 +19,8 @@ exports[`renders snapshot correctly 1`] = `
       className="submitButton"
       onClick={[Function]}
     >
-      Profiilillesi
+      Oma kummilapsiprofiili
     </Button>
   </div>
-</Container>
+</PageWrapper>
 `;

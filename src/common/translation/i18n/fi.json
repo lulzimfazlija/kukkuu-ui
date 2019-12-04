@@ -1,5 +1,5 @@
 {
-  "appName": "Kulttuurin Kummilapset",
+  "appName": "Kulttuurin kummilapset",
   "authentication": {
     "login": {
       "text": "Login"
@@ -14,7 +14,7 @@
   "common": {
     "profile": {
       "goToProfile": {
-        "buttonText": "Profiilillesi"
+        "buttonText": "Oma kummilapsiprofiili"
       }
     },
     "select": {
@@ -50,8 +50,8 @@
   "homePage": {
     "hero": {
       "buttonText": "Ilmoittaudu mukaan",
-      "descriptionText": "Helsingin Kaupunginorkesteri kutsuu kummilapsikseen kaikki vuonna 2020 syntyneet Helsinkiläislapset! Lapsi perheineen kutsutaan kahdesti vuodessa nauttimaan KHO:n järjestämästä kulttuurista täysin ilmaiseksi! Liity mukaan!",
-      "heading": "Kulttuurin Kummilapset 2020"
+      "descriptionText": "Helsingin Kaupunginorkesteri kutsuu kummilapsikseen kaikki vuonna 2020 syntyneet Helsinkiläislapset! Lapsi perheineen kutsutaan kahdesti vuodessa nauttimaan HKO:n järjestämästä kulttuurista täysin ilmaiseksi! Liity mukaan!",
+      "heading": "Onnea! Grattis! Congratulations!"
     },
     "preliminaryForm": {
       "childBirthdate": {
@@ -71,12 +71,12 @@
       "childHomeCity": {
         "input": {
           "label": "Lapsen kotipaikkakunta",
-          "placeholder": "Enter hometown city, currently only Helsinki supported"
+          "placeholder": "Lisää lapsen kotipaikkakunta"
         }
       },
       "verifyInformation": {
         "checkbox": {
-          "label": "Vakuutan antamani tiedot oikeaksi.",
+          "label": "Vakuutan antamani tiedot oikeaksi",
           "required": {
             "label": "This checkbox has to be ticked to continue"
           }
@@ -95,22 +95,22 @@
     "text": "Oletko hukassa?"
   },
   "registration": {
-    "heading": "Sign up",
+    "heading": "Tule mukaan",
     "form": {
       "child": {
         "info": {
-          "heading": "Child's information"
+          "heading": "Lapsen tiedot"
         },
         "birthdate": {
           "input": {
-            "label": "Child birthdate",
-            "placeholder": "Please put child birthdate"
+            "label": "Lapsen syntymäpäivä",
+            "placeholder": "Lisää lapsen syntymäpäivä"
           }
         },
         "firstName": {
           "input": {
-            "label": "Child first name",
-            "placeholder": "Please put child first name"
+            "label": "Lapsen etunimi",
+            "placeholder": "Lisää lapsen etunimi"
           }
         },
         "homeCity": {
@@ -186,7 +186,9 @@
       }
     },
     "notEligible": {
-      "text": "Valitettavasti lapsen syntymävuosi tai kotipaikkakunta eivät oikeuta häntä kulttuurin kummilapset toimintaan."
+      "text": "Valitettavasti lapsen syntymävuosi tai kotipaikkakunta eivät oikeuta häntä kulttuurin kummilapset toimintaan.",
+      "title": "Ei oikeutta",
+      "buttonText": "Löydä lapsille sopivia kulttuuritapahtumia täältä!"
     },
     "welcome": {
       "hero": {
@@ -215,6 +217,11 @@
         "heading": "Tapahtumakutsut"
       },
       "text": "Tänne ilmaantuvat sinulle lähetetyt tapahtumakutsut. <br/> Pääset myös ilmoittautumaan tapahtumiin ja perumaan ilmoittautumisesi mikäli et jostain syystä pääsekään tapahtumaan."
+    },
+    "children": {
+      "noChild": {
+        "text": "No child have been added"
+      }
     }
   },
   "child": {
@@ -239,5 +246,6 @@
     "OTHER_GUARDIAN": "Muu huoltaja",
     "OTHER_RELATION": "Muu läheinen",
     "PARENT": "Vanhempi"
-  }
+  },
+  "partners.2020": "2020 Helsingin kaupunginorkesteri"
 }
