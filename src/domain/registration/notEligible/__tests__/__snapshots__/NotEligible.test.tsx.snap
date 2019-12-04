@@ -1,53 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders snapshot correctly 1`] = `
-<HelmetProvider
-  context={Object {}}
+<PageWrapper
+  title="Ei oikeutta - Kulttuurin kummilapset"
 >
-  <Helmet
-    defer={true}
-    encodeSpecialCharacters={true}
+  <div
+    className="home"
   >
-    <title>
-      Ei oikeutta
-       - 
-      Kulttuurin kummilapset
-    </title>
-  </Helmet>
-  <Container>
     <div
-      className="home"
+      className="hero"
     >
       <div
-        className="hero"
+        className="heroContainer"
       >
         <div
-          className="heroContainer"
+          className="notEligible"
         >
-          <div
-            className="notEligible"
+          <Icon
+            alt="Non eligible face"
+            className="notEligibleFace"
+            src="adultFace.svg"
+          />
+          <p>
+            Valitettavasti lapsen syntymävuosi tai kotipaikkakunta eivät oikeuta häntä kulttuurin kummilapset toimintaan.
+          </p>
+        </div>
+        <div
+          className="goBackButton"
+        >
+          <Button
+            onClick={[Function]}
           >
-            <Icon
-              alt="Non eligible face"
-              className="notEligibleFace"
-              src="adultFace.svg"
-            />
-            <p>
-              Valitettavasti lapsen syntymävuosi tai kotipaikkakunta eivät oikeuta häntä kulttuurin kummilapset toimintaan.
-            </p>
-          </div>
-          <div
-            className="goBackButton"
-          >
-            <Button
-              onClick={[Function]}
-            >
-              Löydä lapsille sopivia kulttuuritapahtumia täältä!
-            </Button>
-          </div>
+            Löydä lapsille sopivia kulttuuritapahtumia täältä!
+          </Button>
         </div>
       </div>
     </div>
-  </Container>
-</HelmetProvider>
+  </div>
+</PageWrapper>
 `;

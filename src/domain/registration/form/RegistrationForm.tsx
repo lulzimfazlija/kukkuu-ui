@@ -1,6 +1,5 @@
 import React, { FunctionComponent, useState } from 'react';
 import { Formik, FieldArray } from 'formik';
-import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { connect } from 'react-redux';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
@@ -26,8 +25,8 @@ import AddNewChildFormModal from '../modal/AddNewChildFormModal';
 import Icon from '../../../common/components/icon/Icon';
 import addIcon from '../../../assets/icons/svg/delete.svg';
 import happyAdultIcon from '../../../assets/icons/svg/adultFaceHappy.svg';
-import Container from '../../app/layout/Container';
 import NavigationPropmt from '../../../common/components/prompt/NavigationPrompt';
+import PageWrapper from '../../app/layout/PageWrapper';
 
 interface Props {
   setFormValues: (values: RegistrationFormValues) => void;
@@ -52,213 +51,212 @@ const RegistrationForm: FunctionComponent<Props> = ({
   const [isFilling, setFormIsFilling] = useState(false);
 
   return (
-    <HelmetProvider>
-      <Helmet>
-        <title>
-          {t('registration.heading')} - {t('appName')}
-        </title>
-      </Helmet>
-      <Container className={styles.grayBackground}>
-        <NavigationPropmt
-          isHalfFilling={isFilling}
-          warningMessage={t('common.form.leave.warning.text')}
-        />
+    <PageWrapper
+      className={styles.grayBackground}
+      title={`${t('registration.heading')} - ${t('appName')}`}
+    >
+      <NavigationPropmt
+        isHalfFilling={isFilling}
+        warningMessage={t('common.form.leave.warning.text')}
+      />
 
-        <div className={styles.registrationFormContainer}>
-          <div className={styles.registrationForm}>
-            <Formik
-              initialValues={initialValues}
-              initialErrors={
-                (!initialValues.agree && {
-                  agree: validateRequire(''),
-                }) ||
-                {}
+      <div className={styles.registrationFormContainer}>
+        <div className={styles.registrationForm}>
+          <Formik
+            initialValues={initialValues}
+            initialErrors={
+              (!initialValues.agree && {
+                agree: validateRequire(''),
+              }) ||
+              {}
+            }
+            validate={() => {
+              if (!isFilling) {
+                setFormIsFilling(true);
               }
-              validate={() => {
-                if (!isFilling) {
-                  setFormIsFilling(true);
-                }
-              }}
-              onSubmit={values => {
-                setFormIsFilling(false);
-                setFormValues(values);
+            }}
+            onSubmit={values => {
+              setFormIsFilling(false);
+              setFormValues(values);
 
-                const backendSupportChildren = values.children.map(child =>
-                  omit(child, ['homeCity'])
-                );
-                const backendSupportGuardian = {
-                  firstName: values.guardian.firstName,
-                  lastName: values.guardian.lastName,
-                  phoneNumber: values.guardian.phoneNumber,
-                  language: values.preferLanguage.toUpperCase(), // This is an Enum in the backend
-                };
-                // TODO: Backend / frontend data synchonization. Omit unsupported field for future development.
-                try {
-                  submitChildrenAndGuardian({
-                    variables: {
-                      children: backendSupportChildren,
-                      guardian: backendSupportGuardian,
-                    },
-                  });
-                  history.push('/registration/success');
-                } catch (err) {
-                  // TODO: Error handling.
-                  // eslint-disable-next-line no-console
-                  console.error(err);
-                }
-              }}
-            >
-              {({ values, isSubmitting, handleSubmit }) => (
-                <form onSubmit={handleSubmit}>
-                  <div className={styles.registrationGrayContainer}>
-                    <h1>{t('registration.heading')}</h1>
-                  </div>
+              const backendSupportChildren = values.children.map(child =>
+                omit(child, ['homeCity'])
+              );
+              const backendSupportGuardian = {
+                firstName: values.guardian.firstName,
+                lastName: values.guardian.lastName,
+                phoneNumber: values.guardian.phoneNumber,
+                language: values.preferLanguage.toUpperCase(), // This is an Enum in the backend
+              };
+              // TODO: Backend / frontend data synchonization. Omit unsupported field for future development.
+              try {
+                submitChildrenAndGuardian({
+                  variables: {
+                    children: backendSupportChildren,
+                    guardian: backendSupportGuardian,
+                  },
+                });
+                history.push('/registration/success');
+              } catch (err) {
+                // TODO: Error handling.
+                // eslint-disable-next-line no-console
+                console.error(err);
+              }
+            }}
+          >
+            {({ values, isSubmitting, handleSubmit }) => (
+              <form onSubmit={handleSubmit}>
+                <div className={styles.registrationGrayContainer}>
+                  <h1>{t('registration.heading')}</h1>
+                </div>
 
-                  <div
-                    className={classnames(
-                      styles.childrenInfo,
-                      styles.registrationWhiteContainer
-                    )}
+                <div
+                  className={classnames(
+                    styles.childrenInfo,
+                    styles.registrationWhiteContainer
+                  )}
+                >
+                  <FieldArray
+                    name="children"
+                    render={arrayHelpers => {
+                      return (
+                        <>
+                          <AddNewChildFormModal
+                            isOpen={isOpen}
+                            setIsOpen={setIsOpen}
+                            addChild={payload => {
+                              // When user add child first instead of other input
+                              // validate wont be invoked -> isFilling still false but
+                              // user do have unfinished work
+                              // this function was invoked here to make sure in that case
+                              setFormIsFilling(true);
+                              arrayHelpers.push(payload);
+                            }}
+                          />
+                          {values.children &&
+                            values.children.map((child, index) => (
+                              <ChildFormField
+                                key={index}
+                                arrayHelpers={arrayHelpers}
+                                child={child}
+                                childIndex={index}
+                              />
+                            ))}
+                        </>
+                      );
+                    }}
+                  />
+                </div>
+                <div className={styles.registrationGrayContainer}>
+                  <Button
+                    className={styles.addNewChildButton}
+                    onClick={() => setIsOpen(true)}
                   >
-                    <FieldArray
-                      name="children"
-                      render={arrayHelpers => {
-                        return (
-                          <>
-                            <AddNewChildFormModal
-                              isOpen={isOpen}
-                              setIsOpen={setIsOpen}
-                              addChild={payload => {
-                                // When user add child first instead of other input
-                                // validate wont be invoked -> isFilling still false but
-                                // user do have unfinished work
-                                // this function was invoked here to make sure in that case
-                                setFormIsFilling(true);
-                                arrayHelpers.push(payload);
-                              }}
-                            />
-                            {values.children &&
-                              values.children.map((child, index) => (
-                                <ChildFormField
-                                  key={index}
-                                  arrayHelpers={arrayHelpers}
-                                  child={child}
-                                  childIndex={index}
-                                />
-                              ))}
-                          </>
-                        );
-                      }}
+                    <Icon src={addIcon} alt="Add child icon"></Icon>
+                    {t('child.form.modal.add.label')}
+                  </Button>
+                </div>
+                <div
+                  className={classnames(
+                    styles.guardianInfo,
+                    styles.registrationWhiteContainer
+                  )}
+                >
+                  <div className={styles.heading}>
+                    <Icon
+                      src={happyAdultIcon}
+                      className={styles.childImage}
+                      alt="Oh lord a happy child again"
                     />
+                    <h2>{t('registration.form.guardian.info.heading')}</h2>
                   </div>
-                  <div className={styles.registrationGrayContainer}>
-                    <Button
-                      className={styles.addNewChildButton}
-                      onClick={() => setIsOpen(true)}
-                    >
-                      <Icon src={addIcon} alt="Add child icon"></Icon>
-                      {t('child.form.modal.add.label')}
-                    </Button>
+                  <div className={styles.guardianEmail}>
+                    <label>
+                      {t('registration.form.guardian.email.input.label')}
+                    </label>
+                    <p>{values.guardian.email}</p>
                   </div>
-                  <div
-                    className={classnames(
-                      styles.guardianInfo,
-                      styles.registrationWhiteContainer
-                    )}
-                  >
-                    <div className={styles.heading}>
-                      <Icon
-                        src={happyAdultIcon}
-                        className={styles.childImage}
-                        alt="Oh lord a happy child again"
-                      />
-                      <h2>{t('registration.form.guardian.info.heading')}</h2>
-                    </div>
-                    <div className={styles.guardianEmail}>
-                      <label>
-                        {t('registration.form.guardian.email.input.label')}
-                      </label>
-                      <p>{values.guardian.email}</p>
-                    </div>
 
+                  <EnhancedInputField
+                    name="guardian.phoneNumber"
+                    required={true}
+                    label={t(
+                      'registration.form.guardian.phoneNumber.input.label'
+                    )}
+                    component={InputField}
+                    placeholder={t(
+                      'registration.form.guardian.phoneNumber.input.placeholder'
+                    )}
+                  />
+                  <div className={styles.guardianName}>
                     <EnhancedInputField
-                      name="guardian.phoneNumber"
+                      type="text"
                       required={true}
+                      name="guardian.firstName"
                       label={t(
-                        'registration.form.guardian.phoneNumber.input.label'
+                        'registration.form.guardian.firstName.input.label'
                       )}
                       component={InputField}
                       placeholder={t(
-                        'registration.form.guardian.phoneNumber.input.placeholder'
+                        'registration.form.guardian.firstName.input.placeholder'
                       )}
                     />
-                    <div className={styles.guardianName}>
-                      <EnhancedInputField
-                        type="text"
-                        required={true}
-                        name="guardian.firstName"
-                        label={t(
-                          'registration.form.guardian.firstName.input.label'
-                        )}
-                        component={InputField}
-                        placeholder={t(
-                          'registration.form.guardian.firstName.input.placeholder'
-                        )}
-                      />
-                      <EnhancedInputField
-                        type="text"
-                        required={true}
-                        name="guardian.lastName"
-                        label={t(
-                          'registration.form.guardian.lastName.input.label'
-                        )}
-                        component={InputField}
-                        placeholder={t(
-                          'registration.form.guardian.lastName.input.placeholder'
-                        )}
-                      />
-                    </div>
-
                     <EnhancedInputField
-                      name="preferLanguage"
+                      type="text"
+                      required={true}
+                      name="guardian.lastName"
                       label={t(
-                        'registration.form.guardian.language.input.label'
+                        'registration.form.guardian.lastName.input.label'
                       )}
-                      required={true}
-                      component={SelectField}
-                      options={[
-                        { label: 'English', value: SUPPORT_LANGUAGES.EN },
-                        { label: 'Suomi', value: SUPPORT_LANGUAGES.FI },
-                        { label: 'Svenska', value: SUPPORT_LANGUAGES.SV },
-                      ]}
-                      placeholder={t(
-                        'registration.form.guardian.language.input.placeholder'
-                      )}
-                    />
-                    <EnhancedInputField
-                      className={styles.agreeBtn}
-                      type="checkbox"
-                      name="agree"
-                      required={true}
-                      label={t('registration.form.agree.input.label')}
                       component={InputField}
+                      placeholder={t(
+                        'registration.form.guardian.lastName.input.placeholder'
+                      )}
                     />
-
-                    <Button
-                      type="submit"
-                      className={styles.submitButton}
-                      disabled={isSubmitting}
-                    >
-                      {t('homePage.hero.buttonText')}
-                    </Button>
                   </div>
-                </form>
-              )}
-            </Formik>
-          </div>
+
+                  <EnhancedInputField
+                    name="preferLanguage"
+                    label={t('registration.form.guardian.language.input.label')}
+                    required={true}
+                    component={SelectField}
+                    default={'sv'}
+                    options={[
+                      { label: 'English', value: SUPPORT_LANGUAGES.EN },
+                      { label: 'Suomi', value: SUPPORT_LANGUAGES.FI },
+                      {
+                        label: 'Svenska',
+                        value: SUPPORT_LANGUAGES.SV,
+                        selected: 'selected',
+                      },
+                    ]}
+                    placeholder={t(
+                      'registration.form.guardian.language.input.placeholder'
+                    )}
+                  />
+                  <EnhancedInputField
+                    className={styles.agreeBtn}
+                    type="checkbox"
+                    name="agree"
+                    required={true}
+                    label={t('registration.form.agree.input.label')}
+                    component={InputField}
+                  />
+
+                  <Button
+                    type="submit"
+                    className={styles.submitButton}
+                    disabled={isSubmitting}
+                  >
+                    {t('homePage.hero.buttonText')}
+                  </Button>
+                </div>
+              </form>
+            )}
+          </Formik>
         </div>
-      </Container>
-    </HelmetProvider>
+      </div>
+    </PageWrapper>
   );
 };
 
