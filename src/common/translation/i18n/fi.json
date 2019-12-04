@@ -23,23 +23,23 @@
       }
     },
     "goBack": {
-      "text": "Return to registration page"
+      "text": "Palaa profiilin luomiseen"
     },
     "modal": {
       "close": {
         "text": "x"
       },
       "cancel": {
-        "text": "Cancel"
+        "text": "Peruuta"
       },
       "submit": {
-        "text": "Submit"
+        "text": "Tallenna"
       }
     },
     "form": {
       "leave": {
         "warning": {
-          "text": "Are you sure to leave ? You will lose all unsaved data."
+          "text": "Oletko varma että haluat poistua sivulta? Kaikki tallentamattomat tiedot katoavat. "
         }
       }
     }
@@ -115,61 +115,61 @@
         },
         "homeCity": {
           "input": {
-            "label": "Child home city",
-            "placeholder": "Please put child home city"
+            "label": "Lapsen kotipaikkakunta",
+            "placeholder": "Lisää lapsen kotipaikkakunta"
           }
         },
         "lastName": {
           "input": {
-            "label": "Child last name",
-            "placeholder": "Please put child last name"
+            "label": "Lapsen sukunimi",
+            "placeholder": "Lisää lapsen sukunimi"
           }
         },
         "relationship": {
           "input": {
-            "label": "Guardian relation with child",
-            "placeholder": "Please put guardian relation"
+            "label": "Ilmoittajan suhde lapseen",
+            "placeholder": "Lisää ilmoittajan suhde lapseen"
           }
         },
         "postalCode": {
           "input": {
-            "label": "Child's postal code",
-            "placeholder": "Please put child's postal code"
+            "label": "Lapsen postinumero",
+            "placeholder": "Lisää lapsen postinumero"
           }
         }
       },
       "guardian": {
         "info": {
-          "heading": "Guardian's information"
+          "heading": "Lähiaikuisen tiedot"
         },
         "email": {
           "input": {
-            "label": "Guardian email",
-            "placeholder": "Please put guardian email"
+            "label": "Sähköpostiosoite",
+            "placeholder": "Lisää sähköpostiosoite"
           }
         },
         "firstName": {
           "input": {
-            "label": "Guardian first name",
-            "placeholder": "Please put guardian first name"
+            "label": "Etunimi",
+            "placeholder": "Lisää etunimi"
           }
         },
         "lastName": {
           "input": {
-            "label": "Guardian last name",
-            "placeholder": "Please put guardian last name"
+            "label": "Sukunimi",
+            "placeholder": "Lisää sukunimi"
           }
         },
         "phoneNumber": {
           "input": {
-            "label": "Guardian phone number",
-            "placeholder": "Please put guardian phone number"
+            "label": "Puhelinnumero",
+            "placeholder": "Lisää puhelinnumero"
           }
         },
         "language": {
           "input": {
-            "label": "Guardian application prefer language",
-            "placeholder": "Please put guardian prefer language"
+            "label": "Asiointikieli",
+            "placeholder": "Valitse asiointikieli"
           }
         }
       },
@@ -180,15 +180,15 @@
       },
       "agree": {
         "input": {
-          "placeholder": "Accept this to continue",
-          "label": "I accept terms and conditions of the service"
+          "placeholder": "Hyväksyn palvelun käyttöehdot",
+          "label": "Hyväksyn palvelun käyttöehdot"
         }
       }
     },
     "notEligible": {
       "text": "Valitettavasti lapsen syntymävuosi tai kotipaikkakunta eivät oikeuta häntä kulttuurin kummilapset toimintaan.",
-      "title": "Ei oikeutta",
-      "buttonText": "Löydä lapsille sopivia kulttuuritapahtumia täältä!"
+      "title": "Voi harmi!",
+      "buttonText": "Löydä lapsille sopivia kulttuuritapahtumia täältä"
     },
     "welcome": {
       "hero": {
@@ -203,7 +203,7 @@
       "unSupported": "Input date is not supported"
     },
     "general": {
-      "required": "Required",
+      "required": "Pakollinen kenttä",
       "unSupportedCity": "Unsupported city"
     },
     "postalCode": {
@@ -220,23 +220,26 @@
     },
     "children": {
       "noChild": {
-        "text": "No child have been added"
+        "text": "Ei kummilapsia"
       }
+    },
+    "child": {
+      "noName": "Kummilapsi"
     }
   },
   "child": {
     "form": {
       "modal": {
         "add": {
-          "text": "Add child",
-          "label": "Add new child"
+          "text": "Lisää kummilapsi",
+          "label": "Lisää lapsi"
         },
         "edit": {
-          "text": "Edit",
-          "label": "Edit child information"
+          "text": "Muokkaa",
+          "label": "Muokkaa lapsen tietoja"
         },
         "delete": {
-          "label": "Remove"
+          "label": "Poista"
         }
       }
     }

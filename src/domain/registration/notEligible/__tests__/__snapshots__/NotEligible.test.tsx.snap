@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders snapshot correctly 1`] = `
-<Container>
+<PageWrapper
+  title="registration.notEligible.title"
+>
   <div
     className="home"
   >
@@ -11,14 +13,6 @@ exports[`renders snapshot correctly 1`] = `
       <div
         className="heroContainer"
       >
-        <h1>
-          Onnea! Grattis! Congratulations!
-        </h1>
-        <p
-          className="description"
-        >
-          Helsingin Kaupunginorkesteri kutsuu kummilapsikseen kaikki vuonna 2020 syntyneet Helsinkiläislapset! Lapsi perheineen kutsutaan kahdesti vuodessa nauttimaan HKO:n järjestämästä kulttuurista täysin ilmaiseksi! Liity mukaan!
-        </p>
         <div
           className="notEligible"
         >
@@ -37,11 +31,11 @@ exports[`renders snapshot correctly 1`] = `
           <Button
             onClick={[Function]}
           >
-            Return to registration page
+            Löydä lapsille sopivia kulttuuritapahtumia täältä
           </Button>
         </div>
       </div>
     </div>
   </div>
-</Container>
+</PageWrapper>
 `;

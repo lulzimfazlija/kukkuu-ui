@@ -11,8 +11,8 @@ import profileQuery from './queries/ProfileQuery';
 import LoadingSpinner from '../../common/components/spinner/LoadingSpinner';
 import { normalizeProfileData } from './ProfileUtils';
 import styles from './profile.module.scss';
-import Container from '../app/layout/Container';
 import ProfileChildrenList from './children/ProfileChildrenList';
+import PageWrapper from '../app/layout/PageWrapper';
 
 const Profile: FunctionComponent = () => {
   const { loading, error, data } = useQuery<ProfileQueryType>(profileQuery);
@@ -28,14 +28,14 @@ const Profile: FunctionComponent = () => {
     if (profile) dispatch(saveProfile(profile));
   }
   return (
-    <Container className={styles.grayBackground}>
+    <PageWrapper className={styles.grayBackground} title={'profile.heading'}>
       <div className={styles.profileWrapper}>
         <div className={styles.profile}>
           <h1>{t('profile.heading')}</h1>
           <ProfileChildrenList children={profile ? profile.children : []} />
         </div>
       </div>
-    </Container>
+    </PageWrapper>
   );
 };
 

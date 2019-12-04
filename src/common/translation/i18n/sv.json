@@ -122,13 +122,13 @@
         "lastName": {
           "input": {
             "label": "Child last name",
-            "placeholder": "Please put child last name"
+            "placeholder": "Please insert child last name"
           }
         },
         "relationship": {
           "input": {
             "label": "Guardian relation with child",
-            "placeholder": "Please put guardian relation"
+            "placeholder": "Please insert guardian relation"
           }
         },
         "postalCode": {
@@ -163,7 +163,7 @@
         "phoneNumber": {
           "input": {
             "label": "Guardian phone number",
-            "placeholder": "Please put guardian phone number"
+            "placeholder": "Please insert guardian phone number"
           }
         },
         "language": {
@@ -222,6 +222,9 @@
       "noChild": {
         "text": "No child have been added"
       }
+    },
+    "child": {
+      "noName": "Fadderbarn"
     }
   },
   "child": {
