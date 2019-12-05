@@ -2,6 +2,8 @@ import { Route, Switch, RouteComponentProps, Redirect } from 'react-router';
 import React from 'react';
 import { connect } from 'react-redux';
 import { loadUser } from 'redux-oidc';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Home from '../home/Home';
 import NotFound from './notFound/NotFound';
@@ -34,8 +36,13 @@ class App extends React.Component<AppProps> {
           this.props.fetchApiTokenError({ message: 'No user found' });
         }
       })
-      .catch(error => this.props.fetchApiTokenError(error));
+      .catch(error => {
+        this.props.fetchApiTokenError(error);
+        console.log('App.tsx loaduser catch error');
+        console.error(error);
+      });
   }
+  notify = () => toast('yikes');
 
   public render() {
     const {
@@ -47,6 +54,7 @@ class App extends React.Component<AppProps> {
 
     return (
       <LoadingSpinner isLoading={isLoadingUser}>
+        <ToastContainer></ToastContainer>
         <Switch>
           <Redirect exact path={`/${locale}/`} to={`/${locale}/home`} />
           <Route exact path={`/${locale}/home`} component={Home} />

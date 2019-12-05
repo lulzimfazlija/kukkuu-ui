@@ -6,6 +6,8 @@ import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { omit } from 'lodash';
 import classnames from 'classnames';
+import { toast } from 'react-toastify';
+import { ApolloError } from 'apollo-boost';
 
 import styles from './registrationForm.module.scss';
 import Button from '../../../common/components/button/Button';
@@ -83,6 +85,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
               const backendSupportChildren = values.children.map(child =>
                 omit(child, ['homeCity'])
               );
+              backendSupportChildren[0].birthdate = 'asdf';
               const backendSupportGuardian = {
                 firstName: values.guardian.firstName,
                 lastName: values.guardian.lastName,
@@ -96,12 +99,24 @@ const RegistrationForm: FunctionComponent<Props> = ({
                     children: backendSupportChildren,
                     guardian: backendSupportGuardian,
                   },
-                });
-                history.push('/registration/success');
+                })
+                  .then(result => {
+                    history.push('/registration/success');
+                    console.log(result);
+                  })
+                  .catch(err => {
+                    toast('Failed to submit to server');
+                    if (err instanceof ApolloError) {
+                      if (err.graphQLErrors.length > 0)
+                        console.error(err.graphQLErrors);
+                      if (err.extraInfo) console.error(err.extraInfo);
+                    }
+                    console.error(err);
+                  });
               } catch (err) {
-                // TODO: Error handling.
                 // eslint-disable-next-line no-console
                 console.error(err);
+                toast('Failed to submit to server');
               }
             }}
           >

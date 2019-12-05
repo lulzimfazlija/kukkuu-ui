@@ -1,4 +1,5 @@
 import ApolloClient from 'apollo-boost';
+import { toast } from 'react-toastify';
 
 import { store } from '../app/state/AppStore';
 import { apiTokenSelector } from '../auth/state/AuthenticationSelectors';
@@ -15,8 +16,9 @@ export default new ApolloClient({
     } catch (e) {
       // User not authenticated
       // eslint-disable-next-line no-console
+      console.error('Error in client.ts');
       console.error(e);
-      // TODO: add error-handler
+      toast('An error occured. Please try again later');
     }
   },
   uri: process.env.REACT_APP_API_URI,

@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
 import { get } from 'lodash';
-import { Redirect } from 'react-router';
+import { ApolloError } from 'apollo-boost';
 
 import { profileQuery as ProfileQueryType } from '../api/generatedTypes/profileQuery';
 import { saveProfile } from './state/ProfileActions';
@@ -13,6 +13,7 @@ import { normalizeProfileData } from './ProfileUtils';
 import styles from './profile.module.scss';
 import ProfileChildrenList from './children/ProfileChildrenList';
 import PageWrapper from '../app/layout/PageWrapper';
+import { resetFormValues } from '../registration/state/RegistrationActions';
 
 const Profile: FunctionComponent = () => {
   const { loading, error, data } = useQuery<ProfileQueryType>(profileQuery);
@@ -22,10 +23,22 @@ const Profile: FunctionComponent = () => {
 
   if (loading) return <LoadingSpinner isLoading={true} />;
   if (error || !get(data, 'guardians.edges[0]') || !data) {
-    return <Redirect to="/home" />;
+    // console.error(error);
+    if (error instanceof ApolloError) {
+      if (error.graphQLErrors.length > 0) console.error(error.graphQLErrors);
+      if (error.extraInfo) console.error(error.extraInfo);
+    }
+    return (
+      <div className={styles.profileWrapper}>
+        <div className={styles.profile}>Error. Please try again later.</div>
+      </div>
+    );
   } else {
     profile = normalizeProfileData(data);
-    if (profile) dispatch(saveProfile(profile));
+    if (profile) {
+      dispatch(saveProfile(profile));
+      dispatch(resetFormValues());
+    }
   }
   return (
     <PageWrapper className={styles.grayBackground} title={'profile.heading'}>

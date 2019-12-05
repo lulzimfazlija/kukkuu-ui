@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
+import { toast } from 'react-toastify';
 
 import userManager from './userManager';
 import { StoreThunk } from '../app/types/AppTypes';
@@ -11,9 +12,17 @@ import { TUNNISTAMO_API_TOKEN_ENDPOINT } from '../api/constants/ApiConstants';
 import { BackendTokenResponse } from './types/BackendAuthenticationTypes';
 
 export const loginTunnistamo = (path?: string) => {
-  userManager.signinRedirect(
-    path ? { data: { path: path } } : { data: { path: '/profile' } }
-  );
+  userManager
+    .signinRedirect(
+      path ? { data: { path: path } } : { data: { path: '/profile' } }
+    )
+    .catch(error => {
+      let message = 'Login error';
+      if (error.message === 'Network Error')
+        message =
+          'Login error: Check your network connection or try again later';
+      toast(message);
+    });
 };
 
 export const logoutTunnistamo = (path?: string) => {
@@ -38,7 +47,9 @@ export const authenticateWithBackend = (
 
     dispatch(fetchTokenSuccess(res.data));
   } catch (error) {
+    toast('Failed to get API-token');
+    console.error('authenticate.ts Failed to get API-token');
+    console.error(error);
     dispatch(fetchTokenError(error));
-    // TODO: add error-handler
   }
 };
