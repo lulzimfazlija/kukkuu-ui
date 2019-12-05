@@ -122,53 +122,53 @@
         "lastName": {
           "input": {
             "label": "Child last name",
-            "placeholder": "Please put child last name"
+            "placeholder": "Please insert child last name"
           }
         },
         "relationship": {
           "input": {
             "label": "Guardian relation with child",
-            "placeholder": "Please put guardian relation"
+            "placeholder": "Please insert guardian relation"
           }
         },
         "postalCode": {
           "input": {
             "label": "Child's postal code",
-            "placeholder": "Please put child's postal code"
+            "placeholder": "Please insert child's postal code"
           }
         }
       },
       "guardian": {
         "info": {
-          "heading": "Guardian's information"
+          "heading": "Custodian's information"
         },
         "email": {
           "input": {
-            "label": "Guardian email",
-            "placeholder": "Please put guardian email"
+            "label": "Custodian email",
+            "placeholder": "Please insert guardian email"
           }
         },
         "firstName": {
           "input": {
-            "label": "Guardian first name",
-            "placeholder": "Please put guardian first name"
+            "label": "Custodian first name",
+            "placeholder": "Please insert guardian first name"
           }
         },
         "lastName": {
           "input": {
-            "label": "Guardian last name",
+            "label": "Custodian last name",
             "placeholder": "Please put guardian last name"
           }
         },
         "phoneNumber": {
           "input": {
-            "label": "Guardian phone number",
-            "placeholder": "Please put guardian phone number"
+            "label": "Custodian phone number",
+            "placeholder": "Please insert guardian phone number"
           }
         },
         "language": {
           "input": {
-            "label": "Guardian application prefer language",
+            "label": "Custodian application prefer language",
             "placeholder": "Please put guardian prefer language"
           }
         }
@@ -222,6 +222,9 @@
       "noChild": {
         "text": "No child have been added"
       }
+    },
+    "child": {
+      "noName": "Culture Kid"
     }
   },
   "child": {
@@ -247,5 +250,7 @@
     "OTHER_RELATION": "Other close relation",
     "PARENT": "Parent"
   },
-  "partners.2020": "2020 Helsingin kaupunginorkesteri"
+  "partners": {
+    "2020": "2020 Helsingin kaupunginorkesteri"
+  }
 }

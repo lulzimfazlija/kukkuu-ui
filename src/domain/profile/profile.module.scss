@@ -1,5 +1,19 @@
 @import 'mixins';
+@import 'layout';
 
 .grayBackground {
     @include background($hel-light);
+}
+
+
+.profileWrapper {
+    display: grid;
+
+    @include respond-above(sm) {
+        grid-template-columns: 1fr 10fr 1fr;
+        
+        .profile {
+            grid-column: 2;
+        }
+    }
 }

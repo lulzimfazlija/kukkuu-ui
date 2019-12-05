@@ -31,7 +31,7 @@ exports[`renders snapshot correctly 1`] = `
           <Button
             onClick={[Function]}
           >
-            Löydä lapsille sopivia kulttuuritapahtumia täältä!
+            Löydä lapsille sopivia kulttuuritapahtumia täältä
           </Button>
         </div>
       </div>
