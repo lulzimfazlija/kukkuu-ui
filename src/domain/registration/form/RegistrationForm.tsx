@@ -27,6 +27,7 @@ import addIcon from '../../../assets/icons/svg/delete.svg';
 import happyAdultIcon from '../../../assets/icons/svg/adultFaceHappy.svg';
 import NavigationPropmt from '../../../common/components/prompt/NavigationPrompt';
 import PageWrapper from '../../app/layout/PageWrapper';
+import { getCurrentLanguage } from '../../../common/translation/TranslationUtils';
 
 interface Props {
   setFormValues: (values: RegistrationFormValues) => void;
@@ -41,7 +42,8 @@ const RegistrationForm: FunctionComponent<Props> = ({
   const [submitChildrenAndGuardian] = useMutation(
     submitChildrenAndGuardianMutation
   );
-  const { t } = useTranslation();
+  const { i18n, t } = useTranslation();
+  const currentLocale = getCurrentLanguage(i18n);
   const history = useHistory();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -49,7 +51,6 @@ const RegistrationForm: FunctionComponent<Props> = ({
   // without finishing it yet, changing page URL / reload will make user lose all
   // his/her local form state
   const [isFilling, setFormIsFilling] = useState(false);
-
   return (
     <PageWrapper
       className={styles.grayBackground}
@@ -216,6 +217,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
                   </div>
 
                   <EnhancedInputField
+                    value={values.preferLanguage || currentLocale}
                     name="preferLanguage"
                     label={t('registration.form.guardian.language.input.label')}
                     required={true}
