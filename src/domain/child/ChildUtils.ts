@@ -41,9 +41,9 @@ export const getTranslatedRelationshipOptions = (
 };
 
 /**
- * Child data which was submit from form supposed to have same
- * type with child data from backend input
- * TODO: Fix reducer default data to match backend requirement
+ * The child data submitted from the form is supposed to
+ * have the same types as the child data received from backend
+ * TODO: Fix reducer default data to match backend typing
  */
 export const getSupportedChildData = (child: Child) => {
   const omited = omit(child, 'homeCity');
