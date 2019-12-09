@@ -1,22 +1,52 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useMutation } from '@apollo/react-hooks';
 
 import styles from './profileChildrenList.module.scss';
 // eslint-disable-next-line max-len
 import ProfileChild from './child/ProfileChild';
 import { profileChildrenSelector } from '../state/ProfileSelectors';
 import PageWrapper from '../../app/layout/PageWrapper';
-
-const ProfileChildrenList: React.FunctionComponent = () => {
+import Icon from '../../../common/components/icon/Icon';
+import addIcon from '../../../assets/icons/svg/delete.svg';
+import AddNewChildFormModal from '../../registration/modal/AddNewChildFormModal';
+import addChildMutation from '../../child/mutation/ChildMutation';
+import { getSupportedChildData } from '../../child/ChildUtils';
+const ProfileChildrenList: React.FunctionComponent<{
+  refreshList: () => void;
+}> = ({ refreshList }) => {
   const { t } = useTranslation();
   const children = useSelector(profileChildrenSelector);
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [addChild] = useMutation(addChildMutation);
 
   return (
     <PageWrapper className={styles.wrapper} title={'profile.heading'}>
       <div className={styles.profileWrapper}>
         <div className={styles.profile}>
-          <h1>{t('profile.heading')}</h1>
+          <div className={styles.heading}>
+            <h1>{t('profile.heading')}</h1>
+            <div className={styles.addChild} onClick={() => setIsOpen(true)}>
+              <span>{t('child.form.modal.add.label')}</span>
+              <Icon
+                src={addIcon}
+                alt="Add child icon"
+                className={styles.addChildIcon}
+              />
+            </div>
+            {isOpen && (
+              <AddNewChildFormModal
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+                addChild={payload => {
+                  const supportedChildData = getSupportedChildData(payload);
+                  addChild({ variables: { input: supportedChildData } });
+                  refreshList();
+                }}
+              />
+            )}
+          </div>
 
           <div className={styles.childrenList}>
             {children ? (

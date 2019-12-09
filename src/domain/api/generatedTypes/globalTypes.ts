@@ -32,6 +32,15 @@ export enum RelationshipTypeEnum {
   PARENT = "PARENT",
 }
 
+export interface AddChildMutationInput {
+  firstName?: string | null;
+  lastName?: string | null;
+  birthdate: any;
+  postalCode?: string | null;
+  relationship?: RelationshipInput | null;
+  clientMutationId?: string | null;
+}
+
 export interface ChildInput {
   firstName?: string | null;
   lastName?: string | null;
