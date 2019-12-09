@@ -44,12 +44,13 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: $xlargeMargin 0 $baseMargin 0;
+    margin: $baseMargin 0;
+    padding: 0 $xlargeMargin;
 
     .happyChild {
         height: $largeMargin;
         width: $largeMargin;
-        margin: 0 $baseMargin;
+        margin-right: $baseMargin;
     }
 
     h1 {
