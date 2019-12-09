@@ -11,7 +11,51 @@
       "text": "Redirecting..."
     }
   },
+  "CHILD_RELATIONSHIP_OPTIONS": {
+    "ADVOCATE": "Legal guardian",
+    "OTHER_GUARDIAN": "Other guardian",
+    "OTHER_RELATION": "Other close relation",
+    "PARENT": "Parent"
+  },
+  "child": {
+    "form": {
+      "modal": {
+        "add": {
+          "label": "Add new child",
+          "text": "Add child"
+        },
+        "delete": {
+          "label": "Remove"
+        },
+        "edit": {
+          "label": "Edit child information",
+          "text": "Edit"
+        }
+      }
+    }
+  },
   "common": {
+    "form": {
+      "leave": {
+        "warning": {
+          "text": "Are you sure to leave ? You will lose all unsaved data."
+        }
+      }
+    },
+    "goBack": {
+      "text": "Return to registration page"
+    },
+    "modal": {
+      "cancel": {
+        "text": "Cancel"
+      },
+      "close": {
+        "text": "x"
+      },
+      "submit": {
+        "text": "Submit"
+      }
+    },
     "profile": {
       "goToProfile": {
         "buttonText": "Go to your profile"
@@ -20,27 +64,6 @@
     "select": {
       "default": {
         "text": "Choose"
-      }
-    },
-    "goBack": {
-      "text": "Return to registration page"
-    },
-    "modal": {
-      "close": {
-        "text": "x"
-      },
-      "cancel": {
-        "text": "Cancel"
-      },
-      "submit": {
-        "text": "Submit"
-      }
-    },
-    "form": {
-      "leave": {
-        "warning": {
-          "text": "Are you sure to leave ? You will lose all unsaved data."
-        }
       }
     }
   },
@@ -94,13 +117,45 @@
   "notFound": {
     "text": "You lost?"
   },
+  "partners": {
+    "2020": "2020 Helsingin kaupunginorkesteri"
+  },
+  "#REF!": "#REF!",
+  "profile": {
+    "children": {
+      "noChild": {
+        "text": "No child have been added"
+      }
+    },
+    "heading": "Godchildren",
+    "noupcomingevents": {
+      "hero": {
+        "heading": "Event invitations"
+      },
+      "text": "Event invitations sent to you will show up here. <br/> You can register for events and cancel your registration if you for some reason are not able to go."
+    },
+    "child": {
+      "detail": {
+        "page": {
+          "title": "Child detail page"
+        }
+      },
+      "default": {
+        "name": {
+          "text": "Culture Kid"
+        }
+      }
+    }
+  },
   "registration": {
-    "heading": "Sign up",
     "form": {
+      "agree": {
+        "input": {
+          "label": "I accept terms and conditions of the service",
+          "placeholder": "Accept this to continue"
+        }
+      },
       "child": {
-        "info": {
-          "heading": "Child's information"
-        },
         "birthdate": {
           "input": {
             "label": "Child birthdate",
@@ -119,16 +174,13 @@
             "placeholder": "Please insert child's home city"
           }
         },
+        "info": {
+          "heading": "Child's information"
+        },
         "lastName": {
           "input": {
             "label": "Child last name",
             "placeholder": "Please insert child last name"
-          }
-        },
-        "relationship": {
-          "input": {
-            "label": "Guardian relation with child",
-            "placeholder": "Please insert guardian relation"
           }
         },
         "postalCode": {
@@ -136,12 +188,15 @@
             "label": "Child's postal code",
             "placeholder": "Please insert child's postal code"
           }
+        },
+        "relationship": {
+          "input": {
+            "label": "Guardian relation with child",
+            "placeholder": "Please insert guardian relation"
+          }
         }
       },
       "guardian": {
-        "info": {
-          "heading": "Custodian's information"
-        },
         "email": {
           "input": {
             "label": "Custodian email",
@@ -152,6 +207,15 @@
           "input": {
             "label": "Custodian first name",
             "placeholder": "Please insert guardian first name"
+          }
+        },
+        "info": {
+          "heading": "Custodian's information"
+        },
+        "language": {
+          "input": {
+            "label": "Custodian application prefer language",
+            "placeholder": "Please put guardian prefer language"
           }
         },
         "lastName": {
@@ -165,30 +229,19 @@
             "label": "Custodian phone number",
             "placeholder": "Please insert guardian phone number"
           }
-        },
-        "language": {
-          "input": {
-            "label": "Custodian application prefer language",
-            "placeholder": "Please put guardian prefer language"
-          }
         }
       },
       "verifyInformation": {
         "input": {
           "label": "Agree to continue"
         }
-      },
-      "agree": {
-        "input": {
-          "placeholder": "Accept this to continue",
-          "label": "I accept terms and conditions of the service"
-        }
       }
     },
+    "heading": "Sign up",
     "notEligible": {
+      "buttonText": "Go here to find cultural events for your child!",
       "text": "Your child is unfortunately not eligible for the Godchildren of Culture program due to their birthdate or home town.",
-      "title": "Not eligible",
-      "buttonText": "Go here to find cultural events for your child!"
+      "title": "Not eligible"
     },
     "welcome": {
       "hero": {
@@ -209,48 +262,5 @@
     "postalCode": {
       "invalidFormat": "Invalid postal code"
     }
-  },
-  "profile": {
-    "heading": "Godchildren",
-    "noupcomingevents": {
-      "hero": {
-        "heading": "Event invitations"
-      },
-      "text": "Event invitations sent to you will show up here. <br/> You can register for events and cancel your registration if you for some reason are not able to go."
-    },
-    "children": {
-      "noChild": {
-        "text": "No child have been added"
-      }
-    },
-    "child": {
-      "noName": "Culture Kid"
-    }
-  },
-  "child": {
-    "form": {
-      "modal": {
-        "add": {
-          "text": "Add child",
-          "label": "Add new child"
-        },
-        "edit": {
-          "text": "Edit",
-          "label": "Edit child information"
-        },
-        "delete": {
-          "label": "Remove"
-        }
-      }
-    }
-  },
-  "CHILD_RELATIONSHIP_OPTIONS": {
-    "ADVOCATE": "Legal guardian",
-    "OTHER_GUARDIAN": "Other guardian",
-    "OTHER_RELATION": "Other close relation",
-    "PARENT": "Parent"
-  },
-  "partners": {
-    "2020": "2020 Helsingin kaupunginorkesteri"
   }
 }

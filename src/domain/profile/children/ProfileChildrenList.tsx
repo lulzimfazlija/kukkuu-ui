@@ -1,37 +1,43 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
 import styles from './profileChildrenList.module.scss';
 // eslint-disable-next-line max-len
-import { profileQuery_guardians_edges_node_children_edges_node as ChildType } from '../../api/generatedTypes/profileQuery';
-import ProfileChild from './ProfileChild';
+import ProfileChild from './child/ProfileChild';
+import { profileChildrenSelector } from '../state/ProfileSelectors';
+import PageWrapper from '../../app/layout/PageWrapper';
 
-interface ProfileChildrenListProps {
-  children: ChildType[];
-}
-
-const ProfileChildrenList: React.FunctionComponent<
-  ProfileChildrenListProps
-> = ({ children }) => {
+const ProfileChildrenList: React.FunctionComponent = () => {
   const { t } = useTranslation();
+  const children = useSelector(profileChildrenSelector);
+
   return (
-    <div className={styles.childrenList}>
-      {children.length ? (
-        <>
-          <div className={styles.thisYearPartner}>
-            <p>{t('partners.2020')}</p>
-            {/* TODO: make me dynamic partners after more data came */}
+    <PageWrapper className={styles.wrapper} title={'profile.heading'}>
+      <div className={styles.profileWrapper}>
+        <div className={styles.profile}>
+          <h1>{t('profile.heading')}</h1>
+
+          <div className={styles.childrenList}>
+            {children ? (
+              <>
+                <div className={styles.thisYearPartner}>
+                  <p>{t('partners.2020')}</p>
+                  {/* TODO: make me dynamic partners after more data came */}
+                </div>
+                {children.map(child => (
+                  <ProfileChild key={child.id} child={child} />
+                ))}
+              </>
+            ) : (
+              <div className={styles.noChild}>
+                <p>{t('profile.children.noChild.text')}</p>
+              </div>
+            )}
           </div>
-          {children.map(child => (
-            <ProfileChild key={child.id} child={child} />
-          ))}
-        </>
-      ) : (
-        <div className={styles.noChild}>
-          <p>{t('profile.children.noChild.text')}</p>
         </div>
-      )}
-    </div>
+      </div>
+    </PageWrapper>
   );
 };
 

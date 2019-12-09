@@ -4,7 +4,7 @@ import { useTranslation, Trans } from 'react-i18next';
 import Icon from '../../../common/components/icon/Icon';
 import envelopeWithStars from '../../../assets/icons/svg/envelopeWithStars.svg';
 
-const NoUpcomingEvents: FunctionComponent = () => {
+const ProfileNoEvent: FunctionComponent = () => {
   const { t } = useTranslation();
   return (
     <div>
@@ -16,4 +16,4 @@ const NoUpcomingEvents: FunctionComponent = () => {
   );
 };
 
-export default NoUpcomingEvents;
+export default ProfileNoEvent;

@@ -1,0 +1,18 @@
+@import 'variables';
+@import 'mixins';
+@import 'colors';
+@import 'layout';
+
+.wrapper {
+    @include background($hel-light)
+}
+
+.childWrapper {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.childIcon {
+    height: $largeMargin;
+    width: $largeMargin;
+}

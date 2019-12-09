@@ -1,18 +1,19 @@
 import {
   profileQuery as ProfileQueryType,
-  profileQuery_guardians_edges_node_children as ProfileChildrenType,
-  profileQuery_guardians_edges_node_children_edges_node as ChildType,
+  profileQuery_myProfile_children as ProfileChildrenType,
+  profileQuery_myProfile_children_edges_node as ChildType,
 } from '../api/generatedTypes/profileQuery';
 
 export const normalizeProfileData = (data: ProfileQueryType) => {
   if (
     data &&
-    data.guardians &&
-    data.guardians.edges[0] &&
-    data.guardians.edges[0].node
+    data.myProfile &&
+    data.myProfile.children &&
+    data.myProfile.children.edges &&
+    data.myProfile.children.edges[0]
   ) {
-    return Object.assign(data.guardians.edges[0].node, {
-      children: normalizeChildren(data.guardians.edges[0].node.children),
+    return Object.assign(data.myProfile, {
+      children: normalizeChildren(data.myProfile.children),
     });
   }
 
