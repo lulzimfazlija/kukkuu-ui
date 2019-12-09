@@ -2,16 +2,60 @@
   "appName": "Kulttuurin kummilapset",
   "authentication": {
     "login": {
-      "text": "Login"
+      "text": "Kirjaudu sisään"
     },
     "logout": {
-      "text": "Logout"
+      "text": "Kirjaudu ulos"
     },
     "redirect": {
       "text": "Ohjataan tunnistautumiseen..."
     }
   },
+  "CHILD_RELATIONSHIP_OPTIONS": {
+    "ADVOCATE": "Puolesta asioija",
+    "OTHER_GUARDIAN": "Muu huoltaja",
+    "OTHER_RELATION": "Muu läheinen",
+    "PARENT": "Vanhempi"
+  },
+  "child": {
+    "form": {
+      "modal": {
+        "add": {
+          "label": "Lisää lapsi",
+          "text": "Lisää kummilapsi"
+        },
+        "delete": {
+          "label": "Poista"
+        },
+        "edit": {
+          "label": "Muokkaa lapsen tietoja",
+          "text": "Muokkaa"
+        }
+      }
+    }
+  },
   "common": {
+    "form": {
+      "leave": {
+        "warning": {
+          "text": "Oletko varma että haluat poistua sivulta? Kaikki tallentamattomat tiedot katoavat. "
+        }
+      }
+    },
+    "goBack": {
+      "text": "Palaa profiilin luomiseen"
+    },
+    "modal": {
+      "cancel": {
+        "text": "Peruuta"
+      },
+      "close": {
+        "text": "x"
+      },
+      "submit": {
+        "text": "Tallenna"
+      }
+    },
     "profile": {
       "goToProfile": {
         "buttonText": "Oma kummilapsiprofiili"
@@ -20,27 +64,6 @@
     "select": {
       "default": {
         "text": "Valitse"
-      }
-    },
-    "goBack": {
-      "text": "Palaa profiilin luomiseen"
-    },
-    "modal": {
-      "close": {
-        "text": "x"
-      },
-      "cancel": {
-        "text": "Peruuta"
-      },
-      "submit": {
-        "text": "Tallenna"
-      }
-    },
-    "form": {
-      "leave": {
-        "warning": {
-          "text": "Oletko varma että haluat poistua sivulta? Kaikki tallentamattomat tiedot katoavat. "
-        }
       }
     }
   },
@@ -94,13 +117,44 @@
   "notFound": {
     "text": "Oletko hukassa?"
   },
+  "partners": {
+    "2020": "2020 Helsingin kaupunginorkesteri"
+  },
+  "profile": {
+    "children": {
+      "noChild": {
+        "text": "Ei kummilapsia"
+      }
+    },
+    "heading": "Kummilapset",
+    "noupcomingevents": {
+      "hero": {
+        "heading": "Tapahtumakutsut"
+      },
+      "text": "Tänne ilmaantuvat sinulle lähetetyt tapahtumakutsut. <br/> Pääset myös ilmoittautumaan tapahtumiin ja perumaan ilmoittautumisesi mikäli et jostain syystä pääsekään tapahtumaan."
+    },
+    "child": {
+      "detail": {
+        "page": {
+          "title": "Child detail page"
+        }
+      },
+      "default": {
+        "name": {
+          "text": "Kummilapsi"
+        }
+      }
+    }
+  },
   "registration": {
-    "heading": "Tule mukaan",
     "form": {
+      "agree": {
+        "input": {
+          "label": "Hyväksyn palvelun käyttöehdot",
+          "placeholder": "Hyväksyn palvelun käyttöehdot"
+        }
+      },
       "child": {
-        "info": {
-          "heading": "Lapsen tiedot"
-        },
         "birthdate": {
           "input": {
             "label": "Lapsen syntymäpäivä",
@@ -119,16 +173,13 @@
             "placeholder": "Lisää lapsen kotipaikkakunta"
           }
         },
+        "info": {
+          "heading": "Lapsen tiedot"
+        },
         "lastName": {
           "input": {
             "label": "Lapsen sukunimi",
             "placeholder": "Lisää lapsen sukunimi"
-          }
-        },
-        "relationship": {
-          "input": {
-            "label": "Ilmoittajan suhde lapseen",
-            "placeholder": "Lisää ilmoittajan suhde lapseen"
           }
         },
         "postalCode": {
@@ -136,12 +187,15 @@
             "label": "Lapsen postinumero",
             "placeholder": "Lisää lapsen postinumero"
           }
+        },
+        "relationship": {
+          "input": {
+            "label": "Ilmoittajan suhde lapseen",
+            "placeholder": "Lisää ilmoittajan suhde lapseen"
+          }
         }
       },
       "guardian": {
-        "info": {
-          "heading": "Lähiaikuisen tiedot"
-        },
         "email": {
           "input": {
             "label": "Sähköpostiosoite",
@@ -152,6 +206,15 @@
           "input": {
             "label": "Etunimi",
             "placeholder": "Lisää etunimi"
+          }
+        },
+        "info": {
+          "heading": "Lähiaikuisen tiedot"
+        },
+        "language": {
+          "input": {
+            "label": "Asiointikieli",
+            "placeholder": "Valitse asiointikieli"
           }
         },
         "lastName": {
@@ -165,30 +228,19 @@
             "label": "Puhelinnumero",
             "placeholder": "Lisää puhelinnumero"
           }
-        },
-        "language": {
-          "input": {
-            "label": "Asiointikieli",
-            "placeholder": "Valitse asiointikieli"
-          }
         }
       },
       "verifyInformation": {
         "input": {
           "label": "Agree to continue"
         }
-      },
-      "agree": {
-        "input": {
-          "placeholder": "Hyväksyn palvelun käyttöehdot",
-          "label": "Hyväksyn palvelun käyttöehdot"
-        }
       }
     },
+    "heading": "Tule mukaan",
     "notEligible": {
+      "buttonText": "Löydä lapsille sopivia kulttuuritapahtumia täältä",
       "text": "Valitettavasti lapsen syntymävuosi tai kotipaikkakunta eivät oikeuta häntä kulttuurin kummilapset toimintaan.",
-      "title": "Voi harmi!",
-      "buttonText": "Löydä lapsille sopivia kulttuuritapahtumia täältä"
+      "title": "Voi harmi!"
     },
     "welcome": {
       "hero": {
@@ -209,48 +261,5 @@
     "postalCode": {
       "invalidFormat": "Väärää formaatti"
     }
-  },
-  "profile": {
-    "heading": "Kummilapset",
-    "noupcomingevents": {
-      "hero": {
-        "heading": "Tapahtumakutsut"
-      },
-      "text": "Tänne ilmaantuvat sinulle lähetetyt tapahtumakutsut. <br/> Pääset myös ilmoittautumaan tapahtumiin ja perumaan ilmoittautumisesi mikäli et jostain syystä pääsekään tapahtumaan."
-    },
-    "children": {
-      "noChild": {
-        "text": "Ei kummilapsia"
-      }
-    },
-    "child": {
-      "noName": "Kummilapsi"
-    }
-  },
-  "child": {
-    "form": {
-      "modal": {
-        "add": {
-          "text": "Lisää kummilapsi",
-          "label": "Lisää lapsi"
-        },
-        "edit": {
-          "text": "Muokkaa",
-          "label": "Muokkaa lapsen tietoja"
-        },
-        "delete": {
-          "label": "Poista"
-        }
-      }
-    }
-  },
-  "CHILD_RELATIONSHIP_OPTIONS": {
-    "ADVOCATE": "Puolesta asioija",
-    "OTHER_GUARDIAN": "Muu huoltaja",
-    "OTHER_RELATION": "Muu läheinen",
-    "PARENT": "Vanhempi"
-  },
-  "partners": {
-    "2020": "2020 Helsingin kaupunginorkesteri"
   }
 }

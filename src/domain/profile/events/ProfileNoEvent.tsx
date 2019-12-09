@@ -3,17 +3,27 @@ import { useTranslation, Trans } from 'react-i18next';
 
 import Icon from '../../../common/components/icon/Icon';
 import envelopeWithStars from '../../../assets/icons/svg/envelopeWithStars.svg';
+import styles from './profileNoEvent.module.scss';
 
-const NoUpcomingEvents: FunctionComponent = () => {
+const ProfileNoEvent: FunctionComponent = () => {
   const { t } = useTranslation();
   return (
-    <div>
+    <div className={styles.noEventWrapper}>
       <h1>{t('profile.noupcomingevents.hero.heading')}</h1>
-      <Icon src={envelopeWithStars} alt="Envelope with stars" />
-      <Trans i18nKey="multiline">{t('profile.noupcomingevents.text')}</Trans>
-      <p></p>
+      <div className={styles.noEvent}>
+        <Icon
+          src={envelopeWithStars}
+          className={styles.envelopIcon}
+          alt="Envelope with stars"
+        />
+        <p>
+          <Trans i18nKey="multiline">
+            {t('profile.noupcomingevents.text')}
+          </Trans>
+        </p>
+      </div>
     </div>
   );
 };
 
-export default NoUpcomingEvents;
+export default ProfileNoEvent;

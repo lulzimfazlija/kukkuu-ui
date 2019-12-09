@@ -5,6 +5,7 @@ import { RouteChildrenProps } from 'react-router';
 import { useTranslation } from 'react-i18next';
 
 import userManager from './userManager';
+import PageWrapper from '../app/layout/PageWrapper';
 
 function OidcCallback(props: RouteChildrenProps) {
   const { t } = useTranslation();
@@ -18,13 +19,15 @@ function OidcCallback(props: RouteChildrenProps) {
     props.history.push('/');
   };
   return (
-    <CallbackComponent
-      successCallback={onSuccess}
-      errorCallback={onError}
-      userManager={userManager}
-    >
-      <p>{t('authentication.redirect.text')}</p>
-    </CallbackComponent>
+    <PageWrapper>
+      <CallbackComponent
+        successCallback={onSuccess}
+        errorCallback={onError}
+        userManager={userManager}
+      >
+        <p>{t('authentication.redirect.text')}</p>
+      </CallbackComponent>
+    </PageWrapper>
   );
 }
 
