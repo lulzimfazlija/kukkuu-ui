@@ -7,12 +7,64 @@
     @include background($hel-light)
 }
 
-.childWrapper {
+.childDetailWrapper {
     display: grid;
     grid-template-columns: auto auto;
+    gap: $baseMargin;
+}
+
+.backButton {
+    height: $largeMargin;
+    width: $largeMargin;
+    padding-top: $baseMargin;
+}
+
+.backButtonIcon {
+    height: inherit;
+    width: inherit;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    img {
+        height: $baseMargin;
+        width: $baseMargin;
+    }
+    &:hover {
+        background: $white;
+        border-radius: 50%;
+    }
 }
 
 .childIcon {
     height: $largeMargin;
     width: $largeMargin;
+}
+
+.childInfo {
+    display: grid;
+    grid-auto-flow: row;
+    margin-bottom: $baseMargin;
+    .childInfoRow {
+        h1 {
+            margin: 0;
+            align-self: center;
+            text-transform: capitalize;
+        }
+        display: grid;
+        grid-template-columns: $largeMargin 1fr;
+        gap: $baseMargin;
+        padding-bottom: $baseMargin;
+
+        > span {
+            line-height: $baseMargin;
+            align-self: center;
+        }
+
+        > div {
+            justify-self: center;
+        }
+        &:first-child {
+            padding-top: $baseMargin;
+        }
+    }
 }

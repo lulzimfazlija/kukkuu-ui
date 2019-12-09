@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router';
+import { useParams, useHistory } from 'react-router';
 
 import styles from './profileChildDetail.module.scss';
 import PageWrapper from '../../../app/layout/PageWrapper';
@@ -24,60 +24,65 @@ const ProfileChildDetail: React.FunctionComponent = () => {
   const { t } = useTranslation();
   const params = useParams<{ childId: string }>();
   const guardian = useSelector(profileSelector);
+  const history = useHistory();
+
   const child = useSelector((state: StoreState) =>
     childByIdSelector(state, params.childId)
   );
 
   return (
     <PageWrapper
-      containerClassName={styles.container}
       className={styles.wrapper}
       title={t('profile.child.detail.page.title')}
     >
       <div className={styles.childDetailWrapper}>
+        <div className={styles.backButton} onClick={() => history.goBack()}>
+          <Icon
+            src={backIcon}
+            className={styles.backButtonIcon}
+            alt="Go back button"
+          />
+        </div>
         <div className={styles.childWrapper}>
-          <div className={styles.backButton}>
-            <Icon src={backIcon} alt="Go back button" />
-          </div>
-          <div className={styles.childInfoWrapper}>
-            <div>
-              <Icon
-                src={childIcon}
-                className={styles.childIcon}
-                alt="child icon"
-              />
-            </div>
-            <div className={styles.childAndGuardianInfo}>
-              {child && (
-                <>
-                  <>
-                    {child.firstName
-                      ? `${child.firstName} ${child.lastName}`
-                      : t('profile.child.default.name.text')}
-                  </>
-                  <>
-                    <Icon src={birthdateIcon} alt="birthdate icon" />
-                    <span>
-                      {formatTime(
-                        newMoment(child.birthdate),
-                        DEFAULT_DATE_FORMAT
-                      )}
-                    </span>
-                  </>
-                </>
-              )}
-              <>
+          {child ? (
+            <div className={styles.childInfo}>
+              <div className={styles.childInfoRow}>
+                <Icon
+                  src={childIcon}
+                  className={styles.childIcon}
+                  alt="child icon"
+                />
+                <h1>
+                  {child.firstName
+                    ? `${child.firstName} ${child.lastName}`
+                    : t('profile.child.default.name.text')}
+                </h1>
+              </div>
+              <div className={styles.childInfoRow}>
+                <Icon src={birthdateIcon} alt="birthdate icon" />
+                <span>
+                  {formatTime(newMoment(child.birthdate), DEFAULT_DATE_FORMAT)}
+                </span>
+              </div>
+              <div className={styles.childInfoRow}>
                 <Icon src={personIcon} alt="Person icon" />
-                {`${guardian.firstName} ${guardian.lastName}`},{guardian.email}
-              </>
-              <>
+                <span>
+                  {`${guardian.firstName} ${guardian.lastName}`},{' '}
+                  {guardian.email}
+                </span>
+              </div>
+              <div className={styles.childInfoRow}>
                 <Icon src={phoneIcon} alt="Guardian mobile phone" />
-                {guardian.phoneNumber}
-              </>
+                <span>{guardian.phoneNumber}</span>
+              </div>
             </div>
-            <div className={styles.eventWrapper}>
-              <ProfileNoEvent />
+          ) : (
+            <div className={styles.noChild}>
+              <p>{t('profile.children.noChild.text')}</p>
             </div>
+          )}
+          <div className={styles.eventWrapper}>
+            <ProfileNoEvent />
           </div>
         </div>
       </div>
