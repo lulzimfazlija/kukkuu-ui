@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 
 import userManager from './userManager';
+import PageWrapper from '../app/layout/PageWrapper';
 
 function OidcCallback(props: RouteChildrenProps) {
   const { t } = useTranslation();
@@ -19,13 +20,15 @@ function OidcCallback(props: RouteChildrenProps) {
     toast('An error occured, please try again later');
   };
   return (
-    <CallbackComponent
-      successCallback={onSuccess}
-      errorCallback={onError}
-      userManager={userManager}
-    >
-      <p>{t('authentication.redirect.text')}</p>
-    </CallbackComponent>
+    <PageWrapper>
+      <CallbackComponent
+        successCallback={onSuccess}
+        errorCallback={onError}
+        userManager={userManager}
+      >
+        <p>{t('authentication.redirect.text')}</p>
+      </CallbackComponent>
+    </PageWrapper>
   );
 }
 

@@ -11,7 +11,51 @@
       "text": "Omdirigerar..."
     }
   },
+  "CHILD_RELATIONSHIP_OPTIONS": {
+    "ADVOCATE": "Verge",
+    "OTHER_GUARDIAN": "Annan verge",
+    "OTHER_RELATION": "Annan när relation",
+    "PARENT": "Forelder"
+  },
+  "child": {
+    "form": {
+      "modal": {
+        "add": {
+          "label": "Add new child",
+          "text": "Add child"
+        },
+        "delete": {
+          "label": "Remove"
+        },
+        "edit": {
+          "label": "Edit child information",
+          "text": "Edit"
+        }
+      }
+    }
+  },
   "common": {
+    "form": {
+      "leave": {
+        "warning": {
+          "text": "Are you sure to leave ? You will lose all unsaved data."
+        }
+      }
+    },
+    "goBack": {
+      "text": "Return to registration page"
+    },
+    "modal": {
+      "cancel": {
+        "text": "Cancel"
+      },
+      "close": {
+        "text": "x"
+      },
+      "submit": {
+        "text": "Submit"
+      }
+    },
     "profile": {
       "goToProfile": {
         "buttonText": "Gå til din profil"
@@ -20,27 +64,6 @@
     "select": {
       "default": {
         "text": "Välg"
-      }
-    },
-    "goBack": {
-      "text": "Return to registration page"
-    },
-    "modal": {
-      "close": {
-        "text": "x"
-      },
-      "cancel": {
-        "text": "Cancel"
-      },
-      "submit": {
-        "text": "Submit"
-      }
-    },
-    "form": {
-      "leave": {
-        "warning": {
-          "text": "Are you sure to leave ? You will lose all unsaved data."
-        }
       }
     }
   },
@@ -94,13 +117,44 @@
   "notFound": {
     "text": "Er du fortapt?"
   },
+  "partners": {
+    "2020": "2020 Helsingin kaupunginorkesteri"
+  },
+  "profile": {
+    "children": {
+      "noChild": {
+        "text": "No child have been added"
+      }
+    },
+    "heading": "Fadderbarn",
+    "noupcomingevents": {
+      "hero": {
+        "heading": "Evenemanginvitationer"
+      },
+      "text": "Event invitations sent to you will show up here. </br> You can register for events and cancel your registration if you for some reason are not able to go."
+    },
+    "child": {
+      "detail": {
+        "page": {
+          "title": "Child detail page"
+        }
+      },
+      "default": {
+        "name": {
+          "text": "Fadderbarn"
+        }
+      }
+    }
+  },
   "registration": {
-    "heading": "Sign up",
     "form": {
+      "agree": {
+        "input": {
+          "label": "I accept terms and conditions of the service",
+          "placeholder": "Accept this to continue"
+        }
+      },
       "child": {
-        "info": {
-          "heading": "Child's information"
-        },
         "birthdate": {
           "input": {
             "label": "Child birthdate",
@@ -119,16 +173,13 @@
             "placeholder": "Please put child home city"
           }
         },
+        "info": {
+          "heading": "Child's information"
+        },
         "lastName": {
           "input": {
             "label": "Child last name",
             "placeholder": "Please insert child last name"
-          }
-        },
-        "relationship": {
-          "input": {
-            "label": "Guardian relation with child",
-            "placeholder": "Please insert guardian relation"
           }
         },
         "postalCode": {
@@ -136,12 +187,15 @@
             "label": "Child's postal code",
             "placeholder": "Please put child's postal code"
           }
+        },
+        "relationship": {
+          "input": {
+            "label": "Guardian relation with child",
+            "placeholder": "Please insert guardian relation"
+          }
         }
       },
       "guardian": {
-        "info": {
-          "heading": "Guardian's information"
-        },
         "email": {
           "input": {
             "label": "Guardian email",
@@ -152,6 +206,15 @@
           "input": {
             "label": "Guardian first name",
             "placeholder": "Please put guardian first name"
+          }
+        },
+        "info": {
+          "heading": "Guardian's information"
+        },
+        "language": {
+          "input": {
+            "label": "Guardian application prefer language",
+            "placeholder": "Please put guardian prefer language"
           }
         },
         "lastName": {
@@ -165,30 +228,19 @@
             "label": "Guardian phone number",
             "placeholder": "Please insert guardian phone number"
           }
-        },
-        "language": {
-          "input": {
-            "label": "Guardian application prefer language",
-            "placeholder": "Please put guardian prefer language"
-          }
         }
       },
       "verifyInformation": {
         "input": {
           "label": "Agree to continue"
         }
-      },
-      "agree": {
-        "input": {
-          "placeholder": "Accept this to continue",
-          "label": "I accept terms and conditions of the service"
-        }
       }
     },
+    "heading": "Sign up",
     "notEligible": {
+      "buttonText": "Finn passende kulturarrangementer for ditt barn herfra!",
       "text": "Ditt barn kan inte bli med. Sori. ",
-      "title": "Inte bli med",
-      "buttonText": "Finn passende kulturarrangementer for ditt barn herfra!"
+      "title": "Inte bli med"
     },
     "welcome": {
       "hero": {
@@ -209,48 +261,5 @@
     "postalCode": {
       "invalidFormat": "Inte riktigt format"
     }
-  },
-  "profile": {
-    "heading": "Gudbarn",
-    "noupcomingevents": {
-      "hero": {
-        "heading": "Evenemanginvitationer"
-      },
-      "text": "Event invitations sent to you will show up here. </br> You can register for events and cancel your registration if you for some reason are not able to go."
-    },
-    "children": {
-      "noChild": {
-        "text": "No child have been added"
-      }
-    },
-    "child": {
-      "noName": "Fadderbarn"
-    }
-  },
-  "child": {
-    "form": {
-      "modal": {
-        "add": {
-          "text": "Add child",
-          "label": "Add new child"
-        },
-        "edit": {
-          "text": "Edit",
-          "label": "Edit child information"
-        },
-        "delete": {
-          "label": "Remove"
-        }
-      }
-    }
-  },
-  "CHILD_RELATIONSHIP_OPTIONS": {
-    "ADVOCATE": "Verge",
-    "OTHER_GUARDIAN": "Annen verge",
-    "OTHER_RELATION": "Annen nær relasjon",
-    "PARENT": "Forelder"
-  },
-  "partners": {
-    "2020": "2020 Helsingin kaupunginorkesteri"
   }
 }

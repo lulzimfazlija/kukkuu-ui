@@ -1,15 +1,16 @@
 import * as React from 'react';
 import { useHistory } from 'react-router';
+import { useTranslation } from 'react-i18next';
 
 // eslint-disable-next-line max-len
-import { profileQuery_guardians_edges_node_children_edges_node as ChildType } from '../../api/generatedTypes/profileQuery';
-import Icon from '../../../common/components/icon/Icon';
-import birthdayIcon from '../../../assets/icons/svg/birthdayCake.svg';
-import angleDownIcon from '../../../assets/icons/svg/angleDown.svg';
-import childIcon from '../../../assets/icons/svg/childFaceHappy.svg';
+import { profileQuery_myProfile_children_edges_node as ChildType } from '../../../api/generatedTypes/profileQuery';
+import Icon from '../../../../common/components/icon/Icon';
+import birthdayIcon from '../../../../assets/icons/svg/birthdayCake.svg';
+import angleDownIcon from '../../../../assets/icons/svg/angleDown.svg';
+import childIcon from '../../../../assets/icons/svg/childFaceHappy.svg';
 import styles from './profileChild.module.scss';
-import { formatTime, newMoment } from '../../../common/time/utils';
-import { DEFAULT_DATE_FORMAT } from '../../../common/time/TimeConstants';
+import { formatTime, newMoment } from '../../../../common/time/utils';
+import { DEFAULT_DATE_FORMAT } from '../../../../common/time/TimeConstants';
 
 interface ProfileChildProps {
   child: ChildType;
@@ -19,7 +20,7 @@ const ProfileChild: React.FunctionComponent<ProfileChildProps> = ({
   child,
 }) => {
   const history = useHistory();
-
+  const { t } = useTranslation();
   return (
     <div
       className={styles.childWrapper}
@@ -31,7 +32,9 @@ const ProfileChild: React.FunctionComponent<ProfileChildProps> = ({
         </div>
         <div className={styles.childInfo}>
           <p>
-            {child.firstName} {child.lastName}
+            {child.firstName
+              ? `${child.firstName} ${child.lastName}`
+              : t('profile.child.default.name.text')}
           </p>
           <div className={styles.childBirthdate}>
             <Icon src={birthdayIcon} alt="Birthdate cake" />
