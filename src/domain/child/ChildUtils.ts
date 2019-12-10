@@ -1,7 +1,8 @@
 import { TFunction } from 'i18next';
+import { omit } from 'lodash';
 
 import { RelationshipTypeEnum } from '../api/generatedTypes/globalTypes';
-
+import { Child } from './types/ChildTypes';
 interface ChildRelationshipOptions {
   label: string;
   value: RelationshipTypeEnum;
@@ -37,4 +38,16 @@ export const getTranslatedRelationshipOptions = (
       value: RelationshipTypeEnum.PARENT,
     },
   ];
+};
+
+/**
+ * The child data submitted from the form is supposed to
+ * have the same types as the child data received from backend
+ * TODO: Fix reducer default data to match backend typing
+ */
+export const getSupportedChildData = (child: Child) => {
+  const omited = omit(child, 'homeCity');
+  return Object.assign(omited, {
+    relationship: { type: child.relationship },
+  });
 };

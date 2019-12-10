@@ -24,3 +24,21 @@
 .wrapper {
     @include background($hel-light);
 }
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .addChild {
+        align-items: center;
+        display: inline-flex;
+        span {
+            line-height: $baseLineHeight;
+            margin-right: 5px;
+        }
+        img {
+            transform: rotate(45deg);
+        }
+    }
+}

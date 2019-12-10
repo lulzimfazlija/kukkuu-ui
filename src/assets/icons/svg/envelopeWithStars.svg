@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="163px" height="152px" viewBox="0 0 163 152" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 61 (89581) - https://sketch.com -->
-    <title>Group 4 Copy 2</title>
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>Group 4 Copy 2@3x</title>
     <desc>Created with Sketch.</desc>
     <g id="MVP" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Kirjautuneen-käyttäjän-näkymä-Auki-Copy-2" transform="translate(-182.000000, -487.000000)">
-            <g id="Group" transform="translate(128.000000, 460.000000)" fill="#FFFFFF">
-                <rect id="Rectangle" x="0" y="0" width="1183" height="211"></rect>
-            </g>
-            <g id="Group-4-Copy-2" transform="translate(187.000000, 493.000000)" stroke="#000000">
-                <path d="M73.4428169,39.6329734 L95.1770974,61.3065181 L110.948354,77.0337028 C111.649965,77.7333525 112.172162,78.5448234 112.514866,79.4109256 C113.640337,80.6524454 114.326015,82.3005996 114.326015,84.1089025 L114.326015,135 C114.326015,138.865993 111.192008,142 107.326015,142 L29.6739847,142 C25.8079914,142 22.6739847,138.865993 22.6739847,135 L22.6739847,84.1089025 C22.6739847,82.2976885 23.3618719,80.6471392 24.4906432,79.4042579 C24.8394898,78.5242995 25.3678121,77.7156253 26.0516456,77.0337028 L63.5571829,39.6329734 C66.28926,36.908531 70.7107399,36.908531 73.4428169,39.6329734 Z" id="Combined-Shape" stroke-width="8"></path>
-                <line x1="23" y1="135" x2="55" y2="109" id="Path-4" stroke-width="8" fill="#D8D8D8"></line>
-                <line x1="113" y1="135" x2="80" y2="109" id="Path-5" stroke-width="8" fill="#D8D8D8"></line>
-                <polyline id="Combined-Shape" stroke-width="8" transform="translate(68.500000, 100.500000) rotate(180.000000) translate(-68.500000, -100.500000) " points="99.8757076 50.1570393 42.9730249 57.924424 37.1242924 116.099058"></polyline>
-                <path d="M75.1211073,101 C73.6678201,74.1180556 85.2941176,57.7847222 110,52" id="Path-3" stroke-width="6" stroke-linecap="round"></path>
-                <path d="M29.1176471,100 C27.7058824,72.5694444 39,55.9027778 63,50" id="Path-3" stroke-width="6" stroke-linecap="round" transform="translate(46.000000, 75.000000) scale(-1, 1) translate(-46.000000, -75.000000) "></path>
-                <polygon id="Star" stroke-width="5" fill="#FFC61E" stroke-linecap="round" points="131 56 118.068724 62.7983739 120.538378 48.3991869 110.076757 38.2016261 124.534362 36.1008131 131 23 137.465638 36.1008131 151.923243 38.2016261 141.461622 48.3991869 143.931276 62.7983739"></polygon>
-                <polygon id="Star" stroke-width="5" fill="#FFC61E" stroke-linecap="round" transform="translate(16.000000, 41.000000) rotate(90.000000) translate(-16.000000, -41.000000) " points="16 51.5337474 6.11145618 57 8 45.4222912 0 37.2229124 11.0557281 35.5337474 16 25 20.9442719 35.5337474 32 37.2229124 24 45.4222912 25.8885438 57"></polygon>
-                <polygon id="Star-Copy-2" stroke-width="5" fill="#FFC61E" stroke-linecap="round" transform="translate(49.500000, 13.500000) rotate(90.000000) translate(-49.500000, -13.500000) " points="49.5 22.3878494 41.1565412 27 42.75 17.2313082 36 10.3130823 45.3282706 8.88784938 49.5 0 53.6717294 8.88784938 63 10.3130823 56.25 17.2313082 57.8434588 27"></polygon>
-                <polygon id="Star" stroke-width="5" fill="#FFC61E" stroke-linecap="round" transform="translate(89.500000, 15.500000) rotate(90.000000) translate(-89.500000, -15.500000) " points="89.5 25.0462086 80.5385072 30 82.25 19.5077014 75 12.0770143 85.0192536 10.5462086 89.5 1 93.9807464 10.5462086 104 12.0770143 96.75 19.5077014 98.4614928 30"></polygon>
+            <g id="Group-4-Copy-2" transform="translate(187.000000, 493.000000)">
+                <path d="M73.4428169,39.6329734 L95.1770974,61.3065181 L110.948354,77.0337028 C111.649965,77.7333525 112.172162,78.5448234 112.514866,79.4109256 C113.640337,80.6524454 114.326015,82.3005996 114.326015,84.1089025 L114.326015,135 C114.326015,138.865993 111.192008,142 107.326015,142 L29.6739847,142 C25.8079914,142 22.6739847,138.865993 22.6739847,135 L22.6739847,84.1089025 C22.6739847,82.2976885 23.3618719,80.6471392 24.4906432,79.4042579 C24.8394898,78.5242995 25.3678121,77.7156253 26.0516456,77.0337028 L63.5571829,39.6329734 C66.28926,36.908531 70.7107399,36.908531 73.4428169,39.6329734 Z" id="Combined-Shape" stroke="#000000" stroke-width="8"></path>
+                <path d="M23,135 L55,109" id="Path-4" stroke="#000000" stroke-width="8" fill="#D8D8D8"></path>
+                <path d="M113,135 L80,109" id="Path-5" stroke="#000000" stroke-width="8" fill="#D8D8D8"></path>
+                <polygon id="Combined-Shape" fill="#000000" fill-rule="nonzero" transform="translate(68.444297, 99.502493) rotate(180.000000) translate(-68.444297, -99.502493) " points="68.3616602 87.0921908 111.580103 119.928882 116.419897 113.558923 68.1810534 76.9078092 20.4686967 115.902823 25.5313033 122.097177"></polygon>
+                <path d="M75.1211073,101 C73.6678201,74.1180556 85.2941176,57.7847222 110,52" id="Path-3" stroke="#000000" stroke-width="6" stroke-linecap="round"></path>
+                <path d="M29.1176471,100 C27.7058824,72.5694444 39,55.9027778 63,50" id="Path-3" stroke="#000000" stroke-width="6" stroke-linecap="round" transform="translate(46.000000, 75.000000) scale(-1, 1) translate(-46.000000, -75.000000) "></path>
+                <polygon id="Star" stroke="#000000" stroke-width="5" fill="#FFC61E" stroke-linecap="round" points="131 56 118.068724 62.7983739 120.538378 48.3991869 110.076757 38.2016261 124.534362 36.1008131 131 23 137.465638 36.1008131 151.923243 38.2016261 141.461622 48.3991869 143.931276 62.7983739"></polygon>
+                <polygon id="Star" stroke="#000000" stroke-width="5" fill="#FFC61E" stroke-linecap="round" transform="translate(16.000000, 41.000000) rotate(90.000000) translate(-16.000000, -41.000000) " points="16 51.5337474 6.11145618 57 8 45.4222912 0 37.2229124 11.0557281 35.5337474 16 25 20.9442719 35.5337474 32 37.2229124 24 45.4222912 25.8885438 57"></polygon>
+                <polygon id="Star-Copy-2" stroke="#000000" stroke-width="5" fill="#FFC61E" stroke-linecap="round" transform="translate(49.500000, 13.500000) rotate(90.000000) translate(-49.500000, -13.500000) " points="49.5 22.3878494 41.1565412 27 42.75 17.2313082 36 10.3130823 45.3282706 8.88784938 49.5 0 53.6717294 8.88784938 63 10.3130823 56.25 17.2313082 57.8434588 27"></polygon>
+                <polygon id="Star" stroke="#000000" stroke-width="5" fill="#FFC61E" stroke-linecap="round" transform="translate(89.500000, 15.500000) rotate(90.000000) translate(-89.500000, -15.500000) " points="89.5 25.0462086 80.5385072 30 82.25 19.5077014 75 12.0770143 85.0192536 10.5462086 89.5 1 93.9807464 10.5462086 104 12.0770143 96.75 19.5077014 98.4614928 30"></polygon>
             </g>
         </g>
     </g>
