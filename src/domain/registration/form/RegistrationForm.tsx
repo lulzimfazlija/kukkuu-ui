@@ -238,10 +238,16 @@ const RegistrationForm: FunctionComponent<Props> = ({
                     required={true}
                     component={SelectField}
                     options={[
-                      { label: 'English', value: SUPPORT_LANGUAGES.EN },
-                      { label: 'Suomi', value: SUPPORT_LANGUAGES.FI },
                       {
-                        label: 'Svenska',
+                        label: t('common.language.en'),
+                        value: SUPPORT_LANGUAGES.EN,
+                      },
+                      {
+                        label: t('common.language.fi'),
+                        value: SUPPORT_LANGUAGES.FI,
+                      },
+                      {
+                        label: t('common.language.sv'),
                         value: SUPPORT_LANGUAGES.SV,
                       },
                     ]}

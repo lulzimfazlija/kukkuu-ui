@@ -38,17 +38,20 @@ const Modal: React.FunctionComponent<ModalProps> = ({
           contentLabel={label}
           className={styles.modal}
           overlayClassName={styles.overlay}
+          shouldCloseOnOverlayClick={false}
         >
           <div className={styles.modalContent}>
             <Button className={styles.closeButton} onClick={onClose}>
               {t('common.modal.close.text')}
             </Button>
             <div className={styles.heading}>
-              <Icon
-                className={styles.happyChild}
-                src={happyChildIcon}
-                alt="Happy happy child"
-              ></Icon>
+              {label && (
+                <Icon
+                  className={styles.happyChild}
+                  src={happyChildIcon}
+                  alt="Happy happy child"
+                ></Icon>
+              )}
               {/* TODO: add a generic Icon */}
               <h1>{label}</h1>
             </div>

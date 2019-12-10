@@ -2,14 +2,10 @@ import * as React from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-import ChildFormModal, {
-  ChildFormModalValues,
-} from '../../child/modal/ChildFormModal';
 import { primaryChildFormDataSelector } from '../state/RegistrationSelectors';
-import { formatTime, newMoment } from '../../../common/time/utils';
-import { BACKEND_DATE_FORMAT } from '../../../common/time/TimeConstants';
 import { Child } from '../../child/types/ChildTypes';
 import { defaultRegistrationData } from '../state/RegistrationReducers';
+import ChildFormModal from '../../child/modal/ChildFormModal';
 
 const AddNewChildFormModal: React.FunctionComponent<{
   isOpen: boolean;
@@ -33,15 +29,7 @@ const AddNewChildFormModal: React.FunctionComponent<{
     }
   );
 
-  const onSubmit = (values: ChildFormModalValues) => {
-    const payload: Child = Object.assign({}, values, {
-      birthdate: formatTime(
-        newMoment(
-          `${values.birthdate.year}-${values.birthdate.month}-${values.birthdate.day}`,
-          BACKEND_DATE_FORMAT
-        )
-      ),
-    });
+  const onSubmit = (payload: Child) => {
     addChild(payload);
     setIsOpen(false);
   };

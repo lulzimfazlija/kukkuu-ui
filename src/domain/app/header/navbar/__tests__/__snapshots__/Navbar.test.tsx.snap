@@ -20,8 +20,8 @@ exports[`Navbar render normally 1`] = `
   <div
     className="languageWrapper"
   >
+    <LanguageBar />
     <UserDropdown />
-    <LanguageDropdown />
   </div>
 </div>
 `;
