@@ -30,6 +30,9 @@
         "edit": {
           "label": "Muokkaa lapsen tietoja",
           "text": "Muokkaa"
+        },
+        "return": {
+          "text": "Go back to the form"
         }
       }
     }
@@ -137,6 +140,12 @@
       "detail": {
         "page": {
           "title": "Child detail page"
+        },
+        "edit": {
+          "text": "Update child information"
+        },
+        "delete": {
+          "text": "Remove child"
         }
       },
       "default": {

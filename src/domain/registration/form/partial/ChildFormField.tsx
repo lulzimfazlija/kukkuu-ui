@@ -82,7 +82,7 @@ const ChildFormField: React.FunctionComponent<ChildFormFieldProps> = ({
           name={`children[${childIndex}].postalCode`}
           label={t('registration.form.child.postalCode.input.label')}
           component={InputField}
-          validate={(value: string) => validatePostalCode(value)}
+          validate={validatePostalCode}
           placeholder={t(
             'registration.form.child.postalCode.input.placeholder'
           )}

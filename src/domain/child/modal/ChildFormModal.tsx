@@ -12,6 +12,12 @@ import SelectField from '../../../common/components/form/fields/select/SelectFie
 import { Child } from '../types/ChildTypes';
 import { getTranslatedRelationshipOptions } from '../ChildUtils';
 import NavigationPropmt from '../../../common/components/prompt/NavigationPrompt';
+import { validatePostalCode } from '../../../common/components/form/validationUtils';
+import { formatTime, newMoment } from '../../../common/time/utils';
+import { BACKEND_DATE_FORMAT } from '../../../common/time/TimeConstants';
+import { isChildEligible } from '../../registration/notEligible/NotEligibleUtils';
+import Icon from '../../../common/components/icon/Icon';
+import personIcon from '../../../assets/icons/svg/adultFace.svg';
 
 export interface ChildFormModalValues extends Omit<Child, 'birthdate'> {
   birthdate: {
@@ -23,7 +29,7 @@ export interface ChildFormModalValues extends Omit<Child, 'birthdate'> {
 interface ChildFormModalProps {
   initialValues: ChildFormModalValues;
   label: string;
-  onSubmit: (values: ChildFormModalValues) => void;
+  onSubmit: (payload: Child) => void;
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
 }
@@ -37,6 +43,7 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
 }) => {
   const { t } = useTranslation();
   const [isFilling, setFormIsFilling] = React.useState(false);
+  const [nonEligible, toggleNonEligible] = React.useState(false);
   return (
     <div className={styles.childFormModalWrapper}>
       {isOpen && (
@@ -45,99 +52,131 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
           isHalfFilling={isFilling}
         />
       )}
-
       <Modal
         isOpen={isOpen}
-        label={label}
+        label={nonEligible ? '' : label}
         toggleModal={setIsOpen}
         setFormIsFilling={setFormIsFilling}
       >
-        <Formik
-          validate={() => {
-            if (!isFilling) {
-              setFormIsFilling(true);
-            }
-          }}
-          initialValues={initialValues}
-          onSubmit={(values: ChildFormModalValues) => {
-            setFormIsFilling(false);
-            onSubmit(values);
-          }}
-        >
-          {({ isSubmitting, handleSubmit }) => (
-            <form onSubmit={handleSubmit}>
-              <FieldArray
-                name="birthdate"
-                render={props => <BirthdateFormField {...props} />}
-              />
+        {nonEligible ? (
+          <div className={styles.notEligible}>
+            <h3>{t('registration.notEligible.title')}</h3>
+            <p>{t('registration.notEligible.text')}</p>
+            <Icon
+              className={styles.icon}
+              src={personIcon}
+              alt="not eligible icon"
+            />
+            <Button
+              className={styles.goBackButton}
+              onClick={() => toggleNonEligible(false)}
+            >
+              {t('child.form.modal.return.text')}
+            </Button>
+          </div>
+        ) : (
+          <Formik
+            validate={() => {
+              if (!isFilling) {
+                setFormIsFilling(true);
+              }
+            }}
+            initialValues={initialValues}
+            onSubmit={(values: ChildFormModalValues) => {
+              setFormIsFilling(false);
+              const child: Child = Object.assign({}, values, {
+                birthdate: formatTime(
+                  newMoment(
+                    `${values.birthdate.year}-${values.birthdate.month}-${values.birthdate.day}`,
+                    BACKEND_DATE_FORMAT
+                  )
+                ),
+              });
 
-              <div className={styles.childInfo}>
+              const isEligible = isChildEligible(child);
+              if (isEligible) {
+                onSubmit(child);
+              } else {
+                toggleNonEligible(true);
+              }
+            }}
+          >
+            {({ isSubmitting, handleSubmit }) => (
+              <form onSubmit={handleSubmit}>
+                <FieldArray
+                  name="birthdate"
+                  render={props => <BirthdateFormField {...props} />}
+                />
+
+                <div className={styles.childInfo}>
+                  <EnhancedInputField
+                    className={styles.childHomeCity}
+                    name="homeCity"
+                    label={t(
+                      'homePage.preliminaryForm.childHomeCity.input.label'
+                    )}
+                    required={true}
+                    component={InputField}
+                    placeholder={t(
+                      'homePage.preliminaryForm.childHomeCity.input.placeholder'
+                    )}
+                  />
+
+                  <EnhancedInputField
+                    className={styles.childPostalCode}
+                    name="postalCode"
+                    validate={validatePostalCode}
+                    label={t('registration.form.child.postalCode.input.label')}
+                    component={InputField}
+                    placeholder={t(
+                      'registration.form.child.postalCode.input.placeholder'
+                    )}
+                  />
+                </div>
+
+                <div className={styles.childName}>
+                  <EnhancedInputField
+                    name="firstName"
+                    label={t('registration.form.child.firstName.input.label')}
+                    component={InputField}
+                    autoComplete="new-password"
+                    placeholder={t(
+                      'registration.form.child.firstName.input.placeholder'
+                    )}
+                  />
+                  <EnhancedInputField
+                    name="lastName"
+                    autoComplete="new-password"
+                    label={t('registration.form.child.lastName.input.label')}
+                    component={InputField}
+                    placeholder={t(
+                      'registration.form.child.lastName.input.placeholder'
+                    )}
+                  />
+                </div>
+
                 <EnhancedInputField
-                  className={styles.childHomeCity}
-                  name="homeCity"
-                  label={t(
-                    'homePage.preliminaryForm.childHomeCity.input.label'
-                  )}
-                  required={true}
-                  component={InputField}
+                  name="relationship"
+                  label={t('registration.form.child.relationship.input.label')}
+                  component={SelectField}
+                  id="registration.form.child.relationship.select"
+                  options={getTranslatedRelationshipOptions(t)}
                   placeholder={t(
-                    'homePage.preliminaryForm.childHomeCity.input.placeholder'
+                    'registration.form.child.relationship.input.placeholder'
                   )}
                 />
 
-                <EnhancedInputField
-                  className={styles.childPostalCode}
-                  name="postalCode"
-                  label={t('registration.form.child.postalCode.input.label')}
-                  component={InputField}
-                  placeholder={t(
-                    'registration.form.child.postalCode.input.placeholder'
-                  )}
-                />
-              </div>
-
-              <div className={styles.childName}>
-                <EnhancedInputField
-                  name="firstName"
-                  label={t('registration.form.child.firstName.input.label')}
-                  component={InputField}
-                  autoComplete="new-password"
-                  placeholder={t(
-                    'registration.form.child.firstName.input.placeholder'
-                  )}
-                />
-                <EnhancedInputField
-                  name="lastName"
-                  autoComplete="new-password"
-                  label={t('registration.form.child.lastName.input.label')}
-                  component={InputField}
-                  placeholder={t(
-                    'registration.form.child.lastName.input.placeholder'
-                  )}
-                />
-              </div>
-
-              <EnhancedInputField
-                name="relationship"
-                label={t('registration.form.child.relationship.input.label')}
-                component={SelectField}
-                id="registration.form.child.relationship.select"
-                options={getTranslatedRelationshipOptions(t)}
-                placeholder={t(
-                  'registration.form.child.relationship.input.placeholder'
-                )}
-              />
-
-              <Button
-                type="submit"
-                className={styles.submitButton}
-                disabled={isSubmitting}
-              >
-                {t('child.form.modal.add.label')}
-              </Button>
-            </form>
-          )}
-        </Formik>
+                <Button
+                  type="submit"
+                  className={styles.submitButton}
+                  disabled={isSubmitting}
+                >
+                  {t('child.form.modal.add.label')}
+                </Button>
+              </form>
+            )}
+          </Formik>
+        )}
       </Modal>
     </div>
   );

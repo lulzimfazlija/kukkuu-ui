@@ -14,3 +14,18 @@
         grid-gap: $baseMargin;
     }
 }
+
+.notEligible {    
+    text-align: center;
+    .goBackButton {
+        @include button();
+        margin-top: $largeMargin;
+    }
+}
+
+.icon {
+    display: block;
+    margin: $largeMargin auto;
+    height: $largeMargin;
+    width: $largeMargin;
+}
