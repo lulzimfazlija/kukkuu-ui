@@ -15,11 +15,15 @@ export default function(): Promise<User> {
         Sentry.captureMessage('getAuthenticatedUser user unset');
         // eslint-disable-next-line no-console
         console.error('getAuthenticatedUser user unset');
-        toast(i18n.t('api.errorMessage'));
+        toast(i18n.t('api.errorMessage'), {
+          type: toast.TYPE.ERROR,
+        });
         reject();
       }
     } catch (error) {
-      toast(i18n.t('api.errorMessage'));
+      toast(i18n.t('api.errorMessage'), {
+        type: toast.TYPE.ERROR,
+      });
       Sentry.captureException(error);
     }
   });

@@ -28,7 +28,9 @@ const ProfileChildrenList: React.FunctionComponent = () => {
 
   if (mutationLoading) return <LoadingSpinner isLoading={true} />;
   if (mutationError) {
-    toast(t('profile.addChildMutation.errorMessage'));
+    toast(t('profile.addChildMutation.errorMessage'), {
+      type: toast.TYPE.ERROR,
+    });
     Sentry.captureException(mutationError);
   }
 

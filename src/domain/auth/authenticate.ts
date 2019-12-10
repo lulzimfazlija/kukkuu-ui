@@ -20,9 +20,13 @@ export const loginTunnistamo = (path?: string) => {
     )
     .catch(error => {
       if (error.message === 'Network Error') {
-        toast(i18n.t('authentication.networkError.message'));
+        toast(i18n.t('authentication.networkError.message'), {
+          type: toast.TYPE.ERROR,
+        });
       } else {
-        toast(i18n.t('authentication.errorMessage'));
+        toast(i18n.t('authentication.errorMessage'), {
+          type: toast.TYPE.ERROR,
+        });
         Sentry.captureException(error);
       }
     });
@@ -50,7 +54,9 @@ export const authenticateWithBackend = (
 
     dispatch(fetchTokenSuccess(res.data));
   } catch (error) {
-    toast(i18n.t('authentication.errorMessage'));
+    toast(i18n.t('authentication.errorMessage'), {
+      type: toast.TYPE.ERROR,
+    });
     Sentry.captureException(error);
     dispatch(fetchTokenError(error));
   }

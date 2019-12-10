@@ -17,7 +17,9 @@ function OidcCallback(props: RouteChildrenProps) {
     else props.history.push('/profile');
   };
   const onError = (error: object) => {
-    toast(t('authentication.errorMessage'));
+    toast(t('authentication.errorMessage'), {
+      type: toast.TYPE.ERROR,
+    });
     // TODO: Make sure that we only send errors to Sentry that are actual
     // programming/system errors, not end users's network errors.
     Sentry.captureException(error);

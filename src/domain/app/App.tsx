@@ -40,7 +40,9 @@ class App extends React.Component<AppProps> {
       })
       .catch(error => {
         // TODO: Clear oidc local storage when this happens.
-        toast(i18n.t('authentication.loadUserError.message'));
+        toast(i18n.t('authentication.loadUserError.message'), {
+          type: toast.TYPE.ERROR,
+        });
         this.props.fetchApiTokenError(error);
         Sentry.captureException(error);
       });

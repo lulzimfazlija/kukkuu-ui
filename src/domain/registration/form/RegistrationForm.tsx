@@ -106,7 +106,9 @@ const RegistrationForm: FunctionComponent<Props> = ({
                   history.push('/registration/success');
                 })
                 .catch(error => {
-                  toast(t('registration.submitMutation.errorMessage'));
+                  toast(t('registration.submitMutation.errorMessage'), {
+                    type: toast.TYPE.ERROR,
+                  });
                   Sentry.captureException(error);
                 });
             }}

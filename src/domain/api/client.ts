@@ -16,7 +16,9 @@ export default new ApolloClient({
       });
     } catch (e) {
       // User not authenticated
-      toast(i18n.t('api.errorMessage'));
+      toast(i18n.t('api.errorMessage'), {
+        type: toast.TYPE.ERROR,
+      });
     }
   },
   uri: process.env.REACT_APP_API_URI,
