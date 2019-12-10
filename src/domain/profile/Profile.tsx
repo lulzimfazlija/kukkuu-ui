@@ -14,9 +14,7 @@ import { getCurrentLanguage } from '../../common/translation/TranslationUtils';
 import ProfileChildrenList from './children/ProfileChildrenList';
 
 const Profile: FunctionComponent = () => {
-  const { loading, error, data, refetch } = useQuery<ProfileQueryType>(
-    profileQuery
-  );
+  const { loading, error, data } = useQuery<ProfileQueryType>(profileQuery);
   const { i18n } = useTranslation();
   const locale = getCurrentLanguage(i18n);
 
@@ -39,7 +37,7 @@ const Profile: FunctionComponent = () => {
         path={`/${locale}/profile/child/:childId`}
       />
       <Route
-        render={() => <ProfileChildrenList refreshList={refetch} />}
+        component={ProfileChildrenList}
         exact
         path={`/${locale}/profile/children`}
       />

@@ -13,13 +13,13 @@ import addIcon from '../../../assets/icons/svg/delete.svg';
 import AddNewChildFormModal from '../../registration/modal/AddNewChildFormModal';
 import addChildMutation from '../../child/mutation/ChildMutation';
 import { getSupportedChildData } from '../../child/ChildUtils';
-const ProfileChildrenList: React.FunctionComponent<{
-  refreshList: () => void;
-}> = ({ refreshList }) => {
+const ProfileChildrenList: React.FunctionComponent = () => {
   const { t } = useTranslation();
   const children = useSelector(profileChildrenSelector);
   const [isOpen, setIsOpen] = React.useState(false);
-  const [addChild] = useMutation(addChildMutation);
+  const [addChild] = useMutation(addChildMutation, {
+    refetchQueries: ['profileQuery'],
+  });
 
   return (
     <PageWrapper className={styles.wrapper} title={'profile.heading'}>
@@ -42,7 +42,6 @@ const ProfileChildrenList: React.FunctionComponent<{
                 addChild={payload => {
                   const supportedChildData = getSupportedChildData(payload);
                   addChild({ variables: { input: supportedChildData } });
-                  refreshList();
                 }}
               />
             )}
