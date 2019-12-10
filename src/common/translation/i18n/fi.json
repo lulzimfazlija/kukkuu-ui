@@ -68,6 +68,11 @@
       "default": {
         "text": "Valitse"
       }
+    },
+    "language": {
+      "fi": "Suomi",
+      "sv": "Svenska",
+      "en": "English"
     }
   },
   "footer": {

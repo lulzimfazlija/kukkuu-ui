@@ -68,6 +68,11 @@
       "default": {
         "text": "Välg"
       }
+    },
+    "language": {
+      "fi": "Suomi",
+      "sv": "Svenska",
+      "en": "English"
     }
   },
   "footer": {

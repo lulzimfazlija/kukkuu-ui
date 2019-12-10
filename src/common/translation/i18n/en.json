@@ -68,6 +68,11 @@
       "default": {
         "text": "Choose"
       }
+    },
+    "language": {
+      "fi": "Suomi",
+      "sv": "Svenska",
+      "en": "English"
     }
   },
   "footer": {

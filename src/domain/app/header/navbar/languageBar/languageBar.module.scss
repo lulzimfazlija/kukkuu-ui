@@ -1,0 +1,19 @@
+@import 'colors';
+@import 'variables';
+@import 'fonts';
+
+.languageBar {
+    a {
+        text-decoration: none;
+        margin: 0 $baseMargin;
+
+        &:visited {
+            color: $black;
+        }
+    }
+    margin-right: $largeMargin;
+}
+
+.active {
+    border-bottom: 1px solid $black;
+}
