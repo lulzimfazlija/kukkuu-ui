@@ -2,7 +2,6 @@ import React, { FunctionComponent } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
-import { ApolloError } from 'apollo-boost';
 import { Redirect, Switch, Route } from 'react-router-dom';
 import * as Sentry from '@sentry/browser';
 
@@ -14,11 +13,10 @@ import { normalizeProfileData } from './ProfileUtils';
 import ProfileChildDetail from './children/child/ProfileChildDetail';
 import { getCurrentLanguage } from '../../common/translation/TranslationUtils';
 import ProfileChildrenList from './children/ProfileChildrenList';
-import { resetFormValues } from '../registration/state/RegistrationActions';
 
 const Profile: FunctionComponent = () => {
   const { loading, error, data } = useQuery<ProfileQueryType>(profileQuery);
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const locale = getCurrentLanguage(i18n);
 
   const dispatch = useDispatch();
@@ -29,14 +27,13 @@ const Profile: FunctionComponent = () => {
     Sentry.captureException(error);
     return (
       <div>
-        <div>Error. Please try again later.</div>
+        <div>{t('api.errorMessage')}</div>
       </div>
     );
   } else {
     profile = normalizeProfileData(data);
     if (profile) {
       dispatch(saveProfile(profile));
-      dispatch(resetFormValues());
     }
   }
 

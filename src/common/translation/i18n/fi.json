@@ -13,6 +13,9 @@
     "errorMessage": "An error occured while logging in, please try again",
     "networkError": {
       "message": "Login error: Check your network connection or try again later"
+    },
+    "loadUserError": {
+      "message": "An error occurred. Please try logging in again. "
     }
   },
   "CHILD_RELATIONSHIP_OPTIONS": {

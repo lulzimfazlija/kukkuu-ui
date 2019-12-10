@@ -12,8 +12,6 @@ export default function(): Promise<User> {
       if (user) {
         resolve(user);
       } else {
-        // TODO: Find out if it is a problem if this happens. The console.error is here to
-        // help us see if it happens.
         Sentry.captureMessage('getAuthenticatedUser user unset');
         // eslint-disable-next-line no-console
         console.error('getAuthenticatedUser user unset');

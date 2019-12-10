@@ -13,7 +13,7 @@ import Button from '../../../common/components/button/Button';
 import InputField from '../../../common/components/form/fields/input/InputField';
 import SelectField from '../../../common/components/form/fields/select/SelectField';
 import submitChildrenAndGuardianMutation from '../mutations/submitChildrenAndGuardianMutation';
-import { setFormValues } from '../state/RegistrationActions';
+import { resetFormValues, setFormValues } from '../state/RegistrationActions';
 import { RegistrationFormValues } from '../types/RegistrationTypes';
 import { StoreState } from '../../app/types/AppTypes';
 import { userSelector } from '../../auth/state/AuthenticationSelectors';
@@ -32,11 +32,13 @@ import { getCurrentLanguage } from '../../../common/translation/TranslationUtils
 import { getSupportedChildData } from '../../child/ChildUtils';
 
 interface Props {
+  resetFormValues: () => void;
   setFormValues: (values: RegistrationFormValues) => void;
   initialValues: RegistrationFormValues;
 }
 
 const RegistrationForm: FunctionComponent<Props> = ({
+  resetFormValues,
   setFormValues,
   initialValues,
 }) => {
@@ -100,6 +102,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
                 },
               })
                 .then(() => {
+                  resetFormValues();
                   history.push('/registration/success');
                 })
                 .catch(error => {
@@ -270,6 +273,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
 };
 
 const actions = {
+  resetFormValues,
   setFormValues,
 };
 

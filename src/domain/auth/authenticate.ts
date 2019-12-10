@@ -50,7 +50,7 @@ export const authenticateWithBackend = (
 
     dispatch(fetchTokenSuccess(res.data));
   } catch (error) {
-    toast('Failed to get API-token');
+    toast(i18n.t('authentication.errorMessage'));
     Sentry.captureException(error);
     dispatch(fetchTokenError(error));
   }
