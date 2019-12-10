@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import classnames from 'classnames';
 import { toast } from 'react-toastify';
-import { omit } from 'lodash';
 import * as Sentry from '@sentry/browser';
 
 import styles from './registrationForm.module.scss';
@@ -30,6 +29,7 @@ import happyAdultIcon from '../../../assets/icons/svg/adultFaceHappy.svg';
 import NavigationPropmt from '../../../common/components/prompt/NavigationPrompt';
 import PageWrapper from '../../app/layout/PageWrapper';
 import { getCurrentLanguage } from '../../../common/translation/TranslationUtils';
+import { getSupportedChildData } from '../../child/ChildUtils';
 
 interface Props {
   setFormValues: (values: RegistrationFormValues) => void;
@@ -82,10 +82,8 @@ const RegistrationForm: FunctionComponent<Props> = ({
               setFormIsFilling(false);
               setFormValues(values);
 
-              // TODO: Fix getSupportedChildData so that it works both here
-              // and in ProfileChildrenList.
               const backendSupportChildren = values.children.map(child =>
-                omit(child, 'homeCity')
+                getSupportedChildData(child)
               );
 
               const backendSupportGuardian = {
