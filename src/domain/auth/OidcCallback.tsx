@@ -4,6 +4,7 @@ import { User } from 'oidc-client';
 import { RouteChildrenProps } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
+import * as Sentry from '@sentry/browser';
 
 import userManager from './userManager';
 import PageWrapper from '../app/layout/PageWrapper';
@@ -16,8 +17,10 @@ function OidcCallback(props: RouteChildrenProps) {
     else props.history.push('/profile');
   };
   const onError = (error: object) => {
-    console.error('OidcCallback error');
-    toast('An error occured, please try again later');
+    toast(t('authentication.errorMessage'));
+    // TODO: Make sure that we only send errors to Sentry that are actual
+    // programming/system errors, not end users's network errors.
+    Sentry.captureException(error);
   };
   return (
     <PageWrapper>

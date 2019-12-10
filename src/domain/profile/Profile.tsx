@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
 import { ApolloError } from 'apollo-boost';
 import { Redirect, Switch, Route } from 'react-router-dom';
+import * as Sentry from '@sentry/browser';
 
 import { profileQuery as ProfileQueryType } from '../api/generatedTypes/profileQuery';
 import { saveProfile } from './state/ProfileActions';
@@ -25,11 +26,7 @@ const Profile: FunctionComponent = () => {
 
   if (loading) return <LoadingSpinner isLoading={true} />;
   if (error || !data || !data.myProfile) {
-    // console.error(error);
-    if (error instanceof ApolloError) {
-      if (error.graphQLErrors.length > 0) console.error(error.graphQLErrors);
-      if (error.extraInfo) console.error(error.extraInfo);
-    }
+    Sentry.captureException(error);
     return (
       <div>
         <div>Error. Please try again later.</div>

@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { loadUser } from 'redux-oidc';
 import { ToastContainer, toast } from 'react-toastify';
+import * as Sentry from '@sentry/browser';
 import 'react-toastify/dist/ReactToastify.css';
 
 import Home from '../home/Home';
@@ -37,12 +38,12 @@ class App extends React.Component<AppProps> {
         }
       })
       .catch(error => {
+        // TODO: Clear oidc local storage when this happens.
+        toast('Failed to log in');
         this.props.fetchApiTokenError(error);
-        console.log('App.tsx loaduser catch error');
-        console.error(error);
+        Sentry.captureException(error);
       });
   }
-  notify = () => toast('yikes');
 
   public render() {
     const {
@@ -54,7 +55,7 @@ class App extends React.Component<AppProps> {
 
     return (
       <LoadingSpinner isLoading={isLoadingUser}>
-        <ToastContainer></ToastContainer>
+        <ToastContainer />
         <Switch>
           <Redirect exact path={`/${locale}/`} to={`/${locale}/home`} />
           <Route exact path={`/${locale}/home`} component={Home} />

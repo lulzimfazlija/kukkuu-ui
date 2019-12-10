@@ -1,6 +1,8 @@
 import { User } from 'oidc-client';
 import { toast } from 'react-toastify';
+import * as Sentry from '@sentry/browser';
 
+import i18n from '../../common/translation/i18n/i18nInit';
 import userManager from './userManager';
 
 export default function(): Promise<User> {
@@ -10,13 +12,17 @@ export default function(): Promise<User> {
       if (user) {
         resolve(user);
       } else {
-        toast('An error occured, please try again later');
+        // TODO: Find out if it is a problem if this happens. The console.error is here to
+        // help us see if it happens.
+        Sentry.captureMessage('getAuthenticatedUser user unset');
+        // eslint-disable-next-line no-console
         console.error('getAuthenticatedUser user unset');
+        toast(i18n.t('api.errorMessage'));
         reject();
       }
     } catch (error) {
-      toast('An error occured, please try again later');
-      console.error('getAuthenticatedUser await catch error');
+      toast(i18n.t('api.errorMessage'));
+      Sentry.captureException(error);
     }
   });
 }

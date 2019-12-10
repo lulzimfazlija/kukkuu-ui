@@ -9,6 +9,10 @@
     },
     "redirect": {
       "text": "Omdirigerar..."
+    },
+    "errorMessage": "An error occured while logging in, please try again",
+    "networkError": {
+      "message": "Login error: Check your network connection or try again later"
     }
   },
   "CHILD_RELATIONSHIP_OPTIONS": {
@@ -32,7 +36,7 @@
           "text": "Edit"
         },
         "return": {
-          "text": "Go back to the form"
+          "text": "Return to registration page"
         }
       }
     }
@@ -150,7 +154,7 @@
           "text": "Update child information"
         },
         "delete": {
-          "text": "Remove child"
+          "text": "Remove child profile"
         }
       },
       "default": {
@@ -158,6 +162,9 @@
           "text": "Fadderbarn"
         }
       }
+    },
+    "addChildMutation": {
+      "errorMessage": "Error adding child. Please try again"
     }
   },
   "registration": {
@@ -260,6 +267,9 @@
       "hero": {
         "header": "Välkommen som kulturens fadderbarn!"
       }
+    },
+    "submitMutation": {
+      "errorMessage": "Failed to submit to server"
     }
   },
   "sanityCheck": "kukkuu.sv",
@@ -275,5 +285,8 @@
     "postalCode": {
       "invalidFormat": "Inte riktigt format"
     }
+  },
+  "api": {
+    "errorMessage": "An error occured. Please try again later"
   }
 }

@@ -1,6 +1,8 @@
 import axios, { AxiosResponse } from 'axios';
 import { toast } from 'react-toastify';
+import * as Sentry from '@sentry/browser';
 
+import i18n from '../../common/translation/i18n/i18nInit';
 import userManager from './userManager';
 import { StoreThunk } from '../app/types/AppTypes';
 import {
@@ -17,11 +19,12 @@ export const loginTunnistamo = (path?: string) => {
       path ? { data: { path: path } } : { data: { path: '/profile' } }
     )
     .catch(error => {
-      let message = 'Login error';
-      if (error.message === 'Network Error')
-        message =
-          'Login error: Check your network connection or try again later';
-      toast(message);
+      if (error.message === 'Network Error') {
+        toast(i18n.t('authentication.networkError.message'));
+      } else {
+        toast(i18n.t('authentication.errorMessage'));
+        Sentry.captureException(error);
+      }
     });
 };
 
@@ -48,8 +51,7 @@ export const authenticateWithBackend = (
     dispatch(fetchTokenSuccess(res.data));
   } catch (error) {
     toast('Failed to get API-token');
-    console.error('authenticate.ts Failed to get API-token');
-    console.error(error);
+    Sentry.captureException(error);
     dispatch(fetchTokenError(error));
   }
 };
