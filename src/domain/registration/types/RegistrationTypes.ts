@@ -6,7 +6,6 @@ export interface RegistrationFormValues {
     phoneNumber: string;
     firstName: string;
     lastName: string;
-    relationship: string;
     email: string;
   };
   preferLanguage: string;
