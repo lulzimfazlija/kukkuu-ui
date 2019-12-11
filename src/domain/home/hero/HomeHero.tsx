@@ -8,9 +8,13 @@ import { loginTunnistamo } from '../../auth/authenticate';
 
 type HomeHero = {
   userHasProfile: boolean;
+  scrollToForm: () => void;
 };
 
-const HomeHero: React.FunctionComponent<HomeHero> = ({ userHasProfile }) => {
+const HomeHero: React.FunctionComponent<HomeHero> = ({
+  userHasProfile,
+  scrollToForm,
+}) => {
   const { t } = useTranslation();
   const history = useHistory();
   return (
@@ -21,7 +25,7 @@ const HomeHero: React.FunctionComponent<HomeHero> = ({ userHasProfile }) => {
           <p> {t('homePage.hero.descriptionText')}</p>
           <div className={styles.buttonGroup}>
             {!userHasProfile && (
-              <Button className={styles.registerButton}>
+              <Button className={styles.registerButton} onClick={scrollToForm}>
                 {t('homePage.hero.buttonText')}
               </Button>
             )}
@@ -33,7 +37,7 @@ const HomeHero: React.FunctionComponent<HomeHero> = ({ userHasProfile }) => {
             >
               {t(
                 userHasProfile
-                  ? 'comon.profile.goToProfile.buttonText'
+                  ? 'common.profile.goToProfile.buttonText'
                   : 'authentication.login.text'
               )}
             </Button>

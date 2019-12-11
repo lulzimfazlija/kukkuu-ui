@@ -1,4 +1,6 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useRef, RefObject } from 'react';
+import { useSelector } from 'react-redux';
+import classnames from 'classnames';
 
 import styles from './home.module.scss';
 import HomePreliminaryForm from './form/HomePreliminaryForm';
@@ -7,14 +9,30 @@ import HomeHero from './hero/HomeHero';
 import HomeInstructions from './instructions/HomeInstructions';
 import HomePartners from './partners/HomePartners';
 import HomeContact from './contact/HomeContact';
+import { userHasProfileSelector } from '../registration/state/RegistrationSelectors';
 
 const Home: FunctionComponent = () => {
+  const userHasProfile = useSelector(userHasProfileSelector);
+  const formRef = useRef<HTMLDivElement>(null);
+  const scrollToForm = (formRef: RefObject<HTMLDivElement>) => {
+    if (formRef && formRef.current) {
+      window.scrollTo(0, formRef.current.offsetTop);
+    }
+  };
+
   return (
     <PageWrapper>
-      <div className={styles.home}>
-        <HomeHero userHasProfile={false} />
+      <div
+        className={classnames(styles.home, {
+          userHasProfile: styles.userHasProfile,
+        })}
+      >
+        <HomeHero
+          userHasProfile={userHasProfile}
+          scrollToForm={() => scrollToForm(formRef)}
+        />
         <HomeInstructions />
-        <HomePreliminaryForm />
+        {!userHasProfile && <HomePreliminaryForm forwardRef={formRef} />}
         <HomePartners />
         <HomeContact />
       </div>

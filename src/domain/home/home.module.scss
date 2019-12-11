@@ -1,0 +1,17 @@
+@import "colors";
+@import "mixins";
+
+.home {
+    
+    section {
+        &:nth-child(3),
+        &:nth-child(5) {
+            background-color: $white;
+        }
+
+        &:nth-child(4),
+        &:nth-child(6) {
+            @include background($hel-light);
+        }
+    }
+}

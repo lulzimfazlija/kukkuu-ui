@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, Ref } from 'react';
 import { Formik, FieldArray, FormikErrors } from 'formik';
 import { connect } from 'react-redux';
 import { useTranslation, Trans } from 'react-i18next';
@@ -29,6 +29,7 @@ interface Props {
   setHomeFormValues: (values: HomeFormPayload) => void;
   stateFormValues: RegistrationFormValues;
   initialValues: HomeFormValues;
+  forwardRef: Ref<HTMLDivElement>;
 }
 
 const HomePreliminaryForm: FunctionComponent<Props> = ({
@@ -36,6 +37,7 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
   stateFormValues,
   isAuthenticated,
   initialValues,
+  forwardRef,
 }) => {
   const { t } = useTranslation();
   const history = useHistory();
@@ -87,7 +89,7 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
   };
 
   return (
-    <section className={styles.wrapper}>
+    <section className={styles.wrapper} ref={forwardRef}>
       <div className={styles.homeForm}>
         <div className={styles.heading}>
           <h1>{t('registration.heading')}</h1>
