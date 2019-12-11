@@ -3,7 +3,7 @@ import { Formik, FieldArray } from 'formik';
 import { connect } from 'react-redux';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 import classnames from 'classnames';
 import { toast } from 'react-toastify';
 import * as Sentry from '@sentry/browser';
@@ -16,7 +16,6 @@ import submitChildrenAndGuardianMutation from '../mutations/submitChildrenAndGua
 import { resetFormValues, setFormValues } from '../state/RegistrationActions';
 import { RegistrationFormValues } from '../types/RegistrationTypes';
 import { StoreState } from '../../app/types/AppTypes';
-import { userSelector } from '../../auth/state/AuthenticationSelectors';
 import { initialFormDataSelector } from './RegistrationFormSelectors';
 import EnhancedInputField from '../../../common/components/form/fields/input/EnhancedInputField';
 import { SUPPORT_LANGUAGES } from '../../../common/translation/TranslationConstants';
@@ -30,17 +29,20 @@ import NavigationPropmt from '../../../common/components/prompt/NavigationPrompt
 import PageWrapper from '../../app/layout/PageWrapper';
 import { getCurrentLanguage } from '../../../common/translation/TranslationUtils';
 import { getSupportedChildData } from '../../child/ChildUtils';
+import { userHasProfileSelector } from '../state/RegistrationSelectors';
 
 interface Props {
   resetFormValues: () => void;
   setFormValues: (values: RegistrationFormValues) => void;
   initialValues: RegistrationFormValues;
+  userHasProfile: boolean;
 }
 
 const RegistrationForm: FunctionComponent<Props> = ({
   resetFormValues,
   setFormValues,
   initialValues,
+  userHasProfile,
 }) => {
   // TODO: Do something with the data we get from the backend.
   const [submitChildrenAndGuardian] = useMutation(
@@ -58,6 +60,11 @@ const RegistrationForm: FunctionComponent<Props> = ({
   // They will lose all their local form state if they change URL
   // or reload the page unless they submit first.
   const [isFilling, setFormIsFilling] = useState(false);
+
+  // User can only see form until it has been submitted once. Prevent them
+  // from seeing it again by with use of back button or url hacking.
+  if (userHasProfile) return <Redirect to="/" />;
+
   return (
     <PageWrapper
       className={styles.grayBackground}
@@ -284,7 +291,7 @@ const actions = {
 
 const mapStateToProps = (state: StoreState) => ({
   initialValues: initialFormDataSelector(state),
-  tunnistamoUserValues: userSelector(state),
+  userHasProfile: userHasProfileSelector(state),
 });
 
 export const UnconnectedRegistrationForm = RegistrationForm;
