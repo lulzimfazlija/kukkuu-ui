@@ -1,0 +1,53 @@
+@import "layout";
+@import "variables";
+@import "colors";
+@import "mixins";
+
+.heroWrapper {
+    background-color: $hel-summer;
+    min-height: 30vh;
+    display: grid;
+    position: relative;
+    overflow: visible;
+    background-image: url('../../../assets/icons/svg/kids.png');
+    background-repeat: no-repeat;
+    background-position: center bottom -2px;
+    background-size: 100% auto;
+    display: grid;
+    padding-bottom: $largeMargin;
+}
+
+.heroContainer {
+    display: grid;
+    text-align: center;
+
+    @include formContainer();
+}
+
+.hero {    
+    h1 {
+        margin-top: $largeMargin;
+        margin-bottom: 0;
+    }
+    p {
+        line-height: $largeLineHeight;
+        margin: $largeMargin 0;
+    }
+
+    .buttonGroup {
+        @include button();
+        width: 40%;
+        margin: 0 auto;
+
+        .authenticateButton {
+            border: 1px solid $white;
+        }
+
+        .registerButton {
+            button {
+                background-color: $white;
+                margin-bottom: $baseMargin;
+            }
+        }
+    }
+}

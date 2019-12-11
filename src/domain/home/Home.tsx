@@ -1,25 +1,18 @@
 import React, { FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import styles from './home.module.scss';
 import HomePreliminaryForm from './form/HomePreliminaryForm';
 import PageWrapper from '../app/layout/PageWrapper';
+import HomeHero from './hero/HomeHero';
+import HomeInstructions from './instructions/HomeInstructions';
 
 const Home: FunctionComponent = () => {
-  const { t } = useTranslation();
-
   return (
     <PageWrapper>
       <div className={styles.home}>
-        <div className={styles.hero}>
-          <div className={styles.heroContainer}>
-            <h1>{t('homePage.hero.heading')}</h1>
-            <p className={styles.description}>
-              {t('homePage.hero.descriptionText')}
-            </p>
-            <HomePreliminaryForm />
-          </div>
-        </div>
+        <HomeHero userHasProfile={false} />
+        <HomeInstructions />
+        <HomePreliminaryForm />
       </div>
     </PageWrapper>
   );

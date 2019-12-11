@@ -291,5 +291,23 @@
   },
   "api": {
     "errorMessage": "An error occured. Please try again later"
+  },
+  "home": {
+    "instructions": {
+      "heading": {
+        "text": "Miten pääset mukaan toimintaan"
+      },
+      "icon": {
+        "kid": {
+          "text": "Mikäli lapsesi asuu Helsingissä ja on syntynyt vuonna 2020 ilmoita lapsi kummilapseksi ja rekisteröidy palvelun käyttäjäksi."
+        },
+        "ticket": {
+          "text": "Saat sähköpostiisi kaksi kertaa vuodessa kutsun ja palvelun kautta pääset ilmoittautumaan sinulle parhaiten sopiviin tapahtumiin."
+        },
+        "theater": {
+          "text": "Osallistu lapsesi kanssa ikätasoon ja kehitystä tukeviin kulttuuritapahtumiin! Tarjoa pienestä asti hauskoja hetkiä ja yhteisiä kokemuksia kulttuurin parissa!"
+        }
+      }
+    }
   }
 }
