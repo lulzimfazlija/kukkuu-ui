@@ -19,6 +19,7 @@ const LanguageBar: React.FunctionComponent = props => {
         <NavLink
           key={index}
           activeClassName={styles.active}
+          onClick={() => i18n.changeLanguage(language)}
           isActive={(match, location) =>
             location.pathname.includes(`/${language}/`)
           }
