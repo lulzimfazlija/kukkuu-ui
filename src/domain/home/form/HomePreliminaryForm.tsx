@@ -87,65 +87,67 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
   };
 
   return (
-    <div className={styles.homeForm}>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={handleSubmit}
-        validate={validate}
-        // To not be able to submit form at first mount
-        initialErrors={
-          (!stateFormValues.verifyInformation && {
-            verifyInformation: validateRequire(''),
-          }) ||
-          {}
-        }
-      >
-        {({ handleSubmit, isSubmitting, isValid }) => {
-          return (
-            <form onSubmit={handleSubmit}>
-              <div className={styles.inputWrapper}>
-                <FieldArray
-                  name="child.birthdate"
-                  render={props => <BirthdateFormField {...props} />}
-                />
+    <section className={styles.wrapper}>
+      <div className={styles.homeForm}>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={handleSubmit}
+          validate={validate}
+          // To not be able to submit form at first mount
+          initialErrors={
+            (!stateFormValues.verifyInformation && {
+              verifyInformation: validateRequire(''),
+            }) ||
+            {}
+          }
+        >
+          {({ handleSubmit, isSubmitting, isValid }) => {
+            return (
+              <form onSubmit={handleSubmit}>
+                <div className={styles.inputWrapper}>
+                  <FieldArray
+                    name="child.birthdate"
+                    render={props => <BirthdateFormField {...props} />}
+                  />
+
+                  <EnhancedInputField
+                    className={styles.childHomeCity}
+                    name="child.homeCity"
+                    label={t(
+                      'homePage.preliminaryForm.childHomeCity.input.label'
+                    )}
+                    required={true}
+                    component={InputField}
+                    placeholder={t(
+                      'homePage.preliminaryForm.childHomeCity.input.placeholder'
+                    )}
+                  />
+                </div>
 
                 <EnhancedInputField
-                  className={styles.childHomeCity}
-                  name="child.homeCity"
+                  className={styles.verifyInformationCheckbox}
+                  type="checkbox"
                   label={t(
-                    'homePage.preliminaryForm.childHomeCity.input.label'
+                    'homePage.preliminaryForm.verifyInformation.checkbox.label'
                   )}
+                  name="verifyInformation"
                   required={true}
                   component={InputField}
-                  placeholder={t(
-                    'homePage.preliminaryForm.childHomeCity.input.placeholder'
-                  )}
                 />
-              </div>
 
-              <EnhancedInputField
-                className={styles.verifyInformationCheckbox}
-                type="checkbox"
-                label={t(
-                  'homePage.preliminaryForm.verifyInformation.checkbox.label'
-                )}
-                name="verifyInformation"
-                required={true}
-                component={InputField}
-              />
-
-              <Button
-                type="submit"
-                className={styles.submitButton}
-                disabled={isSubmitting || !isValid}
-              >
-                {t('homePage.hero.buttonText')}
-              </Button>
-            </form>
-          );
-        }}
-      </Formik>
-    </div>
+                <Button
+                  type="submit"
+                  className={styles.submitButton}
+                  disabled={isSubmitting || !isValid}
+                >
+                  {t('homePage.hero.buttonText')}
+                </Button>
+              </form>
+            );
+          }}
+        </Formik>
+      </div>
+    </section>
   );
 };
 

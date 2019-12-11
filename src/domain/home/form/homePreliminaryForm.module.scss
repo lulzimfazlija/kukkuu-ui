@@ -3,7 +3,7 @@
 @import 'layout';
 @import 'mixins';
 
-.homeForm {
+.homeForm {    
     padding: $basePadding;
 
     form {
@@ -19,6 +19,10 @@
             gap: 0 $baseMargin;
         }
     }
+}
+
+.wrapper {
+    @include formContainer();
 }
 
 .submitButton {

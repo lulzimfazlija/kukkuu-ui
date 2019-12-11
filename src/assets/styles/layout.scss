@@ -107,6 +107,7 @@ $breakpoints: (
 
 @mixin formContainer() {
   @include respond-above(sm) {
+    display: grid;
     grid-template-columns: 1fr minmax(auto, $containerFormMaxWidth) 1fr;
     
     > * {

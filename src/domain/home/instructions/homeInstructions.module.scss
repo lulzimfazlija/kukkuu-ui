@@ -1,0 +1,39 @@
+@import "layout";
+@import "mixins";
+@import "variables";
+
+.wrapper {
+    @include background($hel-light);
+    text-align: center;
+    padding-bottom: $largeMargin;
+
+    .instructions {
+        h1 {
+            margin: 0;
+            padding: $largeMargin 0;
+        }
+
+        .icon {
+            height: $xlargeMargin;
+            width: $xlargeMargin;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .iconContainer {
+            display: grid;
+
+            @include respond-above(sm) {
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: $baseMargin;
+                padding: 0 $basePadding;
+            }
+
+            .iconBox {                
+                p {
+                    line-height: $largeLineHeight;
+                }
+            }
+        }
+    }
+}
