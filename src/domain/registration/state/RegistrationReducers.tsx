@@ -12,6 +12,7 @@ export const defaultRegistrationData: RegistrationData = {
         homeCity: '',
         lastName: '',
         postalCode: '',
+        relationship: { type: undefined },
       },
     ],
     guardian: {
@@ -19,7 +20,6 @@ export const defaultRegistrationData: RegistrationData = {
       firstName: '',
       lastName: '',
       phoneNumber: '',
-      relationship: '',
     },
     preferLanguage: '',
     agree: false,

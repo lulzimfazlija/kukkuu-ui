@@ -22,7 +22,7 @@ const validateRequire = (value: any, customMessage?: string) => {
  */
 const validatePostalCode = (value: string): string | undefined => {
   const valid: boolean = /^\d{5}$/.test(value);
-  if (!valid) return 'validation.postalCode.invalidFormat';
+  if (value && !valid) return 'validation.postalCode.invalidFormat';
 };
 
 /** validateDate()

@@ -18,6 +18,9 @@ exports[`renders snapshot correctly 1`] = `
           "homeCity": "",
           "lastName": "",
           "postalCode": "",
+          "relationship": Object {
+            "type": undefined,
+          },
         }
       }
       onSubmit={[Function]}

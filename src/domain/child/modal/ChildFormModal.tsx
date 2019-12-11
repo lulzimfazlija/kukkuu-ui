@@ -156,7 +156,7 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
                 </div>
 
                 <EnhancedInputField
-                  name="relationship"
+                  name="relationship.type"
                   label={t('registration.form.child.relationship.input.label')}
                   component={SelectField}
                   id="registration.form.child.relationship.select"

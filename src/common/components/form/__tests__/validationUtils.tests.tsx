@@ -72,7 +72,7 @@ describe('Form validation utilities - ', () => {
 
     test('postal code is empty', () => {
       const error = validatePostalCode('');
-      expect(error).toEqual('validation.postalCode.invalidFormat');
+      expect(error).toBeUndefined();
     });
 
     test('valid postal code', () => {
