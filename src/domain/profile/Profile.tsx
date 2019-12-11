@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
 import { Redirect, Switch, Route } from 'react-router-dom';
+import * as Sentry from '@sentry/browser';
 
 import { profileQuery as ProfileQueryType } from '../api/generatedTypes/profileQuery';
 import { saveProfile } from './state/ProfileActions';
@@ -15,7 +16,7 @@ import ProfileChildrenList from './children/ProfileChildrenList';
 
 const Profile: FunctionComponent = () => {
   const { loading, error, data } = useQuery<ProfileQueryType>(profileQuery);
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const locale = getCurrentLanguage(i18n);
 
   const dispatch = useDispatch();
@@ -23,10 +24,17 @@ const Profile: FunctionComponent = () => {
 
   if (loading) return <LoadingSpinner isLoading={true} />;
   if (error || !data || !data.myProfile) {
-    return <Redirect to="/home" />;
+    Sentry.captureException(error);
+    return (
+      <div>
+        <div>{t('api.errorMessage')}</div>
+      </div>
+    );
   } else {
     profile = normalizeProfileData(data);
-    if (profile) dispatch(saveProfile(profile));
+    if (profile) {
+      dispatch(saveProfile(profile));
+    }
   }
 
   return (

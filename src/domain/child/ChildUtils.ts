@@ -46,8 +46,5 @@ export const getTranslatedRelationshipOptions = (
  * TODO: Fix reducer default data to match backend typing
  */
 export const getSupportedChildData = (child: Child) => {
-  const omited = omit(child, 'homeCity');
-  return Object.assign(omited, {
-    relationship: { type: child.relationship },
-  });
+  return omit(child, 'homeCity');
 };

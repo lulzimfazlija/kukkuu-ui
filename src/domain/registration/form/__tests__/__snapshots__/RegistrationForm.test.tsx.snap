@@ -44,6 +44,9 @@ exports[`renders snapshot correctly 1`] = `
               "homeCity": "",
               "lastName": "",
               "postalCode": "",
+              "relationship": Object {
+                "type": undefined,
+              },
             },
           ],
           "guardian": Object {
@@ -51,7 +54,6 @@ exports[`renders snapshot correctly 1`] = `
             "firstName": "",
             "lastName": "",
             "phoneNumber": "",
-            "relationship": "",
           },
           "preferLanguage": "",
           "verifyInformation": false,

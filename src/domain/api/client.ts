@@ -1,5 +1,7 @@
 import ApolloClient from 'apollo-boost';
+import { toast } from 'react-toastify';
 
+import i18n from '../../common/translation/i18n/i18nInit';
 import { store } from '../app/state/AppStore';
 import { apiTokenSelector } from '../auth/state/AuthenticationSelectors';
 
@@ -14,9 +16,9 @@ export default new ApolloClient({
       });
     } catch (e) {
       // User not authenticated
-      // eslint-disable-next-line no-console
-      console.error(e);
-      // TODO: add error-handler
+      toast(i18n.t('api.errorMessage'), {
+        type: toast.TYPE.ERROR,
+      });
     }
   },
   uri: process.env.REACT_APP_API_URI,

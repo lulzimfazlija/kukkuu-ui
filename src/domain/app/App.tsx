@@ -2,6 +2,9 @@ import { Route, Switch, RouteComponentProps, Redirect } from 'react-router';
 import React from 'react';
 import { connect } from 'react-redux';
 import { loadUser } from 'redux-oidc';
+import { ToastContainer, toast } from 'react-toastify';
+import * as Sentry from '@sentry/browser';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Home from '../home/Home';
 import NotFound from './notFound/NotFound';
@@ -13,6 +16,7 @@ import { StoreState } from './types/AppTypes';
 import { isLoadingUserSelector } from '../auth/state/AuthenticationSelectors';
 import { store } from './state/AppStore';
 import userManager from '../auth/userManager';
+import i18n from '../../common/translation/i18n/i18nInit';
 import { authenticateWithBackend } from '../auth/authenticate';
 import { fetchTokenError } from '../auth/state/BackendAuthenticationActions';
 import Welcome from '../registration/welcome/Welcome';
@@ -34,7 +38,14 @@ class App extends React.Component<AppProps> {
           this.props.fetchApiTokenError({ message: 'No user found' });
         }
       })
-      .catch(error => this.props.fetchApiTokenError(error));
+      .catch(error => {
+        // TODO: Clear oidc local storage when this happens.
+        toast(i18n.t('authentication.loadUserError.message'), {
+          type: toast.TYPE.ERROR,
+        });
+        this.props.fetchApiTokenError(error);
+        Sentry.captureException(error);
+      });
   }
 
   public render() {
@@ -47,6 +58,7 @@ class App extends React.Component<AppProps> {
 
     return (
       <LoadingSpinner isLoading={isLoadingUser}>
+        <ToastContainer />
         <Switch>
           <Redirect exact path={`/${locale}/`} to={`/${locale}/home`} />
           <Route exact path={`/${locale}/home`} component={Home} />
