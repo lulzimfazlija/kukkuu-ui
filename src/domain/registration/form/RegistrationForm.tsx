@@ -3,7 +3,7 @@ import { Formik, FieldArray } from 'formik';
 import { connect } from 'react-redux';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 import classnames from 'classnames';
 import { toast } from 'react-toastify';
 import * as Sentry from '@sentry/browser';
@@ -53,10 +53,6 @@ const RegistrationForm: FunctionComponent<Props> = ({
   const history = useHistory();
   const [isOpen, setIsOpen] = useState(false);
 
-  // User can only see form until it has been submitted once. Prevent them
-  // from seeing it again by with use of back button or url hacking.
-  if (userHasProfile) history.push('/');
-
   // For new users preferLanguage defaults to their chosen UI language.
   initialValues.preferLanguage = initialValues.preferLanguage || currentLocale;
 
@@ -64,6 +60,11 @@ const RegistrationForm: FunctionComponent<Props> = ({
   // They will lose all their local form state if they change URL
   // or reload the page unless they submit first.
   const [isFilling, setFormIsFilling] = useState(false);
+
+  // User can only see form until it has been submitted once. Prevent them
+  // from seeing it again by with use of back button or url hacking.
+  if (userHasProfile) return <Redirect to="/" />;
+
   return (
     <PageWrapper
       className={styles.grayBackground}
