@@ -7,6 +7,20 @@ exports[`renders snapshot correctly 1`] = `
   <div
     className="homeForm"
   >
+    <div
+      className="heading"
+    >
+      <h1>
+        Tule mukaan
+      </h1>
+      <p>
+        <Trans
+          i18nKey="multiline"
+        >
+          Aloita syöttämällä toimintaan osallistuvan lapsen kotipaikkakunta ja syntymäpäivä. Tämän jälkeen pääset kirjautumaan palveluun ja täydentämään lapsesi kummilapsiprofiilin.&lt;br/&gt;Tähän menee muutama minuutti.
+        </Trans>
+      </p>
+    </div>
     <Formik
       initialErrors={
         Object {

@@ -313,7 +313,22 @@
       "text": "Aloita syöttämällä toimintaan osallistuvan lapsen kotipaikkakunta ja syntymäpäivä. Tämän jälkeen pääset kirjautumaan palveluun ja täydentämään lapsesi kummilapsiprofiilin.<br/>Tähän menee muutama minuutti."
     },
     "partners": {
-      "heading": "Yhteistyökumppanit"
+      "heading": {
+        "text": "Yhteistyökumppanit"
+      }
+    },
+    "contact": {
+      "heading": {
+        "text": "Yhteystiedot"
+      },
+      "service": {
+        "name": "Kulttuurin kummilapset -palvelu  ",
+        "text": "Ota yhteyttä, jos haluat lisätietoja Kulttuurin kummilapset -palvelusta. "
+      },
+      "godchild": {
+        "name": "2020 syntyneiden kummitoiminta ",
+        "text": "Ota yhteyttä, jos haluat tietää lisää vuoden 2020 syntyneiden kummiohjelmasta. "
+      }
     }
   }
 }

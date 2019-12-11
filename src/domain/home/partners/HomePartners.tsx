@@ -15,7 +15,7 @@ const HomePartners: React.FunctionComponent = props => {
 
   return (
     <section className={styles.wrapper}>
-      <h1>{t('home.partners.heading')}</h1>
+      <h1>{t('home.partners.heading.text')}</h1>
       <div className={styles.partners}>
         <div className={styles.big}>
           <Icon className={styles.icon} src={janeIcon} alt="Jane icon" />
