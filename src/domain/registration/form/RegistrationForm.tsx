@@ -5,13 +5,15 @@ import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import classnames from 'classnames';
+import { toast } from 'react-toastify';
+import * as Sentry from '@sentry/browser';
 
 import styles from './registrationForm.module.scss';
 import Button from '../../../common/components/button/Button';
 import InputField from '../../../common/components/form/fields/input/InputField';
 import SelectField from '../../../common/components/form/fields/select/SelectField';
 import submitChildrenAndGuardianMutation from '../mutations/submitChildrenAndGuardianMutation';
-import { setFormValues } from '../state/RegistrationActions';
+import { resetFormValues, setFormValues } from '../state/RegistrationActions';
 import { RegistrationFormValues } from '../types/RegistrationTypes';
 import { StoreState } from '../../app/types/AppTypes';
 import { userSelector } from '../../auth/state/AuthenticationSelectors';
@@ -30,11 +32,13 @@ import { getCurrentLanguage } from '../../../common/translation/TranslationUtils
 import { getSupportedChildData } from '../../child/ChildUtils';
 
 interface Props {
+  resetFormValues: () => void;
   setFormValues: (values: RegistrationFormValues) => void;
   initialValues: RegistrationFormValues;
 }
 
 const RegistrationForm: FunctionComponent<Props> = ({
+  resetFormValues,
   setFormValues,
   initialValues,
 }) => {
@@ -83,26 +87,30 @@ const RegistrationForm: FunctionComponent<Props> = ({
               const backendSupportChildren = values.children.map(child =>
                 getSupportedChildData(child)
               );
+
               const backendSupportGuardian = {
                 firstName: values.guardian.firstName,
                 lastName: values.guardian.lastName,
                 phoneNumber: values.guardian.phoneNumber,
-                language: values.preferLanguage.toUpperCase(), // This is an Enum in the backend
+                language: values.preferLanguage.toUpperCase(), // Uppercase to support backend's use of Enum
               };
-              // TODO: Backend / frontend data synchonization. Omit unsupported field for future development.
-              try {
-                submitChildrenAndGuardian({
-                  variables: {
-                    children: backendSupportChildren,
-                    guardian: backendSupportGuardian,
-                  },
+
+              submitChildrenAndGuardian({
+                variables: {
+                  children: backendSupportChildren,
+                  guardian: backendSupportGuardian,
+                },
+              })
+                .then(() => {
+                  resetFormValues();
+                  history.push('/registration/success');
+                })
+                .catch(error => {
+                  toast(t('registration.submitMutation.errorMessage'), {
+                    type: toast.TYPE.ERROR,
+                  });
+                  Sentry.captureException(error);
                 });
-                history.push('/registration/success');
-              } catch (err) {
-                // TODO: Error handling.
-                // eslint-disable-next-line no-console
-                console.error(err);
-              }
             }}
           >
             {({ values, isSubmitting, handleSubmit }) => (
@@ -267,6 +275,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
 };
 
 const actions = {
+  resetFormValues,
   setFormValues,
 };
 

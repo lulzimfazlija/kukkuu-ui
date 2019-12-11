@@ -3,6 +3,8 @@ import { CallbackComponent } from 'redux-oidc';
 import { User } from 'oidc-client';
 import { RouteChildrenProps } from 'react-router';
 import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify';
+import * as Sentry from '@sentry/browser';
 
 import userManager from './userManager';
 import PageWrapper from '../app/layout/PageWrapper';
@@ -15,8 +17,12 @@ function OidcCallback(props: RouteChildrenProps) {
     else props.history.push('/profile');
   };
   const onError = (error: object) => {
-    // TODO: do something about errors
-    props.history.push('/');
+    toast(t('authentication.errorMessage'), {
+      type: toast.TYPE.ERROR,
+    });
+    // TODO: Make sure that we only send errors to Sentry that are actual
+    // programming/system errors, not end users's network errors.
+    Sentry.captureException(error);
   };
   return (
     <PageWrapper>

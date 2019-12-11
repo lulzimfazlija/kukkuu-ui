@@ -9,6 +9,13 @@
     },
     "redirect": {
       "text": "Ohjataan tunnistautumiseen..."
+    },
+    "errorMessage": "An error occured while logging in, please try again",
+    "networkError": {
+      "message": "Login error: Check your network connection or try again later"
+    },
+    "loadUserError": {
+      "message": "An error occurred. Please try logging in again. "
     }
   },
   "CHILD_RELATIONSHIP_OPTIONS": {
@@ -32,7 +39,7 @@
           "text": "Muokkaa"
         },
         "return": {
-          "text": "Go back to the form"
+          "text": "Palaa profiilin luomiseen"
         }
       }
     }
@@ -150,7 +157,7 @@
           "text": "Update child information"
         },
         "delete": {
-          "text": "Remove child"
+          "text": "Poista lapsen tiedot"
         }
       },
       "default": {
@@ -158,6 +165,9 @@
           "text": "Kummilapsi"
         }
       }
+    },
+    "addChildMutation": {
+      "errorMessage": "Error adding child. Please try again"
     }
   },
   "registration": {
@@ -260,6 +270,9 @@
       "hero": {
         "header": "Tervetuloa kulttuurin kummilapseksi!"
       }
+    },
+    "submitMutation": {
+      "errorMessage": "Failed to submit to server"
     }
   },
   "sanityCheck": "kukkuu.fi",
@@ -275,5 +288,8 @@
     "postalCode": {
       "invalidFormat": "Väärää formaatti"
     }
+  },
+  "api": {
+    "errorMessage": "An error occured. Please try again later"
   }
 }
