@@ -28,3 +28,11 @@
 .submitButton {
     @include button();
 }
+
+.heading {
+    text-align: center;
+    p {
+        line-height: $largeLineHeight;
+        margin-bottom: $largeMargin;
+    }
+}

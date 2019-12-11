@@ -5,6 +5,7 @@ import HomePreliminaryForm from './form/HomePreliminaryForm';
 import PageWrapper from '../app/layout/PageWrapper';
 import HomeHero from './hero/HomeHero';
 import HomeInstructions from './instructions/HomeInstructions';
+import HomePartners from './partners/HomePartners';
 
 const Home: FunctionComponent = () => {
   return (
@@ -13,6 +14,7 @@ const Home: FunctionComponent = () => {
         <HomeHero userHasProfile={false} />
         <HomeInstructions />
         <HomePreliminaryForm />
+        <HomePartners />
       </div>
     </PageWrapper>
   );

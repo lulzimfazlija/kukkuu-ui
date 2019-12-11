@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { Formik, FieldArray, FormikErrors } from 'formik';
 import { connect } from 'react-redux';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 
 import { loginTunnistamo } from '../../auth/authenticate';
@@ -89,6 +89,12 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
   return (
     <section className={styles.wrapper}>
       <div className={styles.homeForm}>
+        <div className={styles.heading}>
+          <h1>{t('registration.heading')}</h1>
+          <p>
+            <Trans i18nKey="multiline">{t('home.registration.text')}</Trans>
+          </p>
+        </div>
         <Formik
           initialValues={initialValues}
           onSubmit={handleSubmit}

@@ -308,6 +308,12 @@
           "text": "Osallistu lapsesi kanssa ikätasoon ja kehitystä tukeviin kulttuuritapahtumiin! Tarjoa pienestä asti hauskoja hetkiä ja yhteisiä kokemuksia kulttuurin parissa!"
         }
       }
+    },
+    "registration": {
+      "text": "Aloita syöttämällä toimintaan osallistuvan lapsen kotipaikkakunta ja syntymäpäivä. Tämän jälkeen pääset kirjautumaan palveluun ja täydentämään lapsesi kummilapsiprofiilin.<br/>Tähän menee muutama minuutti."
+    },
+    "partners": {
+      "heading": "Yhteistyökumppanit"
     }
   }
 }
