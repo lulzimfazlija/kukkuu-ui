@@ -15,6 +15,9 @@
     background-size: 100% auto;
     display: grid;
     padding-bottom: $largeMargin;
+    @include respond-above(lg) {
+        min-height: 35vh;
+    }
 }
 
 .heroContainer {
