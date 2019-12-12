@@ -12,7 +12,7 @@ import { loginTunnistamo, logoutTunnistamo } from '../../../auth/authenticate';
 import { resetFormValues } from '../../../registration/state/RegistrationActions';
 import { persistor } from '../../state/AppStore';
 import { clearProfile } from '../../../profile/state/ProfileActions';
-import { fetchTokenError } from '../../../auth/state/BackendAuthenticationActions';
+import { resetBackendAuthentication } from '../../../auth/state/BackendAuthenticationActions';
 
 const UserDropdown: React.FunctionComponent = () => {
   const { t } = useTranslation();
@@ -37,7 +37,7 @@ const UserDropdown: React.FunctionComponent = () => {
             // Clear profile (fetched from API)
             dispatch(clearProfile());
             // Clear backend auth data
-            dispatch(fetchTokenError());
+            dispatch(resetBackendAuthentication());
             // Flush data in redux store and localStorage
             persistor.flush();
             logoutTunnistamo();
