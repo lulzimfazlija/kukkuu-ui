@@ -295,22 +295,22 @@
   "home": {
     "instructions": {
       "heading": {
-        "text": "Miten pääset mukaan toimintaan"
+        "text": "Miten pääset mukaan toimintaan?"
       },
       "icon": {
         "kid": {
-          "text": "Mikäli lapsesi asuu Helsingissä ja on syntynyt vuonna 2020 ilmoita lapsi kummilapseksi ja rekisteröidy palvelun käyttäjäksi."
+          "text": "Jos lapsi asuu Helsingissä ja on syntynyt vuonna 2020, voit ilmoittaa hänet kummilapseksi ja rekisteröityä palveluun."
         },
         "ticket": {
           "text": "Saat sähköpostiisi kaksi kertaa vuodessa kutsun ja palvelun kautta pääset ilmoittautumaan sinulle parhaiten sopiviin tapahtumiin."
         },
         "theater": {
-          "text": "Osallistu lapsesi kanssa ikätasoon ja kehitystä tukeviin kulttuuritapahtumiin! Tarjoa pienestä asti hauskoja hetkiä ja yhteisiä kokemuksia kulttuurin parissa!"
+          "text": "Voit kokea lapsen kanssa hauskoja, yhteisiä hetkiä kulttuurin parissa. Tapahtumat on suunniteltu tukemaan lapsen kehitystä ja hyvinvointia."
         }
       }
     },
     "registration": {
-      "text": "Aloita syöttämällä toimintaan osallistuvan lapsen kotipaikkakunta ja syntymäpäivä. Tämän jälkeen pääset kirjautumaan palveluun ja täydentämään lapsesi kummilapsiprofiilin.<br/>Tähän menee muutama minuutti."
+      "text": "Aloita syöttämällä toimintaan osallistuvan lapsen kotipaikkakunta ja syntymäpäivä. Tämän jälkeen pääset kirjautumaan palveluun ja täydentämään lapsesi kummilapsiprofiilin. Tähän menee muutama minuutti."
     },
     "partners": {
       "heading": {
@@ -319,15 +319,15 @@
     },
     "contact": {
       "heading": {
-        "text": "Yhteystiedot"
+        "text": "Kulttuurin kummilapset -palvelu"
       },
       "service": {
         "name": "Kulttuurin kummilapset -palvelu  ",
-        "text": "Ota yhteyttä, jos haluat lisätietoja Kulttuurin kummilapset -palvelusta. "
+        "text": "Ota yhteyttä, jos haluat lisätietoja palvelusta."
       },
       "godchild": {
-        "name": "2020 syntyneiden kummitoiminta ",
-        "text": "Ota yhteyttä, jos haluat tietää lisää vuoden 2020 syntyneiden kummiohjelmasta. "
+        "name": "2020 syntyneiden kummitoiminta",
+        "text": "Helsingin kaupunginorkesteri toimii 2020 syntyneiden kummina. Ota yhteyttä, jos haluat tietää lisää vuoden 2020 syntyneiden kummiohjelmasta."
       }
     }
   }

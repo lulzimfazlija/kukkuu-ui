@@ -17,7 +17,7 @@ exports[`renders snapshot correctly 1`] = `
         <Trans
           i18nKey="multiline"
         >
-          Aloita syöttämällä toimintaan osallistuvan lapsen kotipaikkakunta ja syntymäpäivä. Tämän jälkeen pääset kirjautumaan palveluun ja täydentämään lapsesi kummilapsiprofiilin.&lt;br/&gt;Tähän menee muutama minuutti.
+          Aloita syöttämällä toimintaan osallistuvan lapsen kotipaikkakunta ja syntymäpäivä. Tämän jälkeen pääset kirjautumaan palveluun ja täydentämään lapsesi kummilapsiprofiilin. Tähän menee muutama minuutti.
         </Trans>
       </p>
     </div>
