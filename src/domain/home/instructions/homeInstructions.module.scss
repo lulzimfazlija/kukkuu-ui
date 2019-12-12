@@ -22,11 +22,11 @@
 
         .iconContainer {
             display: grid;
+            padding: 0 $basePadding;
 
             @include respond-above(sm) {
                 grid-template-columns: 1fr 1fr 1fr;
                 gap: $baseMargin;
-                padding: 0 $basePadding;
             }
 
             .iconBox {                
