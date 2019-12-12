@@ -29,7 +29,7 @@ const getTranslations = async (language: string) => {
   }
   const translations = i18nextConverter.csv2Json(body);
   if (translations.sanityCheck !== `${project}.${language}`) {
-    throw new Error(`Download of ${language} translation failed, aborting`);
+    throw new Error(`Sanity check of ${language} translation failed, aborting`);
   }
   return translations;
 };
