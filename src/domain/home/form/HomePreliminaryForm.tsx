@@ -92,7 +92,7 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
     <section className={styles.wrapper} ref={forwardRef}>
       <div className={styles.homeForm}>
         <div className={styles.heading}>
-          <h1>{t('registration.heading')}</h1>
+          <h2>{t('registration.heading')}</h2>
           <p>
             <Trans i18nKey="multiline">{t('home.registration.text')}</Trans>
           </p>
