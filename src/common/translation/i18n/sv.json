@@ -97,7 +97,7 @@
           "day": {
             "placeholder": "datum"
           },
-          "label": "Barnets födelsedatum",
+          "label": "Barnets födelsedatum (dd.mm.åååå)",
           "month": {
             "placeholder": "mån."
           },
@@ -181,8 +181,8 @@
       "child": {
         "birthdate": {
           "input": {
-            "label": "Barnets födelsedag",
-            "placeholder": "Uppge barnets födelsedag"
+            "label": "Barnets födelsedatum (dd.mm.åååå)",
+            "placeholder": "Uppge barnets födelsedatum"
           }
         },
         "firstName": {

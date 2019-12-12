@@ -97,7 +97,7 @@
           "day": {
             "placeholder": "date"
           },
-          "label": "Child's date of birth",
+          "label": "Child's date of birth (dd.mm.yyyy)",
           "month": {
             "placeholder": "month"
           },
@@ -181,7 +181,7 @@
       "child": {
         "birthdate": {
           "input": {
-            "label": "Child’s date of birth",
+            "label": "Child's date of birth (dd.mm.yyyy)",
             "placeholder": "Please enter child's date of birth"
           }
         },
