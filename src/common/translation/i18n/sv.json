@@ -2,13 +2,13 @@
   "appName": "Kulturens fadderbarn",
   "authentication": {
     "login": {
-      "text": "Login"
+      "text": "Logga in"
     },
     "logout": {
-      "text": "Logout"
+      "text": "Logga ut"
     },
     "redirect": {
-      "text": "Omdirigerar..."
+      "text": "Omdirigerar till inloggning..."
     },
     "errorMessage": "An error occured while logging in, please try again",
     "networkError": {
@@ -19,24 +19,24 @@
     }
   },
   "CHILD_RELATIONSHIP_OPTIONS": {
-    "ADVOCATE": "Verge",
-    "OTHER_GUARDIAN": "Annan verge",
-    "OTHER_RELATION": "Annan när relation",
-    "PARENT": "Forelder"
+    "ADVOCATE": "Ombud",
+    "OTHER_GUARDIAN": "Annan vårdnadshavare",
+    "OTHER_RELATION": "Annan närstående",
+    "PARENT": "Förälder"
   },
   "child": {
     "form": {
       "modal": {
         "add": {
-          "label": "Add new child",
-          "text": "Add child"
+          "label": "Lägg till barn",
+          "text": "Lägg till fadderbarn"
         },
         "delete": {
-          "label": "Remove"
+          "label": "Radera"
         },
         "edit": {
-          "label": "Edit child information",
-          "text": "Edit"
+          "label": "Redigera uppgifterna om barnet",
+          "text": "Redigera"
         },
         "return": {
           "text": "Return to registration page"
@@ -48,32 +48,32 @@
     "form": {
       "leave": {
         "warning": {
-          "text": "Are you sure to leave ? You will lose all unsaved data."
+          "text": "Är du säker på att du vill lämna sidan? Alla osparade data går förlorade."
         }
       }
     },
     "goBack": {
-      "text": "Return to registration page"
+      "text": "Tillbaka till registreringen"
     },
     "modal": {
       "cancel": {
-        "text": "Cancel"
+        "text": "Tillbaka"
       },
       "close": {
         "text": "x"
       },
       "submit": {
-        "text": "Submit"
+        "text": "Spara"
       }
     },
     "profile": {
       "goToProfile": {
-        "buttonText": "Gå til din profil"
+        "buttonText": "Min fadderbarnsprofil"
       }
     },
     "select": {
       "default": {
-        "text": "Välg"
+        "text": "Välj"
       }
     },
     "language": {
@@ -83,23 +83,23 @@
     }
   },
   "footer": {
-    "copyrightText": "© Copyright 2019 • All right reserved •"
+    "copyrightText": "© Copyright 2019 • All rights reserved •"
   },
   "homePage": {
     "hero": {
-      "buttonText": "Bli med",
-      "descriptionText": "Svenska",
-      "heading": "Onnea! Grattis! Congratulations!"
+      "buttonText": "Anmäl dig",
+      "descriptionText": "Alla Helsingforsbarn födda 2020 eller senare bjuds in som Kulturens fadderbarn. Fadderbarnen bjuds årligen in till två event tills barnet börjar i skolan. Evenemangen är avgiftsfria.",
+      "heading": "Kulturens fadderbarn"
     },
     "preliminaryForm": {
       "childBirthdate": {
         "input": {
           "day": {
-            "placeholder": "dd"
+            "placeholder": "datum"
           },
-          "label": "Lapsen syntymäaika",
+          "label": "Barnets födelsedatum",
           "month": {
-            "placeholder": "mm"
+            "placeholder": "mån."
           },
           "year": {
             "placeholder": "år"
@@ -108,13 +108,13 @@
       },
       "childHomeCity": {
         "input": {
-          "label": "Lapsen kotipaikkakunta",
-          "placeholder": "Lisää kotipaikkakunta"
+          "label": "Barnets hemkommun",
+          "placeholder": "Uppge barnets hemkommun"
         }
       },
       "verifyInformation": {
         "checkbox": {
-          "label": "Vakuutan antamani tiedot oikeaksi.",
+          "label": "Jag intygar att de uppgifter som jag gett är korrekta",
           "required": {
             "label": "This checkbox has to be ticked to continue"
           }
@@ -130,23 +130,23 @@
     }
   },
   "notFound": {
-    "text": "Er du fortapt?"
+    "text": "Är du vilsen?"
   },
   "partners": {
-    "2020": "2020 Helsingin kaupunginorkesteri"
+    "2020": "Födda 2020"
   },
   "profile": {
     "children": {
       "noChild": {
-        "text": "No child have been added"
+        "text": "Inga fadderbarn"
       }
     },
     "heading": "Fadderbarn",
     "noupcomingevents": {
       "hero": {
-        "heading": "Evenemanginvitationer"
+        "heading": "Eventinbjudningar"
       },
-      "text": "Event invitations sent to you will show up here. </br> You can register for events and cancel your registration if you for some reason are not able to go."
+      "text": "Inbjudningar till evenemang som skickats till dig visas här. Du kan också anmäla dig till evenemang och ångra anmälan om du av någon orsak inte kan delta."
     },
     "child": {
       "detail": {
@@ -174,83 +174,83 @@
     "form": {
       "agree": {
         "input": {
-          "label": "I accept terms and conditions of the service",
-          "placeholder": "Accept this to continue"
+          "label": "Jag godkänner tjänstens användarvillkor",
+          "placeholder": "Godkänn användarvillkoren för att gå vidare"
         }
       },
       "child": {
         "birthdate": {
           "input": {
-            "label": "Child birthdate",
-            "placeholder": "Please put child birthdate"
+            "label": "Barnets födelsedag",
+            "placeholder": "Uppge barnets födelsedag"
           }
         },
         "firstName": {
           "input": {
-            "label": "Child first name",
-            "placeholder": "Please put child first name"
+            "label": "Barnets förnamn",
+            "placeholder": "Uppge barnets förnamn"
           }
         },
         "homeCity": {
           "input": {
-            "label": "Child home city",
-            "placeholder": "Please put child home city"
+            "label": "Barnets hemkommun",
+            "placeholder": "Uppge barnets hemkommun"
           }
         },
         "info": {
-          "heading": "Child's information"
+          "heading": "Uppgifter om barnet"
         },
         "lastName": {
           "input": {
-            "label": "Child last name",
-            "placeholder": "Please insert child last name"
+            "label": "Barnets efternamn",
+            "placeholder": "Uppge barnets efternamn"
           }
         },
         "postalCode": {
           "input": {
-            "label": "Child's postal code",
-            "placeholder": "Please put child's postal code"
+            "label": "Barnets postnummer",
+            "placeholder": "Uppge barnets postnummer"
           }
         },
         "relationship": {
           "input": {
-            "label": "Guardian relation with child",
-            "placeholder": "Please insert guardian relation"
+            "label": "Anmälarens förhållande till barnet",
+            "placeholder": "Uppge anmälarens förhållande till barnet"
           }
         }
       },
       "guardian": {
         "email": {
           "input": {
-            "label": "Guardian email",
-            "placeholder": "Please put guardian email"
+            "label": "E-postadress",
+            "placeholder": "Uppge e-postadress"
           }
         },
         "firstName": {
           "input": {
-            "label": "Guardian first name",
-            "placeholder": "Please put guardian first name"
+            "label": "Förnamn",
+            "placeholder": "Uppge förnamn"
           }
         },
         "info": {
-          "heading": "Guardian's information"
+          "heading": "Uppgifter om närstående vuxen"
         },
         "language": {
           "input": {
-            "label": "Guardian application prefer language",
-            "placeholder": "Please put guardian prefer language"
+            "label": "Kontaktspråk",
+            "placeholder": "Välj kontaktspråk"
           }
         },
         "lastName": {
           "input": {
-            "label": "Guardian last name",
-            "placeholder": "Please put guardian last name"
+            "label": "Efternamn",
+            "placeholder": "Uppge efternamn"
           }
         },
         "phoneNumber": {
           "input": {
-            "label": "Guardian phone number",
-            "placeholder": "Please insert guardian phone number"
+            "label": "Telefonnummer",
+            "placeholder": "Uppge telefonnummer"
           }
         }
       },
@@ -260,11 +260,11 @@
         }
       }
     },
-    "heading": "Sign up",
+    "heading": "Kom med",
     "notEligible": {
-      "buttonText": "Finn passende kulturarrangementer for ditt barn herfra!",
-      "text": "Ditt barn kan inte bli med. Sori. ",
-      "title": "Inte bli med"
+      "buttonText": "Här finns lämpliga kulturevenemang för barn",
+      "text": "Tyvärr berättigar barnets födelseår eller hemkommun inte till verksamheten Kulturens fadderbarn.",
+      "title": "Vad synd!"
     },
     "welcome": {
       "hero": {
@@ -282,11 +282,11 @@
       "unSupported": "Input date is not supported"
     },
     "general": {
-      "required": "Required",
+      "required": "Obligatoriskt fält",
       "unSupportedCity": "Unsupported city"
     },
     "postalCode": {
-      "invalidFormat": "Inte riktigt format"
+      "invalidFormat": "Fel format"
     }
   },
   "api": {

@@ -48,7 +48,7 @@
     "form": {
       "leave": {
         "warning": {
-          "text": "Oletko varma että haluat poistua sivulta? Kaikki tallentamattomat tiedot katoavat. "
+          "text": "Oletko varma että haluat poistua sivulta? Kaikki tallentamattomat tiedot katoavat."
         }
       }
     },
@@ -88,8 +88,8 @@
   "homePage": {
     "hero": {
       "buttonText": "Ilmoittaudu mukaan",
-      "descriptionText": "Helsingin Kaupunginorkesteri kutsuu kummilapsikseen kaikki vuonna 2020 syntyneet Helsinkiläislapset! Lapsi perheineen kutsutaan kahdesti vuodessa nauttimaan HKO:n järjestämästä kulttuurista täysin ilmaiseksi! Liity mukaan!",
-      "heading": "Onnea! Grattis! Congratulations!"
+      "descriptionText": "Kaikki vuodesta 2020 eteenpäin syntyvät helsinkiläiset lapset kutsutaan kulttuurin kummilapsiksi. Kummilapset saavat kutsun vuosittain kahteen tapahtumaan, kunnes lapsi aloittaa koulun. Tapahtumat ovat maksuttomia.",
+      "heading": "Kulttuurin kummilapset"
     },
     "preliminaryForm": {
       "childBirthdate": {
@@ -133,7 +133,7 @@
     "text": "Oletko hukassa?"
   },
   "partners": {
-    "2020": "2020 Helsingin kaupunginorkesteri"
+    "2020": "2020 syntyneet"
   },
   "profile": {
     "children": {
@@ -146,7 +146,7 @@
       "hero": {
         "heading": "Tapahtumakutsut"
       },
-      "text": "Tänne ilmaantuvat sinulle lähetetyt tapahtumakutsut. <br/> Pääset myös ilmoittautumaan tapahtumiin ja perumaan ilmoittautumisesi mikäli et jostain syystä pääsekään tapahtumaan."
+      "text": "Tänne saapuvat sinulle lähetetyt tapahtumakutsut. Pääset myös ilmoittautumaan tapahtumiin ja perumaan ilmoittautumisen, jos et jostain syystä pääsekään osallistumaan tapahtumaan."
     },
     "child": {
       "detail": {
@@ -175,7 +175,7 @@
       "agree": {
         "input": {
           "label": "Hyväksyn palvelun käyttöehdot",
-          "placeholder": "Hyväksyn palvelun käyttöehdot"
+          "placeholder": "Hyväksy palvelun käyttöehdot jatkaaksesi"
         }
       },
       "child": {
@@ -286,7 +286,7 @@
       "unSupportedCity": "Unsupported city"
     },
     "postalCode": {
-      "invalidFormat": "Väärää formaatti"
+      "invalidFormat": "Väärä formaatti"
     }
   },
   "api": {

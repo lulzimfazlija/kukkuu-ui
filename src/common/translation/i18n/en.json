@@ -28,14 +28,14 @@
     "form": {
       "modal": {
         "add": {
-          "label": "Add new child",
+          "label": "Add child",
           "text": "Add child"
         },
         "delete": {
           "label": "Remove"
         },
         "edit": {
-          "label": "Edit child information",
+          "label": "Edit child’s information",
           "text": "Edit"
         },
         "return": {
@@ -48,7 +48,7 @@
     "form": {
       "leave": {
         "warning": {
-          "text": "Are you sure to leave ? You will lose all unsaved data."
+          "text": "Are you sure you want to leave the site? You will lose all unsaved data."
         }
       }
     },
@@ -68,7 +68,7 @@
     },
     "profile": {
       "goToProfile": {
-        "buttonText": "Go to your profile"
+        "buttonText": "Go to your Culture Kid profile"
       }
     },
     "select": {
@@ -83,21 +83,21 @@
     }
   },
   "footer": {
-    "copyrightText": "© Copyright 2019 • All right reserved •"
+    "copyrightText": "© Copyright 2019 • All rights reserved •"
   },
   "homePage": {
     "hero": {
-      "buttonText": "Ilmoittaudu mukaan",
-      "descriptionText": "Helsingin Kaupunginorkesteri kutsuu kummilapsikseen kaikki vuonna 2020 syntyneet Helsinkiläislapset! Lapsi perheineen kutsutaan kahdesti vuodessa nauttimaan HKO:n järjestämästä kulttuurista täysin ilmaiseksi! Liity mukaan!",
-      "heading": "Onnea! Grattis! Congratulations!"
+      "buttonText": "Register",
+      "descriptionText": "All children born in Helsinki after 2020 are invited to become Culture Kids. The kids are invited to two events each year until they start school. These events are free of charge.",
+      "heading": "Culture Kids"
     },
     "preliminaryForm": {
       "childBirthdate": {
         "input": {
           "day": {
-            "placeholder": "day"
+            "placeholder": "date"
           },
-          "label": "Child's birthdate",
+          "label": "Child's date of birth",
           "month": {
             "placeholder": "month"
           },
@@ -108,13 +108,13 @@
       },
       "childHomeCity": {
         "input": {
-          "label": "Child's home town",
+          "label": "Child's hometown",
           "placeholder": "Enter child's hometown"
         }
       },
       "verifyInformation": {
         "checkbox": {
-          "label": "I assure that the information I provide is correct",
+          "label": "I assure that the information I have provided is correct",
           "required": {
             "label": "This checkbox has to be ticked to continue"
           }
@@ -125,28 +125,28 @@
   "navbar": {
     "profileDropdown": {
       "openCityProfile": {
-        "text": "Open user profile on omaHelsinki"
+        "text": "Open user profile in omaHelsinki"
       }
     }
   },
   "notFound": {
-    "text": "You lost?"
+    "text": "Are you lost?"
   },
   "partners": {
-    "2020": "2020 Helsingin kaupunginorkesteri"
+    "2020": "Children born in 2020"
   },
   "profile": {
     "children": {
       "noChild": {
-        "text": "No child have been added"
+        "text": "No children have been added"
       }
     },
-    "heading": "Godchildren",
+    "heading": "Culture Kids",
     "noupcomingevents": {
       "hero": {
         "heading": "Event invitations"
       },
-      "text": "Event invitations sent to you will show up here. <br/> You can register for events and cancel your registration if you for some reason are not able to go."
+      "text": "Event invitations sent to you will be displayed here. You can sign up for events and cancel your attendance if you, for some reason, are unable to attend."
     },
     "child": {
       "detail": {
@@ -174,27 +174,27 @@
     "form": {
       "agree": {
         "input": {
-          "label": "I accept terms and conditions of the service",
-          "placeholder": "Accept this to continue"
+          "label": "I accept the terms and conditions of the service",
+          "placeholder": "Accept to continue"
         }
       },
       "child": {
         "birthdate": {
           "input": {
-            "label": "Child birthdate",
-            "placeholder": "Please insert child's birthdate"
+            "label": "Child’s date of birth",
+            "placeholder": "Please enter child's date of birth"
           }
         },
         "firstName": {
           "input": {
-            "label": "Child first name",
-            "placeholder": "Please insert child's first name"
+            "label": "Child’s first name",
+            "placeholder": "Please enter child's first name"
           }
         },
         "homeCity": {
           "input": {
-            "label": "Child home city",
-            "placeholder": "Please insert child's home city"
+            "label": "Child's hometown",
+            "placeholder": "Enter child's hometown"
           }
         },
         "info": {
@@ -202,55 +202,55 @@
         },
         "lastName": {
           "input": {
-            "label": "Child last name",
-            "placeholder": "Please insert child last name"
+            "label": "Child’s last name",
+            "placeholder": "Please enter child’s last name"
           }
         },
         "postalCode": {
           "input": {
             "label": "Child's postal code",
-            "placeholder": "Please insert child's postal code"
+            "placeholder": "Please enter child's postal code"
           }
         },
         "relationship": {
           "input": {
-            "label": "Guardian relation with child",
-            "placeholder": "Please insert guardian relation"
+            "label": "Guardian’s relationship to the child",
+            "placeholder": "Please specify relationship to the child"
           }
         }
       },
       "guardian": {
         "email": {
           "input": {
-            "label": "Custodian email",
-            "placeholder": "Please insert guardian email"
+            "label": "E-mail address",
+            "placeholder": "Please enter guardian’s e-mail address"
           }
         },
         "firstName": {
           "input": {
-            "label": "Custodian first name",
-            "placeholder": "Please insert guardian first name"
+            "label": "Guardian’s first name",
+            "placeholder": "Please enter guardian’s first name"
           }
         },
         "info": {
-          "heading": "Custodian's information"
+          "heading": "Guardian's information"
         },
         "language": {
           "input": {
-            "label": "Custodian application prefer language",
-            "placeholder": "Please put guardian prefer language"
+            "label": "Guardian’s preferred language",
+            "placeholder": "Please enter guardian’s preferred language"
           }
         },
         "lastName": {
           "input": {
-            "label": "Custodian last name",
-            "placeholder": "Please put guardian last name"
+            "label": "Guardian’s last name",
+            "placeholder": "Please enter guardian’s last name"
           }
         },
         "phoneNumber": {
           "input": {
-            "label": "Custodian phone number",
-            "placeholder": "Please insert guardian phone number"
+            "label": "Guardian’s telephone number",
+            "placeholder": "Please enter guardian’s telephone number"
           }
         }
       },
@@ -262,13 +262,13 @@
     },
     "heading": "Sign up",
     "notEligible": {
-      "buttonText": "Go here to find cultural events for your child!",
-      "text": "Your child is unfortunately not eligible for the Godchildren of Culture program due to their birthdate or home town.",
-      "title": "Not eligible"
+      "buttonText": "Click here to find cultural events for your child!",
+      "text": "Your child is unfortunately not eligible for the Culture Kids programme due to their date of birth or hometown.",
+      "title": "We’re sorry."
     },
     "welcome": {
       "hero": {
-        "header": "Welcome as a Godchild of Culture!"
+        "header": "Welcome to the Culture Kids programme!"
       }
     },
     "submitMutation": {
@@ -282,11 +282,11 @@
       "unSupported": "Input date is not supported"
     },
     "general": {
-      "required": "Required",
+      "required": "Mandatory field",
       "unSupportedCity": "Unsupported city"
     },
     "postalCode": {
-      "invalidFormat": "Invalid postal code"
+      "invalidFormat": "Invalid format"
     }
   },
   "api": {
