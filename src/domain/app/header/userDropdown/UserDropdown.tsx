@@ -47,6 +47,7 @@ const UserDropdown: React.FunctionComponent = () => {
     : [
         {
           label: t('authentication.login.text'),
+          icon: personIcon,
           onClick: () => loginTunnistamo(),
         },
       ];
