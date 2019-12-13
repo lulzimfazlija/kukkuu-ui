@@ -13,6 +13,8 @@ import { normalizeProfileData } from './ProfileUtils';
 import ProfileChildDetail from './children/child/ProfileChildDetail';
 import { getCurrentLanguage } from '../../common/translation/TranslationUtils';
 import ProfileChildrenList from './children/ProfileChildrenList';
+import PageWrapper from '../app/layout/PageWrapper';
+import styles from './profile.module.scss';
 
 const Profile: FunctionComponent = () => {
   const { loading, error, data } = useQuery<ProfileQueryType>(profileQuery);
@@ -24,12 +26,15 @@ const Profile: FunctionComponent = () => {
 
   if (loading) return <LoadingSpinner isLoading={true} />;
   if (error || !data || !data.myProfile) {
-    if (error) Sentry.captureException(error);
-    return (
-      <div>
-        <div>{t('api.errorMessage')}</div>
-      </div>
-    );
+    if (error) {
+      Sentry.captureException(error);
+      return (
+        <PageWrapper>
+          <div className={styles.profile}>{t('api.errorMessage')}</div>
+        </PageWrapper>
+      );
+    }
+    return <Redirect to="/" />;
   } else {
     profile = normalizeProfileData(data);
     if (profile) {
