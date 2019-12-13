@@ -24,12 +24,15 @@ const Profile: FunctionComponent = () => {
 
   if (loading) return <LoadingSpinner isLoading={true} />;
   if (error || !data || !data.myProfile) {
-    if (error) Sentry.captureException(error);
-    return (
-      <div>
-        <div>{t('api.errorMessage')}</div>
-      </div>
-    );
+    if (error) {
+      Sentry.captureException(error);
+      return (
+        <div>
+          <div>{t('api.errorMessage')}</div>
+        </div>
+      );
+    }
+    return <Redirect to="/" />;
   } else {
     profile = normalizeProfileData(data);
     if (profile) {
