@@ -2,7 +2,7 @@ import { gql } from 'apollo-boost';
 
 const submitChildrenAndGuardianMutation = gql`
   mutation submitChildrenAndGuardian(
-    $children: [ChildInput]
+    $children: [ChildInput!]!
     $guardian: GuardianInput!
   ) {
     submitChildrenAndGuardian(

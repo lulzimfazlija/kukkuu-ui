@@ -51,6 +51,6 @@ export interface submitChildrenAndGuardian {
 }
 
 export interface submitChildrenAndGuardianVariables {
-  children?: (ChildInput | null)[] | null;
+  children: ChildInput[];
   guardian: GuardianInput;
 }
