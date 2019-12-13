@@ -26,4 +26,6 @@ export default createReducer(defaultApiAuthenticationData, {
       apiToken: null,
       errors: action.payload,
     }),
+  [API_AUTHENTICATION_ACTIONS.RESET_BACKEND_AUTHENTICATION]: (state, action) =>
+    (state = defaultApiAuthenticationData),
 });

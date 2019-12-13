@@ -15,4 +15,13 @@ const fetchTokenError = createAction(
   API_AUTHENTICATION_ACTIONS.FETCH_TOKEN_ERROR
 );
 
-export { startFetchingToken, fetchTokenSuccess, fetchTokenError };
+const resetBackendAuthentication = createAction(
+  API_AUTHENTICATION_ACTIONS.RESET_BACKEND_AUTHENTICATION
+);
+
+export {
+  startFetchingToken,
+  fetchTokenSuccess,
+  fetchTokenError,
+  resetBackendAuthentication,
+};

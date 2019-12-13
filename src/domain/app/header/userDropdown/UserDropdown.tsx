@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
-import { useLocation } from 'react-router';
 
 import personIcon from '../../../../assets/icons/svg/person.svg';
 import Dropdown from '../../../../common/components/dropdown/Dropdown';
@@ -12,10 +11,11 @@ import {
 import { loginTunnistamo, logoutTunnistamo } from '../../../auth/authenticate';
 import { resetFormValues } from '../../../registration/state/RegistrationActions';
 import { persistor } from '../../state/AppStore';
+import { clearProfile } from '../../../profile/state/ProfileActions';
+import { resetBackendAuthentication } from '../../../auth/state/BackendAuthenticationActions';
 
 const UserDropdown: React.FunctionComponent = () => {
   const { t } = useTranslation();
-  const location = useLocation();
   const isAuthenticated = useSelector(isAuthenticatedSelector);
   const dispatch = useDispatch();
   const userData = useSelector(userSelector);
@@ -32,11 +32,15 @@ const UserDropdown: React.FunctionComponent = () => {
         {
           label: t('authentication.logout.text'),
           onClick: () => {
+            // Clear user form data
             dispatch(resetFormValues());
-            // Clear user form data from redux store
-            persistor.flush();
+            // Clear profile (fetched from API)
+            dispatch(clearProfile());
+            // Clear backend auth data
+            dispatch(resetBackendAuthentication());
             // Flush data in redux store and localStorage
-            logoutTunnistamo(location.pathname);
+            persistor.flush();
+            logoutTunnistamo();
           },
         },
       ]
