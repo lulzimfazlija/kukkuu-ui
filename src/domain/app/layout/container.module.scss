@@ -7,6 +7,8 @@
     padding-bottom: $containerPaddingBottom;
 }
 
+@include respond-below(sm) { padding: 0 $basePadding }
+
 @include respond-between(sm, xlg) {
     .container {
         grid-template-columns: 1fr 10fr 1fr;
