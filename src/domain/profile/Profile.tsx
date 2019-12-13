@@ -24,7 +24,7 @@ const Profile: FunctionComponent = () => {
 
   if (loading) return <LoadingSpinner isLoading={true} />;
   if (error || !data || !data.myProfile) {
-    Sentry.captureException(error);
+    if (error) Sentry.captureException(error);
     return (
       <div>
         <div>{t('api.errorMessage')}</div>

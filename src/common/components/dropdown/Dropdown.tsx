@@ -22,9 +22,23 @@ const Dropdown: React.FunctionComponent<DropdownProps> = ({
   options,
   ...rest
 }) => {
+  const ref = React.useRef<HTMLDivElement>(null);
+
   const [isOpen, toggleDropdown] = React.useState(false);
+  const handleClick = (e: Event) => {
+    if (ref.current && !ref.current.contains(e.target as Node)) {
+      toggleDropdown(false);
+    }
+  };
+  React.useEffect(() => {
+    document.addEventListener('click', handleClick);
+    return () => {
+      document.removeEventListener('click', handleClick);
+    };
+  }, []);
+
   return (
-    <div className={styles.dropdownWrapper} {...rest}>
+    <div className={styles.dropdownWrapper} {...rest} ref={ref}>
       <Button
         onClick={() => {
           toggleDropdown(!isOpen);

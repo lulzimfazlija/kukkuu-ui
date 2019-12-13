@@ -10,9 +10,9 @@ exports[`renders snapshot correctly 1`] = `
     <div
       className="heading"
     >
-      <h1>
+      <h2>
         Tule mukaan
-      </h1>
+      </h2>
       <p>
         <Trans
           i18nKey="multiline"

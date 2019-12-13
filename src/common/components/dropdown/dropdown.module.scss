@@ -4,9 +4,8 @@
 $navbarIconSize: 1rem;
 
 .dropdownWrapper {
-    overflow: hidden;
     float: left;
-    
+    position: relative;
     button {
         display: flex;
         justify-items: center;
@@ -31,8 +30,10 @@ $navbarIconSize: 1rem;
 
 .dropdownContent {
     position: absolute;
+    right: 0;
     border: 1px solid $hel-gray;
-    background: $hel-white;
+    background: $white;
+    z-index: 1;
     .dropdownContentOption {
 
         &:not(:last-child) {

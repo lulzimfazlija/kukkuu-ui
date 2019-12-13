@@ -12,7 +12,7 @@ const HomeInstructions: React.FunctionComponent = props => {
   return (
     <section className={styles.wrapper}>
       <div className={styles.instructions}>
-        <h1>{t('home.instructions.heading.text')}</h1>
+        <h2>{t('home.instructions.heading.text')}</h2>
         <div className={styles.iconContainer}>
           <div className={styles.iconBox}>
             <Icon src={homeKidIcon} className={styles.icon} alt="kid icon" />

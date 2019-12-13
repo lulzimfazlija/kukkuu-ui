@@ -23,6 +23,11 @@
 
 .wrapper {
     @include formContainer();
+
+    @include respond-below(md) {
+        padding: 0 3rem;
+    }
+
 }
 
 .submitButton {
