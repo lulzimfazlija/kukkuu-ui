@@ -97,7 +97,7 @@
           "day": {
             "placeholder": "pv"
           },
-          "label": "Lapsen syntymäaika",
+          "label": "Lapsen syntymäaika (pp.kk.vvvv)",
           "month": {
             "placeholder": "kk"
           },
@@ -181,8 +181,8 @@
       "child": {
         "birthdate": {
           "input": {
-            "label": "Lapsen syntymäpäivä",
-            "placeholder": "Lisää lapsen syntymäpäivä"
+            "label": "Lapsen syntymäaika (pp.kk.vvvv)",
+            "placeholder": "Lisää lapsen syntymäaika"
           }
         },
         "firstName": {
