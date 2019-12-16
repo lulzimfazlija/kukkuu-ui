@@ -63,7 +63,16 @@ export const authenticateWithBackend = (
     toast(i18n.t('authentication.errorMessage'), {
       type: toast.TYPE.ERROR,
     });
-    Sentry.captureException(error);
-    dispatch(fetchTokenError(error));
+    try {
+      // This is a workaround that can save us until we can fix silentRenew().
+      loginTunnistamo();
+      Sentry.captureMessage(
+        'authenticateWithBackend() failed - running loggingTunnistamo()'
+      );
+    } catch (loginTunnistamoError) {
+      Sentry.captureException(error);
+      Sentry.captureException(loginTunnistamoError);
+      dispatch(fetchTokenError(error));
+    }
   }
 };

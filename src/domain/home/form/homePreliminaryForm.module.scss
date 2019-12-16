@@ -25,7 +25,7 @@
     @include formContainer();
 
     @include respond-below(md) {
-        padding: 0 3rem;
+        padding: 0 $baseMargin;
     }
 
 }

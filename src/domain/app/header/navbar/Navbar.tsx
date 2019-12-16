@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 
 import styles from './navbar.module.scss';
-import LanguageDropdown from './languageDropdown/LanguageDropdown';
 import UserDropdown from '../userDropdown/UserDropdown';
 import LanguageBar from './languageBar/LanguageBar';
+import SmallScreenNav from './smallScreenNav/SmallScreenNav';
 
 const Navbar: React.FunctionComponent = props => {
   const { t } = useTranslation();
@@ -15,11 +15,11 @@ const Navbar: React.FunctionComponent = props => {
     <div className={styles.navbarTop}>
       <div className={styles.logoWrapper}>
         <div className={styles.logo} onClick={() => history.push('/')}></div>
-        <h3 className={styles.appName}>{t('appName')}</h3>
+        {!isSmallScreen && <h3 className={styles.appName}>{t('appName')}</h3>}
       </div>
       <div className={styles.languageWrapper}>
-        {isSmallScreen ? <LanguageDropdown /> : <LanguageBar />}
-        <UserDropdown />
+        {isSmallScreen ? <SmallScreenNav /> : <LanguageBar />}
+        {!isSmallScreen && <UserDropdown isSmallScreen={isSmallScreen} />}
       </div>
     </div>
   );

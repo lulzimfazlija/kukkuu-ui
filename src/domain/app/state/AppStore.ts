@@ -7,7 +7,7 @@ import rootReducer from './AppReducers';
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['registration'],
+  whitelist: ['profile', 'registration'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

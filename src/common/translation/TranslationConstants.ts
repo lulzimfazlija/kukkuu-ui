@@ -1,5 +1,5 @@
 export const SUPPORT_LANGUAGES = {
-  EN: 'en',
   FI: 'fi',
+  EN: 'en',
   SV: 'sv',
 };

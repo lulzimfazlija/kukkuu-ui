@@ -5,10 +5,6 @@
     display: grid;
 
     padding-bottom: $containerPaddingBottom;
-    @include respond-below(sm) {
-        * > div {padding: 0 $basePadding }
-    }
-    
 }
 
 @include respond-between(sm, xlg) {

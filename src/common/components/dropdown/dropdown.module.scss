@@ -17,6 +17,7 @@ $navbarIconSize: 1rem;
         
         span {
             margin-right: 0.25rem;
+            font-weight: 500;
         }
         
         div {
@@ -34,6 +35,7 @@ $navbarIconSize: 1rem;
     border: 1px solid $hel-gray;
     background: $white;
     z-index: 1;
+    width: 256px;
     .dropdownContentOption {
 
         &:not(:last-child) {
