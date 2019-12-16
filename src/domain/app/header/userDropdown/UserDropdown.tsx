@@ -39,6 +39,7 @@ const UserDropdown: React.FunctionComponent<UserDropdownProps> = ({
       // Flush data in redux store and localStorage
       persistor.flush();
       logoutTunnistamo();
+      history.push('/');
     },
   };
 
