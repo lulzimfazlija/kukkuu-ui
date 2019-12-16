@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 
 import personIcon from '../../../../assets/icons/svg/person.svg';
 import Dropdown from '../../../../common/components/dropdown/Dropdown';
@@ -43,7 +43,10 @@ const UserDropdown: React.FunctionComponent<UserDropdownProps> = ({
   };
 
   const user = {
-    label: (profileData && profileData.firstName) || 'User(FIXME)',
+    label:
+      (profileData && profileData.firstName) ||
+      // This text should never be displayed - defensive programming:
+      t('navbar.profileDropdown.profile.text'),
     icon: personIcon,
     skipItem: true,
   };
