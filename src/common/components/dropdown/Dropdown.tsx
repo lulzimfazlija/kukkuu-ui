@@ -9,6 +9,7 @@ interface DropdownOption {
   label: string;
   icon?: string;
   onClick?: () => void;
+  skipItem?: boolean;
 }
 
 type DropdownOptions = DropdownOption[];
@@ -53,21 +54,27 @@ const Dropdown: React.FunctionComponent<DropdownProps> = ({
           {/* Not necessary to show dropdown on 1 element only */}
           {options.length > 1 &&
             options.map((option, index) => {
-              return (
-                <Button
-                  className={styles.dropdownContentOption}
-                  key={index}
-                  onClick={() => {
-                    toggleDropdown(!isOpen);
-                    option.onClick && option.onClick();
-                  }}
-                >
-                  <span>{option.label}</span>
-                  {option.icon && (
-                    <Icon src={option.icon} alt="Dropdown option icon" />
-                  )}
-                </Button>
-              );
+              /**
+               * If the item is already displayed above
+               * the dropDown menu, we don't want to repeat it.
+               **/
+              if (!option.skipItem || index > 0)
+                return (
+                  <Button
+                    className={styles.dropdownContentOption}
+                    key={index}
+                    onClick={() => {
+                      toggleDropdown(!isOpen);
+                      option.onClick && option.onClick();
+                    }}
+                  >
+                    <span>{option.label}</span>
+                    {option.icon && (
+                      <Icon src={option.icon} alt="Dropdown option icon" />
+                    )}
+                  </Button>
+                );
+              else return '';
             })}
         </div>
       )}

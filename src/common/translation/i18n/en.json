@@ -80,6 +80,9 @@
       "fi": "Suomi",
       "sv": "Svenska",
       "en": "English"
+    },
+    "closeButton": {
+      "altText": "Close"
     }
   },
   "footer": {
@@ -126,7 +129,13 @@
     "profileDropdown": {
       "openCityProfile": {
         "text": "Open user profile in omaHelsinki"
+      },
+      "profile": {
+        "text": "Culture Kids Profile"
       }
+    },
+    "smallScreenMenu": {
+      "homepageLinkText": "Home page"
     }
   },
   "notFound": {

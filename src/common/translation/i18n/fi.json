@@ -80,6 +80,9 @@
       "fi": "Suomi",
       "sv": "Svenska",
       "en": "English"
+    },
+    "closeButton": {
+      "altText": "Sulje"
     }
   },
   "footer": {
@@ -126,7 +129,13 @@
     "profileDropdown": {
       "openCityProfile": {
         "text": "Open user profile on omaHelsinki"
+      },
+      "profile": {
+        "text": "Kummilapsiprofiili"
       }
+    },
+    "smallScreenMenu": {
+      "homepageLinkText": "Etusivu"
     }
   },
   "notFound": {

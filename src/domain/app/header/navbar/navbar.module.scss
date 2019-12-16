@@ -1,5 +1,6 @@
-@import "mixins";
 @import "colors";
+@import "layout";
+@import "mixins";
 @import "variables";
 
 $logoHeight: 2.5rem;
@@ -8,8 +9,10 @@ $logoWidth: 5.5rem;
 .navbarTop {
     height: 100%;
     display: flex;
-    
     justify-content: space-between;
+    @include respond-below(sm) {
+        padding: 0 $basePadding;
+    }
 }
 
 .logoWrapper {

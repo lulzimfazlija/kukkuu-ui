@@ -5,9 +5,11 @@
     display: grid;
 
     padding-bottom: $containerPaddingBottom;
-    @include respond-below(sm) {
-        * > div {padding: 0 $basePadding }
-    }
+    // It seemed like a good idea to add this on Friday December 13, but
+    // I'm not so sure: those paddings keep adding up for nested divs.
+    // @include respond-below(sm) {
+    //     * > div {padding: 0 $basePadding }
+    // }
     
 }
 
