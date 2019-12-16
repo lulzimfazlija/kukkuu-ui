@@ -66,9 +66,8 @@ export const authenticateWithBackend = (
     try {
       // This is a workaround that can save us until we can fix silentRenew().
       loginTunnistamo();
-      // eslint-disable-next-line no-console
-      console.log(
-        'Silent renew/backend token fetch fail, logging in through Tunnistamo again'
+      Sentry.captureMessage(
+        'authenticateWithBackend() failed - running loggingTunnistamo()'
       );
     } catch (loginTunnistamoError) {
       Sentry.captureException(error);
