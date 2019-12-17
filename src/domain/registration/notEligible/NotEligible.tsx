@@ -23,9 +23,9 @@ const NotEligible: FunctionComponent = () => {
               <p>{t('registration.notEligible.text')}</p>
             </div>
             <div className={styles.goBackButton}>
-              <Button onClick={() => alert('TODO')}>
-                {t('registration.notEligible.buttonText')}
-              </Button>
+              <a href={t('registration.notEligible.otherOptionsLink')}>
+                <Button>{t('registration.notEligible.buttonText')}</Button>
+              </a>
             </div>
           </div>
         </div>

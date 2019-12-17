@@ -40,6 +40,11 @@
         },
         "return": {
           "text": "Return to registration page"
+        },
+        "notEligible": {
+          "return": {
+            "text": "Return to profile"
+          }
         }
       }
     }
@@ -273,7 +278,8 @@
     "notEligible": {
       "buttonText": "Click here to find cultural events for your child!",
       "text": "Your child is unfortunately not eligible for the Culture Kids programme due to their date of birth or hometown.",
-      "title": "We’re sorry."
+      "title": "We’re sorry.",
+      "otherOptionsLink": "https://www.myhelsinki.fi/en/search?tags=children%20(age%20groups)&category=events"
     },
     "welcome": {
       "hero": {

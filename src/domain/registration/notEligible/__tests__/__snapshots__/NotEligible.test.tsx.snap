@@ -28,11 +28,13 @@ exports[`renders snapshot correctly 1`] = `
         <div
           className="goBackButton"
         >
-          <Button
-            onClick={[Function]}
+          <a
+            href="https://www.myhelsinki.fi/fi/search?tags=lapset&category=events"
           >
-            Löydä lapsille sopivia kulttuuritapahtumia täältä
-          </Button>
+            <Button>
+              Löydä lapsille sopivia kulttuuritapahtumia täältä
+            </Button>
+          </a>
         </div>
       </div>
     </div>
