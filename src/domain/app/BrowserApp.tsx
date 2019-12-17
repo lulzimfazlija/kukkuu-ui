@@ -6,6 +6,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import { OidcProvider } from 'redux-oidc';
 import { useTranslation } from 'react-i18next';
+import { ToastContainer } from 'react-toastify';
 
 import App from './App';
 import graphqlClient from '../api/client';
@@ -68,6 +69,7 @@ const BrowserApp: FunctionComponent = () => {
           </ApolloProvider>
         </OidcProvider>
       </PersistGate>
+      <ToastContainer />
     </Provider>
   );
 };
