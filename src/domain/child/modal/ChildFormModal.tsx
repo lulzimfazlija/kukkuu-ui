@@ -69,9 +69,9 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
             />
             <Button
               className={styles.goBackButton}
-              onClick={() => toggleNonEligible(false)}
+              onClick={() => setIsOpen(false)}
             >
-              {t('child.form.modal.return.text')}
+              {t('child.form.modal.notEligible.return.text')}
             </Button>
           </div>
         ) : (

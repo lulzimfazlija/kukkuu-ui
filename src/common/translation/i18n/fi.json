@@ -40,6 +40,11 @@
         },
         "return": {
           "text": "Palaa profiilin luomiseen"
+        },
+        "notEligible": {
+          "return": {
+            "text": "Palaa profiilin luomiseen"
+          }
         }
       }
     }
@@ -273,7 +278,8 @@
     "notEligible": {
       "buttonText": "Löydä lapsille sopivia kulttuuritapahtumia täältä",
       "text": "Valitettavasti lapsen syntymävuosi tai kotipaikkakunta eivät oikeuta häntä kulttuurin kummilapset toimintaan.",
-      "title": "Voi harmi!"
+      "title": "Voi harmi!",
+      "otherOptionsLink": "https://www.myhelsinki.fi/fi/search?tags=lapset&category=events"
     },
     "welcome": {
       "hero": {
