@@ -2,7 +2,7 @@ import { Route, Switch, RouteComponentProps, Redirect } from 'react-router';
 import React from 'react';
 import { connect } from 'react-redux';
 import { loadUser } from 'redux-oidc';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import * as Sentry from '@sentry/browser';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -58,7 +58,6 @@ class App extends React.Component<AppProps> {
 
     return (
       <LoadingSpinner isLoading={isLoadingUser}>
-        <ToastContainer />
         <Switch>
           <Redirect exact path={`/${locale}/`} to={`/${locale}/home`} />
           <Route exact path={`/${locale}/home`} component={Home} />
