@@ -9,9 +9,10 @@ const submitChildrenAndGuardianMutation = gql`
       input: { children: $children, guardian: $guardian }
     ) {
       children {
-        birthdate
+        id
         firstName
         lastName
+        birthdate
         postalCode
         relationships {
           edges {
@@ -22,8 +23,10 @@ const submitChildrenAndGuardianMutation = gql`
         }
       }
       guardian {
+        id
         firstName
         lastName
+        email
         phoneNumber
         language
       }

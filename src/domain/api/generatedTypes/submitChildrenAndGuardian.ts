@@ -27,16 +27,25 @@ export interface submitChildrenAndGuardian_submitChildrenAndGuardian_children_re
 }
 
 export interface submitChildrenAndGuardian_submitChildrenAndGuardian_children {
-  birthdate: any;
+  /**
+   * The ID of the object.
+   */
+  id: string;
   firstName: string;
   lastName: string;
+  birthdate: any;
   postalCode: string;
   relationships: submitChildrenAndGuardian_submitChildrenAndGuardian_children_relationships;
 }
 
 export interface submitChildrenAndGuardian_submitChildrenAndGuardian_guardian {
+  /**
+   * The ID of the object.
+   */
+  id: string;
   firstName: string;
   lastName: string;
+  email: string | null;
   phoneNumber: string;
   language: Language | null;
 }
@@ -47,6 +56,10 @@ export interface submitChildrenAndGuardian_submitChildrenAndGuardian {
 }
 
 export interface submitChildrenAndGuardian {
+  /**
+   * This is the first mutation one needs to execute to start using the service.
+   * After that this mutation cannot be used anymore.
+   */
   submitChildrenAndGuardian: submitChildrenAndGuardian_submitChildrenAndGuardian | null;
 }
 
