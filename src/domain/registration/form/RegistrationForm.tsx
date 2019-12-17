@@ -30,6 +30,7 @@ import PageWrapper from '../../app/layout/PageWrapper';
 import { getCurrentLanguage } from '../../../common/translation/TranslationUtils';
 import { getSupportedChildData } from '../../child/ChildUtils';
 import { userHasProfileSelector } from '../state/RegistrationSelectors';
+import CheckHasProfile from '../../profile/CheckHasProfile';
 
 interface Props {
   resetFormValues: () => void;
@@ -76,6 +77,8 @@ const RegistrationForm: FunctionComponent<Props> = ({
       />
 
       <div className={styles.registrationFormContainer}>
+        {/* Check if the user has registered before */}
+        <CheckHasProfile />
         <div className={styles.registrationForm}>
           <Formik
             initialValues={initialValues}
