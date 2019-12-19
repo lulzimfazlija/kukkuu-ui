@@ -6,8 +6,15 @@
 
 .modal {
     background-color: $white;
-    @include respond-above(md) {
-        position: relative;
+    position: relative;
+
+    // Make tab-key jump between fields
+    @include respond-below(md) {
+        position: fixed;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
     }
 }
 
@@ -26,6 +33,7 @@
 .modalContent {
     background-color: $white;
     @include respond-below(md) {
+        // Ensure that modal is vertically scrollable on mobile
         position: absolute;
         top: 0;
         left: 0;
