@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Formik, FieldArray, FormikErrors } from 'formik';
+import { Formik, FieldArray } from 'formik';
 import { useTranslation } from 'react-i18next';
 
 import Modal from '../../../common/components/modal/Modal';
@@ -12,10 +12,7 @@ import SelectField from '../../../common/components/form/fields/select/SelectFie
 import { Child } from '../types/ChildTypes';
 import { getTranslatedRelationshipOptions } from '../ChildUtils';
 import NavigationPropmt from '../../../common/components/prompt/NavigationPrompt';
-import {
-  validatePostalCode,
-  validateDate,
-} from '../../../common/components/form/validationUtils';
+import { validatePostalCode } from '../../../common/components/form/validationUtils';
 import { formatTime, newMoment } from '../../../common/time/utils';
 import { BACKEND_DATE_FORMAT } from '../../../common/time/TimeConstants';
 import { isChildEligible } from '../../registration/notEligible/NotEligibleUtils';
@@ -79,24 +76,10 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
           </div>
         ) : (
           <Formik
-            validate={values => {
+            validate={() => {
               if (!isFilling) {
                 setFormIsFilling(true);
               }
-              const {
-                birthdate: { day, month, year },
-              } = values;
-              const errors: FormikErrors<ChildFormModalValues> = {};
-
-              if (day && month && year) {
-                errors.birthdate = { day: '', month: '', year: '' }; // validateDate(`${day}.${month}.${year}`);
-
-                if (!errors.birthdate) {
-                  // Delete the property manually so form will be valid when this is undefined.
-                  delete errors.birthdate;
-                }
-              }
-              return undefined;
             }}
             initialValues={initialValues}
             onSubmit={(values: ChildFormModalValues) => {
