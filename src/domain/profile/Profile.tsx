@@ -35,7 +35,7 @@ const Profile: FunctionComponent = () => {
       </PageWrapper>
     );
   }
-
+  // userHasProfile selector saves us when Apollo cache gives a wrong answer.
   if (data && (data.myProfile || userHasProfile)) {
     profile = normalizeProfileData(data);
     if (profile) {
