@@ -25,6 +25,9 @@ const BirthdateFormField: FunctionComponent<FieldArrayRenderProps> = ({
           type="number"
           name={`${name}.day`}
           component={InputField}
+          arialabel={t(
+            'homePage.preliminaryForm.childBirthdate.input.day.placeholder'
+          )}
           placeholder={t(
             'homePage.preliminaryForm.childBirthdate.input.day.placeholder'
           )}
@@ -40,6 +43,9 @@ const BirthdateFormField: FunctionComponent<FieldArrayRenderProps> = ({
           required={true}
           component={InputField}
           validate={(value: number) => validateRequire(value)}
+          aria-label={t(
+            'homePage.preliminaryForm.childBirthdate.input.month.placeholder'
+          )}
           placeholder={t(
             'homePage.preliminaryForm.childBirthdate.input.month.placeholder'
           )}
@@ -53,6 +59,9 @@ const BirthdateFormField: FunctionComponent<FieldArrayRenderProps> = ({
           name={`${name}.year`}
           component={InputField}
           validate={(value: number) => validateRequire(value)}
+          aria-label={t(
+            'homePage.preliminaryForm.childBirthdate.input.year.placeholder'
+          )}
           placeholder={t(
             'homePage.preliminaryForm.childBirthdate.input.year.placeholder'
           )}

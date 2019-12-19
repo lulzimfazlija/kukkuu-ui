@@ -10,7 +10,7 @@
     "redirect": {
       "text": "Redirecting..."
     },
-    "errorMessage": "An error occured while logging in, please try again",
+    "errorMessage": "An error occured while logging in. Please try again",
     "networkError": {
       "message": "Login error: Check your network connection or try again later"
     },
@@ -88,6 +88,9 @@
     },
     "closeButton": {
       "altText": "Close"
+    },
+    "backButton": {
+      "label": "Back"
     }
   },
   "footer": {
@@ -124,7 +127,7 @@
         "checkbox": {
           "label": "I assure that the information I have provided is correct",
           "required": {
-            "label": "This checkbox has to be ticked to continue"
+            "label": "This selection is mandatory"
           }
         }
       }
@@ -141,10 +144,13 @@
     },
     "smallScreenMenu": {
       "homepageLinkText": "Home page"
+    },
+    "menuButton": {
+      "label": "Menu"
     }
   },
   "notFound": {
-    "text": "Are you lost?"
+    "text": "The page you are looking for couldn't be found"
   },
   "partners": {
     "2020": "Children born in 2020"
@@ -178,6 +184,9 @@
         "name": {
           "text": "Culture Kid"
         }
+      },
+      "navigateToDetail": {
+        "buttonLabel": "Navigate to child detail"
       }
     },
     "addChildMutation": {
@@ -297,8 +306,7 @@
       "unSupported": "Input date is not supported"
     },
     "general": {
-      "required": "Mandatory field",
-      "unSupportedCity": "Unsupported city"
+      "required": "Mandatory field"
     },
     "postalCode": {
       "invalidFormat": "Invalid format"
@@ -337,7 +345,7 @@
         "text": "The Culture Kids service"
       },
       "service": {
-        "name": "Kulttuurin kummilapset -palvelu  ",
+        "name": "The Culture Kids service",
         "text": "Contact us to find out more about the service."
       },
       "godchild": {
@@ -345,5 +353,13 @@
         "text": "Helsinki Philharmonic Orchestra acts as the sponsor for Culture Kids born in 2020. Contact us to find out more about the Culture Kids programme for children born in 2020."
       }
     }
-  }
+  },
+  "email": {
+    "title": "Welcome to the Culture Kids programme!"
+  },
+  "email ": {
+    "heading": "Welcome to the Culture Kids programme!",
+    "text": "Welcome!"
+  },
+  " Please note! You cannot reply to this message.": ""
 }

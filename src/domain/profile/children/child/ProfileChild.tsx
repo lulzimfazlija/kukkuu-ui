@@ -22,7 +22,8 @@ const ProfileChild: React.FunctionComponent<ProfileChildProps> = ({
   const history = useHistory();
   const { t } = useTranslation();
   return (
-    <div
+    <button
+      aria-label={t('profile.child.navigateToDetail.buttonLabel')}
       className={styles.childWrapper}
       onClick={() => history.push(`/profile/child/${child.id}`)}
     >
@@ -47,7 +48,7 @@ const ProfileChild: React.FunctionComponent<ProfileChildProps> = ({
       <div className={styles.childDetail}>
         <Icon src={angleDownIcon} alt="Navigate to child detail" />
       </div>
-    </div>
+    </button>
   );
 };
 
