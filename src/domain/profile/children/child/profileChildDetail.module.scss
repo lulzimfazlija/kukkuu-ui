@@ -9,8 +9,12 @@
 
 .childDetailWrapper {
     display: grid;
-    grid-template-columns: auto auto;
-    gap: $baseMargin;
+    padding: 0 $basePadding;
+    @include respond-above(sm) {
+        padding: 0;
+        grid-template-columns: auto auto;
+        gap: $baseMargin;
+    }
 }
 
 .backButton {
@@ -20,8 +24,10 @@
 }
 
 .backButtonIcon {
-    height: inherit;
-    width: inherit;
+    @include respond-above(sm) {
+        height: inherit;
+        width: inherit;
+    }
     display: grid;
     align-items: center;
     justify-items: center;
