@@ -33,12 +33,17 @@ const Profile: FunctionComponent = () => {
       </PageWrapper>
     );
   }
+
   if (data && data.myProfile) {
     profile = normalizeProfileData(data);
     if (profile) {
       dispatch(saveProfile(profile));
     }
+  } else {
+    // User has logged in, but not created a profile, send them to front page for registration.
+    return <Redirect to="/" />;
   }
+
   return (
     <Switch>
       <Route
