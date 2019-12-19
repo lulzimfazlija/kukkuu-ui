@@ -20,6 +20,9 @@ export interface addNewChild_addChild {
 }
 
 export interface addNewChild {
+  /**
+   * This mutation cannot be used before one has started using the service with "SubmitChildrenAndGuardianMutation".
+   */
   addChild: addNewChild_addChild | null;
 }
 
