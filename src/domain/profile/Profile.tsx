@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
 import { Redirect, Switch, Route } from 'react-router-dom';
@@ -15,8 +15,10 @@ import { getCurrentLanguage } from '../../common/translation/TranslationUtils';
 import ProfileChildrenList from './children/ProfileChildrenList';
 import PageWrapper from '../app/layout/PageWrapper';
 import styles from './profile.module.scss';
+import { userHasProfileSelector } from '../registration/state/RegistrationSelectors';
 
 const Profile: FunctionComponent = () => {
+  const userHasProfile = useSelector(userHasProfileSelector);
   const { loading, error, data } = useQuery<ProfileQueryType>(profileQuery);
   const { i18n, t } = useTranslation();
   const locale = getCurrentLanguage(i18n);
@@ -34,7 +36,7 @@ const Profile: FunctionComponent = () => {
     );
   }
 
-  if (data && data.myProfile) {
+  if (data && (data.myProfile || userHasProfile)) {
     profile = normalizeProfileData(data);
     if (profile) {
       dispatch(saveProfile(profile));
