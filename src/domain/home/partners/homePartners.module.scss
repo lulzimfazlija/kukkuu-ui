@@ -8,11 +8,16 @@
     }
 }
 .partners {
-    padding: $xlargeMargin 0;
+    padding: 0 $baseMargin;
+    padding-bottom: 2rem; // valokuvataiteenmuseo is too tall, give it room
     display: grid;
 
     .big {
         display: grid;
+        @include respond-below(md) {
+            justify-content: center;
+            gap: 2em;
+        }
         @include respond-above(sm) {
             grid-template-columns: repeat(2, 1fr);
             gap: $xlargeMargin;
@@ -22,14 +27,15 @@
             width: 2* $xlargeMargin;
             height: $xlargeMargin;
 
-            &:first-child {
-                justify-self: end;
-            }
+            @include respond-above(sm) {
+                &:first-child {
+                    justify-self: end;
+                }
 
-            &:last-child {
-                justify-self: start;
+                &:last-child {
+                    justify-self: start;
+                }
             }
-
             img {
                 width: 100%;
                 height: auto;
@@ -38,12 +44,11 @@
     }
     .small {
         display: grid;
-        @include respond-above(sm) {
-            grid-template-columns: repeat(4, 1fr);
-        }
+        gap: 2rem;
+        grid-template-columns: repeat(4, 1fr);
         .icon {
-            width: $xlargeMargin;
-            height: 0.5 *$xlargeMargin;
+            width: 75%;
+            height: auto;
             justify-self: center;
 
             img {
@@ -51,6 +56,19 @@
                 height: auto;
             }
         }
-
+        @include respond-above(sm) {
+            grid-template-columns: repeat(4, 1fr);
+            .icon {
+                width: $xlargeMargin;
+                height: 0.67 * $xlargeMargin;
+            }
+        }
+        @include respond-above(md) {
+            grid-template-columns: repeat(6, 1fr);
+            .icon {
+                width: 1.5 * $xlargeMargin;
+                height: $xlargeMargin;
+            }
+        }
     }
 }
