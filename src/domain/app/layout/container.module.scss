@@ -7,10 +7,14 @@
     padding-bottom: $containerPaddingBottom;
 }
 
+.ishome {
+    // TODO...
+}
+
 @include respond-between(sm, xlg) {
     .container {
         grid-template-columns: 1fr 10fr 1fr;
-        
+
         & > * {
             grid-column: 2;
         }
