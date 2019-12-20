@@ -36,13 +36,17 @@ const ProfileChildDetail: React.FunctionComponent = () => {
       title={t('profile.child.detail.page.title')}
     >
       <div className={styles.childDetailWrapper}>
-        <div className={styles.backButton} onClick={() => history.goBack()}>
+        <button
+          aria-label={t('common.backButton.label')}
+          className={styles.backButton}
+          onClick={() => history.goBack()}
+        >
           <Icon
             src={backIcon}
             className={styles.backButtonIcon}
-            alt="Go back button"
+            alt={t('common.backButton.label')}
           />
-        </div>
+        </button>
         <div className={styles.childWrapper}>
           {child ? (
             <div className={styles.childInfo}>

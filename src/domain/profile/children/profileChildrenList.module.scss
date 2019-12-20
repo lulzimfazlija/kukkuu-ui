@@ -1,6 +1,6 @@
 @import 'mixins';
-@import 'colors';
 @import 'layout';
+@import 'colors';
 .childrenList {
     .thisYearPartner {
         p {
@@ -43,4 +43,9 @@
             transform: rotate(45deg);
         }
     }
+    button.addChild {
+        background: transparent;
+        border: 0;
+    }
+
 }
