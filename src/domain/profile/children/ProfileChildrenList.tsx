@@ -40,14 +40,18 @@ const ProfileChildrenList: React.FunctionComponent = () => {
         <div className={styles.profile}>
           <div className={styles.heading}>
             <h1>{t('profile.heading')}</h1>
-            <div className={styles.addChild} onClick={() => setIsOpen(true)}>
+            <button
+              aria-label={t('child.form.modal.add.label')}
+              className={styles.addChild}
+              onClick={() => setIsOpen(true)}
+            >
               <span>{t('child.form.modal.add.label')}</span>
               <Icon
                 src={addIcon}
                 alt="Add child icon"
                 className={styles.addChildIcon}
               />
-            </div>
+            </button>
             {isOpen && (
               <AddNewChildFormModal
                 isOpen={isOpen}
@@ -64,7 +68,7 @@ const ProfileChildrenList: React.FunctionComponent = () => {
             {children ? (
               <>
                 <div className={styles.thisYearPartner}>
-                  <p>{t('partners.2020')}</p>
+                  <h2>{t('partners.2020')}</h2>
                   {/* TODO: make me dynamic partners after more data came */}
                 </div>
                 {children.map(child => (

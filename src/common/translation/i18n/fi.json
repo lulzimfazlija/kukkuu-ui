@@ -10,12 +10,12 @@
     "redirect": {
       "text": "Ohjataan tunnistautumiseen..."
     },
-    "errorMessage": "An error occured while logging in, please try again",
+    "errorMessage": "Tapahtui virhe. Yritä uudestaan",
     "networkError": {
-      "message": "Login error: Check your network connection or try again later"
+      "message": "Virhe kirjautumisessa: Tarkista verkkoyhteytesi ja yritä uudestaan"
     },
     "loadUserError": {
-      "message": "An error occurred. Please try logging in again. "
+      "message": "Tapahtui virhe. Yritä kirjautua uudelleen."
     }
   },
   "CHILD_RELATIONSHIP_OPTIONS": {
@@ -88,10 +88,13 @@
     },
     "closeButton": {
       "altText": "Sulje"
+    },
+    "backButton": {
+      "label": "Palaa"
     }
   },
   "footer": {
-    "copyrightText": "© Copyright 2019 • All right reserved •"
+    "copyrightText": "© Copyright 2019 • Kaikki oikeudet pidätetään •"
   },
   "homePage": {
     "hero": {
@@ -124,7 +127,7 @@
         "checkbox": {
           "label": "Vakuutan antamani tiedot oikeaksi",
           "required": {
-            "label": "This checkbox has to be ticked to continue"
+            "label": "Tämä ruutu on pakollinen"
           }
         }
       }
@@ -141,10 +144,13 @@
     },
     "smallScreenMenu": {
       "homepageLinkText": "Etusivu"
+    },
+    "menuButton": {
+      "label": "Valikko"
     }
   },
   "notFound": {
-    "text": "Oletko hukassa?"
+    "text": "Etsimääsi sivua ei löytynyt"
   },
   "partners": {
     "2020": "2020 syntyneet"
@@ -178,6 +184,9 @@
         "name": {
           "text": "Kummilapsi"
         }
+      },
+      "navigateToDetail": {
+        "buttonLabel": "Navigate to child detail"
       }
     },
     "addChildMutation": {
@@ -287,7 +296,7 @@
       }
     },
     "submitMutation": {
-      "errorMessage": "Failed to submit to server"
+      "errorMessage": "Lähettäminen palvelimelle epäonnistui"
     }
   },
   "sanityCheck": "kukkuu.fi",
@@ -297,15 +306,14 @@
       "unSupported": "Input date is not supported"
     },
     "general": {
-      "required": "Pakollinen kenttä",
-      "unSupportedCity": "Unsupported city"
+      "required": "Pakollinen kenttä"
     },
     "postalCode": {
       "invalidFormat": "Väärä formaatti"
     }
   },
   "api": {
-    "errorMessage": "An error occured. Please try again later"
+    "errorMessage": "Tapahtui virhe. Yritä myöhemmin uudestaan"
   },
   "home": {
     "instructions": {
@@ -337,7 +345,7 @@
         "text": "Kulttuurin kummilapset -palvelu"
       },
       "service": {
-        "name": "Kulttuurin kummilapset -palvelu  ",
+        "name": "Kulttuurin kummilapset -palvelu",
         "text": "Ota yhteyttä, jos haluat lisätietoja palvelusta."
       },
       "godchild": {
@@ -345,5 +353,13 @@
         "text": "Helsingin kaupunginorkesteri toimii 2020 syntyneiden kummina. Ota yhteyttä, jos haluat tietää lisää vuoden 2020 syntyneiden kummiohjelmasta."
       }
     }
-  }
+  },
+  "email": {
+    "title": "Tervetuloa Kulttuurin kummilapsiin!"
+  },
+  "email ": {
+    "heading": "Tervetuloa Kulttuurin kummilapsiin!",
+    "text": "Terveutuloa!"
+  },
+  "HUOM! Tähän viestiin ei voi vastata.": ""
 }

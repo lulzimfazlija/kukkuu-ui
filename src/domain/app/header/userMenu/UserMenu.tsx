@@ -18,7 +18,7 @@ const UserMenu: React.FunctionComponent<UserMenuProps> = ({ options }) => {
       {options.map((option, index) => {
         return (
           <li key={index} onClick={() => option.onClick && option.onClick()}>
-            {option.label}
+            <button>{option.label}</button>
           </li>
         );
       })}

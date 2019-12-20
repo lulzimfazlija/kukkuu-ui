@@ -13,6 +13,7 @@ import { persistor } from '../../state/AppStore';
 import { clearProfile } from '../../../profile/state/ProfileActions';
 import { resetBackendAuthentication } from '../../../auth/state/BackendAuthenticationActions';
 import UserMenu from '../userMenu/UserMenu';
+import client from '../../../api/client';
 
 export interface UserDropdownProps {
   isSmallScreen?: boolean;
@@ -38,6 +39,9 @@ const UserDropdown: React.FunctionComponent<UserDropdownProps> = ({
       dispatch(resetBackendAuthentication());
       // Flush data in redux store and localStorage
       persistor.flush();
+      // Clear Apollo cache
+      client.clearStore();
+      // Log out
       logoutTunnistamo();
       history.push('/');
     },

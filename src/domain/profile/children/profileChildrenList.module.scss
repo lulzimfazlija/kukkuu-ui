@@ -1,6 +1,6 @@
 @import 'mixins';
-@import 'colors';
 @import 'layout';
+@import 'colors';
 .childrenList {
     .thisYearPartner {
         p {
@@ -11,7 +11,9 @@
 
 .profileWrapper {
     display: grid;
-
+    @include respond-below(md) {
+        padding: 0 $basePadding;
+    }
     @include respond-above(sm) {
         grid-template-columns: 1fr 10fr 1fr;
         
@@ -41,4 +43,9 @@
             transform: rotate(45deg);
         }
     }
+    button.addChild {
+        background: transparent;
+        border: 0;
+    }
+
 }

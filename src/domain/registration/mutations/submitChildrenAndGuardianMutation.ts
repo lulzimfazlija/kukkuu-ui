@@ -8,24 +8,31 @@ const submitChildrenAndGuardianMutation = gql`
     submitChildrenAndGuardian(
       input: { children: $children, guardian: $guardian }
     ) {
-      children {
-        birthdate
+      guardian {
+        id
         firstName
         lastName
-        postalCode
-        relationships {
+        email
+        phoneNumber
+        language
+        children {
           edges {
             node {
-              type
+              id
+              firstName
+              lastName
+              birthdate
+              postalCode
+              relationships {
+                edges {
+                  node {
+                    type
+                  }
+                }
+              }
             }
           }
         }
-      }
-      guardian {
-        firstName
-        lastName
-        phoneNumber
-        language
       }
     }
   }

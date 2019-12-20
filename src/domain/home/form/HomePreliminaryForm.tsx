@@ -121,6 +121,9 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
                   <EnhancedInputField
                     className={styles.childHomeCity}
                     name="child.homeCity"
+                    aria-label={t(
+                      'homePage.preliminaryForm.childHomeCity.input.label'
+                    )}
                     label={t(
                       'homePage.preliminaryForm.childHomeCity.input.label'
                     )}
