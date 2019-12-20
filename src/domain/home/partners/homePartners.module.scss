@@ -1,14 +1,14 @@
-@import "layout";
-@import "variables";
+@import 'layout';
+@import 'variables';
 
 .wrapper {
-    h2 {
-        text-align: center;
-        padding: $largeMargin 0;
-    }
+  h2 {
+    text-align: center;
+    padding: $largeMargin 0;
+  }
 }
 .partners {
-    padding: 0 $baseMargin;
-    padding-bottom: 2rem; // valokuvataiteenmuseo is too tall, give it room
-    display: grid;
+  padding: 0 $baseMargin;
+  padding-bottom: 2rem; // valokuvataiteenmuseo is too tall, give it room
+  display: grid;
 }
