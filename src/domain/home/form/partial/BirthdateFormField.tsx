@@ -25,7 +25,7 @@ const BirthdateFormField: FunctionComponent<FieldArrayRenderProps> = ({
           type="number"
           name={`${name}.day`}
           component={InputField}
-          arialabel={t(
+          aria-label={t(
             'homePage.preliminaryForm.childBirthdate.input.day.placeholder'
           )}
           placeholder={t(
