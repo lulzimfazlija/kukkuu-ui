@@ -43,6 +43,7 @@ const SmallScreenNav: React.FunctionComponent = props => {
               <div className={styles.logo}></div>
             </div>
             <button
+              aria-label={t('common.closeButton.altText')}
               className={styles.closeButton}
               onClick={() => toggleNavMenu(!isOpen)}
             >
