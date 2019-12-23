@@ -6,7 +6,15 @@
         text-align: center;
         padding: $largeMargin 0;
     }
+
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
 }
+
+.innerwrapper {
+    grid-column: 2;
+}
+
 .partners {
     padding: $xlargeMargin 0;
     display: grid;

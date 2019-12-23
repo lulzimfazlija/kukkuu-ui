@@ -4,9 +4,14 @@
 
 .wrapper {
     padding-bottom: $largeMargin;
+
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
 }
 
 .contact {
+    grid-column: 2;
+
     h2 {
         padding: $largeMargin 0;
         text-align: center;

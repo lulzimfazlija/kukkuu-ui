@@ -15,17 +15,19 @@ const HomePartners: React.FunctionComponent = props => {
 
   return (
     <section className={styles.wrapper}>
-      <h2>{t('home.partners.heading.text')}</h2>
-      <div className={styles.partners}>
-        <div className={styles.big}>
-          <Icon className={styles.icon} src={janeIcon} alt="Jane icon" />
-          <Icon className={styles.icon} src={hkiIcon} alt="Hki icon" />
-        </div>
-        <div className={styles.small}>
-          <Icon className={styles.icon} src={hekaIcon} alt="Heka icon" />
-          <Icon className={styles.icon} src={ilmiIcon} alt="Ilmi icon" />
-          <Icon className={styles.icon} src={cirkoIcon} alt="Cirko icon" />
-          <Icon className={styles.icon} src={tansiIcon} alt="Tansi icon" />
+      <div className={styles.innerwrapper}>
+        <h2>{t('home.partners.heading.text')}</h2>
+        <div className={styles.partners}>
+          <div className={styles.big}>
+            <Icon className={styles.icon} src={janeIcon} alt="Jane icon" />
+            <Icon className={styles.icon} src={hkiIcon} alt="Hki icon" />
+          </div>
+          <div className={styles.small}>
+            <Icon className={styles.icon} src={hekaIcon} alt="Heka icon" />
+            <Icon className={styles.icon} src={ilmiIcon} alt="Ilmi icon" />
+            <Icon className={styles.icon} src={cirkoIcon} alt="Cirko icon" />
+            <Icon className={styles.icon} src={tansiIcon} alt="Tansi icon" />
+          </div>
         </div>
       </div>
     </section>

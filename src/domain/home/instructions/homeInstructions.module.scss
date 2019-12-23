@@ -7,7 +7,12 @@
     text-align: center;
     padding-bottom: $largeMargin;
 
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+
     .instructions {
+        grid-column: 2;
+
         h2 {
             margin: 0;
             padding: $largeMargin 0;
@@ -29,7 +34,7 @@
                 gap: $baseMargin;
             }
 
-            .iconBox {                
+            .iconBox {
                 p {
                     line-height: $largeLineHeight;
                 }
