@@ -13,14 +13,14 @@ const Container: FunctionComponent<{
 }> = ({ children, className }) => {
   const isHome = (children.props.className && stringStartsWith(children.props.className, 'home_home_'));
   return (
-      <div>
-        { isHome ? (
-            <div className={classnames(styles.container, className, styles.gridLayoutOverride)}>{children}</div>
-        ) : (
-            <div className={classnames(styles.container, className)}>{children}</div>
-        )}
-      </div>
-  )
+    <div>
+      { isHome ? (
+        <div className={classnames(styles.container, className, styles.gridLayoutOverride)}>{children}</div>
+      ) : (
+        <div className={classnames(styles.container, className)}>{children}</div>
+      )}
+    </div>
+  );
 };
 
 export default Container;
