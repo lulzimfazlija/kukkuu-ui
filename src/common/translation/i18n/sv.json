@@ -338,6 +338,32 @@
     "partners": {
       "heading": {
         "text": "Samarbetspartner"
+      },
+      "partner": {
+        "valokuvataiteenmuseo": "Finlands fotografiska museum",
+        "helsinginkaupunginorkesteri": "Helsingfors stadsorkester",
+        "jaes": "Jane och Aatos Erkkos stiftelse",
+        "tanssintalo": "Dansens hus",
+        "teatteriilmio": "Ilmi Ö teater",
+        "amosrex": "Amos Rex",
+        "mfa": "Finlands arkitekturmuseum",
+        "designmuseum": "Designmuseet",
+        "oodihelsinki": "Ode Helsingfors centrumbibliotek",
+        "helsinginkaupunginmuseo": "Helsingfors stadsmuseum",
+        "hamhelsinki": "Helsingfors konstmuseum HAM",
+        "hkt": "Helsingfors stadsteater",
+        "hotellijaravintolamuseo": "Hotell- och restaurangmuseet",
+        "kansallismuseo": "Nationalmuseum",
+        "kavi": "Nationella audiovisuella institutet",
+        "nukketeatterisampo": "Dockteatern Sampo",
+        "qteatteri": "Q-teatteri",
+        "oopperabaletti": "Finlands nationalopera och -balett",
+        "kansallisteatteri": "Finlands nationalteater",
+        "kulttuuriperintokasvatus": "Föreningen för kulturarvsfostran i Finland",
+        "svenskateatern": "Svenska Teatern",
+        "hurjaruuth": "Dansteatern Hurjaruuth",
+        "teatterimuseo": "Teatermuseet",
+        "cirko": "Cirko – Centrumet för nycirkus"
       }
     },
     "contact": {
