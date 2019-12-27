@@ -17,9 +17,18 @@ const Container: FunctionComponent<{
   return (
     <div>
       {isHome ? (
-        <div className={classnames(styles.container, className, styles.gridLayoutOverride)}>{children}</div>
+        <div
+          className={classnames(
+            styles.container,
+            className,
+            styles.gridLayoutOverride)}
+        >
+          {children}
+        </div>
       ) : (
-        <div className={classnames(styles.container, className)}>{children}</div>
+        <div className={classnames(styles.container, className)}>
+          {children}
+        </div>
       )}
     </div>
   );
