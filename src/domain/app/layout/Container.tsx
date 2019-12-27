@@ -11,9 +11,9 @@ const Container: FunctionComponent<{
   children?: any;
   className?: string;
 }> = ({ children, className }) => {
-  const isHome = (
-      children.props.className &&
-      stringStartsWith(children.props.className, 'home_home_'));
+  const isHome =
+    children.props.className &&
+    stringStartsWith(children.props.className, 'home_home_');
   return (
     <div>
       {isHome ? (
