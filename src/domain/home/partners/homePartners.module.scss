@@ -1,56 +1,14 @@
-@import "layout";
-@import "variables";
+@import 'layout';
+@import 'variables';
 
 .wrapper {
-    h2 {
-        text-align: center;
-        padding: $largeMargin 0;
-    }
+  h2 {
+    text-align: center;
+    padding: $largeMargin 0;
+  }
 }
 .partners {
-    padding: $xlargeMargin 0;
-    display: grid;
-
-    .big {
-        display: grid;
-        @include respond-above(sm) {
-            grid-template-columns: repeat(2, 1fr);
-            gap: $xlargeMargin;
-        }
-        margin-bottom: $largeMargin;
-        .icon {
-            width: 2* $xlargeMargin;
-            height: $xlargeMargin;
-
-            &:first-child {
-                justify-self: end;
-            }
-
-            &:last-child {
-                justify-self: start;
-            }
-
-            img {
-                width: 100%;
-                height: auto;
-            }
-        }
-    }
-    .small {
-        display: grid;
-        @include respond-above(sm) {
-            grid-template-columns: repeat(4, 1fr);
-        }
-        .icon {
-            width: $xlargeMargin;
-            height: 0.5 *$xlargeMargin;
-            justify-self: center;
-
-            img {
-                width: 100%;
-                height: auto;
-            }
-        }
-
-    }
+  padding: 0 $baseMargin;
+  padding-bottom: 2rem; // valokuvataiteenmuseo is too tall, give it room
+  display: grid;
 }
