@@ -21,8 +21,8 @@ const Container: FunctionComponent<{
           className={classnames(
             styles.container,
             className,
-            styles.gridLayoutOverride)
-          }
+            styles.gridLayoutOverride
+          )}
         >
           {children}
         </div>
