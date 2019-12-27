@@ -5,15 +5,12 @@ import styles from './container.module.scss';
 
 const stringStartsWith = (targetString: string, searchString: string) => {
   return targetString.substring(0, searchString.length) === searchString;
-}
+};
 
 const Container: FunctionComponent<{
-  children?: any
-  className?: string
-}> = ({
-  children,
-  className,
-}) => {
+  children?: any;
+  className?: string;
+}> = ({ children, className }) => {
   const isHome = (children.props.className && stringStartsWith(children.props.className, 'home_home_'));
   return (
       <div>
