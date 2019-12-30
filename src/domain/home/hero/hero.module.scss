@@ -9,7 +9,7 @@
     display: grid;
     position: relative;
     overflow: visible;
-    background-image: url('../../../assets/icons/svg/kids.png');
+    background-image: url('../../../assets/icons/svg/Culture_kids.png');
     background-repeat: no-repeat;
     background-position: center bottom -2px;
     background-size: 100% auto;
@@ -27,7 +27,7 @@
     @include formContainer();
 }
 
-.hero {    
+.hero {
     h1 {
         margin-top: $largeMargin;
         margin-bottom: 0;
