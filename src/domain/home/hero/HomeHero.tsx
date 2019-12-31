@@ -44,6 +44,7 @@ const HomeHero: React.FunctionComponent<HomeHero> = ({
           </div>
         </div>
       </div>
+      <div className={styles.heroContainerWithImage}></div>
     </section>
   );
 };

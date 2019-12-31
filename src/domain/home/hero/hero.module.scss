@@ -5,19 +5,18 @@
 
 .heroWrapper {
     background-color: $hel-summer;
-    min-height: 30vh;
     display: grid;
     position: relative;
     overflow: visible;
+}
+
+.heroContainerWithImage {
+    min-height: calc(0.29 * 100vw);
+    background-color: $hel-summer;
     background-image: url('../../../assets/icons/svg/Culture_kids.png');
     background-repeat: no-repeat;
     background-position: center bottom -2px;
     background-size: 100% auto;
-    display: grid;
-    padding-bottom: $largeMargin;
-    @include respond-above(lg) {
-        min-height: 35vh;
-    }
 }
 
 .heroContainer {
