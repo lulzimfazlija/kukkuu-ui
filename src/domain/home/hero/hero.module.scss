@@ -23,7 +23,7 @@
     display: grid;
     text-align: center;
 
-    @include formContainer();
+    @include heroContainer();
 }
 
 .hero {
