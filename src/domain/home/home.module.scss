@@ -2,7 +2,7 @@
 @import "mixins";
 
 .home {
-    
+
     section {
         &:nth-child(3),
         &:nth-child(5) {
@@ -13,5 +13,13 @@
         &:nth-child(6) {
             @include background($hel-light);
         }
+    }
+}
+
+.gridLayoutOverride {
+    grid-template-columns: 1fr !important;
+
+    & > * {
+        grid-column: 1 !important;
     }
 }
