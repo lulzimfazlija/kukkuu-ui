@@ -15,14 +15,6 @@
             grid-column: 2;
         }
     }
-
-    .gridLayoutOverride {
-        grid-template-columns: 1fr;
-
-        & > * {
-            grid-column: 1;
-        }
-    }
 }
 
 @include respond-above(xlg) {
@@ -31,14 +23,6 @@
 
         & > * {
             grid-column: 2;
-        }
-    }
-
-    .gridLayoutOverride {
-        grid-template-columns: 1fr;
-
-        & > * {
-            grid-column: 1;
         }
     }
 }
