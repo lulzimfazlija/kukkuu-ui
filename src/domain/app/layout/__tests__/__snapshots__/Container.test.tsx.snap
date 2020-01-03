@@ -1,11 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders snapshot correctly 1`] = `
-<div>
-  <div
-    className="container"
-  >
-    <Component />
-  </div>
+<div
+  className="container"
+>
+  <Component />
 </div>
 `;

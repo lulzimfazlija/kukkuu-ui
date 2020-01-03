@@ -21,7 +21,7 @@ const Home: FunctionComponent = () => {
   };
 
   return (
-    <PageWrapper>
+    <PageWrapper containerClassName={styles.gridLayoutOverride}>
       <div
         className={classnames(styles.home, {
           userHasProfile: styles.userHasProfile,
