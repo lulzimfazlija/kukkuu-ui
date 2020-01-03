@@ -10,10 +10,12 @@ const HomePartners: React.FunctionComponent = props => {
 
   return (
     <section className={styles.wrapper}>
-      <h2>{t('home.partners.heading.text')}</h2>
-      <div className={styles.partners}>
-        <Partners size="big" partners={mainPartnerList} />
-        <Partners size="small" partners={partnerList} />
+      <div className={styles.innerwrapper}>
+        <h2>{t('home.partners.heading.text')}</h2>
+        <div className={styles.partners}>
+          <Partners size="big" partners={mainPartnerList} />
+          <Partners size="small" partners={partnerList} />
+        </div>
       </div>
     </section>
   );
