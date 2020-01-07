@@ -10,9 +10,25 @@
     overflow: visible;
 }
 
-.heroContainerWithImage {
-    min-height: calc(0.265 * 100vw);
-    background-color: $hel-summer;
+.kidsImageContainer {
+    grid-template-columns: 1fr minmax(auto, $containerMaxWidth) 1fr;
+    display: grid;
+    @include respond-above(lg) {
+        background-image: url('../../../assets/icons/svg/Culture_kids_background@2x.png');
+        background-repeat: repeat-x;
+        background-position: center bottom -2px;
+        background-size: 100% 321px;
+    }
+}
+
+.kidsImage {
+    grid-column: 2;
+    @include respond-above(md) {
+        min-height: calc(0.243 * 100vh);
+    }
+    @include respond-below(lg) {
+        min-height: calc(0.265 * 100vw);
+    }
     background-image: url('../../../assets/icons/svg/Culture_kids@2x.png');
     background-repeat: no-repeat;
     background-position: center bottom -2px;
