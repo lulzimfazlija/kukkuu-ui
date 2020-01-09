@@ -1,7 +1,7 @@
-import { createReducer } from 'redux-starter-kit';
+import { createReducer } from '@reduxjs/toolkit';
 
-import { RegistrationData } from '../types/RegistrationTypes';
 import { REGISTRATION_ACTIONS } from '../constants/RegistrationActionConstants';
+import { RegistrationData } from '../types/RegistrationTypes';
 
 export const defaultRegistrationData: RegistrationData = {
   formValues: {
