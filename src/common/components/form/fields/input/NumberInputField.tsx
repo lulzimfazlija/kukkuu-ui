@@ -23,7 +23,7 @@ const NumberInputField: React.ComponentType<NumberInputField> = ({
   const inputError = touch && error ? error : null;
 
   const onKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (field.value.toString().length >= maxLength) {
+    if (maxLength && field.value.toString().length >= maxLength) {
       e.preventDefault();
     }
   };
