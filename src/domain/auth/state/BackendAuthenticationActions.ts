@@ -12,7 +12,7 @@ const fetchTokenSuccess = createAction<BackendTokenResponse>(
   API_AUTHENTICATION_ACTIONS.FETCH_TOKEN_SUCCESS
 );
 
-const fetchTokenError = createAction<AxiosError | null>(
+const fetchTokenError = createAction<AxiosError>(
   API_AUTHENTICATION_ACTIONS.FETCH_TOKEN_ERROR
 );
 
