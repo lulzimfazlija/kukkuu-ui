@@ -1,21 +1,24 @@
 {
+  "api": {
+    "errorMessage": "An error occured. Please try again later"
+  },
   "appName": "Culture Kids",
   "authentication": {
+    "errorMessage": "An error occured while logging in. Please try again",
+    "loadUserError": {
+      "message": "An error occurred. Please try logging in again. "
+    },
     "login": {
       "text": "Login"
     },
     "logout": {
       "text": "Logout"
     },
-    "redirect": {
-      "text": "Redirecting..."
-    },
-    "errorMessage": "An error occured while logging in. Please try again",
     "networkError": {
       "message": "Login error: Check your network connection or try again later"
     },
-    "loadUserError": {
-      "message": "An error occurred. Please try logging in again. "
+    "redirect": {
+      "text": "Redirecting..."
     }
   },
   "CHILD_RELATIONSHIP_OPTIONS": {
@@ -38,18 +41,24 @@
           "label": "Edit child’s information",
           "text": "Edit"
         },
-        "return": {
-          "text": "Return to registration page"
-        },
         "notEligible": {
           "return": {
             "text": "Return to profile"
           }
+        },
+        "return": {
+          "text": "Return to registration page"
         }
       }
     }
   },
   "common": {
+    "backButton": {
+      "label": "Back"
+    },
+    "closeButton": {
+      "altText": "Close"
+    },
     "form": {
       "leave": {
         "warning": {
@@ -59,6 +68,11 @@
     },
     "goBack": {
       "text": "Return to registration page"
+    },
+    "language": {
+      "en": "English",
+      "fi": "Suomi",
+      "sv": "Svenska"
     },
     "modal": {
       "cancel": {
@@ -80,21 +94,83 @@
       "default": {
         "text": "Choose"
       }
-    },
-    "language": {
-      "fi": "Suomi",
-      "sv": "Svenska",
-      "en": "English"
-    },
-    "closeButton": {
-      "altText": "Close"
-    },
-    "backButton": {
-      "label": "Back"
     }
+  },
+  "email ": {
+    "heading": "Welcome to the Culture Kids programme!",
+    "text": "Welcome!"
+  },
+  " Please note! You cannot reply to this message.": "",
+  "email": {
+    "title": "Welcome to the Culture Kids programme!"
   },
   "footer": {
     "copyrightText": "© Copyright 2019 • All rights reserved •"
+  },
+  "home": {
+    "contact": {
+      "godchild": {
+        "name": "Culture Kids activities for children born in 2020",
+        "text": "Helsinki Philharmonic Orchestra acts as the sponsor for Culture Kids born in 2020. Contact us to find out more about the Culture Kids programme for children born in 2020."
+      },
+      "heading": {
+        "text": "The Culture Kids service"
+      },
+      "service": {
+        "name": "The Culture Kids service",
+        "text": "Contact us to find out more about the service."
+      }
+    },
+    "instructions": {
+      "heading": {
+        "text": "How can I take part in the activities?"
+      },
+      "icon": {
+        "kid": {
+          "text": "If the child lives in Helsinki and was born in 2020, you may sign them up to become a Culture Kid and register with the service."
+        },
+        "theater": {
+          "text": "You can have fun experiencing culture, together with your child. The events are designed to support your child’s development and well-being."
+        },
+        "ticket": {
+          "text": "You will receive an invitation via e-mail two times a year, and you can use the service to sign up for your preferred events."
+        }
+      }
+    },
+    "partners": {
+      "heading": {
+        "text": "Cooperation partners"
+      },
+      "partner": {
+        "amosrex": "Amos Rex",
+        "cirko": "Cirko – Center for New Circus",
+        "designmuseum": "Design Museum",
+        "hamhelsinki": "Helsinki Art Museum - HAM",
+        "helsinginkaupunginmuseo": "Helsinki City Museum",
+        "helsinginkaupunginorkesteri": "Helsinki Philharmonic Orchestra",
+        "hkt": "Helsinki City Theatre",
+        "hotellijaravintolamuseo": "Hotel and Restaurant Museum",
+        "hurjaruuth": "Hurjaruuth Dance Theatre",
+        "jaes": "Jane and Aatos Erkkos Foundation",
+        "kansallismuseo": "National Museum of Finland",
+        "kansallisteatteri": "Finnish National Theatre",
+        "kavi": "National Audiovisual Institute",
+        "kulttuuriperintokasvatus": "The Association of Cultural Heritage Education in Finland",
+        "mfa": "Museum of Finnish Architecture",
+        "nukketeatterisampo": "Puppet Theatre Sampo",
+        "oodihelsinki": "Oodi Helsinki Central Library",
+        "oopperabaletti": "Finnish National Opera and Ballet",
+        "qteatteri": "Q-teatteri",
+        "svenskateatern": "Svenska Teatern",
+        "tanssintalo": "Dance House Helsinki",
+        "teatteriilmio": "Theatre Ilmi Ö",
+        "teatterimuseo": "Theatre Museum",
+        "valokuvataiteenmuseo": "Finnish Museum of Photography"
+      }
+    },
+    "registration": {
+      "text": "Start by entering the hometown and date of birth of the child you want to register. After this you will be able to login to the service and complete your child’s Culture Kid profile. This should only take a few minutes."
+    }
   },
   "homePage": {
     "hero": {
@@ -134,6 +210,9 @@
     }
   },
   "navbar": {
+    "menuButton": {
+      "label": "Menu"
+    },
     "profileDropdown": {
       "openCityProfile": {
         "text": "Open user profile in omaHelsinki"
@@ -144,9 +223,6 @@
     },
     "smallScreenMenu": {
       "homepageLinkText": "Home page"
-    },
-    "menuButton": {
-      "label": "Menu"
     }
   },
   "notFound": {
@@ -156,6 +232,30 @@
     "2020": "Children born in 2020"
   },
   "profile": {
+    "addChildMutation": {
+      "errorMessage": "Error adding child. Please try again"
+    },
+    "child": {
+      "default": {
+        "name": {
+          "text": "Culture Kid"
+        }
+      },
+      "detail": {
+        "delete": {
+          "text": "Remove child profile"
+        },
+        "edit": {
+          "text": "Update child information"
+        },
+        "page": {
+          "title": "Child detail page"
+        }
+      },
+      "navigateToDetail": {
+        "buttonLabel": "Navigate to child detail"
+      }
+    },
     "children": {
       "noChild": {
         "text": "No children have been added"
@@ -167,30 +267,6 @@
         "heading": "Event invitations"
       },
       "text": "Event invitations sent to you will be displayed here. You can sign up for events and cancel your attendance if you, for some reason, are unable to attend."
-    },
-    "child": {
-      "detail": {
-        "page": {
-          "title": "Child detail page"
-        },
-        "edit": {
-          "text": "Update child information"
-        },
-        "delete": {
-          "text": "Remove child profile"
-        }
-      },
-      "default": {
-        "name": {
-          "text": "Culture Kid"
-        }
-      },
-      "navigateToDetail": {
-        "buttonLabel": "Navigate to child detail"
-      }
-    },
-    "addChildMutation": {
-      "errorMessage": "Error adding child. Please try again"
     }
   },
   "registration": {
@@ -286,17 +362,17 @@
     "heading": "Sign up",
     "notEligible": {
       "buttonText": "Click here to find cultural events for your child!",
+      "otherOptionsLink": "https://www.myhelsinki.fi/en/search?tags=children%20(age%20groups)&category=events",
       "text": "Your child is unfortunately not eligible for the Culture Kids programme due to their date of birth or hometown.",
-      "title": "We’re sorry.",
-      "otherOptionsLink": "https://www.myhelsinki.fi/en/search?tags=children%20(age%20groups)&category=events"
+      "title": "We’re sorry."
+    },
+    "submitMutation": {
+      "errorMessage": "Failed to submit to server"
     },
     "welcome": {
       "hero": {
         "header": "Welcome to the Culture Kids programme!"
       }
-    },
-    "submitMutation": {
-      "errorMessage": "Failed to submit to server"
     }
   },
   "sanityCheck": "kukkuu.en",
@@ -311,81 +387,5 @@
     "postalCode": {
       "invalidFormat": "Invalid format"
     }
-  },
-  "api": {
-    "errorMessage": "An error occured. Please try again later"
-  },
-  "home": {
-    "instructions": {
-      "heading": {
-        "text": "How can I take part in the activities?"
-      },
-      "icon": {
-        "kid": {
-          "text": "If the child lives in Helsinki and was born in 2020, you may sign them up to become a Culture Kid and register with the service."
-        },
-        "ticket": {
-          "text": "You will receive an invitation via e-mail two times a year, and you can use the service to sign up for your preferred events."
-        },
-        "theater": {
-          "text": "You can have fun experiencing culture, together with your child. The events are designed to support your child’s development and well-being."
-        }
-      }
-    },
-    "registration": {
-      "text": "Start by entering the hometown and date of birth of the child you want to register. After this you will be able to login to the service and complete your child’s Culture Kid profile. This should only take a few minutes."
-    },
-    "partners": {
-      "heading": {
-        "text": "Cooperation partners"
-      },
-      "partner": {
-        "valokuvataiteenmuseo": "Finnish Museum of Photography",
-        "helsinginkaupunginorkesteri": "Helsinki Philharmonic Orchestra",
-        "jaes": "Jane and Aatos Erkkos Foundation",
-        "tanssintalo": "Dance House Helsinki",
-        "teatteriilmio": "Theatre Ilmi Ö",
-        "amosrex": "Amos Rex",
-        "mfa": "Museum of Finnish Architecture",
-        "designmuseum": "Design Museum",
-        "oodihelsinki": "Oodi Helsinki Central Library",
-        "helsinginkaupunginmuseo": "Helsinki City Museum",
-        "hamhelsinki": "Helsinki Art Museum - HAM",
-        "hkt": "Helsinki City Theatre",
-        "hotellijaravintolamuseo": "Hotel and Restaurant Museum",
-        "kansallismuseo": "National Museum of Finland",
-        "kavi": "National Audiovisual Institute",
-        "nukketeatterisampo": "Puppet Theatre Sampo",
-        "qteatteri": "Q-teatteri",
-        "oopperabaletti": "Finnish National Opera and Ballet",
-        "kansallisteatteri": "Finnish National Theatre",
-        "kulttuuriperintokasvatus": "The Association of Cultural Heritage Education in Finland",
-        "svenskateatern": "Svenska Teatern",
-        "hurjaruuth": "Hurjaruuth Dance Theatre",
-        "teatterimuseo": "Theatre Museum",
-        "cirko": "Cirko – Center for New Circus"
-      }
-    },
-    "contact": {
-      "heading": {
-        "text": "The Culture Kids service"
-      },
-      "service": {
-        "name": "The Culture Kids service",
-        "text": "Contact us to find out more about the service."
-      },
-      "godchild": {
-        "name": "Culture Kids activities for children born in 2020",
-        "text": "Helsinki Philharmonic Orchestra acts as the sponsor for Culture Kids born in 2020. Contact us to find out more about the Culture Kids programme for children born in 2020."
-      }
-    }
-  },
-  "email": {
-    "title": "Welcome to the Culture Kids programme!"
-  },
-  "email ": {
-    "heading": "Welcome to the Culture Kids programme!",
-    "text": "Welcome!"
-  },
-  " Please note! You cannot reply to this message.": ""
+  }
 }
