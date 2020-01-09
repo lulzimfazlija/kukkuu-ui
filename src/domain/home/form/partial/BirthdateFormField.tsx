@@ -12,7 +12,7 @@ const BirthdateFormField: FunctionComponent<FieldArrayRenderProps> = ({
   form: { errors, touched },
 }) => {
   const fieldTouched = getIn(touched, 'child.birthdate.day');
-  const error = errors['childBirthdate'];
+  const error = getIn(errors, 'childBirthdate');
   const { t } = useTranslation();
 
   return (
@@ -68,7 +68,7 @@ const BirthdateFormField: FunctionComponent<FieldArrayRenderProps> = ({
         />
       </div>
       {/* not to display error at first render until input got touched */}
-      {fieldTouched && <div className={styles.error}>{error}</div>}
+      {fieldTouched && <div className={styles.error}>{t(error)}</div>}
     </div>
   );
 };
