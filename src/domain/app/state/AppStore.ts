@@ -1,5 +1,5 @@
-import { configureStore, getDefaultMiddleware, Store } from 'redux-starter-kit';
-import { persistStore, persistReducer } from 'redux-persist';
+import { configureStore, getDefaultMiddleware, Store } from '@reduxjs/toolkit';
+import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import rootReducer from './AppReducers';

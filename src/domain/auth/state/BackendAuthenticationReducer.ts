@@ -1,7 +1,7 @@
-import { createReducer } from 'redux-starter-kit';
+import { createReducer } from '@reduxjs/toolkit';
 
-import { BackendAuthenticationData } from '../types/BackendAuthenticationTypes';
 import { API_AUTHENTICATION_ACTIONS } from '../constants/BackendAuthenticationActionConstants';
+import { BackendAuthenticationData } from '../types/BackendAuthenticationTypes';
 
 export const defaultApiAuthenticationData: BackendAuthenticationData = {
   isFetchingToken: true,
