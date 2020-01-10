@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux-starter-kit';
+import { combineReducers } from '@reduxjs/toolkit';
 
-import registrationReducer from '../../registration/state/RegistrationReducers';
 import authenticationReducers from '../../auth/state/AuthenticationReducers';
 import profileReducer from '../../profile/state/ProfileReducers';
+import registrationReducer from '../../registration/state/RegistrationReducers';
 
 export default combineReducers({
   authentication: authenticationReducers,
