@@ -1,21 +1,24 @@
 {
+  "api": {
+    "errorMessage": "Ett fel uppstod. Försök igen senare"
+  },
   "appName": "Kulturens fadderbarn",
   "authentication": {
+    "errorMessage": "Ett fel uppstod. Försök igen",
+    "loadUserError": {
+      "message": "Ett fel uppstod. Försök att logga in igen."
+    },
     "login": {
       "text": "Logga in"
     },
     "logout": {
       "text": "Logga ut"
     },
-    "redirect": {
-      "text": "Omdirigerar till inloggning..."
-    },
-    "errorMessage": "Ett fel uppstod. Försök igen",
     "networkError": {
       "message": "Inloggningsfel: Kontrollera din nätverksanslutning eller försök igen senare"
     },
-    "loadUserError": {
-      "message": "Ett fel uppstod. Försök att logga in igen."
+    "redirect": {
+      "text": "Omdirigerar till inloggning..."
     }
   },
   "CHILD_RELATIONSHIP_OPTIONS": {
@@ -38,18 +41,24 @@
           "label": "Redigera uppgifterna om barnet",
           "text": "Redigera"
         },
-        "return": {
-          "text": "Return to registration page"
-        },
         "notEligible": {
           "return": {
             "text": "Tillbaka till profilen"
           }
+        },
+        "return": {
+          "text": "Return to registration page"
         }
       }
     }
   },
   "common": {
+    "backButton": {
+      "label": "Tillbaka"
+    },
+    "closeButton": {
+      "altText": "Stäng"
+    },
     "form": {
       "leave": {
         "warning": {
@@ -59,6 +68,11 @@
     },
     "goBack": {
       "text": "Tillbaka till registreringen"
+    },
+    "language": {
+      "en": "English",
+      "fi": "Suomi",
+      "sv": "Svenska"
     },
     "modal": {
       "cancel": {
@@ -80,21 +94,83 @@
       "default": {
         "text": "Välj"
       }
-    },
-    "language": {
-      "fi": "Suomi",
-      "sv": "Svenska",
-      "en": "English"
-    },
-    "closeButton": {
-      "altText": "Stäng"
-    },
-    "backButton": {
-      "label": "Tillbaka"
     }
+  },
+  "email ": {
+    "heading": "Välkommen som kulturens fadderbarn!",
+    "text": "Välkommen!"
+  },
+  " Obs! Det går inte att besvara meddelandet.": "",
+  "email": {
+    "title": "Välkommen som kulturens fadderbarn!"
   },
   "footer": {
     "copyrightText": "© Copyright 2019 • Alla rättigheter förbehållna •"
+  },
+  "home": {
+    "contact": {
+      "godchild": {
+        "name": "Fadderverksamhet för barn födda 2020",
+        "text": "Helsingfors stad står fadder till barn som föds 2020. Ta kontakt om du vill få mer information om fadderprogrammet för barn födda 2020."
+      },
+      "heading": {
+        "text": "Tjänsten Kulturens fadderbarn"
+      },
+      "service": {
+        "name": "Tjänsten Kulturens fadderbarn",
+        "text": "Ta kontakt om du vill få mer information om tjänsten."
+      }
+    },
+    "instructions": {
+      "heading": {
+        "text": "Hur kan jag delta?"
+      },
+      "icon": {
+        "kid": {
+          "text": "Om barnet bor i Helsingfors och är fött 2020, kan du anmälan hen som fadderbarn och registrera dig i tjänsten."
+        },
+        "theater": {
+          "text": "Du kan uppleva trevliga kulturstunder med barnet. Evenemangen har planerats så att de stöder barnens utveckling och välbefinnande."
+        },
+        "ticket": {
+          "text": "Du får en inbjudan per e-post två gånger om året och kan i tjänsten anmäla dig till de evenemang som bäst passar dig."
+        }
+      }
+    },
+    "partners": {
+      "heading": {
+        "text": "Samarbetspartner"
+      },
+      "partner": {
+        "amosrex": "Amos Rex",
+        "cirko": "Cirko – Centrumet för nycirkus",
+        "designmuseum": "Designmuseet",
+        "hamhelsinki": "Helsingfors konstmuseum HAM",
+        "helsinginkaupunginmuseo": "Helsingfors stadsmuseum",
+        "helsinginkaupunginorkesteri": "Helsingfors stadsorkester",
+        "hkt": "Helsingfors stadsteater",
+        "hotellijaravintolamuseo": "Hotell- och restaurangmuseet",
+        "hurjaruuth": "Dansteatern Hurjaruuth",
+        "jaes": "Jane och Aatos Erkkos stiftelse",
+        "kansallismuseo": "Nationalmuseum",
+        "kansallisteatteri": "Finlands nationalteater",
+        "kavi": "Nationella audiovisuella institutet",
+        "kulttuuriperintokasvatus": "Föreningen för kulturarvsfostran i Finland",
+        "mfa": "Finlands arkitekturmuseum",
+        "nukketeatterisampo": "Dockteatern Sampo",
+        "oodihelsinki": "Ode Helsingfors centrumbibliotek",
+        "oopperabaletti": "Finlands nationalopera och -balett",
+        "qteatteri": "Q-teatteri",
+        "svenskateatern": "Svenska Teatern",
+        "tanssintalo": "Dansens hus",
+        "teatteriilmio": "Ilmi Ö teater",
+        "teatterimuseo": "Teatermuseet",
+        "valokuvataiteenmuseo": "Finlands fotografiska museum"
+      }
+    },
+    "registration": {
+      "text": "Börja genom att uppge hemort och födelsedag för barnet som deltar i verksamheten. Därefter kan du logga in i tjänsten och komplettera barnets fadderbarnsprofil. Det tar några minuter."
+    }
   },
   "homePage": {
     "hero": {
@@ -134,6 +210,9 @@
     }
   },
   "navbar": {
+    "menuButton": {
+      "label": "Meny"
+    },
     "profileDropdown": {
       "openCityProfile": {
         "text": "Open user profile on omaHelsinki"
@@ -144,9 +223,6 @@
     },
     "smallScreenMenu": {
       "homepageLinkText": "Hemsida"
-    },
-    "menuButton": {
-      "label": "Meny"
     }
   },
   "notFound": {
@@ -156,6 +232,30 @@
     "2020": "Födda 2020"
   },
   "profile": {
+    "addChildMutation": {
+      "errorMessage": "Error adding child. Please try again"
+    },
+    "child": {
+      "default": {
+        "name": {
+          "text": "Fadderbarn"
+        }
+      },
+      "detail": {
+        "delete": {
+          "text": "Remove child profile"
+        },
+        "edit": {
+          "text": "Update child information"
+        },
+        "page": {
+          "title": "Child detail page"
+        }
+      },
+      "navigateToDetail": {
+        "buttonLabel": "Navigate to child detail"
+      }
+    },
     "children": {
       "noChild": {
         "text": "Inga fadderbarn"
@@ -167,30 +267,6 @@
         "heading": "Eventinbjudningar"
       },
       "text": "Inbjudningar till evenemang som skickats till dig visas här. Du kan också anmäla dig till evenemang och ångra anmälan om du av någon orsak inte kan delta."
-    },
-    "child": {
-      "detail": {
-        "page": {
-          "title": "Child detail page"
-        },
-        "edit": {
-          "text": "Update child information"
-        },
-        "delete": {
-          "text": "Remove child profile"
-        }
-      },
-      "default": {
-        "name": {
-          "text": "Fadderbarn"
-        }
-      },
-      "navigateToDetail": {
-        "buttonLabel": "Navigate to child detail"
-      }
-    },
-    "addChildMutation": {
-      "errorMessage": "Error adding child. Please try again"
     }
   },
   "registration": {
@@ -286,17 +362,17 @@
     "heading": "Kom med",
     "notEligible": {
       "buttonText": "Här finns lämpliga kulturevenemang för barn",
+      "otherOptionsLink": "https://www.myhelsinki.fi/sv/search?tags=barn%20(%C3%A5ldersgrupper)&category=events",
       "text": "Tyvärr berättigar barnets födelseår eller hemkommun inte till verksamheten Kulturens fadderbarn.",
-      "title": "Vad synd!",
-      "otherOptionsLink": "https://www.myhelsinki.fi/sv/search?tags=barn%20(%C3%A5ldersgrupper)&category=events"
+      "title": "Vad synd!"
+    },
+    "submitMutation": {
+      "errorMessage": "Det gick inte att skicka till servern"
     },
     "welcome": {
       "hero": {
         "header": "Välkommen som kulturens fadderbarn!"
       }
-    },
-    "submitMutation": {
-      "errorMessage": "Det gick inte att skicka till servern"
     }
   },
   "sanityCheck": "kukkuu.sv",
@@ -311,81 +387,5 @@
     "postalCode": {
       "invalidFormat": "Fel format"
     }
-  },
-  "api": {
-    "errorMessage": "Ett fel uppstod. Försök igen senare"
-  },
-  "home": {
-    "instructions": {
-      "heading": {
-        "text": "Hur kan jag delta?"
-      },
-      "icon": {
-        "kid": {
-          "text": "Om barnet bor i Helsingfors och är fött 2020, kan du anmälan hen som fadderbarn och registrera dig i tjänsten."
-        },
-        "ticket": {
-          "text": "Du får en inbjudan per e-post två gånger om året och kan i tjänsten anmäla dig till de evenemang som bäst passar dig."
-        },
-        "theater": {
-          "text": "Du kan uppleva trevliga kulturstunder med barnet. Evenemangen har planerats så att de stöder barnens utveckling och välbefinnande."
-        }
-      }
-    },
-    "registration": {
-      "text": "Börja genom att uppge hemort och födelsedag för barnet som deltar i verksamheten. Därefter kan du logga in i tjänsten och komplettera barnets fadderbarnsprofil. Det tar några minuter."
-    },
-    "partners": {
-      "heading": {
-        "text": "Samarbetspartner"
-      },
-      "partner": {
-        "valokuvataiteenmuseo": "Finlands fotografiska museum",
-        "helsinginkaupunginorkesteri": "Helsingfors stadsorkester",
-        "jaes": "Jane och Aatos Erkkos stiftelse",
-        "tanssintalo": "Dansens hus",
-        "teatteriilmio": "Ilmi Ö teater",
-        "amosrex": "Amos Rex",
-        "mfa": "Finlands arkitekturmuseum",
-        "designmuseum": "Designmuseet",
-        "oodihelsinki": "Ode Helsingfors centrumbibliotek",
-        "helsinginkaupunginmuseo": "Helsingfors stadsmuseum",
-        "hamhelsinki": "Helsingfors konstmuseum HAM",
-        "hkt": "Helsingfors stadsteater",
-        "hotellijaravintolamuseo": "Hotell- och restaurangmuseet",
-        "kansallismuseo": "Nationalmuseum",
-        "kavi": "Nationella audiovisuella institutet",
-        "nukketeatterisampo": "Dockteatern Sampo",
-        "qteatteri": "Q-teatteri",
-        "oopperabaletti": "Finlands nationalopera och -balett",
-        "kansallisteatteri": "Finlands nationalteater",
-        "kulttuuriperintokasvatus": "Föreningen för kulturarvsfostran i Finland",
-        "svenskateatern": "Svenska Teatern",
-        "hurjaruuth": "Dansteatern Hurjaruuth",
-        "teatterimuseo": "Teatermuseet",
-        "cirko": "Cirko – Centrumet för nycirkus"
-      }
-    },
-    "contact": {
-      "heading": {
-        "text": "Tjänsten Kulturens fadderbarn"
-      },
-      "service": {
-        "name": "Tjänsten Kulturens fadderbarn",
-        "text": "Ta kontakt om du vill få mer information om tjänsten."
-      },
-      "godchild": {
-        "name": "Fadderverksamhet för barn födda 2020",
-        "text": "Helsingfors stad står fadder till barn som föds 2020. Ta kontakt om du vill få mer information om fadderprogrammet för barn födda 2020."
-      }
-    }
-  },
-  "email": {
-    "title": "Välkommen som kulturens fadderbarn!"
-  },
-  "email ": {
-    "heading": "Välkommen som kulturens fadderbarn!",
-    "text": "Välkommen!"
-  },
-  " Obs! Det går inte att besvara meddelandet.": ""
+  }
 }

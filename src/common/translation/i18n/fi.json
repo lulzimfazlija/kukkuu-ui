@@ -1,21 +1,24 @@
 {
+  "api": {
+    "errorMessage": "Tapahtui virhe. Yritä myöhemmin uudestaan"
+  },
   "appName": "Kulttuurin kummilapset",
   "authentication": {
+    "errorMessage": "Tapahtui virhe. Yritä uudestaan",
+    "loadUserError": {
+      "message": "Tapahtui virhe. Yritä kirjautua uudelleen."
+    },
     "login": {
       "text": "Kirjaudu sisään"
     },
     "logout": {
       "text": "Kirjaudu ulos"
     },
-    "redirect": {
-      "text": "Ohjataan tunnistautumiseen..."
-    },
-    "errorMessage": "Tapahtui virhe. Yritä uudestaan",
     "networkError": {
       "message": "Virhe kirjautumisessa: Tarkista verkkoyhteytesi ja yritä uudestaan"
     },
-    "loadUserError": {
-      "message": "Tapahtui virhe. Yritä kirjautua uudelleen."
+    "redirect": {
+      "text": "Ohjataan tunnistautumiseen..."
     }
   },
   "CHILD_RELATIONSHIP_OPTIONS": {
@@ -38,18 +41,24 @@
           "label": "Muokkaa lapsen tietoja",
           "text": "Muokkaa"
         },
-        "return": {
-          "text": "Palaa profiilin luomiseen"
-        },
         "notEligible": {
           "return": {
             "text": "Palaa profiilin luomiseen"
           }
+        },
+        "return": {
+          "text": "Palaa profiilin luomiseen"
         }
       }
     }
   },
   "common": {
+    "backButton": {
+      "label": "Palaa"
+    },
+    "closeButton": {
+      "altText": "Sulje"
+    },
     "form": {
       "leave": {
         "warning": {
@@ -59,6 +68,11 @@
     },
     "goBack": {
       "text": "Palaa profiilin luomiseen"
+    },
+    "language": {
+      "en": "English",
+      "fi": "Suomi",
+      "sv": "Svenska"
     },
     "modal": {
       "cancel": {
@@ -80,21 +94,83 @@
       "default": {
         "text": "Valitse"
       }
-    },
-    "language": {
-      "fi": "Suomi",
-      "sv": "Svenska",
-      "en": "English"
-    },
-    "closeButton": {
-      "altText": "Sulje"
-    },
-    "backButton": {
-      "label": "Palaa"
     }
+  },
+  "email ": {
+    "heading": "Tervetuloa Kulttuurin kummilapsiin!",
+    "text": "Tervetuloa!"
+  },
+  "HUOM! Tähän viestiin ei voi vastata.": "",
+  "email": {
+    "title": "Tervetuloa Kulttuurin kummilapsiin!"
   },
   "footer": {
     "copyrightText": "© Copyright 2019 • Kaikki oikeudet pidätetään •"
+  },
+  "home": {
+    "contact": {
+      "godchild": {
+        "name": "2020 syntyneiden kummitoiminta",
+        "text": "Helsingin kaupunginorkesteri toimii 2020 syntyneiden kummina. Ota yhteyttä, jos haluat tietää lisää vuoden 2020 syntyneiden kummiohjelmasta."
+      },
+      "heading": {
+        "text": "Kulttuurin kummilapset -palvelu"
+      },
+      "service": {
+        "name": "Kulttuurin kummilapset -palvelu",
+        "text": "Ota yhteyttä, jos haluat lisätietoja palvelusta."
+      }
+    },
+    "instructions": {
+      "heading": {
+        "text": "Miten pääset mukaan toimintaan?"
+      },
+      "icon": {
+        "kid": {
+          "text": "Jos lapsi asuu Helsingissä ja on syntynyt vuonna 2020, voit ilmoittaa hänet kummilapseksi ja rekisteröityä palveluun."
+        },
+        "theater": {
+          "text": "Voit kokea lapsen kanssa hauskoja, yhteisiä hetkiä kulttuurin parissa. Tapahtumat on suunniteltu tukemaan lapsen kehitystä ja hyvinvointia."
+        },
+        "ticket": {
+          "text": "Saat sähköpostiisi kaksi kertaa vuodessa kutsun ja palvelun kautta pääset ilmoittautumaan sinulle parhaiten sopiviin tapahtumiin."
+        }
+      }
+    },
+    "partners": {
+      "heading": {
+        "text": "Yhteistyökumppanit"
+      },
+      "partner": {
+        "amosrex": "Amos Rex",
+        "cirko": "Cirko – Uuden sirkuksen keskus",
+        "designmuseum": "Designmuseo",
+        "hamhelsinki": "Helsingin taidemuseo HAM",
+        "helsinginkaupunginmuseo": "Helsingin kaupunginmuseo",
+        "helsinginkaupunginorkesteri": "Helsingin kaupunginorkesteri",
+        "hkt": "Helsingin Kaupunginteatteri",
+        "hotellijaravintolamuseo": "Hotelli- ja ravintolamuseo",
+        "hurjaruuth": "Tanssiteatteri Hurjaruuth",
+        "jaes": "Jane ja Aatos Erkon säätiö",
+        "kansallismuseo": "Kansallismuseo",
+        "kansallisteatteri": "Kansallisteatteri",
+        "kavi": "Kansallinen audiovisuaalinen instituutti",
+        "kulttuuriperintokasvatus": "Suomen Kulttuuriperintökasvatuksen seura",
+        "mfa": "Arkkitehtuurimuseo",
+        "nukketeatterisampo": "Nukketeatteri Sampo",
+        "oodihelsinki": "Helsingin keskustakirjasto Oodi",
+        "oopperabaletti": "Suomen kansallisooppera ja -baletti",
+        "qteatteri": "Q-teatteri",
+        "svenskateatern": "Svenska Teatern",
+        "tanssintalo": "Tanssin talo",
+        "teatteriilmio": "Teatteri ILMI Ö",
+        "teatterimuseo": "Teatterimuseo",
+        "valokuvataiteenmuseo": "Suomen valokuvataiteen museo"
+      }
+    },
+    "registration": {
+      "text": "Aloita syöttämällä toimintaan osallistuvan lapsen kotipaikkakunta ja syntymäpäivä. Tämän jälkeen pääset kirjautumaan palveluun ja täydentämään lapsesi kummilapsiprofiilin. Tähän menee muutama minuutti."
+    }
   },
   "homePage": {
     "hero": {
@@ -134,6 +210,9 @@
     }
   },
   "navbar": {
+    "menuButton": {
+      "label": "Valikko"
+    },
     "profileDropdown": {
       "openCityProfile": {
         "text": "Open user profile on omaHelsinki"
@@ -144,9 +223,6 @@
     },
     "smallScreenMenu": {
       "homepageLinkText": "Etusivu"
-    },
-    "menuButton": {
-      "label": "Valikko"
     }
   },
   "notFound": {
@@ -156,6 +232,30 @@
     "2020": "2020 syntyneet"
   },
   "profile": {
+    "addChildMutation": {
+      "errorMessage": "Error adding child. Please try again"
+    },
+    "child": {
+      "default": {
+        "name": {
+          "text": "Kummilapsi"
+        }
+      },
+      "detail": {
+        "delete": {
+          "text": "Poista lapsen tiedot"
+        },
+        "edit": {
+          "text": "Update child information"
+        },
+        "page": {
+          "title": "Child detail page"
+        }
+      },
+      "navigateToDetail": {
+        "buttonLabel": "Navigate to child detail"
+      }
+    },
     "children": {
       "noChild": {
         "text": "Ei kummilapsia"
@@ -167,30 +267,6 @@
         "heading": "Tapahtumakutsut"
       },
       "text": "Tänne saapuvat sinulle lähetetyt tapahtumakutsut. Pääset myös ilmoittautumaan tapahtumiin ja perumaan ilmoittautumisen, jos et jostain syystä pääsekään osallistumaan tapahtumaan."
-    },
-    "child": {
-      "detail": {
-        "page": {
-          "title": "Child detail page"
-        },
-        "edit": {
-          "text": "Update child information"
-        },
-        "delete": {
-          "text": "Poista lapsen tiedot"
-        }
-      },
-      "default": {
-        "name": {
-          "text": "Kummilapsi"
-        }
-      },
-      "navigateToDetail": {
-        "buttonLabel": "Navigate to child detail"
-      }
-    },
-    "addChildMutation": {
-      "errorMessage": "Error adding child. Please try again"
     }
   },
   "registration": {
@@ -286,17 +362,17 @@
     "heading": "Tule mukaan",
     "notEligible": {
       "buttonText": "Löydä lapsille sopivia kulttuuritapahtumia täältä",
+      "otherOptionsLink": "https://www.myhelsinki.fi/fi/search?tags=lapset&category=events",
       "text": "Valitettavasti lapsen syntymävuosi tai kotipaikkakunta eivät oikeuta häntä kulttuurin kummilapset toimintaan.",
-      "title": "Voi harmi!",
-      "otherOptionsLink": "https://www.myhelsinki.fi/fi/search?tags=lapset&category=events"
+      "title": "Voi harmi!"
+    },
+    "submitMutation": {
+      "errorMessage": "Lähettäminen palvelimelle epäonnistui"
     },
     "welcome": {
       "hero": {
         "header": "Tervetuloa kulttuurin kummilapseksi!"
       }
-    },
-    "submitMutation": {
-      "errorMessage": "Lähettäminen palvelimelle epäonnistui"
     }
   },
   "sanityCheck": "kukkuu.fi",
@@ -311,81 +387,5 @@
     "postalCode": {
       "invalidFormat": "Väärä formaatti"
     }
-  },
-  "api": {
-    "errorMessage": "Tapahtui virhe. Yritä myöhemmin uudestaan"
-  },
-  "home": {
-    "instructions": {
-      "heading": {
-        "text": "Miten pääset mukaan toimintaan?"
-      },
-      "icon": {
-        "kid": {
-          "text": "Jos lapsi asuu Helsingissä ja on syntynyt vuonna 2020, voit ilmoittaa hänet kummilapseksi ja rekisteröityä palveluun."
-        },
-        "ticket": {
-          "text": "Saat sähköpostiisi kaksi kertaa vuodessa kutsun ja palvelun kautta pääset ilmoittautumaan sinulle parhaiten sopiviin tapahtumiin."
-        },
-        "theater": {
-          "text": "Voit kokea lapsen kanssa hauskoja, yhteisiä hetkiä kulttuurin parissa. Tapahtumat on suunniteltu tukemaan lapsen kehitystä ja hyvinvointia."
-        }
-      }
-    },
-    "registration": {
-      "text": "Aloita syöttämällä toimintaan osallistuvan lapsen kotipaikkakunta ja syntymäpäivä. Tämän jälkeen pääset kirjautumaan palveluun ja täydentämään lapsesi kummilapsiprofiilin. Tähän menee muutama minuutti."
-    },
-    "partners": {
-      "heading": {
-        "text": "Yhteistyökumppanit"
-      },
-      "partner": {
-        "valokuvataiteenmuseo": "Suomen valokuvataiteen museo",
-        "helsinginkaupunginorkesteri": "Helsingin kaupunginorkesteri",
-        "jaes": "Jane ja Aatos Erkon säätiö",
-        "tanssintalo": "Tanssin talo",
-        "teatteriilmio": "Teatteri ILMI Ö",
-        "amosrex": "Amos Rex",
-        "mfa": "Arkkitehtuurimuseo",
-        "designmuseum": "Designmuseo",
-        "oodihelsinki": "Helsingin keskustakirjasto Oodi",
-        "helsinginkaupunginmuseo": "Helsingin kaupunginmuseo",
-        "hamhelsinki": "Helsingin taidemuseo HAM",
-        "hkt": "Helsingin Kaupunginteatteri",
-        "hotellijaravintolamuseo": "Hotelli- ja ravintolamuseo",
-        "kansallismuseo": "Kansallismuseo",
-        "kavi": "Kansallinen audiovisuaalinen instituutti",
-        "nukketeatterisampo": "Nukketeatteri Sampo",
-        "qteatteri": "Q-teatteri",
-        "oopperabaletti": "Suomen kansallisooppera ja -baletti",
-        "kansallisteatteri": "Kansallisteatteri",
-        "kulttuuriperintokasvatus": "Suomen Kulttuuriperintökasvatuksen seura",
-        "svenskateatern": "Svenska Teatern",
-        "hurjaruuth": "Tanssiteatteri Hurjaruuth",
-        "teatterimuseo": "Teatterimuseo",
-        "cirko": "Cirko – Uuden sirkuksen keskus"
-      }
-    },
-    "contact": {
-      "heading": {
-        "text": "Kulttuurin kummilapset -palvelu"
-      },
-      "service": {
-        "name": "Kulttuurin kummilapset -palvelu",
-        "text": "Ota yhteyttä, jos haluat lisätietoja palvelusta."
-      },
-      "godchild": {
-        "name": "2020 syntyneiden kummitoiminta",
-        "text": "Helsingin kaupunginorkesteri toimii 2020 syntyneiden kummina. Ota yhteyttä, jos haluat tietää lisää vuoden 2020 syntyneiden kummiohjelmasta."
-      }
-    }
-  },
-  "email": {
-    "title": "Tervetuloa Kulttuurin kummilapsiin!"
-  },
-  "email ": {
-    "heading": "Tervetuloa Kulttuurin kummilapsiin!",
-    "text": "Terveutuloa!"
-  },
-  "HUOM! Tähän viestiin ei voi vastata.": ""
+  }
 }
