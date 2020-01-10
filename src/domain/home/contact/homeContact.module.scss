@@ -6,11 +6,12 @@
     padding-bottom: $largeMargin;
 
     display: grid;
-    grid-template-columns: 1fr 10fr 1fr;
+    grid-template-columns: 1fr minmax(auto, $containerMaxWidth) 1fr;
 }
 
 .contact {
     grid-column: 2;
+    padding: 0 3rem;
 
     h2 {
         padding: $largeMargin 0;

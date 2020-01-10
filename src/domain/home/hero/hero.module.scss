@@ -5,29 +5,42 @@
 
 .heroWrapper {
     background-color: $hel-summer;
-    min-height: 30vh;
     display: grid;
     position: relative;
     overflow: visible;
-    background-image: url('../../../assets/icons/svg/kids.png');
+}
+
+.kidsImageContainer {
+    grid-template-columns: 1fr minmax(auto, $containerMaxWidth) 1fr;
+    display: grid;
+    @include respond-above(lg) {
+        background-image: url('../../../assets/icons/svg/Culture_kids_background@2x.png');
+        background-repeat: repeat-x;
+        background-position: center bottom -2px;
+        background-size: 100% 321px;
+    }
+}
+
+.kidsImage {
+    grid-column: 2;
+    min-height: calc(0.265 * 100vw);
+    @media (min-width: map-get($breakpoints, lg)) {
+        min-height: calc(0.265 * #{$containerMaxWidth});
+    }
+    background-image: url('../../../assets/icons/svg/Culture_kids@2x.png');
     background-repeat: no-repeat;
     background-position: center bottom -2px;
     background-size: 100% auto;
-    display: grid;
-    padding-bottom: $largeMargin;
-    @include respond-above(lg) {
-        min-height: 35vh;
-    }
 }
 
 .heroContainer {
     display: grid;
     text-align: center;
 
-    @include formContainer();
+    @include heroContainer();
 }
 
-.hero {    
+.hero {
     h1 {
         margin-top: $largeMargin;
         margin-bottom: 0;

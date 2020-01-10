@@ -8,7 +8,7 @@
   }
 
   display: grid;
-  grid-template-columns: 1fr 10fr 1fr;
+  grid-template-columns: 1fr minmax(auto, $containerMaxWidth) 1fr;
 }
 
 .innerwrapper {
