@@ -24,7 +24,7 @@
 .kidsImage {
     grid-column: 2;
     @include respond-above(md) {
-        min-height: calc(0.243 * 100vh);
+        min-height: calc(0.265 * #{$containerMaxWidth});
     }
     @include respond-below(lg) {
         min-height: calc(0.265 * 100vw);
