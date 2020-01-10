@@ -2,10 +2,10 @@ import React, { FunctionComponent } from 'react';
 import { FieldArrayRenderProps, getIn } from 'formik';
 import { useTranslation } from 'react-i18next';
 
-import InputField from '../../../../common/components/form/fields/input/InputField';
 import styles from './birthdateFormField.module.scss';
 import { validateRequire } from '../../../../common/components/form/validationUtils';
 import EnhancedInputField from '../../../../common/components/form/fields/input/EnhancedInputField';
+import NumberInputField from '../../../../common/components/form/fields/input/NumberInputField';
 
 const BirthdateFormField: FunctionComponent<FieldArrayRenderProps> = ({
   name,
@@ -22,27 +22,24 @@ const BirthdateFormField: FunctionComponent<FieldArrayRenderProps> = ({
       )}*`}</label>
       <div className={styles.inputWrapper}>
         <EnhancedInputField
-          type="number"
           name={`${name}.day`}
-          component={InputField}
+          component={NumberInputField}
           aria-label={t(
             'homePage.preliminaryForm.childBirthdate.input.day.placeholder'
           )}
           placeholder={t(
             'homePage.preliminaryForm.childBirthdate.input.day.placeholder'
           )}
-          validate={(value: number) => validateRequire(value)}
           required={true}
           min={1}
           max={31}
+          maxLength={2}
         />
         <div className={styles.dot}>.</div>
         <EnhancedInputField
-          type="number"
           name={`${name}.month`}
           required={true}
-          component={InputField}
-          validate={(value: number) => validateRequire(value)}
+          component={NumberInputField}
           aria-label={t(
             'homePage.preliminaryForm.childBirthdate.input.month.placeholder'
           )}
@@ -51,13 +48,14 @@ const BirthdateFormField: FunctionComponent<FieldArrayRenderProps> = ({
           )}
           min={1}
           max={12}
+          maxLength={2}
         />
         <div className={styles.dot}>.</div>
         <EnhancedInputField
-          type="number"
           required={true}
           name={`${name}.year`}
-          component={InputField}
+          maxLength={4}
+          component={NumberInputField}
           validate={(value: number) => validateRequire(value)}
           aria-label={t(
             'homePage.preliminaryForm.childBirthdate.input.year.placeholder'
