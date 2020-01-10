@@ -23,11 +23,9 @@
 
 .kidsImage {
     grid-column: 2;
-    @include respond-above(md) {
+    min-height: calc(0.265 * 100vw);
+    @media (min-width: map-get($breakpoints, lg)) {
         min-height: calc(0.265 * #{$containerMaxWidth});
-    }
-    @include respond-below(lg) {
-        min-height: calc(0.265 * 100vw);
     }
     background-image: url('../../../assets/icons/svg/Culture_kids@2x.png');
     background-repeat: no-repeat;

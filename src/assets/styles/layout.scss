@@ -117,21 +117,12 @@ $breakpoints: (
 }
 
 @mixin heroContainer() {
-  @include respond-below(lg) {
-    display: grid;
-    grid-template-columns: 1fr 10fr 1fr;
-
-    > * {
-      grid-column: 2;
-    }
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  > * {
+    grid-column: 2;
   }
-
   @include respond-above(md) {
-    display: grid;
     grid-template-columns: 1fr minmax(auto, $containerFormMaxWidth) 1fr;
-
-    > * {
-      grid-column: 2;
-    }
   }
 }
