@@ -1,14 +1,18 @@
 @import 'variables';
-@import 'mixins';
+@import 'colors';
 
 .notFound {
   text-align: center;
-  @include button();
   align-self: center;
 
-  button {
+  .returnLink {
     width: 50%;
-    margin-top: $largeMargin;
+    display: block;
+    margin: $largeMargin auto auto auto;
+    background: $hel-summer;
+    text-decoration: none;
+    padding: $basePadding;
+    color: $black;
   }
 }
 
