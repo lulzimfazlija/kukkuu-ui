@@ -3,8 +3,6 @@
 
 .container {
   display: grid;
-
-  padding-bottom: $containerPaddingBottom;
 }
 
 @include respond-between(sm, xlg) {
