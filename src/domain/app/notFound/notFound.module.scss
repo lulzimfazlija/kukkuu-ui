@@ -1,0 +1,24 @@
+@import 'variables';
+@import 'colors';
+
+.notFound {
+  text-align: center;
+  align-self: center;
+
+  .returnLink {
+    width: 50%;
+    display: block;
+    margin: $largeMargin auto auto auto;
+    background: $hel-summer;
+    text-decoration: none;
+    padding: $basePadding;
+    color: $black;
+  }
+}
+
+.icon {
+  display: block;
+  margin: 0 auto;
+  height: $largeMargin;
+  width: $largeMargin;
+}
