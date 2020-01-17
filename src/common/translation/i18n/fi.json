@@ -105,7 +105,11 @@
     "title": "Tervetuloa Kulttuurin kummilapsiin!"
   },
   "footer": {
-    "copyrightText": "© Copyright 2019 • Kaikki oikeudet pidätetään •"
+    "copyrightText": "© Copyright 2019 • Kaikki oikeudet pidätetään •",
+    "accessibilityStatement": "Saavutettavuusseloste",
+    "accessibilityStatement ": {
+      "link": "https://docs.google.com/document/d/1ysZMndKJcTQKAX98NrbB8XaVvABBQ95WiIWHxR5MGig/edit"
+    }
   },
   "home": {
     "contact": {
