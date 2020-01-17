@@ -109,10 +109,6 @@
   },
   "home": {
     "contact": {
-      "godchild": {
-        "name": "Fadderverksamhet för barn födda 2020",
-        "text": "Helsingfors stad står fadder till barn som föds 2020. Ta kontakt om du vill få mer information om fadderprogrammet för barn födda 2020."
-      },
       "heading": {
         "text": "Kontakta oss"
       },
@@ -394,5 +390,6 @@
     "postalCode": {
       "invalidFormat": "Fel format"
     }
-  }
+  },
+  "Tyvärr är registreringen ännu inte öppen. Du kan anmäl ditt barn från den 31 januari 2020.": ""
 }
