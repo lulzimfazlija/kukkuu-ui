@@ -106,9 +106,8 @@
   },
   "footer": {
     "copyrightText": "© Copyright 2019 • All rights reserved •",
-    "accessibilityStatement": "Accessibility statement",
-    "accessibilityStatement ": {
-      "link": "https://docs.google.com/document/d/1FSYqu7GAx198i921fkuWHlyVL_-r4DX3MCJlZWRVZKQ/edit"
+    "accessibilityStatement": {
+      "linkText": "Accessibility statement"
     }
   },
   "home": {

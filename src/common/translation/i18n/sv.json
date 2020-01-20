@@ -106,9 +106,8 @@
   },
   "footer": {
     "copyrightText": "© Copyright 2019 • Alla rättigheter förbehållna •",
-    "accessibilityStatement": "Tillgänglighetsutlåtande",
-    "accessibilityStatement ": {
-      "link": "https://docs.google.com/document/d/1MsG6xQSp_ISRG3Q3k3bk540s52J5X1x20Nwzx-0rttM/edit"
+    "accessibilityStatement": {
+      "linkText": "Tillgänglighetsutlåtande"
     }
   },
   "home": {

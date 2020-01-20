@@ -1,0 +1,19 @@
+@import 'layout';
+@import 'variables';
+
+.accessibilityStatement {
+  margin-bottom: $largeMargin;
+  @include respond-below(md) {
+    margin: 0 $baseMargin $largeMargin $baseMargin;
+  }
+
+  h1 {
+    font-size: var(--hds-text-xxl);
+  }
+  h2 {
+    font-size: var(--hds-text-xl);
+  }
+  h3 {
+    font-size: var(--hds-text-l);
+  }
+}
