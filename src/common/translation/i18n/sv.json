@@ -105,14 +105,14 @@
     "title": "Välkommen som kulturens fadderbarn!"
   },
   "footer": {
-    "copyrightText": "© Copyright 2019 • Alla rättigheter förbehållna •"
+    "copyrightText": "© Copyright 2019 • Alla rättigheter förbehållna •",
+    "accessibilityStatement": "Tillgänglighetsutlåtande",
+    "accessibilityStatement ": {
+      "link": "https://docs.google.com/document/d/1MsG6xQSp_ISRG3Q3k3bk540s52J5X1x20Nwzx-0rttM/edit"
+    }
   },
   "home": {
     "contact": {
-      "godchild": {
-        "name": "Fadderverksamhet för barn födda 2020",
-        "text": "Helsingfors stad står fadder till barn som föds 2020. Ta kontakt om du vill få mer information om fadderprogrammet för barn födda 2020."
-      },
       "heading": {
         "text": "Kontakta oss"
       },
@@ -127,10 +127,10 @@
       },
       "icon": {
         "kid": {
-          "text": "Om barnet bor i Helsingfors och är fött 2020, kan du anmälan hen som fadderbarn och registrera dig i tjänsten."
+          "text": "Om barnet bor i Helsingfors och är fött 2020, kan du anmäla hen som fadderbarn och registrera dig i tjänsten."
         },
         "theater": {
-          "text": "Du kan uppleva trevliga kulturstunder med barnet. Evenemangen har planerats så att de stöder barnens utveckling och välbefinnande."
+          "text": "Du kan uppleva trevliga kulturstundar med barnet. Evenemangen har planerats så att de stöder barnens utveckling och välbefinnande."
         },
         "ticket": {
           "text": "Du får en inbjudan per e-post två gånger om året och kan i tjänsten anmäla dig till de evenemang som bäst passar dig."
@@ -178,8 +178,8 @@
       "descriptionText": "Alla Helsingforsbarn födda 2020 eller senare bjuds in som Kulturens fadderbarn. Fadderbarnen bjuds årligen in till två event tills barnet börjar i skolan. Evenemangen är avgiftsfria.",
       "heading": "Kulturens fadderbarn",
       "underConstruction": {
-        "text": "Välkommen som kulturens fadderbarn! ",
-        "heading": "Registeringen börjar 31 januari 2020"
+        "text": "Välkommen till Kulturens fadderbarn-tjänsten! Tyvärr är registreringen ännu inte öppen. Du kan anmäl ditt barn från den 31 januari 2020.",
+        "heading": "Registreringen börjar 31 januari 2020"
       }
     },
     "preliminaryForm": {
