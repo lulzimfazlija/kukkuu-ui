@@ -1,5 +1,4 @@
-@import "./vendor/normalize";
-@import "fonts";
+@import 'fonts';
 
 html {
   height: 100%;
@@ -16,7 +15,6 @@ body {
 #root {
   flex: 1;
 }
-
 
 // Override globally all text to use Helsinki font.
 
