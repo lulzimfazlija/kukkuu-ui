@@ -105,14 +105,14 @@
     "title": "Welcome to the Culture Kids programme!"
   },
   "footer": {
-    "copyrightText": "© Copyright 2019 • All rights reserved •"
+    "copyrightText": "© Copyright 2019 • All rights reserved •",
+    "accessibilityStatement": "Accessibility statement",
+    "accessibilityStatement ": {
+      "link": "https://docs.google.com/document/d/1FSYqu7GAx198i921fkuWHlyVL_-r4DX3MCJlZWRVZKQ/edit"
+    }
   },
   "home": {
     "contact": {
-      "godchild": {
-        "name": "Culture Kids activities for children born in 2020",
-        "text": "Helsinki Philharmonic Orchestra acts as the sponsor for Culture Kids born in 2020. Contact us to find out more about the Culture Kids programme for children born in 2020."
-      },
       "heading": {
         "text": "Contact us"
       },
