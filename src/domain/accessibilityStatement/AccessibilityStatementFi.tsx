@@ -3,7 +3,7 @@ import React, { FunctionComponent } from 'react';
 const AccessibilityStatementFi: FunctionComponent = () => {
   return (
     <>
-      <h1>Saavutettavuusseloste</h1>
+      <h1>Saavutettavuus&shy;seloste</h1>
       <p>
         Tämä saavutettavuusseloste koskee Helsingin kaupungin Kulttuurin
         kummilapset-verkkosivustoa. Sivuston osoite on

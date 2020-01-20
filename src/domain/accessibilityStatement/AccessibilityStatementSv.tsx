@@ -3,7 +3,7 @@ import React, { FunctionComponent } from 'react';
 const AccessibilityStatementSv: FunctionComponent = () => {
   return (
     <>
-      <h1>Tillgänglighetsutlåtande</h1>
+      <h1>Tillgänglighets&shy;utlåtande</h1>
       <p>
         Detta tillgänglighetsutlåtande gäller Helsingfors stads webbplats
         Kulturens fadderbarn Webbplatsens adress är https://kummilapset.hel.fi
