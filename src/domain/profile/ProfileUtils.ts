@@ -2,7 +2,6 @@ import { ExecutionResult } from 'graphql';
 import { get } from 'lodash';
 
 import {
-  profileQuery as ProfileQueryType,
   profileQuery_myProfile_children as ProfileChildrenType,
   profileQuery_myProfile_children_edges_node as ChildType,
 } from '../api/generatedTypes/profileQuery';
@@ -21,16 +20,6 @@ export const normalizeProfileDataFromMutation = (result: ExecutionResult) => {
       children: normalizeChildren(childrenData),
     });
   }
-  return null;
-};
-
-export const normalizeProfileData = (data: ProfileQueryType) => {
-  if (data?.myProfile?.children) {
-    return Object.assign(data.myProfile, {
-      children: normalizeChildren(data.myProfile.children),
-    });
-  }
-
   return null;
 };
 
