@@ -31,16 +31,12 @@ import { getCurrentLanguage } from '../../../common/translation/TranslationUtils
 import { getSupportedChildData } from '../../child/ChildUtils';
 import { userHasProfileSelector } from '../state/RegistrationSelectors';
 import CheckHasProfile from '../../profile/CheckHasProfile';
-import { normalizeProfileDataFromMutation } from '../../profile/ProfileUtils';
-import { saveProfile } from '../../profile/state/ProfileActions';
-import { ProfileType } from '../../profile/type/ProfileTypes';
 
 interface Props {
   resetFormValues: () => void;
   setFormValues: (values: RegistrationFormValues) => void;
   initialValues: RegistrationFormValues;
   userHasProfile: boolean;
-  saveProfile: (profile: ProfileType) => void;
 }
 
 const RegistrationForm: FunctionComponent<Props> = ({
@@ -48,7 +44,6 @@ const RegistrationForm: FunctionComponent<Props> = ({
   setFormValues,
   initialValues,
   userHasProfile,
-  saveProfile,
 }) => {
   // TODO: Do something with the data we get from the backend.
   const [submitChildrenAndGuardian] = useMutation(
@@ -120,8 +115,6 @@ const RegistrationForm: FunctionComponent<Props> = ({
                 },
               })
                 .then(result => {
-                  const profile = normalizeProfileDataFromMutation(result);
-                  if (profile) saveProfile(profile);
                   resetFormValues();
                   history.push('/registration/success');
                 })
@@ -297,7 +290,6 @@ const RegistrationForm: FunctionComponent<Props> = ({
 const actions = {
   resetFormValues,
   setFormValues,
-  saveProfile,
 };
 
 const mapStateToProps = (state: StoreState) => ({
