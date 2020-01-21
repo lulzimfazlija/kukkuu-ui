@@ -198,6 +198,7 @@ const RegistrationForm: FunctionComponent = () => {
                   </div>
 
                   <EnhancedInputField
+                    id="guardian.phoneNumber"
                     name="guardian.phoneNumber"
                     required={true}
                     label={t(
@@ -212,6 +213,7 @@ const RegistrationForm: FunctionComponent = () => {
                     <EnhancedInputField
                       type="text"
                       required={true}
+                      id="guardian.firstName"
                       name="guardian.firstName"
                       label={t(
                         'registration.form.guardian.firstName.input.label'
@@ -224,6 +226,7 @@ const RegistrationForm: FunctionComponent = () => {
                     <EnhancedInputField
                       type="text"
                       required={true}
+                      id="guardian.lastName"
                       name="guardian.lastName"
                       label={t(
                         'registration.form.guardian.lastName.input.label'
@@ -237,6 +240,7 @@ const RegistrationForm: FunctionComponent = () => {
 
                   <EnhancedInputField
                     value={values.preferLanguage}
+                    id="preferLanguage"
                     name="preferLanguage"
                     label={t('registration.form.guardian.language.input.label')}
                     required={true}
@@ -262,6 +266,7 @@ const RegistrationForm: FunctionComponent = () => {
                   <EnhancedInputField
                     className={styles.agreeBtn}
                     type="checkbox"
+                    id="agree"
                     name="agree"
                     required={true}
                     label={t('registration.form.agree.input.label')}
