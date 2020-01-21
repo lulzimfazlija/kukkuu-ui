@@ -44,21 +44,7 @@ const RegistrationForm: FunctionComponent = () => {
   const initialValues = useSelector(initialFormDataSelector);
   const [submitChildrenAndGuardian] = useMutation<
     SubmitChildrenAndGuardianData
-  >(submitChildrenAndGuardianMutation, {
-    onCompleted: data => {
-      if (data.submitChildrenAndGuardian?.guardian) {
-        dispatch(saveProfile(data.submitChildrenAndGuardian.guardian));
-      }
-      dispatch(resetFormValues());
-      history.push('/registration/success');
-    },
-    onError: error => {
-      toast(t('registration.submitMutation.errorMessage'), {
-        type: toast.TYPE.ERROR,
-      });
-      Sentry.captureException(error);
-    },
-  });
+  >(submitChildrenAndGuardianMutation);
   // For new users preferLanguage defaults to their chosen UI language.
   initialValues.preferLanguage = initialValues.preferLanguage || currentLocale;
 
@@ -118,7 +104,24 @@ const RegistrationForm: FunctionComponent = () => {
                   children: backendSupportChildren,
                   guardian: backendSupportGuardian,
                 },
-              });
+              })
+                .then(response => {
+                  if (response.data?.submitChildrenAndGuardian?.guardian) {
+                    dispatch(
+                      saveProfile(
+                        response.data?.submitChildrenAndGuardian?.guardian
+                      )
+                    );
+                  }
+                  dispatch(resetFormValues());
+                  history.push('/registration/success');
+                })
+                .catch(error => {
+                  toast(t('registration.submitMutation.errorMessage'), {
+                    type: toast.TYPE.ERROR,
+                  });
+                  Sentry.captureException(error);
+                });
             }}
           >
             {({ values, isSubmitting, handleSubmit }) => (
