@@ -10,9 +10,11 @@ import HomeInstructions from './instructions/HomeInstructions';
 import HomePartners from './partners/HomePartners';
 import HomeContact from './contact/HomeContact';
 import { userHasProfileSelector } from '../registration/state/RegistrationSelectors';
+import { isAuthenticatedSelector } from '../auth/state/AuthenticationSelectors';
 
 const Home: FunctionComponent = () => {
   const userHasProfile = useSelector(userHasProfileSelector);
+  const userIsAuthenticated = useSelector(isAuthenticatedSelector);
   const formRef = useRef<HTMLDivElement>(null);
   const scrollToForm = (formRef: RefObject<HTMLDivElement>) => {
     if (formRef && formRef.current) {
@@ -29,6 +31,7 @@ const Home: FunctionComponent = () => {
       >
         <HomeHero
           userHasProfile={userHasProfile}
+          userIsAuthenticated={userIsAuthenticated}
           scrollToForm={() => scrollToForm(formRef)}
         />
         <HomeInstructions />
