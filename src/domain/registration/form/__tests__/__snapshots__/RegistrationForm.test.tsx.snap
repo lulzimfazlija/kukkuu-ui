@@ -33,7 +33,7 @@ exports[`renders snapshot correctly 1`] = `
   <MockedProvider
     addTypename={true}
   >
-    <RegistrationForm
+    <Component
       initialValues={
         Object {
           "agree": false,
