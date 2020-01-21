@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState } from 'react';
 import { Formik, FieldArray } from 'formik';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useHistory, Redirect } from 'react-router-dom';
@@ -14,8 +14,6 @@ import InputField from '../../../common/components/form/fields/input/InputField'
 import SelectField from '../../../common/components/form/fields/select/SelectField';
 import submitChildrenAndGuardianMutation from '../mutations/submitChildrenAndGuardianMutation';
 import { resetFormValues, setFormValues } from '../state/RegistrationActions';
-import { RegistrationFormValues } from '../types/RegistrationTypes';
-import { StoreState } from '../../app/types/AppTypes';
 import { initialFormDataSelector } from './RegistrationFormSelectors';
 import EnhancedInputField from '../../../common/components/form/fields/input/EnhancedInputField';
 import { SUPPORT_LANGUAGES } from '../../../common/translation/TranslationConstants';
@@ -31,29 +29,36 @@ import { getCurrentLanguage } from '../../../common/translation/TranslationUtils
 import { getSupportedChildData } from '../../child/ChildUtils';
 import { userHasProfileSelector } from '../state/RegistrationSelectors';
 import CheckHasProfile from '../../profile/CheckHasProfile';
+// eslint-disable-next-line max-len
+import { submitChildrenAndGuardian as SubmitChildrenAndGuardianData } from '../../api/generatedTypes/submitChildrenAndGuardian';
+import { saveProfile } from '../../profile/state/ProfileActions';
 
-interface Props {
-  resetFormValues: () => void;
-  setFormValues: (values: RegistrationFormValues) => void;
-  initialValues: RegistrationFormValues;
-  userHasProfile: boolean;
-}
-
-const RegistrationForm: FunctionComponent<Props> = ({
-  resetFormValues,
-  setFormValues,
-  initialValues,
-  userHasProfile,
-}) => {
-  // TODO: Do something with the data we get from the backend.
-  const [submitChildrenAndGuardian] = useMutation(
-    submitChildrenAndGuardianMutation
-  );
+const RegistrationForm: FunctionComponent = () => {
   const { i18n, t } = useTranslation();
   const currentLocale = getCurrentLanguage(i18n);
   const history = useHistory();
+  const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
 
+  const userHasProfile = useSelector(userHasProfileSelector);
+  const initialValues = useSelector(initialFormDataSelector);
+  const [submitChildrenAndGuardian] = useMutation<
+    SubmitChildrenAndGuardianData
+  >(submitChildrenAndGuardianMutation, {
+    onCompleted: data => {
+      if (data.submitChildrenAndGuardian?.guardian) {
+        dispatch(saveProfile(data.submitChildrenAndGuardian.guardian));
+      }
+      dispatch(resetFormValues());
+      history.push('/registration/success');
+    },
+    onError: error => {
+      toast(t('registration.submitMutation.errorMessage'), {
+        type: toast.TYPE.ERROR,
+      });
+      Sentry.captureException(error);
+    },
+  });
   // For new users preferLanguage defaults to their chosen UI language.
   initialValues.preferLanguage = initialValues.preferLanguage || currentLocale;
 
@@ -95,7 +100,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
             }}
             onSubmit={values => {
               setFormIsFilling(false);
-              setFormValues(values);
+              dispatch(setFormValues(values));
 
               const backendSupportChildren = values.children.map(child =>
                 getSupportedChildData(child)
@@ -113,17 +118,7 @@ const RegistrationForm: FunctionComponent<Props> = ({
                   children: backendSupportChildren,
                   guardian: backendSupportGuardian,
                 },
-              })
-                .then(result => {
-                  resetFormValues();
-                  history.push('/registration/success');
-                })
-                .catch(error => {
-                  toast(t('registration.submitMutation.errorMessage'), {
-                    type: toast.TYPE.ERROR,
-                  });
-                  Sentry.captureException(error);
-                });
+              });
             }}
           >
             {({ values, isSubmitting, handleSubmit }) => (
@@ -287,16 +282,4 @@ const RegistrationForm: FunctionComponent<Props> = ({
   );
 };
 
-const actions = {
-  resetFormValues,
-  setFormValues,
-};
-
-const mapStateToProps = (state: StoreState) => ({
-  initialValues: initialFormDataSelector(state),
-  userHasProfile: userHasProfileSelector(state),
-});
-
-export const UnconnectedRegistrationForm = RegistrationForm;
-
-export default connect(mapStateToProps, actions)(RegistrationForm);
+export default RegistrationForm;

@@ -16,7 +16,9 @@ import PageWrapper from '../app/layout/PageWrapper';
 import styles from './profile.module.scss';
 
 const Profile: FunctionComponent = () => {
-  const { loading, error, data } = useQuery<ProfileQueryType>(profileQuery);
+  const { loading, error, data } = useQuery<ProfileQueryType>(profileQuery, {
+    fetchPolicy: 'no-cache',
+  });
   const { i18n, t } = useTranslation();
   const locale = getCurrentLanguage(i18n);
 
@@ -31,6 +33,7 @@ const Profile: FunctionComponent = () => {
       </PageWrapper>
     );
   }
+
   if (data?.myProfile) {
     dispatch(saveProfile(data.myProfile));
   } else {
