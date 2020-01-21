@@ -8,12 +8,14 @@ import { loginTunnistamo } from '../../auth/authenticate';
 
 type HomeHero = {
   userHasProfile: boolean;
+  userIsAuthenticated: boolean;
   scrollToForm: () => void;
 };
 
 const HomeHero: React.FunctionComponent<HomeHero> = ({
   userHasProfile,
   scrollToForm,
+  userIsAuthenticated,
 }) => {
   const { t } = useTranslation();
   const history = useHistory();
@@ -29,18 +31,22 @@ const HomeHero: React.FunctionComponent<HomeHero> = ({
                 {t('homePage.hero.buttonText')}
               </Button>
             )}
-            <Button
-              className={styles.authenticateButton}
-              onClick={() =>
-                userHasProfile ? history.push('/profile') : loginTunnistamo()
-              }
-            >
-              {t(
-                userHasProfile
-                  ? 'common.profile.goToProfile.buttonText'
-                  : 'authentication.login.text'
-              )}
-            </Button>
+            {userHasProfile && (
+              <Button
+                className={styles.authenticateButton}
+                onClick={() => history.push('/profile')}
+              >
+                {t('common.profile.goToProfile.buttonText')}
+              </Button>
+            )}
+            {!userIsAuthenticated && (
+              <Button
+                className={styles.authenticateButton}
+                onClick={() => loginTunnistamo()}
+              >
+                {t('authentication.login.text')}
+              </Button>
+            )}
           </div>
         </div>
       </div>
