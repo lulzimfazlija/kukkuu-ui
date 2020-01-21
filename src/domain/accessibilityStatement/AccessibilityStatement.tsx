@@ -2,11 +2,11 @@ import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import styles from './accessibilityStatement.module.scss';
-import Container from '../app/layout/Container';
 import { getCurrentLanguage } from '../../common/translation/TranslationUtils';
 import AccessibilityStatementEn from './AccessibilityStatementEn';
 import AccessibilityStatementFi from './AccessibilityStatementFi';
 import AccessibilityStatementSv from './AccessibilityStatementSv';
+import PageWrapper from '../app/layout/PageWrapper';
 
 type StatementProps = {
   lang: string;
@@ -31,11 +31,11 @@ const AccessibilityStatement: FunctionComponent = () => {
   const locale = getCurrentLanguage(i18n);
 
   return (
-    <Container>
+    <PageWrapper title={'accessibilityStatement.title'}>
       <div className={styles.accessibilityStatement}>
         <Statement lang={locale} />
       </div>
-    </Container>
+    </PageWrapper>
   );
 };
 

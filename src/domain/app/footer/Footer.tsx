@@ -15,9 +15,7 @@ const Footer: FunctionComponent = () => {
             <p>{t('footer.copyrightText')}</p>
           </div>
           <div className={styles.accessibilityStatement}>
-            <a href="/accessibility">
-              {t('footer.accessibilityStatement.linkText')}
-            </a>
+            <a href="/accessibility">{t('accessibilityStatement.title')}</a>
           </div>
         </div>
       </Container>

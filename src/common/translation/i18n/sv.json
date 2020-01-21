@@ -105,10 +105,7 @@
     "title": "Välkommen som kulturens fadderbarn!"
   },
   "footer": {
-    "copyrightText": "© Copyright 2019 • Alla rättigheter förbehållna •",
-    "accessibilityStatement": {
-      "linkText": "Tillgänglighetsutlåtande"
-    }
+    "copyrightText": "© Copyright 2019 • Alla rättigheter förbehållna •"
   },
   "home": {
     "contact": {
@@ -393,5 +390,8 @@
     "postalCode": {
       "invalidFormat": "Fel format"
     }
+  },
+  "accessibilityStatement": {
+    "title": "Tillgänglighetsutlåtande"
   }
 }
