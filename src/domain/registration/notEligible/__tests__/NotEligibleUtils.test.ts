@@ -4,7 +4,7 @@ import { RegistrationFormValues } from '../../types/RegistrationTypes';
 const values: RegistrationFormValues = {
   children: [
     {
-      birthdate: '2019-11-02',
+      birthdate: '2020-01-02',
       firstName: 'cfn',
       lastName: 'cln',
       homeCity: 'Helsinki',
@@ -15,7 +15,6 @@ const values: RegistrationFormValues = {
     phoneNumber: '040444444',
     firstName: 'gfn',
     lastName: 'gln',
-    relationship: 'Unknown',
     email: 'yomama@example.com',
   },
   agree: false,
@@ -55,7 +54,7 @@ describe('notEligibleUtils.test.ts', () => {
     expect(isChildEligible(values.children[0])).toEqual(false);
   });
   test('Verify that a date after supported start date is eligible', () => {
-    values.children[0].birthdate = '2019-11-11';
+    values.children[0].birthdate = '2020-01-01';
     expect(isChildEligible(values.children[0])).toEqual(true);
   });
   test('Verify that an empty date is not eligible', () => {

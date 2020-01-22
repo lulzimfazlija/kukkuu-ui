@@ -59,6 +59,7 @@ const ChildFormField: React.FunctionComponent<ChildFormFieldProps> = ({
 
         <div className={styles.childName}>
           <EnhancedInputField
+            id={`children[${childIndex}].firstName`}
             name={`children[${childIndex}].firstName`}
             label={t('registration.form.child.firstName.input.label')}
             autoComplete="new-password"
@@ -68,6 +69,7 @@ const ChildFormField: React.FunctionComponent<ChildFormFieldProps> = ({
             )}
           />
           <EnhancedInputField
+            id={`children[${childIndex}].lastName`}
             name={`children[${childIndex}].lastName`}
             autoComplete="new-password"
             label={t('registration.form.child.lastName.input.label')}
@@ -79,8 +81,10 @@ const ChildFormField: React.FunctionComponent<ChildFormFieldProps> = ({
         </div>
 
         <EnhancedInputField
+          id={`children[${childIndex}].postalCode`}
           name={`children[${childIndex}].postalCode`}
           label={t('registration.form.child.postalCode.input.label')}
+          required={true}
           component={InputField}
           validate={validatePostalCode}
           placeholder={t(
@@ -89,10 +93,10 @@ const ChildFormField: React.FunctionComponent<ChildFormFieldProps> = ({
         />
 
         <EnhancedInputField
+          id={`children[${childIndex}].relationship.type`}
           name={`children[${childIndex}].relationship.type`}
           label={t('registration.form.child.relationship.input.label')}
           component={SelectField}
-          id="registration.form.child.relationship.select"
           options={getTranslatedRelationshipOptions(t)}
           placeholder={t(
             'registration.form.child.relationship.input.placeholder'
