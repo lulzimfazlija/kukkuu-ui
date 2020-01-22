@@ -127,6 +127,7 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
 
                   <EnhancedInputField
                     className={styles.childPostalCode}
+                    required={true}
                     name="postalCode"
                     validate={validatePostalCode}
                     label={t('registration.form.child.postalCode.input.label')}
