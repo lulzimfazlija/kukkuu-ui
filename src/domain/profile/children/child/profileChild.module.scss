@@ -15,10 +15,6 @@
   align-items: center;
 }
 
-button.childWrapper:focus {
-  outline: 1px solid blue;
-}
-
 .child {
   display: flex;
   justify-content: space-between;

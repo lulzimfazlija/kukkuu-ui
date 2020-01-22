@@ -8,8 +8,7 @@
     text-align: center;
     height: $buttonHeight;
     &:focus {
-      outline: 1px solid blue;
-      outline-offset: -4px;
+      outline: 1px solid $focusOutline;
     }
   }
 }

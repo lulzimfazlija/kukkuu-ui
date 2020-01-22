@@ -92,8 +92,8 @@
 }
 
 /**
-A yellow button style which used a lot in the app.
-*/
+ * A yellow button style which used a lot in the app.
+ */
 @mixin button() {
   button {
     background: $hel-summer;
@@ -106,7 +106,7 @@ A yellow button style which used a lot in the app.
     }
 
     &:focus {
-      border: 2px solid blue !important;
+      border: 2px solid $focusOutline !important;
     }
   }
 }

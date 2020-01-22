@@ -47,7 +47,7 @@
     background: transparent;
     border: 0;
     &:focus {
-      outline: 1px solid blue;
+      outline: 1px solid $focusOutline;
     }
   }
 }
