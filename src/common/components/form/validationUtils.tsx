@@ -19,10 +19,11 @@ const validateRequire = (value: any, customMessage?: string) => {
  * can have leading zeroes. Example: 00100.
  * @param {string} value Input value.
  * @returns {string} translation key
+ * @returns {void} if postal code fulfill the condition
  */
-const validatePostalCode = (value: string): string | undefined => {
+const validatePostalCode = (value: string) => {
   const valid: boolean = /^\d{5}$/.test(value);
-  if (value && !valid) return 'validation.postalCode.invalidFormat';
+  if (!value || !valid) return 'validation.postalCode.invalidFormat';
 };
 
 /** validateDate()

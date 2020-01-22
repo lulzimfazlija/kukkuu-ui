@@ -70,9 +70,9 @@ describe('Form validation utilities - ', () => {
       expect(error).toEqual('validation.postalCode.invalidFormat');
     });
 
-    test('postal code is empty', () => {
+    test('postal code should not be empty', () => {
       const error = validatePostalCode('');
-      expect(error).toBeUndefined();
+      expect(error).toEqual('validation.postalCode.invalidFormat');
     });
 
     test('valid postal code', () => {
