@@ -5,8 +5,7 @@ import { Child } from '../../child/types/ChildTypes';
 /** isBirthdateEligible()
  * Check if child is eligible for participation.
  *
- * Only children born in 2020 is eligible for this service.
- * During development we allow dates in 2019.
+ * Only children born in 2020 or later are eligible for this service.
  * @param {string} birthdate in YYYY-MM-DD format.
  * @returns {boolean}
  */
