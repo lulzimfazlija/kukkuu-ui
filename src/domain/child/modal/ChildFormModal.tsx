@@ -114,6 +114,7 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
                 <div className={styles.childInfo}>
                   <EnhancedInputField
                     className={styles.childHomeCity}
+                    id="homeCity"
                     name="homeCity"
                     label={t(
                       'homePage.preliminaryForm.childHomeCity.input.label'
@@ -128,6 +129,7 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
                   <EnhancedInputField
                     className={styles.childPostalCode}
                     required={true}
+                    id="postalCode"
                     name="postalCode"
                     validate={validatePostalCode}
                     label={t('registration.form.child.postalCode.input.label')}
@@ -140,6 +142,7 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
 
                 <div className={styles.childName}>
                   <EnhancedInputField
+                    id="firstName"
                     name="firstName"
                     label={t('registration.form.child.firstName.input.label')}
                     component={InputField}
@@ -149,6 +152,7 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
                     )}
                   />
                   <EnhancedInputField
+                    id="lastName"
                     name="lastName"
                     autoComplete="new-password"
                     label={t('registration.form.child.lastName.input.label')}
@@ -160,10 +164,10 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
                 </div>
 
                 <EnhancedInputField
+                  id="relationship.type"
                   name="relationship.type"
                   label={t('registration.form.child.relationship.input.label')}
                   component={SelectField}
-                  id="registration.form.child.relationship.select"
                   options={getTranslatedRelationshipOptions(t)}
                   placeholder={t(
                     'registration.form.child.relationship.input.placeholder'
