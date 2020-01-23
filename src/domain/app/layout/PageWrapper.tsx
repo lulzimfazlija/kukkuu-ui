@@ -5,6 +5,7 @@ import classnames from 'classnames';
 
 import styles from './pageWrapper.module.scss';
 import Container from './Container';
+import { getCurrentLanguage } from '../../../common/translation/TranslationUtils';
 const PageWrapper: FunctionComponent<{
   className?: string;
   title?: string;
@@ -17,7 +18,9 @@ const PageWrapper: FunctionComponent<{
   title = 'appName',
   description = 'homePage.hero.descriptionText',
 }) => {
-  const { t } = useTranslation();
+  const { i18n, t } = useTranslation();
+  const lang = getCurrentLanguage(i18n);
+
   const translatedTitle =
     title !== 'appName' ? `${t(title)} - ${t('appName')}` : t('appName');
   const translatedDescription =
@@ -27,12 +30,11 @@ const PageWrapper: FunctionComponent<{
 
   return (
     <div className={classnames(styles.pageWrapper, className)}>
-      {translatedTitle && (
-        <Helmet>
-          <title>{translatedTitle}</title>
-          <meta name="description" content={translatedDescription} />
-        </Helmet>
-      )}
+      <Helmet>
+        <html lang={lang} />
+        <title>{translatedTitle}</title>
+        <meta name="description" content={translatedDescription} />
+      </Helmet>
       <Container className={containerClassName}>{children}</Container>
     </div>
   );
