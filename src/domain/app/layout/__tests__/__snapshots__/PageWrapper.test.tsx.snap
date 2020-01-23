@@ -8,6 +8,9 @@ exports[`renders snapshot correctly 1`] = `
     defer={true}
     encodeSpecialCharacters={true}
   >
+    <html
+      lang="fi"
+    />
     <title>
       Kulttuurin kummilapset
     </title>
