@@ -9,16 +9,28 @@ const PageWrapper: FunctionComponent<{
   className?: string;
   title?: string;
   containerClassName?: string;
-}> = ({ children, className, containerClassName, title }) => {
+  description?: string;
+}> = ({
+  children,
+  className,
+  containerClassName,
+  title = 'appName',
+  description = 'homePage.hero.descriptionText',
+}) => {
   const { t } = useTranslation();
-  const translatedTitle: string = title
-    ? `${t(title)} - ${t('appName')}`
-    : t('appName');
+  const translatedTitle =
+    title !== 'appName' ? `${t(title)} - ${t('appName')}` : t('appName');
+  const translatedDescription =
+    title !== 'homePage.hero.descriptionText'
+      ? t(description)
+      : t('homePage.hero.descriptionText');
+
   return (
     <div className={classnames(styles.pageWrapper, className)}>
-      {title && (
+      {translatedTitle && (
         <Helmet>
           <title>{translatedTitle}</title>
+          <meta name="description" content={translatedDescription} />
         </Helmet>
       )}
       <Container className={containerClassName}>{children}</Container>
