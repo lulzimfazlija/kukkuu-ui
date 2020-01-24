@@ -28,12 +28,17 @@ const PageWrapper: FunctionComponent<{
       ? t(description)
       : t('homePage.hero.descriptionText');
 
+  const path = window.location.pathname.replace(`/${lang}/`, '');
+
   return (
     <div className={classnames(styles.pageWrapper, className)}>
       <Helmet>
         <html lang={lang} />
         <title>{translatedTitle}</title>
         <meta name="description" content={translatedDescription} />
+        <link rel="alternate" hrefLang="fi" href={'/fi/' + path} />
+        <link rel="alternate" hrefLang="sv" href={'/sv/' + path} />
+        <link rel="alternate" hrefLang="en" href={'/en/' + path} />
       </Helmet>
       <Container className={containerClassName}>{children}</Container>
     </div>
