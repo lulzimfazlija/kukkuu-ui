@@ -37,7 +37,7 @@ const ProfileChildDetail: React.FunctionComponent = () => {
       className={styles.wrapper}
       title={t('profile.child.detail.page.title')}
     >
-      <div className={styles.childDetailWrapper}>
+      <div className={styles.childDetailWrapper} role="main">
         <button
           aria-label={t('common.backButton.label')}
           className={styles.backButton}
@@ -56,7 +56,7 @@ const ProfileChildDetail: React.FunctionComponent = () => {
                 <Icon
                   src={childIcon}
                   className={styles.childIcon}
-                  alt="child icon"
+                  alt={t('profile.child.default.name.text')}
                 />
                 <h1>
                   {child.firstName
@@ -65,20 +65,26 @@ const ProfileChildDetail: React.FunctionComponent = () => {
                 </h1>
               </div>
               <div className={styles.childInfoRow}>
-                <Icon src={birthdateIcon} alt="birthdate icon" />
+                <Icon
+                  src={birthdateIcon}
+                  alt={t('profile.child.detail.birthdate')}
+                />
                 <span>
                   {formatTime(newMoment(child.birthdate), DEFAULT_DATE_FORMAT)}
                 </span>
               </div>
               <div className={styles.childInfoRow}>
-                <Icon src={personIcon} alt="Person icon" />
+                <Icon src={personIcon} alt="" />
                 <span>
                   {`${guardian.firstName} ${guardian.lastName}`},{' '}
                   {guardian.email}
                 </span>
               </div>
               <div className={styles.childInfoRow}>
-                <Icon src={phoneIcon} alt="Guardian mobile phone" />
+                <Icon
+                  src={phoneIcon}
+                  alt={t('profile.child.detail.phoneNumber')}
+                />
                 <span>{guardian.phoneNumber}</span>
               </div>
             </div>

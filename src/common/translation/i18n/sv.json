@@ -94,6 +94,10 @@
       "default": {
         "text": "Välj"
       }
+    },
+    "menu": {
+      "openMenuText": "Öppna meny",
+      "closeMenuText": "Stäng meny"
     }
   },
   "email ": {
@@ -246,17 +250,19 @@
       },
       "detail": {
         "delete": {
-          "text": "Remove child profile"
+          "text": "Radera barnets uppgifter"
         },
         "edit": {
-          "text": "Update child information"
+          "text": "Uppdatera barnets uppgifter"
         },
         "page": {
-          "title": "Child detail page"
-        }
+          "title": "Barnets uppgifter"
+        },
+        "birthdate": "Barnets födelsedatum",
+        "phoneNumber": "Telefonnummer"
       },
       "navigateToDetail": {
-        "buttonLabel": "Navigate to child detail"
+        "buttonLabel": "Gå till barnets uppgifter"
       }
     },
     "children": {

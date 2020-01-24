@@ -169,10 +169,11 @@ const RegistrationForm: FunctionComponent = () => {
                 </div>
                 <div className={styles.registrationGrayContainer}>
                   <Button
+                    aria-label={t('child.form.modal.add.label')}
                     className={styles.addNewChildButton}
                     onClick={() => setIsOpen(true)}
                   >
-                    <Icon src={addIcon} alt="Add child icon"></Icon>
+                    <Icon src={addIcon} alt=""></Icon>
                     {t('child.form.modal.add.label')}
                   </Button>
                 </div>
@@ -186,7 +187,7 @@ const RegistrationForm: FunctionComponent = () => {
                     <Icon
                       src={happyAdultIcon}
                       className={styles.childImage}
-                      alt="Oh lord a happy child again"
+                      alt=""
                     />
                     <h2>{t('registration.form.guardian.info.heading')}</h2>
                   </div>

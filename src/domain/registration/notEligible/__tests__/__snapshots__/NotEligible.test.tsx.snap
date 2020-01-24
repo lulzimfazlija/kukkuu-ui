@@ -17,7 +17,7 @@ exports[`renders snapshot correctly 1`] = `
           className="notEligible"
         >
           <Icon
-            alt="Non eligible face"
+            alt=""
             className="notEligibleFace"
             src="adultFace.svg"
           />

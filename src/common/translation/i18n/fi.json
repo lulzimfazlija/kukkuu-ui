@@ -94,6 +94,10 @@
       "default": {
         "text": "Valitse"
       }
+    },
+    "menu": {
+      "openMenuText": "Avaa valikko",
+      "closeMenuText": "Sulje valikko"
     }
   },
   "email ": {
@@ -249,14 +253,16 @@
           "text": "Poista lapsen tiedot"
         },
         "edit": {
-          "text": "Update child information"
+          "text": "Päivitä kummilapsen tiedot"
         },
         "page": {
-          "title": "Child detail page"
-        }
+          "title": "Kummilapsen tiedot"
+        },
+        "birthdate": "Lapsen syntymäaika",
+        "phoneNumber": "Puhelinnumero"
       },
       "navigateToDetail": {
-        "buttonLabel": "Navigate to child detail"
+        "buttonLabel": "Näytä Kummilapsen tiedot"
       }
     },
     "children": {
