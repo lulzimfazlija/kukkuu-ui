@@ -25,13 +25,18 @@ const SmallScreenNav: React.FunctionComponent = props => {
     };
   }, []);
 
+  const ariaLabel = isOpen
+    ? t('common.menu.closeMenuText')
+    : t('common.menu.openMenuText');
+
   return (
     <div className={styles.smallScreenNav}>
-      <button
-        aria-label={t('navbar.menuButton.label')}
-        onClick={() => toggleNavMenu(!isOpen)}
-      >
-        <Icon className={styles.icon} src={hamburgerMenu} alt="menu" />
+      <button aria-label={ariaLabel} onClick={() => toggleNavMenu(!isOpen)}>
+        <Icon
+          className={styles.icon}
+          src={hamburgerMenu}
+          alt={t('navbar.menuButton.label')}
+        />
       </button>
       {isOpen && (
         <div
