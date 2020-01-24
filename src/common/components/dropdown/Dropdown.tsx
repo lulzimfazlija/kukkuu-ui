@@ -48,6 +48,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = ({
     <div className={styles.dropdownWrapper} {...rest} ref={ref}>
       <Button
         aria-label={ariaLabel}
+        aria-expanded={isOpen}
         onClick={() => {
           toggleDropdown(!isOpen);
           options[0].onClick && options[0].onClick();
