@@ -32,16 +32,15 @@ const ChildFormField: React.FunctionComponent<ChildFormFieldProps> = ({
     <div className={styles.childField} key={childIndex}>
       <div className={styles.childInfo}>
         <div className={styles.heading}>
-          <Icon
-            src={happyChildIcon}
-            className={styles.childImage}
-            alt="Oh lord a happy child again"
-          />
+          <Icon src={happyChildIcon} className={styles.childImage} />
           <h2>{t('registration.form.child.info.heading')}</h2>
           {childIndex !== 0 && (
-            <Button onClick={() => arrayHelpers.remove(childIndex)}>
+            <Button
+              aria-label={t('child.form.modal.delete.label')}
+              onClick={() => arrayHelpers.remove(childIndex)}
+            >
               {t('child.form.modal.delete.label')}
-              <Icon src={deleteIcon} alt="Delete child icon" />
+              <Icon src={deleteIcon} />
             </Button>
           )}
         </div>

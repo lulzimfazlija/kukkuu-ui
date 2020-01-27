@@ -94,6 +94,10 @@
       "default": {
         "text": "Choose"
       }
+    },
+    "menu": {
+      "openMenuText": "Open menu",
+      "closeMenuText": "Close menu"
     }
   },
   "email ": {
@@ -253,7 +257,9 @@
         },
         "page": {
           "title": "Child detail page"
-        }
+        },
+        "birthdate": "Child's date of birth",
+        "phoneNumber": "Guardian’s telephone number"
       },
       "navigateToDetail": {
         "buttonLabel": "Navigate to child detail"

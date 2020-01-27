@@ -13,7 +13,7 @@ const NotFound: FunctionComponent = () => {
     <Container>
       <div className={styles.notFound}>
         <h2>404</h2>
-        <Icon src={adultFace} className={styles.icon} alt="Sad adult face" />
+        <Icon src={adultFace} className={styles.icon} />
         <p>{t('notFound.text')}</p>
 
         <Link className={styles.returnLink} to="/">

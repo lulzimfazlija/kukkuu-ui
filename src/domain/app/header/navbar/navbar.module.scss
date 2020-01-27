@@ -1,4 +1,5 @@
 @import 'colors';
+@import 'fonts';
 @import 'layout';
 @import 'mixins';
 @import 'variables';
@@ -22,6 +23,8 @@ $logoWidth: 5.5rem;
 }
 
 .appName {
+  font-weight: bold;
+  font-size: 1.17em;
   margin: 0 0 0 30px;
 }
 

@@ -69,11 +69,7 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
           <div className={styles.notEligible}>
             <h3>{t('registration.notEligible.title')}</h3>
             <p>{t('registration.notEligible.text')}</p>
-            <Icon
-              className={styles.icon}
-              src={personIcon}
-              alt="not eligible icon"
-            />
+            <Icon className={styles.icon} src={personIcon} />
             <Button
               className={styles.goBackButton}
               onClick={() => setIsOpen(false)}

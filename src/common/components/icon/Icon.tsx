@@ -4,13 +4,13 @@ import classnames from 'classnames';
 import styles from './icon.module.scss';
 interface IconProps {
   src: string;
-  alt: string;
+  alt?: string;
   className?: string;
 }
 
 const Icon: React.FunctionComponent<IconProps> = ({
   src,
-  alt,
+  alt = '',
   className,
   ...rest
 }) => {

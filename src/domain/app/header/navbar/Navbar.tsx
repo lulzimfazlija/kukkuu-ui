@@ -15,7 +15,7 @@ const Navbar: React.FunctionComponent = props => {
     <div className={styles.navbarTop}>
       <div className={styles.logoWrapper}>
         <div className={styles.logo} onClick={() => history.push('/')}></div>
-        {!isSmallScreen && <h3 className={styles.appName}>{t('appName')}</h3>}
+        {!isSmallScreen && <div className={styles.appName}>{t('appName')}</div>}
       </div>
       <div className={styles.languageWrapper}>
         {isSmallScreen ? <SmallScreenNav /> : <LanguageBar />}

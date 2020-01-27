@@ -11,11 +11,7 @@ const ProfileNoEvent: FunctionComponent = () => {
     <div className={styles.noEventWrapper}>
       <h1>{t('profile.noupcomingevents.hero.heading')}</h1>
       <div className={styles.noEvent}>
-        <Icon
-          src={envelopeWithStars}
-          className={styles.envelopIcon}
-          alt="Envelope with stars"
-        />
+        <Icon src={envelopeWithStars} className={styles.envelopIcon} />
         <p>
           <Trans i18nKey="multiline">
             {t('profile.noupcomingevents.text')}

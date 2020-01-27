@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import Button from '../button/Button';
 import Icon from '../icon/Icon';
@@ -23,6 +24,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = ({
   options,
   ...rest
 }) => {
+  const { t } = useTranslation();
   const ref = React.useRef<HTMLDivElement>(null);
 
   const [isOpen, toggleDropdown] = React.useState(false);
@@ -38,16 +40,25 @@ const Dropdown: React.FunctionComponent<DropdownProps> = ({
     };
   }, []);
 
+  const ariaLabel = isOpen
+    ? t('common.menu.closeMenuText')
+    : t('common.menu.openMenuText');
+
   return (
     <div className={styles.dropdownWrapper} {...rest} ref={ref}>
       <Button
+        aria-label={ariaLabel}
+        aria-expanded={isOpen}
         onClick={() => {
           toggleDropdown(!isOpen);
           options[0].onClick && options[0].onClick();
         }}
       >
         <span>{options[0].label}</span>
-        <Icon src={options[0].icon || angleDownIcon} alt="Dropdown icon" />
+        <Icon
+          src={options[0].icon ?? angleDownIcon}
+          alt={t('navbar.menuButton.label')}
+        />
       </Button>
       {isOpen && (
         <div className={styles.dropdownContent}>
@@ -69,9 +80,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = ({
                     }}
                   >
                     <span>{option.label}</span>
-                    {option.icon && (
-                      <Icon src={option.icon} alt="Dropdown option icon" />
-                    )}
+                    {option.icon && <Icon src={option.icon} />}
                   </Button>
                 );
               else return '';

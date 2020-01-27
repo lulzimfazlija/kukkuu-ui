@@ -27,9 +27,9 @@ const ProfileChild: React.FunctionComponent<ProfileChildProps> = ({
       className={styles.childWrapper}
       onClick={() => history.push(`/profile/child/${child.id}`)}
     >
-      <div className={styles.child}>
+      <div className={styles.child} role="listitem">
         <div className={styles.childIcon}>
-          <Icon src={childIcon} alt="Lovely child icon" />
+          <Icon src={childIcon} alt={t('profile.child.default.name.text')} />
         </div>
         <div className={styles.childInfo}>
           <p>
@@ -38,7 +38,10 @@ const ProfileChild: React.FunctionComponent<ProfileChildProps> = ({
               : t('profile.child.default.name.text')}
           </p>
           <div className={styles.childBirthdate}>
-            <Icon src={birthdayIcon} alt="Birthdate cake" />
+            <Icon
+              src={birthdayIcon}
+              alt={t('profile.child.detail.birthdate')}
+            />
             <span>
               {formatTime(newMoment(child.birthdate), DEFAULT_DATE_FORMAT)}
             </span>
@@ -46,7 +49,10 @@ const ProfileChild: React.FunctionComponent<ProfileChildProps> = ({
         </div>
       </div>
       <div className={styles.childDetail}>
-        <Icon src={angleDownIcon} alt="Navigate to child detail" />
+        <Icon
+          src={angleDownIcon}
+          alt={t('profile.child.navigateToDetail.buttonLabel')}
+        />
       </div>
     </button>
   );

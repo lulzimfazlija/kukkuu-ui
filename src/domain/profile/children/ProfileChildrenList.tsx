@@ -30,7 +30,7 @@ const ProfileChildrenList: React.FunctionComponent = () => {
 
   return (
     <PageWrapper className={styles.wrapper} title={'profile.heading'}>
-      <div className={styles.profileWrapper}>
+      <div className={styles.profileWrapper} role="main">
         <div className={styles.profile}>
           <div className={styles.heading}>
             <h1>{t('profile.heading')}</h1>
@@ -42,7 +42,7 @@ const ProfileChildrenList: React.FunctionComponent = () => {
               <span>{t('child.form.modal.add.label')}</span>
               <Icon
                 src={addIcon}
-                alt="Add child icon"
+                alt={t('child.form.modal.add.label')}
                 className={styles.addChildIcon}
               />
             </button>
