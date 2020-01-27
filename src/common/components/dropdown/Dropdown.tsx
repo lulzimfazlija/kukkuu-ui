@@ -56,7 +56,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = ({
       >
         <span>{options[0].label}</span>
         <Icon
-          src={options[0].icon || angleDownIcon}
+          src={options[0].icon ?? angleDownIcon}
           alt={t('navbar.menuButton.label')}
         />
       </Button>
