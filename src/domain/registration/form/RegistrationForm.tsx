@@ -173,7 +173,7 @@ const RegistrationForm: FunctionComponent = () => {
                     className={styles.addNewChildButton}
                     onClick={() => setIsOpen(true)}
                   >
-                    <Icon src={addIcon} alt="" />
+                    <Icon src={addIcon} />
                     {t('child.form.modal.add.label')}
                   </Button>
                 </div>
@@ -184,11 +184,7 @@ const RegistrationForm: FunctionComponent = () => {
                   )}
                 >
                   <div className={styles.heading}>
-                    <Icon
-                      src={happyAdultIcon}
-                      className={styles.childImage}
-                      alt=""
-                    />
+                    <Icon src={happyAdultIcon} className={styles.childImage} />
                     <h2>{t('registration.form.guardian.info.heading')}</h2>
                   </div>
                   <div className={styles.guardianEmail}>

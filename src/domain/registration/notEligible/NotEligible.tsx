@@ -15,11 +15,7 @@ const NotEligible: FunctionComponent = () => {
         <div className={styles.hero}>
           <div className={styles.heroContainer}>
             <div className={styles.notEligible}>
-              <Icon
-                className={styles.notEligibleFace}
-                src={adultFaceIcon}
-                alt=""
-              />
+              <Icon className={styles.notEligibleFace} src={adultFaceIcon} />
               <p>{t('registration.notEligible.text')}</p>
             </div>
             <div className={styles.goBackButton}>

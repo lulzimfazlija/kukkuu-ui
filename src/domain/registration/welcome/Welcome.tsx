@@ -16,7 +16,7 @@ const Welcome: FunctionComponent = () => {
     <PageWrapper title={'registration.welcome.hero.header'}>
       <div className={styles.welcome}>
         <h1>{t('registration.welcome.hero.header')}</h1>
-        <Icon src={tadaImage} className={styles.tada} alt="" />
+        <Icon src={tadaImage} className={styles.tada} />
         <Button
           aria-label={t('common.profile.goToProfile.buttonText')}
           onClick={() => history.push('/profile')}

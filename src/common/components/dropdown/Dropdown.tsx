@@ -80,7 +80,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = ({
                     }}
                   >
                     <span>{option.label}</span>
-                    {option.icon && <Icon src={option.icon} alt="" />}
+                    {option.icon && <Icon src={option.icon} />}
                   </Button>
                 );
               else return '';

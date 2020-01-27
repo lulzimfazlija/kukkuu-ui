@@ -50,11 +50,7 @@ const Modal: React.FunctionComponent<ModalProps> = ({
             </Button>
             <div className={styles.heading}>
               {label && (
-                <Icon
-                  className={styles.happyChild}
-                  src={happyChildIcon}
-                  alt=""
-                ></Icon>
+                <Icon className={styles.happyChild} src={happyChildIcon}></Icon>
               )}
               {/* TODO: add a generic Icon */}
               <h1>{label}</h1>
