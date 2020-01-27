@@ -7,6 +7,7 @@ import styles from './smallScreenNav.module.scss';
 import Icon from '../../../../../common/components/icon/Icon';
 import UserDropdown from '../../userDropdown/UserDropdown';
 import LanguageBar from '../languageBar/LanguageBar';
+import Button from '../../../../../common/components/button/Button';
 
 const SmallScreenNav: React.FunctionComponent = props => {
   const { t } = useTranslation();
@@ -31,7 +32,7 @@ const SmallScreenNav: React.FunctionComponent = props => {
 
   return (
     <div className={styles.smallScreenNav}>
-      <button
+      <Button
         aria-label={ariaLabel}
         aria-expanded={isOpen}
         onClick={() => toggleNavMenu(!isOpen)}
@@ -41,7 +42,7 @@ const SmallScreenNav: React.FunctionComponent = props => {
           src={hamburgerMenu}
           alt={t('navbar.menuButton.label')}
         />
-      </button>
+      </Button>
       {isOpen && (
         <div
           className={styles.smallScreenNavContent}
