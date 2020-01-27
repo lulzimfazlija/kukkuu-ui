@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router';
+import classNames from 'classnames';
+import { useWebPSupportCheck } from 'react-use-webp-support-check';
 
 import styles from './hero.module.scss';
 import Button from '../../../common/components/button/Button';
@@ -19,6 +21,8 @@ const HomeHero: React.FunctionComponent<HomeHero> = ({
 }) => {
   const { t } = useTranslation();
   const history = useHistory();
+  const noWebp = useWebPSupportCheck() ? '' : 'no-webp';
+
   return (
     <section className={styles.heroWrapper}>
       <div className={styles.heroContainer}>
@@ -51,7 +55,11 @@ const HomeHero: React.FunctionComponent<HomeHero> = ({
         </div>
       </div>
       <div className={styles.kidsImageContainer}>
-        <div className={styles.kidsImage}></div>
+        <div
+          className={classNames(styles.kidsImage, {
+            [styles.noWebp]: !!noWebp,
+          })}
+        ></div>
       </div>
     </section>
   );
