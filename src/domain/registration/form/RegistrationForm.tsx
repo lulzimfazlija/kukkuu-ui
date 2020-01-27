@@ -173,7 +173,7 @@ const RegistrationForm: FunctionComponent = () => {
                     className={styles.addNewChildButton}
                     onClick={() => setIsOpen(true)}
                   >
-                    <Icon src={addIcon} alt=""></Icon>
+                    <Icon src={addIcon} alt="" />
                     {t('child.form.modal.add.label')}
                   </Button>
                 </div>
