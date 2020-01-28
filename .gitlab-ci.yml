@@ -41,6 +41,7 @@ review:
   variables:
     DOCKER_IMAGE_NAME: '$CI_PROJECT_NAME-review'
     POSTGRES_ENABLED: 0
+    KUBE_CLUSTER_ISSUER: 'certificates-letsencrypt-prod' #Delete before merge!
 
 # This will enable staging ci-pipeline
 staging:
