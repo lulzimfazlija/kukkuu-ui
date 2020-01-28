@@ -28,7 +28,6 @@ import PageWrapper from '../../app/layout/PageWrapper';
 import { getCurrentLanguage } from '../../../common/translation/TranslationUtils';
 import { getSupportedChildData } from '../../child/ChildUtils';
 import { userHasProfileSelector } from '../state/RegistrationSelectors';
-import CheckHasProfile from '../../profile/CheckHasProfile';
 // eslint-disable-next-line max-len
 import { submitChildrenAndGuardian as SubmitChildrenAndGuardianData } from '../../api/generatedTypes/submitChildrenAndGuardian';
 import { saveProfile } from '../../profile/state/ProfileActions';
@@ -44,7 +43,7 @@ const RegistrationForm: FunctionComponent = () => {
   const initialValues = useSelector(initialFormDataSelector);
   const [submitChildrenAndGuardian] = useMutation<
     SubmitChildrenAndGuardianData
-  >(submitChildrenAndGuardianMutation);
+  >(submitChildrenAndGuardianMutation, { refetchQueries: ['profileQuery'] });
   // For new users preferLanguage defaults to their chosen UI language.
   initialValues.preferLanguage = initialValues.preferLanguage || currentLocale;
 
@@ -68,8 +67,6 @@ const RegistrationForm: FunctionComponent = () => {
       />
 
       <div className={styles.registrationFormContainer}>
-        {/* Check if the user has registered before */}
-        <CheckHasProfile />
         <div className={styles.registrationForm}>
           <Formik
             initialValues={initialValues}
