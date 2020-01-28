@@ -3,20 +3,20 @@
 @import 'variables';
 
 .notEligible {
-    font-weight: bold;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-    .notEligibleFace {
-        height: 4rem;
-        width: 4rem;
-        margin: $baseMargin 0;
-    }
+  .notEligibleFace {
+    height: 4rem;
+    width: 4rem;
+    margin: $baseMargin 0;
+  }
 }
 
 .goBackButton {
-    margin: 2*$baseMargin;
-    @include button()
+  margin: 2 * $baseMargin;
+  @include button();
 }
