@@ -27,13 +27,10 @@
   @media (min-width: map-get($breakpoints, lg)) {
     min-height: calc(0.265 * #{$containerMaxWidth});
   }
-  background-image: url('../../../assets/icons/svg/Culture_kids@2x.webp');
+  background-image: url('../../../assets/icons/svg/Culture_kids@2x.jpg');
   background-repeat: no-repeat;
   background-position: center bottom -2px;
   background-size: 100% auto;
-  &.noWebp {
-    background-image: url('../../../assets/icons/svg/Culture_kids@2x.jpg');
-  }
 }
 
 .heroContainer {
