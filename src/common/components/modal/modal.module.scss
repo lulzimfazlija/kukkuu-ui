@@ -4,6 +4,8 @@
 @import 'layout';
 @import 'variables';
 
+$modalPadding: 2rem;
+
 .modal {
   background-color: $white;
   position: relative;
@@ -58,21 +60,21 @@
 }
 
 .modalChildren {
-  padding: 0 $basePadding;
+  padding: 0 $modalPadding;
+
   @include respond-above(sm) {
-    padding: $xlargeMargin;
+    padding: 0 $modalPadding;
   }
-  padding-top: 0;
 }
 
 .heading {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: $baseMargin 0;
+  margin: 0 0 $baseMargin 0;
   padding: 0 $basePadding;
   @include respond-above(sm) {
-    padding: 0 $xlargeMargin;
+    padding: 0 $modalPadding;
   }
 
   .happyChild {

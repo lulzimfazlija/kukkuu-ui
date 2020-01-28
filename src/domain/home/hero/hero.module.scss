@@ -52,11 +52,12 @@
 
   .buttonGroup {
     @include button();
-    width: 40%;
     margin: 0 auto;
 
     .authenticateButton {
-      border: 1px solid $white;
+      button {
+        border: 1px solid $white !important;
+      }
     }
 
     .registerButton {

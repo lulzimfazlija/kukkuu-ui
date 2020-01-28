@@ -4,7 +4,7 @@
 @import 'mixins';
 
 .homeForm {
-  padding: $largeMargin 0;
+  padding: 2 * $largeMargin 0;
 
   form {
     display: grid;
@@ -35,6 +35,9 @@
 
 .heading {
   text-align: center;
+  h2 {
+    margin-top: 0;
+  }
   p {
     line-height: $largeLineHeight;
     margin-bottom: $largeMargin;

@@ -15,9 +15,17 @@ $iconSize: 2 * $xlargeMargin;
   p {
     align-self: center;
     line-height: $baseLineHeight;
+
+    @include respond-below(sm) {
+      text-align: center;
+    }
   }
   .envelopIcon {
     height: $iconSize;
     width: $iconSize;
+
+    @include respond-below(sm) {
+      justify-self: center;
+    }
   }
 }

@@ -4,8 +4,10 @@
 .wrapper {
   h2 {
     text-align: center;
-    padding: $largeMargin 0;
+    margin-top: 0;
   }
+
+  padding: 2 * $largeMargin 0;
 
   display: grid;
   grid-template-columns: 1fr minmax(auto, $containerMaxWidth) 1fr;
@@ -17,6 +19,5 @@
 
 .partners {
   padding: 0 $baseMargin;
-  padding-bottom: 2rem; // valokuvataiteenmuseo is too tall, give it room
   display: grid;
 }

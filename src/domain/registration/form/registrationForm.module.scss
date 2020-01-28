@@ -5,6 +5,8 @@
 @import 'mixins';
 @import './partial/childFormField.module.scss';
 
+$plusIconHeight: 2rem;
+
 .registrationFormContainer {
   display: grid;
 }
@@ -66,7 +68,7 @@
     width: 100%;
 
     > div {
-      padding-right: 5px;
+      margin-right: $basePadding;
     }
     img {
       transform: rotate(45deg);
@@ -95,4 +97,9 @@
 
 .guardianInfo {
   padding-top: $baseMargin;
+}
+
+.plusIcon {
+  height: $plusIconHeight;
+  width: $plusIconHeight;
 }

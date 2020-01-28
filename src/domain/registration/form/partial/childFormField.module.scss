@@ -2,9 +2,11 @@
 @import 'layout';
 @import 'fonts';
 
+$childIconHeight: 4rem;
+
 .childImage {
-  height: $largeMargin;
-  width: $largeMargin;
+  height: $childIconHeight;
+  width: $childIconHeight;
   padding-right: $basePadding;
 }
 
