@@ -52,7 +52,7 @@
     "ci": "CI=true yarn test --verbose --runInBand --coverage",
     "graphql-types": "apollo client:codegen --target=typescript --no-addTypename --outputFlat src/domain/api/generatedTypes",
     "lint": "eslint --ext js,ts,tsx src",
-    "format:scss": "prettier --write src/**/*.scss",
+    "format:scss": "prettier --config .prettierrc.json --write src/**/*.scss",
     "start": "react-scripts start",
     "update-translations": "ts-node  -P ./scripts/tsconfig.json -r dotenv/config scripts/update-translations.ts",
     "test": "react-scripts test --watchAll=false",
