@@ -3,29 +3,30 @@
 @import 'layout';
 
 .submitButton {
+  @include button();
+  margin-top: $largeMargin;
+}
+
+.childName,
+.childInfo {
+  @include respond-above(md) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: $baseMargin;
+  }
+}
+
+.notEligible {
+  text-align: center;
+  .goBackButton {
     @include button();
     margin-top: $largeMargin;
-}
-
-.childName, .childInfo {
-    @include respond-above(md) {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: $baseMargin;
-    }
-}
-
-.notEligible {    
-    text-align: center;
-    .goBackButton {
-        @include button();
-        margin-top: $largeMargin;
-    }
+  }
 }
 
 .icon {
-    display: block;
-    margin: $largeMargin auto;
-    height: $largeMargin;
-    width: $largeMargin;
+  display: block;
+  margin: $largeMargin auto;
+  height: $largeMargin;
+  width: $largeMargin;
 }
