@@ -19,6 +19,7 @@ const HomeHero: React.FunctionComponent<HomeHero> = ({
 }) => {
   const { t } = useTranslation();
   const history = useHistory();
+
   return (
     <section className={styles.heroWrapper}>
       <div className={styles.heroContainer}>
