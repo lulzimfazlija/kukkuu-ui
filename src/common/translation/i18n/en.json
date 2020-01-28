@@ -388,7 +388,7 @@
   "validation": {
     "date": {
       "invalidFormat": "Invalid date input",
-      "unSupported": "Input date is not supported"
+      "unSupported": "The date of birth can't be in the future"
     },
     "general": {
       "required": "Mandatory field"
