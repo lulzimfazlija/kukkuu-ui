@@ -22,9 +22,11 @@ import { fetchTokenError } from '../auth/state/BackendAuthenticationActions';
 import Welcome from '../registration/welcome/Welcome';
 import Profile from '../profile/Profile';
 import AccessibilityStatement from '../accessibilityStatement/AccessibilityStatement';
+import { userHasProfileSelector } from '../registration/state/RegistrationSelectors';
 
 type AppProps = RouteComponentProps<{ locale: string }> & {
   isLoadingUser: boolean;
+  userHasProfile: boolean;
   fetchApiToken: (accessToken: string) => void;
   fetchApiTokenError: (errors: object) => void;
 };
@@ -52,6 +54,7 @@ class App extends React.Component<AppProps> {
   public render() {
     const {
       isLoadingUser,
+      userHasProfile,
       match: {
         params: { locale },
       },
@@ -72,15 +75,21 @@ class App extends React.Component<AppProps> {
             path={`/${locale}/accessibility`}
             component={AccessibilityStatement}
           />
-          <PrivateRoute exact path={`/${locale}/registration/form`}>
-            <RegistrationForm />
-          </PrivateRoute>
+          {!userHasProfile && (
+            <PrivateRoute exact path={`/${locale}/registration/form`}>
+              <RegistrationForm />
+            </PrivateRoute>
+          )}
           <PrivateRoute exact path={`/${locale}/registration/success`}>
             <Welcome />
           </PrivateRoute>
+
           <PrivateRoute path={`/${locale}/profile`}>
             <Profile />
           </PrivateRoute>
+
+          {userHasProfile && <Redirect to={`/${locale}/profile`} />}
+
           <Route component={NotFound} />
         </Switch>
       </LoadingSpinner>
@@ -90,6 +99,7 @@ class App extends React.Component<AppProps> {
 
 const mapStateToProps = (state: StoreState) => ({
   isLoadingUser: isLoadingUserSelector(state),
+  userHasProfile: userHasProfileSelector(state),
 });
 
 const actions = {

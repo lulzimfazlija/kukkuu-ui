@@ -2,6 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { MemoryRouter } from 'react-router';
 import { Provider } from 'react-redux';
+import { MockedProvider } from '@apollo/react-testing';
 
 import { store } from '../state/AppStore';
 import BrowserApp, { AppRoutes } from '../BrowserApp';
@@ -11,7 +12,9 @@ const wrapperCreator = (route: string) =>
   mount(
     <Provider store={store}>
       <MemoryRouter initialEntries={[route]}>
-        <AppRoutes />
+        <MockedProvider>
+          <AppRoutes />
+        </MockedProvider>
       </MemoryRouter>
     </Provider>
   );
@@ -23,7 +26,6 @@ it('renders snapshot correctly', () => {
 
 it('redirect user from root to /fi/home by default', () => {
   const wrapper = wrapperCreator('/');
-
   expect(
     wrapper
       .children()

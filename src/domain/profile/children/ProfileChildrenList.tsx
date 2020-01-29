@@ -15,6 +15,7 @@ import AddNewChildFormModal from '../../registration/modal/AddNewChildFormModal'
 import addChildMutation from '../../child/mutation/ChildMutation';
 import { getSupportedChildData } from '../../child/ChildUtils';
 import LoadingSpinner from '../../../common/components/spinner/LoadingSpinner';
+import profileQuery from '../queries/ProfileQuery';
 const ProfileChildrenList: React.FunctionComponent = () => {
   const { t } = useTranslation();
   const children = useSelector(profileChildrenSelector);
@@ -22,7 +23,7 @@ const ProfileChildrenList: React.FunctionComponent = () => {
   const [addChild, { loading: mutationLoading }] = useMutation(
     addChildMutation,
     {
-      refetchQueries: ['profileQuery'],
+      refetchQueries: [{ query: profileQuery }],
     }
   );
 
