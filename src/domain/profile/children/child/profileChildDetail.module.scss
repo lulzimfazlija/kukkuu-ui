@@ -9,7 +9,6 @@
 
 .childDetailWrapper {
   display: grid;
-  grid-template-rows: 3rem auto;
   padding: 0 $basePadding;
   @include respond-above(sm) {
     padding: 0;
