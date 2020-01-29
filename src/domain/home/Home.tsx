@@ -23,12 +23,13 @@ const Home: FunctionComponent = () => {
   };
 
   return (
-    <PageWrapper containerClassName={styles.gridLayoutOverride}>
-      <div
-        className={classnames(styles.home, {
-          userHasProfile: styles.userHasProfile,
-        })}
-      >
+    <PageWrapper
+      containerClassName={classnames(
+        styles.gridLayoutOverride,
+        userHasProfile && styles.userHasProfileContainer
+      )}
+    >
+      <div className={styles.home}>
         <HomeHero
           userHasProfile={userHasProfile}
           userIsAuthenticated={userIsAuthenticated}
