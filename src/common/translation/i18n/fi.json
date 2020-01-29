@@ -364,7 +364,7 @@
       },
       "verifyInformation": {
         "input": {
-          "label": "Agree to continue"
+          "label": "Hyväksy jatkaaksesi"
         }
       }
     },
@@ -387,8 +387,8 @@
   "sanityCheck": "kukkuu.fi",
   "validation": {
     "date": {
-      "invalidFormat": "Invalid date input",
-      "unSupported": "Input date is not supported"
+      "invalidFormat": "Virheellinen päivämäärä",
+      "unSupported": "Syntymäpäivä ei voi olla tulevaisuudessa"
     },
     "general": {
       "required": "Pakollinen kenttä"

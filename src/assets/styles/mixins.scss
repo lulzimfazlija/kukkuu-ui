@@ -1,5 +1,6 @@
 @import 'variables';
 @import 'colors';
+@import 'layout';
 
 // **** Mixins
 
@@ -95,11 +96,11 @@
  * A yellow button style which used a lot in the app.
  */
 @mixin button() {
+  text-align: center;
   button {
     background: $hel-summer;
 
     border: none !important;
-    width: 100%;
 
     &:disabled {
       background: $hel-gray;
@@ -107,6 +108,14 @@
 
     &:focus {
       border: 2px solid $focusOutline !important;
+    }
+
+    @include respond-above(sm) {
+      width: 60%;
+    }
+
+    @include respond-below(sm) {
+      width: 80%;
     }
   }
 }

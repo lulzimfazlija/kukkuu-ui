@@ -2,6 +2,8 @@
 @import 'variables';
 @import 'fonts';
 
+$childProfileMargin: 0.2rem;
+
 .childWrapper {
   background: $white;
   padding: $basePadding;
@@ -34,7 +36,7 @@
       text-transform: capitalize;
       font-size: $font-size-lg;
       margin: 0;
-      margin-bottom: $baseMargin;
+      margin-bottom: $childProfileMargin;
     }
 
     .childBirthdate {

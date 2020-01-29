@@ -387,8 +387,8 @@
   "sanityCheck": "kukkuu.sv",
   "validation": {
     "date": {
-      "invalidFormat": "Invalid date input",
-      "unSupported": "Input date is not supported"
+      "invalidFormat": "Fel datumformat",
+      "unSupported": "Födelsedatum kan inte vara i framtiden"
     },
     "general": {
       "required": "Obligatoriskt fält"
