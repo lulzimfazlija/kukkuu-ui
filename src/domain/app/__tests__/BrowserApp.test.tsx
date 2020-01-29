@@ -2,7 +2,6 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { MemoryRouter } from 'react-router';
 import { Provider } from 'react-redux';
-import toJson from 'enzyme-to-json';
 import { MockedProvider } from '@apollo/react-testing';
 
 import { store } from '../state/AppStore';
@@ -22,7 +21,7 @@ const wrapperCreator = (route: string) =>
 
 it('renders snapshot correctly', () => {
   const tree = mount(<BrowserApp />);
-  expect(toJson(tree)).toMatchSnapshot();
+  expect(tree.html()).toMatchSnapshot();
 });
 
 it('redirect user from root to /fi/home by default', () => {
