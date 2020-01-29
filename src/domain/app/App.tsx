@@ -80,11 +80,9 @@ class App extends React.Component<AppProps> {
               <RegistrationForm />
             </PrivateRoute>
           )}
-          {!userHasProfile && (
-            <PrivateRoute exact path={`/${locale}/registration/success`}>
-              <Welcome />
-            </PrivateRoute>
-          )}
+          <PrivateRoute exact path={`/${locale}/registration/success`}>
+            <Welcome />
+          </PrivateRoute>
 
           <PrivateRoute path={`/${locale}/profile`}>
             <Profile />

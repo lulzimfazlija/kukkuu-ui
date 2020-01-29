@@ -32,7 +32,7 @@ const Home: FunctionComponent = () => {
   let userHasProfile = false;
 
   if (loading) return <LoadingSpinner isLoading={true} />;
-  if (error) {
+  if (!data || error) {
     dispatch(clearProfile());
   }
   if (data?.myProfile) {

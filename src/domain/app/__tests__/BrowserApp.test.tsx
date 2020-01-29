@@ -2,28 +2,45 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { MemoryRouter } from 'react-router';
 import { Provider } from 'react-redux';
+import toJson from 'enzyme-to-json';
+import { MockedProvider } from '@apollo/react-testing';
+import { act } from 'react-dom/test-utils';
 
 import { store } from '../state/AppStore';
 import BrowserApp, { AppRoutes } from '../BrowserApp';
 import App from '../App';
 
-const wrapperCreator = (route: string) =>
-  mount(
+// Tell React not to wait for Apollo query to resolve
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const updateWrapper = async (wrapper: any, time = 0) => {
+  await act(async () => {
+    await new Promise(res => setTimeout(res, time));
+    await wrapper.update();
+  });
+};
+
+const wrapperCreator = (route: string) => {
+  const wrapper = mount(
     <Provider store={store}>
       <MemoryRouter initialEntries={[route]}>
-        <AppRoutes />
+        <MockedProvider>
+          <AppRoutes />
+        </MockedProvider>
       </MemoryRouter>
     </Provider>
   );
+  updateWrapper(wrapper);
+
+  return wrapper;
+};
 
 it('renders snapshot correctly', () => {
   const tree = mount(<BrowserApp />);
-  expect(tree.html()).toMatchSnapshot();
+  expect(toJson(tree)).toMatchSnapshot();
 });
 
 it('redirect user from root to /fi/home by default', () => {
   const wrapper = wrapperCreator('/');
-
   expect(
     wrapper
       .children()

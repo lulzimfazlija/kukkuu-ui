@@ -1,3 +1,1452 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders snapshot correctly 1`] = `"<div class=\\"pageWrapper\\"><header class=\\"headerWrapper\\"><div class=\\"container\\"><div class=\\"navbarTop\\"><div class=\\"logoWrapper\\"><div class=\\"logo\\"></div><div class=\\"appName\\">Kulttuurin kummilapset</div></div><div class=\\"languageWrapper\\"><div class=\\"languageBar\\"><a lang=\\"fi\\" href=\\"/fi/home\\" aria-current=\\"page\\" class=\\"active\\">Suomi</a><a lang=\\"sv\\" href=\\"/sv/home\\">Svenska</a><a lang=\\"en\\" href=\\"/en/home\\">English</a></div><div class=\\"dropdownWrapper\\"><div class=\\"buttonWrapper\\"><button type=\\"button\\" aria-label=\\"Avaa valikko\\" aria-expanded=\\"false\\"><span>Kirjaudu sisään</span><div class=\\"imgWrapper\\"><img src=\\"person.svg\\" alt=\\"Valikko\\"></div></button></div></div></div></div></div></header><div class=\\"pageBody\\"><div class=\\"spinnerWrapper\\"><div class=\\"spinner\\"></div></div></div><footer class=\\"footerWrapper\\"><div class=\\"container\\"><div class=\\"footer\\"><div class=\\"helsinkiLogo\\"></div><div class=\\"copyright\\"><p>© Copyright 2020 • Kaikki oikeudet pidätetään</p></div><div class=\\"links\\"><a href=\\"/accessibility\\">Saavutettavuusseloste</a> • <a href=\\"https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Kaupunginorkesterin-kummiperherekisteri.pdf\\">Rekisteriseloste</a></div></div></div></footer></div><div class=\\"Toastify\\"></div>"`;
+exports[`renders snapshot correctly 1`] = `
+<BrowserApp>
+  <Provider
+    store={
+      Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      }
+    }
+  >
+    <PersistGate
+      loading={
+        <LoadingSpinner
+          isLoading={true}
+        />
+      }
+      persistor={
+        Object {
+          "dispatch": [Function],
+          "flush": [Function],
+          "getState": [Function],
+          "pause": [Function],
+          "persist": [Function],
+          "purge": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+          Symbol(observable): [Function],
+        }
+      }
+    >
+      <r
+        store={
+          Object {
+            "dispatch": [Function],
+            "getState": [Function],
+            "replaceReducer": [Function],
+            "subscribe": [Function],
+            Symbol(observable): [Function],
+          }
+        }
+        userManager={
+          e {
+            "_events": e {
+              "_accessTokenExpired": e {
+                "_callbacks": Array [
+                  [Function],
+                ],
+                "_name": "Access token expired",
+                "_nowFunc": [Function],
+                "_timer": Object {
+                  "clearInterval": [Function],
+                  "setInterval": [Function],
+                },
+              },
+              "_accessTokenExpiring": e {
+                "_callbacks": Array [
+                  [Function],
+                  [Function],
+                ],
+                "_name": "Access token expiring",
+                "_nowFunc": [Function],
+                "_timer": Object {
+                  "clearInterval": [Function],
+                  "setInterval": [Function],
+                },
+              },
+              "_accessTokenExpiringNotificationTime": 60,
+              "_silentRenewError": t {
+                "_callbacks": Array [
+                  [Function],
+                ],
+                "_name": "Silent renew error",
+              },
+              "_userLoaded": t {
+                "_callbacks": Array [
+                  [Function],
+                  [Function],
+                ],
+                "_name": "User loaded",
+              },
+              "_userSessionChanged": t {
+                "_callbacks": Array [],
+                "_name": "User session changed",
+              },
+              "_userSignedOut": t {
+                "_callbacks": Array [
+                  [Function],
+                ],
+                "_name": "User signed out",
+              },
+              "_userUnloaded": t {
+                "_callbacks": Array [
+                  [Function],
+                  [Function],
+                ],
+                "_name": "User unloaded",
+              },
+            },
+            "_joseUtil": [Function],
+            "_sessionMonitor": t {
+              "_CheckSessionIFrameCtor": [Function],
+              "_userManager": [Circular],
+            },
+            "_settings": e {
+              "_accessTokenExpiringNotificationTime": 60,
+              "_acr_values": undefined,
+              "_authority": "",
+              "_automaticSilentRenew": true,
+              "_checkSessionInterval": 2000,
+              "_client_id": "https://api.hel.fi/auth/kukkuu-ui",
+              "_client_secret": undefined,
+              "_clockSkew": 300,
+              "_display": undefined,
+              "_extraQueryParams": Object {},
+              "_filterProtocolClaims": true,
+              "_iframeNavigator": t {},
+              "_includeIdTokenInSilentRenew": true,
+              "_loadUserInfo": true,
+              "_max_age": undefined,
+              "_metadata": undefined,
+              "_metadataService": t {
+                "_jsonService": t {
+                  "_XMLHttpRequest": [Function],
+                  "_contentTypes": Array [
+                    "application/jwk-set+json",
+                    "application/json",
+                  ],
+                  "_jwtHandler": null,
+                },
+                "_settings": [Circular],
+              },
+              "_metadataUrl": undefined,
+              "_monitorSession": true,
+              "_popupNavigator": t {},
+              "_popupWindowFeatures": undefined,
+              "_popupWindowTarget": undefined,
+              "_popup_post_logout_redirect_uri": undefined,
+              "_popup_redirect_uri": undefined,
+              "_post_logout_redirect_uri": "http://localhost/",
+              "_prompt": undefined,
+              "_query_status_response_type": "id_token",
+              "_redirectNavigator": t {},
+              "_redirect_uri": "http://localhost/callback",
+              "_resource": undefined,
+              "_response_mode": undefined,
+              "_response_type": "id_token token",
+              "_revokeAccessTokenOnSignout": false,
+              "_scope": "openid profile https://api.hel.fi/auth/kukkuu",
+              "_signingKeys": undefined,
+              "_silentRequestTimeout": undefined,
+              "_silent_redirect_uri": "http://localhost/silent_renew",
+              "_staleStateAge": 900,
+              "_stateStore": t {
+                "_prefix": "oidc.",
+                "_store": Storage {
+                  "i18nextLng": "fi",
+                },
+              },
+              "_stopCheckSessionOnError": true,
+              "_ui_locales": undefined,
+              "_userInfoJwtIssuer": "OP",
+              "_userStore": t {
+                "_prefix": "oidc.",
+                "_store": Storage {},
+              },
+              "_validateSubOnSilentRenew": false,
+              "_validator": t {
+                "_joseUtil": [Function],
+                "_metadataService": t {
+                  "_jsonService": t {
+                    "_XMLHttpRequest": [Function],
+                    "_contentTypes": Array [
+                      "application/jwk-set+json",
+                      "application/json",
+                    ],
+                    "_jwtHandler": null,
+                  },
+                  "_settings": [Circular],
+                },
+                "_settings": [Circular],
+                "_tokenClient": t {
+                  "_jsonService": t {
+                    "_XMLHttpRequest": [Function],
+                    "_contentTypes": Array [
+                      "application/json",
+                    ],
+                    "_jwtHandler": null,
+                  },
+                  "_metadataService": t {
+                    "_jsonService": t {
+                      "_XMLHttpRequest": [Function],
+                      "_contentTypes": Array [
+                        "application/jwk-set+json",
+                        "application/json",
+                      ],
+                      "_jwtHandler": null,
+                    },
+                    "_settings": [Circular],
+                  },
+                  "_settings": [Circular],
+                },
+                "_userInfoService": t {
+                  "_joseUtil": [Function],
+                  "_jsonService": t {
+                    "_XMLHttpRequest": [Function],
+                    "_contentTypes": Array [
+                      "application/json",
+                      "application/jwt",
+                    ],
+                    "_jwtHandler": [Function],
+                  },
+                  "_metadataService": t {
+                    "_jsonService": t {
+                      "_XMLHttpRequest": [Function],
+                      "_contentTypes": Array [
+                        "application/jwk-set+json",
+                        "application/json",
+                      ],
+                      "_jwtHandler": null,
+                    },
+                    "_settings": [Circular],
+                  },
+                  "_settings": [Circular],
+                },
+              },
+            },
+            "_silentRenewService": t {
+              "_callback": [Function],
+              "_userManager": [Circular],
+            },
+            "_tokenClient": t {
+              "_jsonService": t {
+                "_XMLHttpRequest": [Function],
+                "_contentTypes": Array [
+                  "application/json",
+                ],
+                "_jwtHandler": null,
+              },
+              "_metadataService": t {
+                "_jsonService": t {
+                  "_XMLHttpRequest": [Function],
+                  "_contentTypes": Array [
+                    "application/jwk-set+json",
+                    "application/json",
+                  ],
+                  "_jwtHandler": null,
+                },
+                "_settings": e {
+                  "_accessTokenExpiringNotificationTime": 60,
+                  "_acr_values": undefined,
+                  "_authority": "",
+                  "_automaticSilentRenew": true,
+                  "_checkSessionInterval": 2000,
+                  "_client_id": "https://api.hel.fi/auth/kukkuu-ui",
+                  "_client_secret": undefined,
+                  "_clockSkew": 300,
+                  "_display": undefined,
+                  "_extraQueryParams": Object {},
+                  "_filterProtocolClaims": true,
+                  "_iframeNavigator": t {},
+                  "_includeIdTokenInSilentRenew": true,
+                  "_loadUserInfo": true,
+                  "_max_age": undefined,
+                  "_metadata": undefined,
+                  "_metadataService": t {
+                    "_jsonService": t {
+                      "_XMLHttpRequest": [Function],
+                      "_contentTypes": Array [
+                        "application/jwk-set+json",
+                        "application/json",
+                      ],
+                      "_jwtHandler": null,
+                    },
+                    "_settings": [Circular],
+                  },
+                  "_metadataUrl": undefined,
+                  "_monitorSession": true,
+                  "_popupNavigator": t {},
+                  "_popupWindowFeatures": undefined,
+                  "_popupWindowTarget": undefined,
+                  "_popup_post_logout_redirect_uri": undefined,
+                  "_popup_redirect_uri": undefined,
+                  "_post_logout_redirect_uri": "http://localhost/",
+                  "_prompt": undefined,
+                  "_query_status_response_type": "id_token",
+                  "_redirectNavigator": t {},
+                  "_redirect_uri": "http://localhost/callback",
+                  "_resource": undefined,
+                  "_response_mode": undefined,
+                  "_response_type": "id_token token",
+                  "_revokeAccessTokenOnSignout": false,
+                  "_scope": "openid profile https://api.hel.fi/auth/kukkuu",
+                  "_signingKeys": undefined,
+                  "_silentRequestTimeout": undefined,
+                  "_silent_redirect_uri": "http://localhost/silent_renew",
+                  "_staleStateAge": 900,
+                  "_stateStore": t {
+                    "_prefix": "oidc.",
+                    "_store": Storage {
+                      "i18nextLng": "fi",
+                    },
+                  },
+                  "_stopCheckSessionOnError": true,
+                  "_ui_locales": undefined,
+                  "_userInfoJwtIssuer": "OP",
+                  "_userStore": t {
+                    "_prefix": "oidc.",
+                    "_store": Storage {},
+                  },
+                  "_validateSubOnSilentRenew": false,
+                  "_validator": t {
+                    "_joseUtil": [Function],
+                    "_metadataService": t {
+                      "_jsonService": t {
+                        "_XMLHttpRequest": [Function],
+                        "_contentTypes": Array [
+                          "application/jwk-set+json",
+                          "application/json",
+                        ],
+                        "_jwtHandler": null,
+                      },
+                      "_settings": [Circular],
+                    },
+                    "_settings": [Circular],
+                    "_tokenClient": t {
+                      "_jsonService": t {
+                        "_XMLHttpRequest": [Function],
+                        "_contentTypes": Array [
+                          "application/json",
+                        ],
+                        "_jwtHandler": null,
+                      },
+                      "_metadataService": t {
+                        "_jsonService": t {
+                          "_XMLHttpRequest": [Function],
+                          "_contentTypes": Array [
+                            "application/jwk-set+json",
+                            "application/json",
+                          ],
+                          "_jwtHandler": null,
+                        },
+                        "_settings": [Circular],
+                      },
+                      "_settings": [Circular],
+                    },
+                    "_userInfoService": t {
+                      "_joseUtil": [Function],
+                      "_jsonService": t {
+                        "_XMLHttpRequest": [Function],
+                        "_contentTypes": Array [
+                          "application/json",
+                          "application/jwt",
+                        ],
+                        "_jwtHandler": [Function],
+                      },
+                      "_metadataService": t {
+                        "_jsonService": t {
+                          "_XMLHttpRequest": [Function],
+                          "_contentTypes": Array [
+                            "application/jwk-set+json",
+                            "application/json",
+                          ],
+                          "_jwtHandler": null,
+                        },
+                        "_settings": [Circular],
+                      },
+                      "_settings": [Circular],
+                    },
+                  },
+                },
+              },
+              "_settings": e {
+                "_accessTokenExpiringNotificationTime": 60,
+                "_acr_values": undefined,
+                "_authority": "",
+                "_automaticSilentRenew": true,
+                "_checkSessionInterval": 2000,
+                "_client_id": "https://api.hel.fi/auth/kukkuu-ui",
+                "_client_secret": undefined,
+                "_clockSkew": 300,
+                "_display": undefined,
+                "_extraQueryParams": Object {},
+                "_filterProtocolClaims": true,
+                "_iframeNavigator": t {},
+                "_includeIdTokenInSilentRenew": true,
+                "_loadUserInfo": true,
+                "_max_age": undefined,
+                "_metadata": undefined,
+                "_metadataService": t {
+                  "_jsonService": t {
+                    "_XMLHttpRequest": [Function],
+                    "_contentTypes": Array [
+                      "application/jwk-set+json",
+                      "application/json",
+                    ],
+                    "_jwtHandler": null,
+                  },
+                  "_settings": [Circular],
+                },
+                "_metadataUrl": undefined,
+                "_monitorSession": true,
+                "_popupNavigator": t {},
+                "_popupWindowFeatures": undefined,
+                "_popupWindowTarget": undefined,
+                "_popup_post_logout_redirect_uri": undefined,
+                "_popup_redirect_uri": undefined,
+                "_post_logout_redirect_uri": "http://localhost/",
+                "_prompt": undefined,
+                "_query_status_response_type": "id_token",
+                "_redirectNavigator": t {},
+                "_redirect_uri": "http://localhost/callback",
+                "_resource": undefined,
+                "_response_mode": undefined,
+                "_response_type": "id_token token",
+                "_revokeAccessTokenOnSignout": false,
+                "_scope": "openid profile https://api.hel.fi/auth/kukkuu",
+                "_signingKeys": undefined,
+                "_silentRequestTimeout": undefined,
+                "_silent_redirect_uri": "http://localhost/silent_renew",
+                "_staleStateAge": 900,
+                "_stateStore": t {
+                  "_prefix": "oidc.",
+                  "_store": Storage {
+                    "i18nextLng": "fi",
+                  },
+                },
+                "_stopCheckSessionOnError": true,
+                "_ui_locales": undefined,
+                "_userInfoJwtIssuer": "OP",
+                "_userStore": t {
+                  "_prefix": "oidc.",
+                  "_store": Storage {},
+                },
+                "_validateSubOnSilentRenew": false,
+                "_validator": t {
+                  "_joseUtil": [Function],
+                  "_metadataService": t {
+                    "_jsonService": t {
+                      "_XMLHttpRequest": [Function],
+                      "_contentTypes": Array [
+                        "application/jwk-set+json",
+                        "application/json",
+                      ],
+                      "_jwtHandler": null,
+                    },
+                    "_settings": [Circular],
+                  },
+                  "_settings": [Circular],
+                  "_tokenClient": t {
+                    "_jsonService": t {
+                      "_XMLHttpRequest": [Function],
+                      "_contentTypes": Array [
+                        "application/json",
+                      ],
+                      "_jwtHandler": null,
+                    },
+                    "_metadataService": t {
+                      "_jsonService": t {
+                        "_XMLHttpRequest": [Function],
+                        "_contentTypes": Array [
+                          "application/jwk-set+json",
+                          "application/json",
+                        ],
+                        "_jwtHandler": null,
+                      },
+                      "_settings": [Circular],
+                    },
+                    "_settings": [Circular],
+                  },
+                  "_userInfoService": t {
+                    "_joseUtil": [Function],
+                    "_jsonService": t {
+                      "_XMLHttpRequest": [Function],
+                      "_contentTypes": Array [
+                        "application/json",
+                        "application/jwt",
+                      ],
+                      "_jwtHandler": [Function],
+                    },
+                    "_metadataService": t {
+                      "_jsonService": t {
+                        "_XMLHttpRequest": [Function],
+                        "_contentTypes": Array [
+                          "application/jwk-set+json",
+                          "application/json",
+                        ],
+                        "_jwtHandler": null,
+                      },
+                      "_settings": [Circular],
+                    },
+                    "_settings": [Circular],
+                  },
+                },
+              },
+            },
+            "_tokenRevocationClient": t {
+              "_XMLHttpRequestCtor": [Function],
+              "_metadataService": t {
+                "_jsonService": t {
+                  "_XMLHttpRequest": [Function],
+                  "_contentTypes": Array [
+                    "application/jwk-set+json",
+                    "application/json",
+                  ],
+                  "_jwtHandler": null,
+                },
+                "_settings": e {
+                  "_accessTokenExpiringNotificationTime": 60,
+                  "_acr_values": undefined,
+                  "_authority": "",
+                  "_automaticSilentRenew": true,
+                  "_checkSessionInterval": 2000,
+                  "_client_id": "https://api.hel.fi/auth/kukkuu-ui",
+                  "_client_secret": undefined,
+                  "_clockSkew": 300,
+                  "_display": undefined,
+                  "_extraQueryParams": Object {},
+                  "_filterProtocolClaims": true,
+                  "_iframeNavigator": t {},
+                  "_includeIdTokenInSilentRenew": true,
+                  "_loadUserInfo": true,
+                  "_max_age": undefined,
+                  "_metadata": undefined,
+                  "_metadataService": t {
+                    "_jsonService": t {
+                      "_XMLHttpRequest": [Function],
+                      "_contentTypes": Array [
+                        "application/jwk-set+json",
+                        "application/json",
+                      ],
+                      "_jwtHandler": null,
+                    },
+                    "_settings": [Circular],
+                  },
+                  "_metadataUrl": undefined,
+                  "_monitorSession": true,
+                  "_popupNavigator": t {},
+                  "_popupWindowFeatures": undefined,
+                  "_popupWindowTarget": undefined,
+                  "_popup_post_logout_redirect_uri": undefined,
+                  "_popup_redirect_uri": undefined,
+                  "_post_logout_redirect_uri": "http://localhost/",
+                  "_prompt": undefined,
+                  "_query_status_response_type": "id_token",
+                  "_redirectNavigator": t {},
+                  "_redirect_uri": "http://localhost/callback",
+                  "_resource": undefined,
+                  "_response_mode": undefined,
+                  "_response_type": "id_token token",
+                  "_revokeAccessTokenOnSignout": false,
+                  "_scope": "openid profile https://api.hel.fi/auth/kukkuu",
+                  "_signingKeys": undefined,
+                  "_silentRequestTimeout": undefined,
+                  "_silent_redirect_uri": "http://localhost/silent_renew",
+                  "_staleStateAge": 900,
+                  "_stateStore": t {
+                    "_prefix": "oidc.",
+                    "_store": Storage {
+                      "i18nextLng": "fi",
+                    },
+                  },
+                  "_stopCheckSessionOnError": true,
+                  "_ui_locales": undefined,
+                  "_userInfoJwtIssuer": "OP",
+                  "_userStore": t {
+                    "_prefix": "oidc.",
+                    "_store": Storage {},
+                  },
+                  "_validateSubOnSilentRenew": false,
+                  "_validator": t {
+                    "_joseUtil": [Function],
+                    "_metadataService": t {
+                      "_jsonService": t {
+                        "_XMLHttpRequest": [Function],
+                        "_contentTypes": Array [
+                          "application/jwk-set+json",
+                          "application/json",
+                        ],
+                        "_jwtHandler": null,
+                      },
+                      "_settings": [Circular],
+                    },
+                    "_settings": [Circular],
+                    "_tokenClient": t {
+                      "_jsonService": t {
+                        "_XMLHttpRequest": [Function],
+                        "_contentTypes": Array [
+                          "application/json",
+                        ],
+                        "_jwtHandler": null,
+                      },
+                      "_metadataService": t {
+                        "_jsonService": t {
+                          "_XMLHttpRequest": [Function],
+                          "_contentTypes": Array [
+                            "application/jwk-set+json",
+                            "application/json",
+                          ],
+                          "_jwtHandler": null,
+                        },
+                        "_settings": [Circular],
+                      },
+                      "_settings": [Circular],
+                    },
+                    "_userInfoService": t {
+                      "_joseUtil": [Function],
+                      "_jsonService": t {
+                        "_XMLHttpRequest": [Function],
+                        "_contentTypes": Array [
+                          "application/json",
+                          "application/jwt",
+                        ],
+                        "_jwtHandler": [Function],
+                      },
+                      "_metadataService": t {
+                        "_jsonService": t {
+                          "_XMLHttpRequest": [Function],
+                          "_contentTypes": Array [
+                            "application/jwk-set+json",
+                            "application/json",
+                          ],
+                          "_jwtHandler": null,
+                        },
+                        "_settings": [Circular],
+                      },
+                      "_settings": [Circular],
+                    },
+                  },
+                },
+              },
+              "_settings": e {
+                "_accessTokenExpiringNotificationTime": 60,
+                "_acr_values": undefined,
+                "_authority": "",
+                "_automaticSilentRenew": true,
+                "_checkSessionInterval": 2000,
+                "_client_id": "https://api.hel.fi/auth/kukkuu-ui",
+                "_client_secret": undefined,
+                "_clockSkew": 300,
+                "_display": undefined,
+                "_extraQueryParams": Object {},
+                "_filterProtocolClaims": true,
+                "_iframeNavigator": t {},
+                "_includeIdTokenInSilentRenew": true,
+                "_loadUserInfo": true,
+                "_max_age": undefined,
+                "_metadata": undefined,
+                "_metadataService": t {
+                  "_jsonService": t {
+                    "_XMLHttpRequest": [Function],
+                    "_contentTypes": Array [
+                      "application/jwk-set+json",
+                      "application/json",
+                    ],
+                    "_jwtHandler": null,
+                  },
+                  "_settings": [Circular],
+                },
+                "_metadataUrl": undefined,
+                "_monitorSession": true,
+                "_popupNavigator": t {},
+                "_popupWindowFeatures": undefined,
+                "_popupWindowTarget": undefined,
+                "_popup_post_logout_redirect_uri": undefined,
+                "_popup_redirect_uri": undefined,
+                "_post_logout_redirect_uri": "http://localhost/",
+                "_prompt": undefined,
+                "_query_status_response_type": "id_token",
+                "_redirectNavigator": t {},
+                "_redirect_uri": "http://localhost/callback",
+                "_resource": undefined,
+                "_response_mode": undefined,
+                "_response_type": "id_token token",
+                "_revokeAccessTokenOnSignout": false,
+                "_scope": "openid profile https://api.hel.fi/auth/kukkuu",
+                "_signingKeys": undefined,
+                "_silentRequestTimeout": undefined,
+                "_silent_redirect_uri": "http://localhost/silent_renew",
+                "_staleStateAge": 900,
+                "_stateStore": t {
+                  "_prefix": "oidc.",
+                  "_store": Storage {
+                    "i18nextLng": "fi",
+                  },
+                },
+                "_stopCheckSessionOnError": true,
+                "_ui_locales": undefined,
+                "_userInfoJwtIssuer": "OP",
+                "_userStore": t {
+                  "_prefix": "oidc.",
+                  "_store": Storage {},
+                },
+                "_validateSubOnSilentRenew": false,
+                "_validator": t {
+                  "_joseUtil": [Function],
+                  "_metadataService": t {
+                    "_jsonService": t {
+                      "_XMLHttpRequest": [Function],
+                      "_contentTypes": Array [
+                        "application/jwk-set+json",
+                        "application/json",
+                      ],
+                      "_jwtHandler": null,
+                    },
+                    "_settings": [Circular],
+                  },
+                  "_settings": [Circular],
+                  "_tokenClient": t {
+                    "_jsonService": t {
+                      "_XMLHttpRequest": [Function],
+                      "_contentTypes": Array [
+                        "application/json",
+                      ],
+                      "_jwtHandler": null,
+                    },
+                    "_metadataService": t {
+                      "_jsonService": t {
+                        "_XMLHttpRequest": [Function],
+                        "_contentTypes": Array [
+                          "application/jwk-set+json",
+                          "application/json",
+                        ],
+                        "_jwtHandler": null,
+                      },
+                      "_settings": [Circular],
+                    },
+                    "_settings": [Circular],
+                  },
+                  "_userInfoService": t {
+                    "_joseUtil": [Function],
+                    "_jsonService": t {
+                      "_XMLHttpRequest": [Function],
+                      "_contentTypes": Array [
+                        "application/json",
+                        "application/jwt",
+                      ],
+                      "_jwtHandler": [Function],
+                    },
+                    "_metadataService": t {
+                      "_jsonService": t {
+                        "_XMLHttpRequest": [Function],
+                        "_contentTypes": Array [
+                          "application/jwk-set+json",
+                          "application/json",
+                        ],
+                        "_jwtHandler": null,
+                      },
+                      "_settings": [Circular],
+                    },
+                    "_settings": [Circular],
+                  },
+                },
+              },
+            },
+          }
+        }
+      >
+        <ApolloProvider
+          client={
+            DefaultClient {
+              "cache": InMemoryCache {
+                "addTypename": true,
+                "cacheKeyRoot": KeyTrie {
+                  "weakness": true,
+                },
+                "config": Object {
+                  "addTypename": true,
+                  "dataIdFromObject": [Function],
+                  "fragmentMatcher": HeuristicFragmentMatcher {},
+                  "freezeResults": false,
+                  "resultCaching": true,
+                },
+                "data": DepTrackingCache {
+                  "data": Object {},
+                  "depend": [Function],
+                },
+                "maybeBroadcastWatch": [Function],
+                "optimisticData": DepTrackingCache {
+                  "data": Object {},
+                  "depend": [Function],
+                },
+                "silenceBroadcast": false,
+                "storeReader": StoreReader {
+                  "executeSelectionSet": [Function],
+                  "executeStoreQuery": [Function],
+                  "executeSubSelectedArray": [Function],
+                  "freezeResults": false,
+                },
+                "storeWriter": StoreWriter {},
+                "typenameDocumentCache": Map {},
+                "watches": Set {},
+              },
+              "clearStoreCallbacks": Array [],
+              "defaultOptions": Object {},
+              "disableNetworkFetches": false,
+              "link": ApolloLink {
+                "request": [Function],
+              },
+              "localState": LocalState {
+                "cache": InMemoryCache {
+                  "addTypename": true,
+                  "cacheKeyRoot": KeyTrie {
+                    "weakness": true,
+                  },
+                  "config": Object {
+                    "addTypename": true,
+                    "dataIdFromObject": [Function],
+                    "fragmentMatcher": HeuristicFragmentMatcher {},
+                    "freezeResults": false,
+                    "resultCaching": true,
+                  },
+                  "data": DepTrackingCache {
+                    "data": Object {},
+                    "depend": [Function],
+                  },
+                  "maybeBroadcastWatch": [Function],
+                  "optimisticData": DepTrackingCache {
+                    "data": Object {},
+                    "depend": [Function],
+                  },
+                  "silenceBroadcast": false,
+                  "storeReader": StoreReader {
+                    "executeSelectionSet": [Function],
+                    "executeStoreQuery": [Function],
+                    "executeSubSelectedArray": [Function],
+                    "freezeResults": false,
+                  },
+                  "storeWriter": StoreWriter {},
+                  "typenameDocumentCache": Map {},
+                  "watches": Set {},
+                },
+                "client": [Circular],
+              },
+              "mutate": [Function],
+              "query": [Function],
+              "queryDeduplication": true,
+              "queryManager": QueryManager {
+                "assumeImmutableResults": false,
+                "clientAwareness": Object {
+                  "name": undefined,
+                  "version": undefined,
+                },
+                "dataStore": DataStore {
+                  "cache": InMemoryCache {
+                    "addTypename": true,
+                    "cacheKeyRoot": KeyTrie {
+                      "weakness": true,
+                    },
+                    "config": Object {
+                      "addTypename": true,
+                      "dataIdFromObject": [Function],
+                      "fragmentMatcher": HeuristicFragmentMatcher {},
+                      "freezeResults": false,
+                      "resultCaching": true,
+                    },
+                    "data": DepTrackingCache {
+                      "data": Object {},
+                      "depend": [Function],
+                    },
+                    "maybeBroadcastWatch": [Function],
+                    "optimisticData": DepTrackingCache {
+                      "data": Object {},
+                      "depend": [Function],
+                    },
+                    "silenceBroadcast": false,
+                    "storeReader": StoreReader {
+                      "executeSelectionSet": [Function],
+                      "executeStoreQuery": [Function],
+                      "executeSubSelectedArray": [Function],
+                      "freezeResults": false,
+                    },
+                    "storeWriter": StoreWriter {},
+                    "typenameDocumentCache": Map {},
+                    "watches": Set {},
+                  },
+                },
+                "fetchQueryRejectFns": Map {},
+                "idCounter": 1,
+                "inFlightLinkObservables": Map {},
+                "link": ApolloLink {
+                  "request": [Function],
+                },
+                "localState": LocalState {
+                  "cache": InMemoryCache {
+                    "addTypename": true,
+                    "cacheKeyRoot": KeyTrie {
+                      "weakness": true,
+                    },
+                    "config": Object {
+                      "addTypename": true,
+                      "dataIdFromObject": [Function],
+                      "fragmentMatcher": HeuristicFragmentMatcher {},
+                      "freezeResults": false,
+                      "resultCaching": true,
+                    },
+                    "data": DepTrackingCache {
+                      "data": Object {},
+                      "depend": [Function],
+                    },
+                    "maybeBroadcastWatch": [Function],
+                    "optimisticData": DepTrackingCache {
+                      "data": Object {},
+                      "depend": [Function],
+                    },
+                    "silenceBroadcast": false,
+                    "storeReader": StoreReader {
+                      "executeSelectionSet": [Function],
+                      "executeStoreQuery": [Function],
+                      "executeSubSelectedArray": [Function],
+                      "freezeResults": false,
+                    },
+                    "storeWriter": StoreWriter {},
+                    "typenameDocumentCache": Map {},
+                    "watches": Set {},
+                  },
+                  "client": [Circular],
+                },
+                "mutationStore": MutationStore {
+                  "store": Object {},
+                },
+                "onBroadcast": [Function],
+                "pollingInfoByQueryId": Map {},
+                "queries": Map {},
+                "queryDeduplication": true,
+                "queryStore": QueryStore {
+                  "store": Object {},
+                },
+                "ssrMode": false,
+                "transformCache": WeakMap {},
+              },
+              "reFetchObservableQueries": [Function],
+              "resetStore": [Function],
+              "resetStoreCallbacks": Array [],
+              "store": DataStore {
+                "cache": InMemoryCache {
+                  "addTypename": true,
+                  "cacheKeyRoot": KeyTrie {
+                    "weakness": true,
+                  },
+                  "config": Object {
+                    "addTypename": true,
+                    "dataIdFromObject": [Function],
+                    "fragmentMatcher": HeuristicFragmentMatcher {},
+                    "freezeResults": false,
+                    "resultCaching": true,
+                  },
+                  "data": DepTrackingCache {
+                    "data": Object {},
+                    "depend": [Function],
+                  },
+                  "maybeBroadcastWatch": [Function],
+                  "optimisticData": DepTrackingCache {
+                    "data": Object {},
+                    "depend": [Function],
+                  },
+                  "silenceBroadcast": false,
+                  "storeReader": StoreReader {
+                    "executeSelectionSet": [Function],
+                    "executeStoreQuery": [Function],
+                    "executeSubSelectedArray": [Function],
+                    "freezeResults": false,
+                  },
+                  "storeWriter": StoreWriter {},
+                  "typenameDocumentCache": Map {},
+                  "watches": Set {},
+                },
+              },
+              "typeDefs": undefined,
+              "version": "2.6.4",
+              "watchQuery": [Function],
+            }
+          }
+        >
+          <BrowserRouter>
+            <Router
+              history={
+                Object {
+                  "action": "REPLACE",
+                  "block": [Function],
+                  "createHref": [Function],
+                  "go": [Function],
+                  "goBack": [Function],
+                  "goForward": [Function],
+                  "length": 1,
+                  "listen": [Function],
+                  "location": Object {
+                    "hash": "",
+                    "key": "ht7zr9",
+                    "pathname": "/fi/home",
+                    "search": "",
+                    "state": undefined,
+                  },
+                  "push": [Function],
+                  "replace": [Function],
+                }
+              }
+            >
+              <AppRoutes>
+                <PageLayout>
+                  <HelmetProvider
+                    context={Object {}}
+                  >
+                    <div
+                      className="pageWrapper"
+                    >
+                      <Header>
+                        <header
+                          className="headerWrapper"
+                        >
+                          <Container>
+                            <div
+                              className="container"
+                            >
+                              <Navbar>
+                                <div
+                                  className="navbarTop"
+                                >
+                                  <div
+                                    className="logoWrapper"
+                                  >
+                                    <div
+                                      className="logo"
+                                      onClick={[Function]}
+                                    />
+                                    <div
+                                      className="appName"
+                                    >
+                                      Kulttuurin kummilapset
+                                    </div>
+                                  </div>
+                                  <div
+                                    className="languageWrapper"
+                                  >
+                                    <LanguageBar>
+                                      <div
+                                        className="languageBar"
+                                      >
+                                        <NavLink
+                                          activeClassName="active"
+                                          isActive={[Function]}
+                                          key="0"
+                                          lang="fi"
+                                          onClick={[Function]}
+                                          to="/fi/home"
+                                        >
+                                          <Link
+                                            aria-current="page"
+                                            className="active"
+                                            lang="fi"
+                                            onClick={[Function]}
+                                            style={Object {}}
+                                            to={
+                                              Object {
+                                                "hash": "",
+                                                "pathname": "/fi/home",
+                                                "search": "",
+                                                "state": null,
+                                              }
+                                            }
+                                          >
+                                            <LinkAnchor
+                                              aria-current="page"
+                                              className="active"
+                                              href="/fi/home"
+                                              lang="fi"
+                                              navigate={[Function]}
+                                              onClick={[Function]}
+                                              style={Object {}}
+                                            >
+                                              <a
+                                                aria-current="page"
+                                                className="active"
+                                                href="/fi/home"
+                                                lang="fi"
+                                                onClick={[Function]}
+                                                style={Object {}}
+                                              >
+                                                Suomi
+                                              </a>
+                                            </LinkAnchor>
+                                          </Link>
+                                        </NavLink>
+                                        <NavLink
+                                          activeClassName="active"
+                                          isActive={[Function]}
+                                          key="1"
+                                          lang="sv"
+                                          onClick={[Function]}
+                                          to="/sv/home"
+                                        >
+                                          <Link
+                                            aria-current={null}
+                                            lang="sv"
+                                            onClick={[Function]}
+                                            to={
+                                              Object {
+                                                "hash": "",
+                                                "pathname": "/sv/home",
+                                                "search": "",
+                                                "state": null,
+                                              }
+                                            }
+                                          >
+                                            <LinkAnchor
+                                              aria-current={null}
+                                              href="/sv/home"
+                                              lang="sv"
+                                              navigate={[Function]}
+                                              onClick={[Function]}
+                                            >
+                                              <a
+                                                aria-current={null}
+                                                href="/sv/home"
+                                                lang="sv"
+                                                onClick={[Function]}
+                                              >
+                                                Svenska
+                                              </a>
+                                            </LinkAnchor>
+                                          </Link>
+                                        </NavLink>
+                                        <NavLink
+                                          activeClassName="active"
+                                          isActive={[Function]}
+                                          key="2"
+                                          lang="en"
+                                          onClick={[Function]}
+                                          to="/en/home"
+                                        >
+                                          <Link
+                                            aria-current={null}
+                                            lang="en"
+                                            onClick={[Function]}
+                                            to={
+                                              Object {
+                                                "hash": "",
+                                                "pathname": "/en/home",
+                                                "search": "",
+                                                "state": null,
+                                              }
+                                            }
+                                          >
+                                            <LinkAnchor
+                                              aria-current={null}
+                                              href="/en/home"
+                                              lang="en"
+                                              navigate={[Function]}
+                                              onClick={[Function]}
+                                            >
+                                              <a
+                                                aria-current={null}
+                                                href="/en/home"
+                                                lang="en"
+                                                onClick={[Function]}
+                                              >
+                                                English
+                                              </a>
+                                            </LinkAnchor>
+                                          </Link>
+                                        </NavLink>
+                                      </div>
+                                    </LanguageBar>
+                                    <UserDropdown
+                                      isSmallScreen={false}
+                                    >
+                                      <Dropdown
+                                        options={
+                                          Array [
+                                            Object {
+                                              "icon": "person.svg",
+                                              "label": "Kirjaudu sisään",
+                                              "onClick": [Function],
+                                            },
+                                          ]
+                                        }
+                                      >
+                                        <div
+                                          className="dropdownWrapper"
+                                        >
+                                          <Button
+                                            aria-expanded={false}
+                                            aria-label="Avaa valikko"
+                                            onClick={[Function]}
+                                          >
+                                            <div
+                                              className="buttonWrapper"
+                                            >
+                                              <button
+                                                aria-expanded={false}
+                                                aria-label="Avaa valikko"
+                                                onClick={[Function]}
+                                                type="button"
+                                              >
+                                                <span>
+                                                  Kirjaudu sisään
+                                                </span>
+                                                <Icon
+                                                  alt="Valikko"
+                                                  src="person.svg"
+                                                >
+                                                  <div
+                                                    className="imgWrapper"
+                                                  >
+                                                    <img
+                                                      alt="Valikko"
+                                                      src="person.svg"
+                                                    />
+                                                  </div>
+                                                </Icon>
+                                              </button>
+                                            </div>
+                                          </Button>
+                                        </div>
+                                      </Dropdown>
+                                    </UserDropdown>
+                                  </div>
+                                </div>
+                              </Navbar>
+                            </div>
+                          </Container>
+                        </header>
+                      </Header>
+                      <div
+                        className="pageBody"
+                      >
+                        <Switch>
+                          <Route
+                            component={
+                              Object {
+                                "$$typeof": Symbol(react.memo),
+                                "WrappedComponent": [Function],
+                                "compare": null,
+                                "displayName": "Connect(App)",
+                                "type": [Function],
+                              }
+                            }
+                            computedMatch={
+                              Object {
+                                "isExact": true,
+                                "params": Object {
+                                  "0": "home",
+                                  "locale": "fi",
+                                },
+                                "path": "/:locale(en|fi|sv)/*",
+                                "url": "/fi/home",
+                              }
+                            }
+                            location={
+                              Object {
+                                "hash": "",
+                                "key": "ht7zr9",
+                                "pathname": "/fi/home",
+                                "search": "",
+                                "state": undefined,
+                              }
+                            }
+                            path="/:locale(en|fi|sv)/*"
+                          >
+                            <Connect(App)
+                              history={
+                                Object {
+                                  "action": "REPLACE",
+                                  "block": [Function],
+                                  "createHref": [Function],
+                                  "go": [Function],
+                                  "goBack": [Function],
+                                  "goForward": [Function],
+                                  "length": 1,
+                                  "listen": [Function],
+                                  "location": Object {
+                                    "hash": "",
+                                    "key": "ht7zr9",
+                                    "pathname": "/fi/home",
+                                    "search": "",
+                                    "state": undefined,
+                                  },
+                                  "push": [Function],
+                                  "replace": [Function],
+                                }
+                              }
+                              location={
+                                Object {
+                                  "hash": "",
+                                  "key": "ht7zr9",
+                                  "pathname": "/fi/home",
+                                  "search": "",
+                                  "state": undefined,
+                                }
+                              }
+                              match={
+                                Object {
+                                  "isExact": true,
+                                  "params": Object {
+                                    "0": "home",
+                                    "locale": "fi",
+                                  },
+                                  "path": "/:locale(en|fi|sv)/*",
+                                  "url": "/fi/home",
+                                }
+                              }
+                            >
+                              <App
+                                fetchApiToken={[Function]}
+                                fetchApiTokenError={[Function]}
+                                history={
+                                  Object {
+                                    "action": "REPLACE",
+                                    "block": [Function],
+                                    "createHref": [Function],
+                                    "go": [Function],
+                                    "goBack": [Function],
+                                    "goForward": [Function],
+                                    "length": 1,
+                                    "listen": [Function],
+                                    "location": Object {
+                                      "hash": "",
+                                      "key": "ht7zr9",
+                                      "pathname": "/fi/home",
+                                      "search": "",
+                                      "state": undefined,
+                                    },
+                                    "push": [Function],
+                                    "replace": [Function],
+                                  }
+                                }
+                                isLoadingUser={true}
+                                location={
+                                  Object {
+                                    "hash": "",
+                                    "key": "ht7zr9",
+                                    "pathname": "/fi/home",
+                                    "search": "",
+                                    "state": undefined,
+                                  }
+                                }
+                                match={
+                                  Object {
+                                    "isExact": true,
+                                    "params": Object {
+                                      "0": "home",
+                                      "locale": "fi",
+                                    },
+                                    "path": "/:locale(en|fi|sv)/*",
+                                    "url": "/fi/home",
+                                  }
+                                }
+                                userHasProfile={false}
+                              >
+                                <LoadingSpinner
+                                  isLoading={true}
+                                >
+                                  <div
+                                    className="spinnerWrapper"
+                                  >
+                                    <div
+                                      className="spinner"
+                                    />
+                                  </div>
+                                </LoadingSpinner>
+                              </App>
+                            </Connect(App)>
+                          </Route>
+                        </Switch>
+                      </div>
+                      <Footer>
+                        <footer
+                          className="footerWrapper"
+                        >
+                          <Container>
+                            <div
+                              className="container"
+                            >
+                              <div
+                                className="footer"
+                              >
+                                <div
+                                  className="helsinkiLogo"
+                                />
+                                <div
+                                  className="copyright"
+                                >
+                                  <p>
+                                    © Copyright 2020 • Kaikki oikeudet pidätetään
+                                  </p>
+                                </div>
+                                <div
+                                  className="links"
+                                >
+                                  <a
+                                    href="/accessibility"
+                                  >
+                                    Saavutettavuusseloste
+                                  </a>
+                                   •
+                                   
+                                  <a
+                                    href="https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Kaupunginorkesterin-kummiperherekisteri.pdf"
+                                  >
+                                    Rekisteriseloste
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </Container>
+                        </footer>
+                      </Footer>
+                    </div>
+                  </HelmetProvider>
+                </PageLayout>
+              </AppRoutes>
+            </Router>
+          </BrowserRouter>
+        </ApolloProvider>
+      </r>
+    </PersistGate>
+    <ToastContainer
+      autoClose={5000}
+      bodyClassName={null}
+      className={null}
+      closeButton={
+        <CloseButton
+          ariaLabel="close"
+        />
+      }
+      closeOnClick={true}
+      draggable={true}
+      draggablePercent={80}
+      hideProgressBar={false}
+      newestOnTop={false}
+      pauseOnFocusLoss={true}
+      pauseOnHover={true}
+      position="top-right"
+      progressClassName={null}
+      progressStyle={null}
+      role="alert"
+      rtl={false}
+      style={null}
+      toastClassName={null}
+      transition={[Function]}
+    >
+      <div
+        className="Toastify"
+      />
+    </ToastContainer>
+  </Provider>
+</BrowserApp>
+`;

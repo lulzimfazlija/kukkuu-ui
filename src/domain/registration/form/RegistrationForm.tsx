@@ -31,6 +31,7 @@ import { userHasProfileSelector } from '../state/RegistrationSelectors';
 // eslint-disable-next-line max-len
 import { submitChildrenAndGuardian as SubmitChildrenAndGuardianData } from '../../api/generatedTypes/submitChildrenAndGuardian';
 import { saveProfile } from '../../profile/state/ProfileActions';
+import profileQuery from '../../profile/queries/ProfileQuery';
 
 const RegistrationForm: FunctionComponent = () => {
   const { i18n, t } = useTranslation();
@@ -41,9 +42,12 @@ const RegistrationForm: FunctionComponent = () => {
 
   const userHasProfile = useSelector(userHasProfileSelector);
   const initialValues = useSelector(initialFormDataSelector);
+
   const [submitChildrenAndGuardian] = useMutation<
     SubmitChildrenAndGuardianData
-  >(submitChildrenAndGuardianMutation, { refetchQueries: ['profileQuery'] });
+  >(submitChildrenAndGuardianMutation, {
+    refetchQueries: [{ query: profileQuery }],
+  });
   // For new users preferLanguage defaults to their chosen UI language.
   initialValues.preferLanguage = initialValues.preferLanguage || currentLocale;
 
