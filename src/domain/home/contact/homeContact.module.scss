@@ -5,7 +5,7 @@
 $korosIncludedPadding: 7rem;
 
 .wrapper {
-  padding: 2 * $largeMargin 0 $korosIncludedPadding 0;
+  padding: 2 * $largeMargin 0;
   //
   display: grid;
   grid-template-columns: 1fr minmax(auto, $containerMaxWidth) 1fr;

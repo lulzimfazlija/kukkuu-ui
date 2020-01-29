@@ -7,7 +7,7 @@ $childIconHeight: 4rem;
 .childImage {
   height: $childIconHeight;
   width: $childIconHeight;
-  padding-right: $basePadding;
+  margin-right: $baseMargin;
 }
 
 .childField {
@@ -36,8 +36,7 @@ $childIconHeight: 4rem;
   }
 
   p {
-    padding: $buttonPadding;
-    padding-left: 0;
+    padding: 0;
     line-height: $inputHeight;
     margin: 0;
   }

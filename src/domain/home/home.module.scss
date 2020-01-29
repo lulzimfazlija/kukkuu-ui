@@ -22,3 +22,7 @@
     grid-column: 1 !important;
   }
 }
+
+.userHasProfileContainer {
+  @include background($hel-light);
+}

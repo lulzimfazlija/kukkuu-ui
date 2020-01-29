@@ -45,7 +45,11 @@ const PageWrapper: FunctionComponent<{
         <link rel="alternate" hrefLang="sv" href={'/sv/' + path} />
         <link rel="alternate" hrefLang="en" href={'/en/' + path} />
       </Helmet>
-      <Container className={containerClassName}>{children}</Container>
+      <Container
+        className={classnames(styles.defaultContainer, containerClassName)}
+      >
+        {children}
+      </Container>
     </div>
   );
 };

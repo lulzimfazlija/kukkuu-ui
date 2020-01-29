@@ -34,6 +34,8 @@ exports[`renders snapshot correctly 1`] = `
       rel="alternate"
     />
   </Helmet>
-  <Container />
+  <Container
+    className="defaultContainer"
+  />
 </div>
 `;

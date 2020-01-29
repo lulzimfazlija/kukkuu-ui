@@ -6,6 +6,7 @@ import styles from './modal.module.scss';
 import Button from '../button/Button';
 import Icon from '../icon/Icon';
 import happyChildIcon from '../../../assets/icons/svg/childFaceHappy.svg';
+import closeModalIcon from '../../../assets/icons/svg/closeWithoutCircle.svg';
 
 interface ModalProps {
   isOpen: boolean;
@@ -46,11 +47,11 @@ const Modal: React.FunctionComponent<ModalProps> = ({
               onClick={onClose}
               aria-label={t('common.closeButton.altText')}
             >
-              {t('common.modal.close.text')}
+              <Icon src={closeModalIcon} />
             </Button>
             <div className={styles.heading}>
               {label && (
-                <Icon className={styles.happyChild} src={happyChildIcon}></Icon>
+                <Icon className={styles.happyChild} src={happyChildIcon} />
               )}
               {/* TODO: add a generic Icon */}
               <h1>{label}</h1>
