@@ -1,0 +1,407 @@
+{
+  "accessibilityStatement": {
+    "title": "Saavutettavuusseloste"
+  },
+  "api": {
+    "errorMessage": "Tapahtui virhe. Yritä myöhemmin uudestaan"
+  },
+  "appName": "Kulttuurin kummilapset",
+  "authentication": {
+    "errorMessage": "Tapahtui virhe. Yritä uudestaan",
+    "loadUserError": {
+      "message": "Tapahtui virhe. Yritä kirjautua uudelleen."
+    },
+    "login": {
+      "text": "Kirjaudu sisään"
+    },
+    "logout": {
+      "text": "Kirjaudu ulos"
+    },
+    "networkError": {
+      "message": "Virhe kirjautumisessa: Tarkista verkkoyhteytesi ja yritä uudestaan"
+    },
+    "redirect": {
+      "text": "Ohjataan tunnistautumiseen..."
+    }
+  },
+  "CHILD_RELATIONSHIP_OPTIONS": {
+    "ADVOCATE": "Puolesta asioija",
+    "OTHER_GUARDIAN": "Muu huoltaja",
+    "OTHER_RELATION": "Muu läheinen",
+    "PARENT": "Vanhempi"
+  },
+  "child": {
+    "form": {
+      "modal": {
+        "add": {
+          "label": "Lisää lapsi",
+          "text": "Lisää kummilapsi"
+        },
+        "delete": {
+          "label": "Poista"
+        },
+        "edit": {
+          "label": "Muokkaa lapsen tietoja",
+          "text": "Muokkaa"
+        },
+        "notEligible": {
+          "return": {
+            "text": "Palaa profiilin luomiseen"
+          }
+        },
+        "return": {
+          "text": "Palaa profiilin luomiseen"
+        }
+      }
+    }
+  },
+  "common": {
+    "backButton": {
+      "label": "Palaa"
+    },
+    "closeButton": {
+      "altText": "Sulje"
+    },
+    "form": {
+      "leave": {
+        "warning": {
+          "text": "Oletko varma että haluat poistua sivulta? Kaikki tallentamattomat tiedot katoavat."
+        }
+      }
+    },
+    "goBack": {
+      "text": "Palaa profiilin luomiseen"
+    },
+    "language": {
+      "en": "English",
+      "fi": "Suomi",
+      "sv": "Svenska"
+    },
+    "menu": {
+      "closeMenuText": "Sulje valikko",
+      "openMenuText": "Avaa valikko"
+    },
+    "modal": {
+      "cancel": {
+        "text": "Peruuta"
+      },
+      "submit": {
+        "text": "Tallenna"
+      }
+    },
+    "profile": {
+      "goToProfile": {
+        "buttonText": "Oma kummilapsiprofiili"
+      }
+    },
+    "select": {
+      "default": {
+        "text": "Valitse"
+      }
+    }
+  },
+  "descriptionOfTheFile": {
+    "title": "Rekisteriseloste",
+    "url": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Kaupunginorkesterin-kummiperherekisteri.pdf"
+  },
+  "email ": {
+    "heading": "Tervetuloa Kulttuurin kummilapsiin!",
+    "text": "Tervetuloa!"
+  },
+  "HUOM! Tähän viestiin ei voi vastata.": "",
+  "email": {
+    "title": "Tervetuloa Kulttuurin kummilapsiin!"
+  },
+  "footer": {
+    "copyrightText": "© Copyright 2020 • Kaikki oikeudet pidätetään"
+  },
+  "home": {
+    "contact": {
+      "heading": {
+        "text": "Ota yhteyttä"
+      },
+      "service": {
+        "name": "Kulttuurin kummilapset -palvelu",
+        "text": "Ota yhteyttä, jos haluat lisätietoja palvelusta."
+      }
+    },
+    "instructions": {
+      "heading": {
+        "text": "Miten pääset mukaan toimintaan?"
+      },
+      "icon": {
+        "kid": {
+          "text": "Jos lapsi asuu Helsingissä ja on syntynyt vuonna 2020, voit ilmoittaa hänet kummilapseksi ja rekisteröityä palveluun."
+        },
+        "theater": {
+          "text": "Voit kokea lapsen kanssa hauskoja, yhteisiä hetkiä kulttuurin parissa. Tapahtumat on suunniteltu tukemaan lapsen kehitystä ja hyvinvointia."
+        },
+        "ticket": {
+          "text": "Saat sähköpostiisi kaksi kertaa vuodessa kutsun ja palvelun kautta pääset ilmoittautumaan sinulle parhaiten sopiviin tapahtumiin."
+        }
+      }
+    },
+    "partners": {
+      "heading": {
+        "text": "Yhteistyökumppanit"
+      },
+      "partner": {
+        "amosrex": "Amos Rex",
+        "cirko": "Cirko – Uuden sirkuksen keskus",
+        "designmuseum": "Designmuseo",
+        "hamhelsinki": "Helsingin taidemuseo HAM",
+        "helsinginkaupunginmuseo": "Helsingin kaupunginmuseo",
+        "helsinginkaupunginorkesteri": "Helsingin kaupunginorkesteri",
+        "hkt": "Helsingin Kaupunginteatteri",
+        "hotellijaravintolamuseo": "Hotelli- ja ravintolamuseo",
+        "hurjaruuth": "Tanssiteatteri Hurjaruuth",
+        "jaes": "Jane ja Aatos Erkon säätiö",
+        "kansallismuseo": "Kansallismuseo",
+        "kansallisteatteri": "Kansallisteatteri",
+        "kavi": "Kansallinen audiovisuaalinen instituutti",
+        "kulttuuriperintokasvatus": "Suomen Kulttuuriperintökasvatuksen seura",
+        "mfa": "Arkkitehtuurimuseo",
+        "nukketeatterisampo": "Nukketeatteri Sampo",
+        "oodihelsinki": "Helsingin keskustakirjasto Oodi",
+        "oopperabaletti": "Suomen kansallisooppera ja -baletti",
+        "qteatteri": "Q-teatteri",
+        "svenskateatern": "Svenska Teatern",
+        "tanssintalo": "Tanssin talo",
+        "teatteriilmio": "Teatteri ILMI Ö",
+        "teatterimuseo": "Teatterimuseo",
+        "valokuvataiteenmuseo": "Suomen valokuvataiteen museo"
+      }
+    },
+    "registration": {
+      "text": "Aloita syöttämällä toimintaan osallistuvan lapsen kotipaikkakunta ja syntymäpäivä. Tämän jälkeen pääset kirjautumaan palveluun ja täydentämään lapsesi kummilapsiprofiilin. Tähän menee muutama minuutti."
+    }
+  },
+  "homePage": {
+    "hero": {
+      "buttonText": "Ilmoittaudu mukaan",
+      "descriptionText": "Kaikki vuodesta 2020 eteenpäin syntyvät helsinkiläiset lapset kutsutaan kulttuurin kummilapsiksi. Kummilapset saavat kutsun vuosittain kahteen tapahtumaan, kunnes lapsi aloittaa koulun. Tapahtumat ovat maksuttomia.",
+      "heading": "Kulttuurin kummilapset",
+      "underConstruction": {
+        "heading": "Ilmoittautuminen alkaa 31.1.2020",
+        "text": "Tervetuloa Kulttuurin kummilapset -palveluun! Ilmoittautuminen ei valitettavasti ole vielä auki. Voit ilmoittaa lapsen mukaan 31.1.2020 alkaen."
+      }
+    },
+    "preliminaryForm": {
+      "childBirthdate": {
+        "input": {
+          "day": {
+            "placeholder": "pv"
+          },
+          "label": "Lapsen syntymäaika (pp.kk.vvvv)",
+          "month": {
+            "placeholder": "kk"
+          },
+          "year": {
+            "placeholder": "vuosi"
+          }
+        }
+      },
+      "childHomeCity": {
+        "input": {
+          "label": "Lapsen kotipaikkakunta",
+          "placeholder": "Lisää lapsen kotipaikkakunta"
+        }
+      },
+      "verifyInformation": {
+        "checkbox": {
+          "label": "Vakuutan antamani tiedot oikeaksi",
+          "required": {
+            "label": "Tämä ruutu on pakollinen"
+          }
+        }
+      }
+    }
+  },
+  "navbar": {
+    "menuButton": {
+      "label": "Valikko"
+    },
+    "profileDropdown": {
+      "openCityProfile": {
+        "text": "Open user profile on omaHelsinki"
+      },
+      "profile": {
+        "text": "Kummilapsiprofiili"
+      }
+    },
+    "smallScreenMenu": {
+      "homepageLinkText": "Etusivu"
+    }
+  },
+  "notFound": {
+    "return": {
+      "text": "Palaa palvelun etusivulle"
+    },
+    "text": "Etsimääsi sivua ei löytynyt"
+  },
+  "partners": {
+    "2020": "2020 syntyneet"
+  },
+  "profile": {
+    "addChildMutation": {
+      "errorMessage": "Lapsen tietojen lisäämisessä tapahtui virhe. Yritä uudestaan."
+    },
+    "child": {
+      "default": {
+        "name": {
+          "text": "Kummilapsi"
+        }
+      },
+      "detail": {
+        "birthdate": "Lapsen syntymäaika",
+        "delete": {
+          "text": "Poista lapsen tiedot"
+        },
+        "edit": {
+          "text": "Päivitä kummilapsen tiedot"
+        },
+        "page": {
+          "title": "Kummilapsen tiedot"
+        },
+        "phoneNumber": "Puhelinnumero"
+      },
+      "navigateToDetail": {
+        "buttonLabel": "Näytä Kummilapsen tiedot"
+      }
+    },
+    "children": {
+      "noChild": {
+        "text": "Ei kummilapsia"
+      }
+    },
+    "heading": "Kummilapset",
+    "noupcomingevents": {
+      "hero": {
+        "heading": "Tapahtumakutsut"
+      },
+      "text": "Tänne saapuvat sinulle lähetetyt tapahtumakutsut. Pääset myös ilmoittautumaan tapahtumiin ja perumaan ilmoittautumisen, jos et jostain syystä pääsekään osallistumaan tapahtumaan."
+    }
+  },
+  "registration": {
+    "form": {
+      "agree": {
+        "input": {
+          "label": "Hyväksyn palvelun käyttöehdot",
+          "placeholder": "Hyväksy palvelun käyttöehdot jatkaaksesi"
+        }
+      },
+      "child": {
+        "birthdate": {
+          "input": {
+            "label": "Lapsen syntymäaika (pp.kk.vvvv)",
+            "placeholder": "Lisää lapsen syntymäaika"
+          }
+        },
+        "firstName": {
+          "input": {
+            "label": "Lapsen etunimi",
+            "placeholder": "Lisää lapsen etunimi"
+          }
+        },
+        "homeCity": {
+          "input": {
+            "label": "Lapsen kotipaikkakunta",
+            "placeholder": "Lisää lapsen kotipaikkakunta"
+          }
+        },
+        "info": {
+          "heading": "Lapsen tiedot"
+        },
+        "lastName": {
+          "input": {
+            "label": "Lapsen sukunimi",
+            "placeholder": "Lisää lapsen sukunimi"
+          }
+        },
+        "postalCode": {
+          "input": {
+            "label": "Lapsen postinumero",
+            "placeholder": "Lisää lapsen postinumero"
+          }
+        },
+        "relationship": {
+          "input": {
+            "label": "Ilmoittajan suhde lapseen",
+            "placeholder": "Lisää ilmoittajan suhde lapseen"
+          }
+        }
+      },
+      "guardian": {
+        "email": {
+          "input": {
+            "label": "Sähköpostiosoite",
+            "placeholder": "Lisää sähköpostiosoite"
+          }
+        },
+        "firstName": {
+          "input": {
+            "label": "Etunimi",
+            "placeholder": "Lisää etunimi"
+          }
+        },
+        "info": {
+          "heading": "Lähiaikuisen tiedot"
+        },
+        "language": {
+          "input": {
+            "label": "Asiointikieli",
+            "placeholder": "Valitse asiointikieli"
+          }
+        },
+        "lastName": {
+          "input": {
+            "label": "Sukunimi",
+            "placeholder": "Lisää sukunimi"
+          }
+        },
+        "phoneNumber": {
+          "input": {
+            "label": "Puhelinnumero",
+            "placeholder": "Lisää puhelinnumero"
+          }
+        }
+      },
+      "verifyInformation": {
+        "input": {
+          "label": "Hyväksy jatkaaksesi"
+        }
+      }
+    },
+    "heading": "Tule mukaan",
+    "notEligible": {
+      "buttonText": "Löydä lapsille sopivia kulttuuritapahtumia täältä",
+      "otherOptionsLink": "https://www.myhelsinki.fi/fi/search?tags=lapset&category=events",
+      "text": "Valitettavasti lapsen syntymävuosi tai kotipaikkakunta eivät oikeuta häntä kulttuurin kummilapset toimintaan.",
+      "title": "Voi harmi!"
+    },
+    "submitMutation": {
+      "errorMessage": "Lähettäminen palvelimelle epäonnistui"
+    },
+    "welcome": {
+      "hero": {
+        "header": "Tervetuloa kulttuurin kummilapseksi!"
+      }
+    }
+  },
+  "sanityCheck": "kukkuu.fi",
+  "termsOfService": {
+    "title": "Käyttöehdot"
+  },
+  "validation": {
+    "date": {
+      "invalidFormat": "Virheellinen päivämäärä",
+      "unSupported": "Syntymäpäivä ei voi olla tulevaisuudessa"
+    },
+    "general": {
+      "required": "Pakollinen kenttä"
+    },
+    "postalCode": {
+      "invalidFormat": "Väärä formaatti"
+    }
+  }
+}

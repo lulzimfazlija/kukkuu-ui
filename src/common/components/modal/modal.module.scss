@@ -1,0 +1,94 @@
+@import 'colors';
+@import 'fonts';
+@import 'mixins';
+@import 'layout';
+@import 'variables';
+
+$modalPadding: 2rem;
+
+.modal {
+  background-color: $white;
+  position: relative;
+
+  // Make tab-key jump between fields
+  @include respond-below(md) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba($hel-gray, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalContent {
+  background-color: $white;
+  @include respond-below(md) {
+    // Ensure that modal is vertically scrollable on mobile
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: $basePadding 0;
+    overflow: auto;
+  }
+
+  .closeButton {
+    text-align: right;
+    button {
+      padding: 0;
+      border: none;
+      height: $largeMargin;
+      width: $largeMargin;
+      font-weight: $font-weight-bold;
+      font-size: $font-size-lg;
+
+      > div {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+.modalChildren {
+  padding: 0 $modalPadding;
+
+  @include respond-above(sm) {
+    padding: 0 $modalPadding;
+  }
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 0 $largeMargin 0;
+  padding: 0 $basePadding;
+  @include respond-above(sm) {
+    padding: 0 $modalPadding;
+  }
+
+  .happyChild {
+    height: $largeMargin;
+    width: $largeMargin;
+    margin-right: $baseMargin;
+  }
+
+  h1 {
+    margin: 0;
+    flex-grow: 1;
+  }
+}

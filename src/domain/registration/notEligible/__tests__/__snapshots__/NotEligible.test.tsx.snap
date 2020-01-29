@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders snapshot correctly 1`] = `
+<PageWrapper
+  title="registration.notEligible.title"
+>
+  <div
+    className="home"
+  >
+    <div
+      className="hero"
+    >
+      <div
+        className="heroContainer"
+      >
+        <div
+          className="notEligible"
+        >
+          <Icon
+            className="notEligibleFace"
+            src="adultFace.svg"
+          />
+          <p>
+            Valitettavasti lapsen syntymävuosi tai kotipaikkakunta eivät oikeuta häntä kulttuurin kummilapset toimintaan.
+          </p>
+        </div>
+        <div
+          className="goBackButton"
+        >
+          <a
+            href="https://www.myhelsinki.fi/fi/search?tags=lapset&category=events"
+          >
+            <Button>
+              Löydä lapsille sopivia kulttuuritapahtumia täältä
+            </Button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</PageWrapper>
+`;

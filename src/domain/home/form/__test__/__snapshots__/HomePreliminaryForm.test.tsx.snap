@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders snapshot correctly 1`] = `
+<section
+  className="wrapper"
+>
+  <div
+    className="homeForm"
+  >
+    <div
+      className="heading"
+    >
+      <h2>
+        Tule mukaan
+      </h2>
+      <p>
+        <Trans
+          i18nKey="multiline"
+        >
+          Aloita syöttämällä toimintaan osallistuvan lapsen kotipaikkakunta ja syntymäpäivä. Tämän jälkeen pääset kirjautumaan palveluun ja täydentämään lapsesi kummilapsiprofiilin. Tähän menee muutama minuutti.
+        </Trans>
+      </p>
+    </div>
+    <Formik
+      initialErrors={
+        Object {
+          "verifyInformation": "validation.general.required",
+        }
+      }
+      onSubmit={[Function]}
+      validate={[Function]}
+    >
+      <Component />
+    </Formik>
+  </div>
+</section>
+`;

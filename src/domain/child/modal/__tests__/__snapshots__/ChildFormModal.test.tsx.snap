@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders snapshot correctly 1`] = `
+<div
+  className="childFormModalWrapper"
+>
+  <Modal
+    isOpen={false}
+    label="foo"
+    setFormIsFilling={[Function]}
+    toggleModal={[Function]}
+  >
+    <Formik
+      initialValues={
+        Object {
+          "birthdate": "01-11-2019",
+          "firstName": "",
+          "homeCity": "",
+          "lastName": "",
+          "postalCode": "",
+          "relationship": Object {
+            "type": undefined,
+          },
+        }
+      }
+      onSubmit={[Function]}
+      validate={[Function]}
+    >
+      <Component />
+    </Formik>
+  </Modal>
+</div>
+`;

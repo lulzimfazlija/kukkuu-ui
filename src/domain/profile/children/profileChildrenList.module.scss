@@ -1,0 +1,61 @@
+@import 'mixins';
+@import 'layout';
+@import 'colors';
+
+$plusIconHeight: 2rem;
+
+.childrenList {
+  .thisYearPartner {
+    p {
+      text-align: left;
+    }
+  }
+}
+
+.profileWrapper {
+  display: grid;
+  @include respond-below(md) {
+    padding: 0 $basePadding;
+  }
+  @include respond-above(sm) {
+    grid-template-columns: 1fr 10fr 1fr;
+
+    .profile {
+      grid-column: 2;
+    }
+  }
+}
+
+.wrapper {
+  @include background($hel-light);
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .addChild {
+    align-items: center;
+    display: inline-flex;
+    span {
+      line-height: $baseLineHeight;
+      margin-right: $baseMargin;
+    }
+    img {
+      transform: rotate(45deg);
+    }
+  }
+  button.addChild {
+    background: transparent;
+    border: 0;
+    &:focus {
+      outline: 1px solid $focusOutline;
+    }
+  }
+}
+
+.addChildIcon {
+  height: $plusIconHeight;
+  width: $plusIconHeight;
+}

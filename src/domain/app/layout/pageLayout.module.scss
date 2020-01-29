@@ -1,0 +1,16 @@
+@import 'variables';
+@import 'mixins';
+
+.pageWrapper {
+  height: 100%;
+  width: 100%;
+
+  display: grid;
+
+  grid-template-rows: $headerHeight 1fr $footerHeight;
+  min-height: 100vh;
+}
+
+.pageBody {
+  display: grid;
+}

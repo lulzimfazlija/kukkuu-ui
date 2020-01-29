@@ -1,0 +1,14 @@
+@import 'variables';
+
+.imgWrapper {
+  height: $imgHeight;
+  width: $imgHeight;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+
+  img {
+    height: inherit;
+    width: inherit;
+  }
+}

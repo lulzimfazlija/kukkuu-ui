@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders snapshot correctly 1`] = `
+<HelmetProvider
+  context={Object {}}
+>
+  <div
+    className="pageWrapper"
+  >
+    <Header />
+    <div
+      className="pageBody"
+    />
+    <Footer />
+  </div>
+</HelmetProvider>
+`;

@@ -1,0 +1,32 @@
+@import 'fonts';
+@import 'variables';
+@import 'colors';
+
+.selectWrapper {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    font-size: $font-size-sm;
+    margin-bottom: $baseMargin * 0.25;
+    font-weight: $font-weight-bold;
+  }
+
+  select {
+    background-color: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('../../../assets/icons/svg/angleDown.svg');
+    background-size: $selectIconSize;
+    background-position: calc(100% - 0.5rem) center;
+    background-repeat: no-repeat;
+    padding: $inputPadding;
+    padding-right: $selectPadding;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 1px;
+    border-color: $hel-gray;
+    font-size: var(--hds-text-md);
+  }
+}

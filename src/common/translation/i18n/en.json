@@ -1,0 +1,407 @@
+{
+  "accessibilityStatement": {
+    "title": "Accessibility Statement"
+  },
+  "api": {
+    "errorMessage": "An error occured. Please try again later"
+  },
+  "appName": "Culture Kids",
+  "authentication": {
+    "errorMessage": "An error occured while logging in. Please try again",
+    "loadUserError": {
+      "message": "An error occurred. Please try logging in again. "
+    },
+    "login": {
+      "text": "Login"
+    },
+    "logout": {
+      "text": "Logout"
+    },
+    "networkError": {
+      "message": "Login error: Check your network connection or try again later"
+    },
+    "redirect": {
+      "text": "Redirecting..."
+    }
+  },
+  "CHILD_RELATIONSHIP_OPTIONS": {
+    "ADVOCATE": "Legal guardian",
+    "OTHER_GUARDIAN": "Other guardian",
+    "OTHER_RELATION": "Other close relation",
+    "PARENT": "Parent"
+  },
+  "child": {
+    "form": {
+      "modal": {
+        "add": {
+          "label": "Add child",
+          "text": "Add child"
+        },
+        "delete": {
+          "label": "Remove"
+        },
+        "edit": {
+          "label": "Edit child’s information",
+          "text": "Edit"
+        },
+        "notEligible": {
+          "return": {
+            "text": "Return to profile"
+          }
+        },
+        "return": {
+          "text": "Return to registration page"
+        }
+      }
+    }
+  },
+  "common": {
+    "backButton": {
+      "label": "Back"
+    },
+    "closeButton": {
+      "altText": "Close"
+    },
+    "form": {
+      "leave": {
+        "warning": {
+          "text": "Are you sure you want to leave the site? You will lose all unsaved data."
+        }
+      }
+    },
+    "goBack": {
+      "text": "Return to registration page"
+    },
+    "language": {
+      "en": "English",
+      "fi": "Suomi",
+      "sv": "Svenska"
+    },
+    "menu": {
+      "closeMenuText": "Close menu",
+      "openMenuText": "Open menu"
+    },
+    "modal": {
+      "cancel": {
+        "text": "Cancel"
+      },
+      "submit": {
+        "text": "Submit"
+      }
+    },
+    "profile": {
+      "goToProfile": {
+        "buttonText": "Go to your Culture Kid profile"
+      }
+    },
+    "select": {
+      "default": {
+        "text": "Choose"
+      }
+    }
+  },
+  "descriptionOfTheFile": {
+    "title": "Description of the File",
+    "url": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Kaupunginorkesterin-kummiperherekisteri.pdf"
+  },
+  "email ": {
+    "heading": "Welcome to the Culture Kids programme!",
+    "text": "Welcome!"
+  },
+  " Please note! You cannot reply to this message.": "",
+  "email": {
+    "title": "Welcome to the Culture Kids programme!"
+  },
+  "footer": {
+    "copyrightText": "© Copyright 2020 • All rights reserved"
+  },
+  "home": {
+    "contact": {
+      "heading": {
+        "text": "Contact us"
+      },
+      "service": {
+        "name": "The Culture Kids service",
+        "text": "Contact us to find out more about the service."
+      }
+    },
+    "instructions": {
+      "heading": {
+        "text": "How can I take part in the activities?"
+      },
+      "icon": {
+        "kid": {
+          "text": "If the child lives in Helsinki and was born in 2020, you may sign them up to become a Culture Kid and register with the service."
+        },
+        "theater": {
+          "text": "You can have fun experiencing culture, together with your child. The events are designed to support your child’s development and well-being."
+        },
+        "ticket": {
+          "text": "You will receive an invitation via e-mail two times a year, and you can use the service to sign up for your preferred events."
+        }
+      }
+    },
+    "partners": {
+      "heading": {
+        "text": "Cooperation partners"
+      },
+      "partner": {
+        "amosrex": "Amos Rex",
+        "cirko": "Cirko – Center for New Circus",
+        "designmuseum": "Design Museum",
+        "hamhelsinki": "Helsinki Art Museum - HAM",
+        "helsinginkaupunginmuseo": "Helsinki City Museum",
+        "helsinginkaupunginorkesteri": "Helsinki Philharmonic Orchestra",
+        "hkt": "Helsinki City Theatre",
+        "hotellijaravintolamuseo": "Hotel and Restaurant Museum",
+        "hurjaruuth": "Hurjaruuth Dance Theatre",
+        "jaes": "Jane and Aatos Erkkos Foundation",
+        "kansallismuseo": "National Museum of Finland",
+        "kansallisteatteri": "Finnish National Theatre",
+        "kavi": "National Audiovisual Institute",
+        "kulttuuriperintokasvatus": "The Association of Cultural Heritage Education in Finland",
+        "mfa": "Museum of Finnish Architecture",
+        "nukketeatterisampo": "Puppet Theatre Sampo",
+        "oodihelsinki": "Oodi Helsinki Central Library",
+        "oopperabaletti": "Finnish National Opera and Ballet",
+        "qteatteri": "Q-teatteri",
+        "svenskateatern": "Svenska Teatern",
+        "tanssintalo": "Dance House Helsinki",
+        "teatteriilmio": "Theatre Ilmi Ö",
+        "teatterimuseo": "Theatre Museum",
+        "valokuvataiteenmuseo": "Finnish Museum of Photography"
+      }
+    },
+    "registration": {
+      "text": "Start by entering the hometown and date of birth of the child you want to register. After this you will be able to login to the service and complete your child’s Culture Kid profile. This should only take a few minutes."
+    }
+  },
+  "homePage": {
+    "hero": {
+      "buttonText": "Register",
+      "descriptionText": "All children born in Helsinki after 2020 are invited to become Culture Kids. The kids are invited to two events each year until they start school. These events are free of charge.",
+      "heading": "Culture Kids",
+      "underConstruction": {
+        "heading": "Signing up begins January 31, 2020",
+        "text": "Welcome to the Culture Kids programme! Unfortunately the sign up has not yet been open. You can sign up your child starting January 31st 2020."
+      }
+    },
+    "preliminaryForm": {
+      "childBirthdate": {
+        "input": {
+          "day": {
+            "placeholder": "date"
+          },
+          "label": "Child's date of birth (dd.mm.yyyy)",
+          "month": {
+            "placeholder": "month"
+          },
+          "year": {
+            "placeholder": "year"
+          }
+        }
+      },
+      "childHomeCity": {
+        "input": {
+          "label": "Child's hometown",
+          "placeholder": "Enter child's hometown"
+        }
+      },
+      "verifyInformation": {
+        "checkbox": {
+          "label": "I assure that the information I have provided is correct",
+          "required": {
+            "label": "This selection is mandatory"
+          }
+        }
+      }
+    }
+  },
+  "navbar": {
+    "menuButton": {
+      "label": "Menu"
+    },
+    "profileDropdown": {
+      "openCityProfile": {
+        "text": "Open user profile in omaHelsinki"
+      },
+      "profile": {
+        "text": "Culture Kids Profile"
+      }
+    },
+    "smallScreenMenu": {
+      "homepageLinkText": "Home page"
+    }
+  },
+  "notFound": {
+    "return": {
+      "text": "Return to service homepage"
+    },
+    "text": "The page you are looking for couldn't be found"
+  },
+  "partners": {
+    "2020": "Children born in 2020"
+  },
+  "profile": {
+    "addChildMutation": {
+      "errorMessage": "Error adding child. Please try again."
+    },
+    "child": {
+      "default": {
+        "name": {
+          "text": "Culture Kid"
+        }
+      },
+      "detail": {
+        "birthdate": "Child's date of birth",
+        "delete": {
+          "text": "Remove child profile"
+        },
+        "edit": {
+          "text": "Update child information"
+        },
+        "page": {
+          "title": "Child detail page"
+        },
+        "phoneNumber": "Guardian’s telephone number"
+      },
+      "navigateToDetail": {
+        "buttonLabel": "Navigate to child detail"
+      }
+    },
+    "children": {
+      "noChild": {
+        "text": "No children have been added"
+      }
+    },
+    "heading": "Culture Kids",
+    "noupcomingevents": {
+      "hero": {
+        "heading": "Event invitations"
+      },
+      "text": "Event invitations sent to you will be displayed here. You can sign up for events and cancel your attendance if you, for some reason, are unable to attend."
+    }
+  },
+  "registration": {
+    "form": {
+      "agree": {
+        "input": {
+          "label": "I accept the terms and conditions of the service",
+          "placeholder": "Accept to continue"
+        }
+      },
+      "child": {
+        "birthdate": {
+          "input": {
+            "label": "Child's date of birth (dd.mm.yyyy)",
+            "placeholder": "Please enter child's date of birth"
+          }
+        },
+        "firstName": {
+          "input": {
+            "label": "Child’s first name",
+            "placeholder": "Please enter child's first name"
+          }
+        },
+        "homeCity": {
+          "input": {
+            "label": "Child's hometown",
+            "placeholder": "Enter child's hometown"
+          }
+        },
+        "info": {
+          "heading": "Child's information"
+        },
+        "lastName": {
+          "input": {
+            "label": "Child’s last name",
+            "placeholder": "Please enter child’s last name"
+          }
+        },
+        "postalCode": {
+          "input": {
+            "label": "Child's postal code",
+            "placeholder": "Please enter child's postal code"
+          }
+        },
+        "relationship": {
+          "input": {
+            "label": "Guardian’s relationship to the child",
+            "placeholder": "Please specify relationship to the child"
+          }
+        }
+      },
+      "guardian": {
+        "email": {
+          "input": {
+            "label": "E-mail address",
+            "placeholder": "Please enter guardian’s e-mail address"
+          }
+        },
+        "firstName": {
+          "input": {
+            "label": "Guardian’s first name",
+            "placeholder": "Please enter guardian’s first name"
+          }
+        },
+        "info": {
+          "heading": "Guardian's information"
+        },
+        "language": {
+          "input": {
+            "label": "Guardian’s preferred language",
+            "placeholder": "Please enter guardian’s preferred language"
+          }
+        },
+        "lastName": {
+          "input": {
+            "label": "Guardian’s last name",
+            "placeholder": "Please enter guardian’s last name"
+          }
+        },
+        "phoneNumber": {
+          "input": {
+            "label": "Guardian’s telephone number",
+            "placeholder": "Please enter guardian’s telephone number"
+          }
+        }
+      },
+      "verifyInformation": {
+        "input": {
+          "label": "Agree to continue"
+        }
+      }
+    },
+    "heading": "Sign up",
+    "notEligible": {
+      "buttonText": "Click here to find cultural events for your child!",
+      "otherOptionsLink": "https://www.myhelsinki.fi/en/search?tags=children%20(age%20groups)&category=events",
+      "text": "Your child is unfortunately not eligible for the Culture Kids programme due to their date of birth or hometown.",
+      "title": "We’re sorry."
+    },
+    "submitMutation": {
+      "errorMessage": "Failed to submit to server"
+    },
+    "welcome": {
+      "hero": {
+        "header": "Welcome to the Culture Kids programme!"
+      }
+    }
+  },
+  "sanityCheck": "kukkuu.en",
+  "termsOfService": {
+    "title": "Terms Of Service"
+  },
+  "validation": {
+    "date": {
+      "invalidFormat": "Invalid date input",
+      "unSupported": "The date of birth can't be in the future"
+    },
+    "general": {
+      "required": "Mandatory field"
+    },
+    "postalCode": {
+      "invalidFormat": "Invalid format"
+    }
+  }
+}

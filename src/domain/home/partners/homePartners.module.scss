@@ -1,0 +1,23 @@
+@import 'layout';
+@import 'variables';
+
+.wrapper {
+  h2 {
+    text-align: center;
+    margin-top: 0;
+  }
+
+  padding: 2 * $largeMargin 0;
+
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, $containerMaxWidth) 1fr;
+}
+
+.innerwrapper {
+  grid-column: 2;
+}
+
+.partners {
+  padding: 0 $baseMargin;
+  display: grid;
+}

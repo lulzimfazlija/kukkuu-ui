@@ -1,0 +1,407 @@
+{
+  "accessibilityStatement": {
+    "title": "Tillgänglighetsutlåtande"
+  },
+  "api": {
+    "errorMessage": "Ett fel uppstod. Försök igen senare"
+  },
+  "appName": "Kulturens fadderbarn",
+  "authentication": {
+    "errorMessage": "Ett fel uppstod. Försök igen",
+    "loadUserError": {
+      "message": "Ett fel uppstod. Försök att logga in igen."
+    },
+    "login": {
+      "text": "Logga in"
+    },
+    "logout": {
+      "text": "Logga ut"
+    },
+    "networkError": {
+      "message": "Inloggningsfel: Kontrollera din nätverksanslutning eller försök igen senare"
+    },
+    "redirect": {
+      "text": "Omdirigerar till inloggning..."
+    }
+  },
+  "CHILD_RELATIONSHIP_OPTIONS": {
+    "ADVOCATE": "Ombud",
+    "OTHER_GUARDIAN": "Annan vårdnadshavare",
+    "OTHER_RELATION": "Annan närstående",
+    "PARENT": "Förälder"
+  },
+  "child": {
+    "form": {
+      "modal": {
+        "add": {
+          "label": "Lägg till barn",
+          "text": "Lägg till fadderbarn"
+        },
+        "delete": {
+          "label": "Radera"
+        },
+        "edit": {
+          "label": "Redigera uppgifterna om barnet",
+          "text": "Redigera"
+        },
+        "notEligible": {
+          "return": {
+            "text": "Tillbaka till profilen"
+          }
+        },
+        "return": {
+          "text": "Return to registration page"
+        }
+      }
+    }
+  },
+  "common": {
+    "backButton": {
+      "label": "Tillbaka"
+    },
+    "closeButton": {
+      "altText": "Stäng"
+    },
+    "form": {
+      "leave": {
+        "warning": {
+          "text": "Är du säker på att du vill lämna sidan? Alla osparade data går förlorade."
+        }
+      }
+    },
+    "goBack": {
+      "text": "Tillbaka till registreringen"
+    },
+    "language": {
+      "en": "English",
+      "fi": "Suomi",
+      "sv": "Svenska"
+    },
+    "menu": {
+      "closeMenuText": "Stäng meny",
+      "openMenuText": "Öppna meny"
+    },
+    "modal": {
+      "cancel": {
+        "text": "Tillbaka"
+      },
+      "submit": {
+        "text": "Spara"
+      }
+    },
+    "profile": {
+      "goToProfile": {
+        "buttonText": "Min fadderbarnsprofil"
+      }
+    },
+    "select": {
+      "default": {
+        "text": "Välj"
+      }
+    }
+  },
+  "descriptionOfTheFile": {
+    "title": "Registerbeskrivning",
+    "url": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Kaupunginorkesterin-kummiperherekisteri-SV.pdf"
+  },
+  "email ": {
+    "heading": "Välkommen som kulturens fadderbarn!",
+    "text": "Välkommen!"
+  },
+  " Obs! Det går inte att besvara meddelandet.": "",
+  "email": {
+    "title": "Välkommen som kulturens fadderbarn!"
+  },
+  "footer": {
+    "copyrightText": "© Copyright 2020 • Alla rättigheter förbehållna"
+  },
+  "home": {
+    "contact": {
+      "heading": {
+        "text": "Kontakta oss"
+      },
+      "service": {
+        "name": "Tjänsten Kulturens fadderbarn",
+        "text": "Ta kontakt om du vill få mer information om tjänsten."
+      }
+    },
+    "instructions": {
+      "heading": {
+        "text": "Hur kan jag delta?"
+      },
+      "icon": {
+        "kid": {
+          "text": "Om barnet bor i Helsingfors och är fött 2020, kan du anmäla hen som fadderbarn och registrera dig i tjänsten."
+        },
+        "theater": {
+          "text": "Du kan uppleva trevliga kulturstundar med barnet. Evenemangen har planerats så att de stöder barnens utveckling och välbefinnande."
+        },
+        "ticket": {
+          "text": "Du får en inbjudan per e-post två gånger om året och kan i tjänsten anmäla dig till de evenemang som bäst passar dig."
+        }
+      }
+    },
+    "partners": {
+      "heading": {
+        "text": "Samarbetspartner"
+      },
+      "partner": {
+        "amosrex": "Amos Rex",
+        "cirko": "Cirko – Centrumet för nycirkus",
+        "designmuseum": "Designmuseet",
+        "hamhelsinki": "Helsingfors konstmuseum HAM",
+        "helsinginkaupunginmuseo": "Helsingfors stadsmuseum",
+        "helsinginkaupunginorkesteri": "Helsingfors stadsorkester",
+        "hkt": "Helsingfors stadsteater",
+        "hotellijaravintolamuseo": "Hotell- och restaurangmuseet",
+        "hurjaruuth": "Dansteatern Hurjaruuth",
+        "jaes": "Jane och Aatos Erkkos stiftelse",
+        "kansallismuseo": "Nationalmuseum",
+        "kansallisteatteri": "Finlands nationalteater",
+        "kavi": "Nationella audiovisuella institutet",
+        "kulttuuriperintokasvatus": "Föreningen för kulturarvsfostran i Finland",
+        "mfa": "Finlands arkitekturmuseum",
+        "nukketeatterisampo": "Dockteatern Sampo",
+        "oodihelsinki": "Ode Helsingfors centrumbibliotek",
+        "oopperabaletti": "Finlands nationalopera och -balett",
+        "qteatteri": "Q-teatteri",
+        "svenskateatern": "Svenska Teatern",
+        "tanssintalo": "Dansens hus",
+        "teatteriilmio": "Ilmi Ö teater",
+        "teatterimuseo": "Teatermuseet",
+        "valokuvataiteenmuseo": "Finlands fotografiska museum"
+      }
+    },
+    "registration": {
+      "text": "Börja genom att uppge hemort och födelsedag för barnet som deltar i verksamheten. Därefter kan du logga in i tjänsten och komplettera barnets fadderbarnsprofil. Det tar några minuter."
+    }
+  },
+  "homePage": {
+    "hero": {
+      "buttonText": "Anmäl dig",
+      "descriptionText": "Alla Helsingforsbarn födda 2020 eller senare bjuds in som Kulturens fadderbarn. Fadderbarnen bjuds årligen in till två event tills barnet börjar i skolan. Evenemangen är avgiftsfria.",
+      "heading": "Kulturens fadderbarn",
+      "underConstruction": {
+        "heading": "Registreringen börjar 31 januari 2020",
+        "text": "Välkommen till Kulturens fadderbarn-tjänsten! Tyvärr är registreringen ännu inte öppen. Du kan anmäl ditt barn från den 31 januari 2020."
+      }
+    },
+    "preliminaryForm": {
+      "childBirthdate": {
+        "input": {
+          "day": {
+            "placeholder": "datum"
+          },
+          "label": "Barnets födelsedatum (dd.mm.åååå)",
+          "month": {
+            "placeholder": "mån"
+          },
+          "year": {
+            "placeholder": "år"
+          }
+        }
+      },
+      "childHomeCity": {
+        "input": {
+          "label": "Barnets hemkommun",
+          "placeholder": "Uppge barnets hemkommun"
+        }
+      },
+      "verifyInformation": {
+        "checkbox": {
+          "label": "Jag intygar att de uppgifter som jag gett är korrekta",
+          "required": {
+            "label": "Det här valet är obligatoriskt"
+          }
+        }
+      }
+    }
+  },
+  "navbar": {
+    "menuButton": {
+      "label": "Meny"
+    },
+    "profileDropdown": {
+      "openCityProfile": {
+        "text": "Open user profile on omaHelsinki"
+      },
+      "profile": {
+        "text": "Fadderbarnprofil"
+      }
+    },
+    "smallScreenMenu": {
+      "homepageLinkText": "Hemsida"
+    }
+  },
+  "notFound": {
+    "return": {
+      "text": "Tillbaka till framsidan"
+    },
+    "text": "Sidan du letade efter kunde inte hittas"
+  },
+  "partners": {
+    "2020": "Födda 2020"
+  },
+  "profile": {
+    "addChildMutation": {
+      "errorMessage": "Error adding child. Please try again"
+    },
+    "child": {
+      "default": {
+        "name": {
+          "text": "Fadderbarn"
+        }
+      },
+      "detail": {
+        "birthdate": "Barnets födelsedatum",
+        "delete": {
+          "text": "Radera barnets uppgifter"
+        },
+        "edit": {
+          "text": "Uppdatera barnets uppgifter"
+        },
+        "page": {
+          "title": "Barnets uppgifter"
+        },
+        "phoneNumber": "Telefonnummer"
+      },
+      "navigateToDetail": {
+        "buttonLabel": "Gå till barnets uppgifter"
+      }
+    },
+    "children": {
+      "noChild": {
+        "text": "Inga fadderbarn"
+      }
+    },
+    "heading": "Fadderbarn",
+    "noupcomingevents": {
+      "hero": {
+        "heading": "Eventinbjudningar"
+      },
+      "text": "Inbjudningar till evenemang som skickats till dig visas här. Du kan också anmäla dig till evenemang och ångra anmälan om du av någon orsak inte kan delta."
+    }
+  },
+  "registration": {
+    "form": {
+      "agree": {
+        "input": {
+          "label": "Jag godkänner tjänstens användarvillkor",
+          "placeholder": "Godkänn användarvillkoren för att gå vidare"
+        }
+      },
+      "child": {
+        "birthdate": {
+          "input": {
+            "label": "Barnets födelsedatum (dd.mm.åååå)",
+            "placeholder": "Uppge barnets födelsedatum"
+          }
+        },
+        "firstName": {
+          "input": {
+            "label": "Barnets förnamn",
+            "placeholder": "Uppge barnets förnamn"
+          }
+        },
+        "homeCity": {
+          "input": {
+            "label": "Barnets hemkommun",
+            "placeholder": "Uppge barnets hemkommun"
+          }
+        },
+        "info": {
+          "heading": "Uppgifter om barnet"
+        },
+        "lastName": {
+          "input": {
+            "label": "Barnets efternamn",
+            "placeholder": "Uppge barnets efternamn"
+          }
+        },
+        "postalCode": {
+          "input": {
+            "label": "Barnets postnummer",
+            "placeholder": "Uppge barnets postnummer"
+          }
+        },
+        "relationship": {
+          "input": {
+            "label": "Anmälarens förhållande till barnet",
+            "placeholder": "Uppge anmälarens förhållande till barnet"
+          }
+        }
+      },
+      "guardian": {
+        "email": {
+          "input": {
+            "label": "E-postadress",
+            "placeholder": "Uppge e-postadress"
+          }
+        },
+        "firstName": {
+          "input": {
+            "label": "Förnamn",
+            "placeholder": "Uppge förnamn"
+          }
+        },
+        "info": {
+          "heading": "Uppgifter om närstående vuxen"
+        },
+        "language": {
+          "input": {
+            "label": "Kontaktspråk",
+            "placeholder": "Välj kontaktspråk"
+          }
+        },
+        "lastName": {
+          "input": {
+            "label": "Efternamn",
+            "placeholder": "Uppge efternamn"
+          }
+        },
+        "phoneNumber": {
+          "input": {
+            "label": "Telefonnummer",
+            "placeholder": "Uppge telefonnummer"
+          }
+        }
+      },
+      "verifyInformation": {
+        "input": {
+          "label": "Agree to continue"
+        }
+      }
+    },
+    "heading": "Kom med",
+    "notEligible": {
+      "buttonText": "Här finns lämpliga kulturevenemang för barn",
+      "otherOptionsLink": "https://www.myhelsinki.fi/sv/search?tags=barn%20(%C3%A5ldersgrupper)&category=events",
+      "text": "Tyvärr berättigar barnets födelseår eller hemkommun inte till verksamheten Kulturens fadderbarn.",
+      "title": "Vad synd!"
+    },
+    "submitMutation": {
+      "errorMessage": "Det gick inte att skicka till servern"
+    },
+    "welcome": {
+      "hero": {
+        "header": "Välkommen som kulturens fadderbarn!"
+      }
+    }
+  },
+  "sanityCheck": "kukkuu.sv",
+  "termsOfService": {
+    "title": ""
+  },
+  "validation": {
+    "date": {
+      "invalidFormat": "Fel datumformat",
+      "unSupported": "Födelsedatum kan inte vara i framtiden"
+    },
+    "general": {
+      "required": "Obligatoriskt fält"
+    },
+    "postalCode": {
+      "invalidFormat": "Fel format"
+    }
+  }
+}
