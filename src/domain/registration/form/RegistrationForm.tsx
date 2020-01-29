@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState } from 'react';
 import { Formik, FieldArray } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation, useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useHistory, Redirect } from 'react-router-dom';
 import classnames from 'classnames';
@@ -27,11 +27,12 @@ import NavigationPropmt from '../../../common/components/prompt/NavigationPrompt
 import PageWrapper from '../../app/layout/PageWrapper';
 import { getCurrentLanguage } from '../../../common/translation/TranslationUtils';
 import { getSupportedChildData } from '../../child/ChildUtils';
-import { userHasProfileSelector } from '../state/RegistrationSelectors';
 // eslint-disable-next-line max-len
 import { submitChildrenAndGuardian as SubmitChildrenAndGuardianData } from '../../api/generatedTypes/submitChildrenAndGuardian';
-import { saveProfile } from '../../profile/state/ProfileActions';
+import { saveProfile, clearProfile } from '../../profile/state/ProfileActions';
 import profileQuery from '../../profile/queries/ProfileQuery';
+import { profileQuery as ProfileQueryType } from '../../api/generatedTypes/profileQuery';
+import LoadingSpinner from '../../../common/components/spinner/LoadingSpinner';
 
 const RegistrationForm: FunctionComponent = () => {
   const { i18n, t } = useTranslation();
@@ -40,9 +41,8 @@ const RegistrationForm: FunctionComponent = () => {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
 
-  const userHasProfile = useSelector(userHasProfileSelector);
   const initialValues = useSelector(initialFormDataSelector);
-
+  const { loading, error, data } = useQuery<ProfileQueryType>(profileQuery);
   const [submitChildrenAndGuardian] = useMutation<
     SubmitChildrenAndGuardianData
   >(submitChildrenAndGuardianMutation, {
@@ -56,9 +56,14 @@ const RegistrationForm: FunctionComponent = () => {
   // or reload the page unless they submit first.
   const [isFilling, setFormIsFilling] = useState(false);
 
-  // User can only see form until it has been submitted once. Prevent them
-  // from seeing it again by with use of back button or url hacking.
-  if (userHasProfile) return <Redirect to="/" />;
+  if (loading) return <LoadingSpinner isLoading={true} />;
+  if (!data || error) {
+    dispatch(clearProfile());
+  }
+  if (data?.myProfile) {
+    // No need to save profile here, that will be done after the redirect
+    return <Redirect to="/profile" />;
+  }
 
   return (
     <PageWrapper
