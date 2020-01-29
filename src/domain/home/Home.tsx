@@ -33,16 +33,15 @@ const Home: FunctionComponent = () => {
     }
   };
 
-  let userHasProfile = false;
-
   if (loading) return <LoadingSpinner isLoading={true} />;
   if (!data || error) {
     dispatch(clearProfile());
   }
   if (data?.myProfile) {
-    userHasProfile = true;
     dispatch(saveProfile(data.myProfile));
   }
+
+  const userHasProfile = !!data?.myProfile;
 
   return (
     <PageWrapper
