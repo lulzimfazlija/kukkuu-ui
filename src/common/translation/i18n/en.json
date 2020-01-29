@@ -1,4 +1,7 @@
 {
+  "accessibilityStatement": {
+    "title": "Accessibility Statement"
+  },
   "api": {
     "errorMessage": "An error occured. Please try again later"
   },
@@ -74,12 +77,13 @@
       "fi": "Suomi",
       "sv": "Svenska"
     },
+    "menu": {
+      "closeMenuText": "Close menu",
+      "openMenuText": "Open menu"
+    },
     "modal": {
       "cancel": {
         "text": "Cancel"
-      },
-      "close": {
-        "text": "x"
       },
       "submit": {
         "text": "Submit"
@@ -94,11 +98,11 @@
       "default": {
         "text": "Choose"
       }
-    },
-    "menu": {
-      "openMenuText": "Open menu",
-      "closeMenuText": "Close menu"
     }
+  },
+  "descriptionOfTheFile": {
+    "title": "Description of the File",
+    "url": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Kaupunginorkesterin-kummiperherekisteri.pdf"
   },
   "email ": {
     "heading": "Welcome to the Culture Kids programme!",
@@ -178,8 +182,8 @@
       "descriptionText": "All children born in Helsinki after 2020 are invited to become Culture Kids. The kids are invited to two events each year until they start school. These events are free of charge.",
       "heading": "Culture Kids",
       "underConstruction": {
-        "text": "Welcome to the Culture Kids programme! Unfortunately the sign up has not yet been open. You can sign up your child starting January 31st 2020.",
-        "heading": "Signing up begins January 31, 2020"
+        "heading": "Signing up begins January 31, 2020",
+        "text": "Welcome to the Culture Kids programme! Unfortunately the sign up has not yet been open. You can sign up your child starting January 31st 2020."
       }
     },
     "preliminaryForm": {
@@ -230,17 +234,17 @@
     }
   },
   "notFound": {
-    "text": "The page you are looking for couldn't be found",
     "return": {
       "text": "Return to service homepage"
-    }
+    },
+    "text": "The page you are looking for couldn't be found"
   },
   "partners": {
     "2020": "Children born in 2020"
   },
   "profile": {
     "addChildMutation": {
-      "errorMessage": "Error adding child. Please try again"
+      "errorMessage": "Error adding child. Please try again."
     },
     "child": {
       "default": {
@@ -249,6 +253,7 @@
         }
       },
       "detail": {
+        "birthdate": "Child's date of birth",
         "delete": {
           "text": "Remove child profile"
         },
@@ -258,7 +263,6 @@
         "page": {
           "title": "Child detail page"
         },
-        "birthdate": "Child's date of birth",
         "phoneNumber": "Guardian’s telephone number"
       },
       "navigateToDetail": {
@@ -385,6 +389,9 @@
     }
   },
   "sanityCheck": "kukkuu.en",
+  "termsOfService": {
+    "title": "Terms Of Service"
+  },
   "validation": {
     "date": {
       "invalidFormat": "Invalid date input",
@@ -396,12 +403,5 @@
     "postalCode": {
       "invalidFormat": "Invalid format"
     }
-  },
-  "accessibilityStatement": {
-    "title": "Accessibility statement"
-  },
-  "descriptionOfTheFile": {
-    "title": "Description of the file",
-    "url": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Kaupunginorkesterin-kummiperherekisteri.pdf"
   }
 }

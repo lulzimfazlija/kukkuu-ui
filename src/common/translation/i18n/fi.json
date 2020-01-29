@@ -1,4 +1,7 @@
 {
+  "accessibilityStatement": {
+    "title": "Saavutettavuusseloste"
+  },
   "api": {
     "errorMessage": "Tapahtui virhe. Yritä myöhemmin uudestaan"
   },
@@ -74,12 +77,13 @@
       "fi": "Suomi",
       "sv": "Svenska"
     },
+    "menu": {
+      "closeMenuText": "Sulje valikko",
+      "openMenuText": "Avaa valikko"
+    },
     "modal": {
       "cancel": {
         "text": "Peruuta"
-      },
-      "close": {
-        "text": "x"
       },
       "submit": {
         "text": "Tallenna"
@@ -94,11 +98,11 @@
       "default": {
         "text": "Valitse"
       }
-    },
-    "menu": {
-      "openMenuText": "Avaa valikko",
-      "closeMenuText": "Sulje valikko"
     }
+  },
+  "descriptionOfTheFile": {
+    "title": "Rekisteriseloste",
+    "url": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Kaupunginorkesterin-kummiperherekisteri.pdf"
   },
   "email ": {
     "heading": "Tervetuloa Kulttuurin kummilapsiin!",
@@ -178,8 +182,8 @@
       "descriptionText": "Kaikki vuodesta 2020 eteenpäin syntyvät helsinkiläiset lapset kutsutaan kulttuurin kummilapsiksi. Kummilapset saavat kutsun vuosittain kahteen tapahtumaan, kunnes lapsi aloittaa koulun. Tapahtumat ovat maksuttomia.",
       "heading": "Kulttuurin kummilapset",
       "underConstruction": {
-        "text": "Tervetuloa Kulttuurin kummilapset -palveluun! Ilmoittautuminen ei valitettavasti ole vielä auki. Voit ilmoittaa lapsen mukaan 31.1.2020 alkaen.",
-        "heading": "Ilmoittautuminen alkaa 31.1.2020"
+        "heading": "Ilmoittautuminen alkaa 31.1.2020",
+        "text": "Tervetuloa Kulttuurin kummilapset -palveluun! Ilmoittautuminen ei valitettavasti ole vielä auki. Voit ilmoittaa lapsen mukaan 31.1.2020 alkaen."
       }
     },
     "preliminaryForm": {
@@ -230,17 +234,17 @@
     }
   },
   "notFound": {
-    "text": "Etsimääsi sivua ei löytynyt",
     "return": {
       "text": "Palaa palvelun etusivulle"
-    }
+    },
+    "text": "Etsimääsi sivua ei löytynyt"
   },
   "partners": {
     "2020": "2020 syntyneet"
   },
   "profile": {
     "addChildMutation": {
-      "errorMessage": "Error adding child. Please try again"
+      "errorMessage": "Lapsen tietojen lisäämisessä tapahtui virhe. Yritä uudestaan."
     },
     "child": {
       "default": {
@@ -249,6 +253,7 @@
         }
       },
       "detail": {
+        "birthdate": "Lapsen syntymäaika",
         "delete": {
           "text": "Poista lapsen tiedot"
         },
@@ -258,7 +263,6 @@
         "page": {
           "title": "Kummilapsen tiedot"
         },
-        "birthdate": "Lapsen syntymäaika",
         "phoneNumber": "Puhelinnumero"
       },
       "navigateToDetail": {
@@ -385,6 +389,9 @@
     }
   },
   "sanityCheck": "kukkuu.fi",
+  "termsOfService": {
+    "title": "Käyttöehdot"
+  },
   "validation": {
     "date": {
       "invalidFormat": "Virheellinen päivämäärä",
@@ -396,12 +403,5 @@
     "postalCode": {
       "invalidFormat": "Väärä formaatti"
     }
-  },
-  "accessibilityStatement": {
-    "title": "Saavutettavuusseloste"
-  },
-  "descriptionOfTheFile": {
-    "title": "Rekisteriseloste",
-    "url": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Kaupunginorkesterin-kummiperherekisteri.pdf"
   }
 }
