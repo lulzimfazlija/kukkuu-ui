@@ -1,5 +1,5 @@
 import { TFunction } from 'i18next';
-import { omit } from 'lodash';
+import omit from 'lodash/omit';
 
 import { RelationshipTypeEnum } from '../api/generatedTypes/globalTypes';
 import { Child } from './types/ChildTypes';
