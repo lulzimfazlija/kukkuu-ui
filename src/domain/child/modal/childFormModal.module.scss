@@ -4,7 +4,7 @@
 
 .submitButton {
   @include button();
-  margin-top: $largeMargin;
+  margin: $largeMargin 0;
 }
 
 .childName,
@@ -20,7 +20,7 @@
   text-align: center;
   .goBackButton {
     @include button();
-    margin-top: $largeMargin;
+    margin: $largeMargin 0;
   }
 }
 

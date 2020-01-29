@@ -1,5 +1,6 @@
 @import 'fonts';
 @import 'variables';
+@import 'colors';
 
 .selectWrapper {
   display: flex;
@@ -12,7 +13,6 @@
   }
 
   select {
-    line-height: $inputHeight;
     background-color: transparent;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -21,8 +21,12 @@
     background-size: $selectIconSize;
     background-position: calc(100% - 0.5rem) center;
     background-repeat: no-repeat;
-    padding: 0 12px;
+    padding: $inputPadding;
     padding-right: $selectPadding;
-    border-radius: 0;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 1px;
+    border-color: $hel-gray;
+    font-size: var(--hds-text-md);
   }
 }

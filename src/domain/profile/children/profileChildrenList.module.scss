@@ -1,6 +1,9 @@
 @import 'mixins';
 @import 'layout';
 @import 'colors';
+
+$plusIconHeight: 2rem;
+
 .childrenList {
   .thisYearPartner {
     p {
@@ -37,7 +40,7 @@
     display: inline-flex;
     span {
       line-height: $baseLineHeight;
-      margin-right: 5px;
+      margin-right: $baseMargin;
     }
     img {
       transform: rotate(45deg);
@@ -50,4 +53,9 @@
       outline: 1px solid $focusOutline;
     }
   }
+}
+
+.addChildIcon {
+  height: $plusIconHeight;
+  width: $plusIconHeight;
 }

@@ -2,19 +2,20 @@
 @import 'layout';
 @import 'fonts';
 
-.wrapper {
-  padding-bottom: $largeMargin;
+$korosIncludedPadding: 7rem;
 
+.wrapper {
+  padding: 2 * $largeMargin 0 $korosIncludedPadding 0;
+  //
   display: grid;
   grid-template-columns: 1fr minmax(auto, $containerMaxWidth) 1fr;
 }
 
 .contact {
   grid-column: 2;
-  padding: 0 3rem 3rem 3rem;
 
   h2 {
-    padding: $largeMargin 0;
+    margin-top: 0;
     text-align: center;
   }
 

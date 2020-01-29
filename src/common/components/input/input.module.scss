@@ -24,7 +24,12 @@
     text-align: left;
 
     input {
-      height: $inputHeight;
+      padding: $inputPadding;
+      border-width: 2px;
+      border-style: solid;
+      border-radius: 1px;
+      border-color: $hel-gray;
+      font-size: var(--hds-text-md);
     }
   }
 }
@@ -62,7 +67,10 @@
         height: $checkboxHeight;
         position: absolute;
         background-color: $white;
-        border: 1px solid $black;
+        border-width: 2px;
+        border-style: solid;
+        border-radius: 1px;
+        border-color: $hel-gray;
       }
     }
 
