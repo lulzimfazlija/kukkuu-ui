@@ -23,6 +23,7 @@ import Welcome from '../registration/welcome/Welcome';
 import Profile from '../profile/Profile';
 import AccessibilityStatement from '../accessibilityStatement/AccessibilityStatement';
 import { userHasProfileSelector } from '../registration/state/RegistrationSelectors';
+import TermsOfService from '../termsOfService/TermsOfService';
 
 type AppProps = RouteComponentProps<{ locale: string }> & {
   isLoadingUser: boolean;
@@ -75,6 +76,7 @@ class App extends React.Component<AppProps> {
             path={`/${locale}/accessibility`}
             component={AccessibilityStatement}
           />
+          <Route exact path={`/${locale}/terms`} component={TermsOfService} />
           {!userHasProfile && (
             <PrivateRoute exact path={`/${locale}/registration/form`}>
               <RegistrationForm />
