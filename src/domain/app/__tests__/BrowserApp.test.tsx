@@ -4,23 +4,13 @@ import { MemoryRouter } from 'react-router';
 import { Provider } from 'react-redux';
 import toJson from 'enzyme-to-json';
 import { MockedProvider } from '@apollo/react-testing';
-import { act } from 'react-dom/test-utils';
 
 import { store } from '../state/AppStore';
 import BrowserApp, { AppRoutes } from '../BrowserApp';
 import App from '../App';
 
-// Tell React not to wait for Apollo query to resolve
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const updateWrapper = async (wrapper: any, time = 0) => {
-  await act(async () => {
-    await new Promise(res => setTimeout(res, time));
-    await wrapper.update();
-  });
-};
-
-const wrapperCreator = (route: string) => {
-  const wrapper = mount(
+const wrapperCreator = (route: string) =>
+  mount(
     <Provider store={store}>
       <MemoryRouter initialEntries={[route]}>
         <MockedProvider>
@@ -29,10 +19,6 @@ const wrapperCreator = (route: string) => {
       </MemoryRouter>
     </Provider>
   );
-  updateWrapper(wrapper);
-
-  return wrapper;
-};
 
 it('renders snapshot correctly', () => {
   const tree = mount(<BrowserApp />);

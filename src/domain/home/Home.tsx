@@ -19,8 +19,12 @@ import { clearProfile, saveProfile } from '../profile/state/ProfileActions';
 const Home: FunctionComponent = () => {
   const dispatch = useDispatch();
 
-  const { loading, error, data } = useQuery<ProfileQueryType>(profileQuery);
   const userIsAuthenticated = useSelector(isAuthenticatedSelector);
+
+  const { loading, error, data } = useQuery<ProfileQueryType>(profileQuery, {
+    skip: !userIsAuthenticated,
+  });
+
   const formRef = useRef<HTMLDivElement>(null);
 
   const scrollToForm = (formRef: RefObject<HTMLDivElement>) => {
