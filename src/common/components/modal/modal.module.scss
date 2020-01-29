@@ -54,7 +54,11 @@ $modalPadding: 2rem;
       width: $largeMargin;
       font-weight: $font-weight-bold;
       font-size: $font-size-lg;
-      margin-right: $baseMargin;
+
+      > div {
+        display: block;
+        margin: 0 auto;
+      }
     }
   }
 }
@@ -71,7 +75,7 @@ $modalPadding: 2rem;
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 0 0 $baseMargin 0;
+  margin: 0 0 $largeMargin 0;
   padding: 0 $basePadding;
   @include respond-above(sm) {
     padding: 0 $modalPadding;
