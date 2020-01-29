@@ -1,7 +1,12 @@
 {
   "name": "kukkuu-ui",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "license": "MIT",
+  "contributors": [
+    "Bernt Andreas Drange",
+    "Chi Nguyen",
+    "Kimmo Virtanen"
+  ],
   "private": true,
   "dependencies": {
     "@apollo/react-hooks": "^3.1.3",
