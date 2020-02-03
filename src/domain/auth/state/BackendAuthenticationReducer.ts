@@ -4,7 +4,7 @@ import { API_AUTHENTICATION_ACTIONS } from '../constants/BackendAuthenticationAc
 import { BackendAuthenticationData } from '../types/BackendAuthenticationTypes';
 
 export const defaultApiAuthenticationData: BackendAuthenticationData = {
-  isFetchingToken: true,
+  isFetchingToken: false,
   isAuthenticated: false,
   apiToken: null,
   errors: {},
@@ -28,4 +28,8 @@ export default createReducer(defaultApiAuthenticationData, {
     }),
   [API_AUTHENTICATION_ACTIONS.RESET_BACKEND_AUTHENTICATION]: (state, action) =>
     (state = defaultApiAuthenticationData),
+  [API_AUTHENTICATION_ACTIONS.TOKEN_FETCHED]: (state, action) => {
+    state.isAuthenticated = true;
+    state.isFetchingToken = false;
+  },
 });

@@ -1,5 +1,8 @@
 import { StoreState } from '../../app/types/AppTypes';
 
+export const userAccessTokenSelector = (state: StoreState) =>
+  state.authentication.tunnistamo.user?.access_token;
+
 export const apiTokenSelector = (state: StoreState) =>
   state.authentication.backend.apiToken;
 
