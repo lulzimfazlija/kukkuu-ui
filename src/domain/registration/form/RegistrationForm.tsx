@@ -17,7 +17,6 @@ import { resetFormValues, setFormValues } from '../state/RegistrationActions';
 import { initialFormDataSelector } from './RegistrationFormSelectors';
 import EnhancedInputField from '../../../common/components/form/fields/input/EnhancedInputField';
 import { SUPPORT_LANGUAGES } from '../../../common/translation/TranslationConstants';
-import { validateRequire } from '../../../common/components/form/validationUtils';
 import ChildFormField from './partial/ChildFormField';
 import AddNewChildFormModal from '../modal/AddNewChildFormModal';
 import Icon from '../../../common/components/icon/Icon';
@@ -79,12 +78,6 @@ const RegistrationForm: FunctionComponent = () => {
         <div className={styles.registrationForm}>
           <Formik
             initialValues={initialValues}
-            initialErrors={
-              (!initialValues.agree && {
-                agree: validateRequire(''),
-              }) ||
-              {}
-            }
             validate={() => {
               if (!isFilling) {
                 setFormIsFilling(true);
