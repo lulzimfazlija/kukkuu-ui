@@ -33,7 +33,7 @@ const App: React.FunctionComponent = props => {
     if (!apiToken && user?.access_token) {
       dispatch(authenticateWithBackend(user.access_token));
     }
-  });
+  }, [apiToken, dispatch, user]);
 
   return (
     <LoadingSpinner isLoading={isLoadingUser}>
