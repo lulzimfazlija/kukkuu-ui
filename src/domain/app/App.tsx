@@ -20,11 +20,14 @@ import AccessibilityStatement from '../accessibilityStatement/AccessibilityState
 import { userHasProfileSelector } from '../registration/state/RegistrationSelectors';
 import TermsOfService from '../termsOfService/TermsOfService';
 import { authenticateWithBackend } from '../auth/authenticate';
+import SessionPrompt from './sessionPrompt/SessionPrompt';
+import { isSessionExpiredPromptOpen } from './state/ui/UISelectors';
 
 const App: React.FunctionComponent = props => {
   const isLoadingUser = useSelector(isLoadingUserSelector);
   const { locale } = useParams<{ locale: string }>();
   const userHasProfile = useSelector(userHasProfileSelector);
+  const isSessionPromptOpen = useSelector(isSessionExpiredPromptOpen);
   const apiToken = useSelector(apiTokenSelector);
   const dispatch = useDispatch();
   const user = useSelector(userSelector);
@@ -37,6 +40,7 @@ const App: React.FunctionComponent = props => {
 
   return (
     <LoadingSpinner isLoading={isLoadingUser}>
+      {isSessionPromptOpen && <SessionPrompt isOpen={isSessionPromptOpen} />}
       <Switch>
         <Redirect exact path={`/${locale}/`} to={`/${locale}/home`} />
         <Route exact path={`/${locale}/home`} component={Home} />
