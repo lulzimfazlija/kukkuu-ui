@@ -42,13 +42,15 @@ const Dropdown: React.FunctionComponent<DropdownProps> = ({
 
   const ariaLabel = isOpen
     ? t('common.menu.closeMenuText')
+    : options.length === 1
+    ? options[0].label
     : t('common.menu.openMenuText');
 
   return (
     <div className={styles.dropdownWrapper} {...rest} ref={ref}>
       <Button
         aria-label={ariaLabel}
-        aria-expanded={isOpen}
+        aria-expanded={options.length === 1 || isOpen}
         onClick={() => {
           toggleDropdown(!isOpen);
           options[0].onClick && options[0].onClick();
