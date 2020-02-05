@@ -16,8 +16,9 @@ const httpLink = createHttpLink({
 });
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
-  if (graphQLErrors)
-    graphQLErrors.map(() => toast('authentication.loadUserError.message'));
+  if (graphQLErrors) {
+    toast('authentication.loadUserError.message');
+  }
 
   if (networkError) toast(i18n.t('authentication.network.error'));
 
