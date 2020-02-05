@@ -37,6 +37,9 @@ const App: React.FunctionComponent = props => {
       dispatch(authenticateWithBackend(user.access_token));
     }
   }, [apiToken, dispatch, user]);
+  // TODO: useEffect subscribe for changes from apiToken and user data
+  // When silent-renew is fixed here in KK-261
+  // !apiToken can be removed so silent-renew will auto make api token exchange
 
   return (
     <LoadingSpinner isLoading={isLoadingUser}>

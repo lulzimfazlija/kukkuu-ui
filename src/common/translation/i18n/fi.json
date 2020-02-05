@@ -410,6 +410,5 @@
     "postalCode": {
       "invalidFormat": "Väärä formaatti"
     }
-  },
-  "#REF!": "#REF!"
+  }
 }

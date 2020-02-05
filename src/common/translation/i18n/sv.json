@@ -410,6 +410,5 @@
     "postalCode": {
       "invalidFormat": "Fel format"
     }
-  },
-  "#REF!": "#REF!"
+  }
 }
