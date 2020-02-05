@@ -7,6 +7,7 @@ import angleDownIcon from '../../../assets/icons/svg/angleDown.svg';
 import styles from './dropdown.module.scss';
 
 interface DropdownOption {
+  id: string;
   label: string;
   icon?: string;
   onClick?: () => void;
@@ -51,6 +52,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = ({
       <Button
         aria-label={ariaLabel}
         aria-expanded={options.length === 1 || isOpen}
+        id={options[0].id}
         onClick={() => {
           toggleDropdown(!isOpen);
           options[0].onClick && options[0].onClick();
@@ -74,6 +76,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = ({
               if (!option.skipItem || index > 0)
                 return (
                   <Button
+                    id={option.id}
                     className={styles.dropdownContentOption}
                     key={index}
                     onClick={() => {

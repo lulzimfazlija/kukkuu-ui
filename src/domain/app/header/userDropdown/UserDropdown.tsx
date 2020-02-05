@@ -30,6 +30,7 @@ const UserDropdown: React.FunctionComponent<UserDropdownProps> = ({
 
   const logout = {
     label: t('authentication.logout.text'),
+    id: 'logoutButton',
     onClick: () => {
       // Clear user form data
       dispatch(resetFormValues());
@@ -47,20 +48,22 @@ const UserDropdown: React.FunctionComponent<UserDropdownProps> = ({
   };
 
   const user = {
+    id: 'userButton',
     label:
       (profileData && profileData.firstName) ||
-      // This text should never be displayed - defensive programming:
       t('navbar.profileDropdown.profile.text'),
     icon: personIcon,
     skipItem: true,
   };
 
   const frontPage = {
+    id: 'frontPageButton',
     label: t('navbar.smallScreenMenu.homepageLinkText'),
     onClick: () => history.push('/'),
   };
 
   const profile = {
+    id: 'profileButton',
     label: t('navbar.profileDropdown.profile.text'),
     onClick: () => {
       history.push('/profile');
@@ -68,6 +71,7 @@ const UserDropdown: React.FunctionComponent<UserDropdownProps> = ({
   };
 
   const login = {
+    id: 'loginButton',
     label: t('authentication.login.text'),
     icon: personIcon,
     onClick: () => loginTunnistamo(),

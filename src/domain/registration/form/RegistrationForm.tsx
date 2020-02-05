@@ -124,7 +124,7 @@ const RegistrationForm: FunctionComponent = () => {
             }}
           >
             {({ values, isSubmitting, handleSubmit }) => (
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} id="registrationForm">
                 <div className={styles.registrationGrayContainer}>
                   <h1>{t('registration.heading')}</h1>
                 </div>

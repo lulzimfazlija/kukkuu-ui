@@ -54,6 +54,7 @@ export const AppRoutes: FunctionComponent = () => {
     </PageLayout>
   );
 };
+
 const BrowserApp: FunctionComponent = () => {
   return (
     <Provider store={store}>
