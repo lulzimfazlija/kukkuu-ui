@@ -25,7 +25,4 @@ export default createReducer(defaultApiAuthenticationData, {
     }),
   [API_AUTHENTICATION_ACTIONS.RESET_BACKEND_AUTHENTICATION]: (state, action) =>
     (state = defaultApiAuthenticationData),
-  [API_AUTHENTICATION_ACTIONS.TOKEN_FETCHED]: (state, action) => {
-    state.isFetchingToken = false;
-  },
 });
