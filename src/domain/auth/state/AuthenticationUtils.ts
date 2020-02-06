@@ -20,10 +20,13 @@ export const flushAllState = (options: FlushStateOptions) => {
 
   // Clear profile (fetched from API)
   store.dispatch(clearProfile());
+
   // Clear backend auth data
   store.dispatch(resetBackendAuthentication());
+
   // Flush data in redux store and localStorage
   persistor.flush();
+
   // Clear Apollo cache
   client.clearStore();
 };
