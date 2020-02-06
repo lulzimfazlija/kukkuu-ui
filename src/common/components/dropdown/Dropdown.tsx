@@ -11,7 +11,6 @@ interface DropdownOption {
   label: string;
   icon?: string;
   onClick?: () => void;
-  skipItem?: boolean;
 }
 
 type DropdownOptions = DropdownOption[];
@@ -26,6 +25,12 @@ const Dropdown: React.FunctionComponent<DropdownProps> = ({
   ...rest
 }) => {
   const { t } = useTranslation();
+
+  // Dropdown with single element is basically
+  // not a dropdown, just a button
+  const isSingleElementDropdown = options.length === 1;
+  const itemDisplayedOnNavbar = options[0];
+
   const ref = React.useRef<HTMLDivElement>(null);
 
   const [isOpen, toggleDropdown] = React.useState(false);
@@ -41,42 +46,48 @@ const Dropdown: React.FunctionComponent<DropdownProps> = ({
     };
   }, []);
 
-  const ariaLabel = isOpen
-    ? t('common.menu.closeMenuText')
-    : options.length === 1
-    ? options[0].label
-    : t('common.menu.openMenuText');
-
   return (
     <div className={styles.dropdownWrapper} {...rest} ref={ref}>
-      <Button
-        aria-label={ariaLabel}
-        aria-expanded={options.length === 1 || isOpen}
-        id={options[0].id}
-        onClick={() => {
-          toggleDropdown(!isOpen);
-          options[0].onClick && options[0].onClick();
-        }}
-      >
-        <span>{options[0].label}</span>
-        <Icon
-          src={options[0].icon ?? angleDownIcon}
-          alt={t('navbar.menuButton.label')}
-        />
-      </Button>
-      {isOpen && (
-        <div className={styles.dropdownContent}>
-          {/* Not necessary to show dropdown on 1 element only */}
-          {options.length > 1 &&
-            options.map((option, index) => {
-              /**
-               * If the item is already displayed above
-               * the dropDown menu, we don't want to repeat it.
-               **/
-              if (!option.skipItem || index > 0)
+      {/* Dropdown with single element is basicall not a dropdown, just a button */}
+      {isSingleElementDropdown && (
+        <Button
+          aria-label={itemDisplayedOnNavbar.label}
+          onClick={() => {
+            itemDisplayedOnNavbar?.onClick && itemDisplayedOnNavbar.onClick();
+          }}
+        >
+          <span>{itemDisplayedOnNavbar.label}</span>
+          <Icon
+            src={itemDisplayedOnNavbar.icon ?? angleDownIcon}
+            alt={t('navbar.menuButton.label')}
+          />
+        </Button>
+      )}
+
+      {/* Kukkuu dropdown have first item display on nav is also first option
+      which doesnt trigger option's action, just have labeling */}
+      {!isSingleElementDropdown && (
+        <>
+          <Button
+            aria-label={t(
+              isOpen ? 'common.menu.closeMenuText' : 'common.menu.openMenuText'
+            )}
+            aria-expanded={isOpen}
+            onClick={() => {
+              toggleDropdown(!isOpen);
+            }}
+          >
+            <span>{itemDisplayedOnNavbar.label}</span>
+            <Icon
+              src={itemDisplayedOnNavbar.icon ?? angleDownIcon}
+              alt={t('navbar.menuButton.label')}
+            />
+          </Button>
+          {isOpen && (
+            <div className={styles.dropdownContent}>
+              {options.slice(1).map((option, index) => {
                 return (
                   <Button
-                    id={option.id}
                     className={styles.dropdownContentOption}
                     key={index}
                     onClick={() => {
@@ -88,9 +99,10 @@ const Dropdown: React.FunctionComponent<DropdownProps> = ({
                     {option.icon && <Icon src={option.icon} />}
                   </Button>
                 );
-              else return '';
-            })}
-        </div>
+              })}
+            </div>
+          )}
+        </>
       )}
     </div>
   );

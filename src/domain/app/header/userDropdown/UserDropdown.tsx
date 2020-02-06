@@ -49,11 +49,8 @@ const UserDropdown: React.FunctionComponent<UserDropdownProps> = ({
 
   const user = {
     id: 'userButton',
-    label:
-      (profileData && profileData.firstName) ||
-      t('navbar.profileDropdown.profile.text'),
+    label: profileData?.firstName || t('navbar.profileDropdown.profile.text'),
     icon: personIcon,
-    skipItem: true,
   };
 
   const frontPage = {
