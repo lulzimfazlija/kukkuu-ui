@@ -120,7 +120,7 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
             }}
           >
             {({ isSubmitting, handleSubmit }) => (
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} id="childModalForm">
                 <FieldArray
                   name="birthdate"
                   render={props => <BirthdateFormField {...props} />}
