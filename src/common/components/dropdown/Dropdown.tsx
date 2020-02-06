@@ -26,9 +26,8 @@ const Dropdown: React.FunctionComponent<DropdownProps> = ({
 }) => {
   const { t } = useTranslation();
 
-  // Dropdown with single element is basically
-  // not a dropdown, just a button
-  const isSingleElementDropdown = options.length === 1;
+  // If we only have one option we render a button, else we render a dropdown.
+  const isDropdown = options.length > 1;
   const itemDisplayedOnNavbar = options[0];
 
   const ref = React.useRef<HTMLDivElement>(null);
@@ -45,28 +44,10 @@ const Dropdown: React.FunctionComponent<DropdownProps> = ({
       document.removeEventListener('click', handleClick);
     };
   }, []);
-
   return (
     <div className={styles.dropdownWrapper} {...rest} ref={ref}>
-      {/* Dropdown with single element is basicall not a dropdown, just a button */}
-      {isSingleElementDropdown && (
-        <Button
-          aria-label={itemDisplayedOnNavbar.label}
-          onClick={() => {
-            itemDisplayedOnNavbar?.onClick && itemDisplayedOnNavbar.onClick();
-          }}
-        >
-          <span>{itemDisplayedOnNavbar.label}</span>
-          <Icon
-            src={itemDisplayedOnNavbar.icon ?? angleDownIcon}
-            alt={t('navbar.menuButton.label')}
-          />
-        </Button>
-      )}
-
-      {/* Kukkuu dropdown have first item display on nav is also first option
-      which doesnt trigger option's action, just have labeling */}
-      {!isSingleElementDropdown && (
+      {/* The button text is the first item in the option list */}
+      {isDropdown && (
         <>
           <Button
             aria-label={t(
@@ -88,6 +69,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = ({
               {options.slice(1).map((option, index) => {
                 return (
                   <Button
+                    id={option.id}
                     className={styles.dropdownContentOption}
                     key={index}
                     onClick={() => {
@@ -103,6 +85,22 @@ const Dropdown: React.FunctionComponent<DropdownProps> = ({
             </div>
           )}
         </>
+      )}
+      {/* We only have one option, show it as a simple button */}
+      {!isDropdown && (
+        <Button
+          id={itemDisplayedOnNavbar.id}
+          aria-label={itemDisplayedOnNavbar.label}
+          onClick={() => {
+            itemDisplayedOnNavbar?.onClick && itemDisplayedOnNavbar.onClick();
+          }}
+        >
+          <span>{itemDisplayedOnNavbar.label}</span>
+          <Icon
+            src={itemDisplayedOnNavbar.icon ?? angleDownIcon}
+            alt={t('navbar.menuButton.label')}
+          />
+        </Button>
       )}
     </div>
   );
