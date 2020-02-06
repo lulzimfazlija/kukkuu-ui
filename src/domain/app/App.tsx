@@ -22,6 +22,10 @@ import TermsOfService from '../termsOfService/TermsOfService';
 import { authenticateWithBackend } from '../auth/authenticate';
 import SessionPrompt from './sessionPrompt/SessionPrompt';
 import { isSessionExpiredPromptOpen } from './state/ui/UISelectors';
+import {
+  tokenFetched,
+  fetchTokenError,
+} from '../auth/state/BackendAuthenticationActions';
 
 const App: React.FunctionComponent = props => {
   const isLoadingUser = useSelector(isLoadingUserSelector);
@@ -33,8 +37,24 @@ const App: React.FunctionComponent = props => {
   const user = useSelector(userSelector);
 
   useEffect(() => {
-    if (!apiToken && user?.access_token) {
+    if (apiToken) {
+      // Skip token fetch if token already existed
+      dispatch(tokenFetched());
+
+      // If no token but access token is ready for exchange
+      // start to fetch apiToken
+    } else if (user?.access_token) {
       dispatch(authenticateWithBackend(user.access_token));
+    } else {
+      // No access token, usually first time user
+      // Dispatch this as last resort to close the spinner
+      // And end authentication part.
+      dispatch(
+        fetchTokenError({
+          message: 'No access token',
+          name: 'fetchTokenError',
+        })
+      );
     }
     // TODO: useEffect subscribe for changes from apiToken and user data
     // When silent-renew is fixed here in KK-261
