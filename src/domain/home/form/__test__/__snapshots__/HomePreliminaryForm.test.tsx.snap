@@ -22,11 +22,6 @@ exports[`renders snapshot correctly 1`] = `
       </p>
     </div>
     <Formik
-      initialErrors={
-        Object {
-          "verifyInformation": "validation.general.required",
-        }
-      }
       onSubmit={[Function]}
       validate={[Function]}
     >

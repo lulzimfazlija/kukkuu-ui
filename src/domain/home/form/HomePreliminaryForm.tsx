@@ -8,10 +8,7 @@ import { loginTunnistamo } from '../../auth/authenticate';
 import styles from './homePreliminaryForm.module.scss';
 import Button from '../../../common/components/button/Button';
 import InputField from '../../../common/components/form/fields/input/InputField';
-import {
-  validateDate,
-  validateRequire,
-} from '../../../common/components/form/validationUtils';
+import { validateDate } from '../../../common/components/form/validationUtils';
 import { isChildEligible } from '../../registration/notEligible/NotEligibleUtils';
 import BirthdateFormField from './partial/BirthdateFormField';
 import { setHomeFormValues } from '../../registration/state/RegistrationActions';
@@ -101,17 +98,10 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
           initialValues={initialValues}
           onSubmit={handleSubmit}
           validate={validate}
-          // To not be able to submit form at first mount
-          initialErrors={
-            (!stateFormValues.verifyInformation && {
-              verifyInformation: validateRequire(''),
-            }) ||
-            {}
-          }
         >
           {({ handleSubmit, isSubmitting, isValid }) => {
             return (
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} id="homePageForm">
                 <div className={styles.inputWrapper}>
                   <FieldArray
                     name="child.birthdate"
@@ -149,7 +139,7 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
                 <Button
                   type="submit"
                   className={styles.submitButton}
-                  disabled={isSubmitting || !isValid}
+                  disabled={isSubmitting}
                 >
                   {t('homePage.hero.buttonText')}
                 </Button>
