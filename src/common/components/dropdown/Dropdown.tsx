@@ -7,10 +7,10 @@ import angleDownIcon from '../../../assets/icons/svg/angleDown.svg';
 import styles from './dropdown.module.scss';
 
 interface DropdownOption {
+  id: string;
   label: string;
   icon?: string;
   onClick?: () => void;
-  skipItem?: boolean;
 }
 
 type DropdownOptions = DropdownOption[];
@@ -25,6 +25,11 @@ const Dropdown: React.FunctionComponent<DropdownProps> = ({
   ...rest
 }) => {
   const { t } = useTranslation();
+
+  // If we only have one option we render a button, else we render a dropdown.
+  const isDropdown = options.length > 1;
+  const itemDisplayedOnNavbar = options[0];
+
   const ref = React.useRef<HTMLDivElement>(null);
 
   const [isOpen, toggleDropdown] = React.useState(false);
@@ -39,39 +44,32 @@ const Dropdown: React.FunctionComponent<DropdownProps> = ({
       document.removeEventListener('click', handleClick);
     };
   }, []);
-
-  const ariaLabel = isOpen
-    ? t('common.menu.closeMenuText')
-    : t('common.menu.openMenuText');
-
   return (
     <div className={styles.dropdownWrapper} {...rest} ref={ref}>
-      <Button
-        aria-label={ariaLabel}
-        aria-expanded={isOpen}
-        onClick={() => {
-          toggleDropdown(!isOpen);
-          options[0].onClick && options[0].onClick();
-        }}
-      >
-        <span>{options[0].label}</span>
-        <Icon
-          src={options[0].icon ?? angleDownIcon}
-          alt={t('navbar.menuButton.label')}
-        />
-      </Button>
-      {isOpen && (
-        <div className={styles.dropdownContent}>
-          {/* Not necessary to show dropdown on 1 element only */}
-          {options.length > 1 &&
-            options.map((option, index) => {
-              /**
-               * If the item is already displayed above
-               * the dropDown menu, we don't want to repeat it.
-               **/
-              if (!option.skipItem || index > 0)
+      {/* The button text is the first item in the option list */}
+      {isDropdown && (
+        <>
+          <Button
+            aria-label={t(
+              isOpen ? 'common.menu.closeMenuText' : 'common.menu.openMenuText'
+            )}
+            aria-expanded={isOpen}
+            onClick={() => {
+              toggleDropdown(!isOpen);
+            }}
+          >
+            <span>{itemDisplayedOnNavbar.label}</span>
+            <Icon
+              src={itemDisplayedOnNavbar.icon ?? angleDownIcon}
+              alt={t('navbar.menuButton.label')}
+            />
+          </Button>
+          {isOpen && (
+            <div className={styles.dropdownContent}>
+              {options.slice(1).map((option, index) => {
                 return (
                   <Button
+                    id={option.id}
                     className={styles.dropdownContentOption}
                     key={index}
                     onClick={() => {
@@ -83,9 +81,26 @@ const Dropdown: React.FunctionComponent<DropdownProps> = ({
                     {option.icon && <Icon src={option.icon} />}
                   </Button>
                 );
-              else return '';
-            })}
-        </div>
+              })}
+            </div>
+          )}
+        </>
+      )}
+      {/* We only have one option, show it as a simple button */}
+      {!isDropdown && (
+        <Button
+          id={itemDisplayedOnNavbar.id}
+          aria-label={itemDisplayedOnNavbar.label}
+          onClick={() => {
+            itemDisplayedOnNavbar?.onClick && itemDisplayedOnNavbar.onClick();
+          }}
+        >
+          <span>{itemDisplayedOnNavbar.label}</span>
+          <Icon
+            src={itemDisplayedOnNavbar.icon ?? angleDownIcon}
+            alt={t('navbar.menuButton.label')}
+          />
+        </Button>
       )}
     </div>
   );

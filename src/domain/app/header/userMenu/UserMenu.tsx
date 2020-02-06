@@ -3,6 +3,7 @@ import * as React from 'react';
 import styles from './userMenu.module.scss';
 
 interface UserMenuOption {
+  id: string;
   label: string;
   onClick?: () => void;
 }
@@ -18,7 +19,7 @@ const UserMenu: React.FunctionComponent<UserMenuProps> = ({ options }) => {
       {options.map((option, index) => {
         return (
           <li key={index} onClick={() => option.onClick && option.onClick()}>
-            <button>{option.label}</button>
+            <button id={option.id}>{option.label}</button>
           </li>
         );
       })}

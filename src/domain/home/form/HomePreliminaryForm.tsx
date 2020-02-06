@@ -101,7 +101,7 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
         >
           {({ handleSubmit, isSubmitting, isValid }) => {
             return (
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} id="homePageForm">
                 <div className={styles.inputWrapper}>
                   <FieldArray
                     name="child.birthdate"
