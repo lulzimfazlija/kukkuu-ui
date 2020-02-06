@@ -1,36 +1,20 @@
 import * as React from 'react';
-import { useDispatch } from 'react-redux';
 import { useTranslation, Trans } from 'react-i18next';
 
 import styles from './sessionPrompt.module.scss';
 import Modal from '../../../common/components/modal/Modal';
-import { closeExpiredSessionPrompt } from '../state/ui/UIActions';
 import Button from '../../../common/components/button/Button';
 import { logoutTunnistamo } from '../../auth/authenticate';
-import { resetBackendAuthentication } from '../../auth/state/BackendAuthenticationActions';
-import { clearProfile } from '../../profile/state/ProfileActions';
-import { persistor } from '../state/AppStore';
-import client from '../../api/client';
+import { flushAllState } from '../../auth/state/AuthenticationUtils';
 
 const SessionPrompt: React.FunctionComponent<{ isOpen: boolean }> = ({
   isOpen = false,
 }) => {
-  const dispatch = useDispatch();
-
   const flushAuthenticationData = () => {
-    // Close prompt
-    dispatch(closeExpiredSessionPrompt());
+    // flush all state except user form data
+    // This will also include close this prompt modal
+    flushAllState({ keepUserFormData: true });
 
-    // Clear api token
-    dispatch(resetBackendAuthentication());
-
-    // Clear profile (fetched from API)
-    dispatch(clearProfile());
-
-    // Flush data in redux store and localStorage
-    persistor.flush();
-    // Clear Apollo cache
-    client.clearStore();
     // Log out
     logoutTunnistamo();
   };

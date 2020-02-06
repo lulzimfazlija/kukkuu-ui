@@ -16,4 +16,7 @@ export default createReducer(defaultUIState, {
   [UI_ACTIONS.SESSION_EXPIRED_PROMPT.CLOSE]: (state, action) => {
     state.sessionExpiredPrompt.isOpen = false;
   },
+  [UI_ACTIONS.RESET_UI_STATE]: state => {
+    state = defaultUIState;
+  },
 });

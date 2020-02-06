@@ -9,3 +9,5 @@ export const showExpiredSessionPrompt = createAction(
 export const closeExpiredSessionPrompt = createAction(
   UI_ACTIONS.SESSION_EXPIRED_PROMPT.CLOSE
 );
+
+export const resetUIState = createAction(UI_ACTIONS.RESET_UI_STATE);

@@ -25,8 +25,8 @@
     },
     "session": {
       "expired": {
-        "message": "Your session have expired. <br>You will be redirect to homepage. <br>All your current progress will be saved.",
-        "agree": "Continue registration",
+        "message": "Your session is expired and you have been logged out.",
+        "agree": "Continue",
         "label": "Session expired"
       }
     }
