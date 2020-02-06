@@ -8,6 +8,9 @@ import { closeExpiredSessionPrompt } from '../state/ui/UIActions';
 import Button from '../../../common/components/button/Button';
 import { logoutTunnistamo } from '../../auth/authenticate';
 import { resetBackendAuthentication } from '../../auth/state/BackendAuthenticationActions';
+import { clearProfile } from '../../profile/state/ProfileActions';
+import { persistor } from '../state/AppStore';
+import client from '../../api/client';
 
 const SessionPrompt: React.FunctionComponent<{ isOpen: boolean }> = ({
   isOpen = false,
@@ -15,10 +18,20 @@ const SessionPrompt: React.FunctionComponent<{ isOpen: boolean }> = ({
   const dispatch = useDispatch();
 
   const flushAuthenticationData = () => {
+    // Close prompt
     dispatch(closeExpiredSessionPrompt());
 
+    // Clear api token
     dispatch(resetBackendAuthentication());
 
+    // Clear profile (fetched from API)
+    dispatch(clearProfile());
+
+    // Flush data in redux store and localStorage
+    persistor.flush();
+    // Clear Apollo cache
+    client.clearStore();
+    // Log out
     logoutTunnistamo();
   };
   const { t } = useTranslation();
