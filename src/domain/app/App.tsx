@@ -15,7 +15,7 @@ import {
   userSelector,
 } from '../auth/state/AuthenticationSelectors';
 import Welcome from '../registration/welcome/Welcome';
-import Profile from '../profile/Profile';
+import { ProfileRoutes } from '../profile/Profile';
 import AccessibilityStatement from '../accessibilityStatement/AccessibilityStatement';
 import { userHasProfileSelector } from '../registration/state/RegistrationSelectors';
 import TermsOfService from '../termsOfService/TermsOfService';
@@ -88,7 +88,7 @@ const App: React.FunctionComponent = props => {
         </PrivateRoute>
 
         <PrivateRoute path={`/${locale}/profile`}>
-          <Profile />
+          <ProfileRoutes />
         </PrivateRoute>
 
         {userHasProfile && <Redirect to={`/${locale}/profile`} />}

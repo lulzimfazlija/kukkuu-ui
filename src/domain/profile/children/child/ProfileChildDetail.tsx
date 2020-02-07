@@ -74,7 +74,7 @@ const ProfileChildDetail: React.FunctionComponent = () => {
               </div>
               <div className={styles.childInfoRow}>
                 <Icon src={personIcon} />
-                <span>{`${guardian.firstName} ${guardian.lastName}`}, </span>
+                <span>{`${guardian.firstName} ${guardian.lastName}`}</span>
               </div>
             </div>
           ) : (

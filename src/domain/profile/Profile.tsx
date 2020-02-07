@@ -16,10 +16,8 @@ import styles from './profile.module.scss';
 import Icon from '../../common/components/icon/Icon';
 import phoneIcon from '../../assets/icons/svg/mobile.svg';
 import emailIcon from '../../assets/icons/svg/envelope.svg';
-import editIcon from '../../assets/icons/svg/gear.svg';
 import ProfileChildDetail from './children/child/ProfileChildDetail';
 
-// Export for testing purposes
 export const ProfileRoutes: FunctionComponent = () => {
   const { i18n } = useTranslation();
   const currentLocale = getCurrentLanguage(i18n);
@@ -38,7 +36,6 @@ export const ProfileRoutes: FunctionComponent = () => {
 const Profile: FunctionComponent = () => {
   const { loading, error, data } = useQuery<ProfileQueryType>(profileQuery);
   const { t } = useTranslation();
-  const [isOpen, setIsOpen] = React.useState(false);
   const dispatch = useDispatch();
 
   if (loading) return <LoadingSpinner isLoading={true} />;
@@ -68,19 +65,6 @@ const Profile: FunctionComponent = () => {
               <h1>
                 {data.myProfile.firstName} {data.myProfile.lastName}
               </h1>
-              <button
-                aria-label={t('profile.edit.label')}
-                className={styles.editProfile}
-                onClick={() => setIsOpen(true)}
-              >
-                <span>{t('profile.edit.label')}</span>
-                <Icon
-                  src={editIcon}
-                  alt={t('profile.edit.label')}
-                  className={styles.editProfileIcon}
-                />
-              </button>
-              {isOpen && <div></div>}
             </div>
             <div className={styles.guardianInfo}>
               <div className={styles.guardianInfoRow}>
@@ -95,7 +79,6 @@ const Profile: FunctionComponent = () => {
                 <span>{data.myProfile.phoneNumber}</span>
               </div>
             </div>
-
             <ProfileChildrenList />
           </div>
         </div>
