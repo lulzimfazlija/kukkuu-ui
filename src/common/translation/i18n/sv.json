@@ -22,6 +22,13 @@
     },
     "redirect": {
       "text": "Omdirigerar till inloggning..."
+    },
+    "session": {
+      "expired": {
+        "message": "Your session have expired. <br>You will be redirect to homepage. <br>All your current progress will be saved.",
+        "agree": "Continue registration",
+        "label": "Session expired"
+      }
     }
   },
   "CHILD_RELATIONSHIP_OPTIONS": {

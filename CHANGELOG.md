@@ -1,12 +1,18 @@
 # Change Log
 
+# 0.1.3-pre
+
+### Fixed
+
+- [#151](https://github.com/City-of-Helsinki/kukkuu-ui/pull/151) Enhance authentication flow, reduce token fetched on every route changes.
+
 ## 0.1.2 (February 6th, 2020)
 
 Special thanks to [@hugovk](https://github.com/hugovk) for the first contributions from outside our team!
 
 ### Added
 
-- [#154](https://github.com/City-of-Helsinki/kukkuu-ui/pull/154) Add usage analytics
+- [#154](https://github.com/City-of-Helsinki/kukkuu-ui/pull/154) Add usage analytics (Matomo)
 
 ### Changed
 

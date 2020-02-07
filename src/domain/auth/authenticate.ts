@@ -1,4 +1,4 @@
-import axios, { AxiosResponse, AxiosError } from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { toast } from 'react-toastify';
 import * as Sentry from '@sentry/browser';
 
@@ -58,19 +58,9 @@ export const authenticateWithBackend = (
 
     dispatch(fetchTokenSuccess(res.data));
   } catch (error) {
+    dispatch(fetchTokenError(error));
     toast(i18n.t('authentication.errorMessage'), {
       type: toast.TYPE.ERROR,
     });
-    try {
-      // This is a workaround that can save us until we can fix silentRenew().
-      loginTunnistamo();
-      Sentry.captureMessage(
-        'authenticateWithBackend() failed - running loggingTunnistamo()'
-      );
-    } catch (loginTunnistamoError) {
-      Sentry.captureException(error);
-      Sentry.captureException(loginTunnistamoError);
-      dispatch(fetchTokenError(error as AxiosError));
-    }
   }
 };
