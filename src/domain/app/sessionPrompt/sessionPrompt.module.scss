@@ -1,0 +1,21 @@
+@import 'variables';
+@import 'mixins';
+
+.sessionExpired {
+  text-align: center;
+  p {
+    padding-bottom: $largeMargin;
+    line-height: 1.6;
+  }
+}
+
+.goBackButton {
+  @include button();
+  margin-bottom: $largeMargin;
+}
+
+.modal {
+  h1 {
+    text-align: center;
+  }
+}
