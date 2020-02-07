@@ -2,36 +2,19 @@ import React, { FunctionComponent } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
-import { Redirect, Switch, Route } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import * as Sentry from '@sentry/browser';
 
 import { profileQuery as ProfileQueryType } from '../api/generatedTypes/profileQuery';
 import { saveProfile, clearProfile } from './state/ProfileActions';
 import profileQuery from './queries/ProfileQuery';
 import LoadingSpinner from '../../common/components/spinner/LoadingSpinner';
-import { getCurrentLanguage } from '../../common/translation/TranslationUtils';
 import ProfileChildrenList from './children/ProfileChildrenList';
 import PageWrapper from '../app/layout/PageWrapper';
 import styles from './profile.module.scss';
 import Icon from '../../common/components/icon/Icon';
 import phoneIcon from '../../assets/icons/svg/mobile.svg';
 import emailIcon from '../../assets/icons/svg/envelope.svg';
-import ProfileChildDetail from './children/child/ProfileChildDetail';
-
-export const ProfileRoutes: FunctionComponent = () => {
-  const { i18n } = useTranslation();
-  const currentLocale = getCurrentLanguage(i18n);
-  return (
-    <Switch>
-      <Route
-        exact
-        component={ProfileChildDetail}
-        path={`/${currentLocale}/profile/child/:childId`}
-      />
-      <Route component={Profile} exact path={`/${currentLocale}/profile`} />
-    </Switch>
-  );
-};
 
 const Profile: FunctionComponent = () => {
   const { loading, error, data } = useQuery<ProfileQueryType>(profileQuery);
