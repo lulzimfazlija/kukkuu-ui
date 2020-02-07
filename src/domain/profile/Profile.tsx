@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Switch, Route } from 'react-router-dom';
 import * as Sentry from '@sentry/browser';
 
 import { profileQuery as ProfileQueryType } from '../api/generatedTypes/profileQuery';
@@ -17,6 +17,23 @@ import Icon from '../../common/components/icon/Icon';
 import phoneIcon from '../../assets/icons/svg/mobile.svg';
 import emailIcon from '../../assets/icons/svg/envelope.svg';
 import editIcon from '../../assets/icons/svg/gear.svg';
+import ProfileChildDetail from './children/child/ProfileChildDetail';
+
+// Export for testing purposes
+export const ProfileRoutes: FunctionComponent = () => {
+  const { i18n } = useTranslation();
+  const currentLocale = getCurrentLanguage(i18n);
+  return (
+    <Switch>
+      <Route
+        exact
+        component={ProfileChildDetail}
+        path={`/${currentLocale}/profile/child/:childId`}
+      />
+      <Route component={Profile} exact path={`/${currentLocale}/profile`} />
+    </Switch>
+  );
+};
 
 const Profile: FunctionComponent = () => {
   const { loading, error, data } = useQuery<ProfileQueryType>(profileQuery);
@@ -41,7 +58,7 @@ const Profile: FunctionComponent = () => {
     // User has logged in, but not created a profile, send them to front page for registration.
     return <Redirect to="/" />;
   }
-  // component={ProfileChildDetail}
+
   return (
     <PageWrapper className={styles.wrapper} title={'profile.heading'}>
       <div className={styles.profileWrapper} role="main">
