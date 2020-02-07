@@ -26,6 +26,7 @@ import {
   tokenFetched,
   fetchTokenError,
 } from '../auth/state/BackendAuthenticationActions';
+import ProfileChildDetail from '../profile/children/child/ProfileChildDetail';
 
 const App: React.FunctionComponent = props => {
   const isLoadingUser = useSelector(isLoadingUserSelector);
@@ -86,6 +87,12 @@ const App: React.FunctionComponent = props => {
         <PrivateRoute exact path={`/${locale}/registration/success`}>
           <Welcome />
         </PrivateRoute>
+
+        <PrivateRoute
+          exact
+          component={ProfileChildDetail}
+          path={`/${locale}/profile/child/:childId`}
+        />
 
         <PrivateRoute path={`/${locale}/profile`}>
           <Profile />
