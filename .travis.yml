@@ -5,16 +5,15 @@ cache:
   yarn: true
   directories:
     - node_modules
-install:
-  - yarn
 jobs:
   include:
-    - stage: "Test"
-      name: "Run code linting and test"
-      script: yarn lint && yarn ci
-    - stage: "Build"
-      name: "Run (test) build"
+    - stage: 'Test'
+      name: 'Run code linting and test'
+      script: yarn && yarn lint && yarn ci
+    - stage: 'Build'
+      name: 'Run (test) build'
       if: branch IN (master, develop)
-      script: yarn build
+      env: NODE_ENV=production
+      script: yarn && yarn build
 after_success:
-  - ./node_modules/.bin/codecov < coverage/lcov.info  
+  - ./node_modules/.bin/codecov < coverage/lcov.info
