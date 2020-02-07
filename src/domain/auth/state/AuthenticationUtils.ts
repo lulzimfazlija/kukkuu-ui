@@ -10,7 +10,7 @@ type FlushStateOptions = {
 };
 
 export const flushAllState = (options: FlushStateOptions) => {
-  if (options.keepUserFormData) {
+  if (!options.keepUserFormData) {
     // Clear user form data
     store.dispatch(resetFormValues());
   }
