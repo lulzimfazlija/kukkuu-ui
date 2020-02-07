@@ -55,28 +55,62 @@ button.backButton {
   display: grid;
   grid-auto-flow: row;
   margin-bottom: $baseMargin;
-  .childInfoRow {
-    h1 {
-      margin: 0;
-      align-self: center;
-      text-transform: capitalize;
+  .childInfoHeadingRow {
+    display: inline-flex;
+    justify-content: space-between;
+    padding: $basePadding 0;
+
+    .childName {
+      display: grid;
+      grid-template-columns: $largeMargin 1fr;
+      gap: $baseMargin;
+
+      > div {
+        align-self: center;
+      }
+
+      h1 {
+        margin: 0;
+        align-self: center;
+        text-transform: capitalize;
+      }
     }
+
+    .editChildInfo {
+      display: grid;
+      align-self: center;
+
+      button {
+        display: inline-flex;
+        border: none;
+        align-items: center;
+        justify-items: right;
+
+        span {
+          @include respond-above(sm) {
+            margin-right: $baseMargin;
+          }
+
+          @include respond-below(sm) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  .childInfoRow {
+    display: grid;
+    padding-bottom: $baseMargin;
     display: grid;
     grid-template-columns: $largeMargin 1fr;
     gap: $baseMargin;
-    padding-bottom: $baseMargin;
-
     > span {
       line-height: $baseMargin;
       align-self: center;
     }
 
     > div {
-      align-self: center;
       justify-self: center;
-    }
-    &:first-child {
-      padding-top: $baseMargin;
     }
   }
 }

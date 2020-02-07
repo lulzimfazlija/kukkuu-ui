@@ -22,6 +22,13 @@
     },
     "redirect": {
       "text": "Ohjataan tunnistautumiseen..."
+    },
+    "session": {
+      "expired": {
+        "message": "Your session have expired. <br>You will be redirect to homepage. <br>All your current progress will be saved.",
+        "agree": "Continue registration",
+        "label": "Session expired"
+      }
     }
   },
   "CHILD_RELATIONSHIP_OPTIONS": {
@@ -258,7 +265,11 @@
           "text": "Poista lapsen tiedot"
         },
         "edit": {
-          "text": "Päivitä kummilapsen tiedot"
+          "text": "Päivitä kummilapsen tiedot",
+          "icon": {
+            "alt": "Edit child's information",
+            "text": "Edit information"
+          }
         },
         "page": {
           "title": "Kummilapsen tiedot"
