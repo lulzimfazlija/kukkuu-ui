@@ -10,7 +10,6 @@ import personIcon from '../../../../assets/icons/svg/person.svg';
 import childIcon from '../../../../assets/icons/svg/childFaceHappy.svg';
 import birthdateIcon from '../../../../assets/icons/svg/birthdayCake.svg';
 import settingIcon from '../../../../assets/icons/svg/settings.svg';
-import phoneIcon from '../../../../assets/icons/svg/mobile.svg';
 import Icon from '../../../../common/components/icon/Icon';
 import { formatTime, newMoment } from '../../../../common/time/utils';
 import { DEFAULT_DATE_FORMAT } from '../../../../common/time/TimeConstants';
@@ -91,17 +90,7 @@ const ProfileChildDetail: React.FunctionComponent = () => {
               </div>
               <div className={styles.childInfoRow}>
                 <Icon src={personIcon} />
-                <span>
-                  {`${guardian.firstName} ${guardian.lastName}`},{' '}
-                  {guardian.email}
-                </span>
-              </div>
-              <div className={styles.childInfoRow}>
-                <Icon
-                  src={phoneIcon}
-                  alt={t('profile.child.detail.phoneNumber')}
-                />
-                <span>{guardian.phoneNumber}</span>
+                <span>{`${guardian.firstName} ${guardian.lastName}`}</span>
               </div>
             </div>
           ) : (

@@ -1,5 +1,84 @@
-.profile {
+@import 'mixins';
+@import 'layout';
+@import 'colors';
+
+.profileWrapper {
+  display: grid;
+  @include respond-below(md) {
+    padding: 0 $basePadding;
+  }
+  @include respond-above(sm) {
+    grid-template-columns: 1fr 10fr 1fr;
+
+    .profile {
+      grid-column: 2;
+    }
+  }
+}
+
+.profileContent {
+  .thisYearPartner {
+    p {
+      text-align: left;
+    }
+  }
+}
+
+.heading {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  .editProfile {
+    align-items: center;
+    display: inline-flex;
+    span {
+      line-height: $baseLineHeight;
+      margin-right: $baseMargin;
+    }
+    img {
+      transform: rotate(45deg);
+    }
+  }
+  button.editProfile {
+    background: transparent;
+    border: 0;
+    &:focus {
+      outline: 1px solid $focusOutline;
+    }
+  }
+}
+
+.wrapper {
+  @include background($hel-light);
+}
+
+.guardianInfo {
+  display: grid;
+  grid-auto-flow: row;
+  margin-bottom: $baseMargin;
+
+  .guardianInfoRow {
+    h1 {
+      margin: 0;
+      align-self: center;
+      text-transform: capitalize;
+    }
+    display: grid;
+    grid-template-columns: $largeMargin 1fr;
+    gap: $baseMargin;
+    padding-bottom: $baseMargin;
+
+    > span {
+      line-height: $baseMargin;
+      align-self: center;
+    }
+
+    > div {
+      align-self: center;
+      justify-self: center;
+    }
+    &:first-child {
+      padding-top: $baseMargin;
+    }
+  }
 }

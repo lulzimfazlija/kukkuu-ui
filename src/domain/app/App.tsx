@@ -15,7 +15,6 @@ import {
   userSelector,
 } from '../auth/state/AuthenticationSelectors';
 import Welcome from '../registration/welcome/Welcome';
-import Profile from '../profile/Profile';
 import AccessibilityStatement from '../accessibilityStatement/AccessibilityStatement';
 import { userHasProfileSelector } from '../registration/state/RegistrationSelectors';
 import TermsOfService from '../termsOfService/TermsOfService';
@@ -26,6 +25,7 @@ import {
   tokenFetched,
   fetchTokenError,
 } from '../auth/state/BackendAuthenticationActions';
+import ProfileRoute from '../profile/route/ProfileRoute';
 
 const App: React.FunctionComponent = props => {
   const isLoadingUser = useSelector(isLoadingUserSelector);
@@ -88,7 +88,7 @@ const App: React.FunctionComponent = props => {
         </PrivateRoute>
 
         <PrivateRoute path={`/${locale}/profile`}>
-          <Profile />
+          <ProfileRoute />
         </PrivateRoute>
 
         {userHasProfile && <Redirect to={`/${locale}/profile`} />}

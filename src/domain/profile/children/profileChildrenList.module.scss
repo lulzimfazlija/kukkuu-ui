@@ -12,24 +12,6 @@ $plusIconHeight: 2rem;
   }
 }
 
-.profileWrapper {
-  display: grid;
-  @include respond-below(md) {
-    padding: 0 $basePadding;
-  }
-  @include respond-above(sm) {
-    grid-template-columns: 1fr 10fr 1fr;
-
-    .profile {
-      grid-column: 2;
-    }
-  }
-}
-
-.wrapper {
-  @include background($hel-light);
-}
-
 .heading {
   display: flex;
   justify-content: space-between;
