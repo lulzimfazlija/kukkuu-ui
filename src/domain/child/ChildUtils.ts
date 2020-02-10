@@ -4,6 +4,7 @@ import omit from 'lodash/omit';
 import { RelationshipTypeEnum } from '../api/generatedTypes/globalTypes';
 import { Child } from './types/ChildTypes';
 import { newMoment } from '../../common/time/utils';
+import { defaultChildFormBirthdate } from './ChildConstants';
 interface ChildRelationshipOptions {
   label: string;
   value: RelationshipTypeEnum;
@@ -54,11 +55,26 @@ export const getSupportedChildData = (child: Child) => {
  * Convert from birthdate in Date string format
  * to object of day month year, mostly to furfill form data structure
  */
-export const getChildFormBirthdateData = (birthdate: string) => {
+export const getChildFormModalBirthdate = (birthdate?: string) => {
+  if (!birthdate) {
+    return defaultChildFormBirthdate;
+  }
+
   const birthdateMoment = newMoment(birthdate);
+
+  if (!birthdateMoment.isValid()) {
+    return defaultChildFormBirthdate;
+  }
+
   return {
     day: birthdateMoment.date(),
     month: birthdateMoment.month() + 1,
     year: birthdateMoment.year(),
   };
+};
+
+export const getChildFormModalValues = (child: Child) => {
+  return Object.assign({}, child, {
+    birthdate: getChildFormModalBirthdate(child.birthdate),
+  });
 };

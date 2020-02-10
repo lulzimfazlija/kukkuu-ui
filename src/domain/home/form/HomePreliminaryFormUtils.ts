@@ -1,6 +1,6 @@
 import { RegistrationFormValues } from '../../registration/types/RegistrationTypes';
 import { HomeFormValues } from './types/HomeFormTypes';
-import { getChildFormBirthdateData } from '../../child/ChildUtils';
+import { getChildFormModalValues } from '../../child/ChildUtils';
 
 /**
  * Convert FormValues fetched from state to initialValues used by formik
@@ -10,27 +10,8 @@ import { getChildFormBirthdateData } from '../../child/ChildUtils';
 export const convertFormValues = (
   stateFormValues: RegistrationFormValues
 ): HomeFormValues => {
-  if (stateFormValues.children[0].birthdate) {
-    const childBirthdate = getChildFormBirthdateData(
-      stateFormValues.children[0].birthdate
-    );
-    return {
-      child: {
-        birthdate: childBirthdate,
-        homeCity: stateFormValues.children[0].homeCity,
-      },
-      verifyInformation: stateFormValues.verifyInformation,
-    };
-  }
   return {
-    child: {
-      birthdate: {
-        day: '',
-        month: '',
-        year: '',
-      },
-      homeCity: '',
-    },
+    child: getChildFormModalValues(stateFormValues.children[0]),
     verifyInformation: false,
   };
 };

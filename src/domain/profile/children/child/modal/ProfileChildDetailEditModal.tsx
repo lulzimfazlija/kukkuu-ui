@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Child } from '../../../../child/types/ChildTypes';
 import ChildFormModal from '../../../../child/modal/ChildFormModal';
-import { getChildFormBirthdateData } from '../../../../child/ChildUtils';
+import { getChildFormModalValues } from '../../../../child/ChildUtils';
 
 const ProfileChildDetailEditModal: React.FunctionComponent<{
   isOpen: boolean;
@@ -12,12 +12,7 @@ const ProfileChildDetailEditModal: React.FunctionComponent<{
   edittingChild: Child;
 }> = ({ isOpen, setIsOpen, editChild, edittingChild }) => {
   const { t } = useTranslation();
-  const initialFormData = Object.assign({}, edittingChild, {
-    homeCity: edittingChild.homeCity,
-    relationship: edittingChild.relationship,
-    postalCode: edittingChild.postalCode,
-    birthdate: getChildFormBirthdateData(edittingChild.birthdate),
-  });
+  const initialFormData = getChildFormModalValues(edittingChild);
 
   const onSubmit = (payload: Child) => {
     editChild(payload);
