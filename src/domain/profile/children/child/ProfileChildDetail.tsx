@@ -9,7 +9,7 @@ import backIcon from '../../../../assets/icons/svg/arrowLeft.svg';
 import personIcon from '../../../../assets/icons/svg/person.svg';
 import childIcon from '../../../../assets/icons/svg/childFaceHappy.svg';
 import birthdateIcon from '../../../../assets/icons/svg/birthdayCake.svg';
-import settingIcon from '../../../../assets/icons/svg/settings.svg';
+import settingIcon from '../../../../assets/icons/svg/gear.svg';
 import Icon from '../../../../common/components/icon/Icon';
 import { formatTime, newMoment } from '../../../../common/time/utils';
 import { DEFAULT_DATE_FORMAT } from '../../../../common/time/TimeConstants';
