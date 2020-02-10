@@ -8,6 +8,7 @@ exports[`renders snapshot correctly 1`] = `
     isOpen={false}
     label="foo"
     setFormIsFilling={[Function]}
+    showLabelIcon={true}
     toggleModal={[Function]}
   >
     <Formik

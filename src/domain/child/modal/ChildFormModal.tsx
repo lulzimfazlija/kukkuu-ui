@@ -63,6 +63,7 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
           toggleNonEligible(false);
           setIsOpen(value);
         }}
+        showLabelIcon={!nonEligible}
         setFormIsFilling={setFormIsFilling}
       >
         {nonEligible ? (
