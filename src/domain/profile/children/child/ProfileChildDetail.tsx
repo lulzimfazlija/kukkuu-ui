@@ -21,13 +21,14 @@ import { StoreState } from '../../../app/types/AppTypes';
 import ProfileNoEvent from '../../events/ProfileNoEvent';
 import Button from '../../../../common/components/button/Button';
 import ProfileChildDetailEditModal from './modal/ProfileChildDetailEditModal';
+import { getEligibleCities } from '../../../registration/notEligible/NotEligibleUtils';
 
 const ProfileChildDetail: React.FunctionComponent = () => {
   const { t } = useTranslation();
   const params = useParams<{ childId: string }>();
   const guardian = useSelector(profileSelector);
   const history = useHistory();
-
+  const defaultHomeCity = getEligibleCities()[0];
   const childEdge = useSelector((state: StoreState) =>
     childByIdSelector(state, params.childId)
   );
@@ -85,8 +86,11 @@ const ProfileChildDetail: React.FunctionComponent = () => {
                   <ProfileChildDetailEditModal
                     isOpen={isOpen}
                     setIsOpen={setIsOpen}
-                    //TODO: Remove homeCity if backend future support
-                    childBeingEdited={{ ...child, ...{ homeCity: '' } }}
+                    childBeingEdited={{
+                      ...child,
+                      // TODO: Remove this when backend support
+                      ...{ homeCity: defaultHomeCity },
+                    }}
                     editChild={() => {
                       //TODO: invoke editChild mutation
                     }}
