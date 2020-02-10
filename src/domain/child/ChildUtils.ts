@@ -53,7 +53,7 @@ export const getSupportedChildData = (child: Child) => {
 
 /**
  * Convert from birthdate in Date string format
- * to object of day month year, mostly to furfill form data structure
+ * to object of day month year, mostly to fulfill form data structure
  */
 export const getChildFormModalBirthdate = (birthdate?: string) => {
   if (!birthdate) {

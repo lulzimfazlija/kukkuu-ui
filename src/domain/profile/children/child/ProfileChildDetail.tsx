@@ -86,7 +86,7 @@ const ProfileChildDetail: React.FunctionComponent = () => {
                     isOpen={isOpen}
                     setIsOpen={setIsOpen}
                     //TODO: Remove homeCity if backend future support
-                    edittingChild={{ ...child, ...{ homeCity: '' } }}
+                    childBeingEdited={{ ...child, ...{ homeCity: '' } }}
                     editChild={() => {
                       //TODO: invoke editChild mutation
                     }}

@@ -9,10 +9,10 @@ const ProfileChildDetailEditModal: React.FunctionComponent<{
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
   editChild: (payload: Child) => void;
-  edittingChild: Child;
-}> = ({ isOpen, setIsOpen, editChild, edittingChild }) => {
+  childBeingEdited: Child;
+}> = ({ isOpen, setIsOpen, editChild, childBeingEdited }) => {
   const { t } = useTranslation();
-  const initialFormData = getChildFormModalValues(edittingChild);
+  const initialFormData = getChildFormModalValues(childBeingEdited);
 
   const onSubmit = (payload: Child) => {
     editChild(payload);
