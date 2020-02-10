@@ -265,7 +265,11 @@
           "text": "Poista lapsen tiedot"
         },
         "edit": {
-          "text": "Päivitä kummilapsen tiedot"
+          "text": "Päivitä kummilapsen tiedot",
+          "icon": {
+            "alt": "Edit child's information",
+            "text": "Edit information"
+          }
         },
         "page": {
           "title": "Kummilapsen tiedot"

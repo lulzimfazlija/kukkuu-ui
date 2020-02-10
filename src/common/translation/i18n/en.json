@@ -265,7 +265,11 @@
           "text": "Remove child profile"
         },
         "edit": {
-          "text": "Update child information"
+          "text": "Update child information",
+          "icon": {
+            "alt": "Edit child's information",
+            "text": "Edit information"
+          }
         },
         "page": {
           "title": "Child detail page"
