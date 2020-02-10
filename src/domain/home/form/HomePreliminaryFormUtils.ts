@@ -10,8 +10,13 @@ import { getChildFormModalValues } from '../../child/ChildUtils';
 export const convertFormValues = (
   stateFormValues: RegistrationFormValues
 ): HomeFormValues => {
+  const child = getChildFormModalValues(stateFormValues.children[0]);
+
   return {
-    child: getChildFormModalValues(stateFormValues.children[0]),
+    child: {
+      homeCity: child.homeCity,
+      birthdate: child.birthdate,
+    },
     verifyInformation: false,
   };
 };
