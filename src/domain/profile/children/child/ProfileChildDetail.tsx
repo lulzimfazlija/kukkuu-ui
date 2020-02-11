@@ -29,7 +29,7 @@ const ProfileChildDetail: React.FunctionComponent = () => {
   const params = useParams<{ childId: string }>();
   const guardian = useSelector(profileSelector);
   const history = useHistory();
-
+  const defaultHomeCity = getEligibleCities()[0];
   const childEdge = useSelector((state: StoreState) =>
     childByIdSelector(state, params.childId)
   );
@@ -89,7 +89,7 @@ const ProfileChildDetail: React.FunctionComponent = () => {
                     isOpen={isOpen}
                     setIsOpen={setIsOpen}
                     //TODO: Remove homeCity if backend future support
-                    edittingChild={{
+                    childBeingEdited={{
                       ...child,
                       ...{ homeCity: defaultHomeCity },
                     }}
