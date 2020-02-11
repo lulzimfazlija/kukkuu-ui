@@ -15,8 +15,12 @@ import styles from './profile.module.scss';
 import Icon from '../../common/components/icon/Icon';
 import phoneIcon from '../../assets/icons/svg/mobile.svg';
 import emailIcon from '../../assets/icons/svg/envelope.svg';
+import settingsIcon from '../../assets/icons/svg/gear.svg';
+import Button from '../../common/components/button/Button';
+import EditProfileModal from './modal/EditProfileModal';
 
 const Profile: FunctionComponent = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
   const { loading, error, data } = useQuery<ProfileQueryType>(profileQuery);
   const { t } = useTranslation();
   const dispatch = useDispatch();
@@ -48,7 +52,22 @@ const Profile: FunctionComponent = () => {
               <h1>
                 {data.myProfile.firstName} {data.myProfile.lastName}
               </h1>
+              <Button
+                className={styles.editProfile}
+                ariaLabel={t('profile.edit.button.text')}
+                onClick={() => setIsOpen(true)}
+              >
+                <span>{t('profile.edit.button.text')}</span>
+                <Icon src={settingsIcon} alt="" />
+              </Button>
             </div>
+            {isOpen && (
+              <EditProfileModal
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+                initialValues={data.myProfile}
+              />
+            )}
             <div className={styles.guardianInfo}>
               <div className={styles.guardianInfoRow}>
                 <Icon src={emailIcon} />

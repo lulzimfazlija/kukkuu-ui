@@ -27,21 +27,20 @@
 .heading {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+
   .editProfile {
-    align-items: center;
-    display: inline-flex;
+    justify-self: right;
+    align-self: center;
+
     span {
       line-height: $baseLineHeight;
       margin-right: $baseMargin;
     }
-    img {
-      transform: rotate(45deg);
-    }
   }
-  button.editProfile {
-    background: transparent;
-    border: 0;
+  button {
+    display: inline-flex;
+    align-items: center;
+    border: none;
     &:focus {
       outline: 1px solid $focusOutline;
     }
