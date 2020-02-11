@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router';
+import capitalize from 'lodash/capitalize';
 
 import styles from './profileChildDetail.module.scss';
 import PageWrapper from '../../../app/layout/PageWrapper';
@@ -21,6 +22,7 @@ import { StoreState } from '../../../app/types/AppTypes';
 import ProfileNoEvent from '../../events/ProfileNoEvent';
 import Button from '../../../../common/components/button/Button';
 import ProfileChildDetailEditModal from './modal/ProfileChildDetailEditModal';
+import { getEligibleCities } from '../../../registration/notEligible/NotEligibleUtils';
 
 const ProfileChildDetail: React.FunctionComponent = () => {
   const { t } = useTranslation();
@@ -35,6 +37,7 @@ const ProfileChildDetail: React.FunctionComponent = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const child = childEdge?.node;
+  const defaultHomeCity = capitalize(getEligibleCities()[0]);
 
   return (
     <PageWrapper
@@ -86,7 +89,10 @@ const ProfileChildDetail: React.FunctionComponent = () => {
                     isOpen={isOpen}
                     setIsOpen={setIsOpen}
                     //TODO: Remove homeCity if backend future support
-                    edittingChild={{ ...child, ...{ homeCity: '' } }}
+                    edittingChild={{
+                      ...child,
+                      ...{ homeCity: defaultHomeCity },
+                    }}
                     editChild={() => {
                       //TODO: invoke editChild mutation
                     }}
