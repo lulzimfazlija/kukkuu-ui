@@ -29,7 +29,6 @@ const ProfileChildDetail: React.FunctionComponent = () => {
   const params = useParams<{ childId: string }>();
   const guardian = useSelector(profileSelector);
   const history = useHistory();
-  const defaultHomeCity = getEligibleCities()[0];
   const childEdge = useSelector((state: StoreState) =>
     childByIdSelector(state, params.childId)
   );
