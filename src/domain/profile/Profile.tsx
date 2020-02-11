@@ -60,14 +60,14 @@ const Profile: FunctionComponent = () => {
                 <span>{t('profile.edit.button.text')}</span>
                 <Icon src={settingsIcon} alt="" />
               </Button>
-              {isOpen && (
-                <EditProfileModal
-                  isOpen={isOpen}
-                  setIsOpen={setIsOpen}
-                  initialValues={data.myProfile}
-                />
-              )}
             </div>
+            {isOpen && (
+              <EditProfileModal
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+                initialValues={data.myProfile}
+              />
+            )}
             <div className={styles.guardianInfo}>
               <div className={styles.guardianInfoRow}>
                 <Icon src={emailIcon} />

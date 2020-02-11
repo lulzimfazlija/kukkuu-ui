@@ -25,23 +25,10 @@
 }
 
 .heading {
-  display: grid;
-  h1 {
-    @include respond-below(md) {
-      grid-row: 2/2;
-    }
-    @include respond-above(sm) {
-      grid-column: 1/2;
-    }
-  }
-  .editProfile {
-    @include respond-below(md) {
-      grid-row: 1/2;
-    }
-    @include respond-above(sm) {
-      grid-column: 2/2;
-    }
+  display: flex;
+  justify-content: space-between;
 
+  .editProfile {
     justify-self: right;
     align-self: center;
 

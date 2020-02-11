@@ -15,6 +15,9 @@
     grid-template-columns: auto auto;
     gap: $baseMargin;
   }
+  @include respond-below(sm) {
+    grid-auto-flow: column;
+  }
 }
 
 .backButton {

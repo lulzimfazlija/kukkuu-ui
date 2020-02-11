@@ -76,29 +76,28 @@ const ProfileChildDetail: React.FunctionComponent = () => {
                   className={styles.editChildInfo}
                   onClick={() => setIsOpen(true)}
                 >
-                  <span>{t('profile.child.detail.edit.icon.text')}</span>
+                  <span>{t('profile.child.detail.edit.icon.alt')}</span>
                   <Icon
                     src={settingIcon}
                     className={styles.settingIcon}
                     alt={t('profile.child.detail.edit.icon.alt')}
                   />
                 </Button>
-                {isOpen && (
-                  <ProfileChildDetailEditModal
-                    isOpen={isOpen}
-                    setIsOpen={setIsOpen}
-                    //TODO: Remove homeCity if backend future support
-                    childBeingEdited={{
-                      ...child,
-                      ...{ homeCity: defaultHomeCity },
-                    }}
-                    editChild={() => {
-                      //TODO: invoke editChild mutation
-                    }}
-                  />
-                )}
               </div>
-
+              {isOpen && (
+                <ProfileChildDetailEditModal
+                  isOpen={isOpen}
+                  setIsOpen={setIsOpen}
+                  //TODO: Remove homeCity if backend future support
+                  childBeingEdited={{
+                    ...child,
+                    ...{ homeCity: defaultHomeCity },
+                  }}
+                  editChild={() => {
+                    //TODO: invoke editChild mutation
+                  }}
+                />
+              )}
               <div className={styles.childInfoRow}>
                 <Icon
                   src={birthdateIcon}
