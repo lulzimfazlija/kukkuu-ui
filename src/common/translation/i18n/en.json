@@ -45,7 +45,8 @@
           "text": "Add child"
         },
         "delete": {
-          "label": "Remove"
+          "label": "Remove",
+          "text": "Delete child"
         },
         "edit": {
           "label": "Edit child’s information",

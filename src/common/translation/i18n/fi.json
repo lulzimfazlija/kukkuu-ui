@@ -45,7 +45,8 @@
           "text": "Lisää kummilapsi"
         },
         "delete": {
-          "label": "Poista"
+          "label": "Poista",
+          "text": "Delete child"
         },
         "edit": {
           "label": "Muokkaa lapsen tietoja",

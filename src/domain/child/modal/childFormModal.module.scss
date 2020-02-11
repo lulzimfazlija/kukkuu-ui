@@ -30,3 +30,11 @@
   height: $largeMargin;
   width: $largeMargin;
 }
+
+.deleteChild {
+  button {
+    border: none;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+}

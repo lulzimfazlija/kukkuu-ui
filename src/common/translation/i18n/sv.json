@@ -45,7 +45,8 @@
           "text": "Lägg till fadderbarn"
         },
         "delete": {
-          "label": "Radera"
+          "label": "Radera",
+          "text": "Delete child"
         },
         "edit": {
           "label": "Redigera uppgifterna om barnet",

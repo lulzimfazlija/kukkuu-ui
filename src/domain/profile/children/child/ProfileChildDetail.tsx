@@ -96,6 +96,9 @@ const ProfileChildDetail: React.FunctionComponent = () => {
                   editChild={() => {
                     //TODO: invoke editChild mutation
                   }}
+                  deleteChild={() => {
+                    //TODO: invoke deleteChild mutation
+                  }}
                 />
               )}
               <div className={styles.childInfoRow}>

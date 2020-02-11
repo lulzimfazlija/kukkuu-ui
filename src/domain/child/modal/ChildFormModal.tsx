@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Formik, FieldArray, FormikErrors } from 'formik';
 import { useTranslation } from 'react-i18next';
+import { useMutation } from '@apollo/react-hooks';
 
 import Modal from '../../../common/components/modal/Modal';
 import styles from './childFormModal.module.scss';
@@ -34,20 +35,31 @@ interface ChildFormModalProps {
   initialValues: ChildFormModalValues;
   label: string;
   onSubmit: (payload: Child) => void;
+  onDelete?: () => void;
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
+  formType?: CHILD_FORM_TYPES;
+}
+
+export enum CHILD_FORM_TYPES {
+  ADD = 'ADD',
+  EDIT = 'EDIT',
 }
 
 const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
   initialValues,
   label,
   onSubmit,
+  onDelete,
   isOpen,
   setIsOpen,
+  formType = CHILD_FORM_TYPES.ADD,
 }) => {
   const { t } = useTranslation();
   const [isFilling, setFormIsFilling] = React.useState(false);
   const [nonEligible, toggleNonEligible] = React.useState(false);
+  const isEditForm = formType === CHILD_FORM_TYPES.EDIT;
+
   return (
     <div className={styles.childFormModalWrapper}>
       {isOpen && (
@@ -198,6 +210,16 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
                 >
                   {t('child.form.modal.add.label')}
                 </Button>
+
+                {isEditForm && (
+                  <Button
+                    className={styles.deleteChild}
+                    ariaLabel={t('child.form.modal.delete.text')}
+                    onClick={() => onDelete && onDelete()}
+                  >
+                    {t('child.form.modal.delete.text')}
+                  </Button>
+                )}
               </form>
             )}
           </Formik>
