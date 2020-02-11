@@ -135,7 +135,7 @@ const EditProfileModal: React.FunctionComponent<EditProfileModalProps> = ({
                 />
               </div>
               <EnhancedInputField
-                id="preferLanguage"
+                id="language"
                 name="language"
                 label={t('registration.form.guardian.language.input.label')}
                 required={true}
