@@ -15,7 +15,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: $baseMargin;
-  margin: $baseMargin 0;
+  margin: $largeMargin 0;
   button: {
     width: 100%;
   }
