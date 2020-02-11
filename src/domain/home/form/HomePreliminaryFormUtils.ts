@@ -1,6 +1,6 @@
 import { RegistrationFormValues } from '../../registration/types/RegistrationTypes';
-import { newMoment } from '../../../common/time/utils';
 import { HomeFormValues } from './types/HomeFormTypes';
+import { getChildFormModalValues } from '../../child/ChildUtils';
 
 /**
  * Convert FormValues fetched from state to initialValues used by formik
@@ -10,28 +10,12 @@ import { HomeFormValues } from './types/HomeFormTypes';
 export const convertFormValues = (
   stateFormValues: RegistrationFormValues
 ): HomeFormValues => {
-  if (stateFormValues.children[0].birthdate) {
-    const birthdateMoment = newMoment(stateFormValues.children[0].birthdate);
-    return {
-      child: {
-        birthdate: {
-          day: birthdateMoment.date(),
-          month: birthdateMoment.month() + 1,
-          year: birthdateMoment.year(),
-        },
-        homeCity: stateFormValues.children[0].homeCity,
-      },
-      verifyInformation: stateFormValues.verifyInformation,
-    };
-  }
+  const child = getChildFormModalValues(stateFormValues.children[0]);
+
   return {
     child: {
-      birthdate: {
-        day: '',
-        month: '',
-        year: '',
-      },
-      homeCity: '',
+      homeCity: child.homeCity,
+      birthdate: child.birthdate,
     },
     verifyInformation: false,
   };

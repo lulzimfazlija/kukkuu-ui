@@ -63,6 +63,7 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
           toggleNonEligible(false);
           setIsOpen(value);
         }}
+        showLabelIcon={!nonEligible}
         setFormIsFilling={setFormIsFilling}
       >
         {nonEligible ? (
@@ -183,6 +184,7 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
                   name="relationship.type"
                   label={t('registration.form.child.relationship.input.label')}
                   component={SelectField}
+                  //TODO: Set default relationship from profile child data after typing was fixed from backend
                   options={getTranslatedRelationshipOptions(t)}
                   placeholder={t(
                     'registration.form.child.relationship.input.placeholder'

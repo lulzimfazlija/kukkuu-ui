@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router';
+import capitalize from 'lodash/capitalize';
 
 import styles from './profileChildDetail.module.scss';
 import PageWrapper from '../../../app/layout/PageWrapper';
@@ -20,18 +21,22 @@ import {
 import { StoreState } from '../../../app/types/AppTypes';
 import ProfileNoEvent from '../../events/ProfileNoEvent';
 import Button from '../../../../common/components/button/Button';
+import ProfileChildDetailEditModal from './modal/ProfileChildDetailEditModal';
+import { getEligibleCities } from '../../../registration/notEligible/NotEligibleUtils';
 
 const ProfileChildDetail: React.FunctionComponent = () => {
   const { t } = useTranslation();
   const params = useParams<{ childId: string }>();
   const guardian = useSelector(profileSelector);
   const history = useHistory();
-
   const childEdge = useSelector((state: StoreState) =>
     childByIdSelector(state, params.childId)
   );
 
+  const [isOpen, setIsOpen] = React.useState(false);
+
   const child = childEdge?.node;
+  const defaultHomeCity = capitalize(getEligibleCities()[0]);
 
   return (
     <PageWrapper
@@ -69,6 +74,7 @@ const ProfileChildDetail: React.FunctionComponent = () => {
                 <Button
                   ariaLabel={t('profile.child.detail.edit.icon.text')}
                   className={styles.editChildInfo}
+                  onClick={() => setIsOpen(true)}
                 >
                   <span>{t('profile.child.detail.edit.icon.text')}</span>
                   <Icon
@@ -77,6 +83,20 @@ const ProfileChildDetail: React.FunctionComponent = () => {
                     alt={t('profile.child.detail.edit.icon.alt')}
                   />
                 </Button>
+                {isOpen && (
+                  <ProfileChildDetailEditModal
+                    isOpen={isOpen}
+                    setIsOpen={setIsOpen}
+                    //TODO: Remove homeCity if backend future support
+                    childBeingEdited={{
+                      ...child,
+                      ...{ homeCity: defaultHomeCity },
+                    }}
+                    editChild={() => {
+                      //TODO: invoke editChild mutation
+                    }}
+                  />
+                )}
               </div>
 
               <div className={styles.childInfoRow}>

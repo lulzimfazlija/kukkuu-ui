@@ -9,6 +9,7 @@ import * as Sentry from '@sentry/browser';
 import { apiTokenSelector } from '../auth/state/AuthenticationSelectors';
 import { store } from '../app/state/AppStore';
 import { showExpiredSessionPrompt } from '../app/state/ui/UIActions';
+import { fetchTokenError } from '../auth/state/BackendAuthenticationActions';
 const httpLink = createHttpLink({
   uri: process.env.REACT_APP_API_URI,
 });
@@ -30,6 +31,11 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
   // statusCode from error body
   // TODO: Error can be handle better here.
   store.dispatch(showExpiredSessionPrompt());
+
+  // Clear old token in favor of avoiding Apollo loop
+  store.dispatch(
+    fetchTokenError({ message: 'Token expired', name: 'fetchTokenError' })
+  );
 });
 const authLink = setContext((_, { headers }) => {
   const token = apiTokenSelector(store.getState());
