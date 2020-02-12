@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Formik, FieldArray, FormikErrors } from 'formik';
 import { useTranslation } from 'react-i18next';
+import classnames from 'classnames';
 
 import Modal from '../../../common/components/modal/Modal';
 import styles from './childFormModal.module.scss';
@@ -21,7 +22,6 @@ import { BACKEND_DATE_FORMAT } from '../../../common/time/TimeConstants';
 import { isChildEligible } from '../../registration/notEligible/NotEligibleUtils';
 import Icon from '../../../common/components/icon/Icon';
 import personIcon from '../../../assets/icons/svg/adultFace.svg';
-
 export interface ChildFormModalValues extends Omit<Child, 'birthdate'> {
   birthdate: {
     day: number | string;
@@ -34,20 +34,35 @@ interface ChildFormModalProps {
   initialValues: ChildFormModalValues;
   label: string;
   onSubmit: (payload: Child) => void;
+  onDelete?: () => void;
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
+  formType?: CHILD_FORM_TYPES;
+}
+
+export enum CHILD_FORM_TYPES {
+  ADD = 'ADD',
+  EDIT = 'EDIT',
 }
 
 const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
   initialValues,
   label,
   onSubmit,
+  onDelete,
   isOpen,
   setIsOpen,
+  formType = CHILD_FORM_TYPES.ADD,
 }) => {
   const { t } = useTranslation();
   const [isFilling, setFormIsFilling] = React.useState(false);
   const [nonEligible, toggleNonEligible] = React.useState(false);
+  const isEditForm = formType === CHILD_FORM_TYPES.EDIT;
+
+  // Child who already have relationship can not go back to have empty relationship anymore
+  // Why ? Ask backend guys.
+  const isChildHavingRelationship = !!initialValues.relationship?.type;
+
   return (
     <div className={styles.childFormModalWrapper}>
       {isOpen && (
@@ -183,21 +198,52 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
                   id="relationship.type"
                   name="relationship.type"
                   label={t('registration.form.child.relationship.input.label')}
+                  autoSelect={isChildHavingRelationship}
                   component={SelectField}
-                  //TODO: Set default relationship from profile child data after typing was fixed from backend
                   options={getTranslatedRelationshipOptions(t)}
                   placeholder={t(
                     'registration.form.child.relationship.input.placeholder'
                   )}
                 />
 
-                <Button
-                  type="submit"
-                  className={styles.submitButton}
-                  disabled={isSubmitting}
+                <div
+                  className={classnames(
+                    styles.buttonGroup,
+                    isEditForm
+                      ? styles.editChildButtons
+                      : styles.addChildButtons
+                  )}
                 >
-                  {t('child.form.modal.add.label')}
-                </Button>
+                  {isEditForm && (
+                    <Button
+                      className={styles.cancelButton}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {t('common.modal.cancel.text')}
+                    </Button>
+                  )}
+                  <Button
+                    type="submit"
+                    className={styles.submitButton}
+                    disabled={isSubmitting}
+                  >
+                    {t(
+                      isEditForm
+                        ? 'common.modal.save.text'
+                        : 'child.form.modal.add.label'
+                    )}
+                  </Button>
+                </div>
+
+                {isEditForm && (
+                  <Button
+                    className={styles.deleteChild}
+                    ariaLabel={t('profile.child.detail.delete.text')}
+                    onClick={() => onDelete && onDelete()}
+                  >
+                    {t('profile.child.detail.delete.text')}
+                  </Button>
+                )}
               </form>
             )}
           </Formik>

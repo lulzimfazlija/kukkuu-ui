@@ -94,6 +94,9 @@
       },
       "submit": {
         "text": "Tallenna"
+      },
+      "save": {
+        "text": "Save"
       }
     },
     "profile": {
@@ -176,7 +179,8 @@
         "tanssintalo": "Tanssin talo",
         "teatteriilmio": "Teatteri ILMI Ö",
         "teatterimuseo": "Teatterimuseo",
-        "valokuvataiteenmuseo": "Suomen valokuvataiteen museo"
+        "valokuvataiteenmuseo": "Suomen valokuvataiteen museo",
+        "dot": "DOT ry"
       }
     },
     "registration": {
@@ -265,10 +269,7 @@
           "text": "Poista lapsen tiedot"
         },
         "edit": {
-          "text": "Päivitä kummilapsen tiedot",
-          "icon": {
-            "alt": "Edit child's information"
-          }
+          "text": "Päivitä kummilapsen tiedot"
         },
         "page": {
           "title": "Kummilapsen tiedot"

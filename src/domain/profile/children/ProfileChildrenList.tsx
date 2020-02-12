@@ -11,7 +11,7 @@ import { profileChildrenSelector } from '../state/ProfileSelectors';
 import Icon from '../../../common/components/icon/Icon';
 import addIcon from '../../../assets/icons/svg/delete.svg';
 import AddNewChildFormModal from '../../registration/modal/AddNewChildFormModal';
-import addChildMutation from '../../child/mutation/ChildMutation';
+import { addChildMutation } from '../../child/mutation/ChildMutation';
 import { getSupportedChildData } from '../../child/ChildUtils';
 import LoadingSpinner from '../../../common/components/spinner/LoadingSpinner';
 import profileQuery from '../queries/ProfileQuery';

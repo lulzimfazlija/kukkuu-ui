@@ -2,14 +2,14 @@
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
 
-import { Language, RelationshipType } from "./globalTypes";
+import { Language, RelationshipTypeEnum } from "./globalTypes";
 
 // ====================================================
 // GraphQL query operation: profileQuery
 // ====================================================
 
 export interface profileQuery_myProfile_children_edges_node_relationships_edges_node {
-  type: RelationshipType | null;
+  type: RelationshipTypeEnum | null;
 }
 
 export interface profileQuery_myProfile_children_edges_node_relationships_edges {

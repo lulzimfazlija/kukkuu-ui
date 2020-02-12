@@ -1,5 +1,5 @@
 import client from '../client';
-import childrenQuery from '../../child/queries/ChildQueries';
+import { childrenQuery } from '../../child/queries/ChildQueries';
 
 jest.mock('../../auth/state/AuthenticationSelectors', () => ({
   apiTokenSelector: () => 'foo',

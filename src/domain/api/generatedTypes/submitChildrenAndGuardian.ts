@@ -2,14 +2,14 @@
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
 
-import { ChildInput, GuardianInput, Language, RelationshipType } from "./globalTypes";
+import { ChildInput, GuardianInput, Language, RelationshipTypeEnum } from "./globalTypes";
 
 // ====================================================
 // GraphQL mutation operation: submitChildrenAndGuardian
 // ====================================================
 
 export interface submitChildrenAndGuardian_submitChildrenAndGuardian_guardian_children_edges_node_relationships_edges_node {
-  type: RelationshipType | null;
+  type: RelationshipTypeEnum | null;
 }
 
 export interface submitChildrenAndGuardian_submitChildrenAndGuardian_guardian_children_edges_node_relationships_edges {
