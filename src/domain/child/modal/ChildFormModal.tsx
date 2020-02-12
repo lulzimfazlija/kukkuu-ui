@@ -20,8 +20,7 @@ import {
 import { formatTime, newMoment } from '../../../common/time/utils';
 import { BACKEND_DATE_FORMAT } from '../../../common/time/TimeConstants';
 import { isChildEligible } from '../../registration/notEligible/NotEligibleUtils';
-import Icon from '../../../common/components/icon/Icon';
-import personIcon from '../../../assets/icons/svg/adultFace.svg';
+import ChildFormModalNonEligible from './prompt/ChildFormModalNonEligible';
 export interface ChildFormModalValues extends Omit<Child, 'birthdate'> {
   birthdate: {
     day: number | string;
@@ -56,7 +55,7 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
 }) => {
   const { t } = useTranslation();
   const [isFilling, setFormIsFilling] = React.useState(false);
-  const [nonEligible, toggleNonEligible] = React.useState(false);
+  const [nonEligible, toggleNonEligiblePrompt] = React.useState(false);
   const isEditForm = formType === CHILD_FORM_TYPES.EDIT;
 
   // Child who already have relationship can not go back to have empty relationship anymore
@@ -75,24 +74,14 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
         isOpen={isOpen}
         label={nonEligible ? '' : label}
         toggleModal={(value: boolean) => {
-          toggleNonEligible(false);
+          toggleNonEligiblePrompt(false);
           setIsOpen(value);
         }}
         showLabelIcon={!nonEligible}
         setFormIsFilling={setFormIsFilling}
       >
         {nonEligible ? (
-          <div className={styles.notEligible}>
-            <h3>{t('registration.notEligible.title')}</h3>
-            <p>{t('registration.notEligible.text')}</p>
-            <Icon className={styles.icon} src={personIcon} />
-            <Button
-              className={styles.goBackButton}
-              onClick={() => setIsOpen(false)}
-            >
-              {t('child.form.modal.notEligible.return.text')}
-            </Button>
-          </div>
+          <ChildFormModalNonEligible setIsOpen={setIsOpen} />
         ) : (
           <Formik
             validate={(values: ChildFormModalValues) => {
@@ -131,7 +120,7 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
               if (isEligible) {
                 onSubmit(child);
               } else {
-                toggleNonEligible(true);
+                toggleNonEligiblePrompt(true);
               }
             }}
           >
