@@ -3,6 +3,7 @@
 
 .accessibilityStatement {
   margin-bottom: $largeMargin;
+  max-width: $textParagraphMaxWidth;
   @include respond-below(md) {
     margin: 0 $baseMargin $largeMargin $baseMargin;
   }
