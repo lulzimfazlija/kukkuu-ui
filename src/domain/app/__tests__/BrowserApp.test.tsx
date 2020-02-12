@@ -19,6 +19,8 @@ const wrapperCreator = (route: string) =>
     </Provider>
   );
 
+window.scrollTo = jest.fn();
+
 it('renders snapshot correctly', () => {
   const tree = mount(<BrowserApp />);
   expect(tree.html()).toMatchSnapshot();
