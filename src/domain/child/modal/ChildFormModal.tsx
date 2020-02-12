@@ -195,7 +195,6 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
                   name="relationship.type"
                   label={t('registration.form.child.relationship.input.label')}
                   component={SelectField}
-                  value={initialValues.relationship?.type ?? undefined}
                   options={getTranslatedRelationshipOptions(t)}
                   placeholder={t(
                     'registration.form.child.relationship.input.placeholder'

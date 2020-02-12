@@ -20,3 +20,23 @@ export const deleteChildMutation = gql`
     }
   }
 `;
+
+export const editChildMutation = gql`
+  mutation updateChild($input: UpdateChildMutationInput!) {
+    updateChild(input: $input) {
+      child {
+        firstName
+        lastName
+        birthdate
+        postalCode
+        relationships {
+          edges {
+            node {
+              type
+            }
+          }
+        }
+      }
+    }
+  }
+`;

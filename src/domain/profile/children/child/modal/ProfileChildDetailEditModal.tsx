@@ -1,28 +1,29 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
+import omit from 'lodash/omit';
 
 import { Child } from '../../../../child/types/ChildTypes';
 import ChildFormModal, {
   CHILD_FORM_TYPES,
 } from '../../../../child/modal/ChildFormModal';
 import { getChildFormModalValues } from '../../../../child/ChildUtils';
-import { ProfileChild } from '../../../type/ProfileTypes';
 import { normalizeProfileChild } from '../../../ProfileUtil';
-
+import { ChildDetailEditModalPayload } from '../ProfileChildDetail';
+import { childByIdQuery_child as ChildByIdResponse } from '../../../../api/generatedTypes/childByIdQuery';
 const ProfileChildDetailEditModal: React.FunctionComponent<{
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
-  editChild: (payload: Child) => void;
+  editChild: (payload: ChildDetailEditModalPayload) => void;
   deleteChild: () => void;
-  childBeingEdited: ProfileChild;
+  childBeingEdited: ChildByIdResponse;
 }> = ({ isOpen, setIsOpen, editChild, childBeingEdited, deleteChild }) => {
   const { t } = useTranslation();
-
   const normalizedChild = normalizeProfileChild(childBeingEdited);
   const initialFormData = getChildFormModalValues(normalizedChild);
 
   const onSubmit = (payload: Child) => {
-    editChild(payload);
+    const supportedChildPayload = omit(payload, ['homeCity', '__typename']);
+    editChild(supportedChildPayload);
     setIsOpen(false);
   };
 

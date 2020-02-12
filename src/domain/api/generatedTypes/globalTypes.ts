@@ -55,6 +55,16 @@ export interface RelationshipInput {
   type?: RelationshipTypeEnum | null;
 }
 
+export interface UpdateChildMutationInput {
+  id: string;
+  firstName?: string | null;
+  lastName?: string | null;
+  birthdate?: any | null;
+  postalCode?: string | null;
+  relationship?: RelationshipInput | null;
+  clientMutationId?: string | null;
+}
+
 export interface UpdateMyProfileMutationInput {
   firstName?: string | null;
   lastName?: string | null;
