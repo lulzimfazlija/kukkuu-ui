@@ -95,6 +95,9 @@
       },
       "submit": {
         "text": "Spara"
+      },
+      "save": {
+        "text": "Save"
       }
     },
     "profile": {
@@ -177,7 +180,8 @@
         "tanssintalo": "Dansens hus",
         "teatteriilmio": "Ilmi Ö teater",
         "teatterimuseo": "Teatermuseet",
-        "valokuvataiteenmuseo": "Finlands fotografiska museum"
+        "valokuvataiteenmuseo": "Finlands fotografiska museum",
+        "dot": "Föreningen för Drama Och Teater"
       }
     },
     "registration": {

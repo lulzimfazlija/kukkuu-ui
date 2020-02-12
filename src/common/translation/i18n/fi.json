@@ -95,6 +95,9 @@
       },
       "submit": {
         "text": "Tallenna"
+      },
+      "save": {
+        "text": "Save"
       }
     },
     "profile": {
@@ -177,7 +180,8 @@
         "tanssintalo": "Tanssin talo",
         "teatteriilmio": "Teatteri ILMI Ö",
         "teatterimuseo": "Teatterimuseo",
-        "valokuvataiteenmuseo": "Suomen valokuvataiteen museo"
+        "valokuvataiteenmuseo": "Suomen valokuvataiteen museo",
+        "dot": "DOT ry"
       }
     },
     "registration": {

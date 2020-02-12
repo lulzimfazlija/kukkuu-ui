@@ -2,11 +2,6 @@
 @import 'variables';
 @import 'layout';
 
-.submitButton {
-  @include button();
-  margin: $largeMargin 0;
-}
-
 .childName,
 .childInfo {
   @include respond-above(md) {
@@ -32,9 +27,47 @@
 }
 
 .deleteChild {
+  margin-bottom: $largeMargin;
   button {
     border: none;
     font-weight: bold;
     text-decoration: underline;
+  }
+}
+
+.buttonGroup {
+  margin: $largeMargin 0;
+}
+
+.editChildButtons {
+  display: grid;
+  grid-gap: $baseMargin;
+
+  button {
+    width: 100% !important;
+  }
+  .submitButton {
+    @include button();
+  }
+
+  .cancelButton {
+    @include button();
+    button {
+      background: $hel-light;
+    }
+  }
+
+  @include respond-above(sm) {
+    grid-auto-flow: column;
+  }
+
+  @include respond-below(sm) {
+    grid-auto-flow: row;
+  }
+}
+
+.addChildButtons {
+  .submitButton {
+    @include button();
   }
 }

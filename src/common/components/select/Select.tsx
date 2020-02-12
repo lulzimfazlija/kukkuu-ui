@@ -26,6 +26,7 @@ const Select: React.FunctionComponent<SelectProps> = ({
   label,
   name,
   required,
+  value,
   ...rest
 }) => {
   const { t } = useTranslation();
@@ -33,7 +34,7 @@ const Select: React.FunctionComponent<SelectProps> = ({
   return (
     <div className={styles.selectWrapper}>
       {label && <label htmlFor={name}>{required ? `${label}*` : label}</label>}
-      <select name={name} {...rest}>
+      <select name={name} value={value === null ? '' : value} {...rest}>
         {!autoSelect && (
           <option value="" key="no selection">
             {t('common.select.default.text')}

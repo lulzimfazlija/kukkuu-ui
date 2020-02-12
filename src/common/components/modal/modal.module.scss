@@ -76,10 +76,7 @@ $modalPadding: 2rem;
   flex-direction: row;
   align-items: center;
   margin: 0 0 $largeMargin 0;
-  padding: 0 $basePadding;
-  @include respond-above(sm) {
-    padding: 0 $modalPadding;
-  }
+  padding: 0 $modalPadding;
 
   .happyChild {
     height: $largeMargin;

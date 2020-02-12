@@ -95,6 +95,9 @@
       },
       "submit": {
         "text": "Submit"
+      },
+      "save": {
+        "text": "Save"
       }
     },
     "profile": {
@@ -177,7 +180,8 @@
         "tanssintalo": "Dance House Helsinki",
         "teatteriilmio": "Theatre Ilmi Ö",
         "teatterimuseo": "Theatre Museum",
-        "valokuvataiteenmuseo": "Finnish Museum of Photography"
+        "valokuvataiteenmuseo": "Finnish Museum of Photography",
+        "dot": "The Association of Drama and Theatre"
       }
     },
     "registration": {
