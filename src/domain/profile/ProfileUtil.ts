@@ -3,6 +3,7 @@ import capitalize from 'lodash/capitalize';
 import { Child } from '../child/types/ChildTypes';
 import { getEligibleCities } from '../registration/notEligible/NotEligibleUtils';
 import { childByIdQuery_child as ChildByIdResponse } from '../api/generatedTypes/childByIdQuery';
+
 /**
  * Normalize reponse child data to populate to child form
  */
