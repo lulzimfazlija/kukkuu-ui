@@ -2,9 +2,9 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import styles from './childFormModalNonEligible.module.scss';
-import Icon from '../../../../common/components/icon/Icon';
-import personIcon from '../../../../assets/icons/svg/adultFace.svg';
-import Button from '../../../../common/components/button/Button';
+import Icon from '../../../../../common/components/icon/Icon';
+import personIcon from '../../../../../assets/icons/svg/adultFace.svg';
+import Button from '../../../../../common/components/button/Button';
 interface ChildFormModalNonEligibleProps {
   setIsOpen: (value: boolean) => void;
 }

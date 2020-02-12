@@ -56,3 +56,10 @@
     @include button();
   }
 }
+
+.modal {
+  h2 {
+    width: 100%;
+    text-align: center;
+  }
+}

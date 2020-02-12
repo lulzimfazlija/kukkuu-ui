@@ -266,7 +266,11 @@
       "detail": {
         "birthdate": "Barnets födelsedatum",
         "delete": {
-          "text": "Radera barnets uppgifter"
+          "text": "Radera barnets uppgifter",
+          "prompt": {
+            "heading": "Are you sure to remove this child?",
+            "text": "Oh man this is not reverse-able.<br>You better know what you are doing.<br>Somebody give proper translation please."
+          }
         },
         "edit": {
           "text": "Uppdatera barnets uppgifter"

@@ -57,7 +57,7 @@ const Modal: React.FunctionComponent<ModalProps> = ({
             </Button>
             <div className={styles.heading}>
               {showLabelIcon && <Icon className={styles.icon} src={icon} />}
-              <h2>{label}</h2>
+              {label && <h2>{label}</h2>}
             </div>
             <div className={styles.modalChildren}>{children}</div>
           </div>

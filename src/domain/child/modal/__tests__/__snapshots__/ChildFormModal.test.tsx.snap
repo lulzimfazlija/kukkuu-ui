@@ -5,6 +5,7 @@ exports[`renders snapshot correctly 1`] = `
   className="childFormModalWrapper"
 >
   <Modal
+    className=""
     isOpen={false}
     label="foo"
     setFormIsFilling={[Function]}

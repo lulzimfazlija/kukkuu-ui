@@ -1,0 +1,42 @@
+@import 'mixins';
+@import 'colors';
+@import 'variables';
+@import 'fonts';
+@import 'layout';
+
+.deleteButtonGroup {
+  display: grid;
+  margin: $largeMargin 0;
+
+  grid-gap: $baseMargin;
+
+  button {
+    width: 100% !important;
+  }
+  .deleteButton {
+    @include button();
+  }
+
+  .cancelButton {
+    @include button();
+    button {
+      background: $hel-light;
+    }
+  }
+
+  @include respond-above(sm) {
+    grid-auto-flow: column;
+  }
+
+  @include respond-below(sm) {
+    grid-auto-flow: row;
+  }
+}
+
+.deleteChild {
+  text-align: center;
+  p {
+    line-height: 1.6;
+    font-weight: $font-weight-bold;
+  }
+}
