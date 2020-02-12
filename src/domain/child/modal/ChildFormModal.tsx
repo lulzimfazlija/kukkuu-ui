@@ -59,6 +59,10 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
   const [nonEligible, toggleNonEligible] = React.useState(false);
   const isEditForm = formType === CHILD_FORM_TYPES.EDIT;
 
+  // Child who already have relationship can not go back to have empty relationship anymore
+  // Why ? Ask backend guys.
+  const isChildHavingRelationship = !!initialValues.relationship?.type;
+
   return (
     <div className={styles.childFormModalWrapper}>
       {isOpen && (
@@ -194,6 +198,7 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
                   id="relationship.type"
                   name="relationship.type"
                   label={t('registration.form.child.relationship.input.label')}
+                  autoSelect={isChildHavingRelationship}
                   component={SelectField}
                   options={getTranslatedRelationshipOptions(t)}
                   placeholder={t(
