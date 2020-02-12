@@ -21,7 +21,11 @@ const Footer: FunctionComponent = () => {
               {t('accessibilityStatement.title')}
             </Link>{' '}
             • <Link to="/terms#">{t('termsOfService.title')}</Link> •{' '}
-            <a href={t('descriptionOfTheFile.url')}>
+            <a
+              href={t('descriptionOfTheFile.url')}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {t('descriptionOfTheFile.title')}
             </a>
           </div>
