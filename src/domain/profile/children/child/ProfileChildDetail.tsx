@@ -49,7 +49,9 @@ const ProfileChildDetail: React.FunctionComponent = () => {
   });
 
   const [editChild] = useMutation<EditChildPayload>(editChildMutation, {
-    refetchQueries: [{ query: profileQuery }],
+    refetchQueries: [
+      { query: childByIdQuery, variables: { id: params.childId } },
+    ],
   });
 
   const [isOpen, setIsOpen] = React.useState(false);
