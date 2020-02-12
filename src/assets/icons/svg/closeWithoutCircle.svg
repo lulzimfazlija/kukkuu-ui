@@ -1,16 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 61 (89581) - https://sketch.com -->
-    <title>Icons/Close/24</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <polygon id="path-1" points="16.5498356 5 11.9993424 9.55049319 7.44884922 5 5 7.4501644 9.55049319 12.0006576 5 16.5511508 7.44884922 19.0013152 11.9993424 14.4521372 16.5498356 19.0013152 19 16.5511508 14.4495068 12.0006576 19 7.4501644"></polygon>
-    </defs>
-    <g id="Icons/Close/24" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <rect id="Bounding-box" x="0" y="0" width="24" height="24"></rect>
-        <mask id="mask-2" fill="white">
-            <use xlink:href="#path-1"></use>
-        </mask>
-        <use id="Color" fill="#000000" xlink:href="#path-1"></use>
-    </g>
-</svg>
+<svg version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><polygon id="a" points="16.55 5 11.999 9.5505 7.4488 5 5 7.4502 9.5505 12.001 5 16.551 7.4488 19.001 11.999 14.452 16.55 19.001 19 16.551 14.45 12.001 19 7.4502"/></defs><g fill="none" fill-rule="evenodd"><rect width="24" height="24"/><mask fill="white"><use xlink:href="#a"/></mask><use fill="#000000" xlink:href="#a"/></g></svg>

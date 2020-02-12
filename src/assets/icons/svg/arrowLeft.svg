@@ -1,20 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="21px" height="20px" viewBox="0 0 21 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 61 (89581) - https://sketch.com -->
-    <title>Icons/Arrow-left/24</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <polygon id="path-1" points="13.3706831 2 11.5237192 3.84696395 18.0000474 10.3242884 2 10.3242884 2 12.937334 17.9990512 12.937334 11.5237192 19.412666 13.3706831 21.2586338 23 11.6293169"></polygon>
-    </defs>
-    <g id="MVP" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Kirjautuneen-käyttäjän-näkymä-Auki" transform="translate(-69.000000, -114.000000)">
-            <g id="Icons/Arrow-left/24" transform="translate(67.000000, 112.000000)">
-                <rect id="Bounding-box" x="0" y="0" width="24" height="24"></rect>
-                <mask id="mask-2" fill="white">
-                    <use xlink:href="#path-1"></use>
-                </mask>
-                <use id="Color" fill="#000000" fill-rule="evenodd" transform="translate(12.500000, 11.629317) rotate(-180.000000) translate(-12.500000, -11.629317) " xlink:href="#path-1"></use>
-            </g>
-        </g>
-    </g>
-</svg>
+<svg version="1.1" viewBox="0 0 21 20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><polygon id="a" points="13.371 2 11.524 3.847 18 10.324 2 10.324 2 12.937 17.999 12.937 11.524 19.413 13.371 21.259 23 11.629"/></defs><g fill="none" fill-rule="evenodd"><g transform="translate(-69 -114)"><g transform="translate(67 112)"><rect width="24" height="24"/><mask fill="white"><use xlink:href="#a"/></mask><use transform="translate(12.5 11.629) rotate(180) translate(-12.5 -11.629)" fill="#000000" fill-rule="evenodd" xlink:href="#a"/></g></g></g></svg>
