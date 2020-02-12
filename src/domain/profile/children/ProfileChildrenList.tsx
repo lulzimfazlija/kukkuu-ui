@@ -68,7 +68,7 @@ const ProfileChildrenList: React.FunctionComponent = () => {
         {children ? (
           <>
             <div className={styles.thisYearPartner}>
-              <h2>{t('partners.2020')}</h2>
+              <h3>{t('partners.2020')}</h3>
               {/* TODO: make me dynamic partners after more data came */}
             </div>
             {children.edges.map(childEdge =>
