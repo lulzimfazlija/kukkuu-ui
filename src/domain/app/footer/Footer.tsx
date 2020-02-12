@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 import styles from './footer.module.scss';
 import Container from '../layout/Container';
@@ -16,8 +17,10 @@ const Footer: FunctionComponent = () => {
             <p>{t('footer.copyrightText')}</p>
           </div>
           <div className={styles.links}>
-            <a href="/accessibility">{t('accessibilityStatement.title')}</a> •{' '}
-            <a href="/terms">{t('termsOfService.title')}</a> •{' '}
+            <Link to="/accessibility#start">
+              {t('accessibilityStatement.title')}
+            </Link>{' '}
+            • <Link to="/terms#">{t('termsOfService.title')}</Link> •{' '}
             <a href={t('descriptionOfTheFile.url')}>
               {t('descriptionOfTheFile.title')}
             </a>
