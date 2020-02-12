@@ -6,17 +6,20 @@ import ChildFormModal, {
   CHILD_FORM_TYPES,
 } from '../../../../child/modal/ChildFormModal';
 import { getChildFormModalValues } from '../../../../child/ChildUtils';
+import { ProfileChild } from '../../../type/ProfileTypes';
+import { normalizeProfileChild } from '../../../ProfileUtil';
 
 const ProfileChildDetailEditModal: React.FunctionComponent<{
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
   editChild: (payload: Child) => void;
   deleteChild: () => void;
-  childBeingEdited: Child;
+  childBeingEdited: ProfileChild;
 }> = ({ isOpen, setIsOpen, editChild, childBeingEdited, deleteChild }) => {
   const { t } = useTranslation();
 
-  const initialFormData = getChildFormModalValues(childBeingEdited);
+  const normalizedChild = normalizeProfileChild(childBeingEdited);
+  const initialFormData = getChildFormModalValues(normalizedChild);
 
   const onSubmit = (payload: Child) => {
     editChild(payload);

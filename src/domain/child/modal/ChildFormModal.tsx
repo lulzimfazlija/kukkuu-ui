@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Formik, FieldArray, FormikErrors } from 'formik';
 import { useTranslation } from 'react-i18next';
-import { useMutation } from '@apollo/react-hooks';
 
 import Modal from '../../../common/components/modal/Modal';
 import styles from './childFormModal.module.scss';
@@ -196,7 +195,7 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
                   name="relationship.type"
                   label={t('registration.form.child.relationship.input.label')}
                   component={SelectField}
-                  //TODO: Set default relationship from profile child data after typing was fixed from backend
+                  value={initialValues.relationship?.type ?? undefined}
                   options={getTranslatedRelationshipOptions(t)}
                   placeholder={t(
                     'registration.form.child.relationship.input.placeholder'
