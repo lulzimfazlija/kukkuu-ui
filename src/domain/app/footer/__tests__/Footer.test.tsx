@@ -1,9 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import Footer from '../Footer';
 
 it('renders snapshot correctly', () => {
-  const footer = shallow(<Footer />);
+  const footer = shallow(
+    <Router>
+      <Footer />
+    </Router>
+  );
   expect(footer.html()).toMatchSnapshot();
 });
