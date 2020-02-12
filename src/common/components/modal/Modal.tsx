@@ -15,6 +15,7 @@ interface ModalProps {
   setFormIsFilling?: (value: boolean) => void;
   showLabelIcon?: boolean;
   className?: string;
+  icon?: string;
 }
 
 const Modal: React.FunctionComponent<ModalProps> = ({
@@ -25,6 +26,7 @@ const Modal: React.FunctionComponent<ModalProps> = ({
   setFormIsFilling,
   showLabelIcon = true,
   className,
+  icon = happyChildIcon,
 }) => {
   const { t } = useTranslation();
 
@@ -54,10 +56,8 @@ const Modal: React.FunctionComponent<ModalProps> = ({
               <Icon src={closeModalIcon} />
             </Button>
             <div className={styles.heading}>
-              {showLabelIcon && (
-                <Icon className={styles.happyChild} src={happyChildIcon} />
-              )}
-              <h1>{label}</h1>
+              {showLabelIcon && <Icon className={styles.icon} src={icon} />}
+              <h2>{label}</h2>
             </div>
             <div className={styles.modalChildren}>{children}</div>
           </div>

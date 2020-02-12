@@ -18,6 +18,8 @@ import profileQuery from '../queries/ProfileQuery';
 import updateMyProfileMutation from '../mutations/updateMyProfileMutation';
 import { updateMyProfile as UpdateMyProfileData } from '../../api/generatedTypes/updateMyProfile';
 import NavigationPropmt from '../../../common/components/prompt/NavigationPrompt';
+import adultIcon from '../../../assets/icons/svg/adultFaceHappy.svg';
+
 export type EditProfileModalValues = Omit<ProfileType, 'children'>;
 
 interface EditProfileModalProps {
@@ -83,6 +85,7 @@ const EditProfileModal: React.FunctionComponent<EditProfileModalProps> = ({
         setFormIsFilling={setFormIsFilling}
         label={t('registration.form.guardian.info.heading')}
         isOpen={isOpen}
+        icon={adultIcon}
         toggleModal={(value: boolean) => {
           setIsOpen(value);
         }}

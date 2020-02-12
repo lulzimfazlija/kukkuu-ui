@@ -1,6 +1,7 @@
 import amosrexIcon from '../../../../assets/icons/partners/amosrex.png';
 import cirkoIcon from '../../../../assets/icons/partners/cirko.png';
 import designmuseumIcon from '../../../../assets/icons/partners/designmuseum.png';
+import dotIcon from '../../../../assets/icons/partners/dotdot.png';
 import hamhelsinkiIcon from '../../../../assets/icons/partners/hamhelsinki.png';
 import helIcon from '../../../../assets/icons/partners/hel.png';
 import helsinginkaupunginmuseoIcon from '../../../../assets/icons/partners/helsinginkaupunginmuseo.png';
@@ -15,7 +16,6 @@ import kaviIcon from '../../../../assets/icons/partners/kavi.png';
 import kulttuuriperintokasvatusIcon from '../../../../assets/icons/partners/kulttuuriperintokasvatus.png';
 import mfaIcon from '../../../../assets/icons/partners/mfa.png';
 import nukketeatterisampoIcon from '../../../../assets/icons/partners/nukketeatterisampo.png';
-import oodihelsinkiIcon from '../../../../assets/icons/partners/oodihelsinki.png';
 import oopperabalettiIcon from '../../../../assets/icons/partners/oopperabaletti.png';
 import qteatteriIcon from '../../../../assets/icons/partners/qteatteri.png';
 import svenskateaternIcon from '../../../../assets/icons/partners/svenskateatern.png';
@@ -38,6 +38,7 @@ export const mainPartnerList: Partner[] = [
 export const partnerList: Partner[] = [
   { name: 'amosrex', icon: amosrexIcon },
   { name: 'cirko', icon: cirkoIcon },
+  { name: 'dot', icon: dotIcon },
   { name: 'designmuseum', icon: designmuseumIcon },
   { name: 'hamhelsinki', icon: hamhelsinkiIcon },
   { name: 'helsinginkaupunginmuseo', icon: helsinginkaupunginmuseoIcon },
@@ -54,7 +55,6 @@ export const partnerList: Partner[] = [
   { name: 'kulttuuriperintokasvatus', icon: kulttuuriperintokasvatusIcon },
   { name: 'mfa', icon: mfaIcon },
   { name: 'nukketeatterisampo', icon: nukketeatterisampoIcon },
-  { name: 'oodihelsinki', icon: oodihelsinkiIcon },
   { name: 'oopperabaletti', icon: oopperabalettiIcon },
   { name: 'qteatteri', icon: qteatteriIcon },
   { name: 'svenskateatern', icon: svenskateaternIcon },
