@@ -45,8 +45,7 @@
           "text": "Add child"
         },
         "delete": {
-          "label": "Remove",
-          "text": "Delete child"
+          "label": "Remove"
         },
         "edit": {
           "label": "Edit child’s information",
@@ -270,10 +269,7 @@
           "text": "Remove child profile"
         },
         "edit": {
-          "text": "Update child information",
-          "icon": {
-            "alt": "Edit child's information"
-          }
+          "text": "Update child information"
         },
         "page": {
           "title": "Child detail page"

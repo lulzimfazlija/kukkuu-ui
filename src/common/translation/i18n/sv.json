@@ -45,8 +45,7 @@
           "text": "Lägg till fadderbarn"
         },
         "delete": {
-          "label": "Radera",
-          "text": "Delete child"
+          "label": "Radera"
         },
         "edit": {
           "label": "Redigera uppgifterna om barnet",
@@ -270,10 +269,7 @@
           "text": "Radera barnets uppgifter"
         },
         "edit": {
-          "text": "Uppdatera barnets uppgifter",
-          "icon": {
-            "alt": "Edit child's information"
-          }
+          "text": "Uppdatera barnets uppgifter"
         },
         "page": {
           "title": "Barnets uppgifter"

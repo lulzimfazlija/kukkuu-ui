@@ -174,7 +174,7 @@ const EditProfileModal: React.FunctionComponent<EditProfileModalProps> = ({
                   className={styles.submitButton}
                   disabled={isSubmitting}
                 >
-                  {t('common.modal.submit.text')}
+                  {t('common.modal.save.text')}
                 </Button>
               </div>
             </form>

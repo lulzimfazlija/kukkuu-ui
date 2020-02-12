@@ -104,15 +104,15 @@ const ProfileChildDetail: React.FunctionComponent = () => {
                   </h1>
                 </div>
                 <Button
-                  ariaLabel={t('profile.child.detail.edit.icon.text')}
+                  ariaLabel={t('profile.edit.button.text')}
                   className={styles.editChildInfo}
                   onClick={() => setIsOpen(true)}
                 >
-                  <span>{t('profile.child.detail.edit.icon.alt')}</span>
+                  <span>{t('profile.edit.button.text')}</span>
                   <Icon
                     src={settingIcon}
                     className={styles.settingIcon}
-                    alt={t('profile.child.detail.edit.icon.alt')}
+                    alt={t('profile.edit.button.text')}
                   />
                 </Button>
               </div>

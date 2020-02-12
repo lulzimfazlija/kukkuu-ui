@@ -36,7 +36,7 @@ const ProfileChildDetailEditModal: React.FunctionComponent<{
       initialValues={initialFormData}
       onSubmit={onSubmit}
       onDelete={onDelete}
-      label={t('profile.child.detail.edit.icon.alt')}
+      label={t('child.form.modal.edit.label')}
       isOpen={isOpen}
       setIsOpen={setIsOpen}
       formType={CHILD_FORM_TYPES.EDIT}

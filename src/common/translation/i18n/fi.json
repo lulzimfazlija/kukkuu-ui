@@ -45,8 +45,7 @@
           "text": "Lisää kummilapsi"
         },
         "delete": {
-          "label": "Poista",
-          "text": "Delete child"
+          "label": "Poista"
         },
         "edit": {
           "label": "Muokkaa lapsen tietoja",
@@ -270,10 +269,7 @@
           "text": "Poista lapsen tiedot"
         },
         "edit": {
-          "text": "Päivitä kummilapsen tiedot",
-          "icon": {
-            "alt": "Edit child's information"
-          }
+          "text": "Päivitä kummilapsen tiedot"
         },
         "page": {
           "title": "Kummilapsen tiedot"
