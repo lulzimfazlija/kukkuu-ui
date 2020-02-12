@@ -40,6 +40,10 @@ exports[`renders snapshot correctly 1`] = `
               "name": "cirko",
             },
             Object {
+              "icon": "dotdot.png",
+              "name": "dot",
+            },
+            Object {
               "icon": "designmuseum.png",
               "name": "designmuseum",
             },
@@ -90,10 +94,6 @@ exports[`renders snapshot correctly 1`] = `
             Object {
               "icon": "nukketeatterisampo.png",
               "name": "nukketeatterisampo",
-            },
-            Object {
-              "icon": "oodihelsinki.png",
-              "name": "oodihelsinki",
             },
             Object {
               "icon": "oopperabaletti.png",
