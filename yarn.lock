@@ -1178,6 +1178,18 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
+"@datapunt/matomo-tracker-js@^0.0.16":
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/@datapunt/matomo-tracker-js/-/matomo-tracker-js-0.0.16.tgz#efcd899dda0ec34f27605c1ec346e80b0e3b0255"
+  integrity sha512-vZVhZKOt77C8PPhjfQAU13eUU5b8zMrzDkHBqbamRRWS61xsPsQ6BkNMNNsNWbj7grd5JSEGQhmJeA2FiMIZQQ==
+
+"@datapunt/matomo-tracker-react@^0.0.16":
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/@datapunt/matomo-tracker-react/-/matomo-tracker-react-0.0.16.tgz#6d155f69713f708a674a5d2c12739c5e867a494d"
+  integrity sha512-l/MYOZNiN5ZjavW+j/7tuZ/ivlAal+pRvGtA4SPg0cdJS6zF6xegeEhCgmmX9rJ0uFYs3jG7yCSqHzVgACStuw==
+  dependencies:
+    "@datapunt/matomo-tracker-js" "^0.0.16"
+
 "@endemolshinegroup/cosmiconfig-typescript-loader@^1.0.0":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@endemolshinegroup/cosmiconfig-typescript-loader/-/cosmiconfig-typescript-loader-1.0.1.tgz#484ee6f4e9209ffde5d3edbdacf03e0bc5ee0c67"

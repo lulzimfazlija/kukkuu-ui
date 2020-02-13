@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { useMutation } from '@apollo/react-hooks';
 import { toast } from 'react-toastify';
 import * as Sentry from '@sentry/browser';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 
 import styles from './profileChildrenList.module.scss';
 import ProfileChild from './child/ProfileChild';
@@ -26,6 +27,7 @@ const ProfileChildrenList: React.FunctionComponent = () => {
       refetchQueries: [{ query: profileQuery }],
     }
   );
+  const { trackEvent } = useMatomo();
 
   if (mutationLoading) return <LoadingSpinner isLoading={true} />;
 
@@ -51,14 +53,16 @@ const ProfileChildrenList: React.FunctionComponent = () => {
             setIsOpen={setIsOpen}
             addChild={payload => {
               const supportedChildData = getSupportedChildData(payload);
-              addChild({ variables: { input: supportedChildData } }).catch(
-                error => {
+              addChild({ variables: { input: supportedChildData } })
+                .then(() => {
+                  trackEvent({ category: 'action', action: 'Add child' });
+                })
+                .catch(error => {
                   toast(t('profile.addChildMutation.errorMessage'), {
                     type: toast.TYPE.ERROR,
                   });
                   Sentry.captureException(error);
-                }
-              );
+                });
             }}
           />
         )}

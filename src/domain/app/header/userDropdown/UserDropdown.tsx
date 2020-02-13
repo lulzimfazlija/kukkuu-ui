@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 
 import personIcon from '../../../../assets/icons/svg/person.svg';
 import Dropdown from '../../../../common/components/dropdown/Dropdown';
@@ -22,11 +23,14 @@ const UserDropdown: React.FunctionComponent<UserDropdownProps> = ({
   const history = useHistory();
   const isAuthenticated = useSelector(isAuthenticatedSelector);
   const profileData = useSelector(profileSelector);
+  const { trackEvent } = useMatomo();
 
   const logout = {
     label: t('authentication.logout.text'),
     id: 'logoutButton',
     onClick: () => {
+      trackEvent({ category: 'action', action: 'Log out' });
+
       // Flush all cached state
       flushAllState({});
 
@@ -59,7 +63,10 @@ const UserDropdown: React.FunctionComponent<UserDropdownProps> = ({
     id: 'loginButton',
     label: t('authentication.login.text'),
     icon: personIcon,
-    onClick: () => loginTunnistamo(),
+    onClick: () => {
+      trackEvent({ category: 'action', action: 'Log in' });
+      loginTunnistamo();
+    },
   };
 
   if (!isSmallScreen) {
