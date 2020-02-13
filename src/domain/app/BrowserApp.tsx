@@ -18,6 +18,7 @@ import { persistor, store } from './state/AppStore';
 import LoadingSpinner from '../../common/components/spinner/LoadingSpinner';
 import { getCurrentLanguage } from '../../common/translation/TranslationUtils';
 import OidcCallback from '../auth/OidcCallback';
+import { ScrollToTop } from '../../common/route/RouteUtils';
 
 const localeParam = `:locale(${SUPPORT_LANGUAGES.EN}|${SUPPORT_LANGUAGES.FI}|${SUPPORT_LANGUAGES.SV})`;
 
@@ -65,6 +66,7 @@ const BrowserApp: FunctionComponent = () => {
         <OidcProvider store={store} userManager={userManager}>
           <ApolloProvider client={graphqlClient}>
             <BrowserRouter>
+              <ScrollToTop />
               <AppRoutes />
             </BrowserRouter>
           </ApolloProvider>

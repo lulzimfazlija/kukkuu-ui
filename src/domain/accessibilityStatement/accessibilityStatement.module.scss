@@ -13,4 +13,8 @@
     word-break: break-word;
     hyphens: manual;
   }
+
+  p {
+    max-width: $textParagraphMaxWidth;
+  }
 }
