@@ -8,7 +8,6 @@ exports[`renders snapshot correctly 1`] = `
     className=""
     isOpen={false}
     label="foo"
-    modalSize="normal"
     setFormIsFilling={[Function]}
     showHeading={true}
     showLabelIcon={true}
