@@ -7,6 +7,10 @@
     margin: 0 $baseMargin $largeMargin $baseMargin;
   }
 
+  @include respond-above(md) {
+    max-width: 70%;
+  }
+
   h1 {
     overflow-wrap: break-word;
     -ms-word-break: break-all;
