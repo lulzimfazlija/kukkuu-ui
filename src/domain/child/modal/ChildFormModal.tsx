@@ -3,7 +3,7 @@ import { Formik, FieldArray, FormikErrors } from 'formik';
 import { useTranslation } from 'react-i18next';
 import classnames from 'classnames';
 
-import Modal from '../../../common/components/modal/Modal';
+import Modal, { MODAL_SIZE } from '../../../common/components/modal/Modal';
 import styles from './childFormModal.module.scss';
 import BirthdateFormField from '../../home/form/partial/BirthdateFormField';
 import EnhancedInputField from '../../../common/components/form/fields/input/EnhancedInputField';
@@ -258,8 +258,12 @@ const ChildFormModal: React.FunctionComponent<ChildFormModalProps> = ({
           setIsOpen(value);
         }}
         showLabelIcon={!nonEligible && !isDeleteChildPromptOpen}
+        showHeading={!isDeleteChildPromptOpen}
         setFormIsFilling={setFormIsFilling}
         className={isDeleteChildPromptOpen ? styles.modal : ''}
+        modalSize={
+          isDeleteChildPromptOpen ? MODAL_SIZE.LARGE : MODAL_SIZE.NORMAL
+        }
       >
         {renderModalContent()}
       </Modal>

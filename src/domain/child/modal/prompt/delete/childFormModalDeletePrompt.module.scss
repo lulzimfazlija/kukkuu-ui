@@ -5,10 +5,7 @@
 @import 'layout';
 
 .deleteButtonGroup {
-  display: grid;
   margin: $largeMargin 0;
-
-  grid-gap: $baseMargin;
 
   button {
     width: 100% !important;
@@ -25,18 +22,24 @@
   }
 
   @include respond-above(sm) {
+    display: grid;
+    grid-gap: $baseMargin;
+
     grid-auto-flow: column;
   }
 
   @include respond-below(sm) {
-    grid-auto-flow: row;
+    display: flex;
+    flex-direction: column-reverse;
+    .deleteButton {
+      margin-bottom: $baseMargin;
+    }
   }
 }
 
 .deleteChild {
   text-align: center;
   p {
-    line-height: 1.6;
     font-weight: $font-weight-bold;
   }
 }

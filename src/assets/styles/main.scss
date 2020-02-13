@@ -12,3 +12,8 @@ button {
     outline: 1px solid $focusOutline;
   }
 }
+
+p,
+span {
+  line-height: $baseLineHeight;
+}
