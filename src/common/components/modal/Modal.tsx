@@ -9,12 +9,6 @@ import Icon from '../icon/Icon';
 import happyChildIcon from '../../../assets/icons/svg/childFaceHappy.svg';
 import closeModalIcon from '../../../assets/icons/svg/closeWithoutCircle.svg';
 
-export enum MODAL_SIZE {
-  LARGE = 'large',
-  NORMAL = 'normal',
-  SMALL = 'small',
-}
-
 interface ModalProps {
   isOpen: boolean;
   label: string;
@@ -24,7 +18,6 @@ interface ModalProps {
   showHeading?: boolean;
   className?: string;
   icon?: string;
-  modalSize?: MODAL_SIZE;
 }
 
 const Modal: React.FunctionComponent<ModalProps> = ({
@@ -37,10 +30,8 @@ const Modal: React.FunctionComponent<ModalProps> = ({
   className,
   showHeading = true,
   icon = happyChildIcon,
-  modalSize = MODAL_SIZE.NORMAL,
 }) => {
   const { t } = useTranslation();
-
   const onClose = () => {
     if (setFormIsFilling) {
       setFormIsFilling(false);
@@ -58,13 +49,7 @@ const Modal: React.FunctionComponent<ModalProps> = ({
           overlayClassName={styles.overlay}
           shouldCloseOnOverlayClick={false}
         >
-          <div
-            className={classNames(
-              styles.modalContent,
-              className,
-              styles[`${modalSize}Modal`]
-            )}
-          >
+          <div className={classNames(styles.modalContent, className)}>
             <Button
               className={styles.closeButton}
               onClick={onClose}
