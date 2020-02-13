@@ -34,11 +34,13 @@ const AccessibilityStatementFi: FunctionComponent = () => {
         jälkeen.
       </p>
       <h3>Tietojen pyytäminen saavutettavassa muodossa</h3>
-      Mikäli käyttäjä ei koe saavansa sivuston sisältöä saavutettavassa
-      muodossa, voi käyttäjä pyytää näitä tietoja sähköpostilla{' '}
-      <a href="mailto:helsinki.palaute@hel.fi">helsinki.palaute@hel.fi</a> tai
-      palautelomakkeella <a href="https://hel.fi/palaute">hel.fi/palaute</a>.
-      Tiedusteluun pyritään vastaamaan kohtuullisessa ajassa.
+      <p>
+        käyttäjä ei koe saavansa sivuston sisältöä saavutettavassa muodossa, voi
+        käyttäjä pyytää näitä tietoja sähköpostilla{' '}
+        <a href="mailto:helsinki.palaute@hel.fi">helsinki.palaute@hel.fi</a> tai
+        palautelomakkeella <a href="https://hel.fi/palaute">hel.fi/palaute</a>.
+        Tiedusteluun pyritään vastaamaan kohtuullisessa ajassa.
+      </p>
       <h2>Palaute ja yhteystiedot</h2>
       <p>
         Helsingin kaupunki, Kulttuuri ja vapaa-aika
