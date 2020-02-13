@@ -11,41 +11,41 @@
   display: grid;
   padding: 0 $basePadding;
   @include respond-above(sm) {
+    align-items: start;
     padding: 0;
     grid-template-columns: auto auto;
     gap: $baseMargin;
   }
   @include respond-below(sm) {
-    grid-auto-flow: column;
+    grid-auto-rows: min-content;
   }
 }
 
 .backButton {
   height: $largeMargin;
   width: $largeMargin;
-  padding-top: $baseMargin;
-}
+  margin-top: $baseMargin;
 
-button.backButton {
-  border: 0;
-  background: transparent;
-}
+  button {
+    width: 100%;
+    border: 0;
+    background: transparent;
+  }
 
-.backButtonIcon {
-  @include respond-above(sm) {
+  .backButtonIcon {
     height: inherit;
     width: inherit;
-  }
-  display: grid;
-  align-items: center;
-  justify-items: center;
-  img {
-    height: $baseMargin;
-    width: $baseMargin;
-  }
-  &:hover {
-    background: $white;
-    border-radius: 50%;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    img {
+      height: $baseMargin;
+      width: $baseMargin;
+    }
+    &:hover {
+      background: $white;
+      border-radius: 50%;
+    }
   }
 }
 
@@ -61,15 +61,23 @@ button.backButton {
   .childInfoHeadingRow {
     display: inline-flex;
     justify-content: space-between;
-    padding: $basePadding 0;
+    margin: $baseMargin 0;
 
     .childName {
       display: grid;
-      grid-template-columns: $largeMargin 1fr;
-      gap: $baseMargin;
 
-      > div {
-        align-self: center;
+      @include respond-below(sm) {
+        > div {
+          display: none;
+        }
+        flex-grow: 1;
+      }
+      @include respond-above(sm) {
+        grid-template-columns: $largeMargin 1fr;
+        gap: $baseMargin;
+        > div {
+          align-self: center;
+        }
       }
 
       h1 {
@@ -106,8 +114,16 @@ button.backButton {
     display: grid;
     grid-template-columns: $largeMargin 1fr;
     gap: $baseMargin;
-    > span {
-      align-self: center;
+    @include respond-above(sm) {
+      > span {
+        align-self: center;
+      }
+    }
+
+    @include respond-below(sm) {
+      > span {
+        align-self: start;
+      }
     }
 
     > div {
