@@ -268,8 +268,8 @@
         "delete": {
           "text": "Remove child profile",
           "prompt": {
-            "heading": "Are you sure to remove this child?",
-            "text": "Oh man this is not reverse-able.<br>You better know what you are doing.<br>Somebody give proper translation please."
+            "heading": "Are you sure you want to delete the child's information?",
+            "text": "By removing the child's information you will stop receiving invites to events."
           }
         },
         "edit": {

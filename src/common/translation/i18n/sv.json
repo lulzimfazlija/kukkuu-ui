@@ -26,7 +26,7 @@
     "session": {
       "expired": {
         "message": "Your session have expired. <br>You will be redirect to homepage. <br>All your current progress will be saved.",
-        "agree": "Continue registration",
+        "agree": "Fortsätt att registrera",
         "label": "Session expired"
       }
     }
@@ -57,7 +57,7 @@
           }
         },
         "return": {
-          "text": "Return to registration page"
+          "text": "Tillbaka till registreringen"
         }
       }
     }
@@ -72,7 +72,7 @@
     "form": {
       "leave": {
         "warning": {
-          "text": "Är du säker på att du vill lämna sidan? Alla osparade data går förlorade."
+          "text": "Är du säker på att du vill lämna sidan? All osparad information kommer att förloras."
         }
       }
     },
@@ -96,7 +96,7 @@
         "text": "Spara"
       },
       "save": {
-        "text": "Save"
+        "text": "Spara"
       }
     },
     "profile": {
@@ -118,7 +118,7 @@
     "heading": "Välkommen som kulturens fadderbarn!",
     "text": "Välkommen!"
   },
-  " Obs! Det går inte att besvara meddelandet.": "",
+  " Obs! Det går inte att svara på detta meddelande.": "",
   "email": {
     "title": "Välkommen som kulturens fadderbarn!"
   },
@@ -153,7 +153,7 @@
     },
     "partners": {
       "heading": {
-        "text": "Samarbetspartner"
+        "text": "Samarbetspartners"
       },
       "partner": {
         "amosrex": "Amos Rex",
@@ -180,7 +180,7 @@
         "teatteriilmio": "Ilmi Ö teater",
         "teatterimuseo": "Teatermuseet",
         "valokuvataiteenmuseo": "Finlands fotografiska museum",
-        "dot": "Föreningen för Drama Och Teater"
+        "dot": "Föreningen för Drama Och Teater, DOT r.f."
       }
     },
     "registration": {
@@ -268,8 +268,8 @@
         "delete": {
           "text": "Radera barnets uppgifter",
           "prompt": {
-            "heading": "Are you sure to remove this child?",
-            "text": "Oh man this is not reverse-able.<br>You better know what you are doing.<br>Somebody give proper translation please."
+            "heading": "Är du säker på att du vill radera barnets information?",
+            "text": "Om du raderar barnets information kommer du inte längre att få inbjudningar till evenemang."
           }
         },
         "edit": {
@@ -298,7 +298,7 @@
     },
     "edit": {
       "button": {
-        "text": "Edit information"
+        "text": "Redigera information"
       }
     }
   },
@@ -388,7 +388,7 @@
       },
       "verifyInformation": {
         "input": {
-          "label": "Agree to continue"
+          "label": "Godkänn för att gå vidare"
         }
       }
     },
