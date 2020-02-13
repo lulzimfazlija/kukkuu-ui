@@ -2,7 +2,7 @@
 
 exports[`renders snapshot correctly 1`] = `
 <PageWrapper
-  title="registration.notEligible.title"
+  title="Voi harmi!"
 >
   <div
     className="home"
