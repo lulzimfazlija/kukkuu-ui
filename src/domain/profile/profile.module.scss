@@ -33,7 +33,6 @@
     align-self: center;
 
     span {
-      line-height: $baseLineHeight;
       margin-right: $baseMargin;
     }
   }
@@ -68,7 +67,6 @@
     padding-bottom: $baseMargin;
 
     > span {
-      line-height: $baseMargin;
       align-self: center;
     }
 

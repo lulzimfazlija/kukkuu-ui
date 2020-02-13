@@ -4,7 +4,19 @@
 @import 'layout';
 @import 'variables';
 
-$modalPadding: 2rem;
+$baseModalPadding: 2rem;
+
+.smallModal {
+  $modalPadding: $baseMargin !global;
+}
+
+.normalModal {
+  $modalPadding: $baseModalPadding !global;
+}
+
+.largeModal {
+  $modalPadding: $xlargeMargin !global;
+}
 
 .modal {
   background-color: $white;

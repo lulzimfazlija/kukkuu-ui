@@ -26,8 +26,8 @@
     "session": {
       "expired": {
         "message": "Your session have expired. <br>You will be redirect to homepage. <br>All your current progress will be saved.",
-        "agree": "Continue registration",
-        "label": "Session expired"
+        "agree": "Jatka rekisteröitymistä",
+        "label": "Sessiosi on vanhentunut"
       }
     }
   },
@@ -96,7 +96,7 @@
         "text": "Tallenna"
       },
       "save": {
-        "text": "Save"
+        "text": "Tallenna"
       }
     },
     "profile": {
@@ -266,7 +266,11 @@
       "detail": {
         "birthdate": "Lapsen syntymäaika",
         "delete": {
-          "text": "Poista lapsen tiedot"
+          "text": "Poista lapsen tiedot",
+          "prompt": {
+            "heading": "Haluatko varmasti poistaa lapsen tiedot?",
+            "text": "Poistamalla lapsen tiedot, lapsi ei enää saa kutsuja tapahtumiin."
+          }
         },
         "edit": {
           "text": "Päivitä kummilapsen tiedot"
@@ -294,7 +298,7 @@
     },
     "edit": {
       "button": {
-        "text": "Edit information"
+        "text": "Muokkaa tietoja"
       }
     }
   },

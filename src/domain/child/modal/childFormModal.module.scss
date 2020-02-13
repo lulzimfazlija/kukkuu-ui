@@ -11,21 +11,6 @@
   }
 }
 
-.notEligible {
-  text-align: center;
-  .goBackButton {
-    @include button();
-    margin: $largeMargin 0;
-  }
-}
-
-.icon {
-  display: block;
-  margin: $largeMargin auto;
-  height: $largeMargin;
-  width: $largeMargin;
-}
-
 .deleteChild {
   margin-bottom: $largeMargin;
   button {
@@ -69,5 +54,13 @@
 .addChildButtons {
   .submitButton {
     @include button();
+  }
+}
+
+.modal {
+  h2 {
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
   }
 }

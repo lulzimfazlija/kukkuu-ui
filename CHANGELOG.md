@@ -10,6 +10,7 @@
 [#161](https://github.com/City-of-Helsinki/kukkuu-ui/pull/161) Add edit child modal
 [#162](https://github.com/City-of-Helsinki/kukkuu-ui/pull/162) Add modal and mutation to edit guardian's information
 [#163](https://github.com/City-of-Helsinki/kukkuu-ui/pull/163) Add edit and delete child mutation
+[#167](https://github.com/City-of-Helsinki/kukkuu-ui/pull/167) Add delete prompt when user try to delete child from edit child modal.
 
 ### Changed
 

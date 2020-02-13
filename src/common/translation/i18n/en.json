@@ -266,7 +266,11 @@
       "detail": {
         "birthdate": "Child's date of birth",
         "delete": {
-          "text": "Remove child profile"
+          "text": "Remove child profile",
+          "prompt": {
+            "heading": "Are you sure you want to delete the child's information?",
+            "text": "By removing the child's information you will stop receiving invites to events."
+          }
         },
         "edit": {
           "text": "Update child information"

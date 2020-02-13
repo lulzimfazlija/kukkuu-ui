@@ -107,7 +107,6 @@ button.backButton {
     grid-template-columns: $largeMargin 1fr;
     gap: $baseMargin;
     > span {
-      line-height: $baseMargin;
       align-self: center;
     }
 
