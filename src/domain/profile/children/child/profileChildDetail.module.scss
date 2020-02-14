@@ -22,6 +22,10 @@
 }
 
 .backButton {
+  @include respond-below(sm) {
+    display: none;
+  }
+
   height: $largeMargin;
   width: $largeMargin;
   margin-top: $baseMargin;
@@ -98,11 +102,11 @@
         justify-items: right;
 
         span {
-          @include respond-above(sm) {
+          @include respond-above(md) {
             margin-right: $baseMargin;
           }
 
-          @include respond-below(sm) {
+          @include respond-below(md) {
             display: none;
           }
         }
