@@ -76,7 +76,7 @@ const ProfileChildDetail: React.FunctionComponent = () => {
       title={t('profile.child.detail.page.title')}
     >
       <div className={styles.childDetailWrapper} role="main">
-        <button
+        <Button
           aria-label={t('common.backButton.label')}
           className={styles.backButton}
           onClick={() => history.goBack()}
@@ -86,7 +86,7 @@ const ProfileChildDetail: React.FunctionComponent = () => {
             className={styles.backButtonIcon}
             alt={t('common.backButton.label')}
           />
-        </button>
+        </Button>
         <div className={styles.childWrapper}>
           {child ? (
             <div className={styles.childInfo}>

@@ -34,6 +34,9 @@
 
     span {
       margin-right: $baseMargin;
+      @include respond-below(sm) {
+        display: none;
+      }
     }
   }
   button {
