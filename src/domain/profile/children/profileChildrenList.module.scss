@@ -10,26 +10,21 @@
   }
 }
 
-.heading {
-  display: flex;
-  justify-content: space-between;
+.addChild {
   align-items: center;
-
-  .addChild {
-    align-items: center;
-    display: inline-flex;
-    span {
-      margin-right: $baseMargin;
-    }
-    img {
-      transform: rotate(45deg);
-    }
+  display: inline-flex;
+  span {
+    margin-left: 0.2rem;
+    font-weight: bold;
   }
-  button.addChild {
-    background: transparent;
-    border: 0;
-    &:focus {
-      outline: 1px solid $focusOutline;
-    }
+  img {
+    transform: rotate(45deg);
+  }
+}
+button.addChild {
+  background: transparent;
+  border: 0;
+  &:focus {
+    outline: 1px solid $focusOutline;
   }
 }
