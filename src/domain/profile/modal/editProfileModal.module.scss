@@ -13,7 +13,9 @@
 
 .buttonsWrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  @include respond-above(sm) {
+    grid-template-columns: 1fr 1fr;
+  }
   grid-gap: $baseMargin;
   margin: $largeMargin 0;
   button: {
@@ -22,14 +24,20 @@
 }
 
 .cancelButton {
+  @include respond-below(sm) {
+    grid-row: 2/2;
+  }
   @include button();
   button {
     width: 100%;
-    background-color: $hel-gray;
+    background-color: $hel-light;
   }
 }
 
 .submitButton {
+  @include respond-below(sm) {
+    grid-row: 1/2;
+  }
   @include button();
   button {
     width: 100%;

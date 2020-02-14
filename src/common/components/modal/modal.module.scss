@@ -5,6 +5,7 @@
 @import 'variables';
 
 $modalPadding: 2rem;
+$lgModalPadding: 3rem;
 
 .modal {
   background-color: $white;
@@ -17,6 +18,9 @@ $modalPadding: 2rem;
     left: 0;
     right: 0;
     bottom: 0;
+  }
+  @include respond-above(md) {
+    width: 50em;
   }
 }
 
@@ -32,8 +36,32 @@ $modalPadding: 2rem;
   justify-content: center;
 }
 
+.closeButton {
+  float: right;
+  @include respond-below(md) {
+    z-index: 1;
+    position: relative;
+    text-align: right;
+    width: 100%;
+  }
+  button {
+    padding: 0;
+    border: none;
+    height: $largeMargin;
+    width: $largeMargin;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-lg;
+
+    > div {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
+
 .modalContent {
   background-color: $white;
+  padding: $basePadding $lgModalPadding;
   @include respond-below(md) {
     // Ensure that modal is vertically scrollable on mobile
     position: absolute;
@@ -41,25 +69,8 @@ $modalPadding: 2rem;
     left: 0;
     right: 0;
     bottom: 0;
-    padding: $basePadding 0;
+    padding: $largePadding 0;
     overflow: auto;
-  }
-
-  .closeButton {
-    text-align: right;
-    button {
-      padding: 0;
-      border: none;
-      height: $largeMargin;
-      width: $largeMargin;
-      font-weight: $font-weight-bold;
-      font-size: $font-size-lg;
-
-      > div {
-        display: block;
-        margin: 0 auto;
-      }
-    }
   }
 }
 

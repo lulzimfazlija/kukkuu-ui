@@ -49,14 +49,14 @@ const Modal: React.FunctionComponent<ModalProps> = ({
           overlayClassName={styles.overlay}
           shouldCloseOnOverlayClick={false}
         >
+          <Button
+            className={styles.closeButton}
+            onClick={onClose}
+            aria-label={t('common.closeButton.altText')}
+          >
+            <Icon src={closeModalIcon} />
+          </Button>
           <div className={classNames(styles.modalContent, className)}>
-            <Button
-              className={styles.closeButton}
-              onClick={onClose}
-              aria-label={t('common.closeButton.altText')}
-            >
-              <Icon src={closeModalIcon} />
-            </Button>
             {showHeading && (
               <div className={styles.heading}>
                 {showLabelIcon && <Icon className={styles.icon} src={icon} />}
