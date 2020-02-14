@@ -26,22 +26,38 @@
 
 .heading {
   display: flex;
+  align-items: flex-end;
   justify-content: space-between;
+  margin-top: $baseMargin;
+  h1 {
+    margin: 0;
+  }
 
   .editProfile {
-    justify-self: right;
-    align-self: center;
+    height: var(--hds-text-xxxl); // FIXME: See if this is actually needed.
+    button {
+      align-items: center;
+    }
 
-    span {
-      margin-right: $baseMargin;
-      @include respond-below(sm) {
+    @include respond-below(md) {
+      align-self: start;
+      span {
         display: none;
+      }
+    }
+    @include respond-above(md) {
+      align-self: center;
+      span {
+        margin-right: 1em;
+        white-space: nowrap;
+      }
+      button {
+        display: inline-flex;
+        align-items: center;
       }
     }
   }
   button {
-    display: inline-flex;
-    align-items: center;
     border: none;
     &:focus {
       outline: 1px solid $focusOutline;
