@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useMutation } from '@apollo/react-hooks';
 import { toast } from 'react-toastify';
 import * as Sentry from '@sentry/browser';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 
 import styles from './editProfileModal.module.scss';
 import { ProfileType } from '../type/ProfileTypes';
@@ -33,6 +34,8 @@ const EditProfileModal: React.FunctionComponent<EditProfileModalProps> = ({
   isOpen,
   setIsOpen,
 }) => {
+  const { trackEvent } = useMatomo();
+
   const [isFilling, setFormIsFilling] = React.useState(false);
   const [updateMyProfile] = useMutation<UpdateMyProfileData>(
     updateMyProfileMutation,
@@ -54,6 +57,7 @@ const EditProfileModal: React.FunctionComponent<EditProfileModalProps> = ({
           },
         },
       });
+      trackEvent({ category: 'action', action: 'Edit profile' });
       setIsOpen(false);
     } catch (error) {
       toast(t('registration.submitMutation.errorMessage'), {

@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import { OidcProvider } from 'redux-oidc';
 import { useTranslation } from 'react-i18next';
 import { ToastContainer } from 'react-toastify';
+import { MatomoProvider, createInstance } from '@datapunt/matomo-tracker-react';
 
 import App from './App';
 import graphqlClient from '../api/client';
@@ -25,6 +26,12 @@ const localeParam = `:locale(${SUPPORT_LANGUAGES.EN}|${SUPPORT_LANGUAGES.FI}|${S
 if (process.env.NODE_ENV !== 'production') {
   enableOidcLogging();
 }
+
+// TODO maybe: Variables for these:
+const instance = createInstance({
+  urlBase: 'https://analytics.hel.ninja/',
+  siteId: 56,
+});
 
 // Export for testing purpose
 export const AppRoutes: FunctionComponent = () => {
@@ -67,7 +74,9 @@ const BrowserApp: FunctionComponent = () => {
           <ApolloProvider client={graphqlClient}>
             <BrowserRouter>
               <ScrollToTop />
-              <AppRoutes />
+              <MatomoProvider value={instance}>
+                <AppRoutes />
+              </MatomoProvider>
             </BrowserRouter>
           </ApolloProvider>
         </OidcProvider>

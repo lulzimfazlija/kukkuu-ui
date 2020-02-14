@@ -1,7 +1,8 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import classnames from 'classnames';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 
 import styles from './pageWrapper.module.scss';
 import Container from './Container';
@@ -34,6 +35,14 @@ const PageWrapper: FunctionComponent<{
 
   // When fixing this, ensure that PageWrapper.test.tsx.snap has sensible href links.
   const path = window.location.pathname.replace(`/${lang}/`, '');
+
+  const { trackPageView } = useMatomo();
+  useEffect(() => {
+    trackPageView({
+      documentTitle: translatedTitle,
+      href: window.location.href,
+    });
+  }, [trackPageView, translatedTitle]);
 
   return (
     <div className={classnames(styles.pageWrapper, className)}>
