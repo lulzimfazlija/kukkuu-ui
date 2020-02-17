@@ -26,8 +26,8 @@
     "session": {
       "expired": {
         "message": "Your session have expired. <br>You will be redirect to homepage. <br>All your current progress will be saved.",
-        "agree": "Fortsätt att registrera",
-        "label": "Session expired"
+        "agree": "Fortsätt med registreringen",
+        "label": "Din session har gått ut"
       }
     }
   },
@@ -268,8 +268,8 @@
         "delete": {
           "text": "Radera barnets uppgifter",
           "prompt": {
-            "heading": "Är du säker på att du vill radera barnets information?",
-            "text": "Om du raderar barnets information kommer du inte längre att få inbjudningar till evenemang."
+            "heading": "Är du säker på att du vill radera barnets uppgifter?",
+            "text": "Om du raderar barnets uppgifter kommer du inte längre att få inbjudningar till evenemang."
           }
         },
         "edit": {
@@ -421,7 +421,7 @@
       "required": "Obligatoriskt fält"
     },
     "postalCode": {
-      "invalidFormat": "Fel format"
+      "invalidFormat": "Inkorrekt format"
     }
   }
 }
