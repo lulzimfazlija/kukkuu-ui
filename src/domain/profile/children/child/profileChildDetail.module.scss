@@ -80,7 +80,8 @@
         grid-template-columns: $largeMargin 1fr;
         gap: $baseMargin;
         > div {
-          align-self: center;
+          align-self: baseline;
+          margin-top: calc(var(--hds-text-xxxl) - 3rem);
         }
       }
 
