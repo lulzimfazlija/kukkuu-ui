@@ -46,7 +46,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 Fetches translation data from our Google Spreadsheet and updates translation files. See `.env` for configuration.
 
-You still need to update jest snapshots and add the translation files to the git repository manually. 
+You still need to update jest snapshots and add the translation files to the git repository manually.
 
 ### `yarn graphql-types`
 
@@ -60,11 +60,13 @@ Generate static types for GraphQL queries by using the schema from the backend s
 ## Setting up development environment locally with docker
 
 ### Set tunnistamo hostname
+
 Add the following line to your hosts file (`/etc/hosts` on mac and linux):
 
     127.0.0.1 tunnistamo-backend
 
 ### Create a new OAuth app on GitHub
+
 Go to https://github.com/settings/developers/ and add a new app with the following settings:
 
 - Application name: can be anything, e.g. local tunnistamo
@@ -74,7 +76,8 @@ Go to https://github.com/settings/developers/ and add a new app with the followi
 Save. You'll need the created **Client ID** and **Client Secret** for configuring tunnistamo in the next step.
 
 ### Install local tunnistamo
-Clone https://github.com/City-of-Helsinki/tunnistamo/. 
+
+Clone https://github.com/City-of-Helsinki/tunnistamo/.
 
 Follow the instructions for setting up tunnistamo locally. Before running `docker-compose up` set the following settings in tunnistamo roots `docker-compose.env.yaml`:
 
@@ -84,20 +87,21 @@ Follow the instructions for setting up tunnistamo locally. Before running `docke
 As of Nov 15 2019 there is a bug in tunnistamo with cors, a workaround is to set this line in `tunnistamo/settings.py`:
 `CORS_URLS_REGEX = r'.*/(\.well-known/openid-configuration|v1|openid|api-tokens|jwt-token).*'`
 
-After you've got tunnistamo running locally, ssh to the tunnistamo docker container: 
+After you've got tunnistamo running locally, ssh to the tunnistamo docker container:
 
 `docker-compose exec django bash`
 
 and execute the following four commands inside your docker container:
 
 ```bash
-./manage.py add_oidc_client -n kukkuu-ui -t "id_token token" -u "http://localhost:3000/callback" "http://localhost:3000/silent_renew" -i https://api.hel.fi/auth/kukkuu-ui -m github -s dev
+./manage.py add_oidc_client -n kukkuu-ui -t "id_token token" -u "http://localhost:3000/callback" "http://localhost:3000/silent_renew" "http://localhost:3000/silent_renew.html" -i https://api.hel.fi/auth/kukkuu-ui -m github -s dev
 ./manage.py add_oidc_client -n kukkuu-api -t "code" -u http://localhost:8081/return -i https://api.hel.fi/auth/kukkuu -m github -s dev -c
 ./manage.py add_oidc_api -n kukkuu -d https://api.hel.fi/auth -s email,profile -c https://api.hel.fi/auth/kukkuu
 ./manage.py add_oidc_api_scope -an kukkuu -c https://api.hel.fi/auth/kukkuu-ui -n "Kulttuurin kummilapset" -d"Lorem ipsum"
 ```
 
 ### Install kukkuu locally
+
 Clone the repository (https://github.com/City-of-Helsinki/kukkuu). Follow the instructions for running kukkuu with docker. Before running `docker-compose up` set the following settings in kukkuu roots `docker-compose.env.yaml`:
 
 - CORS_ORIGIN_ALLOW_ALL=1
@@ -113,9 +117,11 @@ OR
 Run `yarn && yarn start`
 
 ## Debugging
+
 ### Debugging project in VS Code
 
 To debug in VS Code:
+
 1. Install the "Debugger for Chrome" extension to VS Code
 2. Run `yarn start`
 3. Set a breakpoint
@@ -142,6 +148,7 @@ See more detailed instructions here:
 https://create-react-app.dev/docs/debugging-tests#debugging-tests-in-chrome
 
 ### Debug Redux state
+
 Redux internal state can be visualized with [Redux-devtools](https://github.com/zalmoxisus/redux-devtools-extension)
 
 1. Follow instructions in [here](https://github.com/zalmoxisus/redux-devtools-extension)
