@@ -34,7 +34,7 @@
   .submitButton {
     @include button();
     @include respond-below(sm) {
-      grid-row: 1/2;
+      grid-row: 1;
     }
   }
 
@@ -44,7 +44,7 @@
       background: $hel-light;
     }
     @include respond-below(sm) {
-      grid-row: 2/2;
+      grid-row: 2;
     }
   }
 

@@ -5,7 +5,7 @@
 @import 'variables';
 
 $modalPadding: 2rem;
-$lgModalPadding: 3rem;
+$modalWidthLg: 800px;
 
 .modal {
   background-color: $white;
@@ -20,7 +20,7 @@ $lgModalPadding: 3rem;
     bottom: 0;
   }
   @include respond-above(md) {
-    width: 50em;
+    width: $modalWidthLg;
   }
 }
 
@@ -37,21 +37,18 @@ $lgModalPadding: 3rem;
 }
 
 .closeButton {
-  float: right;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
   @include respond-below(md) {
     z-index: 1;
     position: relative;
-    text-align: right;
-    width: 100%;
   }
   button {
     padding: 0;
     border: none;
     height: $largeMargin;
     width: $largeMargin;
-    font-weight: $font-weight-bold;
-    font-size: $font-size-lg;
-
     > div {
       display: block;
       margin: 0 auto;
@@ -61,7 +58,7 @@ $lgModalPadding: 3rem;
 
 .modalContent {
   background-color: $white;
-  padding: $basePadding $lgModalPadding;
+  padding: $basePadding $largePadding;
   @include respond-below(md) {
     // Ensure that modal is vertically scrollable on mobile
     position: absolute;

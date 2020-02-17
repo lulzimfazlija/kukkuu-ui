@@ -34,7 +34,6 @@
   }
 
   .editProfile {
-    height: var(--hds-text-xxxl); // FIXME: See if this is actually needed.
     button {
       align-items: center;
     }
@@ -48,7 +47,7 @@
     @include respond-above(md) {
       align-self: center;
       span {
-        margin-right: 1em;
+        margin-right: $baseMargin;
         white-space: nowrap;
       }
       button {

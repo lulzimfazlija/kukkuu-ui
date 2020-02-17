@@ -16,6 +16,7 @@ import { addChildMutation } from '../../child/mutation/ChildMutation';
 import { getSupportedChildData } from '../../child/ChildUtils';
 import LoadingSpinner from '../../../common/components/spinner/LoadingSpinner';
 import profileQuery from '../queries/ProfileQuery';
+import Button from '../../../common/components/button/Button';
 
 const ProfileChildrenList: React.FunctionComponent = () => {
   const { t } = useTranslation();
@@ -75,7 +76,7 @@ const ProfileChildrenList: React.FunctionComponent = () => {
           </div>
         )}
       </div>
-      <button
+      <Button
         aria-label={t('child.form.modal.add.label')}
         className={styles.addChild}
         onClick={() => setIsOpen(true)}
@@ -86,7 +87,7 @@ const ProfileChildrenList: React.FunctionComponent = () => {
           className={styles.addChildIcon}
         />
         <span>{t('child.form.modal.add.label')}</span>
-      </button>
+      </Button>
     </>
   );
 };
