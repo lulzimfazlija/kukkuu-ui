@@ -93,7 +93,7 @@
 
     .editChildInfo {
       display: grid;
-      align-self: center;
+      align-self: baseline;
 
       button {
         display: inline-flex;
@@ -103,6 +103,7 @@
 
         span {
           @include respond-above(md) {
+            white-space: nowrap;
             margin-right: $baseMargin;
           }
 
