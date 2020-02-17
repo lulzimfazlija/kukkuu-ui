@@ -1,6 +1,6 @@
 # Change Log
 
-# 0.1.3-pre
+# 0.2.0-pre
 
 ### Added
 
@@ -14,6 +14,9 @@
 
 ### Changed
 
+- [#172](https://github.com/City-of-Helsinki/kukkuu-ui/pull/172) Adjustments for small screens and modal fixes
+- [#170](https://github.com/City-of-Helsinki/kukkuu-ui/pull/170) Change the MFA logo
+- [#169](https://github.com/City-of-Helsinki/kukkuu-ui/pull/169) Improve analytics
 - [#166](https://github.com/City-of-Helsinki/kukkuu-ui/pull/166) Add max-width for pages with text in them, fix footer links
 - [#165](https://github.com/City-of-Helsinki/kukkuu-ui/pull/165) Profile adjustments: Use adult icon and smaller header
 - [#164](https://github.com/City-of-Helsinki/kukkuu-ui/pull/164) Add Dot and remove Oodi as partners, shrink svg icons

@@ -1,6 +1,9 @@
+@import 'fonts';
 @import 'mixins';
 @import 'layout';
 @import 'colors';
+
+$buttonLabelMargin: 0.2rem;
 
 .childrenList {
   .thisYearPartner {
@@ -10,26 +13,23 @@
   }
 }
 
-.heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  .addChild {
+.addChild {
+  button {
     align-items: center;
     display: inline-flex;
-    span {
-      margin-right: $baseMargin;
-    }
-    img {
-      transform: rotate(45deg);
-    }
-  }
-  button.addChild {
+
     background: transparent;
     border: 0;
     &:focus {
       outline: 1px solid $focusOutline;
     }
+  }
+
+  span {
+    margin-left: $buttonLabelMargin;
+    font-weight: $font-weight-bold;
+  }
+  img {
+    transform: rotate(45deg);
   }
 }

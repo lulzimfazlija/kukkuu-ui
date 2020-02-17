@@ -16,6 +16,7 @@ import { addChildMutation } from '../../child/mutation/ChildMutation';
 import { getSupportedChildData } from '../../child/ChildUtils';
 import LoadingSpinner from '../../../common/components/spinner/LoadingSpinner';
 import profileQuery from '../queries/ProfileQuery';
+import Button from '../../../common/components/button/Button';
 
 const ProfileChildrenList: React.FunctionComponent = () => {
   const { t } = useTranslation();
@@ -35,18 +36,6 @@ const ProfileChildrenList: React.FunctionComponent = () => {
     <>
       <div className={styles.heading}>
         <h2>{t('profile.heading')}</h2>
-        <button
-          aria-label={t('child.form.modal.add.label')}
-          className={styles.addChild}
-          onClick={() => setIsOpen(true)}
-        >
-          <span>{t('child.form.modal.add.label')}</span>
-          <Icon
-            src={addIcon}
-            alt={t('child.form.modal.add.label')}
-            className={styles.addChildIcon}
-          />
-        </button>
         {isOpen && (
           <AddNewChildFormModal
             isOpen={isOpen}
@@ -87,6 +76,18 @@ const ProfileChildrenList: React.FunctionComponent = () => {
           </div>
         )}
       </div>
+      <Button
+        aria-label={t('child.form.modal.add.label')}
+        className={styles.addChild}
+        onClick={() => setIsOpen(true)}
+      >
+        <Icon
+          src={addIcon}
+          alt={t('child.form.modal.add.label')}
+          className={styles.addChildIcon}
+        />
+        <span>{t('child.form.modal.add.label')}</span>
+      </Button>
     </>
   );
 };

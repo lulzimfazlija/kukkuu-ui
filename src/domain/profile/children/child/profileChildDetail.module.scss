@@ -22,6 +22,10 @@
 }
 
 .backButton {
+  @include respond-below(sm) {
+    display: none;
+  }
+
   height: $largeMargin;
   width: $largeMargin;
   margin-top: $baseMargin;
@@ -89,7 +93,7 @@
 
     .editChildInfo {
       display: grid;
-      align-self: center;
+      align-self: baseline;
 
       button {
         display: inline-flex;
@@ -98,11 +102,12 @@
         justify-items: right;
 
         span {
-          @include respond-above(sm) {
+          @include respond-above(md) {
+            white-space: nowrap;
             margin-right: $baseMargin;
           }
 
-          @include respond-below(sm) {
+          @include respond-below(md) {
             display: none;
           }
         }
