@@ -56,6 +56,8 @@
 .childIcon {
   height: $largeMargin;
   width: $largeMargin;
+  // Ensure that the icon is aligned correctly with the first line of the header
+  margin-top: calc(var(--hds-text-xxxl) - 3rem);
 }
 
 .childInfo {
@@ -81,7 +83,6 @@
         gap: $baseMargin;
         > div {
           align-self: baseline;
-          margin-top: calc(var(--hds-text-xxxl) - 3rem);
         }
       }
 
