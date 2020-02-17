@@ -1,6 +1,6 @@
 # Change Log
 
-# 0.2.0-pre
+# 0.2.0
 
 ### Added
 
