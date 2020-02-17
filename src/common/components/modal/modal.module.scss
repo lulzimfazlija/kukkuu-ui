@@ -5,6 +5,7 @@
 @import 'variables';
 
 $modalPadding: 2rem;
+$modalWidthLg: 800px;
 
 .modal {
   background-color: $white;
@@ -17,6 +18,9 @@ $modalPadding: 2rem;
     left: 0;
     right: 0;
     bottom: 0;
+  }
+  @include respond-above(md) {
+    width: $modalWidthLg;
   }
 }
 
@@ -32,8 +36,29 @@ $modalPadding: 2rem;
   justify-content: center;
 }
 
+.closeButton {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  @include respond-below(md) {
+    z-index: 1;
+    position: relative;
+  }
+  button {
+    padding: 0;
+    border: none;
+    height: $largeMargin;
+    width: $largeMargin;
+    > div {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
+
 .modalContent {
   background-color: $white;
+  padding: $basePadding $largePadding;
   @include respond-below(md) {
     // Ensure that modal is vertically scrollable on mobile
     position: absolute;
@@ -41,25 +66,8 @@ $modalPadding: 2rem;
     left: 0;
     right: 0;
     bottom: 0;
-    padding: $basePadding 0;
+    padding: $largePadding 0;
     overflow: auto;
-  }
-
-  .closeButton {
-    text-align: right;
-    button {
-      padding: 0;
-      border: none;
-      height: $largeMargin;
-      width: $largeMargin;
-      font-weight: $font-weight-bold;
-      font-size: $font-size-lg;
-
-      > div {
-        display: block;
-        margin: 0 auto;
-      }
-    }
   }
 }
 
@@ -76,18 +84,16 @@ $modalPadding: 2rem;
   flex-direction: row;
   align-items: center;
   margin: 0 0 $largeMargin 0;
-  padding: 0 $basePadding;
-  @include respond-above(sm) {
-    padding: 0 $modalPadding;
-  }
+  padding: 0 $modalPadding;
 
-  .happyChild {
+  .icon {
     height: $largeMargin;
     width: $largeMargin;
     margin-right: $baseMargin;
   }
 
   h1 {
+    font-size: 2rem;
     margin: 0;
     flex-grow: 1;
   }

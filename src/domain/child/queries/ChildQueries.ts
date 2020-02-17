@@ -1,6 +1,6 @@
-import { gql } from 'apollo-boost';
+import gql from 'graphql-tag';
 
-const childrenQuery = gql`
+export const childrenQuery = gql`
   query ChildrenQuery {
     children {
       edges {
@@ -31,4 +31,22 @@ const childrenQuery = gql`
     }
   }
 `;
-export default childrenQuery;
+
+export const childByIdQuery = gql`
+  query childByIdQuery($id: ID!) {
+    child(id: $id) {
+      id
+      firstName
+      lastName
+      birthdate
+      postalCode
+      relationships {
+        edges {
+          node {
+            type
+          }
+        }
+      }
+    }
+  }
+`;

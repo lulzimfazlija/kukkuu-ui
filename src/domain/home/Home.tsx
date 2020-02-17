@@ -34,7 +34,7 @@ const Home: FunctionComponent = () => {
   };
 
   if (loading) return <LoadingSpinner isLoading={true} />;
-  if (!data || error) {
+  if (error) {
     dispatch(clearProfile());
   }
   if (data?.myProfile) {

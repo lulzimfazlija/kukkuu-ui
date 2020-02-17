@@ -9,7 +9,7 @@ const ProfileNoEvent: FunctionComponent = () => {
   const { t } = useTranslation();
   return (
     <div className={styles.noEventWrapper}>
-      <h1>{t('profile.noupcomingevents.hero.heading')}</h1>
+      <h2>{t('profile.noupcomingevents.hero.heading')}</h2>
       <div className={styles.noEvent}>
         <Icon src={envelopeWithStars} className={styles.envelopIcon} />
         <p>

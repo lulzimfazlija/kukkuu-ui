@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 
 import { primaryChildFormDataSelector } from '../state/RegistrationSelectors';
 import { Child } from '../../child/types/ChildTypes';
-import { defaultRegistrationData } from '../state/RegistrationReducers';
 import ChildFormModal from '../../child/modal/ChildFormModal';
+import { getChildFormModalValues } from '../../child/ChildUtils';
 
 const AddNewChildFormModal: React.FunctionComponent<{
   isOpen: boolean;
@@ -14,20 +14,7 @@ const AddNewChildFormModal: React.FunctionComponent<{
 }> = ({ isOpen, setIsOpen, addChild }) => {
   const primaryChildData = useSelector(primaryChildFormDataSelector);
   const { t } = useTranslation();
-  const initialFormData = Object.assign(
-    {},
-    defaultRegistrationData.formValues.children[0],
-    {
-      homeCity: primaryChildData.homeCity,
-      relationship: primaryChildData.relationship,
-      postalCode: primaryChildData.postalCode,
-      birthdate: {
-        day: '',
-        month: '',
-        year: '',
-      },
-    }
-  );
+  const initialFormData = getChildFormModalValues(primaryChildData);
 
   const onSubmit = (payload: Child) => {
     addChild(payload);

@@ -11,38 +11,45 @@
   display: grid;
   padding: 0 $basePadding;
   @include respond-above(sm) {
+    align-items: start;
     padding: 0;
     grid-template-columns: auto auto;
     gap: $baseMargin;
   }
+  @include respond-below(sm) {
+    grid-auto-rows: min-content;
+  }
 }
 
 .backButton {
+  @include respond-below(sm) {
+    display: none;
+  }
+
   height: $largeMargin;
   width: $largeMargin;
-  padding-top: $baseMargin;
-}
+  margin-top: $baseMargin;
 
-button.backButton {
-  border: 0;
-  background: transparent;
-}
+  button {
+    width: 100%;
+    border: 0;
+    background: transparent;
+  }
 
-.backButtonIcon {
-  @include respond-above(sm) {
+  .backButtonIcon {
     height: inherit;
     width: inherit;
-  }
-  display: grid;
-  align-items: center;
-  justify-items: center;
-  img {
-    height: $baseMargin;
-    width: $baseMargin;
-  }
-  &:hover {
-    background: $white;
-    border-radius: 50%;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    img {
+      height: $baseMargin;
+      width: $baseMargin;
+    }
+    &:hover {
+      background: $white;
+      border-radius: 50%;
+    }
   }
 }
 
@@ -55,28 +62,77 @@ button.backButton {
   display: grid;
   grid-auto-flow: row;
   margin-bottom: $baseMargin;
-  .childInfoRow {
-    h1 {
-      margin: 0;
-      align-self: center;
-      text-transform: capitalize;
+  .childInfoHeadingRow {
+    display: inline-flex;
+    justify-content: space-between;
+    margin: $baseMargin 0;
+
+    .childName {
+      display: grid;
+
+      @include respond-below(sm) {
+        > div {
+          display: none;
+        }
+        flex-grow: 1;
+      }
+      @include respond-above(sm) {
+        grid-template-columns: $largeMargin 1fr;
+        gap: $baseMargin;
+        > div {
+          align-self: center;
+        }
+      }
+
+      h1 {
+        margin: 0;
+        align-self: center;
+        text-transform: capitalize;
+      }
     }
+
+    .editChildInfo {
+      display: grid;
+      align-self: baseline;
+
+      button {
+        display: inline-flex;
+        border: none;
+        align-items: center;
+        justify-items: right;
+
+        span {
+          @include respond-above(md) {
+            white-space: nowrap;
+            margin-right: $baseMargin;
+          }
+
+          @include respond-below(md) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  .childInfoRow {
+    padding-bottom: $baseMargin;
     display: grid;
     grid-template-columns: $largeMargin 1fr;
     gap: $baseMargin;
-    padding-bottom: $baseMargin;
+    @include respond-above(sm) {
+      > span {
+        align-self: center;
+      }
+    }
 
-    > span {
-      line-height: $baseMargin;
-      align-self: center;
+    @include respond-below(sm) {
+      > span {
+        align-self: start;
+      }
     }
 
     > div {
-      align-self: center;
       justify-self: center;
-    }
-    &:first-child {
-      padding-top: $baseMargin;
     }
   }
 }

@@ -22,6 +22,13 @@
     },
     "redirect": {
       "text": "Redirecting..."
+    },
+    "session": {
+      "expired": {
+        "message": "Your session is expired and you have been logged out.",
+        "agree": "Continue",
+        "label": "Session expired"
+      }
     }
   },
   "CHILD_RELATIONSHIP_OPTIONS": {
@@ -87,6 +94,9 @@
       },
       "submit": {
         "text": "Submit"
+      },
+      "save": {
+        "text": "Save"
       }
     },
     "profile": {
@@ -169,7 +179,8 @@
         "tanssintalo": "Dance House Helsinki",
         "teatteriilmio": "Theatre Ilmi Ö",
         "teatterimuseo": "Theatre Museum",
-        "valokuvataiteenmuseo": "Finnish Museum of Photography"
+        "valokuvataiteenmuseo": "Finnish Museum of Photography",
+        "dot": "The Association of Drama and Theatre"
       }
     },
     "registration": {
@@ -255,7 +266,11 @@
       "detail": {
         "birthdate": "Child's date of birth",
         "delete": {
-          "text": "Remove child profile"
+          "text": "Remove child profile",
+          "prompt": {
+            "heading": "Are you sure you want to delete the child's information?",
+            "text": "By removing the child's information you will stop receiving invites to events."
+          }
         },
         "edit": {
           "text": "Update child information"
@@ -280,6 +295,11 @@
         "heading": "Event invitations"
       },
       "text": "Event invitations sent to you will be displayed here. You can sign up for events and cancel your attendance if you, for some reason, are unable to attend."
+    },
+    "edit": {
+      "button": {
+        "text": "Edit information"
+      }
     }
   },
   "registration": {
@@ -349,7 +369,7 @@
         },
         "language": {
           "input": {
-            "label": "Guardian’s preferred language",
+            "label": "Preferred language",
             "placeholder": "Please enter guardian’s preferred language"
           }
         },

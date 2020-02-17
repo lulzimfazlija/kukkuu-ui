@@ -33,12 +33,6 @@
         grid-template-columns: 1fr 1fr 1fr;
         gap: $baseMargin;
       }
-
-      .iconBox {
-        p {
-          line-height: $largeLineHeight;
-        }
-      }
     }
   }
 }

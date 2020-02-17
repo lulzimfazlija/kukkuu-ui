@@ -1,9 +1,6 @@
-import { Route, Switch, RouteComponentProps, Redirect } from 'react-router';
-import React from 'react';
-import { connect } from 'react-redux';
-import { loadUser } from 'redux-oidc';
-import { toast } from 'react-toastify';
-import * as Sentry from '@sentry/browser';
+import { Route, Switch, Redirect, useParams } from 'react-router';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
 
 import Home from '../home/Home';
@@ -12,102 +9,94 @@ import NotEligible from '../registration/notEligible/NotEligible';
 import PrivateRoute from '../auth/route/PrivateRoute';
 import RegistrationForm from '../registration/form/RegistrationForm';
 import LoadingSpinner from '../../common/components/spinner/LoadingSpinner';
-import { StoreState } from './types/AppTypes';
-import { isLoadingUserSelector } from '../auth/state/AuthenticationSelectors';
-import { store } from './state/AppStore';
-import userManager from '../auth/userManager';
-import i18n from '../../common/translation/i18n/i18nInit';
-import { authenticateWithBackend } from '../auth/authenticate';
-import { fetchTokenError } from '../auth/state/BackendAuthenticationActions';
+import {
+  isLoadingUserSelector,
+  apiTokenSelector,
+  userSelector,
+} from '../auth/state/AuthenticationSelectors';
 import Welcome from '../registration/welcome/Welcome';
-import Profile from '../profile/Profile';
 import AccessibilityStatement from '../accessibilityStatement/AccessibilityStatement';
 import { userHasProfileSelector } from '../registration/state/RegistrationSelectors';
 import TermsOfService from '../termsOfService/TermsOfService';
+import { authenticateWithBackend } from '../auth/authenticate';
+import SessionPrompt from './sessionPrompt/SessionPrompt';
+import { isSessionExpiredPromptOpen } from './state/ui/UISelectors';
+import {
+  tokenFetched,
+  fetchTokenError,
+} from '../auth/state/BackendAuthenticationActions';
+import ProfileRoute from '../profile/route/ProfileRoute';
 
-type AppProps = RouteComponentProps<{ locale: string }> & {
-  isLoadingUser: boolean;
-  userHasProfile: boolean;
-  fetchApiToken: (accessToken: string) => void;
-  fetchApiTokenError: (errors: object) => void;
+const App: React.FunctionComponent = props => {
+  const isLoadingUser = useSelector(isLoadingUserSelector);
+  const { locale } = useParams<{ locale: string }>();
+  const userHasProfile = useSelector(userHasProfileSelector);
+  const isSessionPromptOpen = useSelector(isSessionExpiredPromptOpen);
+  const apiToken = useSelector(apiTokenSelector);
+  const dispatch = useDispatch();
+  const user = useSelector(userSelector);
+
+  useEffect(() => {
+    if (apiToken) {
+      // Skip token fetch if token already existed
+      dispatch(tokenFetched());
+
+      // If no token but access token is ready for exchange
+      // start to fetch apiToken
+    } else if (user?.access_token) {
+      dispatch(authenticateWithBackend(user.access_token));
+    } else {
+      // No access token, usually first time user
+      // Dispatch this as last resort to close the spinner
+      // And end authentication part.
+      dispatch(
+        fetchTokenError({
+          message: 'No access token',
+          name: 'fetchTokenError',
+        })
+      );
+    }
+    // TODO: useEffect subscribe for changes from apiToken and user data
+    // When silent-renew is fixed here in KK-261
+    // !apiToken can be removed so silent-renew will auto make api token exchange
+  }, [apiToken, dispatch, user]);
+
+  return (
+    <LoadingSpinner isLoading={isLoadingUser}>
+      {isSessionPromptOpen && <SessionPrompt isOpen={isSessionPromptOpen} />}
+      <Switch>
+        <Redirect exact path={`/${locale}/`} to={`/${locale}/home`} />
+        <Route exact path={`/${locale}/home`} component={Home} />
+        <Route
+          exact
+          path={`/${locale}/registration/not-eligible`}
+          component={NotEligible}
+        />
+        <Route
+          exact
+          path={`/${locale}/accessibility`}
+          component={AccessibilityStatement}
+        />
+        <Route exact path={`/${locale}/terms`} component={TermsOfService} />
+        {!userHasProfile && (
+          <PrivateRoute exact path={`/${locale}/registration/form`}>
+            <RegistrationForm />
+          </PrivateRoute>
+        )}
+        <PrivateRoute exact path={`/${locale}/registration/success`}>
+          <Welcome />
+        </PrivateRoute>
+
+        <PrivateRoute path={`/${locale}/profile`}>
+          <ProfileRoute />
+        </PrivateRoute>
+
+        {userHasProfile && <Redirect to={`/${locale}/profile`} />}
+
+        <Route component={NotFound} />
+      </Switch>
+    </LoadingSpinner>
+  );
 };
 
-class App extends React.Component<AppProps> {
-  componentDidMount() {
-    loadUser(store, userManager)
-      .then(user => {
-        if (user) {
-          this.props.fetchApiToken(user.access_token || '');
-        } else {
-          this.props.fetchApiTokenError({ message: 'No user found' });
-        }
-      })
-      .catch(error => {
-        // TODO: Clear oidc local storage when this happens.
-        toast(i18n.t('authentication.loadUserError.message'), {
-          type: toast.TYPE.ERROR,
-        });
-        this.props.fetchApiTokenError(error);
-        Sentry.captureException(error);
-      });
-  }
-
-  public render() {
-    const {
-      isLoadingUser,
-      userHasProfile,
-      match: {
-        params: { locale },
-      },
-    } = this.props;
-
-    return (
-      <LoadingSpinner isLoading={isLoadingUser}>
-        <Switch>
-          <Redirect exact path={`/${locale}/`} to={`/${locale}/home`} />
-          <Route exact path={`/${locale}/home`} component={Home} />
-          <Route
-            exact
-            path={`/${locale}/registration/not-eligible`}
-            component={NotEligible}
-          />
-          <Route
-            exact
-            path={`/${locale}/accessibility`}
-            component={AccessibilityStatement}
-          />
-          <Route exact path={`/${locale}/terms`} component={TermsOfService} />
-          {!userHasProfile && (
-            <PrivateRoute exact path={`/${locale}/registration/form`}>
-              <RegistrationForm />
-            </PrivateRoute>
-          )}
-          <PrivateRoute exact path={`/${locale}/registration/success`}>
-            <Welcome />
-          </PrivateRoute>
-
-          <PrivateRoute path={`/${locale}/profile`}>
-            <Profile />
-          </PrivateRoute>
-
-          {userHasProfile && <Redirect to={`/${locale}/profile`} />}
-
-          <Route component={NotFound} />
-        </Switch>
-      </LoadingSpinner>
-    );
-  }
-}
-
-const mapStateToProps = (state: StoreState) => ({
-  isLoadingUser: isLoadingUserSelector(state),
-  userHasProfile: userHasProfileSelector(state),
-});
-
-const actions = {
-  fetchApiToken: authenticateWithBackend,
-  fetchApiTokenError: fetchTokenError,
-};
-
-export const UnconnectedApp = App;
-export default connect(mapStateToProps, actions)(App);
+export default App;

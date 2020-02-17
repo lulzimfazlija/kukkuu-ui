@@ -15,16 +15,6 @@ export enum Language {
   SV = "SV",
 }
 
-/**
- * An enumeration.
- */
-export enum RelationshipType {
-  ADVOCATE = "ADVOCATE",
-  OTHER_GUARDIAN = "OTHER_GUARDIAN",
-  OTHER_RELATION = "OTHER_RELATION",
-  PARENT = "PARENT",
-}
-
 export enum RelationshipTypeEnum {
   ADVOCATE = "ADVOCATE",
   OTHER_GUARDIAN = "OTHER_GUARDIAN",
@@ -49,6 +39,11 @@ export interface ChildInput {
   relationship?: RelationshipInput | null;
 }
 
+export interface DeleteChildMutationInput {
+  id: string;
+  clientMutationId?: string | null;
+}
+
 export interface GuardianInput {
   firstName: string;
   lastName: string;
@@ -58,6 +53,24 @@ export interface GuardianInput {
 
 export interface RelationshipInput {
   type?: RelationshipTypeEnum | null;
+}
+
+export interface UpdateChildMutationInput {
+  id: string;
+  firstName?: string | null;
+  lastName?: string | null;
+  birthdate?: any | null;
+  postalCode?: string | null;
+  relationship?: RelationshipInput | null;
+  clientMutationId?: string | null;
+}
+
+export interface UpdateMyProfileMutationInput {
+  firstName?: string | null;
+  lastName?: string | null;
+  phoneNumber?: string | null;
+  language?: Language | null;
+  clientMutationId?: string | null;
 }
 
 //==============================================================

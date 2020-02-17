@@ -31,7 +31,6 @@ interface Props {
 
 const HomePreliminaryForm: FunctionComponent<Props> = ({
   setHomeFormValues,
-  stateFormValues,
   isAuthenticated,
   initialValues,
   forwardRef,
@@ -99,7 +98,7 @@ const HomePreliminaryForm: FunctionComponent<Props> = ({
           onSubmit={handleSubmit}
           validate={validate}
         >
-          {({ handleSubmit, isSubmitting, isValid }) => {
+          {({ handleSubmit, isSubmitting }) => {
             return (
               <form onSubmit={handleSubmit} id="homePageForm">
                 <div className={styles.inputWrapper}>

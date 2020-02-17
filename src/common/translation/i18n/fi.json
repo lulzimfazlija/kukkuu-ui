@@ -22,6 +22,13 @@
     },
     "redirect": {
       "text": "Ohjataan tunnistautumiseen..."
+    },
+    "session": {
+      "expired": {
+        "message": "Your session have expired. <br>You will be redirect to homepage. <br>All your current progress will be saved.",
+        "agree": "Jatka rekisteröitymistä",
+        "label": "Sessiosi on vanhentunut"
+      }
     }
   },
   "CHILD_RELATIONSHIP_OPTIONS": {
@@ -86,6 +93,9 @@
         "text": "Peruuta"
       },
       "submit": {
+        "text": "Tallenna"
+      },
+      "save": {
         "text": "Tallenna"
       }
     },
@@ -169,7 +179,8 @@
         "tanssintalo": "Tanssin talo",
         "teatteriilmio": "Teatteri ILMI Ö",
         "teatterimuseo": "Teatterimuseo",
-        "valokuvataiteenmuseo": "Suomen valokuvataiteen museo"
+        "valokuvataiteenmuseo": "Suomen valokuvataiteen museo",
+        "dot": "DOT ry"
       }
     },
     "registration": {
@@ -255,7 +266,11 @@
       "detail": {
         "birthdate": "Lapsen syntymäaika",
         "delete": {
-          "text": "Poista lapsen tiedot"
+          "text": "Poista lapsen tiedot",
+          "prompt": {
+            "heading": "Haluatko varmasti poistaa lapsen tiedot?",
+            "text": "Poistamalla lapsen tiedot, lapsi ei enää saa kutsuja tapahtumiin."
+          }
         },
         "edit": {
           "text": "Päivitä kummilapsen tiedot"
@@ -280,6 +295,11 @@
         "heading": "Tapahtumakutsut"
       },
       "text": "Tänne saapuvat sinulle lähetetyt tapahtumakutsut. Pääset myös ilmoittautumaan tapahtumiin ja perumaan ilmoittautumisen, jos et jostain syystä pääsekään osallistumaan tapahtumaan."
+    },
+    "edit": {
+      "button": {
+        "text": "Muokkaa tietoja"
+      }
     }
   },
   "registration": {

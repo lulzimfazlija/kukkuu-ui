@@ -22,6 +22,13 @@
     },
     "redirect": {
       "text": "Omdirigerar till inloggning..."
+    },
+    "session": {
+      "expired": {
+        "message": "Your session have expired. <br>You will be redirect to homepage. <br>All your current progress will be saved.",
+        "agree": "Fortsätt med registreringen",
+        "label": "Din session har gått ut"
+      }
     }
   },
   "CHILD_RELATIONSHIP_OPTIONS": {
@@ -50,7 +57,7 @@
           }
         },
         "return": {
-          "text": "Return to registration page"
+          "text": "Tillbaka till registreringen"
         }
       }
     }
@@ -65,7 +72,7 @@
     "form": {
       "leave": {
         "warning": {
-          "text": "Är du säker på att du vill lämna sidan? Alla osparade data går förlorade."
+          "text": "Är du säker på att du vill lämna sidan? All osparad information kommer att förloras."
         }
       }
     },
@@ -86,6 +93,9 @@
         "text": "Tillbaka"
       },
       "submit": {
+        "text": "Spara"
+      },
+      "save": {
         "text": "Spara"
       }
     },
@@ -108,7 +118,7 @@
     "heading": "Välkommen som kulturens fadderbarn!",
     "text": "Välkommen!"
   },
-  " Obs! Det går inte att besvara meddelandet.": "",
+  " Obs! Det går inte att svara på detta meddelande.": "",
   "email": {
     "title": "Välkommen som kulturens fadderbarn!"
   },
@@ -143,7 +153,7 @@
     },
     "partners": {
       "heading": {
-        "text": "Samarbetspartner"
+        "text": "Samarbetspartners"
       },
       "partner": {
         "amosrex": "Amos Rex",
@@ -169,7 +179,8 @@
         "tanssintalo": "Dansens hus",
         "teatteriilmio": "Ilmi Ö teater",
         "teatterimuseo": "Teatermuseet",
-        "valokuvataiteenmuseo": "Finlands fotografiska museum"
+        "valokuvataiteenmuseo": "Finlands fotografiska museum",
+        "dot": "Föreningen för Drama Och Teater, DOT r.f."
       }
     },
     "registration": {
@@ -255,7 +266,11 @@
       "detail": {
         "birthdate": "Barnets födelsedatum",
         "delete": {
-          "text": "Radera barnets uppgifter"
+          "text": "Radera barnets uppgifter",
+          "prompt": {
+            "heading": "Är du säker på att du vill radera barnets uppgifter?",
+            "text": "Om du raderar barnets uppgifter kommer du inte längre att få inbjudningar till evenemang."
+          }
         },
         "edit": {
           "text": "Uppdatera barnets uppgifter"
@@ -280,6 +295,11 @@
         "heading": "Eventinbjudningar"
       },
       "text": "Inbjudningar till evenemang som skickats till dig visas här. Du kan också anmäla dig till evenemang och ångra anmälan om du av någon orsak inte kan delta."
+    },
+    "edit": {
+      "button": {
+        "text": "Redigera information"
+      }
     }
   },
   "registration": {
@@ -368,7 +388,7 @@
       },
       "verifyInformation": {
         "input": {
-          "label": "Agree to continue"
+          "label": "Godkänn för att gå vidare"
         }
       }
     },
@@ -401,7 +421,7 @@
       "required": "Obligatoriskt fält"
     },
     "postalCode": {
-      "invalidFormat": "Fel format"
+      "invalidFormat": "Inkorrekt format"
     }
   }
 }

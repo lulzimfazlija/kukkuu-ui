@@ -1,6 +1,5 @@
 export type BackendAuthenticationData = {
   isFetchingToken: boolean;
-  isAuthenticated: boolean;
   apiToken: string | null;
   errors: object;
 };

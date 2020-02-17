@@ -1,8 +1,12 @@
 import client from '../client';
-import childrenQuery from '../../child/queries/ChildQueries';
+import { childrenQuery } from '../../child/queries/ChildQueries';
+
+jest.mock('../../auth/state/AuthenticationSelectors', () => ({
+  apiTokenSelector: () => 'foo',
+}));
 
 describe('graphql client', () => {
-  beforeEach(() => {
+  beforeAll(() => {
     global.fetch.resetMocks();
   });
 
@@ -22,6 +26,6 @@ describe('graphql client', () => {
     } catch (e) {}
 
     const fetchOptions = global.fetch.mock.calls[0][1];
-    expect(fetchOptions.headers).toHaveProperty('Authorization', 'Bearer null');
+    expect(fetchOptions.headers).toHaveProperty('authorization', 'Bearer foo');
   });
 });

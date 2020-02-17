@@ -1,12 +1,39 @@
 # Change Log
 
+# 0.2.0
+
+### Added
+
+[#151](https://github.com/City-of-Helsinki/kukkuu-ui/pull/151) Enhance authentication flow, reduce token fetched on every
+[#159](https://github.com/City-of-Helsinki/kukkuu-ui/pull/159) Add child edit information button
+[#160](https://github.com/City-of-Helsinki/kukkuu-ui/pull/160) Edit profile modal & mutation
+[#161](https://github.com/City-of-Helsinki/kukkuu-ui/pull/161) Add edit child modal
+[#162](https://github.com/City-of-Helsinki/kukkuu-ui/pull/162) Add modal and mutation to edit guardian's information
+[#163](https://github.com/City-of-Helsinki/kukkuu-ui/pull/163) Add edit and delete child mutation
+[#167](https://github.com/City-of-Helsinki/kukkuu-ui/pull/167) Add delete prompt when user try to delete child from edit child modal.
+
+### Changed
+
+- [#172](https://github.com/City-of-Helsinki/kukkuu-ui/pull/172) Adjustments for small screens and modal fixes
+- [#170](https://github.com/City-of-Helsinki/kukkuu-ui/pull/170) Change the MFA logo
+- [#169](https://github.com/City-of-Helsinki/kukkuu-ui/pull/169) Improve analytics
+- [#166](https://github.com/City-of-Helsinki/kukkuu-ui/pull/166) Add max-width for pages with text in them, fix footer links
+- [#165](https://github.com/City-of-Helsinki/kukkuu-ui/pull/165) Profile adjustments: Use adult icon and smaller header
+- [#164](https://github.com/City-of-Helsinki/kukkuu-ui/pull/164) Add Dot and remove Oodi as partners, shrink svg icons
+- [#151](https://github.com/City-of-Helsinki/kukkuu-ui/pull/151) Enhance authentication flow, reduce token fetched on every route changes.
+
+### Fixed
+
+- [#158](https://github.com/City-of-Helsinki/kukkuu-ui/pull/158) Add production NODE_ENV to Travis CI to equivalent with Docker infra build
+- [#151](https://github.com/City-of-Helsinki/kukkuu-ui/pull/151) Enhance authentication flow, reduce token fetched on every route changes.
+
 ## 0.1.2 (February 6th, 2020)
 
 Special thanks to [@hugovk](https://github.com/hugovk) for the first contributions from outside our team!
 
 ### Added
 
-- [#154](https://github.com/City-of-Helsinki/kukkuu-ui/pull/154) Add usage analytics
+- [#154](https://github.com/City-of-Helsinki/kukkuu-ui/pull/154) Add usage analytics (Matomo)
 
 ### Changed
 

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import ReactModal from 'react-modal';
 import { useTranslation } from 'react-i18next';
+import classNames from 'classnames';
 
 import styles from './modal.module.scss';
 import Button from '../button/Button';
@@ -12,7 +13,11 @@ interface ModalProps {
   isOpen: boolean;
   label: string;
   toggleModal: (value: boolean) => void;
-  setFormIsFilling: (value: boolean) => void;
+  setFormIsFilling?: (value: boolean) => void;
+  showLabelIcon?: boolean;
+  showHeading?: boolean;
+  className?: string;
+  icon?: string;
 }
 
 const Modal: React.FunctionComponent<ModalProps> = ({
@@ -21,9 +26,12 @@ const Modal: React.FunctionComponent<ModalProps> = ({
   children,
   toggleModal,
   setFormIsFilling,
+  showLabelIcon = true,
+  className,
+  showHeading = true,
+  icon = happyChildIcon,
 }) => {
   const { t } = useTranslation();
-
   const onClose = () => {
     if (setFormIsFilling) {
       setFormIsFilling(false);
@@ -41,21 +49,20 @@ const Modal: React.FunctionComponent<ModalProps> = ({
           overlayClassName={styles.overlay}
           shouldCloseOnOverlayClick={false}
         >
-          <div className={styles.modalContent}>
-            <Button
-              className={styles.closeButton}
-              onClick={onClose}
-              aria-label={t('common.closeButton.altText')}
-            >
-              <Icon src={closeModalIcon} />
-            </Button>
-            <div className={styles.heading}>
-              {label && (
-                <Icon className={styles.happyChild} src={happyChildIcon} />
-              )}
-              {/* TODO: add a generic Icon */}
-              <h1>{label}</h1>
-            </div>
+          <Button
+            className={styles.closeButton}
+            onClick={onClose}
+            aria-label={t('common.closeButton.altText')}
+          >
+            <Icon src={closeModalIcon} />
+          </Button>
+          <div className={classNames(styles.modalContent, className)}>
+            {showHeading && (
+              <div className={styles.heading}>
+                {showLabelIcon && <Icon className={styles.icon} src={icon} />}
+                {label && <h2>{label}</h2>}
+              </div>
+            )}
             <div className={styles.modalChildren}>{children}</div>
           </div>
         </ReactModal>

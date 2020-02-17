@@ -9,8 +9,9 @@ import PageWrapper from '../../app/layout/PageWrapper';
 
 const NotEligible: FunctionComponent = () => {
   const { t } = useTranslation();
+
   return (
-    <PageWrapper title={'registration.notEligible.title'}>
+    <PageWrapper title={t('registration.notEligible.title')}>
       <div className={styles.home}>
         <div className={styles.hero}>
           <div className={styles.heroContainer}>
