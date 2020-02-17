@@ -3,6 +3,8 @@
 @import 'colors';
 @import 'layout';
 
+$childHeadingMargin: 0.65rem;
+
 .wrapper {
   @include background($hel-light);
 }
@@ -81,8 +83,7 @@
         gap: $baseMargin;
         > div {
           align-self: baseline;
-          // Ensure that the icon is aligned correctly with the first line of the header
-          margin-top: calc(var(--hds-text-xxxl) - $largeMargin);
+          margin-top: $childHeadingMargin;
         }
       }
 
