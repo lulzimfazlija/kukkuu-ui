@@ -25,7 +25,7 @@
 
 .cancelButton {
   @include respond-below(sm) {
-    grid-row: 2/2;
+    grid-row: 2;
   }
   @include button();
   button {
@@ -36,7 +36,7 @@
 
 .submitButton {
   @include respond-below(sm) {
-    grid-row: 1/2;
+    grid-row: 1;
   }
   @include button();
   button {
