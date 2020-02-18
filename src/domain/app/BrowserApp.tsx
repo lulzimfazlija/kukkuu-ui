@@ -33,6 +33,13 @@ const instance = createInstance({
   siteId: 56,
 });
 
+// Pretend that we require consent to process analytics data without asking for it on
+// non-production environments to avoid having analytics from dev environments in Matomo.
+// https://developer.matomo.org/guides/tracking-javascript-guide#step-1-require-consent
+if (process.env.REACT_APP_ENVIRONMENT !== 'production') {
+  window._paq.push(['requireConsent']);
+}
+
 // Export for testing purpose
 export const AppRoutes: FunctionComponent = () => {
   const { i18n } = useTranslation();
