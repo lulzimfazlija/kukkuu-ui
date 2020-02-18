@@ -1,5 +1,11 @@
 # Change Log
 
+# 0.3.0-pre
+
+### Fixed
+
+[#175](https://github.com/City-of-Helsinki/kukkuu-ui/pull/175/) Update CRA, node-sass and apollo to latest, fix dependency security warning.
+
 # 0.2.0
 
 ### Added
