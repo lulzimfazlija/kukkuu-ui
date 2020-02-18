@@ -14,7 +14,7 @@ Modal.setAppElement('#root');
 if (process.env.NODE_ENV !== 'development') {
   Sentry.init({
     dsn: process.env.REACT_APP_SENTRY_DSN,
-    environment: process.env.REACT_APP_SENTRY_ENVIRONMENT,
+    environment: process.env.REACT_APP_ENVIRONMENT,
     release: `${process.env.REACT_APP_APPLICATION_NAME}@${process.env.REACT_APP_VERSION}`,
   });
 }
