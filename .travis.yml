@@ -6,6 +6,9 @@ jobs:
     - stage: 'Build'
       name: 'Run (test) build'
       if: branch IN (master, develop)
-      script: NODE_ENV=production yarn && yarn build
+      env:
+        global:
+          - NODE_ENV=production
+      script: yarn && yarn build
 after_success:
   - ./node_modules/.bin/codecov < coverage/lcov.info
