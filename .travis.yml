@@ -1,19 +1,11 @@
 language: node_js
 node_js:
   - '12'
-cache:
-  yarn: true
-  directories:
-    - node_modules
 jobs:
   include:
-    - stage: 'Test'
-      name: 'Run code linting and test'
-      script: yarn && yarn lint && yarn ci
     - stage: 'Build'
       name: 'Run (test) build'
       if: branch IN (master, develop)
-      env: NODE_ENV=production
-      script: yarn && yarn build
+      script: NODE_ENV=production yarn && yarn build
 after_success:
   - ./node_modules/.bin/codecov < coverage/lcov.info
