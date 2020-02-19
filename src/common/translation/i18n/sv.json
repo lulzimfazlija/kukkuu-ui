@@ -25,9 +25,9 @@
     },
     "session": {
       "expired": {
-        "message": "Your session have expired. <br>You will be redirect to homepage. <br>All your current progress will be saved.",
         "agree": "Fortsätt med registreringen",
-        "label": "Din session har gått ut"
+        "label": "Din session har gått ut",
+        "message": "Your session have expired. <br>You will be redirect to homepage. <br>All your current progress will be saved."
       }
     }
   },
@@ -92,10 +92,10 @@
       "cancel": {
         "text": "Tillbaka"
       },
-      "submit": {
+      "save": {
         "text": "Spara"
       },
-      "save": {
+      "submit": {
         "text": "Spara"
       }
     },
@@ -159,6 +159,7 @@
         "amosrex": "Amos Rex",
         "cirko": "Cirko – Centrumet för nycirkus",
         "designmuseum": "Designmuseet",
+        "dot": "Föreningen för Drama Och Teater, DOT r.f.",
         "hamhelsinki": "Helsingfors konstmuseum HAM",
         "helsinginkaupunginmuseo": "Helsingfors stadsmuseum",
         "helsinginkaupunginorkesteri": "Helsingfors stadsorkester",
@@ -179,8 +180,7 @@
         "tanssintalo": "Dansens hus",
         "teatteriilmio": "Ilmi Ö teater",
         "teatterimuseo": "Teatermuseet",
-        "valokuvataiteenmuseo": "Finlands fotografiska museum",
-        "dot": "Föreningen för Drama Och Teater, DOT r.f."
+        "valokuvataiteenmuseo": "Finlands fotografiska museum"
       }
     },
     "registration": {
@@ -266,11 +266,11 @@
       "detail": {
         "birthdate": "Barnets födelsedatum",
         "delete": {
-          "text": "Radera barnets uppgifter",
           "prompt": {
             "heading": "Är du säker på att du vill radera barnets uppgifter?",
             "text": "Om du raderar barnets uppgifter kommer du inte längre att få inbjudningar till evenemang."
-          }
+          },
+          "text": "Radera barnets uppgifter"
         },
         "edit": {
           "text": "Uppdatera barnets uppgifter"
@@ -289,17 +289,17 @@
         "text": "Inga fadderbarn"
       }
     },
+    "edit": {
+      "button": {
+        "text": "Redigera information"
+      }
+    },
     "heading": "Fadderbarn",
     "noupcomingevents": {
       "hero": {
         "heading": "Eventinbjudningar"
       },
       "text": "Inbjudningar till evenemang som skickats till dig visas här. Du kan också anmäla dig till evenemang och ångra anmälan om du av någon orsak inte kan delta."
-    },
-    "edit": {
-      "button": {
-        "text": "Redigera information"
-      }
     }
   },
   "registration": {
