@@ -21,12 +21,21 @@ const ProfileChild: React.FunctionComponent<ProfileChildProps> = ({
 }) => {
   const history = useHistory();
   const { t } = useTranslation();
+
+  // Change to child.availableEvents when API supports it. Change to true to test.
+  const availableEvents = true;
+
   return (
     <button
       aria-label={t('profile.child.navigateToDetail.buttonLabel')}
       className={styles.childWrapper}
       onClick={() => history.push(`/profile/child/${child.id}`)}
     >
+      {availableEvents && (
+        <div className={styles.invitationLabel}>
+          {t('profile.child.invitationLabel.text')}
+        </div>
+      )}
       <div className={styles.child} role="listitem">
         <div className={styles.childIcon}>
           <Icon src={childIcon} alt={t('profile.child.default.name.text')} />

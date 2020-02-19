@@ -280,6 +280,9 @@
         },
         "phoneNumber": "Puhelinnumero"
       },
+      "invitationLabel": {
+        "text": "Uusi kutsu!"
+      },
       "navigateToDetail": {
         "buttonLabel": "Näytä Kummilapsen tiedot"
       }

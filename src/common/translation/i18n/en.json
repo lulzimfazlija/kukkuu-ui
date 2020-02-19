@@ -280,6 +280,9 @@
         },
         "phoneNumber": "Guardian’s telephone number"
       },
+      "invitationLabel": {
+        "text": "New invitation!"
+      },
       "navigateToDetail": {
         "buttonLabel": "Navigate to child detail"
       }

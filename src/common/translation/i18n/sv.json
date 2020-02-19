@@ -280,6 +280,9 @@
         },
         "phoneNumber": "Telefonnummer"
       },
+      "invitationLabel": {
+        "text": "Ny inbjudan!"
+      },
       "navigateToDetail": {
         "buttonLabel": "Gå till barnets uppgifter"
       }
