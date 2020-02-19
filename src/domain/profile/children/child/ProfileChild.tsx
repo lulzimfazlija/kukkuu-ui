@@ -41,11 +41,11 @@ const ProfileChild: React.FunctionComponent<ProfileChildProps> = ({
           <Icon src={childIcon} alt={t('profile.child.default.name.text')} />
         </div>
         <div className={styles.childInfo}>
-          <p>
+          <h3>
             {child.firstName
               ? `${child.firstName} ${child.lastName}`
               : t('profile.child.default.name.text')}
-          </p>
+          </h3>
           <div className={styles.childBirthdate}>
             <Icon
               src={birthdayIcon}
