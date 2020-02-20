@@ -25,9 +25,9 @@
     },
     "session": {
       "expired": {
-        "message": "Your session is expired and you have been logged out.",
         "agree": "Continue",
-        "label": "Session expired"
+        "label": "Session expired",
+        "message": "Your session is expired and you have been logged out."
       }
     }
   },
@@ -92,11 +92,11 @@
       "cancel": {
         "text": "Cancel"
       },
-      "submit": {
-        "text": "Submit"
-      },
       "save": {
         "text": "Save"
+      },
+      "submit": {
+        "text": "Submit"
       }
     },
     "profile": {
@@ -159,6 +159,7 @@
         "amosrex": "Amos Rex",
         "cirko": "Cirko – Center for New Circus",
         "designmuseum": "Design Museum",
+        "dot": "The Association of Drama and Theatre",
         "hamhelsinki": "Helsinki Art Museum - HAM",
         "helsinginkaupunginmuseo": "Helsinki City Museum",
         "helsinginkaupunginorkesteri": "Helsinki Philharmonic Orchestra",
@@ -179,8 +180,7 @@
         "tanssintalo": "Dance House Helsinki",
         "teatteriilmio": "Theatre Ilmi Ö",
         "teatterimuseo": "Theatre Museum",
-        "valokuvataiteenmuseo": "Finnish Museum of Photography",
-        "dot": "The Association of Drama and Theatre"
+        "valokuvataiteenmuseo": "Finnish Museum of Photography"
       }
     },
     "registration": {
@@ -266,11 +266,11 @@
       "detail": {
         "birthdate": "Child's date of birth",
         "delete": {
-          "text": "Remove child profile",
           "prompt": {
             "heading": "Are you sure you want to delete the child's information?",
             "text": "By removing the child's information you will stop receiving invites to events."
-          }
+          },
+          "text": "Remove child profile"
         },
         "edit": {
           "text": "Update child information"
@@ -279,6 +279,9 @@
           "title": "Child detail page"
         },
         "phoneNumber": "Guardian’s telephone number"
+      },
+      "invitationLabel": {
+        "text": "New invitation!"
       },
       "navigateToDetail": {
         "buttonLabel": "Navigate to child detail"
@@ -289,17 +292,17 @@
         "text": "No children have been added"
       }
     },
+    "edit": {
+      "button": {
+        "text": "Edit information"
+      }
+    },
     "heading": "Culture Kids",
     "noupcomingevents": {
       "hero": {
         "heading": "Event invitations"
       },
       "text": "Event invitations sent to you will be displayed here. You can sign up for events and cancel your attendance if you, for some reason, are unable to attend."
-    },
-    "edit": {
-      "button": {
-        "text": "Edit information"
-      }
     }
   },
   "registration": {

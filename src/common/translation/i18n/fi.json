@@ -25,9 +25,9 @@
     },
     "session": {
       "expired": {
-        "message": "Your session have expired. <br>You will be redirect to homepage. <br>All your current progress will be saved.",
         "agree": "Jatka rekisteröitymistä",
-        "label": "Sessiosi on vanhentunut"
+        "label": "Sessiosi on vanhentunut",
+        "message": "Your session have expired. <br>You will be redirect to homepage. <br>All your current progress will be saved."
       }
     }
   },
@@ -92,10 +92,10 @@
       "cancel": {
         "text": "Peruuta"
       },
-      "submit": {
+      "save": {
         "text": "Tallenna"
       },
-      "save": {
+      "submit": {
         "text": "Tallenna"
       }
     },
@@ -159,6 +159,7 @@
         "amosrex": "Amos Rex",
         "cirko": "Cirko – Uuden sirkuksen keskus",
         "designmuseum": "Designmuseo",
+        "dot": "DOT ry",
         "hamhelsinki": "Helsingin taidemuseo HAM",
         "helsinginkaupunginmuseo": "Helsingin kaupunginmuseo",
         "helsinginkaupunginorkesteri": "Helsingin kaupunginorkesteri",
@@ -179,8 +180,7 @@
         "tanssintalo": "Tanssin talo",
         "teatteriilmio": "Teatteri ILMI Ö",
         "teatterimuseo": "Teatterimuseo",
-        "valokuvataiteenmuseo": "Suomen valokuvataiteen museo",
-        "dot": "DOT ry"
+        "valokuvataiteenmuseo": "Suomen valokuvataiteen museo"
       }
     },
     "registration": {
@@ -266,11 +266,11 @@
       "detail": {
         "birthdate": "Lapsen syntymäaika",
         "delete": {
-          "text": "Poista lapsen tiedot",
           "prompt": {
             "heading": "Haluatko varmasti poistaa lapsen tiedot?",
             "text": "Poistamalla lapsen tiedot, lapsi ei enää saa kutsuja tapahtumiin."
-          }
+          },
+          "text": "Poista lapsen tiedot"
         },
         "edit": {
           "text": "Päivitä kummilapsen tiedot"
@@ -279,6 +279,9 @@
           "title": "Kummilapsen tiedot"
         },
         "phoneNumber": "Puhelinnumero"
+      },
+      "invitationLabel": {
+        "text": "Uusi kutsu!"
       },
       "navigateToDetail": {
         "buttonLabel": "Näytä Kummilapsen tiedot"
@@ -289,17 +292,17 @@
         "text": "Ei kummilapsia"
       }
     },
+    "edit": {
+      "button": {
+        "text": "Muokkaa tietoja"
+      }
+    },
     "heading": "Kummilapset",
     "noupcomingevents": {
       "hero": {
         "heading": "Tapahtumakutsut"
       },
       "text": "Tänne saapuvat sinulle lähetetyt tapahtumakutsut. Pääset myös ilmoittautumaan tapahtumiin ja perumaan ilmoittautumisen, jos et jostain syystä pääsekään osallistumaan tapahtumaan."
-    },
-    "edit": {
-      "button": {
-        "text": "Muokkaa tietoja"
-      }
     }
   },
   "registration": {
