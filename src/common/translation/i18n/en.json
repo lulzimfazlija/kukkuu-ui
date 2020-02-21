@@ -122,6 +122,13 @@
   "email": {
     "title": "Welcome to the Culture Kids programme!"
   },
+  "event": {
+    "register": {
+      "form": {
+        "header": "Register"
+      }
+    }
+  },
   "footer": {
     "copyrightText": "© Copyright 2020 • All rights reserved"
   },

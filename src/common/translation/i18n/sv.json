@@ -122,6 +122,13 @@
   "email": {
     "title": "Välkommen som kulturens fadderbarn!"
   },
+  "event": {
+    "register": {
+      "form": {
+        "header": "Anmäl dig"
+      }
+    }
+  },
   "footer": {
     "copyrightText": "© Copyright 2020 • Alla rättigheter förbehållna"
   },

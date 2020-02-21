@@ -122,6 +122,13 @@
   "email": {
     "title": "Tervetuloa Kulttuurin kummilapsiin!"
   },
+  "event": {
+    "register": {
+      "form": {
+        "header": "Ilmoittaudu"
+      }
+    }
+  },
   "footer": {
     "copyrightText": "© Copyright 2020 • Kaikki oikeudet pidätetään"
   },
