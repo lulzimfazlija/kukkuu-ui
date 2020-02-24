@@ -26,7 +26,7 @@ import {
   fetchTokenError,
 } from '../auth/state/BackendAuthenticationActions';
 import ProfileRoute from '../profile/route/ProfileRoute';
-import Event from '../event/Event';
+import EventRoute from '../event/route/EventRoute';
 
 const App: React.FunctionComponent = props => {
   const isLoadingUser = useSelector(isLoadingUserSelector);
@@ -97,7 +97,7 @@ const App: React.FunctionComponent = props => {
           // we're waiting for KK-277.
         }
         <PrivateRoute path={`/${locale}/event`}>
-          <Event />
+          <EventRoute />
         </PrivateRoute>
 
         {userHasProfile && <Redirect to={`/${locale}/profile`} />}
