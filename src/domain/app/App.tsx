@@ -92,10 +92,6 @@ const App: React.FunctionComponent = props => {
           <ProfileRoute />
         </PrivateRoute>
 
-        {
-          // TODO: The route should probably be /profile/child/${child.id}/events/${event.id}
-          // we're waiting for KK-277.
-        }
         <PrivateRoute path={`/${locale}/event`}>
           <EventRoute />
         </PrivateRoute>
