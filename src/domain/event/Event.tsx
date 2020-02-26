@@ -1,7 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Formik } from 'formik';
-import { useHistory } from 'react-router';
+import { useHistory, useParams } from 'react-router';
+import { useQuery } from '@apollo/react-hooks';
+import * as Sentry from '@sentry/browser';
 
 import Icon from '../../common/components/icon/Icon';
 import styles from './event.module.scss';
@@ -11,7 +13,10 @@ import backIcon from '../../assets/icons/svg/arrowLeft.svg';
 import EnhancedInputField from '../../common/components/form/fields/input/EnhancedInputField';
 import SelectField from '../../common/components/form/fields/select/SelectField';
 import Button from '../../common/components/button/Button';
-
+import eventQuery from './queries/eventQuery';
+import { eventQuery as eventQueryType } from '../api/generatedTypes/eventQuery';
+import LoadingSpinner from '../../common/components/spinner/LoadingSpinner';
+import EventOccurrenceList from './EventOccurrenceList';
 interface SignupValues {
   date: string;
   time: string;
@@ -20,6 +25,22 @@ interface SignupValues {
 const Event: FunctionComponent = () => {
   const history = useHistory();
   const { t } = useTranslation();
+  const params = useParams<{ eventId: string }>();
+  const { loading, error, data } = useQuery<eventQueryType>(eventQuery, {
+    variables: {
+      id: params.eventId,
+    },
+  });
+
+  if (loading) return <LoadingSpinner isLoading={true} />;
+  if (error) {
+    Sentry.captureException(error);
+    return (
+      <PageWrapper>
+        <div className={styles.event}>{t('api.errorMessage')}</div>
+      </PageWrapper>
+    );
+  }
 
   const initialValues: SignupValues = {
     date: '',
@@ -31,17 +52,21 @@ const Event: FunctionComponent = () => {
     // OR filter in js.
   };
 
-  // TODO: Get from API (all todo's are pending that)
+  // TODO: Build options based on occurrences from the api
   const selectOptions = [
     { value: 1, label: 'one' },
     { value: 2, label: 'two' },
   ];
-  // TODO:
-  const bgImageUrl =
-    'https://edit.myhelsinki.fi/sites/default/files/styles/hero_image/public/2019-12/flow_festival_2019_friday_c_petri_anttila_mg_0397.jpg';
-  const backgroundImageStyle = {
-    backgroundImage: `url("${bgImageUrl}")`,
-  };
+
+  const backgroundImageStyle = data?.event?.image
+    ? {
+        backgroundImage: `url("${data.event.image}")`,
+      }
+    : {};
+
+  const participantsPerInvite = data?.event?.participantsPerInvite
+    ? t(`event.participantsPerInviteEnum.${data.event.participantsPerInvite}`)
+    : '';
 
   return (
     <>
@@ -65,17 +90,14 @@ const Event: FunctionComponent = () => {
         <div className={styles.eventWrapper} role="main">
           <div className={styles.event}>
             <div className={styles.heading}>
-              <h1>TODO: Tervetuloa Nalle Nappisilmän syyskonserttiin Emil!</h1>
+              <h1>{data?.event?.name}</h1>
             </div>
-            <div className={styles.description}>
-              TODO: Lorem ipsum description
-            </div>
+            <div className={styles.description}>{data?.event?.description}</div>
             <div className={styles.register}>
               <h2>{t('event.register.form.header')}</h2>
-
               <div className={styles.attendees}>
                 <Icon src={personIcon} className={styles.icon} />
-                TODO: 1 lapsi + 1 huoltaja
+                {participantsPerInvite}
               </div>
               <div className={styles.signup}>
                 <Formik
@@ -112,6 +134,9 @@ const Event: FunctionComponent = () => {
                 </Formik>
               </div>
             </div>
+            {data?.event?.occurrences && (
+              <EventOccurrenceList edges={data.event.occurrences.edges} />
+            )}
           </div>
         </div>
       </PageWrapper>
