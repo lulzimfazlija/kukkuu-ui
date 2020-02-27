@@ -17,9 +17,6 @@ import { getCurrentLanguage } from '../../common/translation/TranslationUtils';
 // Now it is only correct after page reloads.
 const httpLink = createHttpLink({
   uri: process.env.REACT_APP_API_URI,
-  headers: {
-    'accept-language': getCurrentLanguage(i18n),
-  },
 });
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
@@ -52,6 +49,7 @@ const authLink = setContext((_, { headers }) => {
     headers: {
       ...headers,
       authorization: token ? `Bearer ${token}` : null,
+      'accept-language': getCurrentLanguage(i18n),
     },
   };
 });
