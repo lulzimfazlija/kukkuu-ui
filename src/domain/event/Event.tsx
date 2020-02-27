@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Formik } from 'formik';
-import { useHistory, useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import * as Sentry from '@sentry/browser';
 
@@ -86,7 +86,7 @@ const Event: FunctionComponent = () => {
         </div>
       </div>
 
-      <PageWrapper className={styles.wrapper} title={'event'}>
+      <PageWrapper className={styles.wrapper} title={data?.event?.name || ''}>
         <div className={styles.eventWrapper} role="main">
           <div className={styles.event}>
             <div className={styles.heading}>
