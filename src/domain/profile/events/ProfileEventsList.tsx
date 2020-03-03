@@ -124,6 +124,9 @@ const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
                   }
                   actionText={t('TODO: go to event details')}
                   focalContent={generateInfoRow(enrolmentEdge.node.occurrence)}
+                  qr={
+                    'Hello World! We need a longer string to see a nicer looking QR Code. You just earned 10 points for reading this text, congratulations!'
+                  }
                 >
                   <p>{enrolmentEdge.node.occurrence.event.shortDescription}</p>
                 </Card>

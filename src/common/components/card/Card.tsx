@@ -1,5 +1,6 @@
 import React, { FunctionComponent, ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useQrEncode } from 'react-qr-hooks';
 
 import angleDownIcon from '../../../assets/icons/svg/angleDown.svg';
 import styles from './card.module.scss';
@@ -14,6 +15,7 @@ interface CardProps {
   primaryAction?: () => void;
   primaryActionText?: string;
   title: string;
+  qr?: string;
 }
 
 const Card: FunctionComponent<CardProps> = ({
@@ -25,14 +27,20 @@ const Card: FunctionComponent<CardProps> = ({
   primaryAction,
   primaryActionText,
   title,
+  qr = '',
 }) => {
   const { t } = useTranslation();
+
+  // useQREncode is a hook so it must always be run in the same order, and
+  // if run on an empty string it returns.. null
+  const encodedQR = useQrEncode(qr);
+  const cardImage = encodedQR ? encodedQR : image;
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.start}>
         {/* TODO: alt, size */}
-        <img src={image} alt={'alt'} width="200" height="200" />
+        <img src={cardImage} alt={'alt'} width="200" height="200" />
       </div>
 
       <div className={styles.middle}>
