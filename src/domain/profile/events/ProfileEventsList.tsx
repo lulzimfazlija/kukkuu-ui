@@ -88,7 +88,7 @@ const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
 
   return (
     <>
-      {availableEvents && availableEvents.edges.length !== 0 && (
+      {availableEvents?.edges?.[0] && (
         <>
           <h2>{t('TODO: event invites')}</h2> {/* TODO */}
           {availableEvents.edges.map(
@@ -109,13 +109,14 @@ const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
           )}
         </>
       )}
-      {enrolments && (
+      {enrolments.edges?.[0] && (
         <>
           <h2>{t('TODO: upcoming events')}</h2>
           {enrolments.edges.map(
             enrolmentEdge =>
               enrolmentEdge?.node?.occurrence && (
                 <Card
+                  className={styles.enrolment}
                   key={enrolmentEdge.node.occurrence.event.id}
                   image={enrolmentEdge.node.occurrence.event.image}
                   title={enrolmentEdge.node.occurrence.event.name || ''}
@@ -124,9 +125,7 @@ const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
                   }
                   actionText={t('TODO: go to event details')}
                   focalContent={generateInfoRow(enrolmentEdge.node.occurrence)}
-                  qr={
-                    'Hello World! We need a longer string to see a nicer looking QR Code. You just earned 10 points for reading this text, congratulations!'
-                  }
+                  qr={'Hello World - this works'}
                 >
                   <p>{enrolmentEdge.node.occurrence.event.shortDescription}</p>
                 </Card>
@@ -134,7 +133,7 @@ const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
           )}
         </>
       )}
-      {pastEvents && pastEvents.edges.length !== 0 && (
+      {pastEvents?.edges?.[0] && (
         <>
           <h2>{t('TODO: past events')}</h2>
           {pastEvents.edges.map(

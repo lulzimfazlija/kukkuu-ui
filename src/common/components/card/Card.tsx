@@ -1,6 +1,7 @@
 import React, { FunctionComponent, ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useQrEncode } from 'react-qr-hooks';
+import classnames from 'classnames';
+import { QRCode } from 'react-qrcode-logo';
 
 import angleDownIcon from '../../../assets/icons/svg/angleDown.svg';
 import styles from './card.module.scss';
@@ -10,37 +11,37 @@ import Icon from '../icon/Icon';
 interface CardProps {
   action: () => void;
   actionText: string;
+  alt?: string;
+  className?: string;
   focalContent?: ReactNode;
   image: string;
   primaryAction?: () => void;
   primaryActionText?: string;
-  title: string;
   qr?: string;
+  title: string;
 }
 
 const Card: FunctionComponent<CardProps> = ({
   action,
   actionText,
+  alt = '',
   children,
+  className,
   focalContent,
   image,
   primaryAction,
   primaryActionText,
+  qr,
   title,
-  qr = '',
 }) => {
   const { t } = useTranslation();
 
-  // useQREncode is a hook so it must always be run in the same order, and
-  // if run on an empty string it returns.. null
-  const encodedQR = useQrEncode(qr);
-  const cardImage = encodedQR ? encodedQR : image;
-
   return (
     <div className={styles.wrapper}>
-      <div className={styles.start}>
-        {/* TODO: alt, size */}
-        <img src={cardImage} alt={'alt'} width="200" height="200" />
+      <div className={classnames(styles.card, className)}>
+        {/* TODO: size */}
+        <img src={image} alt={alt} width="200" height="200" />
+        {qr && <QRCode value={qr} ecLevel={'H'} />}
       </div>
 
       <div className={styles.middle}>
