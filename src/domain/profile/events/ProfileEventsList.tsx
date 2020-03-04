@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router';
+import { QRCode } from 'react-qrcode-logo';
 
 import Card from '../../../common/components/card/Card';
 import {
@@ -27,7 +28,6 @@ interface ProfileEventsListProps {
 }
 
 const EVENT_DURATION_MINUTES = 30; // TODO: huh?
-
 const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
   availableEvents,
   enrolments,
@@ -120,12 +120,14 @@ const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
                   key={enrolmentEdge.node.occurrence.event.id}
                   image={enrolmentEdge.node.occurrence.event.image}
                   title={enrolmentEdge.node.occurrence.event.name || ''}
+                  extraElement={
+                    <QRCode value={'Hello World - this works'} ecLevel={'H'} />
+                  }
                   action={() =>
                     gotoEventPage(enrolmentEdge.node?.occurrence.event.id || '')
                   }
                   actionText={t('TODO: go to event details')}
                   focalContent={generateInfoRow(enrolmentEdge.node.occurrence)}
-                  qr={'Hello World - this works'}
                 >
                   <p>{enrolmentEdge.node.occurrence.event.shortDescription}</p>
                 </Card>

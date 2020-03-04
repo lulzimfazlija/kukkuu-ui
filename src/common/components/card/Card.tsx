@@ -1,7 +1,6 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FunctionComponent, ReactNode, ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import classnames from 'classnames';
-import { QRCode } from 'react-qrcode-logo';
 
 import angleDownIcon from '../../../assets/icons/svg/angleDown.svg';
 import styles from './card.module.scss';
@@ -13,6 +12,7 @@ interface CardProps {
   actionText: string;
   alt?: string;
   className?: string;
+  extraElement?: ReactElement;
   focalContent?: ReactNode;
   image: string;
   primaryAction?: () => void;
@@ -27,11 +27,11 @@ const Card: FunctionComponent<CardProps> = ({
   alt = '',
   children,
   className,
+  extraElement,
   focalContent,
   image,
   primaryAction,
   primaryActionText,
-  qr,
   title,
 }) => {
   const { t } = useTranslation();
@@ -41,7 +41,7 @@ const Card: FunctionComponent<CardProps> = ({
       <div className={classnames(styles.card, className)}>
         {/* TODO: size */}
         <img src={image} alt={alt} width="200" height="200" />
-        {qr && <QRCode value={qr} ecLevel={'H'} />}
+        {extraElement}
       </div>
 
       <div className={styles.middle}>
