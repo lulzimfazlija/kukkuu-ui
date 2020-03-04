@@ -11,13 +11,13 @@ interface CardProps {
   action: () => void;
   actionText: string;
   alt?: string;
+  children: ReactNode;
   className?: string;
   extraElement?: ReactElement;
   focalContent?: ReactNode;
   image: string;
   primaryAction?: () => void;
   primaryActionText?: string;
-  qr?: string;
   title: string;
 }
 
