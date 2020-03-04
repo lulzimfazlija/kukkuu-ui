@@ -117,7 +117,68 @@
   "email": {
     "title": "Welcome to the Culture Kids programme!"
   },
+  "enrollment ": {
+    "successToast": {
+      "paragraph": "We sent you a confirmation message by email where you can find more information about the event"
+    }
+  },
+  "enrollment": {
+    "button": {
+      "occurenceFull": "Full",
+      "queue": "Join queue",
+      "selectOccurence": "Choose"
+    },
+    "confirmation page": {
+      "cancel": {
+        "button": "Back to event selection"
+      },
+      "confirm": {
+        "button": "Register for event"
+      },
+      "heading ": "Register for event $name"
+    },
+    "enroll": {
+      "buttonText": "Register for event"
+    },
+    "heading": "Register",
+    "selectDate": "Choose date",
+    "selectLanguage": "Choose event language",
+    "selectlocation": "Choose event location",
+    "selectTime": "Choose time",
+    "showEventInfo": {
+      "buttonText": "Show event details"
+    },
+    "successToas": {
+      "heading": "Registration for event successful"
+    }
+  },
   "event": {
+    "additionalInformation01": {
+      "heading": "Arrival"
+    },
+    "additionalinformation02": {
+      "heading": "Accessibility"
+    },
+    "additionalinformation03": {
+      "heading": "WC and child care room"
+    },
+    "additionalinformation04": {
+      "heading": "Other services available at the event"
+    },
+    "cancellation": {
+      "buttonText": "Cancel registration",
+      "confirmationModal": {
+        "cancel": {
+          "buttonText": "Return to the event page"
+        },
+        "confirm": {
+          "buttonText": "Cancel participation"
+        },
+        "heading": "Are you sure you want to cancel your participation?"
+      },
+      "heading": "",
+      "paragraph": "Please remember to cancel your participation in case you are not able to attend the event so that another child is able to take your place. Thank you!"
+    },
     "participantsPerInviteEnum": {
       "CHILD_AND_GUARDIAN": "1 child + 1 guardian",
       "FAMILY": "Family"
@@ -309,6 +370,17 @@
     "edit": {
       "button": {
         "text": "Edit information"
+      }
+    },
+    "events": {
+      "past": {
+        "heading": "Past events"
+      },
+      "invitations": {
+        "heading": "Event invitations"
+      },
+      "upcoming": {
+        "heading": "Upcoming events"
       }
     },
     "heading": "Culture Kids",

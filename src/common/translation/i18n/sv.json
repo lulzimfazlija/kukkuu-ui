@@ -25,7 +25,7 @@
     },
     "session": {
       "expired": {
-        "agree": "Fortsätt med registreringen",
+        "agree": "Fortsätt",
         "label": "Din session har gått ut",
         "message": "Your session have expired. <br>You will be redirect to homepage. <br>All your current progress will be saved."
       }
@@ -117,7 +117,68 @@
   "email": {
     "title": "Välkommen som kulturens fadderbarn!"
   },
+  "enrollment ": {
+    "successToast": {
+      "paragraph": ""
+    }
+  },
+  "enrollment": {
+    "button": {
+      "occurenceFull": "",
+      "queue": "",
+      "selectOccurence": ""
+    },
+    "confirmation page": {
+      "cancel": {
+        "button": ""
+      },
+      "confirm": {
+        "button": ""
+      },
+      "heading ": ""
+    },
+    "enroll": {
+      "buttonText": ""
+    },
+    "heading": "",
+    "selectDate": "",
+    "selectLanguage": "",
+    "selectlocation": "",
+    "selectTime": "",
+    "showEventInfo": {
+      "buttonText": ""
+    },
+    "successToas": {
+      "heading": ""
+    }
+  },
   "event": {
+    "additionalInformation01": {
+      "heading": ""
+    },
+    "additionalinformation02": {
+      "heading": ""
+    },
+    "additionalinformation03": {
+      "heading": ""
+    },
+    "additionalinformation04": {
+      "heading": ""
+    },
+    "cancellation": {
+      "buttonText": "",
+      "confirmationModal": {
+        "cancel": {
+          "buttonText": ""
+        },
+        "confirm": {
+          "buttonText": ""
+        },
+        "heading": ""
+      },
+      "heading": "",
+      "paragraph": ""
+    },
     "participantsPerInviteEnum": {
       "CHILD_AND_GUARDIAN": "1 barn + 1 närstående",
       "FAMILY": "Familj"
@@ -309,6 +370,17 @@
     "edit": {
       "button": {
         "text": "Redigera information"
+      }
+    },
+    "events": {
+      "past": {
+        "heading": ""
+      },
+      "invitations": {
+        "heading": "Eventinbjudningar"
+      },
+      "upcoming": {
+        "heading": ""
       }
     },
     "heading": "Fadderbarn",

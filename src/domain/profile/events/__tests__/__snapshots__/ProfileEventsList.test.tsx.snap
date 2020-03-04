@@ -3,16 +3,15 @@
 exports[`Renders snapshot correctly 1`] = `
 <Fragment>
   <h2>
-     event invites
+    Tapahtumakutsut
   </h2>
-   
   <Card
     action={[Function]}
-    actionText=" go to event details"
+    actionText="Ilmoittaudu tapahtumaan"
     image="http://localhost:8081/media/2020-02-15-184035_1920x1080_scrot.png"
     key="RXZlbnROb2RlOjE="
     primaryAction={[Function]}
-    primaryActionText=" tickets"
+    primaryActionText="Ilmoittaudu tapahtumaan"
     title="pentti"
   >
     <p>
@@ -20,11 +19,25 @@ exports[`Renders snapshot correctly 1`] = `
     </p>
   </Card>
   <h2>
-     upcoming events
+    Tulevat tapahtumat
   </h2>
   <Card
     action={[Function]}
-    actionText=" go to event details"
+    actionText="Näytä tapahtuman tiedot"
+    className="enrolment"
+    extraElement={
+      <QRCode
+        bgColor="#FFFFFF"
+        ecLevel="H"
+        enableCORS={false}
+        fgColor="#000000"
+        logoOpacity={1}
+        qrStyle="squares"
+        quietZone={10}
+        size={150}
+        value="Hello World - this works"
+      />
+    }
     focalContent={
       <div
         className="row"
@@ -76,11 +89,11 @@ exports[`Renders snapshot correctly 1`] = `
     </p>
   </Card>
   <h2>
-     past events
+    Menneet tapahtumat
   </h2>
   <Card
     action={[Function]}
-    actionText=" go to event details"
+    actionText="Näytä tapahtuman tiedot"
     image="http://localhost:8081/media/2020-02-15-184035_1920x1080_scrot.png"
     key="RXZlbnROb2RlOjE="
     title="pentti"

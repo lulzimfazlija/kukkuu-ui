@@ -90,7 +90,7 @@ const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
     <>
       {availableEvents?.edges?.[0] && (
         <>
-          <h2>{t('TODO: event invites')}</h2> {/* TODO */}
+          <h2>{t('profile.events.invitations.heading')}</h2>
           {availableEvents.edges.map(
             eventEdge =>
               eventEdge?.node && (
@@ -99,9 +99,9 @@ const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
                   image={eventEdge.node.image}
                   title={eventEdge.node.name || ''} // TODO
                   action={() => gotoEventPage(eventEdge.node?.id || '')} // TODO
-                  actionText={t('TODO: go to event details')} // TODO
+                  actionText={t('enrollment.enroll.buttonText')}
                   primaryAction={() => gotoEventPage(eventEdge.node?.id || '')} // TODO
-                  primaryActionText={t('TODO: tickets')} // TODO
+                  primaryActionText={t('enrollment.enroll.buttonText')}
                 >
                   <p>{eventEdge.node.shortDescription}</p>
                 </Card>
@@ -111,7 +111,7 @@ const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
       )}
       {enrolments.edges?.[0] && (
         <>
-          <h2>{t('TODO: upcoming events')}</h2>
+          <h2>{t('profile.events.upcoming.heading')}</h2>
           {enrolments.edges.map(
             enrolmentEdge =>
               enrolmentEdge?.node?.occurrence && (
@@ -126,7 +126,7 @@ const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
                   action={() =>
                     gotoEventPage(enrolmentEdge.node?.occurrence.event.id || '')
                   }
-                  actionText={t('TODO: go to event details')}
+                  actionText={t('enrollment.showEventInfo.buttonText')}
                   focalContent={generateInfoRow(enrolmentEdge.node.occurrence)}
                 >
                   <p>{enrolmentEdge.node.occurrence.event.shortDescription}</p>
@@ -137,7 +137,7 @@ const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
       )}
       {pastEvents?.edges?.[0] && (
         <>
-          <h2>{t('TODO: past events')}</h2>
+          <h2>{t('profile.events.past.heading')}</h2>
           {pastEvents.edges.map(
             pastEventEdge =>
               pastEventEdge?.node && (
@@ -146,7 +146,7 @@ const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
                   image={pastEventEdge.node.image}
                   title={pastEventEdge.node.name || ''}
                   action={() => gotoEventPage(pastEventEdge.node?.id || '')}
-                  actionText={t('TODO: go to event details')}
+                  actionText={t('enrollment.showEventInfo.buttonText')}
                 >
                   <p>{pastEventEdge.node.shortDescription}</p>
                 </Card>

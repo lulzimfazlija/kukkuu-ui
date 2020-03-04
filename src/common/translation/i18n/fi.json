@@ -25,7 +25,7 @@
     },
     "session": {
       "expired": {
-        "agree": "Jatka rekisteröitymistä",
+        "agree": "Jatka",
         "label": "Sessiosi on vanhentunut",
         "message": "Your session have expired. <br>You will be redirect to homepage. <br>All your current progress will be saved."
       }
@@ -117,7 +117,68 @@
   "email": {
     "title": "Tervetuloa Kulttuurin kummilapsiin!"
   },
+  "enrollment ": {
+    "successToast": {
+      "paragraph": "Lähetimme varmistusviestin sähköpostiisi, löydät sieltä tapahtuman lisätiedot"
+    }
+  },
+  "enrollment": {
+    "button": {
+      "occurenceFull": "Täynnä",
+      "queue": "Jonoon",
+      "selectOccurence": "Valitse"
+    },
+    "confirmation page": {
+      "cancel": {
+        "button": "Takaisin tapahtuman valintaan"
+      },
+      "confirm": {
+        "button": "Ilmoittaudu tapahtumaan"
+      },
+      "heading ": "Ilmoittaudu tapahtumaan #eventName#"
+    },
+    "enroll": {
+      "buttonText": "Ilmoittaudu tapahtumaan"
+    },
+    "heading": "Ilmoittaudu",
+    "selectDate": "Valitse päivämäärä",
+    "selectLanguage": "Valitse tapahtuman kieli",
+    "selectlocation": "Valitse tapahtumapaikka",
+    "selectTime": "Valitse kellonaika",
+    "showEventInfo": {
+      "buttonText": "Näytä tapahtuman tiedot"
+    },
+    "successToas": {
+      "heading": "Tapahtumaan ilmoittautuminen onnistui! "
+    }
+  },
   "event": {
+    "additionalInformation01": {
+      "heading": "Saapuminen"
+    },
+    "additionalinformation02": {
+      "heading": "Esteettömyys"
+    },
+    "additionalinformation03": {
+      "heading": "WC-tilat ja lastenhoitohuone"
+    },
+    "additionalinformation04": {
+      "heading": "Muut palvelut"
+    },
+    "cancellation": {
+      "buttonText": "Peru ilmoittautuminen",
+      "confirmationModal": {
+        "cancel": {
+          "buttonText": "Palaa tapahtuman sivulle"
+        },
+        "confirm": {
+          "buttonText": "Peru ilmoittautuminen"
+        },
+        "heading": "Haluatko varmasti perua tapahtumaan ilmoittautumisen?"
+      },
+      "heading": "",
+      "paragraph": "Mikäli et pysty osallistumaan tapahtumaan, muistathan perua sen, jotta joku muu pääsee halutessaan osallistumaan tapahtumaan. Kiitos :)"
+    },
     "participantsPerInviteEnum": {
       "CHILD_AND_GUARDIAN": "1 lapsi + 1 huoltaja",
       "FAMILY": "Perhe"
@@ -309,6 +370,17 @@
     "edit": {
       "button": {
         "text": "Muokkaa tietoja"
+      }
+    },
+    "events": {
+      "past": {
+        "heading": "Menneet tapahtumat"
+      },
+      "invitations": {
+        "heading": "Tapahtumakutsut"
+      },
+      "upcoming": {
+        "heading": "Tulevat tapahtumat"
       }
     },
     "heading": "Kummilapset",

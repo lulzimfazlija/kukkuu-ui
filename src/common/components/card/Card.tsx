@@ -1,5 +1,4 @@
 import React, { FunctionComponent, ReactNode, ReactElement } from 'react';
-import { useTranslation } from 'react-i18next';
 import classnames from 'classnames';
 
 import angleDownIcon from '../../../assets/icons/svg/angleDown.svg';
@@ -34,8 +33,6 @@ const Card: FunctionComponent<CardProps> = ({
   primaryActionText,
   title,
 }) => {
-  const { t } = useTranslation();
-
   return (
     <div className={styles.wrapper}>
       <div className={classnames(styles.card, className)}>
@@ -62,16 +59,12 @@ const Card: FunctionComponent<CardProps> = ({
 
       <div className={styles.end}>
         <button
-          aria-label={t('TODO: aria label')} // TODO
+          aria-label={actionText} // TODO
           className={styles.actionWrapper}
           onClick={action}
         >
           <div className={styles.actionText}>{actionText}</div>
-          <Icon
-            src={angleDownIcon}
-            alt={t('TODO: action')}
-            className={styles.gotoAction}
-          />
+          <Icon src={angleDownIcon} alt={''} className={styles.gotoAction} />
         </button>
       </div>
     </div>
