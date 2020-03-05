@@ -25,6 +25,7 @@ export interface eventQuery_event_occurrences_edges_node {
    */
   id: string;
   time: any;
+  remainingCapacity: number | null;
   venue: eventQuery_event_occurrences_edges_node_venue;
 }
 

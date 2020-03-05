@@ -5,8 +5,14 @@ import toJson from 'enzyme-to-json';
 import ProfileEvents from '../ProfileEvents';
 import ProfileNoEvent from '../ProfileNoEvent';
 import ProfileEventsList from '../ProfileEventsList';
+import {
+  childByIdQuery_child as Child,
+  childByIdQuery_child_enrolments as Enrolments,
+  childByIdQuery_child_availableEvents as AvailableEvents,
+  childByIdQuery_child_pastEvents as PastEvents,
+} from '../../../api/generatedTypes/childByIdQuery';
 
-const childData = {
+const childData: Child = {
   id: '',
   firstName: '',
   lastName: '',
@@ -15,18 +21,21 @@ const childData = {
   relationships: {
     edges: [],
   },
+  availableEvents: { edges: [] },
+  enrolments: { edges: [] },
+  pastEvents: { edges: [] },
 };
 
 const childNoEvents = {
+  ...childData,
   availableEvents: null,
   enrolments: {
     edges: [],
   },
   pastEvents: null,
-  ...childData,
 };
 
-const availableEvents = {
+const availableEvents: AvailableEvents = {
   edges: [
     {
       node: {
@@ -40,12 +49,15 @@ const availableEvents = {
   ],
 };
 
-const enrolments = {
+const enrolments: Enrolments = {
   edges: [
     {
       node: {
         occurrence: {
+          id: '',
+          time: '',
           venue: {
+            id: '',
             name: '',
           },
           event: {
@@ -61,7 +73,7 @@ const enrolments = {
   ],
 };
 
-const pastEvents = {
+const pastEvents: PastEvents = {
   edges: [
     {
       node: {
@@ -75,30 +87,34 @@ const pastEvents = {
   ],
 };
 
-const childWithEvents = {
+const childWithEvents: Child = {
+  ...childData,
   availableEvents: availableEvents,
   enrolments: enrolments,
   pastEvents: pastEvents,
-  ...childData,
 };
 
-const childOnlyAvailableEvents = {
+const childOnlyAvailableEvents: Child = {
+  ...childData,
   availableEvents: availableEvents,
   enrolments: {
     edges: [],
   },
   pastEvents: null,
-  ...childData,
 };
 
-const childOnlyEnrolments = {
+const childOnlyEnrolments: Child = {
+  ...childData,
   availableEvents: null,
   enrolments: {
     edges: [
       {
         node: {
           occurrence: {
+            id: '',
+            time: '',
             venue: {
+              id: '',
               name: '',
             },
             event: {
@@ -114,21 +130,19 @@ const childOnlyEnrolments = {
     ],
   },
   pastEvents: null,
-  ...childData,
 };
 
 const childOnlyPastEvents = {
+  ...childData,
   availableEvents: null,
   enrolments: {
     edges: [],
   },
   pastEvents: pastEvents,
-  ...childData,
 };
 
 test('Renders snapshot correctly', () => {
   const input = shallow(<ProfileEvents child={childNoEvents} />);
-  console.log(input.debug());
   expect(toJson(input)).toMatchSnapshot();
 });
 
@@ -138,6 +152,7 @@ test('Renders "No events" when no events"', () => {
   expect(
     wrapper.equals(
       <ProfileEventsList
+        child={childWithEvents}
         availableEvents={childWithEvents.availableEvents}
         enrolments={childWithEvents.enrolments}
         pastEvents={childWithEvents.pastEvents}
@@ -151,6 +166,7 @@ test('Renders events list when events of any type', () => {
   expect(
     wrapper.equals(
       <ProfileEventsList
+        child={childWithEvents}
         availableEvents={childWithEvents.availableEvents}
         enrolments={childWithEvents.enrolments}
         pastEvents={childWithEvents.pastEvents}
@@ -165,6 +181,7 @@ test('Renders events list when only availableEvents', () => {
     wrapper.equals(
       <ProfileEventsList
         availableEvents={childOnlyAvailableEvents.availableEvents}
+        child={childOnlyAvailableEvents}
         enrolments={childOnlyAvailableEvents.enrolments}
         pastEvents={childOnlyAvailableEvents.pastEvents}
       />
@@ -177,6 +194,7 @@ test('Renders events list when only enrolments', () => {
   expect(
     wrapper.equals(
       <ProfileEventsList
+        child={childOnlyEnrolments}
         availableEvents={childOnlyEnrolments.availableEvents}
         enrolments={childOnlyEnrolments.enrolments}
         pastEvents={childOnlyEnrolments.pastEvents}
@@ -190,6 +208,7 @@ test('Renders events list when only past events', () => {
   expect(
     wrapper.equals(
       <ProfileEventsList
+        child={childOnlyPastEvents}
         availableEvents={childOnlyPastEvents.availableEvents}
         enrolments={childOnlyPastEvents.enrolments}
         pastEvents={childOnlyPastEvents.pastEvents}

@@ -14,6 +14,7 @@ import {
   childByIdQuery_child_enrolments as EnrolmentsTypes,
   childByIdQuery_child_pastEvents as PastEventsTypes,
   childByIdQuery_child_enrolments_edges_node_occurrence as OccurrenceTypes,
+  childByIdQuery_child as ChildByIdResponse,
 } from '../../api/generatedTypes/childByIdQuery';
 import styles from './profileEventsList.module.scss';
 import clockIcon from '../../../assets/icons/svg/clock.svg';
@@ -23,6 +24,7 @@ import Icon from '../../../common/components/icon/Icon';
 
 interface ProfileEventsListProps {
   availableEvents: AvailableEventsTypes | null;
+  child: ChildByIdResponse;
   enrolments: EnrolmentsTypes;
   pastEvents: PastEventsTypes | null;
 }
@@ -31,6 +33,7 @@ const QR_CODE_SIZE_PX = 180;
 
 const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
   availableEvents,
+  child,
   enrolments,
   pastEvents,
 }) => {
@@ -38,7 +41,7 @@ const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
   const { t } = useTranslation();
 
   const gotoEventPage = (eventId: string) => {
-    history.push(`/event/${eventId}`);
+    history.push(`/profile/child/${child.id}/event/${eventId}`);
   };
 
   const formatOccurrenceTime = (

@@ -25,7 +25,7 @@ interface SignupValues {
 const Event: FunctionComponent = () => {
   const history = useHistory();
   const { t } = useTranslation();
-  const params = useParams<{ eventId: string }>();
+  const params = useParams<{ childId: string; eventId: string }>();
   const { loading, error, data } = useQuery<eventQueryType>(eventQuery, {
     variables: {
       id: params.eventId,
@@ -101,6 +101,7 @@ const Event: FunctionComponent = () => {
               </div>
               <div className={styles.signup}>
                 <Formik
+                  key="eventPageFormKey"
                   initialValues={initialValues}
                   onSubmit={handleSubmit}
                   validate={(values: SignupValues) => {

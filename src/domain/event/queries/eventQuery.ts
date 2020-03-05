@@ -17,6 +17,7 @@ const eventQuery = gql`
           node {
             id
             time
+            remainingCapacity
             venue {
               id
               name

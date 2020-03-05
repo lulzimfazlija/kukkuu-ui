@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 import { eventQuery_event_occurrences_edges_node as OccurrencesEdgeNode } from '../api/generatedTypes/eventQuery';
 import Button from '../../common/components/button/Button';
@@ -24,11 +25,13 @@ const EventOccurrence: React.FunctionComponent<EventOccurrenceProps> = ({
       <td className={styles.occurrenceDate}>{date}</td>
       <td className={styles.occurrenceTime}>{time}</td>
       <td className={styles.occurrenceVenue}>{occurrence.venue.name}</td>
-      <td className={styles.occurrenceFree}>999</td>
+      <td className={styles.occurrenceFree}>{occurrence.remainingCapacity}</td>
       <td className={styles.occurrenceSubmit}>
-        <Button type="submit" className={styles.submitButton}>
-          {t('event.register.occurrenceTableHeader.buttonText')}
-        </Button>
+        <Link to={`${occurrence.id}/enrol`}>
+          <Button type="submit" className={styles.submitButton}>
+            {t('event.register.occurrenceTableHeader.buttonText')}
+          </Button>
+        </Link>
       </td>
     </tr>
   );
