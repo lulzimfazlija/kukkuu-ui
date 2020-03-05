@@ -8,6 +8,7 @@ const values: RegistrationFormValues = {
       firstName: 'cfn',
       lastName: 'cln',
       homeCity: 'Helsinki',
+      postalCode: '00100',
     },
   ],
   preferLanguage: 'en',
