@@ -3,6 +3,12 @@
 $labelIconMargin: 0.5rem;
 $labelColumnMargin: 2rem;
 $labelRowMargin: 1rem;
+$qrMargin: 3rem;
+$eventsListMargin: 4rem;
+
+.eventsList {
+  margin-top: $eventsListMargin;
+}
 
 .row {
   @include respond-above(sm) {
@@ -35,18 +41,14 @@ $labelRowMargin: 1rem;
   margin-right: $labelIconMargin;
 }
 
-.enrolment {
-  // On mobile and tablet we want to show ticket QR:
-  img {
-    display: none;
+.qrWrapper {
+  @include respond-above(sm) {
+    margin: 0;
   }
-  // and on desktop we show the event image:
-  @include respond-above(md) {
-    img {
-      display: inherit;
-    }
-    canvas {
-      display: none;
-    }
-  }
+  height: 100%;
+  margin: $qrMargin;
+  margin-top: $qrMargin - 1rem; /* undo top card's top gutter */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

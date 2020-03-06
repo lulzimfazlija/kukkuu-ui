@@ -17,7 +17,7 @@ import {
 } from '../../api/generatedTypes/childByIdQuery';
 import styles from './profileEventsList.module.scss';
 import clockIcon from '../../../assets/icons/svg/clock.svg';
-import nullIcon from '../../../assets/icons/svg/close.svg';
+import calendarIcon from '../../../assets/icons/svg/calendar.svg';
 import locationIcon from '../../../assets/icons/svg/location.svg';
 import Icon from '../../../common/components/icon/Icon';
 
@@ -27,7 +27,8 @@ interface ProfileEventsListProps {
   pastEvents: PastEventsTypes | null;
 }
 
-const EVENT_DURATION_MINUTES = 30; // TODO: huh?
+const QR_CODE_SIZE_PX = 180;
+
 const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
   availableEvents,
   enrolments,
@@ -40,17 +41,25 @@ const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
     history.push(`/event/${eventId}`);
   };
 
-  const formatOccurrenceDuration = (occurrenceTime: Date) => {
-    const startTime = formatTime(
-      newMoment(occurrenceTime),
-      DEFAULT_TIME_FORMAT
-    );
-    const endTimeRaw = newMoment(occurrenceTime).add(
-      EVENT_DURATION_MINUTES,
-      'minutes'
-    );
-    const endTime = formatTime(newMoment(endTimeRaw), DEFAULT_TIME_FORMAT);
-    return `${startTime} - ${endTime}`;
+  const formatOccurrenceTime = (
+    startTimeRaw: Date,
+    durationMinutes: number | null
+  ) => {
+    let occurrenceTime;
+    const startTime = formatTime(newMoment(startTimeRaw), DEFAULT_TIME_FORMAT);
+
+    if (durationMinutes) {
+      const endTimeRaw = newMoment(startTimeRaw).add(
+        durationMinutes,
+        'minutes'
+      );
+      const endTime = formatTime(newMoment(endTimeRaw), DEFAULT_TIME_FORMAT);
+      occurrenceTime = `${startTime} - ${endTime}`;
+    } else {
+      occurrenceTime = startTime;
+    }
+
+    return occurrenceTime;
   };
 
   const generateInfoRow = (occurrence: OccurrenceTypes) => {
@@ -58,7 +67,7 @@ const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
       <div className={styles.row}>
         <div className={styles.label}>
           <Icon
-            src={nullIcon}
+            src={calendarIcon}
             alt={t('TODO: action')}
             className={styles.labelIcon}
           />
@@ -72,7 +81,9 @@ const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
             alt={t('TODO: action')}
             className={styles.labelIcon}
           />
-          <div>{formatOccurrenceDuration(occurrence.time)}</div>
+          <div>
+            {formatOccurrenceTime(occurrence.time, occurrence.event.duration)}
+          </div>
         </div>
         <div className={styles.label}>
           <Icon
@@ -89,14 +100,14 @@ const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
   return (
     <>
       {availableEvents?.edges?.[0] && (
-        <>
+        <div className={styles.eventsList}>
           <h2>{t('profile.events.invitations.heading')}</h2>
           {availableEvents.edges.map(
             eventEdge =>
               eventEdge?.node && (
                 <Card
                   key={eventEdge.node.id}
-                  image={eventEdge.node.image}
+                  imageSrc={eventEdge.node.image}
                   title={eventEdge.node.name || ''} // TODO
                   action={() => gotoEventPage(eventEdge.node?.id || '')} // TODO
                   actionText={t('enrollment.enroll.buttonText')}
@@ -107,21 +118,26 @@ const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
                 </Card>
               )
           )}
-        </>
+        </div>
       )}
       {enrolments.edges?.[0] && (
-        <>
+        <div className={styles.eventsList}>
           <h2>{t('profile.events.upcoming.heading')}</h2>
           {enrolments.edges.map(
             enrolmentEdge =>
               enrolmentEdge?.node?.occurrence && (
                 <Card
-                  className={styles.enrolment}
                   key={enrolmentEdge.node.occurrence.event.id}
-                  image={enrolmentEdge.node.occurrence.event.image}
                   title={enrolmentEdge.node.occurrence.event.name || ''}
-                  extraElement={
-                    <QRCode value={'Hello World - this works'} ecLevel={'H'} />
+                  imageElement={
+                    <div className={styles.qrWrapper}>
+                      <QRCode
+                        quietZone={0}
+                        size={QR_CODE_SIZE_PX}
+                        value={'Hello World - this works'}
+                        ecLevel={'H'}
+                      />
+                    </div>
                   }
                   action={() =>
                     gotoEventPage(enrolmentEdge.node?.occurrence.event.id || '')
@@ -133,17 +149,17 @@ const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
                 </Card>
               )
           )}
-        </>
+        </div>
       )}
       {pastEvents?.edges?.[0] && (
-        <>
+        <div className={styles.eventsList}>
           <h2>{t('profile.events.past.heading')}</h2>
           {pastEvents.edges.map(
             pastEventEdge =>
               pastEventEdge?.node && (
                 <Card
                   key={pastEventEdge.node.id}
-                  image={pastEventEdge.node.image}
+                  imageSrc={pastEventEdge.node.image}
                   title={pastEventEdge.node.name || ''}
                   action={() => gotoEventPage(pastEventEdge.node?.id || '')}
                   actionText={t('enrollment.showEventInfo.buttonText')}
@@ -152,7 +168,7 @@ const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
                 </Card>
               )
           )}
-        </>
+        </div>
       )}
     </>
   );
