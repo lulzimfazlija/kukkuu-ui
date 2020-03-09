@@ -5,22 +5,12 @@ import { QRCode } from 'react-qrcode-logo';
 
 import Card from '../../../common/components/card/Card';
 import {
-  DEFAULT_DATE_FORMAT,
-  DEFAULT_TIME_FORMAT,
-} from '../../../common/time/TimeConstants';
-import { formatTime, newMoment } from '../../../common/time/utils';
-import {
   childByIdQuery_child_availableEvents as AvailableEventsTypes,
   childByIdQuery_child_enrolments as EnrolmentsTypes,
   childByIdQuery_child_pastEvents as PastEventsTypes,
-  childByIdQuery_child_enrolments_edges_node_occurrence as OccurrenceTypes,
-  childByIdQuery_child as ChildByIdResponse,
 } from '../../api/generatedTypes/childByIdQuery';
 import styles from './profileEventsList.module.scss';
-import clockIcon from '../../../assets/icons/svg/clock.svg';
-import calendarIcon from '../../../assets/icons/svg/calendar.svg';
-import locationIcon from '../../../assets/icons/svg/location.svg';
-import Icon from '../../../common/components/icon/Icon';
+import OccurrenceInfo from '../../event/partial/OccurrenceInfo';
 
 interface ProfileEventsListProps {
   availableEvents: AvailableEventsTypes | null;
@@ -41,63 +31,7 @@ const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
   const { t } = useTranslation();
 
   const gotoEventPage = (eventId: string) => {
-    history.push(`/profile/child/${child.id}/event/${eventId}`);
-  };
-
-  const formatOccurrenceTime = (
-    startTimeRaw: Date,
-    durationMinutes: number | null
-  ) => {
-    let occurrenceTime;
-    const startTime = formatTime(newMoment(startTimeRaw), DEFAULT_TIME_FORMAT);
-
-    if (durationMinutes) {
-      const endTimeRaw = newMoment(startTimeRaw).add(
-        durationMinutes,
-        'minutes'
-      );
-      const endTime = formatTime(newMoment(endTimeRaw), DEFAULT_TIME_FORMAT);
-      occurrenceTime = `${startTime} - ${endTime}`;
-    } else {
-      occurrenceTime = startTime;
-    }
-
-    return occurrenceTime;
-  };
-
-  const generateInfoRow = (occurrence: OccurrenceTypes) => {
-    return (
-      <div className={styles.row}>
-        <div className={styles.label}>
-          <Icon
-            src={calendarIcon}
-            alt={t('TODO: action')}
-            className={styles.labelIcon}
-          />
-          <div>
-            {formatTime(newMoment(occurrence.time), DEFAULT_DATE_FORMAT)}
-          </div>
-        </div>
-        <div className={styles.label}>
-          <Icon
-            src={clockIcon}
-            alt={t('TODO: action')}
-            className={styles.labelIcon}
-          />
-          <div>
-            {formatOccurrenceTime(occurrence.time, occurrence.event.duration)}
-          </div>
-        </div>
-        <div className={styles.label}>
-          <Icon
-            src={locationIcon}
-            alt={t('TODO: action')}
-            className={styles.labelIcon}
-          />
-          <div>{occurrence.venue.name}</div>
-        </div>
-      </div>
-    );
+    history.push(`/profile/child/${childId}/event/${eventId}`);
   };
 
   return (
@@ -146,7 +80,7 @@ const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
                     gotoEventPage(enrolmentEdge.node?.occurrence.event.id || '')
                   }
                   actionText={t('enrollment.showEventInfo.buttonText')}
-                  focalContent={generateInfoRow(enrolmentEdge.node.occurrence)}
+                  focalContent={OccurrenceInfo(enrolmentEdge.node)}
                 >
                   <p>{enrolmentEdge.node.occurrence.event.shortDescription}</p>
                 </Card>

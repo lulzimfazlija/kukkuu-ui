@@ -1,0 +1,36 @@
+@import 'mixins';
+
+$labelIconMargin: 0.5rem;
+$labelColumnMargin: 1rem;
+$labelRowMargin: 1rem;
+
+.row {
+  @include respond-above(sm) {
+    flex-direction: row;
+  }
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  @include respond-above(sm) {
+    & + & {
+      margin-left: $labelColumnMargin;
+    }
+  }
+  @include respond-below(sm) {
+    & + & {
+      margin-top: $labelRowMargin;
+    }
+  }
+  display: flex;
+  justify-content: normal;
+  flex-direction: row;
+  border: 0;
+  text-align: left;
+  align-items: center;
+}
+
+.labelIcon {
+  margin-right: $labelIconMargin;
+}
