@@ -12,13 +12,16 @@ interface EventOccurrenceListProps {
 
 const EventOccurrenceList: FunctionComponent<EventOccurrenceListProps> = ({
   occurrences,
-  eventId,
 }) => {
   const { t } = useTranslation();
-  console.log(eventId);
   return (
     <table className={styles.eventOccurrenceList}>
       <tbody>
+        <tr className={styles.mobileHeader}>
+          <th>{t('event.register.occurrenceTableHeader.freePlaces')}</th>
+          <th>{t('event.register.occurrenceTableHeader.eventInformation')}</th>
+        </tr>
+
         <tr className={styles.desktopHeader}>
           <th>{t('event.register.occurrenceTableHeader.date')}</th>
           <th>{t('event.register.occurrenceTableHeader.time')}</th>
@@ -26,22 +29,10 @@ const EventOccurrenceList: FunctionComponent<EventOccurrenceListProps> = ({
           <th>{t('event.register.occurrenceTableHeader.freePlaces')}</th>
           <th></th>
         </tr>
-        <tr className={styles.mobileHeader}>
-          <th className={styles.mobileHeader}>
-            {t('event.register.occurrenceTableHeader.freePlaces')}
-          </th>
-          <th className={styles.mobileHeader}>
-            {t('event.register.occurrenceTableHeader.eventInformation')}
-          </th>
-        </tr>
 
         {occurrences.edges.map(edge =>
           edge?.node ? (
-            <EventOccurrence
-              key={edge.node.id}
-              occurrence={edge.node}
-              eventId={eventId}
-            />
+            <EventOccurrence key={edge.node.id} occurrence={edge.node} />
           ) : null
         )}
       </tbody>

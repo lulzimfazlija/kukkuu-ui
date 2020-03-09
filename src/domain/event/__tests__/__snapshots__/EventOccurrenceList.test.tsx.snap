@@ -6,6 +6,16 @@ exports[`renders snapshot correctly 1`] = `
 >
   <tbody>
     <tr
+      className="mobileHeader"
+    >
+      <th>
+        Vapaat paikat
+      </th>
+      <th>
+        Tapahtuman tiedot
+      </th>
+    </tr>
+    <tr
       className="desktopHeader"
     >
       <th>
@@ -22,22 +32,7 @@ exports[`renders snapshot correctly 1`] = `
       </th>
       <th />
     </tr>
-    <tr
-      className="mobileHeader"
-    >
-      <th
-        className="mobileHeader"
-      >
-        Vapaat paikat
-      </th>
-      <th
-        className="mobileHeader"
-      >
-        Tapahtuman tiedot
-      </th>
-    </tr>
     <EventOccurrence
-      eventId="sksksksksksk"
       key="T2NjdXJyZW5jZU5vZGU6Mg=="
       occurrence={
         Object {
@@ -58,7 +53,6 @@ exports[`renders snapshot correctly 1`] = `
       }
     />
     <EventOccurrence
-      eventId="sksksksksksk"
       key="T2NjdXJyZW5jZU5vZGU6Mg=="
       occurrence={
         Object {

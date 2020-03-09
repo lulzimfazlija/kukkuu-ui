@@ -23,11 +23,7 @@ const mockedNode: OccurrenceEdgeNode = {
 
 it('renders snapshot correctly', () => {
   const element = shallow(
-    <EventOccurrence
-      key={mockedNode.id}
-      eventId={mockedNode.event.id}
-      occurrence={mockedNode}
-    />
+    <EventOccurrence key={mockedNode.id} occurrence={mockedNode} />
   );
   expect(toJson(element)).toMatchSnapshot();
 });

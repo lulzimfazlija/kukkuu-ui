@@ -9,12 +9,10 @@ import styles from './eventOccurrence.module.scss';
 
 interface EventOccurrenceProps {
   occurrence: OccurrencesEdgeNode;
-  eventId: string;
 }
 
 const EventOccurrence: React.FunctionComponent<EventOccurrenceProps> = ({
   occurrence,
-  eventId,
 }) => {
   const { t } = useTranslation();
 
