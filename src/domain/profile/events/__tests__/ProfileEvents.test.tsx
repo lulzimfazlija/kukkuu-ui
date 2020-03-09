@@ -11,6 +11,7 @@ import {
   childByIdQuery_child_availableEvents as AvailableEvents,
   childByIdQuery_child_pastEvents as PastEvents,
 } from '../../../api/generatedTypes/childByIdQuery';
+import { EventParticipantsPerInvite } from '../../../api/generatedTypes/globalTypes';
 
 const childData: Child = {
   id: '',
@@ -42,6 +43,7 @@ const availableEvents: AvailableEvents = {
         id: 'RXZlbnROb2RlOjE=',
         name: 'pentti',
         shortDescription: 'eventti',
+        participantsPerInvite: EventParticipantsPerInvite.CHILD_AND_GUARDIAN,
         image:
           'http://localhost:8081/media/2020-02-15-184035_1920x1080_scrot.png',
       },
@@ -56,13 +58,19 @@ const enrolments: Enrolments = {
         occurrence: {
           id: '',
           time: '',
+          remainingCapacity: 100,
           venue: {
             id: '',
+            address: '',
+            description: '',
             name: '',
           },
           event: {
             id: 'RXZlbnROb2RlOjE=',
+            duration: 12,
             name: 'pentti',
+            participantsPerInvite:
+              EventParticipantsPerInvite.CHILD_AND_GUARDIAN,
             shortDescription: 'eventti',
             image:
               'http://localhost:8081/media/2020-02-15-184035_1920x1080_scrot.png',
@@ -78,10 +86,14 @@ const pastEvents: PastEvents = {
     {
       node: {
         id: 'RXZlbnROb2RlOjE=',
+        participantsPerInvite: EventParticipantsPerInvite.FAMILY,
         name: 'pentti',
         shortDescription: 'eventti',
         image:
           'http://localhost:8081/media/2020-02-15-184035_1920x1080_scrot.png',
+        occurrences: {
+          edges: [],
+        },
       },
     },
   ],
@@ -113,14 +125,19 @@ const childOnlyEnrolments: Child = {
           occurrence: {
             id: '',
             time: '',
+            remainingCapacity: null,
             venue: {
               id: '',
+              address: '',
+              description: '',
               name: '',
             },
             event: {
               id: 'RXZlbnROb2RlOjE=',
               name: 'pentti',
               shortDescription: 'eventti',
+              duration: null,
+              participantsPerInvite: EventParticipantsPerInvite.FAMILY,
               image:
                 'http://localhost:8081/media/2020-02-15-184035_1920x1080_scrot.png',
             },
@@ -152,7 +169,7 @@ test('Renders "No events" when no events"', () => {
   expect(
     wrapper.equals(
       <ProfileEventsList
-        child={childWithEvents}
+        childId={childWithEvents.id}
         availableEvents={childWithEvents.availableEvents}
         enrolments={childWithEvents.enrolments}
         pastEvents={childWithEvents.pastEvents}
@@ -166,7 +183,7 @@ test('Renders events list when events of any type', () => {
   expect(
     wrapper.equals(
       <ProfileEventsList
-        child={childWithEvents}
+        childId={childWithEvents.id}
         availableEvents={childWithEvents.availableEvents}
         enrolments={childWithEvents.enrolments}
         pastEvents={childWithEvents.pastEvents}
@@ -180,8 +197,8 @@ test('Renders events list when only availableEvents', () => {
   expect(
     wrapper.equals(
       <ProfileEventsList
+        childId={childOnlyAvailableEvents.id}
         availableEvents={childOnlyAvailableEvents.availableEvents}
-        child={childOnlyAvailableEvents}
         enrolments={childOnlyAvailableEvents.enrolments}
         pastEvents={childOnlyAvailableEvents.pastEvents}
       />
@@ -194,7 +211,7 @@ test('Renders events list when only enrolments', () => {
   expect(
     wrapper.equals(
       <ProfileEventsList
-        child={childOnlyEnrolments}
+        childId={childOnlyEnrolments.id}
         availableEvents={childOnlyEnrolments.availableEvents}
         enrolments={childOnlyEnrolments.enrolments}
         pastEvents={childOnlyEnrolments.pastEvents}
@@ -208,7 +225,7 @@ test('Renders events list when only past events', () => {
   expect(
     wrapper.equals(
       <ProfileEventsList
-        child={childOnlyPastEvents}
+        childId={childOnlyPastEvents.id}
         availableEvents={childOnlyPastEvents.availableEvents}
         enrolments={childOnlyPastEvents.enrolments}
         pastEvents={childOnlyPastEvents.pastEvents}

@@ -37,30 +37,42 @@ exports[`renders snapshot correctly 1`] = `
       </th>
     </tr>
     <EventOccurrence
+      eventId="sksksksksksk"
       key="T2NjdXJyZW5jZU5vZGU6Mg=="
       occurrence={
         Object {
+          "event": Object {
+            "id": "asdf",
+            "name": "asdf",
+          },
           "id": "T2NjdXJyZW5jZU5vZGU6Mg==",
           "remainingCapacity": 99,
           "time": "2020-03-08T04:00:00+00:00",
           "venue": Object {
             "address": "Mannerheimintie 13A, Helsinki",
             "description": "Helsingin oma Musiikkitalo",
+            "id": "fdsa",
             "name": "Musiikkitalo",
           },
         }
       }
     />
     <EventOccurrence
+      eventId="sksksksksksk"
       key="T2NjdXJyZW5jZU5vZGU6Mg=="
       occurrence={
         Object {
+          "event": Object {
+            "id": "asdf",
+            "name": "asdf",
+          },
           "id": "T2NjdXJyZW5jZU5vZGU6Mg==",
           "remainingCapacity": 88,
           "time": "2020-04-08T04:00:00+00:00",
           "venue": Object {
             "address": "Rainbow 123",
             "description": "Under the",
+            "id": "fdsa1",
             "name": "Somewhere",
           },
         }

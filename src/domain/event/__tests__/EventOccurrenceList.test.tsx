@@ -12,7 +12,12 @@ const mockedOccurrences: Occurrences = {
         id: 'T2NjdXJyZW5jZU5vZGU6Mg==',
         time: '2020-03-08T04:00:00+00:00',
         remainingCapacity: 99,
+        event: {
+          id: 'asdf',
+          name: 'asdf',
+        },
         venue: {
+          id: 'fdsa',
           name: 'Musiikkitalo',
           description: 'Helsingin oma Musiikkitalo',
           address: 'Mannerheimintie 13A, Helsinki',
@@ -24,7 +29,12 @@ const mockedOccurrences: Occurrences = {
         id: 'T2NjdXJyZW5jZU5vZGU6Mg==',
         time: '2020-04-08T04:00:00+00:00',
         remainingCapacity: 88,
+        event: {
+          id: 'asdf',
+          name: 'asdf',
+        },
         venue: {
+          id: 'fdsa1',
           name: 'Somewhere',
           description: 'Under the',
           address: 'Rainbow 123',
@@ -36,7 +46,10 @@ const mockedOccurrences: Occurrences = {
 
 it('renders snapshot correctly', () => {
   const element = shallow(
-    <EventOccurrenceList edges={mockedOccurrences.edges} />
+    <EventOccurrenceList
+      occurrences={mockedOccurrences}
+      eventId={'sksksksksksk'}
+    />
   );
   expect(toJson(element)).toMatchSnapshot();
 });
