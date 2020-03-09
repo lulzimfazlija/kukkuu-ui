@@ -31,13 +31,6 @@
 .occurrenceInfo {
   @include background($hel-light);
   padding: $basePadding;
-  width: 100%;
-  display: grid;
-  grid-template-rows: 2;
-  grid-template-columns: 4;
-  & > * {
-    display: inline;
-  }
 }
 
 .actions {

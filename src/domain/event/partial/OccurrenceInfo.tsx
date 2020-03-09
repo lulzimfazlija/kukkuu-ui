@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
+import joinClassNames from 'classnames';
 
 import styles from './occurrenceInfo.module.scss';
 import clockIcon from '../../../assets/icons/svg/clock.svg';
@@ -14,16 +15,17 @@ import { formatTime, newMoment } from '../../../common/time/utils';
 import { DEFAULT_DATE_FORMAT } from '../../../common/time/TimeConstants';
 
 interface OccurrenceInfoProps {
+  className?: string;
   occurrence: OccurrenceType | OccurrenceQueryType;
 }
 
 const OccurrenceInfo: FunctionComponent<OccurrenceInfoProps> = ({
+  className,
   occurrence,
 }) => {
   const { t } = useTranslation();
-
   return (
-    <div className={styles.row}>
+    <div className={joinClassNames(styles.row, className)}>
       <div className={styles.label}>
         <Icon
           src={calendarIcon}

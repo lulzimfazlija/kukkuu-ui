@@ -53,7 +53,10 @@ const Enrol: FunctionComponent = () => {
         <div className={styles.heading}>
           <h1>{`${t('enrol to')} ${data.occurrence.event.name}`}</h1>
         </div>
-        <OccurrenceInfo occurrence={data.occurrence} />
+        <OccurrenceInfo
+          occurrence={data.occurrence}
+          className={styles.occurrenceInfo}
+        />
 
         <div className={styles.actions}>
           <Button className={styles.submitButton}>Enrol</Button>
