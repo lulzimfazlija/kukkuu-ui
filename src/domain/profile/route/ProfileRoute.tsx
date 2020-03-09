@@ -27,7 +27,7 @@ const ProfileRoute: FunctionComponent = () => {
       <Route
         exact
         component={Enrol}
-        path={`/${currentLocale}/profile/child/:childId/event/:eventId/enrol`}
+        path={`/${currentLocale}/profile/child/:childId/event/:eventId/occurrence/:occurrenceId/enrol`}
       />
     </Switch>
   );

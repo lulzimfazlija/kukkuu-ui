@@ -29,7 +29,7 @@ tr {
     grid-row-gap: $basePadding;
     padding: 1rem 0;
   }
-  td.occurrenceFree {
+  td.remainingCapacity {
     grid-column: 4;
     grid-row: 1 / span 2;
     justify-self: end;

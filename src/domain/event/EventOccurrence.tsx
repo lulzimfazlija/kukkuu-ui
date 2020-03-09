@@ -9,10 +9,12 @@ import styles from './eventOccurrence.module.scss';
 
 interface EventOccurrenceProps {
   occurrence: OccurrencesEdgeNode;
+  eventId: string;
 }
 
 const EventOccurrence: React.FunctionComponent<EventOccurrenceProps> = ({
   occurrence,
+  eventId,
 }) => {
   const { t } = useTranslation();
 
@@ -25,9 +27,15 @@ const EventOccurrence: React.FunctionComponent<EventOccurrenceProps> = ({
       <td className={styles.occurrenceDate}>{date}</td>
       <td className={styles.occurrenceTime}>{time}</td>
       <td className={styles.occurrenceVenue}>{occurrence.venue.name}</td>
-      <td className={styles.occurrenceFree}>{occurrence.remainingCapacity}</td>
+      {occurrence.remainingCapacity ? (
+        <td className={styles.remainingCapacity}>
+          {occurrence.remainingCapacity}
+        </td>
+      ) : (
+        <td></td>
+      )}
       <td className={styles.occurrenceSubmit}>
-        <Link to={`${occurrence.id}/enrol`}>
+        <Link to={`${occurrence.event.id}/occurrence/${occurrence.id}/enrol`}>
           <Button type="submit" className={styles.submitButton}>
             {t('event.register.occurrenceTableHeader.buttonText')}
           </Button>

@@ -18,6 +18,10 @@ const eventQuery = gql`
             id
             time
             remainingCapacity
+            event {
+              id
+              name
+            }
             venue {
               id
               name

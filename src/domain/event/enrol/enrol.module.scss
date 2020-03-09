@@ -7,18 +7,37 @@
   @include background($hel-light);
   display: grid;
   justify-items: center;
-  padding: $largePadding;
+  grid-template-rows: min-content;
+  @include respond-above(sm) {
+    padding: $largePadding;
+  }
+}
+
+.enrolContainer {
+  @include background($hel-white);
 }
 
 .enrolWrapper {
   @include background($hel-white);
+  padding: $basePadding;
   display: grid;
   justify-items: center;
+}
+
+.heading {
+  text-align: center;
 }
 
 .occurrenceInfo {
   @include background($hel-light);
   padding: $basePadding;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 2;
+  grid-template-columns: 4;
+  & > * {
+    display: inline;
+  }
 }
 
 .actions {

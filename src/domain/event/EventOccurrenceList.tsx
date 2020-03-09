@@ -1,12 +1,21 @@
-import * as React from 'react';
+import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { eventQuery_event_occurrences as Occurrences } from '../api/generatedTypes/eventQuery';
 import EventOccurrence from './EventOccurrence';
 import styles from './eventOccurrenceList.module.scss';
 
-const EventOccurrenceList: React.FunctionComponent<Occurrences> = eventOccurrenceEdges => {
+interface EventOccurrenceListProps {
+  occurrences: Occurrences;
+  eventId: string;
+}
+
+const EventOccurrenceList: FunctionComponent<EventOccurrenceListProps> = ({
+  occurrences,
+  eventId,
+}) => {
   const { t } = useTranslation();
+  console.log(eventId);
   return (
     <table className={styles.eventOccurrenceList}>
       <tbody>
@@ -26,9 +35,13 @@ const EventOccurrenceList: React.FunctionComponent<Occurrences> = eventOccurrenc
           </th>
         </tr>
 
-        {eventOccurrenceEdges.edges.map(edge =>
+        {occurrences.edges.map(edge =>
           edge?.node ? (
-            <EventOccurrence key={edge.node.id} occurrence={edge.node} />
+            <EventOccurrence
+              key={edge.node.id}
+              occurrence={edge.node}
+              eventId={eventId}
+            />
           ) : null
         )}
       </tbody>

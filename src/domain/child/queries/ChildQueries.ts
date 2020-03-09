@@ -47,6 +47,7 @@ export const childByIdQuery = gql`
             name
             shortDescription
             image
+            participantsPerInvite
           }
         }
       }
@@ -59,6 +60,8 @@ export const childByIdQuery = gql`
               venue {
                 id
                 name
+                description
+                address
               }
               event {
                 id
@@ -66,6 +69,7 @@ export const childByIdQuery = gql`
                 shortDescription
                 image
                 duration
+                participantsPerInvite
               }
             }
           }
@@ -78,6 +82,15 @@ export const childByIdQuery = gql`
             name
             shortDescription
             image
+            participantsPerInvite
+            occurrences {
+              edges {
+                node {
+                  id
+                  time
+                }
+              }
+            }
           }
         }
       }

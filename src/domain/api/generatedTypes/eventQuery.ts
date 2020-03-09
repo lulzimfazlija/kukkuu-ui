@@ -9,6 +9,14 @@ import { EventParticipantsPerInvite } from "./globalTypes";
 // GraphQL query operation: eventQuery
 // ====================================================
 
+export interface eventQuery_event_occurrences_edges_node_event {
+  /**
+   * The ID of the object.
+   */
+  id: string;
+  name: string | null;
+}
+
 export interface eventQuery_event_occurrences_edges_node_venue {
   /**
    * The ID of the object.
@@ -26,6 +34,7 @@ export interface eventQuery_event_occurrences_edges_node {
   id: string;
   time: any;
   remainingCapacity: number | null;
+  event: eventQuery_event_occurrences_edges_node_event;
   venue: eventQuery_event_occurrences_edges_node_venue;
 }
 
