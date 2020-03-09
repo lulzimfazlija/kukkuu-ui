@@ -20,7 +20,7 @@ const ProfileEvents: FunctionComponent<ProfileEventsProps> = ({ child }) => {
   return hasEvents(child) ? (
     <ProfileEventsList
       availableEvents={child.availableEvents}
-      child={child}
+      childId={child.id}
       enrolments={child.enrolments}
       pastEvents={child.pastEvents}
     />

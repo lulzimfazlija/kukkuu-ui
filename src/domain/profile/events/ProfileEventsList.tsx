@@ -24,7 +24,7 @@ import Icon from '../../../common/components/icon/Icon';
 
 interface ProfileEventsListProps {
   availableEvents: AvailableEventsTypes | null;
-  child: ChildByIdResponse;
+  childId: string;
   enrolments: EnrolmentsTypes;
   pastEvents: PastEventsTypes | null;
 }
@@ -33,7 +33,7 @@ const QR_CODE_SIZE_PX = 180;
 
 const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
   availableEvents,
-  child,
+  childId,
   enrolments,
   pastEvents,
 }) => {
