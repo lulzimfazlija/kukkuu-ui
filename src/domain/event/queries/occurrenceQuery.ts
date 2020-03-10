@@ -8,6 +8,9 @@ const occurrenceQuery = gql`
       remainingCapacity
       event {
         id
+        image
+        description
+        shortDescription
         name
         duration
         participantsPerInvite

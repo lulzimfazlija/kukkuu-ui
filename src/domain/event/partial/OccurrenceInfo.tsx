@@ -25,8 +25,8 @@ const OccurrenceInfo: FunctionComponent<OccurrenceInfoProps> = ({
 }) => {
   const { t } = useTranslation();
   return (
-    <div className={joinClassNames(styles.row, className)}>
-      <div className={styles.label}>
+    <div className={joinClassNames(className, styles.row)}>
+      <div className={joinClassNames(className, styles.label)}>
         <Icon
           src={calendarIcon}
           alt={t('TODO: action')}
@@ -34,7 +34,7 @@ const OccurrenceInfo: FunctionComponent<OccurrenceInfoProps> = ({
         />
         <div>{formatTime(newMoment(occurrence.time), DEFAULT_DATE_FORMAT)}</div>
       </div>
-      <div className={styles.label}>
+      <div className={joinClassNames(className, styles.label)}>
         <Icon
           src={clockIcon}
           alt={t('TODO: action')}
@@ -44,7 +44,7 @@ const OccurrenceInfo: FunctionComponent<OccurrenceInfoProps> = ({
           {formatOccurrenceTime(occurrence.time, occurrence.event.duration)}
         </div>
       </div>
-      <div className={styles.label}>
+      <div className={joinClassNames(className, styles.label)}>
         <Icon
           src={personIcon}
           alt={t('TODO: action')}
@@ -56,7 +56,7 @@ const OccurrenceInfo: FunctionComponent<OccurrenceInfoProps> = ({
           )}
         </div>
       </div>
-      <div className={styles.label}>
+      <div className={joinClassNames(className, styles.label)}>
         <Icon
           src={locationIcon}
           alt={t('TODO: action')}

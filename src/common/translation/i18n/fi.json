@@ -176,12 +176,15 @@
         },
         "heading": "Haluatko varmasti perua tapahtumaan ilmoittautumisen?"
       },
-      "heading": "",
+      "heading": "Ilmoittautumisen peruminen",
       "paragraph": "Mikäli et pysty osallistumaan tapahtumaan, muistathan perua sen, jotta joku muu pääsee halutessaan osallistumaan tapahtumaan. Kiitos :)"
     },
     "participantsPerInviteEnum": {
       "CHILD_AND_GUARDIAN": "1 lapsi + 1 huoltaja",
       "FAMILY": "Perhe"
+    },
+    "participantsPerInviteEnumLong": {
+      "CHILD_AND_GUARDIAN": "Yhdellä ilmoittautumisella tapahtumaan voi kummilapsen lisäksi osallistua 1 aikuinen"
     },
     "register": {
       "form": {
@@ -373,11 +376,11 @@
       }
     },
     "events": {
-      "past": {
-        "heading": "Menneet tapahtumat"
-      },
       "invitations": {
         "heading": "Tapahtumakutsut"
+      },
+      "past": {
+        "heading": "Menneet tapahtumat"
       },
       "upcoming": {
         "heading": "Tulevat tapahtumat"

@@ -65,7 +65,6 @@ export interface childByIdQuery_child_enrolments_edges_node_occurrence {
    */
   id: string;
   time: any;
-  remainingCapacity: number | null;
   venue: childByIdQuery_child_enrolments_edges_node_occurrence_venue;
   event: childByIdQuery_child_enrolments_edges_node_occurrence_event;
 }

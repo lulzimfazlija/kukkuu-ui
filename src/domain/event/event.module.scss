@@ -92,7 +92,7 @@
     @include respond-above(md) {
       padding: $largePadding;
       h1 {
-        margin: 0;
+        margin-top: 0;
       }
     }
     background-color: $white;
@@ -108,5 +108,40 @@
     .event {
       grid-column: 2;
     }
+  }
+}
+
+.occurrenceInfo {
+  margin: $baseMargin 0;
+  width: 67%;
+  display: block;
+  .label {
+    display: inline-flex;
+    width: min-content;
+    @include respond-above(sm) {
+      > * {
+        margin-left: 0;
+      }
+    }
+  }
+  & > * {
+    margin-left: 0;
+    margin-right: $baseMargin;
+    white-space: nowrap;
+  }
+}
+
+.participantsPerInvite {
+  font-weight: $font-weight-bold;
+  margin: $baseMargin 0;
+}
+
+.cancelRegistration {
+  button {
+    border: 2px solid $hel-summer;
+    width: 20rem;
+    font-weight: $font-weight-normal;
+    background-color: $hel-white;
+    padding: $basePadding;
   }
 }

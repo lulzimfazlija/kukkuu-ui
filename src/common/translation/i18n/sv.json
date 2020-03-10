@@ -183,6 +183,9 @@
       "CHILD_AND_GUARDIAN": "1 barn + 1 närstående",
       "FAMILY": "Familj"
     },
+    "participantsPerInviteEnumLong": {
+      "CHILD_AND_GUARDIAN": ""
+    },
     "register": {
       "form": {
         "header": "Anmäl dig"
@@ -373,11 +376,11 @@
       }
     },
     "events": {
-      "past": {
-        "heading": ""
-      },
       "invitations": {
         "heading": "Eventinbjudningar"
+      },
+      "past": {
+        "heading": ""
       },
       "upcoming": {
         "heading": ""

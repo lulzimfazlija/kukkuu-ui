@@ -10,20 +10,22 @@ $labelRowMargin: 1rem;
   }
   display: flex;
   flex-direction: column;
+  .label {
+    @include respond-above(sm) {
+      > * {
+        margin-left: $labelColumnMargin;
+      }
+    }
+    @include respond-below(sm) {
+      & + & {
+        margin-top: $labelRowMargin;
+      }
+    }
+  }
 }
 
 .label {
-  @include respond-above(sm) {
-    & + & {
-      margin-left: $labelColumnMargin;
-    }
-  }
-  @include respond-below(sm) {
-    & + & {
-      margin-top: $labelRowMargin;
-    }
-  }
-  display: flex;
+  display: inline-flex;
   justify-content: normal;
   flex-direction: row;
   border: 0;

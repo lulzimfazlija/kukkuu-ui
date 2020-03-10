@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory, useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/react-hooks';
+import { useMutation, useQuery } from '@apollo/react-hooks';
 import * as Sentry from '@sentry/browser';
 import classnames from 'classnames';
 
@@ -12,6 +12,8 @@ import occurrenceQuery from '../queries/occurrenceQuery';
 import { occurrenceQuery as OccurrenceQueryType } from '../../api/generatedTypes/occurrenceQuery';
 import LoadingSpinner from '../../../common/components/spinner/LoadingSpinner';
 import OccurrenceInfo from '../partial/OccurrenceInfo';
+import enrolOccurrenceMutation from '../mutations/enrolOccurrenceMutation';
+import { EnrolOccurrenceMutationInput } from '../../api/generatedTypes/globalTypes';
 
 const Enrol: FunctionComponent = () => {
   const history = useHistory();
@@ -30,6 +32,13 @@ const Enrol: FunctionComponent = () => {
     }
   );
 
+  // If redirect to /profile, need to do refetchquery
+  // Might need to refetch myProfile in any case
+  const [enrolOccurrence] = useMutation<EnrolOccurrenceMutationInput>(
+    enrolOccurrenceMutation,
+    {}
+  );
+
   if (loading) return <LoadingSpinner isLoading={true} />;
   if (error) {
     console.error(error);
@@ -41,7 +50,23 @@ const Enrol: FunctionComponent = () => {
     );
   }
 
-  if (!data?.occurrence) return <div>no data</div>;
+  if (!data?.occurrence?.id) return <div>no data</div>;
+
+  const enrol = async () => {
+    try {
+      await enrolOccurrence({
+        variables: {
+          input: {
+            occurrenceId: data?.occurrence?.id,
+            childId: params.childId,
+          },
+        },
+      });
+      history.push('/profile');
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <PageWrapper
@@ -59,7 +84,17 @@ const Enrol: FunctionComponent = () => {
         />
 
         <div className={styles.actions}>
-          <Button className={styles.submitButton}>Enrol</Button>
+          <form
+            onSubmit={e => {
+              e.preventDefault();
+              console.log('a');
+              enrol();
+            }}
+          >
+            <Button className={styles.submitButton} type="submit">
+              Enrol
+            </Button>
+          </form>
           <Button
             className={styles.backButton}
             onClick={() => history.goBack()}

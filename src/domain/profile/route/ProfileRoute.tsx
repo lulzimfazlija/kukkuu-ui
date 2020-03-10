@@ -7,6 +7,7 @@ import Event from '../../event/Event';
 import ProfileChildDetail from '../children/child/ProfileChildDetail';
 import { getCurrentLanguage } from '../../../common/translation/TranslationUtils';
 import Enrol from '../../event/enrol/Enrol';
+import EventIsEnrolled from '../../event/EventIsEnrolled';
 
 const ProfileRoute: FunctionComponent = () => {
   const { i18n } = useTranslation();
@@ -23,6 +24,11 @@ const ProfileRoute: FunctionComponent = () => {
         exact
         component={Event}
         path={`/${currentLocale}/profile/child/:childId/event/:eventId`}
+      />
+      <Route
+        exact
+        component={EventIsEnrolled}
+        path={`/${currentLocale}/profile/child/:childId/occurrence/:occurrenceId`}
       />
       <Route
         exact

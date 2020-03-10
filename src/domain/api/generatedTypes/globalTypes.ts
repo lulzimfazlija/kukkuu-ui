@@ -53,6 +53,12 @@ export interface DeleteChildMutationInput {
   clientMutationId?: string | null;
 }
 
+export interface EnrolOccurrenceMutationInput {
+  occurrenceId: string;
+  childId: string;
+  clientMutationId?: string | null;
+}
+
 export interface GuardianInput {
   firstName: string;
   lastName: string;
@@ -62,6 +68,12 @@ export interface GuardianInput {
 
 export interface RelationshipInput {
   type?: RelationshipTypeEnum | null;
+}
+
+export interface UnenrolOccurrenceMutationInput {
+  occurrenceId: string;
+  childId: string;
+  clientMutationId?: string | null;
 }
 
 export interface UpdateChildMutationInput {

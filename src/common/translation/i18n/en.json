@@ -176,12 +176,15 @@
         },
         "heading": "Are you sure you want to cancel your participation?"
       },
-      "heading": "",
+      "heading": "Cancellation of registration",
       "paragraph": "Please remember to cancel your participation in case you are not able to attend the event so that another child is able to take your place. Thank you!"
     },
     "participantsPerInviteEnum": {
       "CHILD_AND_GUARDIAN": "1 child + 1 guardian",
       "FAMILY": "Family"
+    },
+    "participantsPerInviteEnumLong": {
+      "CHILD_AND_GUARDIAN": "One adult can accompany a child in this registration"
     },
     "register": {
       "form": {
@@ -373,11 +376,11 @@
       }
     },
     "events": {
-      "past": {
-        "heading": "Past events"
-      },
       "invitations": {
         "heading": "Event invitations"
+      },
+      "past": {
+        "heading": "Past events"
       },
       "upcoming": {
         "heading": "Upcoming events"
