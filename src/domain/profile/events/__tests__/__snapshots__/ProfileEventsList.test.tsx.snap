@@ -2,105 +2,131 @@
 
 exports[`Renders snapshot correctly 1`] = `
 <Fragment>
-  <h2>
-    Tapahtumakutsut
-  </h2>
-  <Card
-    action={[Function]}
-    actionText="Ilmoittaudu tapahtumaan"
-    image="http://localhost:8081/media/2020-02-15-184035_1920x1080_scrot.png"
-    key="RXZlbnROb2RlOjE="
-    primaryAction={[Function]}
-    primaryActionText="Ilmoittaudu tapahtumaan"
-    title="pentti"
+  <div
+    className="eventsList"
   >
-    <p>
-      eventti
-    </p>
-  </Card>
-  <h2>
-    Tulevat tapahtumat
-  </h2>
-  <Card
-    action={[Function]}
-    actionText="Näytä tapahtuman tiedot"
-    className="enrolment"
-    extraElement={
-      <QRCode
-        bgColor="#FFFFFF"
-        ecLevel="H"
-        enableCORS={false}
-        fgColor="#000000"
-        logoOpacity={1}
-        qrStyle="squares"
-        quietZone={10}
-        size={150}
-        value="Hello World - this works"
-      />
-    }
-    focalContent={
-      <div
-        className="row"
-      >
+    <h2>
+      Tapahtumakutsut
+    </h2>
+    <Card
+      action={[Function]}
+      actionText="Ilmoittaudu tapahtumaan"
+      imageSrc="http://localhost:8081/media/2020-02-15-184035_1920x1080_scrot.png"
+      key="RXZlbnROb2RlOjE="
+      primaryAction={[Function]}
+      primaryActionText="Ilmoittaudu tapahtumaan"
+      title="pentti"
+    >
+      <p>
+        eventti
+      </p>
+    </Card>
+  </div>
+  <div
+    className="eventsList"
+  >
+    <h2>
+      Tulevat tapahtumat
+    </h2>
+    <Card
+      action={[Function]}
+      actionText="Näytä tapahtuman tiedot"
+      focalContent={
         <div
-          className="label"
+          className="row"
         >
-          <Icon
-            alt=" action"
-            className="labelIcon"
-            src="close.svg"
-          />
-          <div>
-            24.02.2020
+          <div
+            className="label"
+          >
+            <Icon
+              alt=" action"
+              className="labelIcon"
+              src="calendar.svg"
+            />
+            <div>
+              24.02.2020
+            </div>
+          </div>
+          <div
+            className="label"
+          >
+            <Icon
+              alt=" action"
+              className="labelIcon"
+              src="clock.svg"
+            />
+            <div>
+              09.07 - 10.07
+            </div>
+          </div>
+          <div
+            className="label"
+          >
+            <Icon
+              alt=" action"
+              className="labelIcon"
+              src="person.svg"
+            />
+            <div>
+              event.participantsPerInviteEnum.undefined
+            </div>
+          </div>
+          <div
+            className="label"
+          >
+            <Icon
+              alt=" action"
+              className="labelIcon"
+              src="location.svg"
+            />
+            <div>
+              
+            </div>
           </div>
         </div>
+      }
+      imageElement={
         <div
-          className="label"
+          className="qrWrapper"
         >
-          <Icon
-            alt=" action"
-            className="labelIcon"
-            src="clock.svg"
+          <QRCode
+            bgColor="#FFFFFF"
+            ecLevel="H"
+            enableCORS={false}
+            fgColor="#000000"
+            logoOpacity={1}
+            qrStyle="squares"
+            quietZone={0}
+            size={180}
+            value="Hello World - this works"
           />
-          <div>
-            09.07 - 10.07
-          </div>
         </div>
-        <div
-          className="label"
-        >
-          <Icon
-            alt=" action"
-            className="labelIcon"
-            src="location.svg"
-          />
-          <div>
-            
-          </div>
-        </div>
-      </div>
-    }
-    image="http://localhost:8081/media/2020-02-15-184035_1920x1080_scrot.png"
-    key="RXZlbnROb2RlOjE="
-    title="pentti"
+      }
+      key="RXZlbnROb2RlOjE="
+      title="pentti"
+    >
+      <p>
+        eventti
+      </p>
+    </Card>
+  </div>
+  <div
+    className="eventsList"
   >
-    <p>
-      eventti
-    </p>
-  </Card>
-  <h2>
-    Menneet tapahtumat
-  </h2>
-  <Card
-    action={[Function]}
-    actionText="Näytä tapahtuman tiedot"
-    image="http://localhost:8081/media/2020-02-15-184035_1920x1080_scrot.png"
-    key="RXZlbnROb2RlOjE="
-    title="pentti"
-  >
-    <p>
-      eventti
-    </p>
-  </Card>
+    <h2>
+      Menneet tapahtumat
+    </h2>
+    <Card
+      action={[Function]}
+      actionText="Näytä tapahtuman tiedot"
+      imageSrc="http://localhost:8081/media/2020-02-15-184035_1920x1080_scrot.png"
+      key="RXZlbnROb2RlOjE="
+      title="pentti"
+    >
+      <p>
+        eventti
+      </p>
+    </Card>
+  </div>
 </Fragment>
 `;

@@ -30,6 +30,8 @@ const profileQuery = gql`
                 node {
                   id
                   name
+                  duration
+                  participantsPerInvite
                 }
               }
             }

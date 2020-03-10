@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { Language, RelationshipTypeEnum } from "./globalTypes";
+import { Language, RelationshipTypeEnum, EventParticipantsPerInvite } from "./globalTypes";
 
 // ====================================================
 // GraphQL query operation: profileQuery
@@ -37,6 +37,11 @@ export interface profileQuery_myProfile_children_edges_node_availableEvents_edge
    */
   id: string;
   name: string | null;
+  /**
+   * In minutes
+   */
+  duration: number | null;
+  participantsPerInvite: EventParticipantsPerInvite;
 }
 
 export interface profileQuery_myProfile_children_edges_node_availableEvents_edges {

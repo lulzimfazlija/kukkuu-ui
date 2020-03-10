@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { RelationshipTypeEnum } from "./globalTypes";
+import { EventParticipantsPerInvite, RelationshipTypeEnum } from "./globalTypes";
 
 // ====================================================
 // GraphQL query operation: childByIdQuery
@@ -17,6 +17,7 @@ export interface childByIdQuery_child_availableEvents_edges_node {
   name: string | null;
   shortDescription: string | null;
   image: string;
+  participantsPerInvite: EventParticipantsPerInvite;
 }
 
 export interface childByIdQuery_child_availableEvents_edges {
@@ -39,6 +40,8 @@ export interface childByIdQuery_child_enrolments_edges_node_occurrence_venue {
    */
   id: string;
   name: string | null;
+  description: string | null;
+  address: string | null;
 }
 
 export interface childByIdQuery_child_enrolments_edges_node_occurrence_event {
@@ -53,6 +56,7 @@ export interface childByIdQuery_child_enrolments_edges_node_occurrence_event {
    * In minutes
    */
   duration: number | null;
+  participantsPerInvite: EventParticipantsPerInvite;
 }
 
 export interface childByIdQuery_child_enrolments_edges_node_occurrence {
@@ -61,6 +65,7 @@ export interface childByIdQuery_child_enrolments_edges_node_occurrence {
    */
   id: string;
   time: any;
+  remainingCapacity: number | null;
   venue: childByIdQuery_child_enrolments_edges_node_occurrence_venue;
   event: childByIdQuery_child_enrolments_edges_node_occurrence_event;
 }
@@ -83,6 +88,28 @@ export interface childByIdQuery_child_enrolments {
   edges: (childByIdQuery_child_enrolments_edges | null)[];
 }
 
+export interface childByIdQuery_child_pastEvents_edges_node_occurrences_edges_node {
+  /**
+   * The ID of the object.
+   */
+  id: string;
+  time: any;
+}
+
+export interface childByIdQuery_child_pastEvents_edges_node_occurrences_edges {
+  /**
+   * The item at the end of the edge
+   */
+  node: childByIdQuery_child_pastEvents_edges_node_occurrences_edges_node | null;
+}
+
+export interface childByIdQuery_child_pastEvents_edges_node_occurrences {
+  /**
+   * Contains the nodes in this connection.
+   */
+  edges: (childByIdQuery_child_pastEvents_edges_node_occurrences_edges | null)[];
+}
+
 export interface childByIdQuery_child_pastEvents_edges_node {
   /**
    * The ID of the object.
@@ -91,6 +118,8 @@ export interface childByIdQuery_child_pastEvents_edges_node {
   name: string | null;
   shortDescription: string | null;
   image: string;
+  participantsPerInvite: EventParticipantsPerInvite;
+  occurrences: childByIdQuery_child_pastEvents_edges_node_occurrences;
 }
 
 export interface childByIdQuery_child_pastEvents_edges {

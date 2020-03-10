@@ -6,6 +6,16 @@ exports[`renders snapshot correctly 1`] = `
 >
   <tbody>
     <tr
+      className="mobileHeader"
+    >
+      <th>
+        Vapaat paikat
+      </th>
+      <th>
+        Tapahtuman tiedot
+      </th>
+    </tr>
+    <tr
       className="desktopHeader"
     >
       <th>
@@ -22,30 +32,21 @@ exports[`renders snapshot correctly 1`] = `
       </th>
       <th />
     </tr>
-    <tr
-      className="mobileHeader"
-    >
-      <th
-        className="mobileHeader"
-      >
-        Vapaat paikat
-      </th>
-      <th
-        className="mobileHeader"
-      >
-        Tapahtuman tiedot
-      </th>
-    </tr>
     <EventOccurrence
       key="T2NjdXJyZW5jZU5vZGU6Mg=="
       occurrence={
         Object {
+          "event": Object {
+            "id": "asdf",
+            "name": "asdf",
+          },
           "id": "T2NjdXJyZW5jZU5vZGU6Mg==",
           "remainingCapacity": 99,
           "time": "2020-03-08T04:00:00+00:00",
           "venue": Object {
             "address": "Mannerheimintie 13A, Helsinki",
             "description": "Helsingin oma Musiikkitalo",
+            "id": "fdsa",
             "name": "Musiikkitalo",
           },
         }
@@ -55,12 +56,17 @@ exports[`renders snapshot correctly 1`] = `
       key="T2NjdXJyZW5jZU5vZGU6Mg=="
       occurrence={
         Object {
+          "event": Object {
+            "id": "asdf",
+            "name": "asdf",
+          },
           "id": "T2NjdXJyZW5jZU5vZGU6Mg==",
           "remainingCapacity": 88,
           "time": "2020-04-08T04:00:00+00:00",
           "venue": Object {
             "address": "Rainbow 123",
             "description": "Under the",
+            "id": "fdsa1",
             "name": "Somewhere",
           },
         }

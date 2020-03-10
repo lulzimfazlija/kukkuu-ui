@@ -20,19 +20,23 @@ exports[`renders snapshot correctly 1`] = `
     Musiikkitalo
   </td>
   <td
-    className="occurrenceFree"
+    className="remainingCapacity"
   >
-    999
+    99
   </td>
   <td
     className="occurrenceSubmit"
   >
-    <Button
-      className="submitButton"
-      type="submit"
+    <Link
+      to="zzaaz/occurrence/T2NjdXJyZW5jZU5vZGU6Mg==/enrol"
     >
-      Valitse
-    </Button>
+      <Button
+        className="submitButton"
+        type="submit"
+      >
+        Valitse
+      </Button>
+    </Link>
   </td>
 </tr>
 `;

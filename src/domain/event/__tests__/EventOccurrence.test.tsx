@@ -9,7 +9,12 @@ const mockedNode: OccurrenceEdgeNode = {
   id: 'T2NjdXJyZW5jZU5vZGU6Mg==',
   time: '2020-03-08T04:00:00+00:00',
   remainingCapacity: 99,
+  event: {
+    id: 'zzaaz',
+    name: 'event name',
+  },
   venue: {
+    id: 'auppss',
     name: 'Musiikkitalo',
     description: '',
     address: '',
