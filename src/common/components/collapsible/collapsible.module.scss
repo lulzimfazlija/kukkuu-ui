@@ -1,0 +1,18 @@
+$headerPadding: 1rem;
+
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  padding-top: $headerPadding;
+  padding-bottom: $headerPadding;
+}
+
+.arrow {
+  [aria-expanded='true'] & {
+    transform: rotate(180deg);
+  }
+  display: flex;
+  align-self: flex-start;
+}

@@ -9,6 +9,7 @@ import EnhancedInputField from '../../common/components/form/fields/input/Enhanc
 import SelectField from '../../common/components/form/fields/select/SelectField';
 import { eventQuery as EventQueryType } from '../api/generatedTypes/eventQuery';
 import EventOccurrenceList from './EventOccurrenceList';
+import EventFeatures from './EventFeatures';
 
 interface SignupValues {
   date: string;
@@ -39,6 +40,25 @@ const EventEnrol: FunctionComponent<EventQueryType> = data => {
   const participantsPerInvite = data.event.participantsPerInvite
     ? t(`event.participantsPerInviteEnum.${data.event.participantsPerInvite}`)
     : '';
+
+  const eventFeaturesMock = [
+    {
+      header: 'Getting there',
+      body: 'You find out',
+    },
+    {
+      header: 'Accessibility',
+      body: 'Do not think about it',
+    },
+    {
+      header: 'Sanitation',
+      body: 'Piss on the floor',
+    },
+    {
+      header: 'This Additional services text is super long. Wonder why they made it so long',
+      body: 'Much better stuff there',
+    },
+  ];
 
   return (
     <>
@@ -90,6 +110,7 @@ const EventEnrol: FunctionComponent<EventQueryType> = data => {
           eventId={data.event.id}
         />
       )}
+      <EventFeatures data={eventFeaturesMock} />
     </>
   );
 };
