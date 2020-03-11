@@ -86,7 +86,9 @@
 }
 
 .eventWrapper {
-  z-index: 1;
+  @include respond-above(md) {
+    z-index: 1;
+  }
   display: grid;
   .event {
     @include respond-above(md) {
