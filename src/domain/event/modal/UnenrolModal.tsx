@@ -3,10 +3,14 @@ import { useTranslation } from 'react-i18next';
 import { useMutation } from '@apollo/react-hooks';
 import { useHistory } from 'react-router-dom';
 
+// TODO: KK-300 Check how the cancel button should look
+// TODO: KK-300 If the same, find a better/reusable location for this css module
 import styles from '../../child/modal/prompt/delete/childFormModalDeletePrompt.module.scss';
 import Modal from '../../../common/components/modal/Modal';
 import Button from '../../../common/components/button/Button';
 import unenrolOccurrenceMutation from '../mutations/unenrolOccurrenceMutation';
+import profileQuery from '../../profile/queries/ProfileQuery';
+import { unenrolOccurrenceMutationVariables } from '../../api/generatedTypes/unenrolOccurrenceMutation';
 
 interface UnenrolModalProps {
   isOpen: boolean;
@@ -23,7 +27,12 @@ const UnenrolModal: FunctionComponent<UnenrolModalProps> = ({
   const history = useHistory();
   const { t } = useTranslation();
 
-  const [unenrolOccurrence] = useMutation(unenrolOccurrenceMutation);
+  const [unenrolOccurrence] = useMutation<unenrolOccurrenceMutationVariables>(
+    unenrolOccurrenceMutation,
+    {
+      refetchQueries: [{ query: profileQuery }],
+    }
+  );
   const unenrol = async () => {
     try {
       await unenrolOccurrence({
@@ -34,8 +43,9 @@ const UnenrolModal: FunctionComponent<UnenrolModalProps> = ({
           },
         },
       });
-      history.push('/profile');
+      history.push(`/profile/child/${childId}`);
     } catch (error) {
+      // TODO: KK-280 Handle errors nicely
       console.error(error);
     }
   };
