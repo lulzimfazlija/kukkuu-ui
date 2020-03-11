@@ -139,6 +139,11 @@
 }
 
 .cancelRegistration {
+  display: flex;
+  justify-content: center;
+  @include respond-above(sm) {
+    justify-content: normal;
+  }
   button {
     border: 2px solid $hel-summer;
     width: 20rem;
