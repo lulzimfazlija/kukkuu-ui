@@ -25,6 +25,9 @@ export interface eventQuery_event_occurrences_edges_node_venue {
   name: string | null;
   description: string | null;
   address: string | null;
+  accessibilityInfo: string | null;
+  arrivalInstructions: string | null;
+  additionalInfo: string | null;
 }
 
 export interface eventQuery_event_occurrences_edges_node {

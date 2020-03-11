@@ -13,7 +13,7 @@ import eventQuery from './queries/eventQuery';
 import { eventQuery as EventQueryType } from '../api/generatedTypes/eventQuery';
 import LoadingSpinner from '../../common/components/spinner/LoadingSpinner';
 import EventEnrol from './EventEnrol';
-import EventFeatures from './EventFeatures';
+import VenueFeatures from './VenueFeatures';
 
 const Event: FunctionComponent = () => {
   const history = useHistory();
@@ -41,26 +41,6 @@ const Event: FunctionComponent = () => {
       }
     : {};
 
-  const eventFeaturesMock = [
-    {
-      header: 'Getting there',
-      body: 'You find out',
-    },
-    {
-      header: 'Accessibility',
-      body: 'Do not think about it',
-    },
-    {
-      header: 'Sanitation',
-      body: 'Piss on the floor',
-    },
-    {
-      header:
-        'This Additional services text is super long. Wonder why they made it so long',
-      body: 'Much better stuff there',
-    },
-  ];
-
   return (
     <>
       <div className={styles.heroWrapper} style={backgroundImageStyle}>
@@ -87,7 +67,9 @@ const Event: FunctionComponent = () => {
             </div>
             <div className={styles.description}>{data?.event?.description}</div>
             {data?.event && <EventEnrol event={data.event} />}
-            <EventFeatures data={eventFeaturesMock} />
+            <VenueFeatures
+              venue={data?.event?.occurrences.edges?.[0]?.node?.venue}
+            />
           </div>
         </div>
       </PageWrapper>
