@@ -14,6 +14,8 @@ import LoadingSpinner from '../../../common/components/spinner/LoadingSpinner';
 import OccurrenceInfo from '../partial/OccurrenceInfo';
 import enrolOccurrenceMutation from '../mutations/enrolOccurrenceMutation';
 import { EnrolOccurrenceMutationInput } from '../../api/generatedTypes/globalTypes';
+import profileQuery from '../../profile/queries/ProfileQuery';
+import { childByIdQuery } from '../../child/queries/ChildQueries';
 
 const Enrol: FunctionComponent = () => {
   const history = useHistory();
@@ -36,7 +38,17 @@ const Enrol: FunctionComponent = () => {
   // Might need to refetch myProfile in any case
   const [enrolOccurrence] = useMutation<EnrolOccurrenceMutationInput>(
     enrolOccurrenceMutation,
-    {}
+    {
+      refetchQueries: [
+        { query: profileQuery },
+        {
+          query: childByIdQuery,
+          variables: {
+            id: params.childId,
+          },
+        },
+      ],
+    }
   );
 
   if (loading) return <LoadingSpinner isLoading={true} />;
@@ -62,8 +74,11 @@ const Enrol: FunctionComponent = () => {
           },
         },
       });
-      history.push('/profile');
+      history.push(
+        `/profile/child/${params.childId}/occurrence/${data?.occurrence?.id}`
+      );
     } catch (error) {
+      // TODO: KK-280 Handle errors nicely
       console.error(error);
     }
   };
