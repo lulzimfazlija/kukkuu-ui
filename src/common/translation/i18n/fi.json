@@ -26,8 +26,8 @@
     "session": {
       "expired": {
         "agree": "Jatka",
-        "label": "Sessiosi on vanhentunut",
-        "message": "Your session have expired. <br>You will be redirect to homepage. <br>All your current progress will be saved."
+        "label": "Istuntosi on vanhentunut",
+        "message": "Istuntosi on vanhentunut. Ole hyvä ja kirjaudu sisään uudelleen"
       }
     }
   },
@@ -152,19 +152,20 @@
       "heading": "Tapahtumaan ilmoittautuminen onnistui! "
     }
   },
+  "venue": {
+    "features": {
+      "arrival": {
+        "heading": "Saapuminen"
+      },
+      "accessibility": {
+        "heading": "Esteettömyys"
+      },
+      "additionalInformation": {
+        "heading": "Lisätietoa"
+      }
+    }
+  },
   "event": {
-    "additionalInformation01": {
-      "heading": "Saapuminen"
-    },
-    "additionalinformation02": {
-      "heading": "Esteettömyys"
-    },
-    "additionalinformation03": {
-      "heading": "WC-tilat ja lastenhoitohuone"
-    },
-    "additionalinformation04": {
-      "heading": "Muut palvelut"
-    },
     "cancellation": {
       "buttonText": "Peru ilmoittautuminen",
       "confirmationModal": {
@@ -176,12 +177,15 @@
         },
         "heading": "Haluatko varmasti perua tapahtumaan ilmoittautumisen?"
       },
-      "heading": "",
+      "heading": "Ilmoittautumisen peruminen",
       "paragraph": "Mikäli et pysty osallistumaan tapahtumaan, muistathan perua sen, jotta joku muu pääsee halutessaan osallistumaan tapahtumaan. Kiitos :)"
     },
     "participantsPerInviteEnum": {
       "CHILD_AND_GUARDIAN": "1 lapsi + 1 huoltaja",
       "FAMILY": "Perhe"
+    },
+    "participantsPerInviteEnumLong": {
+      "CHILD_AND_GUARDIAN": "Yhdellä ilmoittautumisella tapahtumaan voi kummilapsen lisäksi osallistua 1 aikuinen"
     },
     "register": {
       "form": {
@@ -373,11 +377,11 @@
       }
     },
     "events": {
-      "past": {
-        "heading": "Menneet tapahtumat"
-      },
       "invitations": {
         "heading": "Tapahtumakutsut"
+      },
+      "past": {
+        "heading": "Menneet tapahtumat"
       },
       "upcoming": {
         "heading": "Tulevat tapahtumat"
