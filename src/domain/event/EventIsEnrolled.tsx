@@ -2,7 +2,7 @@ import React, { FunctionComponent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory, useParams } from 'react-router-dom';
 import * as Sentry from '@sentry/browser';
-import { useQuery, useMutation } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/react-hooks';
 
 import Icon from '../../common/components/icon/Icon';
 import styles from './event.module.scss';
@@ -13,7 +13,6 @@ import occurrenceQuery from './queries/occurrenceQuery';
 import { occurrenceQuery as OccurrenceQueryType } from '../api/generatedTypes/occurrenceQuery';
 import LoadingSpinner from '../../common/components/spinner/LoadingSpinner';
 import OccurrenceInfo from './partial/OccurrenceInfo';
-import unenrolOccurrenceMutation from './mutations/unenrolOccurrenceMutation';
 import UnenrolModal from './modal/UnenrolModal';
 
 const EventIsEnrolled: FunctionComponent = () => {

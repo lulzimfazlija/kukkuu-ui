@@ -27,7 +27,7 @@
       "expired": {
         "agree": "Fortsätt",
         "label": "Din session har gått ut",
-        "message": "Your session have expired. <br>You will be redirect to homepage. <br>All your current progress will be saved."
+        "message": "Din session har gått ut. Försök att logga in igen."
       }
     }
   },
@@ -152,19 +152,20 @@
       "heading": ""
     }
   },
+  "venue": {
+    "features": {
+      "arrival": {
+        "heading": ""
+      },
+      "accessibility": {
+        "heading": ""
+      },
+      "additionalInformation": {
+        "heading": ""
+      }
+    }
+  },
   "event": {
-    "additionalInformation01": {
-      "heading": ""
-    },
-    "additionalinformation02": {
-      "heading": ""
-    },
-    "additionalinformation03": {
-      "heading": ""
-    },
-    "additionalinformation04": {
-      "heading": ""
-    },
     "cancellation": {
       "buttonText": "",
       "confirmationModal": {

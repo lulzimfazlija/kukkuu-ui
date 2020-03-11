@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useMutation } from '@apollo/react-hooks';
 import { useHistory } from 'react-router-dom';
 
+import styles from '../../child/modal/prompt/delete/childFormModalDeletePrompt.module.scss';
 import Modal from '../../../common/components/modal/Modal';
 import Button from '../../../common/components/button/Button';
 import unenrolOccurrenceMutation from '../mutations/unenrolOccurrenceMutation';
@@ -42,15 +43,24 @@ const UnenrolModal: FunctionComponent<UnenrolModalProps> = ({
   const renderModalContent = () => {
     return (
       <div>
-        {t('Delete')}
-        <form
-          onSubmit={e => {
-            e.preventDefault();
-            unenrol();
-          }}
-        >
-          <Button type="submit">Unenrol</Button>
-        </form>
+        <div className={styles.deleteButtonGroup}>
+          <Button
+            className={styles.cancelButton}
+            onClick={() => setIsOpen(false)}
+          >
+            {t('event.cancellation.confirmationModal.cancel.buttonText')}
+          </Button>
+
+          <Button
+            className={styles.deleteButton}
+            onClick={() => {
+              setIsOpen(false);
+              unenrol();
+            }}
+          >
+            {t('event.cancellation.confirmationModal.confirm.buttonText')}
+          </Button>
+        </div>
       </div>
     );
   };
@@ -58,7 +68,9 @@ const UnenrolModal: FunctionComponent<UnenrolModalProps> = ({
   return (
     <Modal
       isOpen={isOpen}
-      label="Delete"
+      label={t('event.cancellation.confirmationModal.heading')}
+      className={styles.modal}
+      showLabelIcon={false}
       toggleModal={(value: boolean) => {
         setIsOpen(value);
       }}

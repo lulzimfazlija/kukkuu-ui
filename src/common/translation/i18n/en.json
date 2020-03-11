@@ -27,7 +27,7 @@
       "expired": {
         "agree": "Continue",
         "label": "Session expired",
-        "message": "Your session is expired and you have been logged out."
+        "message": "Your session has expired. Please log in again."
       }
     }
   },
@@ -152,19 +152,20 @@
       "heading": "Registration for event successful"
     }
   },
+  "venue": {
+    "features": {
+      "arrival": {
+        "heading": "Arrival"
+      },
+      "accessibility": {
+        "heading": "Accessibility"
+      },
+      "additionalInformation": {
+        "heading": "Additional information"
+      }
+    }
+  },
   "event": {
-    "additionalInformation01": {
-      "heading": "Arrival"
-    },
-    "additionalinformation02": {
-      "heading": "Accessibility"
-    },
-    "additionalinformation03": {
-      "heading": "WC and child care room"
-    },
-    "additionalinformation04": {
-      "heading": "Other services available at the event"
-    },
     "cancellation": {
       "buttonText": "Cancel registration",
       "confirmationModal": {
