@@ -20,6 +20,9 @@ const occurrenceQuery = gql`
         name
         description
         address
+        accessibilityInfo
+        arrivalInstructions
+        additionalInfo
       }
     }
   }

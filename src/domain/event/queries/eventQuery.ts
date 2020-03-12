@@ -27,9 +27,6 @@ const eventQuery = gql`
               name
               description
               address
-              accessibilityInfo
-              arrivalInstructions
-              additionalInfo
             }
           }
         }

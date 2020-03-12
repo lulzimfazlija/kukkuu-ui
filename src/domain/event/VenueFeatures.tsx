@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { eventQuery_event_occurrences_edges_node_venue as VenueTypes } from '../api/generatedTypes/eventQuery';
+import { occurrenceQuery_occurrence_venue as VenueTypes } from '../api/generatedTypes/occurrenceQuery';
 import Collapsible from '../../common/components/collapsible/Collapsible';
 
-  venue: VenueTypes | undefined;
 interface VenueFeaturesProps {
+  venue: VenueTypes;
 }
 
 const VenueFeatures: FunctionComponent<VenueFeaturesProps> = ({ venue }) => {
@@ -13,15 +13,15 @@ const VenueFeatures: FunctionComponent<VenueFeaturesProps> = ({ venue }) => {
 
   return (
     <>
-      {venue?.arrivalInstructions && (
+      {venue.arrivalInstructions && (
         <Collapsible
           item={{
             header: t('venue.features.arrival.heading'),
-            body: venue?.arrivalInstructions,
+            body: venue.arrivalInstructions,
           }}
         />
       )}
-      {venue?.accessibilityInfo && (
+      {venue.accessibilityInfo && (
         <Collapsible
           item={{
             header: t('venue.features.accessibility.heading'),
@@ -29,7 +29,7 @@ const VenueFeatures: FunctionComponent<VenueFeaturesProps> = ({ venue }) => {
           }}
         />
       )}
-      {venue?.additionalInfo && (
+      {venue.additionalInfo && (
         <Collapsible
           item={{
             header: t('venue.features.additionalInformation.heading'),

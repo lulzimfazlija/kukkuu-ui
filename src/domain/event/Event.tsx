@@ -13,7 +13,6 @@ import eventQuery from './queries/eventQuery';
 import { eventQuery as EventQueryType } from '../api/generatedTypes/eventQuery';
 import LoadingSpinner from '../../common/components/spinner/LoadingSpinner';
 import EventEnrol from './EventEnrol';
-import VenueFeatures from './VenueFeatures';
 
 const Event: FunctionComponent = () => {
   const history = useHistory();
@@ -68,9 +67,6 @@ const Event: FunctionComponent = () => {
             </div>
             <div className={styles.description}>{data.event.description}</div>
             <EventEnrol event={data.event} />
-            <VenueFeatures
-              venue={data?.event?.occurrences.edges?.[0]?.node?.venue}
-            />
           </div>
         </div>
       </PageWrapper>
