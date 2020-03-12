@@ -33,6 +33,9 @@ const EventOccurrence: React.FunctionComponent<EventOccurrenceProps> = ({
         <td></td>
       )}
       <td className={styles.occurrenceSubmit}>
+        {
+          // TODO: KK-300 Make the back-button not confusing
+        }
         <Link to={`${occurrence.event.id}/occurrence/${occurrence.id}/enrol`}>
           <Button type="submit" className={styles.submitButton}>
             {t('event.register.occurrenceTableHeader.buttonText')}

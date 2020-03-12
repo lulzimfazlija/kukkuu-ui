@@ -34,6 +34,10 @@ const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
     history.push(`/profile/child/${childId}/event/${eventId}`);
   };
 
+  const gotoOccurrencePage = (occurrenceId: string) => {
+    history.push(`/profile/child/${childId}/occurrence/${occurrenceId}`);
+  };
+
   return (
     <>
       {availableEvents?.edges?.[0] && (
@@ -77,7 +81,7 @@ const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
                     </div>
                   }
                   action={() =>
-                    gotoEventPage(enrolmentEdge.node?.occurrence.event.id || '')
+                    gotoOccurrencePage(enrolmentEdge.node?.occurrence.id || '')
                   }
                   actionText={t('enrollment.showEventInfo.buttonText')}
                   focalContent={OccurrenceInfo(enrolmentEdge.node)}

@@ -44,43 +44,4 @@ const validateDate = (value: string | number) => {
   }
 };
 
-/**
- * validateEqual()
- * Usually to check if user is located in supported area.
- * Can be used widely to check in many different case.
- * @param value Input value
- * @param comparedValue Value to compare
- * @param errorMessage Error message when not match
- */
-const validateEqual = (
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  value: any,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  comparedValue: any,
-  errorMessage: string
-) => {
-  let cloneValue = value;
-  let cloneComparedValue = comparedValue;
-
-  if (typeof value === 'string' && typeof comparedValue === 'string') {
-    cloneValue = value.toLowerCase();
-    cloneComparedValue = comparedValue.toLowerCase();
-  }
-
-  if (typeof value === 'string' && Array.isArray(comparedValue)) {
-    const match = comparedValue.find(c => {
-      cloneValue = typeof value === 'string' ? value.toLowerCase() : value;
-      cloneComparedValue = typeof c === 'string' ? c.toLowerCase() : c;
-
-      return cloneValue === cloneComparedValue;
-    });
-
-    if (!match) return errorMessage;
-  }
-
-  if (cloneValue !== cloneComparedValue) {
-    return errorMessage;
-  }
-};
-
-export { validateDate, validateEqual, validatePostalCode, validateRequire };
+export { validateDate, validatePostalCode, validateRequire };

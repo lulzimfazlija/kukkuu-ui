@@ -1,6 +1,5 @@
 import {
   validateDate,
-  validateEqual,
   validatePostalCode,
   validateRequire,
 } from '../validationUtils';
@@ -20,42 +19,6 @@ describe('Form validation utilities - ', () => {
     test('return wrong unsupported message if kid birthdate is in future or before supported year', () => {
       const error = validateDate('12.12.2100');
       expect(error).toEqual('validation.date.unSupported');
-    });
-  });
-
-  describe('validateEqual', () => {
-    test('return error text if value is not equal', () => {
-      const error = validateEqual('ble', 'foo', 'bar');
-
-      expect(error).toEqual('bar');
-    });
-
-    test('return error text if value is not equal in type', () => {
-      const error = validateEqual('31', 31, 'bar');
-
-      expect(error).toEqual('bar');
-    });
-
-    test('return error text if value is not equal in type', () => {
-      const error = validateEqual('31', 31, 'bar');
-
-      expect(error).toEqual('bar');
-    });
-
-    test('will not return error text if value and compared value is different in lower/uppercase', () => {
-      const error = validateEqual('foo', 'fOo', 'bar');
-
-      expect(error).toBeUndefined();
-    });
-
-    test('support multiple string compare, return error if no match', () => {
-      const error = validateEqual('foo', ['nah'], 'bar');
-      expect(error).toEqual('bar');
-    });
-
-    test('support multiple string compare, also in uppercase, return error if no match', () => {
-      const error = validateEqual('Foo', ['fOo', 'bar'], 'bar');
-      expect(error).toBeUndefined();
     });
   });
 
