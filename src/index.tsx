@@ -12,6 +12,8 @@ import './common/translation/i18n/i18nInit';
 Modal.setAppElement('#root');
 
 if (process.env.NODE_ENV !== 'development') {
+  //FIXME - JUST FOR TEST
+  console.log(`REACT_APP_ENVIRONMENT: ${process.env.REACT_APP_ENVIRONMENT}`);
   Sentry.init({
     dsn: process.env.REACT_APP_SENTRY_DSN,
     environment: process.env.REACT_APP_ENVIRONMENT,
