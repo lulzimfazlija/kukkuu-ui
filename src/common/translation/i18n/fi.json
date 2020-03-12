@@ -128,14 +128,14 @@
       "queue": "Jonoon",
       "selectOccurence": "Valitse"
     },
-    "confirmation page": {
+    "confirmationPage": {
       "cancel": {
         "button": "Takaisin tapahtuman valintaan"
       },
       "confirm": {
         "button": "Ilmoittaudu tapahtumaan"
       },
-      "heading ": "Ilmoittaudu tapahtumaan #eventName#"
+      "heading": "Ilmoittaudu tapahtumaan"
     },
     "enroll": {
       "buttonText": "Ilmoittaudu tapahtumaan"
