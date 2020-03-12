@@ -18,8 +18,8 @@ const EventOccurrenceList: FunctionComponent<EventOccurrenceListProps> = ({
     <table className={styles.eventOccurrenceList}>
       <tbody>
         <tr className={styles.mobileHeader}>
-          <th>{t('event.register.occurrenceTableHeader.freePlaces')}</th>
           <th>{t('event.register.occurrenceTableHeader.eventInformation')}</th>
+          <th>{t('event.register.occurrenceTableHeader.freePlaces')}</th>
         </tr>
 
         <tr className={styles.desktopHeader}>
