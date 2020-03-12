@@ -13,8 +13,6 @@ import { showExpiredSessionPrompt } from '../app/state/ui/UIActions';
 import { fetchTokenError } from '../auth/state/BackendAuthenticationActions';
 import { getCurrentLanguage } from '../../common/translation/TranslationUtils';
 
-// TODO: Ensure that the accept-language changes when user changes language in the menu.
-// Now it is only correct after page reloads.
 const httpLink = createHttpLink({
   uri: process.env.REACT_APP_API_URI,
 });
