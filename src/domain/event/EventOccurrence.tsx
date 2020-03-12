@@ -20,6 +20,9 @@ const EventOccurrence: React.FunctionComponent<EventOccurrenceProps> = ({
   const date = formatTime(newMoment(occurrence.time), 'dd l');
   const time = formatTime(newMoment(occurrence.time), 'hh:mm');
 
+  const hasCapacity =
+    occurrence.remainingCapacity && occurrence.remainingCapacity > 0;
+
   return (
     <tr className={styles.occurrence}>
       <td className={styles.occurrenceDate}>{date}</td>
@@ -37,9 +40,15 @@ const EventOccurrence: React.FunctionComponent<EventOccurrenceProps> = ({
           // TODO: KK-300 Make the back-button not confusing
         }
         <Link to={`${occurrence.event.id}/occurrence/${occurrence.id}/enrol`}>
-          <Button type="submit" className={styles.submitButton}>
-            {t('event.register.occurrenceTableHeader.buttonText')}
-          </Button>
+          {hasCapacity ? (
+            <Button type="submit" className={styles.submitButton}>
+              {t('event.register.occurrenceTableHeader.buttonText')}
+            </Button>
+          ) : (
+            <Button className={styles.fullButton}>
+              {t('enrollment.button.occurenceFull')}
+            </Button>
+          )}
         </Link>
       </td>
     </tr>

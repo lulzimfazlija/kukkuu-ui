@@ -8,6 +8,15 @@
     width: 100%;
   }
 }
+
+.fullButton {
+  @include button();
+  button {
+    background: $hel-silver;
+    width: 100%;
+  }
+}
+
 tr {
   border-bottom: 2px solid $hel-light;
 }
