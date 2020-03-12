@@ -14,6 +14,9 @@ export interface occurrenceQuery_occurrence_event {
    * The ID of the object.
    */
   id: string;
+  image: string;
+  description: string | null;
+  shortDescription: string | null;
   name: string | null;
   /**
    * In minutes

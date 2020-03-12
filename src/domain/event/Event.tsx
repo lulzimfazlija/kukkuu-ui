@@ -34,7 +34,8 @@ const Event: FunctionComponent = () => {
     );
   }
 
-  const backgroundImageStyle = data?.event?.image
+  if (!data?.event) return <div>No event</div>;
+  const backgroundImageStyle = data.event.image
     ? {
         backgroundImage: `url("${data.event.image}")`,
       }
@@ -58,14 +59,14 @@ const Event: FunctionComponent = () => {
         </div>
       </div>
 
-      <PageWrapper className={styles.wrapper} title={data?.event?.name || ''}>
+      <PageWrapper className={styles.wrapper} title={data.event.name || ''}>
         <div className={styles.eventWrapper} role="main">
           <div className={styles.event}>
             <div className={styles.heading}>
-              <h1>{data?.event?.name}</h1>
+              <h1>{data.event.name}</h1>
             </div>
-            <div className={styles.description}>{data?.event?.description}</div>
-            {data?.event && <EventEnrol event={data.event} />}
+            <div className={styles.description}>{data.event.description}</div>
+            <EventEnrol event={data.event} />
           </div>
         </div>
       </PageWrapper>
