@@ -4,11 +4,11 @@ import { useTranslation } from 'react-i18next';
 import { eventQuery_event_occurrences_edges_node_venue as VenueTypes } from '../api/generatedTypes/eventQuery';
 import Collapsible from '../../common/components/collapsible/Collapsible';
 
-interface EventFeaturesProps {
   venue: VenueTypes | undefined;
+interface VenueFeaturesProps {
 }
 
-const VenueFeatures: FunctionComponent<EventFeaturesProps> = ({ venue }) => {
+const VenueFeatures: FunctionComponent<VenueFeaturesProps> = ({ venue }) => {
   const { t } = useTranslation();
 
   return (
