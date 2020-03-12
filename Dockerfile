@@ -8,6 +8,7 @@ ENV NPM_CONFIG_LOGLEVEL warn
 # defaults to production, compose overrides this to development on build and run
 ARG NODE_ENV=production
 ENV NODE_ENV $NODE_ENV
+ENV REACT_APP_ENVIRONMENT=$REACT_APP_ENVIRONMENT
 
 # Global npm deps in a non-root user directory
 ENV NPM_CONFIG_PREFIX=/app/.npm-global
