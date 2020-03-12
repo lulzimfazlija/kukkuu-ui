@@ -19,26 +19,28 @@ const httpLink = createHttpLink({
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors) {
-    graphQLErrors.forEach(({ message, locations, path }) =>
-      Sentry.captureMessage(
-        `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
-      )
-    );
+    graphQLErrors.forEach(({ message, locations, path }) => {
+      const errorMessage = `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`;
+      Sentry.captureMessage(errorMessage);
+      if (process.env.NODE_ENV === 'development') {
+        console.error(errorMessage);
+      }
+
+      // If JWT is expired it means that we want people to log in again.
+      if (message === 'Invalid Authorization header. JWT has expired.') {
+        store.dispatch(showExpiredSessionPrompt());
+
+        // Clear old token in favor of avoiding Apollo loop
+        store.dispatch(
+          fetchTokenError({ message: 'Token expired', name: 'fetchTokenError' })
+        );
+      }
+    });
   }
 
   if (networkError) {
     Sentry.captureMessage('Network error');
   }
-
-  // Show session timeout for all kinds of errors.
-  // TODO: When backend comes up with better statusCode from error body
-  // Error can be handle better here.
-  store.dispatch(showExpiredSessionPrompt());
-
-  // Clear old token in favor of avoiding Apollo loop
-  store.dispatch(
-    fetchTokenError({ message: 'Token expired', name: 'fetchTokenError' })
-  );
 });
 
 const authLink = setContext((_, { headers }) => {
