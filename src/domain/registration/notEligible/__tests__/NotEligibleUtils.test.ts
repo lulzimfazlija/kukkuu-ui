@@ -35,6 +35,14 @@ describe('notEligibleUtils.test.ts', () => {
       expect(isChildEligible(values.children[0])).toEqual(true);
     });
   });
+  test('Verify that cities are eligible even when user adds whitespace', () => {
+    const eligibleCities: string = process.env.REACT_APP_ELIGIBLE_CITIES || '';
+    const cities = eligibleCities.split(',') || [];
+    cities.forEach(city => {
+      values.children[0].homeCity = `${city} `;
+      expect(isChildEligible(values.children[0])).toEqual(true);
+    });
+  });
   test('Verify that getEligibleCities returns an array of eligible cities', () => {
     const eligibleCitiesTest: string =
       process.env.REACT_APP_ELIGIBLE_CITIES || '';

@@ -32,7 +32,7 @@ const getEligibleCities = () => {
 
 const isCityEligible = (city: string) => {
   const eligibleCities = getEligibleCities();
-  return eligibleCities.includes(city.toLowerCase());
+  return eligibleCities.includes(city.trim().toLowerCase());
 };
 
 /**isChildEligible
