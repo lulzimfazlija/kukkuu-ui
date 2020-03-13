@@ -1,4 +1,5 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState } from 'react';
+import uniqueId from 'lodash/uniqueId';
 
 import angleDownIcon from '../../../assets/icons/svg/angleDown.svg';
 import styles from './collapsible.module.scss';
@@ -14,21 +15,25 @@ interface CollapsibleProps {
 }
 
 const Collapsible: FunctionComponent<CollapsibleProps> = ({ item }) => {
-  const [isOpen, toggleCollapsible] = React.useState(false);
+  const [id] = useState(uniqueId('collapsible_'));
+  const [isOpen, toggleCollapsible] = useState(false);
 
   return (
-    <>
+    <div className={isOpen ? styles.show : ''}>
       <button
         aria-expanded={isOpen}
+        aria-controls={id}
         className={styles.header}
         onClick={() => toggleCollapsible(!isOpen)}
       >
         <div>{item.header}</div>
         <Icon src={angleDownIcon} alt={''} className={styles.arrow} />
       </button>
-      {isOpen && <p>{item.body}</p>}
+      <p id={id} aria-hidden={!isOpen} className={styles.content}>
+        {item.body}
+      </p>
       <hr />
-    </>
+    </div>
   );
 };
 

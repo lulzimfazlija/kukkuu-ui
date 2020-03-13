@@ -10,9 +10,19 @@ $headerPadding: 1rem;
 }
 
 .arrow {
-  [aria-expanded='true'] & {
-    transform: rotate(180deg);
-  }
   display: flex;
   align-self: flex-start;
+}
+
+.content {
+  display: none;
+}
+
+.show {
+  .arrow {
+    transform: rotate(180deg);
+  }
+  .content {
+    display: initial;
+  }
 }
