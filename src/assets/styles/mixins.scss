@@ -103,7 +103,8 @@
     border: none !important;
 
     &:disabled {
-      background: $hel-gray;
+      background: $hel-silver;
+      cursor: not-allowed;
     }
 
     &:focus {
