@@ -14,6 +14,7 @@ import { occurrenceQuery as OccurrenceQueryType } from '../api/generatedTypes/oc
 import LoadingSpinner from '../../common/components/spinner/LoadingSpinner';
 import OccurrenceInfo from './partial/OccurrenceInfo';
 import UnenrolModal from './modal/UnenrolModal';
+import VenueFeatures from './VenueFeatures';
 
 const EventIsEnrolled: FunctionComponent = () => {
   const history = useHistory();
@@ -94,6 +95,7 @@ const EventIsEnrolled: FunctionComponent = () => {
             >
               {t('event.cancellation.buttonText')}
             </Button>
+            <VenueFeatures venue={data.occurrence.venue} />
 
             {isOpen && (
               <UnenrolModal

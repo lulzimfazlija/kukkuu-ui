@@ -152,19 +152,6 @@
       "heading": ""
     }
   },
-  "venue": {
-    "features": {
-      "arrival": {
-        "heading": ""
-      },
-      "accessibility": {
-        "heading": ""
-      },
-      "additionalInformation": {
-        "heading": ""
-      }
-    }
-  },
   "event": {
     "cancellation": {
       "buttonText": "",
@@ -515,6 +502,22 @@
     },
     "postalCode": {
       "invalidFormat": "Inkorrekt format"
+    }
+  },
+  "venue": {
+    "features": {
+      "accessibility": {
+        "heading": ""
+      },
+      "additionalInformation": {
+        "heading": ""
+      },
+      "arrival": {
+        "heading": ""
+      },
+      "wcAndFacilities": {
+        "heading": ""
+      }
     }
   }
 }

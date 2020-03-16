@@ -1,0 +1,28 @@
+$headerPadding: 1rem;
+
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  padding-top: $headerPadding;
+  padding-bottom: $headerPadding;
+}
+
+.arrow {
+  display: flex;
+  align-self: flex-start;
+}
+
+.content {
+  display: none;
+}
+
+.show {
+  .arrow {
+    transform: rotate(180deg);
+  }
+  .content {
+    display: initial;
+  }
+}
