@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 
 // TODO: Add remainingCapacity to occurrences when backend bug is fixed
 const eventQuery = gql`
-  query eventQuery($id: ID!) {
+  query eventQuery($id: ID!, $date: Date, $time: Time) {
     event(id: $id) {
       id
       name
@@ -12,7 +12,7 @@ const eventQuery = gql`
       participantsPerInvite
       duration
       capacityPerOccurrence
-      occurrences {
+      occurrences(upcoming: true, date: $date, time: $time) {
         edges {
           node {
             id

@@ -9,32 +9,67 @@ import EnhancedInputField from '../../common/components/form/fields/input/Enhanc
 import SelectField from '../../common/components/form/fields/select/SelectField';
 import { eventQuery as EventQueryType } from '../api/generatedTypes/eventQuery';
 import EventOccurrenceList from './EventOccurrenceList';
+import { formatOccurrenceTime } from './EventUtils';
+import { formatTime, newMoment } from '../../common/time/utils';
+import { DEFAULT_DATE_FORMAT } from '../../common/time/TimeConstants';
 
-interface SignupValues {
-  date: string;
-  time: string;
+export interface FilterValues {
+  date?: string;
+  time?: string;
 }
 
-const EventEnrol: FunctionComponent<EventQueryType> = data => {
+export interface EventEnrolProps {
+  data: EventQueryType;
+  onFilterUpdate: (filterValues: FilterValues) => void;
+}
+
+const EventEnrol: FunctionComponent<EventEnrolProps> = ({
+  data,
+  onFilterUpdate,
+}) => {
   const { t } = useTranslation();
 
-  const initialValues: SignupValues = {
-    date: '',
-    time: '',
+  const handleSubmit = (filterValues: FilterValues) => {
+    const z: FilterValues = {};
+    if (filterValues.date) z.date = filterValues.date;
+    if (filterValues.time) z.time = filterValues.time;
+    onFilterUpdate(z);
   };
-
-  const handleSubmit = (values: SignupValues) => {
-    // TODO: Do something like querying api again new filters
-    // OR filter in js.
-  };
-
-  // TODO: Build options based on occurrences from the api
-  const selectOptions = [
-    { value: 1, label: 'one' },
-    { value: 2, label: 'two' },
-  ];
 
   if (!data?.event) return <div></div>;
+
+  const selectOptionsDate = data.event.occurrences.edges.map(occurrence => {
+    return occurrence?.node?.id && occurrence.node.time
+      ? {
+          value: formatTime(newMoment(occurrence.node.time), 'YYYY-MM-DD'),
+          label: formatTime(
+            newMoment(occurrence.node.time),
+            DEFAULT_DATE_FORMAT
+          ),
+          key: occurrence.node.id,
+        }
+      : {};
+  });
+  const selectOptionsTime = data.event.occurrences.edges
+    .map(occurrence => {
+      return occurrence?.node?.id && occurrence.node.time
+        ? {
+            value: formatTime(newMoment(occurrence.node.time), 'HH:mm'),
+            label: formatOccurrenceTime(
+              occurrence.node.time,
+              data.event?.duration || null
+            ),
+            key: occurrence?.node.id,
+          }
+        : {};
+    })
+    .sort(function(a, b) {
+      return a.label && b.label
+        ? a.label === b.label
+          ? 0
+          : +(a.label > b.label) || -1
+        : 0;
+    });
 
   const participantsPerInvite = data.event.participantsPerInvite
     ? t(`event.participantsPerInviteEnum.${data.event.participantsPerInvite}`)
@@ -51,13 +86,16 @@ const EventEnrol: FunctionComponent<EventQueryType> = data => {
         <div className={styles.signup}>
           <Formik
             key="eventPageFormKey"
-            initialValues={initialValues}
+            initialValues={{
+              date: '',
+              time: '',
+            }}
             onSubmit={handleSubmit}
-            validate={(values: SignupValues) => {
+            validate={(values: FilterValues) => {
               handleSubmit(values);
             }}
           >
-            {({ handleSubmit, handleChange }) => {
+            {({ handleSubmit, handleChange, values }) => {
               return (
                 <form onSubmit={handleSubmit} id="eventPageForm">
                   <EnhancedInputField
@@ -66,8 +104,9 @@ const EventEnrol: FunctionComponent<EventQueryType> = data => {
                     name="date"
                     placeholder="placeholder"
                     label="Choose date"
-                    options={selectOptions}
+                    options={selectOptionsDate}
                     component={SelectField}
+                    value={values.date}
                   />
                   <EnhancedInputField
                     className={styles.timeField}
@@ -75,8 +114,9 @@ const EventEnrol: FunctionComponent<EventQueryType> = data => {
                     name="time"
                     placeholder="placeholdertime"
                     label="Choose time"
-                    options={selectOptions}
+                    options={selectOptionsTime}
                     component={SelectField}
+                    value={values.time}
                   />
                 </form>
               );

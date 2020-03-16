@@ -2,12 +2,14 @@
 @import 'mixins';
 @import 'variables';
 
-.submitButton {
+.submitButton,
+.fullButton {
   @include button();
   button {
     width: 100%;
   }
 }
+
 tr {
   border-bottom: 2px solid $hel-light;
 }

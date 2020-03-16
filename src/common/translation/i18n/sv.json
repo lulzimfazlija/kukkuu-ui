@@ -128,14 +128,14 @@
       "queue": "",
       "selectOccurence": ""
     },
-    "confirmation page": {
+    "confirmationPage": {
       "cancel": {
         "button": ""
       },
       "confirm": {
         "button": ""
       },
-      "heading ": ""
+      "heading": ""
     },
     "enroll": {
       "buttonText": ""

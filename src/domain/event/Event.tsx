@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
@@ -10,19 +10,39 @@ import PageWrapper from '../app/layout/PageWrapper';
 import backIcon from '../../assets/icons/svg/arrowLeft.svg';
 import Button from '../../common/components/button/Button';
 import eventQuery from './queries/eventQuery';
-import { eventQuery as EventQueryType } from '../api/generatedTypes/eventQuery';
+import {
+  eventQuery as EventQueryType,
+  eventQueryVariables as EventQueryVariables,
+} from '../api/generatedTypes/eventQuery';
 import LoadingSpinner from '../../common/components/spinner/LoadingSpinner';
-import EventEnrol from './EventEnrol';
+import EventEnrol, { FilterValues } from './EventEnrol';
 
 const Event: FunctionComponent = () => {
   const history = useHistory();
   const { t } = useTranslation();
   const params = useParams<{ childId: string; eventId: string }>();
-  const { loading, error, data } = useQuery<EventQueryType>(eventQuery, {
-    variables: {
-      id: params.eventId,
-    },
-  });
+
+  const initialFilterValues: FilterValues = {
+    date: '',
+    time: '',
+  };
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [selectedFilterValues, setFilterValues] = useState(initialFilterValues);
+
+  const variables: EventQueryVariables = {
+    id: params.eventId,
+  };
+
+  const { loading, error, data, refetch } = useQuery<EventQueryType>(
+    eventQuery,
+    { variables }
+  );
+
+  const updateFilterValues = (filterValues: FilterValues) => {
+    setFilterValues(filterValues);
+    refetch({ ...filterValues, ...variables });
+  };
 
   if (loading) return <LoadingSpinner isLoading={true} />;
   if (error) {
@@ -35,6 +55,7 @@ const Event: FunctionComponent = () => {
   }
 
   if (!data?.event) return <div>No event</div>;
+
   const backgroundImageStyle = data.event.image
     ? {
         backgroundImage: `url("${data.event.image}")`,
@@ -66,7 +87,7 @@ const Event: FunctionComponent = () => {
               <h1>{data.event.name}</h1>
             </div>
             <div className={styles.description}>{data.event.description}</div>
-            <EventEnrol event={data.event} />
+            <EventEnrol data={data} onFilterUpdate={updateFilterValues} />
           </div>
         </div>
       </PageWrapper>
