@@ -26,7 +26,7 @@ const Collapsible: FunctionComponent<CollapsibleProps> = ({ item }) => {
         className={styles.header}
         onClick={() => toggleCollapsible(!isOpen)}
       >
-        <div>{item.header}</div>
+        <h3>{item.header}</h3>
         <Icon src={angleDownIcon} alt={''} className={styles.arrow} />
       </button>
       <p id={id} aria-hidden={!isOpen} className={styles.content}>
