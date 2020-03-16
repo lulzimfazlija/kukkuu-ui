@@ -5,6 +5,8 @@ import { useHistory } from 'react-router-dom';
 
 // TODO: KK-300 Check how the cancel button should look
 // TODO: KK-300 If the same, find a better/reusable location for this css module
+import { toast } from 'react-toastify';
+
 import styles from '../../child/modal/prompt/delete/childFormModalDeletePrompt.module.scss';
 import Modal from '../../../common/components/modal/Modal';
 import Button from '../../../common/components/button/Button';
@@ -43,9 +45,13 @@ const UnenrolModal: FunctionComponent<UnenrolModalProps> = ({
           },
         },
       });
-      history.push(`/profile/child/${childId}`);
+      history.replace(`/profile/child/${childId}`);
     } catch (error) {
       // TODO: KK-280 Handle errors nicely
+      toast(t('registration.submitMutation.errorMessage'), {
+        type: toast.TYPE.ERROR,
+      });
+
       console.error(error);
     }
   };

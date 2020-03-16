@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory, useParams } from 'react-router-dom';
 import { useMutation, useQuery } from '@apollo/react-hooks';
@@ -26,6 +26,7 @@ const Enrol: FunctionComponent = () => {
     eventId: string;
     occurrenceId: string;
   }>();
+
   const { loading, error, data } = useQuery<OccurrenceQueryType>(
     occurrenceQuery,
     {
@@ -77,7 +78,7 @@ const Enrol: FunctionComponent = () => {
           },
         },
       });
-      history.push(
+      history.replace(
         `/profile/child/${params.childId}/occurrence/${data?.occurrence?.id}`
       );
     } catch (error) {
