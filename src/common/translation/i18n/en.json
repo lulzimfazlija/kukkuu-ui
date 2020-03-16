@@ -152,19 +152,6 @@
       "heading": "Registration for event successful"
     }
   },
-  "venue": {
-    "features": {
-      "arrival": {
-        "heading": "Arrival"
-      },
-      "accessibility": {
-        "heading": "Accessibility"
-      },
-      "additionalInformation": {
-        "heading": "Additional information"
-      }
-    }
-  },
   "event": {
     "cancellation": {
       "buttonText": "Cancel registration",
@@ -515,6 +502,22 @@
     },
     "postalCode": {
       "invalidFormat": "Invalid format"
+    }
+  },
+  "venue": {
+    "features": {
+      "accessibility": {
+        "heading": "Accessibility"
+      },
+      "additionalInformation": {
+        "heading": "Additional information"
+      },
+      "arrival": {
+        "heading": "Arrival"
+      },
+      "wcAndFacilities": {
+        "heading": "WCs and child care facilities"
+      }
     }
   }
 }

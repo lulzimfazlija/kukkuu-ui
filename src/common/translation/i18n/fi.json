@@ -152,19 +152,6 @@
       "heading": "Tapahtumaan ilmoittautuminen onnistui! "
     }
   },
-  "venue": {
-    "features": {
-      "arrival": {
-        "heading": "Saapuminen"
-      },
-      "accessibility": {
-        "heading": "Esteettömyys"
-      },
-      "additionalInformation": {
-        "heading": "Lisätietoa"
-      }
-    }
-  },
   "event": {
     "cancellation": {
       "buttonText": "Peru ilmoittautuminen",
@@ -515,6 +502,22 @@
     },
     "postalCode": {
       "invalidFormat": "Väärä formaatti"
+    }
+  },
+  "venue": {
+    "features": {
+      "accessibility": {
+        "heading": "Esteettömyys"
+      },
+      "additionalInformation": {
+        "heading": "Lisätietoa"
+      },
+      "arrival": {
+        "heading": "Saapuminen"
+      },
+      "wcAndFacilities": {
+        "heading": "WC-tilat ja lastenhoitohuone"
+      }
     }
   }
 }

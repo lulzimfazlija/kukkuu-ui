@@ -31,11 +31,12 @@ export interface occurrenceQuery_occurrence_venue {
    */
   id: string;
   name: string | null;
-  description: string | null;
   address: string | null;
   accessibilityInfo: string | null;
   arrivalInstructions: string | null;
   additionalInfo: string | null;
+  wwwUrl: string | null;
+  wcAndFacilities: string | null;
 }
 
 export interface occurrenceQuery_occurrence {

@@ -29,6 +29,14 @@ const VenueFeatures: FunctionComponent<VenueFeaturesProps> = ({ venue }) => {
           }}
         />
       )}
+      {venue.wcAndFacilities && (
+        <Collapsible
+          item={{
+            header: t('venue.features.wcAndFacilities.heading'),
+            body: venue.wcAndFacilities,
+          }}
+        />
+      )}
       {venue.additionalInfo && (
         <Collapsible
           item={{

@@ -18,11 +18,12 @@ const occurrenceQuery = gql`
       venue {
         id
         name
-        description
         address
         accessibilityInfo
         arrivalInstructions
         additionalInfo
+        wwwUrl
+        wcAndFacilities
       }
     }
   }
