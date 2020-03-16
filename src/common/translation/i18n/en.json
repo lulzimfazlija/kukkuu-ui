@@ -128,14 +128,14 @@
       "queue": "Join queue",
       "selectOccurence": "Choose"
     },
-    "confirmation page": {
+    "confirmationPage": {
       "cancel": {
         "button": "Back to event selection"
       },
       "confirm": {
         "button": "Register for event"
       },
-      "heading ": "Register for event $name"
+      "heading": "Register for event"
     },
     "enroll": {
       "buttonText": "Register for event"

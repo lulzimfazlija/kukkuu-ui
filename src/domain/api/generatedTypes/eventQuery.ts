@@ -79,4 +79,6 @@ export interface eventQuery {
 
 export interface eventQueryVariables {
   id: string;
+  date?: any | null;
+  time?: any | null;
 }

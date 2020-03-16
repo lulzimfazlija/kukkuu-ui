@@ -20,27 +20,33 @@ const EventOccurrence: React.FunctionComponent<EventOccurrenceProps> = ({
   const date = formatTime(newMoment(occurrence.time), 'dd l');
   const time = formatTime(newMoment(occurrence.time), 'hh:mm');
 
+  const hasCapacity =
+    occurrence.remainingCapacity && occurrence.remainingCapacity > 0;
+
   return (
     <tr className={styles.occurrence}>
       <td className={styles.occurrenceDate}>{date}</td>
       <td className={styles.occurrenceTime}>{time}</td>
       <td className={styles.occurrenceVenue}>{occurrence.venue.name}</td>
-      {occurrence.remainingCapacity ? (
-        <td className={styles.remainingCapacity}>
-          {occurrence.remainingCapacity}
-        </td>
-      ) : (
-        <td></td>
-      )}
+      <td className={styles.remainingCapacity}>
+        {occurrence?.remainingCapacity}
+      </td>
       <td className={styles.occurrenceSubmit}>
         {
           // TODO: KK-300 Make the back-button not confusing
         }
-        <Link to={`${occurrence.event.id}/occurrence/${occurrence.id}/enrol`}>
-          <Button type="submit" className={styles.submitButton}>
-            {t('event.register.occurrenceTableHeader.buttonText')}
+
+        {hasCapacity ? (
+          <Link to={`${occurrence.event.id}/occurrence/${occurrence.id}/enrol`}>
+            <Button type="submit" className={styles.submitButton}>
+              {t('event.register.occurrenceTableHeader.buttonText')}
+            </Button>
+          </Link>
+        ) : (
+          <Button className={styles.fullButton} disabled>
+            {t('enrollment.button.occurenceFull')}
           </Button>
-        </Link>
+        )}
       </td>
     </tr>
   );

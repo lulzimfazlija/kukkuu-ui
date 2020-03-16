@@ -9,10 +9,10 @@ exports[`renders snapshot correctly 1`] = `
       className="mobileHeader"
     >
       <th>
-        Vapaat paikat
+        Tapahtuman tiedot
       </th>
       <th>
-        Tapahtuman tiedot
+        Vapaat paikat
       </th>
     </tr>
     <tr

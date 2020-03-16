@@ -4,6 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 import * as Sentry from '@sentry/browser';
 import classnames from 'classnames';
+import { toast } from 'react-toastify';
 
 import PageWrapper from '../../app/layout/PageWrapper';
 import styles from './enrol.module.scss';
@@ -25,6 +26,7 @@ const Enrol: FunctionComponent = () => {
     eventId: string;
     occurrenceId: string;
   }>();
+
   const { loading, error, data } = useQuery<OccurrenceQueryType>(
     occurrenceQuery,
     {
@@ -53,7 +55,9 @@ const Enrol: FunctionComponent = () => {
 
   if (loading) return <LoadingSpinner isLoading={true} />;
   if (error) {
-    console.error(error);
+    toast(t('api.errorMessage'), {
+      type: toast.TYPE.ERROR,
+    });
     Sentry.captureException(error);
     return (
       <PageWrapper>
@@ -74,12 +78,15 @@ const Enrol: FunctionComponent = () => {
           },
         },
       });
-      history.push(
+      history.replace(
         `/profile/child/${params.childId}/occurrence/${data?.occurrence?.id}`
       );
     } catch (error) {
       // TODO: KK-280 Handle errors nicely
       console.error(error);
+      toast(t('registration.submitMutation.errorMessage'), {
+        type: toast.TYPE.ERROR,
+      });
     }
   };
 
@@ -99,22 +106,15 @@ const Enrol: FunctionComponent = () => {
         />
 
         <div className={styles.actions}>
-          <form
-            onSubmit={e => {
-              e.preventDefault();
-              console.log('a');
-              enrol();
-            }}
-          >
-            <Button className={styles.submitButton} type="submit">
-              Enrol
-            </Button>
-          </form>
+          <Button className={styles.submitButton} onClick={() => enrol()}>
+            {t('enrollment.confirmationPage.confirm.button')}
+          </Button>
+
           <Button
             className={styles.backButton}
             onClick={() => history.goBack()}
           >
-            Back
+            {t('enrollment.confirmationPage.cancel.button')}
           </Button>
         </div>
       </div>
