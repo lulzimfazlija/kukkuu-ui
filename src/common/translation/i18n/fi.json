@@ -110,6 +110,10 @@
       }
     }
   },
+  "dataProtection": {
+    "title": "Tietosuoja",
+    "url": "https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
+  },
   "descriptionOfTheFile": {
     "title": "Rekisteriseloste",
     "url": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Kaupunginorkesterin-kummiperherekisteri.pdf"
@@ -172,7 +176,8 @@
       "FAMILY": "Perhe"
     },
     "participantsPerInviteEnumLong": {
-      "CHILD_AND_GUARDIAN": "Yhdellä ilmoittautumisella tapahtumaan voi kummilapsen lisäksi osallistua 1 aikuinen"
+      "CHILD_AND_GUARDIAN": "Yhdellä ilmoittautumisella tapahtumaan voi kummilapsen lisäksi osallistua 1 aikuinen",
+      "FAMILY": ""
     },
     "register": {
       "form": {

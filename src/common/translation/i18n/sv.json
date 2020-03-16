@@ -110,6 +110,10 @@
       }
     }
   },
+  "dataProtection": {
+    "title": "Dataskydd",
+    "url": "https://www.hel.fi/helsinki/sv/stad-och-forvaltning/information/dataskydd"
+  },
   "descriptionOfTheFile": {
     "title": "Registerbeskrivning",
     "url": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Kaupunginorkesterin-kummiperherekisteri-SV.pdf"
@@ -172,7 +176,8 @@
       "FAMILY": "Familj"
     },
     "participantsPerInviteEnumLong": {
-      "CHILD_AND_GUARDIAN": ""
+      "CHILD_AND_GUARDIAN": "",
+      "FAMILY": ""
     },
     "register": {
       "form": {

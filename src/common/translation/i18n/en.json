@@ -110,6 +110,10 @@
       }
     }
   },
+  "dataProtection": {
+    "title": "Data Protection",
+    "url": "https://www.hel.fi/helsinki/en/administration/information/data-protection"
+  },
   "descriptionOfTheFile": {
     "title": "Description of the File",
     "url": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Kaupunginorkesterin-kummiperherekisteri.pdf"
@@ -172,7 +176,8 @@
       "FAMILY": "Family"
     },
     "participantsPerInviteEnumLong": {
-      "CHILD_AND_GUARDIAN": "One adult can accompany a child in this registration"
+      "CHILD_AND_GUARDIAN": "One adult can accompany a child in this registration",
+      "FAMILY": ""
     },
     "register": {
       "form": {

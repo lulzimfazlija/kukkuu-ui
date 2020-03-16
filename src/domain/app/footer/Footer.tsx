@@ -27,6 +27,10 @@ const Footer: FunctionComponent = () => {
               rel="noopener noreferrer"
             >
               {t('descriptionOfTheFile.title')}
+            </a>{' '}
+            •{' '}
+            <a href={t('dataProtection.url')} rel="noopener noreferrer">
+              {t('dataProtection.title')}
             </a>
           </div>
         </div>
