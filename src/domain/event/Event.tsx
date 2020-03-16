@@ -27,6 +27,7 @@ const Event: FunctionComponent = () => {
     time: '',
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [selectedFilterValues, setFilterValues] = useState(initialFilterValues);
 
   const variables: EventQueryVariables = {
