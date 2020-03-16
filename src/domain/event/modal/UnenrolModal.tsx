@@ -2,7 +2,6 @@ import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useMutation } from '@apollo/react-hooks';
 import { useHistory } from 'react-router-dom';
-
 // TODO: KK-300 Check how the cancel button should look
 // TODO: KK-300 If the same, find a better/reusable location for this css module
 import { toast } from 'react-toastify';
