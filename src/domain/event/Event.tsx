@@ -133,7 +133,11 @@ const Event: FunctionComponent = () => {
 
   return (
     <>
-      <div className={styles.heroWrapper} style={backgroundImageStyle}>
+      <div
+        className={styles.heroWrapper}
+        style={backgroundImageStyle}
+        title={data.event.imageAltText || ''}
+      >
         <div className={styles.backButtonWrapper}>
           <Button
             aria-label={t('common.backButton.label')}

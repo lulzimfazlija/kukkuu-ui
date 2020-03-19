@@ -47,6 +47,7 @@ export const childByIdQuery = gql`
             name
             shortDescription
             image
+            imageAltText
             participantsPerInvite
           }
         }
@@ -68,6 +69,7 @@ export const childByIdQuery = gql`
                 name
                 shortDescription
                 image
+                imageAltText
                 duration
                 participantsPerInvite
               }
@@ -82,6 +84,7 @@ export const childByIdQuery = gql`
             name
             shortDescription
             image
+            imageAltText
             participantsPerInvite
             occurrences {
               edges {

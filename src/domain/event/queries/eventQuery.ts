@@ -9,6 +9,7 @@ const eventQuery = gql`
       description
       shortDescription
       image
+      imageAltText
       participantsPerInvite
       duration
       capacityPerOccurrence
