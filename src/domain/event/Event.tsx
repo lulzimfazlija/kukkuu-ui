@@ -15,7 +15,26 @@ import {
   eventQueryVariables as EventQueryVariables,
 } from '../api/generatedTypes/eventQuery';
 import LoadingSpinner from '../../common/components/spinner/LoadingSpinner';
-import EventEnrol, { FilterValues } from './EventEnrol';
+import { formatOccurrenceTime } from './EventUtils';
+import { formatTime, newMoment } from '../../common/time/utils';
+import { DEFAULT_DATE_FORMAT } from '../../common/time/TimeConstants';
+import EventEnrol from './EventEnrol';
+
+export interface FilterValues {
+  date?: string;
+  time?: string;
+}
+
+interface Option {
+  key: string;
+  label: string;
+  value: string;
+}
+
+export interface FilterOptions {
+  dates: Option[];
+  times: Option[];
+}
 
 const Event: FunctionComponent = () => {
   const history = useHistory();
@@ -26,9 +45,14 @@ const Event: FunctionComponent = () => {
     date: '',
     time: '',
   };
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [selectedFilterValues, setFilterValues] = useState(initialFilterValues);
+
+  const [hasFiltered, setHasFiltered] = useState(false);
+  const initialOptions: FilterOptions = {
+    dates: [{ key: '', label: '', value: '' }],
+    times: [{ key: '', label: '', value: '' }],
+  };
+  const [options, setOptions] = useState(initialOptions);
 
   const variables: EventQueryVariables = {
     id: params.eventId,
@@ -55,6 +79,51 @@ const Event: FunctionComponent = () => {
   }
 
   if (!data?.event) return <div>No event</div>;
+
+  const optionsDates = data.event.occurrences.edges
+    .map(occurrence => {
+      return occurrence?.node?.id && occurrence.node.time
+        ? {
+            value: formatTime(newMoment(occurrence.node.time), 'YYYY-MM-DD'),
+            label: formatTime(
+              newMoment(occurrence.node.time),
+              DEFAULT_DATE_FORMAT
+            ),
+            key: occurrence.node.id,
+          }
+        : { key: '', label: '', value: '' };
+    })
+    .filter((v, i, a) => a.findIndex(t => t.value === v.value) === i);
+
+  const optionsTimes = data.event.occurrences.edges
+    .map(occurrence => {
+      return occurrence?.node?.id && occurrence.node.time
+        ? {
+            value: formatTime(newMoment(occurrence.node.time), 'HH:mm'),
+            label: formatOccurrenceTime(
+              occurrence.node.time,
+              data.event?.duration || null
+            ),
+            key: occurrence.node.id,
+          }
+        : { key: '', label: '', value: '' };
+    })
+    .filter((v, i, a) => a.findIndex(t => t.value === v.value) === i)
+    .sort((a, b) => {
+      return a.label && b.label
+        ? a.label === b.label
+          ? 0
+          : +(a.label > b.label) || -1
+        : 0;
+    });
+
+  if (!hasFiltered) {
+    setOptions({
+      dates: optionsDates,
+      times: optionsTimes,
+    });
+    setHasFiltered(true);
+  }
 
   const backgroundImageStyle = data.event.image
     ? {
@@ -87,7 +156,12 @@ const Event: FunctionComponent = () => {
               <h1>{data.event.name}</h1>
             </div>
             <div className={styles.description}>{data.event.description}</div>
-            <EventEnrol data={data} onFilterUpdate={updateFilterValues} />
+            <EventEnrol
+              data={data}
+              filterValues={selectedFilterValues}
+              options={options}
+              onFilterUpdate={updateFilterValues}
+            />
           </div>
         </div>
       </PageWrapper>
