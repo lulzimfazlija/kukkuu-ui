@@ -17,6 +17,10 @@ import {
 import LoadingSpinner from '../../common/components/spinner/LoadingSpinner';
 import EventEnrol, { FilterValues } from './EventEnrol';
 
+export const nlToParagraph = (text: string) => {
+  return (text || '').split('\n\r').map((item, i) => <p key={i}>{item}</p>);
+};
+
 const Event: FunctionComponent = () => {
   const history = useHistory();
   const { t } = useTranslation();
@@ -86,7 +90,9 @@ const Event: FunctionComponent = () => {
             <div className={styles.heading}>
               <h1>{data.event.name}</h1>
             </div>
-            <div className={styles.description}>{data.event.description}</div>
+            <div className={styles.description}>
+              {nlToParagraph(data.event.description || '')}
+            </div>
             <EventEnrol data={data} onFilterUpdate={updateFilterValues} />
           </div>
         </div>
