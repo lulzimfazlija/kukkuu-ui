@@ -16,10 +16,7 @@ import {
 } from '../api/generatedTypes/eventQuery';
 import LoadingSpinner from '../../common/components/spinner/LoadingSpinner';
 import EventEnrol, { FilterValues } from './EventEnrol';
-
-export const nlToParagraph = (text: string) => {
-  return (text || '').split('\n\r').map((item, i) => <p key={i}>{item}</p>);
-};
+import { nlToParagraph } from '../../common/commonUtils';
 
 const Event: FunctionComponent = () => {
   const history = useHistory();

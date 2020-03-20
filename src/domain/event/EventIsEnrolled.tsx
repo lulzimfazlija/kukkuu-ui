@@ -15,7 +15,7 @@ import LoadingSpinner from '../../common/components/spinner/LoadingSpinner';
 import OccurrenceInfo from './partial/OccurrenceInfo';
 import UnenrolModal from './modal/UnenrolModal';
 import VenueFeatures from './VenueFeatures';
-import { nlToParagraph } from './Event';
+import { nlToParagraph } from '../../common/commonUtils';
 
 const EventIsEnrolled: FunctionComponent = () => {
   const history = useHistory();
