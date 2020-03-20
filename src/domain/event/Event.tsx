@@ -64,6 +64,13 @@ const Event: FunctionComponent = () => {
   );
 
   const updateFilterValues = (filterValues: FilterValues) => {
+    // If date or time is missing we force it to be present and undefined to
+    // work around this apollo bug:
+    // https://github.com/apollographql/react-apollo/issues/2300
+    // Without it you would not be able to go from having a date or time
+    // filter to seeing all occurrences again.
+    filterValues.date = filterValues.date ? filterValues.date : undefined;
+    filterValues.time = filterValues.time ? filterValues.time : undefined;
     setFilterValues(filterValues);
     refetch({ ...filterValues, ...variables });
   };
