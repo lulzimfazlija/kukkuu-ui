@@ -21,7 +21,7 @@ const LanguageBar: React.FunctionComponent<{ className?: string }> = ({
         <a
           key={index}
           aria-current={
-            location.pathname.includes(`/${language}/`) ? 'page' : 'false'
+            location.pathname.includes(`/${language}/`) ? 'page' : undefined
           }
           href={updateLocaleParam(location.pathname, currentLanguage, language)}
           lang={language}
