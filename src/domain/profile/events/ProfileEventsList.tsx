@@ -50,6 +50,7 @@ const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
                 <Card
                   key={eventEdge.node.id}
                   imageSrc={eventEdge.node.image}
+                  alt={eventEdge.node.imageAltText || ''}
                   title={eventEdge.node.name || ''} // TODO
                   action={() => gotoEventPage(eventEdge.node?.id || '')} // TODO
                   actionText={t('enrollment.enroll.buttonText')}
