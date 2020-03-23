@@ -17,6 +17,7 @@ export interface childByIdQuery_child_availableEvents_edges_node {
   name: string | null;
   shortDescription: string | null;
   image: string;
+  imageAltText: string | null;
   participantsPerInvite: EventParticipantsPerInvite;
 }
 
@@ -52,6 +53,7 @@ export interface childByIdQuery_child_enrolments_edges_node_occurrence_event {
   name: string | null;
   shortDescription: string | null;
   image: string;
+  imageAltText: string | null;
   /**
    * In minutes
    */
@@ -117,6 +119,7 @@ export interface childByIdQuery_child_pastEvents_edges_node {
   name: string | null;
   shortDescription: string | null;
   image: string;
+  imageAltText: string | null;
   participantsPerInvite: EventParticipantsPerInvite;
   occurrences: childByIdQuery_child_pastEvents_edges_node_occurrences;
 }
