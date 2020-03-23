@@ -61,6 +61,7 @@ export interface eventQuery_event {
   description: string | null;
   shortDescription: string | null;
   image: string;
+  imageAltText: string | null;
   participantsPerInvite: EventParticipantsPerInvite;
   /**
    * In minutes

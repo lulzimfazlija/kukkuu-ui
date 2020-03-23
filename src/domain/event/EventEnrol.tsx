@@ -9,22 +9,18 @@ import EnhancedInputField from '../../common/components/form/fields/input/Enhanc
 import SelectField from '../../common/components/form/fields/select/SelectField';
 import { eventQuery as EventQueryType } from '../api/generatedTypes/eventQuery';
 import EventOccurrenceList from './EventOccurrenceList';
-import { formatOccurrenceTime } from './EventUtils';
-import { formatTime, newMoment } from '../../common/time/utils';
-import { DEFAULT_DATE_FORMAT } from '../../common/time/TimeConstants';
-
-export interface FilterValues {
-  date?: string;
-  time?: string;
-}
-
+import { FilterValues, FilterOptions } from './Event';
 export interface EventEnrolProps {
   data: EventQueryType;
+  filterValues: FilterValues;
+  options: FilterOptions;
   onFilterUpdate: (filterValues: FilterValues) => void;
 }
 
 const EventEnrol: FunctionComponent<EventEnrolProps> = ({
   data,
+  filterValues,
+  options,
   onFilterUpdate,
 }) => {
   const { t } = useTranslation();
@@ -37,42 +33,6 @@ const EventEnrol: FunctionComponent<EventEnrolProps> = ({
   };
 
   if (!data?.event) return <div></div>;
-
-  const selectOptionsDate = data.event.occurrences.edges
-    .map(occurrence => {
-      return occurrence?.node?.id && occurrence.node.time
-        ? {
-            value: formatTime(newMoment(occurrence.node.time), 'YYYY-MM-DD'),
-            label: formatTime(
-              newMoment(occurrence.node.time),
-              DEFAULT_DATE_FORMAT
-            ),
-            key: occurrence.node.id,
-          }
-        : {};
-    })
-    .filter((v, i, a) => a.findIndex(t => t.value === v.value) === i);
-  const selectOptionsTime = data.event.occurrences.edges
-    .map(occurrence => {
-      return occurrence?.node?.id && occurrence.node.time
-        ? {
-            value: formatTime(newMoment(occurrence.node.time), 'HH:mm'),
-            label: formatOccurrenceTime(
-              occurrence.node.time,
-              data.event?.duration || null
-            ),
-            key: occurrence?.node.id,
-          }
-        : {};
-    })
-    .filter((v, i, a) => a.findIndex(t => t.value === v.value) === i)
-    .sort((a, b) => {
-      return a.label && b.label
-        ? a.label === b.label
-          ? 0
-          : +(a.label > b.label) || -1
-        : 0;
-    });
 
   const participantsPerInvite = data.event.participantsPerInvite
     ? t(`event.participantsPerInviteEnum.${data.event.participantsPerInvite}`)
@@ -89,16 +49,13 @@ const EventEnrol: FunctionComponent<EventEnrolProps> = ({
         <div className={styles.signup}>
           <Formik
             key="eventPageFormKey"
-            initialValues={{
-              date: '',
-              time: '',
-            }}
+            initialValues={filterValues}
             onSubmit={handleSubmit}
             validate={(values: FilterValues) => {
               handleSubmit(values);
             }}
           >
-            {({ handleSubmit, handleChange, values }) => {
+            {({ handleSubmit, values }) => {
               return (
                 <form onSubmit={handleSubmit} id="eventPageForm">
                   <EnhancedInputField
@@ -107,7 +64,7 @@ const EventEnrol: FunctionComponent<EventEnrolProps> = ({
                     name="date"
                     placeholder="placeholder"
                     label="Choose date"
-                    options={selectOptionsDate}
+                    options={options.dates}
                     component={SelectField}
                     value={values.date}
                   />
@@ -117,7 +74,7 @@ const EventEnrol: FunctionComponent<EventEnrolProps> = ({
                     name="time"
                     placeholder="placeholdertime"
                     label="Choose time"
-                    options={selectOptionsTime}
+                    options={options.times}
                     component={SelectField}
                     value={values.time}
                   />
