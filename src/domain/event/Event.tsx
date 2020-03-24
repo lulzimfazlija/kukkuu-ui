@@ -89,7 +89,7 @@ const Event: FunctionComponent = () => {
   if (!data?.event) return <div>No event</div>;
 
   const optionsDates = data.event.occurrences.edges
-    .map(occurrence => {
+    .map((occurrence) => {
       return occurrence?.node?.id && occurrence.node.time
         ? {
             value: formatTime(newMoment(occurrence.node.time), 'YYYY-MM-DD'),
@@ -101,10 +101,10 @@ const Event: FunctionComponent = () => {
           }
         : { key: '', label: '', value: '' };
     })
-    .filter((v, i, a) => a.findIndex(t => t.value === v.value) === i);
+    .filter((v, i, a) => a.findIndex((t) => t.value === v.value) === i);
 
   const optionsTimes = data.event.occurrences.edges
-    .map(occurrence => {
+    .map((occurrence) => {
       return occurrence?.node?.id && occurrence.node.time
         ? {
             value: formatTime(newMoment(occurrence.node.time), 'HH:mm'),
@@ -116,7 +116,7 @@ const Event: FunctionComponent = () => {
           }
         : { key: '', label: '', value: '' };
     })
-    .filter((v, i, a) => a.findIndex(t => t.value === v.value) === i)
+    .filter((v, i, a) => a.findIndex((t) => t.value === v.value) === i)
     .sort((a, b) => {
       return a.label && b.label
         ? a.label === b.label
