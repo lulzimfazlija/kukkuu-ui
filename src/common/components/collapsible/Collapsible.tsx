@@ -4,7 +4,7 @@ import uniqueId from 'lodash/uniqueId';
 import angleDownIcon from '../../../assets/icons/svg/angleDown.svg';
 import styles from './collapsible.module.scss';
 import Icon from '../icon/Icon';
-import { nlToParagraph } from '../../commonUtils';
+import Paragraph from '../paragraph/Paragraph';
 
 interface Item {
   header: string;
@@ -30,9 +30,10 @@ const Collapsible: FunctionComponent<CollapsibleProps> = ({ item }) => {
         <h3>{item.header}</h3>
         <Icon src={angleDownIcon} alt={''} className={styles.arrow} />
       </button>
-      <p id={id} aria-hidden={!isOpen} className={styles.content}>
-        {nlToParagraph(item.body)}
-      </p>
+      <div id={id} aria-hidden={!isOpen} className={styles.content}>
+        <Paragraph text={item.body} />
+      </div>
+
       <hr />
     </div>
   );

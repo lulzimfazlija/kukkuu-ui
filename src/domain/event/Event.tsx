@@ -15,11 +15,11 @@ import {
   eventQueryVariables as EventQueryVariables,
 } from '../api/generatedTypes/eventQuery';
 import LoadingSpinner from '../../common/components/spinner/LoadingSpinner';
-import { nlToParagraph } from '../../common/commonUtils';
 import { formatOccurrenceTime } from './EventUtils';
 import { formatTime, newMoment } from '../../common/time/utils';
 import { DEFAULT_DATE_FORMAT } from '../../common/time/TimeConstants';
 import EventEnrol from './EventEnrol';
+import Paragraph from '../../common/components/paragraph/Paragraph';
 
 export interface FilterValues {
   date?: string;
@@ -168,7 +168,7 @@ const Event: FunctionComponent = () => {
               <h1>{data.event.name}</h1>
             </div>
             <div className={styles.description}>
-              {nlToParagraph(data.event.description || '')}
+              <Paragraph text={data.event.description || ''} />
             </div>
             <EventEnrol
               data={data}

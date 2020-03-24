@@ -15,7 +15,7 @@ import LoadingSpinner from '../../common/components/spinner/LoadingSpinner';
 import OccurrenceInfo from './partial/OccurrenceInfo';
 import UnenrolModal from './modal/UnenrolModal';
 import VenueFeatures from './VenueFeatures';
-import { nlToParagraph } from '../../common/commonUtils';
+import Paragraph from '../../common/components/paragraph/Paragraph';
 
 const EventIsEnrolled: FunctionComponent = () => {
   const history = useHistory();
@@ -82,7 +82,7 @@ const EventIsEnrolled: FunctionComponent = () => {
               occurrence={data.occurrence}
             />
             <div className={styles.description}>
-              {nlToParagraph(data.occurrence.event.description || '')}
+              <Paragraph text={data.occurrence.event.description || ''} />
             </div>
             <div className={styles.participantsPerInvite}>
               {t(

@@ -11,7 +11,7 @@ import {
 } from '../../api/generatedTypes/childByIdQuery';
 import styles from './profileEventsList.module.scss';
 import OccurrenceInfo from '../../event/partial/OccurrenceInfo';
-import { nlToParagraph } from '../../../common/commonUtils';
+import Paragraph from '../../../common/components/paragraph/Paragraph';
 
 interface ProfileEventsListProps {
   availableEvents: AvailableEventsTypes | null;
@@ -57,7 +57,7 @@ const ProfileEventsList: FunctionComponent<ProfileEventsListProps> = ({
                   primaryAction={() => gotoEventPage(eventEdge.node?.id || '')} // TODO
                   primaryActionText={t('enrollment.enroll.buttonText')}
                 >
-                  <p>{nlToParagraph(eventEdge.node.shortDescription || '')}</p>
+                  <Paragraph text={eventEdge.node.shortDescription || ''} />
                 </Card>
               )
           )}
