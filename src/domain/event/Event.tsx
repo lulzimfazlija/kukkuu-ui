@@ -19,6 +19,7 @@ import { formatOccurrenceTime } from './EventUtils';
 import { formatTime, newMoment } from '../../common/time/utils';
 import { DEFAULT_DATE_FORMAT } from '../../common/time/TimeConstants';
 import EventEnrol from './EventEnrol';
+import Paragraph from '../../common/components/paragraph/Paragraph';
 
 export interface FilterValues {
   date?: string;
@@ -166,7 +167,9 @@ const Event: FunctionComponent = () => {
             <div className={styles.heading}>
               <h1>{data.event.name}</h1>
             </div>
-            <div className={styles.description}>{data.event.description}</div>
+            <div className={styles.description}>
+              <Paragraph text={data.event.description || ''} />
+            </div>
             <EventEnrol
               data={data}
               filterValues={selectedFilterValues}

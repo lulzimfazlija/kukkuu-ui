@@ -41,7 +41,7 @@ const VenueFeatures: FunctionComponent<VenueFeaturesProps> = ({ venue }) => {
         <Collapsible
           item={{
             header: t('venue.features.additionalInformation.heading'),
-            body: venue?.additionalInfo,
+            body: venue.additionalInfo,
           }}
         />
       )}

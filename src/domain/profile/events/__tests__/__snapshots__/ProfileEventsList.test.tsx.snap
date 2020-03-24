@@ -18,9 +18,9 @@ exports[`Renders snapshot correctly 1`] = `
       primaryActionText="Ilmoittaudu tapahtumaan"
       title="pentti"
     >
-      <p>
-        eventti
-      </p>
+      <Paragraph
+        text="eventti"
+      />
     </Card>
   </div>
   <div
