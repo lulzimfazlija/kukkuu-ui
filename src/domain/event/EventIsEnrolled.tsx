@@ -30,22 +30,19 @@ const EventIsEnrolled: FunctionComponent = () => {
     }
   );
 
+  const errorMessage = (
+    <PageWrapper>
+      <div className={styles.event}>{t('api.errorMessage')}</div>
+    </PageWrapper>
+  );
+
   if (loading) return <LoadingSpinner isLoading={true} />;
   if (error) {
     Sentry.captureException(error);
-    return (
-      <PageWrapper>
-        <div className={styles.event}>{t('api.errorMessage')}</div>
-      </PageWrapper>
-    );
+    return errorMessage;
   }
 
-  if (!data?.occurrence)
-    return (
-      <PageWrapper>
-        <div className={styles.event}>No occurrence data</div>
-      </PageWrapper>
-    );
+  if (!data?.occurrence) return errorMessage;
 
   return (
     <EventPage event={data.occurrence.event}>

@@ -24,7 +24,7 @@ const EventPage: FunctionComponent<
   const history = useHistory();
   const { t } = useTranslation();
 
-  if (!event) return <div>No event</div>;
+  if (!event) return <></>;
 
   const backgroundImageStyle = event.image
     ? {
