@@ -58,6 +58,36 @@ export interface profileQuery_myProfile_children_edges_node_availableEvents {
   edges: (profileQuery_myProfile_children_edges_node_availableEvents_edges | null)[];
 }
 
+export interface profileQuery_myProfile_children_edges_node_enrolments_edges_node_occurrence_event {
+  /**
+   * The ID of the object.
+   */
+  id: string;
+  name: string | null;
+}
+
+export interface profileQuery_myProfile_children_edges_node_enrolments_edges_node_occurrence {
+  event: profileQuery_myProfile_children_edges_node_enrolments_edges_node_occurrence_event;
+}
+
+export interface profileQuery_myProfile_children_edges_node_enrolments_edges_node {
+  occurrence: profileQuery_myProfile_children_edges_node_enrolments_edges_node_occurrence;
+}
+
+export interface profileQuery_myProfile_children_edges_node_enrolments_edges {
+  /**
+   * The item at the end of the edge
+   */
+  node: profileQuery_myProfile_children_edges_node_enrolments_edges_node | null;
+}
+
+export interface profileQuery_myProfile_children_edges_node_enrolments {
+  /**
+   * Contains the nodes in this connection.
+   */
+  edges: (profileQuery_myProfile_children_edges_node_enrolments_edges | null)[];
+}
+
 export interface profileQuery_myProfile_children_edges_node {
   /**
    * The ID of the object.
@@ -69,6 +99,7 @@ export interface profileQuery_myProfile_children_edges_node {
   postalCode: string;
   relationships: profileQuery_myProfile_children_edges_node_relationships;
   availableEvents: profileQuery_myProfile_children_edges_node_availableEvents | null;
+  enrolments: profileQuery_myProfile_children_edges_node_enrolments;
 }
 
 export interface profileQuery_myProfile_children_edges {

@@ -5,6 +5,7 @@ import { useMutation, useQuery } from '@apollo/react-hooks';
 import * as Sentry from '@sentry/browser';
 import classnames from 'classnames';
 import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
 
 import PageWrapper from '../../app/layout/PageWrapper';
 import styles from './enrol.module.scss';
@@ -17,10 +18,13 @@ import enrolOccurrenceMutation from '../mutations/enrolOccurrenceMutation';
 import { EnrolOccurrenceMutationInput } from '../../api/generatedTypes/globalTypes';
 import profileQuery from '../../profile/queries/ProfileQuery';
 import { childByIdQuery } from '../../child/queries/ChildQueries';
+import { enrolChild } from '../state/EventActions';
 
 const Enrol: FunctionComponent = () => {
   const history = useHistory();
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+
   const params = useParams<{
     childId: string;
     eventId: string;
@@ -42,7 +46,9 @@ const Enrol: FunctionComponent = () => {
     enrolOccurrenceMutation,
     {
       refetchQueries: [
-        { query: profileQuery },
+        // FIXME: Prevent crash after unenrol:
+        // Rendered fewer hooks than expected. This may be caused by an accidental early return statement.
+        //{ query: profileQuery },
         {
           query: childByIdQuery,
           variables: {
@@ -50,6 +56,11 @@ const Enrol: FunctionComponent = () => {
           },
         },
       ],
+      onCompleted: () => {
+        dispatch(
+          enrolChild({ childId: params.childId, eventId: params.eventId })
+        );
+      },
     }
   );
 

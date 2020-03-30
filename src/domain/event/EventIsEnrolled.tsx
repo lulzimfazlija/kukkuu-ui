@@ -72,6 +72,7 @@ const EventIsEnrolled: FunctionComponent = () => {
           setIsOpen={setIsOpen}
           childId={params.childId}
           occurrenceId={data.occurrence.id}
+          eventId={data.occurrence.event.id}
         />
       )}
     </EventPage>

@@ -35,6 +35,18 @@ const profileQuery = gql`
                 }
               }
             }
+            enrolments {
+              edges {
+                node {
+                  occurrence {
+                    event {
+                      id
+                      name
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
