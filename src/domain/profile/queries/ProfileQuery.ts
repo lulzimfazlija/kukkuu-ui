@@ -39,6 +39,7 @@ const profileQuery = gql`
               edges {
                 node {
                   occurrence {
+                    id
                     event {
                       id
                       name

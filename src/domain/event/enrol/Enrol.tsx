@@ -48,7 +48,7 @@ const Enrol: FunctionComponent = () => {
       refetchQueries: [
         // FIXME: Prevent crash after unenrol:
         // Rendered fewer hooks than expected. This may be caused by an accidental early return statement.
-        //{ query: profileQuery },
+        { query: profileQuery },
         {
           query: childByIdQuery,
           variables: {

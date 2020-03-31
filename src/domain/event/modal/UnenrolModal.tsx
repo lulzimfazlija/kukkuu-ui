@@ -12,6 +12,7 @@ import profileQuery from '../../profile/queries/ProfileQuery';
 import { unenrolOccurrenceMutationVariables } from '../../api/generatedTypes/unenrolOccurrenceMutation';
 import ConfirmModal from '../../../common/components/confirm/ConfirmModal';
 import { unenrolChild } from '../state/EventActions';
+import { childByIdQuery } from '../../child/queries/ChildQueries';
 
 interface UnenrolModalProps {
   isOpen: boolean;
@@ -35,11 +36,16 @@ const UnenrolModal: FunctionComponent<UnenrolModalProps> = ({
   const [unenrolOccurrence] = useMutation<unenrolOccurrenceMutationVariables>(
     unenrolOccurrenceMutation,
     {
-      // FIXME: Prevent crash after unenrol:
-      // Rendered fewer hooks than expected. This may be caused by an accidental early return statement.
-      //refetchQueries: [{ query: profileQuery }],
+      refetchQueries: [
+        {
+          query: childByIdQuery,
+          variables: {
+            id: childId,
+          },
+        },
+        { query: profileQuery },
+      ],
       onCompleted: () => {
-        console.log('completed');
         dispatch(unenrolChild({ childId, eventId }));
       },
     }
