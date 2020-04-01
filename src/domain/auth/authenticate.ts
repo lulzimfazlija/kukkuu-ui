@@ -12,13 +12,16 @@ import {
 } from './state/BackendAuthenticationActions';
 import { TUNNISTAMO_API_TOKEN_ENDPOINT } from '../api/constants/ApiConstants';
 import { BackendTokenResponse } from './types/BackendAuthenticationTypes';
+import { getCurrentLanguage } from '../../common/translation/TranslationUtils';
 
 export const loginTunnistamo = (path?: string) => {
   userManager
-    .signinRedirect(
-      path ? { data: { path: path } } : { data: { path: '/profile' } }
-    )
-    .catch(error => {
+    .signinRedirect({
+      data: { path: path || 'profile' },
+      /* eslint-disable @typescript-eslint/camelcase */
+      ui_locales: getCurrentLanguage(i18n),
+    })
+    .catch((error) => {
       if (error.message === 'Network Error') {
         toast(i18n.t('authentication.networkError.message'), {
           type: toast.TYPE.ERROR,
@@ -42,7 +45,7 @@ export const logoutTunnistamo = async () => {
 
 export const authenticateWithBackend = (
   accessToken: string
-): StoreThunk => async dispatch => {
+): StoreThunk => async (dispatch) => {
   try {
     dispatch(startFetchingToken());
 

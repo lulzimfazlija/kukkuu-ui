@@ -5,7 +5,7 @@ import { getEligibleCities } from '../registration/notEligible/NotEligibleUtils'
 import { childByIdQuery_child as ChildByIdResponse } from '../api/generatedTypes/childByIdQuery';
 
 /**
- * Normalize reponse child data to populate to child form
+ * Normalize child data from API response to a format usable by child form.
  */
 export const normalizeProfileChild = (
   profileChild: ChildByIdResponse

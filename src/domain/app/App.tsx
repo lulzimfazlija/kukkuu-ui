@@ -19,15 +19,16 @@ import AccessibilityStatement from '../accessibilityStatement/AccessibilityState
 import { userHasProfileSelector } from '../registration/state/RegistrationSelectors';
 import TermsOfService from '../termsOfService/TermsOfService';
 import { authenticateWithBackend } from '../auth/authenticate';
-import SessionPrompt from './sessionPrompt/SessionPrompt';
 import { isSessionExpiredPromptOpen } from './state/ui/UISelectors';
 import {
   tokenFetched,
   fetchTokenError,
 } from '../auth/state/BackendAuthenticationActions';
 import ProfileRoute from '../profile/route/ProfileRoute';
+import EventRoute from '../event/route/EventRoute';
+import SessionAlert from './sessionAlert/SessionAlert';
 
-const App: React.FunctionComponent = props => {
+const App: React.FunctionComponent = (props) => {
   const isLoadingUser = useSelector(isLoadingUserSelector);
   const { locale } = useParams<{ locale: string }>();
   const userHasProfile = useSelector(userHasProfileSelector);
@@ -63,7 +64,7 @@ const App: React.FunctionComponent = props => {
 
   return (
     <LoadingSpinner isLoading={isLoadingUser}>
-      {isSessionPromptOpen && <SessionPrompt isOpen={isSessionPromptOpen} />}
+      {isSessionPromptOpen && <SessionAlert isOpen={isSessionPromptOpen} />}
       <Switch>
         <Redirect exact path={`/${locale}/`} to={`/${locale}/home`} />
         <Route exact path={`/${locale}/home`} component={Home} />
@@ -89,6 +90,10 @@ const App: React.FunctionComponent = props => {
 
         <PrivateRoute path={`/${locale}/profile`}>
           <ProfileRoute />
+        </PrivateRoute>
+
+        <PrivateRoute path={`/${locale}/event`}>
+          <EventRoute />
         </PrivateRoute>
 
         {userHasProfile && <Redirect to={`/${locale}/profile`} />}

@@ -1,0 +1,20 @@
+@import 'mixins';
+
+$qrMargin: 3rem;
+$eventsListMargin: 4rem;
+
+.eventsList {
+  margin-top: $eventsListMargin;
+}
+
+.qrWrapper {
+  @include respond-above(sm) {
+    margin: 0;
+  }
+  height: 100%;
+  margin: $qrMargin;
+  margin-top: $qrMargin - 1rem; /* undo top card's top gutter */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

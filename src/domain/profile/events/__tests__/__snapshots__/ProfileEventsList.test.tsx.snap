@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders snapshot correctly 1`] = `
+<Fragment>
+  <div
+    className="eventsList"
+  >
+    <h2>
+      Tapahtumakutsut
+    </h2>
+    <Card
+      action={[Function]}
+      actionText="Ilmoittaudu tapahtumaan"
+      alt="huhuu"
+      imageSrc="http://localhost:8081/media/2020-02-15-184035_1920x1080_scrot.png"
+      key="RXZlbnROb2RlOjE="
+      primaryAction={[Function]}
+      primaryActionText="Ilmoittaudu tapahtumaan"
+      title="pentti"
+    >
+      <Paragraph
+        text="eventti"
+      />
+    </Card>
+  </div>
+  <div
+    className="eventsList"
+  >
+    <h2>
+      Tulevat tapahtumat
+    </h2>
+    <Card
+      action={[Function]}
+      actionText="Näytä tapahtuman tiedot"
+      focalContent={
+        <div
+          className="row"
+        >
+          <div
+            className="label"
+          >
+            <Icon
+              alt=" action"
+              className="labelIcon"
+              src="calendar.svg"
+            />
+            <div>
+              24.02.2020
+            </div>
+          </div>
+          <div
+            className="label"
+          >
+            <Icon
+              alt=" action"
+              className="labelIcon"
+              src="clock.svg"
+            />
+            <div>
+              09.07 - 10.07
+            </div>
+          </div>
+          <div
+            className="label"
+          >
+            <Icon
+              alt=" action"
+              className="labelIcon"
+              src="person.svg"
+            />
+            <div>
+              1 lapsi + 1 huoltaja
+            </div>
+          </div>
+          <div
+            className="label"
+          >
+            <Icon
+              alt=" action"
+              className="labelIcon"
+              src="location.svg"
+            />
+            <div>
+              aa
+            </div>
+          </div>
+        </div>
+      }
+      imageElement={
+        <div
+          className="qrWrapper"
+        >
+          <QRCode
+            bgColor="#FFFFFF"
+            ecLevel="H"
+            enableCORS={false}
+            fgColor="#000000"
+            logoOpacity={1}
+            qrStyle="squares"
+            quietZone={0}
+            size={180}
+            value="Hello World - this works"
+          />
+        </div>
+      }
+      key="RXZlbnROb2RlOjE="
+      title="pentti"
+    >
+      <p>
+        eventti
+      </p>
+    </Card>
+  </div>
+  <div
+    className="eventsList"
+  >
+    <h2>
+      Menneet tapahtumat
+    </h2>
+    <Card
+      action={[Function]}
+      actionText="Näytä tapahtuman tiedot"
+      imageSrc="http://localhost:8081/media/2020-02-15-184035_1920x1080_scrot.png"
+      key="RXZlbnROb2RlOjE="
+      title="pentti"
+    >
+      <p>
+        eventti
+      </p>
+    </Card>
+  </div>
+</Fragment>
+`;

@@ -1,5 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
+// @generated
 // This file was automatically generated and should not be edited.
 
 import { Language } from "./globalTypes";
@@ -60,7 +61,7 @@ export interface GuardiansQuery_guardians_edges_node {
   firstName: string;
   lastName: string;
   phoneNumber: string;
-  language: Language | null;
+  language: Language;
   children: GuardiansQuery_guardians_edges_node_children;
   relationships: GuardiansQuery_guardians_edges_node_relationships;
   email: string | null;

@@ -32,16 +32,23 @@ const getEligibleCities = () => {
 
 const isCityEligible = (city: string) => {
   const eligibleCities = getEligibleCities();
-  return eligibleCities.includes(city.toLowerCase());
+  return eligibleCities.includes(city.trim().toLowerCase());
 };
 
 /**isChildEligible
  * Check is child is eligible for the Godchildren of Culture program
  * @param {child} child child info submitted from form
+ * @param {boolean} isEditing True if you are editing a child, then we don't check the city field content
  * @returns {boolean} if the child is eligible
  */
-const isChildEligible = (child: Pick<Child, 'birthdate' | 'homeCity'>) => {
-  return isBirthdateEligible(child.birthdate) && isCityEligible(child.homeCity);
+const isChildEligible = (
+  child: Pick<Child, 'birthdate' | 'homeCity'>,
+  isEditing = false
+) => {
+  return (
+    isBirthdateEligible(child.birthdate) &&
+    (isEditing || isCityEligible(child.homeCity))
+  );
 };
 
 export { getEligibleCities, isChildEligible };

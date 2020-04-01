@@ -1,5 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
+// @generated
 // This file was automatically generated and should not be edited.
 
 import { UpdateMyProfileMutationInput, Language } from "./globalTypes";
@@ -9,9 +10,13 @@ import { UpdateMyProfileMutationInput, Language } from "./globalTypes";
 // ====================================================
 
 export interface updateMyProfile_updateMyProfile_myProfile {
+  /**
+   * The ID of the object.
+   */
+  id: string;
   firstName: string;
   lastName: string;
-  language: Language | null;
+  language: Language;
   email: string | null;
 }
 

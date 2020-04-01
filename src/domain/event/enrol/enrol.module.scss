@@ -1,0 +1,55 @@
+@import 'colors';
+@import 'variables';
+@import 'fonts';
+@import 'mixins';
+
+.wrapper {
+  @include background($hel-light);
+  display: grid;
+  justify-items: center;
+  grid-template-rows: min-content;
+  @include respond-above(sm) {
+    padding: $largePadding;
+  }
+}
+
+.enrolContainer {
+  @include background($hel-white);
+}
+
+.enrolWrapper {
+  @include background($hel-white);
+  padding: $basePadding;
+  display: grid;
+  justify-items: center;
+}
+
+.heading {
+  text-align: center;
+}
+
+.occurrenceInfo {
+  @include background($hel-light);
+  padding: $basePadding;
+}
+
+.actions {
+  width: 60%;
+}
+
+.submitButton {
+  @include button();
+  padding: $basePadding 0;
+  button {
+    width: 100%;
+  }
+}
+
+.backButton {
+  @include button();
+  button {
+    width: 100%;
+    @include background($hel-white);
+    border: 2px solid $hel-summer !important;
+  }
+}

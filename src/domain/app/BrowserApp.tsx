@@ -33,10 +33,18 @@ const instance = createInstance({
   siteId: 56,
 });
 
+// Prevent non-production data from being submitted to Matomo
+// by pretending to require consent to process analytics data and never ask for it.
+// https://developer.matomo.org/guides/tracking-javascript-guide#step-1-require-consent
+if (process.env.REACT_APP_ENVIRONMENT !== 'production') {
+  window._paq.push(['requireConsent']);
+}
+
 // Export for testing purpose
 export const AppRoutes: FunctionComponent = () => {
   const { i18n } = useTranslation();
   const currentLocale = getCurrentLanguage(i18n);
+
   return (
     <PageLayout>
       <Switch>
@@ -52,7 +60,7 @@ export const AppRoutes: FunctionComponent = () => {
         <Redirect exact path="/" to={`/${currentLocale}/home`} />
         <Route path={`/${localeParam}/*`} component={App} />
         <Route
-          render={props => {
+          render={(props) => {
             return (
               <Redirect to={`/${currentLocale}${props.location.pathname}`} />
             );

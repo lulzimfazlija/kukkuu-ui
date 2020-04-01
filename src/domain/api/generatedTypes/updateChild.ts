@@ -1,5 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
+// @generated
 // This file was automatically generated and should not be edited.
 
 import { UpdateChildMutationInput, RelationshipTypeEnum } from "./globalTypes";
@@ -9,6 +10,10 @@ import { UpdateChildMutationInput, RelationshipTypeEnum } from "./globalTypes";
 // ====================================================
 
 export interface updateChild_updateChild_child_relationships_edges_node {
+  /**
+   * The ID of the object.
+   */
+  id: string;
   type: RelationshipTypeEnum | null;
 }
 
@@ -27,6 +32,10 @@ export interface updateChild_updateChild_child_relationships {
 }
 
 export interface updateChild_updateChild_child {
+  /**
+   * The ID of the object.
+   */
+  id: string;
   firstName: string;
   lastName: string;
   birthdate: any;

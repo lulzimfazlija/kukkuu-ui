@@ -20,7 +20,18 @@ const profileQuery = gql`
             relationships {
               edges {
                 node {
+                  id
                   type
+                }
+              }
+            }
+            availableEvents {
+              edges {
+                node {
+                  id
+                  name
+                  duration
+                  participantsPerInvite
                 }
               }
             }

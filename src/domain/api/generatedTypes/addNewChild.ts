@@ -1,5 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
+// @generated
 // This file was automatically generated and should not be edited.
 
 import { AddChildMutationInput } from "./globalTypes";
@@ -9,6 +10,10 @@ import { AddChildMutationInput } from "./globalTypes";
 // ====================================================
 
 export interface addNewChild_addChild_child {
+  /**
+   * The ID of the object.
+   */
+  id: string;
   firstName: string;
   lastName: string;
   birthdate: any;

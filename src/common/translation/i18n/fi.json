@@ -25,9 +25,9 @@
     },
     "session": {
       "expired": {
-        "message": "Your session have expired. <br>You will be redirect to homepage. <br>All your current progress will be saved.",
-        "agree": "Jatka rekisteröitymistä",
-        "label": "Sessiosi on vanhentunut"
+        "agree": "Jatka",
+        "label": "Istuntosi on vanhentunut",
+        "message": "Istuntosi on vanhentunut. Ole hyvä ja kirjaudu sisään uudelleen"
       }
     }
   },
@@ -92,10 +92,10 @@
       "cancel": {
         "text": "Peruuta"
       },
-      "submit": {
+      "save": {
         "text": "Tallenna"
       },
-      "save": {
+      "submit": {
         "text": "Tallenna"
       }
     },
@@ -110,17 +110,88 @@
       }
     }
   },
+  "dataProtection": {
+    "title": "Tietosuoja",
+    "url": "https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
+  },
   "descriptionOfTheFile": {
     "title": "Rekisteriseloste",
     "url": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Kaupunginorkesterin-kummiperherekisteri.pdf"
   },
-  "email ": {
-    "heading": "Tervetuloa Kulttuurin kummilapsiin!",
-    "text": "Tervetuloa!"
-  },
-  "HUOM! Tähän viestiin ei voi vastata.": "",
   "email": {
     "title": "Tervetuloa Kulttuurin kummilapsiin!"
+  },
+  "enrollment ": {
+    "successToast": {
+      "paragraph": "Lähetimme varmistusviestin sähköpostiisi, löydät sieltä tapahtuman lisätiedot"
+    }
+  },
+  "enrollment": {
+    "button": {
+      "occurenceFull": "Täynnä",
+      "queue": "Jonoon",
+      "selectOccurence": "Valitse"
+    },
+    "confirmationPage": {
+      "cancel": {
+        "button": "Takaisin tapahtuman valintaan"
+      },
+      "confirm": {
+        "button": "Ilmoittaudu tapahtumaan"
+      },
+      "heading": "Ilmoittaudu tapahtumaan"
+    },
+    "enroll": {
+      "buttonText": "Ilmoittaudu tapahtumaan"
+    },
+    "heading": "Ilmoittaudu",
+    "selectDate": "Valitse päivämäärä",
+    "selectLanguage": "Valitse tapahtuman kieli",
+    "selectlocation": "Valitse tapahtumapaikka",
+    "selectTime": "Valitse kellonaika",
+    "showEventInfo": {
+      "buttonText": "Näytä tapahtuman tiedot"
+    },
+    "successToas": {
+      "heading": "Tapahtumaan ilmoittautuminen onnistui! "
+    }
+  },
+  "event": {
+    "cancellation": {
+      "buttonText": "Peru ilmoittautuminen",
+      "confirmationModal": {
+        "cancel": {
+          "buttonText": "Palaa tapahtuman sivulle"
+        },
+        "confirm": {
+          "buttonText": "Peru ilmoittautuminen"
+        },
+        "heading": "Haluatko varmasti perua tapahtumaan ilmoittautumisen?"
+      },
+      "heading": "Ilmoittautumisen peruminen",
+      "paragraph": "Mikäli et pysty osallistumaan tapahtumaan, muistathan perua sen, jotta joku muu pääsee halutessaan osallistumaan tapahtumaan. Kiitos :)"
+    },
+    "participantsPerInviteEnum": {
+      "CHILD_AND_GUARDIAN": "1 lapsi + 1 huoltaja",
+      "FAMILY": "Perhe"
+    },
+    "participantsPerInviteEnumLong": {
+      "CHILD_AND_GUARDIAN": "Yhdellä ilmoittautumisella tapahtumaan voi kummilapsen lisäksi osallistua 1 aikuinen",
+      "FAMILY": ""
+    },
+    "register": {
+      "form": {
+        "header": "Ilmoittaudu"
+      },
+      "occurrenceTableHeader": {
+        "buttonText": "Valitse",
+        "date": "Päivämäärä",
+        "eventInformation": "Tapahtuman tiedot",
+        "freePlaces": "Vapaat paikat",
+        "time": "Kellonaika",
+        "venue": "Tapahtumapaikka"
+      }
+    }
   },
   "footer": {
     "copyrightText": "© Copyright 2020 • Kaikki oikeudet pidätetään"
@@ -159,6 +230,7 @@
         "amosrex": "Amos Rex",
         "cirko": "Cirko – Uuden sirkuksen keskus",
         "designmuseum": "Designmuseo",
+        "dot": "DOT ry",
         "hamhelsinki": "Helsingin taidemuseo HAM",
         "helsinginkaupunginmuseo": "Helsingin kaupunginmuseo",
         "helsinginkaupunginorkesteri": "Helsingin kaupunginorkesteri",
@@ -179,8 +251,7 @@
         "tanssintalo": "Tanssin talo",
         "teatteriilmio": "Teatteri ILMI Ö",
         "teatterimuseo": "Teatterimuseo",
-        "valokuvataiteenmuseo": "Suomen valokuvataiteen museo",
-        "dot": "DOT ry"
+        "valokuvataiteenmuseo": "Suomen valokuvataiteen museo"
       }
     },
     "registration": {
@@ -266,11 +337,11 @@
       "detail": {
         "birthdate": "Lapsen syntymäaika",
         "delete": {
-          "text": "Poista lapsen tiedot",
           "prompt": {
             "heading": "Haluatko varmasti poistaa lapsen tiedot?",
             "text": "Poistamalla lapsen tiedot, lapsi ei enää saa kutsuja tapahtumiin."
-          }
+          },
+          "text": "Poista lapsen tiedot"
         },
         "edit": {
           "text": "Päivitä kummilapsen tiedot"
@@ -279,6 +350,9 @@
           "title": "Kummilapsen tiedot"
         },
         "phoneNumber": "Puhelinnumero"
+      },
+      "invitationLabel": {
+        "text": "Uusi kutsu!"
       },
       "navigateToDetail": {
         "buttonLabel": "Näytä Kummilapsen tiedot"
@@ -289,17 +363,28 @@
         "text": "Ei kummilapsia"
       }
     },
+    "edit": {
+      "button": {
+        "text": "Muokkaa tietoja"
+      }
+    },
+    "events": {
+      "invitations": {
+        "heading": "Tapahtumakutsut"
+      },
+      "past": {
+        "heading": "Menneet tapahtumat"
+      },
+      "upcoming": {
+        "heading": "Tulevat tapahtumat"
+      }
+    },
     "heading": "Kummilapset",
     "noupcomingevents": {
       "hero": {
         "heading": "Tapahtumakutsut"
       },
       "text": "Tänne saapuvat sinulle lähetetyt tapahtumakutsut. Pääset myös ilmoittautumaan tapahtumiin ja perumaan ilmoittautumisen, jos et jostain syystä pääsekään osallistumaan tapahtumaan."
-    },
-    "edit": {
-      "button": {
-        "text": "Muokkaa tietoja"
-      }
     }
   },
   "registration": {
@@ -422,6 +507,22 @@
     },
     "postalCode": {
       "invalidFormat": "Väärä formaatti"
+    }
+  },
+  "venue": {
+    "features": {
+      "accessibility": {
+        "heading": "Esteettömyys"
+      },
+      "additionalInformation": {
+        "heading": "Lisätietoa"
+      },
+      "arrival": {
+        "heading": "Saapuminen"
+      },
+      "wcAndFacilities": {
+        "heading": "WC-tilat ja lastenhoitohuone"
+      }
     }
   }
 }

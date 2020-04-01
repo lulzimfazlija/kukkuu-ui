@@ -1,0 +1,117 @@
+@import 'mixins';
+@import 'fonts';
+
+$columnMargin: 2rem;
+$cardMargin: 2rem;
+$cardGutter: 1rem;
+$middleRowMargin: 1rem;
+$focalPointTopMargin: 1rem;
+$imageSize: 20vw;
+$imageMinSize: 200px;
+$imageMaxSize: 300px;
+
+.wrapper {
+  @include respond-above(sm) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  background: $white;
+  & + & {
+    margin-top: $cardMargin;
+  }
+  margin: 0 (-$cardGutter);
+  padding: $cardGutter;
+}
+
+.start {
+  @include respond-above(sm) {
+    width: $imageSize;
+    height: $imageSize;
+    min-width: $imageMinSize;
+    min-height: $imageMinSize;
+    max-width: $imageMaxSize;
+    max-height: $imageMaxSize;
+    .image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  & .image {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.middle {
+  @include respond-above(sm) {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-left: $columnMargin;
+    .title {
+      margin-bottom: 0;
+    }
+    .focalPoint {
+      order: 1;
+      margin-top: $focalPointTopMargin;
+    }
+  }
+  > :first-child {
+    margin-top: 0;
+  }
+  > :last-child {
+    margin-bottom: 0;
+  }
+  margin: $middleRowMargin 0;
+}
+
+.end {
+  @include respond-above(sm) {
+    margin-right: $columnMargin;
+    & .actionText {
+      display: none;
+    }
+  }
+}
+
+/* TODO: move to caller? */
+.content {
+  > :first-child {
+    margin-top: 0;
+  }
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.primaryActionButton {
+  @include button();
+  button {
+    @include respond-below(sm) {
+      width: 100%;
+    }
+  }
+  text-align: left;
+}
+
+.actionWrapper {
+  display: flex;
+  justify-content: normal;
+  flex-direction: row;
+  border: 0;
+  width: 100%;
+  text-align: left;
+  align-items: center;
+}
+
+.actionText {
+  font-weight: $font-weight-bold;
+}
+
+.gotoAction {
+  transform: rotate(-90deg);
+}

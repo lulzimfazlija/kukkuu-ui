@@ -25,9 +25,9 @@
     },
     "session": {
       "expired": {
-        "message": "Your session have expired. <br>You will be redirect to homepage. <br>All your current progress will be saved.",
-        "agree": "Fortsätt med registreringen",
-        "label": "Din session har gått ut"
+        "agree": "Fortsätt",
+        "label": "Din session har gått ut",
+        "message": "Din session har gått ut. Försök att logga in igen."
       }
     }
   },
@@ -92,10 +92,10 @@
       "cancel": {
         "text": "Tillbaka"
       },
-      "submit": {
+      "save": {
         "text": "Spara"
       },
-      "save": {
+      "submit": {
         "text": "Spara"
       }
     },
@@ -110,17 +110,88 @@
       }
     }
   },
+  "dataProtection": {
+    "title": "Dataskydd",
+    "url": "https://www.hel.fi/helsinki/sv/stad-och-forvaltning/information/dataskydd"
+  },
   "descriptionOfTheFile": {
     "title": "Registerbeskrivning",
     "url": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Kaupunginorkesterin-kummiperherekisteri-SV.pdf"
   },
-  "email ": {
-    "heading": "Välkommen som kulturens fadderbarn!",
-    "text": "Välkommen!"
-  },
-  " Obs! Det går inte att svara på detta meddelande.": "",
   "email": {
     "title": "Välkommen som kulturens fadderbarn!"
+  },
+  "enrollment ": {
+    "successToast": {
+      "paragraph": ""
+    }
+  },
+  "enrollment": {
+    "button": {
+      "occurenceFull": "",
+      "queue": "",
+      "selectOccurence": ""
+    },
+    "confirmationPage": {
+      "cancel": {
+        "button": ""
+      },
+      "confirm": {
+        "button": ""
+      },
+      "heading": ""
+    },
+    "enroll": {
+      "buttonText": ""
+    },
+    "heading": "",
+    "selectDate": "",
+    "selectLanguage": "",
+    "selectlocation": "",
+    "selectTime": "",
+    "showEventInfo": {
+      "buttonText": ""
+    },
+    "successToas": {
+      "heading": ""
+    }
+  },
+  "event": {
+    "cancellation": {
+      "buttonText": "",
+      "confirmationModal": {
+        "cancel": {
+          "buttonText": ""
+        },
+        "confirm": {
+          "buttonText": ""
+        },
+        "heading": ""
+      },
+      "heading": "",
+      "paragraph": ""
+    },
+    "participantsPerInviteEnum": {
+      "CHILD_AND_GUARDIAN": "1 barn + 1 närstående",
+      "FAMILY": "Familj"
+    },
+    "participantsPerInviteEnumLong": {
+      "CHILD_AND_GUARDIAN": "",
+      "FAMILY": ""
+    },
+    "register": {
+      "form": {
+        "header": "Anmäl dig"
+      },
+      "occurrenceTableHeader": {
+        "buttonText": "Välj",
+        "date": "Datum",
+        "eventInformation": "Information on evenemanget",
+        "freePlaces": "Free places",
+        "time": "Time",
+        "venue": "Venue"
+      }
+    }
   },
   "footer": {
     "copyrightText": "© Copyright 2020 • Alla rättigheter förbehållna"
@@ -159,6 +230,7 @@
         "amosrex": "Amos Rex",
         "cirko": "Cirko – Centrumet för nycirkus",
         "designmuseum": "Designmuseet",
+        "dot": "Föreningen för Drama Och Teater, DOT r.f.",
         "hamhelsinki": "Helsingfors konstmuseum HAM",
         "helsinginkaupunginmuseo": "Helsingfors stadsmuseum",
         "helsinginkaupunginorkesteri": "Helsingfors stadsorkester",
@@ -179,8 +251,7 @@
         "tanssintalo": "Dansens hus",
         "teatteriilmio": "Ilmi Ö teater",
         "teatterimuseo": "Teatermuseet",
-        "valokuvataiteenmuseo": "Finlands fotografiska museum",
-        "dot": "Föreningen för Drama Och Teater, DOT r.f."
+        "valokuvataiteenmuseo": "Finlands fotografiska museum"
       }
     },
     "registration": {
@@ -266,11 +337,11 @@
       "detail": {
         "birthdate": "Barnets födelsedatum",
         "delete": {
-          "text": "Radera barnets uppgifter",
           "prompt": {
             "heading": "Är du säker på att du vill radera barnets uppgifter?",
             "text": "Om du raderar barnets uppgifter kommer du inte längre att få inbjudningar till evenemang."
-          }
+          },
+          "text": "Radera barnets uppgifter"
         },
         "edit": {
           "text": "Uppdatera barnets uppgifter"
@@ -279,6 +350,9 @@
           "title": "Barnets uppgifter"
         },
         "phoneNumber": "Telefonnummer"
+      },
+      "invitationLabel": {
+        "text": "Ny inbjudan!"
       },
       "navigateToDetail": {
         "buttonLabel": "Gå till barnets uppgifter"
@@ -289,17 +363,28 @@
         "text": "Inga fadderbarn"
       }
     },
+    "edit": {
+      "button": {
+        "text": "Redigera information"
+      }
+    },
+    "events": {
+      "invitations": {
+        "heading": "Eventinbjudningar"
+      },
+      "past": {
+        "heading": ""
+      },
+      "upcoming": {
+        "heading": ""
+      }
+    },
     "heading": "Fadderbarn",
     "noupcomingevents": {
       "hero": {
         "heading": "Eventinbjudningar"
       },
       "text": "Inbjudningar till evenemang som skickats till dig visas här. Du kan också anmäla dig till evenemang och ångra anmälan om du av någon orsak inte kan delta."
-    },
-    "edit": {
-      "button": {
-        "text": "Redigera information"
-      }
     }
   },
   "registration": {
@@ -422,6 +507,22 @@
     },
     "postalCode": {
       "invalidFormat": "Inkorrekt format"
+    }
+  },
+  "venue": {
+    "features": {
+      "accessibility": {
+        "heading": ""
+      },
+      "additionalInformation": {
+        "heading": ""
+      },
+      "arrival": {
+        "heading": ""
+      },
+      "wcAndFacilities": {
+        "heading": ""
+      }
     }
   }
 }

@@ -8,6 +8,7 @@ const values: RegistrationFormValues = {
       firstName: 'cfn',
       lastName: 'cln',
       homeCity: 'Helsinki',
+      postalCode: '00100',
     },
   ],
   preferLanguage: 'en',
@@ -26,11 +27,23 @@ describe('notEligibleUtils.test.ts', () => {
     values.children[0].homeCity = 'Yokohama';
     expect(isChildEligible(values.children[0])).toEqual(false);
   });
+  test('A random city should be eligible when editing a child', () => {
+    values.children[0].homeCity = 'Yokohama';
+    expect(isChildEligible(values.children[0], true)).toEqual(true);
+  });
   test('Verify that all cities in REACT_APP_ELIGIBLE_CITIES are eligible', () => {
     const eligibleCities: string = process.env.REACT_APP_ELIGIBLE_CITIES || '';
     const cities = eligibleCities.split(',') || [];
-    cities.forEach(city => {
+    cities.forEach((city) => {
       values.children[0].homeCity = city;
+      expect(isChildEligible(values.children[0])).toEqual(true);
+    });
+  });
+  test('Verify that cities are eligible even when user adds whitespace', () => {
+    const eligibleCities: string = process.env.REACT_APP_ELIGIBLE_CITIES || '';
+    const cities = eligibleCities.split(',') || [];
+    cities.forEach((city) => {
+      values.children[0].homeCity = `${city} `;
       expect(isChildEligible(values.children[0])).toEqual(true);
     });
   });
@@ -44,7 +57,7 @@ describe('notEligibleUtils.test.ts', () => {
   test('Verify that all cities in REACT_APP_ELIGIBLE_CITIES in uppercase are eligible', () => {
     const eligibleCities: string = process.env.REACT_APP_ELIGIBLE_CITIES || '';
     const cities = eligibleCities.toUpperCase().split(',') || [];
-    cities.forEach(city => {
+    cities.forEach((city) => {
       values.children[0].homeCity = city;
       expect(isChildEligible(values.children[0])).toEqual(true);
     });

@@ -1,10 +1,19 @@
 /* tslint:disable */
 /* eslint-disable */
+// @generated
 // This file was automatically generated and should not be edited.
 
 //==============================================================
 // START Enums and Input Objects
 //==============================================================
+
+/**
+ * An enumeration.
+ */
+export enum EventParticipantsPerInvite {
+  CHILD_AND_GUARDIAN = "CHILD_AND_GUARDIAN",
+  FAMILY = "FAMILY",
+}
 
 /**
  * An enumeration.
@@ -44,6 +53,12 @@ export interface DeleteChildMutationInput {
   clientMutationId?: string | null;
 }
 
+export interface EnrolOccurrenceMutationInput {
+  occurrenceId: string;
+  childId: string;
+  clientMutationId?: string | null;
+}
+
 export interface GuardianInput {
   firstName: string;
   lastName: string;
@@ -53,6 +68,12 @@ export interface GuardianInput {
 
 export interface RelationshipInput {
   type?: RelationshipTypeEnum | null;
+}
+
+export interface UnenrolOccurrenceMutationInput {
+  occurrenceId: string;
+  childId: string;
+  clientMutationId?: string | null;
 }
 
 export interface UpdateChildMutationInput {

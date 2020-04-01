@@ -6,7 +6,6 @@ $childProfileMargin: 0.2rem;
 
 .childWrapper {
   background: $white;
-  padding: $basePadding;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -17,11 +16,20 @@ $childProfileMargin: 0.2rem;
   align-items: center;
 }
 
+.invitationLabel {
+  background-color: $hel-engel;
+  align-self: start;
+  position: absolute;
+  padding: $childProfileMargin $basePadding;
+  font-size: $font-size-sm;
+}
+
 .child {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
+  padding: $largePadding $basePadding;
 
   .childIcon {
     > div {
@@ -32,8 +40,7 @@ $childProfileMargin: 0.2rem;
 
   .childInfo {
     margin-left: 1rem;
-    p {
-      text-transform: capitalize;
+    h3 {
       font-size: $font-size-lg;
       margin: 0;
       margin-bottom: $childProfileMargin;
@@ -52,6 +59,7 @@ $childProfileMargin: 0.2rem;
 .childDetail {
   display: flex;
   align-items: center;
+  margin: $baseMargin;
   > div {
     transform: rotate(-90deg);
   }
