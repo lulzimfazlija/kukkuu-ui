@@ -1,12 +1,12 @@
-import * as React from 'react';
+import React, { FunctionComponent } from 'react';
 import { Prompt } from 'react-router-dom';
 
-interface NavigationPropmtProps {
+interface NavigationConfirmProps {
   isHalfFilling: boolean;
   warningMessage?: string;
 }
 
-const NavigationPropmt: React.FunctionComponent<NavigationPropmtProps> = ({
+const NavigationConfirm: FunctionComponent<NavigationConfirmProps> = ({
   isHalfFilling,
   warningMessage,
 }) => {
@@ -23,4 +23,4 @@ const NavigationPropmt: React.FunctionComponent<NavigationPropmtProps> = ({
   ) : null;
 };
 
-export default NavigationPropmt;
+export default NavigationConfirm;
