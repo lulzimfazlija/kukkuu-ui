@@ -1,8 +1,9 @@
 import React, { FunctionComponent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import * as Sentry from '@sentry/browser';
+import { useSelector } from 'react-redux';
 
 import styles from './event.module.scss';
 import PageWrapper from '../app/layout/PageWrapper';
@@ -18,6 +19,7 @@ import { DEFAULT_DATE_FORMAT } from '../../common/time/TimeConstants';
 import EventEnrol from './EventEnrol';
 import EventPage from './EventPage';
 import Paragraph from '../../common/components/paragraph/Paragraph';
+import { childrenEventSelector } from './state/EventSelectors';
 
 export interface FilterValues {
   date?: string;
@@ -37,6 +39,8 @@ export interface FilterOptions {
 
 const Event: FunctionComponent = () => {
   const { t } = useTranslation();
+  const history = useHistory();
+
   const params = useParams<{ childId: string; eventId: string }>();
 
   const initialFilterValues: FilterValues = {
@@ -55,6 +59,19 @@ const Event: FunctionComponent = () => {
   const variables: EventQueryVariables = {
     id: params.eventId,
   };
+
+  // Child is already registered for this event. Only way to come to this
+  // page is through 1. back button, 2. bookmark / history
+
+  // FIXME: Move this logic into a selector - IF you ever need it somewhere else.
+  // Why not now? Because I don't want to move childId & eventId into state right now.
+  const isRegistered = useSelector(childrenEventSelector)
+    .filter((c) => c.childId === params.childId)
+    .pop()
+    ?.eventIds.some((e) => e === params.eventId);
+  if (isRegistered) {
+    history.replace(`/profile/child/${params.childId}`);
+  }
 
   const { loading, error, data, refetch } = useQuery<EventQueryType>(
     eventQuery,
@@ -75,6 +92,7 @@ const Event: FunctionComponent = () => {
 
   if (loading) return <LoadingSpinner isLoading={true} />;
   if (error) {
+    console.error(error);
     Sentry.captureException(error);
     return (
       <PageWrapper>
@@ -83,7 +101,10 @@ const Event: FunctionComponent = () => {
     );
   }
 
-  if (!data?.event) return <div>No event</div>;
+  if (!data?.event) {
+    console.log('no event ffs');
+    return <div>No event</div>;
+  }
 
   const optionsDates = data.event.occurrences.edges
     .map((occurrence) => {

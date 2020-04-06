@@ -60,6 +60,7 @@ const ProfileChildDetail: React.FunctionComponent = () => {
   }
 
   if (error) {
+    console.error(error);
     Sentry.captureException(error);
     return (
       <PageWrapper>

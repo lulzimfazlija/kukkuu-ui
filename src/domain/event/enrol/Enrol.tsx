@@ -5,6 +5,7 @@ import { useMutation, useQuery } from '@apollo/react-hooks';
 import * as Sentry from '@sentry/browser';
 import classnames from 'classnames';
 import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
 
 import PageWrapper from '../../app/layout/PageWrapper';
 import styles from './enrol.module.scss';
@@ -14,13 +15,19 @@ import { occurrenceQuery as OccurrenceQueryType } from '../../api/generatedTypes
 import LoadingSpinner from '../../../common/components/spinner/LoadingSpinner';
 import OccurrenceInfo from '../partial/OccurrenceInfo';
 import enrolOccurrenceMutation from '../mutations/enrolOccurrenceMutation';
-import { EnrolOccurrenceMutationInput } from '../../api/generatedTypes/globalTypes';
+import {
+  enrolOccurrenceMutation as EnrolOccurrenceMutationData,
+  enrolOccurrenceMutationVariables as EnrolOccurrenceMutationVariables,
+} from '../../api/generatedTypes/enrolOccurrenceMutation';
 import profileQuery from '../../profile/queries/ProfileQuery';
 import { childByIdQuery } from '../../child/queries/ChildQueries';
+import { saveChildEvents } from '../state/EventActions';
 
 const Enrol: FunctionComponent = () => {
   const history = useHistory();
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+
   const params = useParams<{
     childId: string;
     eventId: string;
@@ -38,23 +45,34 @@ const Enrol: FunctionComponent = () => {
 
   // If redirect to /profile, need to do refetchquery
   // Might need to refetch myProfile in any case
-  const [enrolOccurrence] = useMutation<EnrolOccurrenceMutationInput>(
-    enrolOccurrenceMutation,
-    {
-      refetchQueries: [
-        { query: profileQuery },
-        {
-          query: childByIdQuery,
-          variables: {
-            id: params.childId,
-          },
+  const [enrolOccurrence] = useMutation<
+    EnrolOccurrenceMutationData,
+    EnrolOccurrenceMutationVariables
+  >(enrolOccurrenceMutation, {
+    refetchQueries: [
+      { query: profileQuery },
+      {
+        query: childByIdQuery,
+        variables: {
+          id: params.childId,
         },
-      ],
-    }
-  );
+      },
+    ],
+    onCompleted: (data) => {
+      if (data?.enrolOccurrence?.enrolment?.child.enrolments.edges) {
+        dispatch(
+          saveChildEvents({
+            childId: params.childId,
+            enrolments: data.enrolOccurrence.enrolment.child.enrolments,
+          })
+        );
+      }
+    },
+  });
 
   if (loading) return <LoadingSpinner isLoading={true} />;
   if (error) {
+    console.error(error);
     toast(t('api.errorMessage'), {
       type: toast.TYPE.ERROR,
     });
@@ -65,21 +83,21 @@ const Enrol: FunctionComponent = () => {
       </PageWrapper>
     );
   }
-
   if (!data?.occurrence?.id) return <div>no data</div>;
-
   const enrol = async () => {
     try {
+      if (!data?.occurrence?.id) throw Error('No result');
       await enrolOccurrence({
         variables: {
           input: {
-            occurrenceId: data?.occurrence?.id,
+            occurrenceId: data.occurrence.id,
             childId: params.childId,
           },
         },
       });
+
       history.replace(
-        `/profile/child/${params.childId}/occurrence/${data?.occurrence?.id}`
+        `/profile/child/${params.childId}/occurrence/${data.occurrence.id}`
       );
     } catch (error) {
       // TODO: KK-280 Handle errors nicely
