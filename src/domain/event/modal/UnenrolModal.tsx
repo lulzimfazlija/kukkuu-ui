@@ -9,9 +9,12 @@ import { useDispatch } from 'react-redux';
 
 import unenrolOccurrenceMutation from '../mutations/unenrolOccurrenceMutation';
 import profileQuery from '../../profile/queries/ProfileQuery';
-import { unenrolOccurrenceMutationVariables } from '../../api/generatedTypes/unenrolOccurrenceMutation';
+import {
+  unenrolOccurrenceMutation as UnenrolOccurrenceMutation,
+  unenrolOccurrenceMutationVariables as UnenrolOccurrenceMutationVariables,
+} from '../../api/generatedTypes/unenrolOccurrenceMutation';
 import ConfirmModal from '../../../common/components/confirm/ConfirmModal';
-import { unenrolChild } from '../state/EventActions';
+import { saveChildEvents } from '../state/EventActions';
 import { childByIdQuery } from '../../child/queries/ChildQueries';
 
 interface UnenrolModalProps {
@@ -33,23 +36,30 @@ const UnenrolModal: FunctionComponent<UnenrolModalProps> = ({
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  const [unenrolOccurrence] = useMutation<unenrolOccurrenceMutationVariables>(
-    unenrolOccurrenceMutation,
-    {
-      refetchQueries: [
-        {
-          query: childByIdQuery,
-          variables: {
-            id: childId,
-          },
+  const [unenrolOccurrence] = useMutation<
+    UnenrolOccurrenceMutation,
+    UnenrolOccurrenceMutationVariables
+  >(unenrolOccurrenceMutation, {
+    refetchQueries: [
+      {
+        query: childByIdQuery,
+        variables: {
+          id: childId,
         },
-        { query: profileQuery },
-      ],
-      onCompleted: () => {
-        dispatch(unenrolChild({ childId, eventId }));
       },
-    }
-  );
+      { query: profileQuery },
+    ],
+    onCompleted: (data) => {
+      if (data.unenrolOccurrence?.child?.enrolments.edges) {
+        dispatch(
+          saveChildEvents({
+            childId: data.unenrolOccurrence.child.id,
+            enrolments: data.unenrolOccurrence.child.enrolments,
+          })
+        );
+      }
+    },
+  });
 
   const unenrol = async () => {
     try {
@@ -63,11 +73,11 @@ const UnenrolModal: FunctionComponent<UnenrolModalProps> = ({
       });
       history.replace(`/profile/child/${childId}`);
     } catch (error) {
+      console.error(error);
       // TODO: KK-280 Handle errors nicely
       toast(t('registration.submitMutation.errorMessage'), {
         type: toast.TYPE.ERROR,
       });
-      console.error(error);
     }
   };
 

@@ -62,9 +62,17 @@ const Event: FunctionComponent = () => {
 
   // Child is already registered for this event. Only way to come to this
   // page is through 1. back button, 2. bookmark / history
-  const isRegistered = useSelector(childrenEventSelector).some((c) => {
-    return c.childId === params.childId && c.eventId === params.eventId;
-  });
+
+  // FIXME: Move this logic into a selector - IF you ever need it somewhere else.
+  // Why not now? Because I don't want to move childId & eventId into state right now.
+  const isRegistered = useSelector(childrenEventSelector)
+    .filter((c) => c.childId === params.childId)
+    .pop()
+    ?.eventIds.some((e) => e === params.eventId);
+  if (isRegistered) {
+    console.log('Child is already registered');
+    history.replace(`/profile/child/${params.childId}`);
+  }
 
   const { loading, error, data, refetch } = useQuery<EventQueryType>(
     eventQuery,
@@ -93,8 +101,6 @@ const Event: FunctionComponent = () => {
       </PageWrapper>
     );
   }
-
-  if (isRegistered) history.replace(`/profile/child/${params.childId}`);
 
   if (!data?.event) {
     console.log('no event ffs');

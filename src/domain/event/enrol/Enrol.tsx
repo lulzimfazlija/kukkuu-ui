@@ -15,10 +15,13 @@ import { occurrenceQuery as OccurrenceQueryType } from '../../api/generatedTypes
 import LoadingSpinner from '../../../common/components/spinner/LoadingSpinner';
 import OccurrenceInfo from '../partial/OccurrenceInfo';
 import enrolOccurrenceMutation from '../mutations/enrolOccurrenceMutation';
-import { EnrolOccurrenceMutationInput } from '../../api/generatedTypes/globalTypes';
+import {
+  enrolOccurrenceMutation as EnrolOccurrenceMutationData,
+  enrolOccurrenceMutationVariables as EnrolOccurrenceMutationVariables,
+} from '../../api/generatedTypes/enrolOccurrenceMutation';
 import profileQuery from '../../profile/queries/ProfileQuery';
 import { childByIdQuery } from '../../child/queries/ChildQueries';
-import { enrolChild } from '../state/EventActions';
+import { saveChildEvents } from '../state/EventActions';
 
 const Enrol: FunctionComponent = () => {
   const history = useHistory();
@@ -42,30 +45,34 @@ const Enrol: FunctionComponent = () => {
 
   // If redirect to /profile, need to do refetchquery
   // Might need to refetch myProfile in any case
-  const [enrolOccurrence] = useMutation<EnrolOccurrenceMutationInput>(
-    enrolOccurrenceMutation,
-    {
-      refetchQueries: [
-        // FIXME: Prevent crash after unenrol:
-        // Rendered fewer hooks than expected. This may be caused by an accidental early return statement.
-        { query: profileQuery },
-        {
-          query: childByIdQuery,
-          variables: {
-            id: params.childId,
-          },
+  const [enrolOccurrence] = useMutation<
+    EnrolOccurrenceMutationData,
+    EnrolOccurrenceMutationVariables
+  >(enrolOccurrenceMutation, {
+    refetchQueries: [
+      { query: profileQuery },
+      {
+        query: childByIdQuery,
+        variables: {
+          id: params.childId,
         },
-      ],
-      onCompleted: () => {
-        dispatch(
-          enrolChild({ childId: params.childId, eventId: params.eventId })
-        );
       },
-    }
-  );
+    ],
+    onCompleted: (data) => {
+      if (data?.enrolOccurrence?.enrolment?.child.enrolments.edges) {
+        dispatch(
+          saveChildEvents({
+            childId: params.childId,
+            enrolments: data.enrolOccurrence.enrolment.child.enrolments,
+          })
+        );
+      }
+    },
+  });
 
   if (loading) return <LoadingSpinner isLoading={true} />;
   if (error) {
+    console.error(error);
     toast(t('api.errorMessage'), {
       type: toast.TYPE.ERROR,
     });
@@ -76,19 +83,18 @@ const Enrol: FunctionComponent = () => {
       </PageWrapper>
     );
   }
-
   if (!data?.occurrence?.id) return <div>no data</div>;
-
   const enrol = async () => {
     try {
       await enrolOccurrence({
         variables: {
           input: {
-            occurrenceId: data?.occurrence?.id,
+            occurrenceId: data?.occurrence?.id || 'aa',
             childId: params.childId,
           },
         },
       });
+
       history.replace(
         `/profile/child/${params.childId}/occurrence/${data?.occurrence?.id}`
       );

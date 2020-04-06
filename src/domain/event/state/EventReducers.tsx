@@ -1,39 +1,41 @@
 import { createReducer } from '@reduxjs/toolkit';
 
 import { EVENT_ACTIONS } from '../constants/EventActionConstants';
-import { ChildEvent } from '../type/EventChildTypes';
+import { ChildEvents } from '../type/EventChildTypes';
 import { profileQuery_myProfile_children_edges as edges } from '../../api/generatedTypes/profileQuery';
-
-export const defaultChildEventData: ChildEvent[] = [];
+import { enrolOccurrenceMutation_enrolOccurrence_enrolment_child_enrolments_edges as EnrolmentNodeEdge } from '../../api/generatedTypes/enrolOccurrenceMutation';
+import { unenrolOccurrenceMutation_unenrolOccurrence_child_enrolments_edges as UnEnrolmentNodeEdge } from '../../api/generatedTypes/unenrolOccurrenceMutation';
+export const defaultChildEventData: ChildEvents[] = [];
 
 export default createReducer(defaultChildEventData, {
   [EVENT_ACTIONS.CLEAR_EVENT]: (state) => (state = defaultChildEventData),
-  [EVENT_ACTIONS.ENROL_CHILD]: (state, action) => {
-    const item: ChildEvent = {
-      childId: action.payload.childId,
-      eventId: action.payload.eventId,
-    };
-    state.push(item);
-  },
-  [EVENT_ACTIONS.UNENROL_CHILD]: (state, action) => {
-    return state.filter((entry) => {
-      return entry.childId !== action.payload.childId &&
-        entry.eventId !== action.payload.eventId
-        ? entry
-        : undefined;
-    });
-  },
-  [EVENT_ACTIONS.SAVE_CHILD_EVENT]: (state, action) => {
-    action.payload.edges.map((childEdge: edges) => {
-      const childId = childEdge?.node?.id;
-      childEdge?.node?.enrolments.edges.map((enrolEdge) => {
-        if (childId && enrolEdge?.node?.occurrence.event.id) {
-          state.push({
-            childId: childId,
-            eventId: enrolEdge?.node?.occurrence.event.id,
-          });
+  [EVENT_ACTIONS.SAVE_CHILDREN_EVENTS]: (state, action) => {
+    const childrenEvents: ChildEvents[] = [];
+    action.payload.edges.forEach((childEdge: edges) => {
+      const events: string[] = [];
+      childEdge?.node?.enrolments.edges.forEach((enrolEdge) => {
+        if (childEdge?.node?.id && enrolEdge?.node?.occurrence.event.id) {
+          events.push(enrolEdge.node.occurrence.event.id);
         }
       });
+      const childEvents: ChildEvents = {
+        childId: childEdge.node?.id || 'a',
+        eventIds: events,
+      };
+      childrenEvents.push(childEvents);
     });
+    return childrenEvents;
+  },
+  [EVENT_ACTIONS.SAVE_CHILD_EVENTS]: (state, action) => {
+    const events: string[] = action.payload.enrolments.edges.map(
+      (enrolEdge: EnrolmentNodeEdge | UnEnrolmentNodeEdge) => {
+        return enrolEdge.node?.occurrence.event.id;
+      }
+    );
+    return state.map((child) =>
+      child.childId === action.payload.childId
+        ? { ...child, eventIds: events }
+        : child
+    );
   },
 });

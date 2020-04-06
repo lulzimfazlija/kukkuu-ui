@@ -18,7 +18,7 @@ import emailIcon from '../../assets/icons/svg/envelope.svg';
 import settingsIcon from '../../assets/icons/svg/gear.svg';
 import Button from '../../common/components/button/Button';
 import EditProfileModal from './modal/EditProfileModal';
-import { saveChildEvent, clearEvent } from '../event/state/EventActions';
+import { clearEvent, saveChildrenEvents } from '../event/state/EventActions';
 
 const Profile: FunctionComponent = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -40,9 +40,8 @@ const Profile: FunctionComponent = () => {
 
   if (data?.myProfile) {
     dispatch(saveProfile(data.myProfile));
-    console.log(data.myProfile.children);
     dispatch(clearEvent());
-    dispatch(saveChildEvent(data.myProfile.children));
+    dispatch(saveChildrenEvents(data.myProfile.children));
   } else {
     // User has logged in, but not created a profile, send them to front page for registration.
     return <Redirect to="/" />;

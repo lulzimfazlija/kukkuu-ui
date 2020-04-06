@@ -17,6 +17,18 @@ const enrolOccurrenceMutation = gql`
         }
         child {
           id
+          enrolments {
+            edges {
+              node {
+                occurrence {
+                  id
+                  event {
+                    id
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
