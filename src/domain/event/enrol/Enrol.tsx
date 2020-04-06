@@ -86,17 +86,18 @@ const Enrol: FunctionComponent = () => {
   if (!data?.occurrence?.id) return <div>no data</div>;
   const enrol = async () => {
     try {
+      if (!data?.occurrence?.id) throw Error('No result');
       await enrolOccurrence({
         variables: {
           input: {
-            occurrenceId: data?.occurrence?.id || 'aa',
+            occurrenceId: data.occurrence.id,
             childId: params.childId,
           },
         },
       });
 
       history.replace(
-        `/profile/child/${params.childId}/occurrence/${data?.occurrence?.id}`
+        `/profile/child/${params.childId}/occurrence/${data.occurrence.id}`
       );
     } catch (error) {
       // TODO: KK-280 Handle errors nicely
