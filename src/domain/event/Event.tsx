@@ -70,7 +70,6 @@ const Event: FunctionComponent = () => {
     .pop()
     ?.eventIds.some((e) => e === params.eventId);
   if (isRegistered) {
-    console.log('Child is already registered');
     history.replace(`/profile/child/${params.childId}`);
   }
 
