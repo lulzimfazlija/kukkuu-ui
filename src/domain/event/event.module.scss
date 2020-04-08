@@ -104,7 +104,7 @@
     background: $hel-white;
     padding-bottom: 5rem;
   }
-  @include respond-above(sm) {
+  @include respond-above(lg) {
     grid-template-columns: 1fr 10fr 1fr;
 
     .event {

@@ -13,7 +13,7 @@ $labelRowMargin: 1rem;
   .label {
     @include respond-above(sm) {
       > * {
-        margin-left: $labelColumnMargin;
+        margin-right: $labelColumnMargin;
       }
     }
     @include respond-below(sm) {
