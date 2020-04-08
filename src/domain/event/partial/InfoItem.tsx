@@ -5,20 +5,20 @@ import Icon from '../../../common/components/icon/Icon';
 
 type Props = {
   className?: string;
-  icon: string;
+  iconSrc: string;
   iconAlt?: string;
   label?: string | undefined;
 };
 
 const InfoItem: FunctionComponent<Props> = ({
   className,
-  icon,
+  iconSrc,
   iconAlt = '',
   label = '',
 }) => {
   return (
     <div className={className}>
-      <Icon alt={iconAlt} className={styles.labelIcon} src={icon} />
+      <Icon alt={iconAlt} className={styles.labelIcon} src={iconSrc} />
       <div>{label}</div>
     </div>
   );

@@ -22,7 +22,7 @@ type Props = {
 
 type InfoItem = {
   id: string;
-  icon: string;
+  iconSrc: string;
   iconAlt?: string;
   label: string;
 };
@@ -37,30 +37,27 @@ const OccurrenceInfo: FunctionComponent<Props> = ({
   const infoItems: InfoItem[] = [
     {
       id: 'time',
-      icon: calendarIcon,
+      iconSrc: calendarIcon,
       label: formatTime(newMoment(occurrence.time), DEFAULT_DATE_FORMAT),
     },
     {
       id: 'duration',
-      icon: clockIcon,
+      iconSrc: clockIcon,
       label: formatOccurrenceTime(occurrence.time, occurrence.event.duration),
     },
     {
       id: 'participants',
-      icon: personIcon,
+      iconSrc: personIcon,
       label: t(
         `event.participantsPerInviteEnum.${occurrence.event.participantsPerInvite}`
       ),
     },
     {
       id: 'venue',
-      icon: locationIcon,
+      iconSrc: locationIcon,
       label: occurrence.venue.name || '',
     },
   ];
-
-  console.log('classname');
-  console.log(className);
 
   return (
     <div className={joinClassNames(className, styles.row)}>
@@ -70,7 +67,7 @@ const OccurrenceInfo: FunctionComponent<Props> = ({
             <InfoItem
               key={index}
               className={joinClassNames(className, styles.label)}
-              icon={item.icon}
+              iconSrc={item.iconSrc}
               iconAlt={item.iconAlt}
               label={item.label}
             />
