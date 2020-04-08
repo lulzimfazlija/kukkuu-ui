@@ -11,6 +11,9 @@
     tr.mobileHeader {
       display: none;
     }
+    th.freePlaces {
+      text-align: center;
+    }
   }
   @include respond-below(md) {
     padding: 0 0.2rem;

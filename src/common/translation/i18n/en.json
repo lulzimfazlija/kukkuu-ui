@@ -139,7 +139,8 @@
       "confirm": {
         "button": "Register for event"
       },
-      "heading": "Register for event"
+      "heading": "Register for event",
+      "text": "Check that the information below is correct for the event you wish to attend."
     },
     "enroll": {
       "buttonText": "Register for event"
@@ -152,7 +153,7 @@
     "showEventInfo": {
       "buttonText": "Show event details"
     },
-    "successToas": {
+    "successToast": {
       "heading": "Registration for event successful"
     }
   },

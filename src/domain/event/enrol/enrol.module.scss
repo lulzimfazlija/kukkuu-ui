@@ -28,6 +28,13 @@
   text-align: center;
 }
 
+h1 {
+  margin-bottom: 0;
+}
+.text {
+  margin: 2rem 0;
+}
+
 .occurrenceInfo {
   @include background($hel-light);
   padding: $basePadding;

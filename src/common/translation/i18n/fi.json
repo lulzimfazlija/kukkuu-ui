@@ -139,7 +139,8 @@
       "confirm": {
         "button": "Ilmoittaudu tapahtumaan"
       },
-      "heading": "Ilmoittaudu tapahtumaan"
+      "heading": "Ilmoittaudu tapahtumaan",
+      "text": "Tarkista, että alla olevat tiedot vastaavat tapahtumaa, johon haluat osallistua."
     },
     "enroll": {
       "buttonText": "Ilmoittaudu tapahtumaan"
@@ -152,7 +153,7 @@
     "showEventInfo": {
       "buttonText": "Näytä tapahtuman tiedot"
     },
-    "successToas": {
+    "successToast": {
       "heading": "Tapahtumaan ilmoittautuminen onnistui! "
     }
   },
