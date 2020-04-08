@@ -20,8 +20,9 @@ type Props = {
   show?: string[];
 };
 
-type InfoItem = {
+export type InfoItem = {
   id: string;
+  className?: string;
   iconSrc: string;
   iconAlt?: string;
   label: string;
