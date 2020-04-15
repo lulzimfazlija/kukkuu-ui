@@ -67,7 +67,11 @@ const OccurrenceInfo: FunctionComponent<Props> = ({
           show.some((id) => id === item.id) && (
             <InfoItem
               key={index}
-              className={joinClassNames(className, styles.label)}
+              className={joinClassNames(
+                className,
+                styles.label,
+                item.className
+              )}
               iconSrc={item.iconSrc}
               iconAlt={item.iconAlt}
               label={item.label}
