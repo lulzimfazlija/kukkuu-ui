@@ -121,12 +121,11 @@
   "email": {
     "title": "Välkommen som kulturens fadderbarn!"
   },
-  "enrollment ": {
-    "successToast": {
-      "paragraph": "Vi skickade en bekräftelse till din epost, den innehåller mer information om evenemanget"
-    }
-  },
   "enrollment": {
+    "successToast": {
+      "paragraph": "Vi skickade en bekräftelse till din epost, den innehåller mer information om evenemanget",
+      "heading": "Anmälan till evenemanget lyckades!"
+    },
     "button": {
       "occurenceFull": "Fullt",
       "queue": "Ställ dig i kö",
@@ -152,9 +151,6 @@
     "selectTime": "Välj klockslag",
     "showEventInfo": {
       "buttonText": "Visa evenemangets information"
-    },
-    "successToast": {
-      "heading": "Anmälan till evenemanget lyckades!"
     }
   },
   "event": {

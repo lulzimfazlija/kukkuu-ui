@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders snapshot correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <SuccessToast>
+    <div
+      className="successToastWrapper"
+    >
+      <CSSTransition
+        classNames={Object {}}
+        in={false}
+        onEntered={[Function]}
+        onExited={[Function]}
+        timeout={
+          Object {
+            "appear": 300,
+            "enter": 300,
+            "exit": 300,
+          }
+        }
+        unmountOnExit={true}
+      >
+        <Transition
+          appear={false}
+          enter={true}
+          exit={true}
+          in={false}
+          mountOnEnter={false}
+          onEnter={[Function]}
+          onEntered={[Function]}
+          onEntering={[Function]}
+          onExit={[Function]}
+          onExited={[Function]}
+          onExiting={[Function]}
+          timeout={
+            Object {
+              "appear": 300,
+              "enter": 300,
+              "exit": 300,
+            }
+          }
+          unmountOnExit={true}
+        />
+      </CSSTransition>
+    </div>
+  </SuccessToast>
+</Provider>
+`;

@@ -21,7 +21,7 @@ import {
 } from '../../api/generatedTypes/enrolOccurrenceMutation';
 import profileQuery from '../../profile/queries/ProfileQuery';
 import { childByIdQuery } from '../../child/queries/ChildQueries';
-import { saveChildEvents } from '../state/EventActions';
+import { saveChildEvents, justEnrolled } from '../state/EventActions';
 
 const Enrol: FunctionComponent = () => {
   const history = useHistory();
@@ -66,6 +66,7 @@ const Enrol: FunctionComponent = () => {
             enrolments: data.enrolOccurrence.enrolment.child.enrolments,
           })
         );
+        dispatch(justEnrolled());
       }
     },
   });
