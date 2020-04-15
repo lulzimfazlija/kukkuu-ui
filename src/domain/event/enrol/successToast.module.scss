@@ -16,6 +16,30 @@
     top: -20rem;
     width: 50rem;
   }
+  h1 {
+    font-size: 1.5rem;
+  }
+  .content {
+    display: grid;
+    padding: 2rem;
+    text-align: center;
+    @include respond-above(md) {
+      padding: 1rem;
+      grid-template-columns: 2fr 8fr;
+      text-align: initial;
+      align-items: center;
+      p {
+        margin-top: 0.2rem;
+      }
+    }
+  }
+
+  .tadaIcon {
+    height: 6rem;
+    width: 6rem;
+    justify-self: center;
+    align-self: center;
+  }
 }
 
 .successToast {
@@ -36,30 +60,4 @@
 .exit {
   transition: transform 300ms;
   transform: translateY(-200%);
-}
-
-.content {
-  display: grid;
-  padding: 2rem;
-  text-align: center;
-  @include respond-above(md) {
-    padding: 1rem;
-    grid-template-columns: 2fr 8fr;
-    text-align: initial;
-    align-items: center;
-    p {
-      margin-top: 0.2rem;
-    }
-  }
-}
-
-.tadaIcon {
-  height: 6rem;
-  width: 6rem;
-  justify-self: center;
-  align-self: center;
-}
-
-h1 {
-  font-size: 1.5rem;
 }
