@@ -1,0 +1,64 @@
+@import 'styles/colors';
+@import 'styles/fonts';
+@import 'styles/mixins';
+@import 'styles/layout';
+@import 'styles/variables';
+
+.successToastWrapper {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  width: 95%;
+  top: -25rem;
+  @include respond-above(md) {
+    position: absolute;
+    top: -20rem;
+    width: 50rem;
+  }
+}
+
+.successToast {
+  background-color: $hel-white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.22);
+}
+
+.enterDone {
+  transform: translateY(25rem);
+  @include respond-above(md) {
+    transform: translateY(
+      20.5rem
+    ); // Fixme: See if there is a reliable way to place the toast in the right place.
+  }
+  transition: transform 300ms;
+}
+
+.exit {
+  transition: transform 300ms;
+  transform: translateY(-200%);
+}
+
+.content {
+  display: grid;
+  padding: 2rem;
+  text-align: center;
+  @include respond-above(md) {
+    grid-template-columns: 2fr 8fr;
+    text-align: initial;
+    align-items: center;
+    p {
+      margin-top: 0.2rem;
+    }
+  }
+}
+
+.tadaIcon {
+  height: 6rem;
+  width: 6rem;
+  justify-self: center;
+  align-self: center;
+}
+
+h1 {
+  font-size: 1.5rem;
+}

@@ -38,17 +38,17 @@ exports[`Renders snapshot correctly 1`] = `
         >
           <InfoItem
             className="label"
-            icon="calendar.svg"
+            iconSrc="calendar.svg"
             label="24.02.2020"
           />
           <InfoItem
             className="label"
-            icon="clock.svg"
+            iconSrc="clock.svg"
             label="09.07 - 10.07"
           />
           <InfoItem
             className="label"
-            icon="location.svg"
+            iconSrc="location.svg"
             label="aa"
           />
         </div>
