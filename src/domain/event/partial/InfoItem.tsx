@@ -19,7 +19,7 @@ const InfoItem: FunctionComponent<Props> = ({
   return (
     <div className={className}>
       <Icon alt={iconAlt} className={styles.labelIcon} src={iconSrc} />
-      <div>{label}</div>
+      <div className={styles.label}>{label}</div>
     </div>
   );
 };
