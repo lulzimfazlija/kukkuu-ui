@@ -13,26 +13,31 @@ const SuccessToast: FunctionComponent = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  const [inProp, setInProp] = useState(false);
+  const [showJustEnrolled, setShowJustEnrolled] = useState(false);
   const isJustEnrolled = useSelector(justEnrolledSelector);
 
   useEffect(() => {
-    setInProp(isJustEnrolled);
+    setShowJustEnrolled(isJustEnrolled);
   }, [isJustEnrolled]);
 
   return (
     <div className={styles.successToastWrapper}>
       <CSSTransition
-        in={inProp}
+        in={showJustEnrolled}
         timeout={{ appear: 300, enter: 300, exit: 300 }}
         classNames={{ ...styles }}
+        onEntered={() =>
+          setTimeout(() => {
+            setShowJustEnrolled(false);
+          }, 3000)
+        }
+        onExited={() => dispatch(justEnrolled())}
         unmountOnExit
       >
         <div
           className={styles.successToast}
           onClick={() => {
-            setInProp(false);
-            dispatch(justEnrolled());
+            setShowJustEnrolled(false);
           }}
         >
           <div className={styles.content}>

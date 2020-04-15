@@ -19,6 +19,8 @@ exports[`renders snapshot correctly 1`] = `
       <CSSTransition
         classNames={Object {}}
         in={false}
+        onEntered={[Function]}
+        onExited={[Function]}
         timeout={
           Object {
             "appear": 300,
