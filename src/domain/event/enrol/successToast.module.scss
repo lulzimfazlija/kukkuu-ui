@@ -43,6 +43,7 @@
   padding: 2rem;
   text-align: center;
   @include respond-above(md) {
+    padding: 1rem;
     grid-template-columns: 2fr 8fr;
     text-align: initial;
     align-items: center;
