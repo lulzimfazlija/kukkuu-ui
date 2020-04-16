@@ -11,7 +11,7 @@ import * as serviceWorker from './serviceWorker';
 import './common/translation/i18n/i18nInit';
 Modal.setAppElement('#root');
 
-if (process.env.NODE_ENV !== 'development') {
+if (process.env.NODE_ENV === 'production') {
   Sentry.init({
     dsn: process.env.REACT_APP_SENTRY_DSN,
     environment: process.env.REACT_APP_ENVIRONMENT,
