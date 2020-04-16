@@ -32,7 +32,7 @@ const SuccessToast: FunctionComponent = () => {
       onEntered={() => {
         const timer = setTimeout(() => {
           setShowJustEnrolled(false);
-        }, 300000);
+        }, 3000);
         return () => clearTimeout(timer);
       }}
       onExited={() => dispatch(justEnrolled())}
