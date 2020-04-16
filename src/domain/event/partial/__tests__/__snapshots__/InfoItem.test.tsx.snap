@@ -9,7 +9,9 @@ exports[`renders snapshot correctly 1`] = `
     className="labelIcon"
     src="iconSource"
   />
-  <div>
+  <div
+    className="label"
+  >
     infoItemLabel
   </div>
 </div>
