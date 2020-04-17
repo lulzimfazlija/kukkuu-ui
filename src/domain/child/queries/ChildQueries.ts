@@ -40,6 +40,29 @@ export const childByIdQuery = gql`
       lastName
       birthdate
       postalCode
+      occurrences(upcoming: true) {
+        edges {
+          node {
+            id
+            time
+            venue {
+              id
+              name
+              description
+              address
+            }
+            event {
+              id
+              name
+              shortDescription
+              duration
+              image
+              imageAltText
+              participantsPerInvite
+            }
+          }
+        }
+      }
       availableEvents {
         edges {
           node {
@@ -49,31 +72,6 @@ export const childByIdQuery = gql`
             image
             imageAltText
             participantsPerInvite
-          }
-        }
-      }
-      enrolments {
-        edges {
-          node {
-            occurrence {
-              id
-              time
-              venue {
-                id
-                name
-                description
-                address
-              }
-              event {
-                id
-                name
-                shortDescription
-                image
-                imageAltText
-                duration
-                participantsPerInvite
-              }
-            }
           }
         }
       }

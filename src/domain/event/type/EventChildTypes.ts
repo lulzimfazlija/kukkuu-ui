@@ -1,11 +1,12 @@
-import { enrolOccurrenceMutation_enrolOccurrence_enrolment_child_enrolments as Enrolments } from '../../api/generatedTypes/enrolOccurrenceMutation';
+import { enrolOccurrenceMutation_enrolOccurrence_enrolment_child_occurrences as EnrolOccurrences } from '../../api/generatedTypes/enrolOccurrenceMutation';
+import { unenrolOccurrenceMutation_unenrolOccurrence_child_occurrences as UnenrolOccurrences } from '../../api/generatedTypes/unenrolOccurrenceMutation';
 
 export interface ChildEvents {
   childId: string;
   eventIds: string[];
 }
 
-export interface ChildEnrolments {
+export interface ChildOccurrences {
   childId: string;
-  enrolments: Enrolments;
+  occurrences: EnrolOccurrences | UnenrolOccurrences;
 }

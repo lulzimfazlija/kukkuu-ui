@@ -59,11 +59,11 @@ const Enrol: FunctionComponent = () => {
       },
     ],
     onCompleted: (data) => {
-      if (data?.enrolOccurrence?.enrolment?.child.enrolments.edges) {
+      if (data?.enrolOccurrence?.enrolment?.child.occurrences.edges) {
         dispatch(
           saveChildEvents({
             childId: params.childId,
-            enrolments: data.enrolOccurrence.enrolment.child.enrolments,
+            occurrences: data.enrolOccurrence.enrolment.child.occurrences,
           })
         );
         dispatch(justEnrolled());

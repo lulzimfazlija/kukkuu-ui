@@ -19,15 +19,38 @@ const unenrolOccurrenceMutation = gql`
             }
           }
         }
-        enrolments {
+        occurrences(upcoming: true) {
           edges {
             node {
-              occurrence {
+              id
+              time
+              event {
                 id
-                event {
-                  id
-                }
+                image
+                imageAltText
+                description
+                shortDescription
+                name
+                duration
+                participantsPerInvite
               }
+              venue {
+                id
+                name
+                address
+                accessibilityInfo
+                arrivalInstructions
+                additionalInfo
+                wwwUrl
+                wcAndFacilities
+              }
+            }
+          }
+        }
+        pastEvents {
+          edges {
+            node {
+              id
             }
           }
         }
