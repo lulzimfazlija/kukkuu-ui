@@ -20,36 +20,39 @@ const SuccessToast: FunctionComponent = () => {
     setShowJustEnrolled(isJustEnrolled);
   }, [isJustEnrolled]);
 
+  let timer: NodeJS.Timeout;
   return (
-    <div className={styles.successToastWrapper}>
-      <CSSTransition
-        in={showJustEnrolled}
-        timeout={{ appear: 300, enter: 300, exit: 300 }}
-        classNames={{ ...styles }}
-        onEntered={() =>
-          setTimeout(() => {
-            setShowJustEnrolled(false);
-          }, 3000)
-        }
-        onExited={() => dispatch(justEnrolled())}
-        unmountOnExit
+    <CSSTransition
+      className={styles.successToast}
+      onClick={() => {
+        setShowJustEnrolled(false);
+      }}
+      in={showJustEnrolled}
+      timeout={{ appear: 300, enter: 300, exit: 300 }}
+      classNames={{ ...styles }}
+      onEntered={() => {
+        timer = setTimeout(() => {
+          setShowJustEnrolled(false);
+        }, 3000);
+      }}
+      onExited={() => {
+        clearTimeout(timer);
+        dispatch(justEnrolled());
+      }}
+      unmountOnExit
+    >
+      <div
+        onClick={() => {
+          setShowJustEnrolled(false);
+        }}
       >
-        <div
-          className={styles.successToast}
-          onClick={() => {
-            setShowJustEnrolled(false);
-          }}
-        >
-          <div className={styles.content}>
-            <Icon src={tada} className={styles.tadaIcon} />
-            <div>
-              <h1>{t('enrollment.successToast.heading')}</h1>
-              <p>{t('enrollment.successToast.paragraph')}</p>
-            </div>
-          </div>
+        <Icon src={tada} className={styles.tadaIcon} />
+        <div>
+          <h1>{t('enrollment.successToast.heading')}</h1>
+          <p>{t('enrollment.successToast.paragraph')}</p>
         </div>
-      </CSSTransition>
-    </div>
+      </div>
+    </CSSTransition>
   );
 };
 export default SuccessToast;
