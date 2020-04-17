@@ -20,6 +20,7 @@ const SuccessToast: FunctionComponent = () => {
     setShowJustEnrolled(isJustEnrolled);
   }, [isJustEnrolled]);
 
+  let timer: NodeJS.Timeout;
   return (
     <CSSTransition
       className={styles.successToast}
@@ -30,12 +31,14 @@ const SuccessToast: FunctionComponent = () => {
       timeout={{ appear: 300, enter: 300, exit: 300 }}
       classNames={{ ...styles }}
       onEntered={() => {
-        const timer = setTimeout(() => {
+        timer = setTimeout(() => {
           setShowJustEnrolled(false);
         }, 3000);
-        return () => clearTimeout(timer);
       }}
-      onExited={() => dispatch(justEnrolled())}
+      onExited={() => {
+        clearTimeout(timer);
+        dispatch(justEnrolled());
+      }}
       unmountOnExit
     >
       <div
