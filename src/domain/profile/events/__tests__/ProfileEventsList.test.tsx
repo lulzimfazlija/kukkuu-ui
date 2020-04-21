@@ -7,8 +7,8 @@ import Card from '../../../../common/components/card/Card';
 import {
   childByIdQuery_child as ChildType,
   childByIdQuery_child_availableEvents as AvailableEventsType,
-  childByIdQuery_child_enrolments as EnrolmentsType,
   childByIdQuery_child_pastEvents as PastEventsType,
+  childByIdQuery_child_occurrences as OccurrencesType,
 } from '../../../api/generatedTypes/childByIdQuery';
 import { EventParticipantsPerInvite } from '../../../api/generatedTypes/globalTypes';
 
@@ -49,16 +49,14 @@ const venueData = {
   address: 'ssfas uus 12',
 };
 
-const enrolments: EnrolmentsType = {
+const occurrences: OccurrencesType = {
   edges: [
     {
       node: {
-        occurrence: {
-          id: '',
-          time: '2020-02-24T07:07:18+00:00', // 09.07
-          venue: venueData,
-          event: eventData,
-        },
+        id: '',
+        time: '2020-02-24T07:07:18+00:00', // 09.07
+        venue: venueData,
+        event: eventData,
       },
     },
   ],
@@ -72,16 +70,16 @@ const pastEvents: PastEventsType = {
   ],
 };
 
-const childWithEvents = {
+const childWithEvents: ChildType = {
   availableEvents: availableEvents,
-  enrolments: enrolments,
+  occurrences: occurrences,
   pastEvents: pastEvents,
   ...childData,
 };
 
 const childOnlyAvailableEvents = {
   availableEvents: availableEvents,
-  enrolments: {
+  occurrences: {
     edges: [],
   },
   pastEvents: null,
@@ -90,16 +88,14 @@ const childOnlyAvailableEvents = {
 
 const childOnlyEnrolments: ChildType = {
   availableEvents: null,
-  enrolments: {
+  occurrences: {
     edges: [
       {
         node: {
-          occurrence: {
-            id: 'uu',
-            time: '2020-02-24T09:09:09+00:00',
-            venue: venueData,
-            event: eventData,
-          },
+          id: 'uu',
+          time: '2020-02-24T09:09:09+00:00',
+          venue: venueData,
+          event: eventData,
         },
       },
     ],
@@ -108,9 +104,9 @@ const childOnlyEnrolments: ChildType = {
   ...childData,
 };
 
-const childOnlyPastEvents = {
+const childOnlyPastEvents: ChildType = {
   availableEvents: null,
-  enrolments: {
+  occurrences: {
     edges: [],
   },
   pastEvents: pastEvents,
@@ -121,7 +117,7 @@ test('Renders snapshot correctly', () => {
   const wrapper = shallow(
     <ProfileEventsList
       availableEvents={childWithEvents.availableEvents}
-      enrolments={childWithEvents.enrolments}
+      occurrences={childWithEvents.occurrences}
       pastEvents={childWithEvents.pastEvents}
       childId="zzaf"
     />
@@ -133,7 +129,7 @@ test('Renders only available events when no other events', () => {
   const wrapper = shallow(
     <ProfileEventsList
       availableEvents={childOnlyAvailableEvents.availableEvents}
-      enrolments={childOnlyAvailableEvents.enrolments}
+      occurrences={childOnlyAvailableEvents.occurrences}
       pastEvents={childOnlyAvailableEvents.pastEvents}
       childId="zzaf"
     />
@@ -146,7 +142,7 @@ test('Renders only enrolments when no other events', () => {
   const wrapper = shallow(
     <ProfileEventsList
       availableEvents={childOnlyEnrolments.availableEvents}
-      enrolments={childOnlyEnrolments.enrolments}
+      occurrences={childOnlyEnrolments.occurrences}
       pastEvents={childOnlyEnrolments.pastEvents}
       childId="zzaf"
     />
@@ -159,7 +155,7 @@ test('Renders only past events when no other events', () => {
   const wrapper = shallow(
     <ProfileEventsList
       availableEvents={childOnlyPastEvents.availableEvents}
-      enrolments={childOnlyPastEvents.enrolments}
+      occurrences={childOnlyPastEvents.occurrences}
       pastEvents={childOnlyPastEvents.pastEvents}
       childId="zzaf"
     />

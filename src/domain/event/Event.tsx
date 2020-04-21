@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, useLocation } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import * as Sentry from '@sentry/browser';
 import { useSelector } from 'react-redux';
@@ -40,8 +40,14 @@ export interface FilterOptions {
 const Event: FunctionComponent = () => {
   const { t } = useTranslation();
   const history = useHistory();
+  const location = useLocation();
 
-  const params = useParams<{ childId: string; eventId: string }>();
+  const params = useParams<{
+    childId: string;
+    eventId: string;
+  }>();
+
+  const past = location.pathname.includes('/past') ? true : false;
 
   const initialFilterValues: FilterValues = {
     date: '',
@@ -69,7 +75,7 @@ const Event: FunctionComponent = () => {
     .filter((c) => c.childId === params.childId)
     .pop()
     ?.eventIds.some((e) => e === params.eventId);
-  if (isRegistered) {
+  if (isRegistered && !past) {
     history.replace(`/profile/child/${params.childId}`);
   }
 
@@ -156,12 +162,14 @@ const Event: FunctionComponent = () => {
       <div className={styles.description}>
         <Paragraph text={data.event.description || ''} />
       </div>
-      <EventEnrol
-        data={data}
-        filterValues={selectedFilterValues}
-        options={options}
-        onFilterUpdate={updateFilterValues}
-      />
+      {!past && (
+        <EventEnrol
+          data={data}
+          filterValues={selectedFilterValues}
+          options={options}
+          onFilterUpdate={updateFilterValues}
+        />
+      )}
     </EventPage>
   );
 };

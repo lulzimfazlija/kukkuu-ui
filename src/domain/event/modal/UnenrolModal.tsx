@@ -22,7 +22,6 @@ interface UnenrolModalProps {
   setIsOpen: (value: boolean) => void;
   childId: string;
   occurrenceId: string;
-  eventId: string;
 }
 
 const UnenrolModal: FunctionComponent<UnenrolModalProps> = ({
@@ -30,7 +29,6 @@ const UnenrolModal: FunctionComponent<UnenrolModalProps> = ({
   setIsOpen,
   childId,
   occurrenceId,
-  eventId,
 }) => {
   const history = useHistory();
   const { t } = useTranslation();
@@ -50,14 +48,15 @@ const UnenrolModal: FunctionComponent<UnenrolModalProps> = ({
       { query: profileQuery },
     ],
     onCompleted: (data) => {
-      if (data.unenrolOccurrence?.child?.enrolments.edges) {
+      if (data.unenrolOccurrence?.child?.occurrences.edges) {
         dispatch(
           saveChildEvents({
             childId: data.unenrolOccurrence.child.id,
-            enrolments: data.unenrolOccurrence.child.enrolments,
+            occurrences: data.unenrolOccurrence.child.occurrences,
           })
         );
       }
+      history.replace(`/profile/child/${childId}`);
     },
   });
 
@@ -71,7 +70,6 @@ const UnenrolModal: FunctionComponent<UnenrolModalProps> = ({
           },
         },
       });
-      history.replace(`/profile/child/${childId}`);
     } catch (error) {
       console.error(error);
       // TODO: KK-280 Handle errors nicely

@@ -8,7 +8,7 @@ import calendarIcon from '../../../assets/icons/svg/calendar.svg';
 import locationIcon from '../../../assets/icons/svg/location.svg';
 import personIcon from '../../../assets/icons/svg/person.svg';
 import { formatOccurrenceTime } from '../EventUtils';
-import { childByIdQuery_child_enrolments_edges_node_occurrence as OccurrenceType } from '../../api/generatedTypes/childByIdQuery';
+import { childByIdQuery_child_occurrences_edges_node as OccurrenceType } from '../../api/generatedTypes/childByIdQuery';
 import { occurrenceQuery_occurrence as OccurrenceQueryType } from '../../api/generatedTypes/occurrenceQuery';
 import { formatTime, newMoment } from '../../../common/time/utils';
 import { DEFAULT_DATE_FORMAT } from '../../../common/time/TimeConstants';
@@ -16,7 +16,7 @@ import InfoItem from './InfoItem';
 
 type Props = {
   className?: string;
-  occurrence: OccurrenceType | OccurrenceQueryType;
+  occurrence: OccurrenceQueryType | OccurrenceType;
   show?: string[];
 };
 

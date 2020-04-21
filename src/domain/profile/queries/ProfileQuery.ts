@@ -35,15 +35,13 @@ const profileQuery = gql`
                 }
               }
             }
-            enrolments {
+            occurrences {
               edges {
                 node {
-                  occurrence {
+                  id
+                  event {
                     id
-                    event {
-                      id
-                      name
-                    }
+                    name
                   }
                 }
               }

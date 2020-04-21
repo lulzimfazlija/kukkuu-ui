@@ -21,6 +21,12 @@ const SuccessToast: FunctionComponent = () => {
   }, [isJustEnrolled]);
 
   let timer: NodeJS.Timeout;
+  useEffect(() => {
+    return () => {
+      clearTimeout(timer);
+    };
+  });
+
   return (
     <CSSTransition
       className={styles.successToast}
