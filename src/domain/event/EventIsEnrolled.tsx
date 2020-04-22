@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import * as Sentry from '@sentry/browser';
@@ -17,7 +17,7 @@ import Paragraph from '../../common/components/paragraph/Paragraph';
 import EventPage from './EventPage';
 import SuccessToast from './enrol/SuccessToast';
 
-const EventIsEnrolled: FunctionComponent = () => {
+const EventIsEnrolled = () => {
   const { t } = useTranslation();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -67,13 +67,15 @@ const EventIsEnrolled: FunctionComponent = () => {
         {t('event.cancellation.buttonText')}
       </Button>
       <VenueFeatures venue={data.occurrence.venue} />
-      {isOpen && (
+      {isOpen ? (
         <UnenrolModal
           isOpen={isOpen}
           setIsOpen={setIsOpen}
           childId={params.childId}
           occurrenceId={data.occurrence.id}
         />
+      ) : (
+        <></>
       )}
     </EventPage>
   );
