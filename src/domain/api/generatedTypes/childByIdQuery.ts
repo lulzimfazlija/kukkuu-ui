@@ -9,6 +9,14 @@ import { EventParticipantsPerInvite, RelationshipTypeEnum } from "./globalTypes"
 // GraphQL query operation: childByIdQuery
 // ====================================================
 
+export interface childByIdQuery_child_project {
+  /**
+   * The ID of the object.
+   */
+  id: string;
+  year: number;
+}
+
 export interface childByIdQuery_child_occurrences_edges_node_venue {
   /**
    * The ID of the object.
@@ -165,6 +173,7 @@ export interface childByIdQuery_child {
   lastName: string;
   birthdate: any;
   postalCode: string;
+  project: childByIdQuery_child_project;
   occurrences: childByIdQuery_child_occurrences;
   availableEvents: childByIdQuery_child_availableEvents | null;
   pastEvents: childByIdQuery_child_pastEvents | null;

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { FunctionComponent, Fragment, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useMutation } from '@apollo/react-hooks';
@@ -17,11 +17,12 @@ import { getSupportedChildData } from '../../child/ChildUtils';
 import LoadingSpinner from '../../../common/components/spinner/LoadingSpinner';
 import profileQuery from '../queries/ProfileQuery';
 import Button from '../../../common/components/button/Button';
+import { getProjectsFromProfileQuery } from '../ProfileUtil';
 
-const ProfileChildrenList: React.FunctionComponent = () => {
+const ProfileChildrenList: FunctionComponent = () => {
   const { t } = useTranslation();
   const children = useSelector(profileChildrenSelector);
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [addChild, { loading: mutationLoading }] = useMutation(
     addChildMutation,
     {
@@ -59,15 +60,22 @@ const ProfileChildrenList: React.FunctionComponent = () => {
       <div className={styles.childrenList}>
         {children ? (
           <>
-            <div className={styles.thisYearPartner}>
-              <h3>{t('partners.2020')}</h3>
-              {/* TODO: make me dynamic partners after more data came */}
-            </div>
-            {children.edges.map((childEdge) =>
-              childEdge?.node ? (
-                <ProfileChild key={childEdge.node.id} child={childEdge.node} />
-              ) : null
-            )}
+            {getProjectsFromProfileQuery(children).map((project) => (
+              <Fragment key={project}>
+                <div className={styles.thisYearPartner}>
+                  <h3>{project} TODO: Project name</h3>
+                </div>
+                {children.edges.map((childEdge) =>
+                  childEdge?.node?.id &&
+                  childEdge.node.project.year === project ? (
+                    <ProfileChild
+                      key={childEdge.node.id}
+                      child={childEdge.node}
+                    />
+                  ) : null
+                )}
+              </Fragment>
+            ))}
           </>
         ) : (
           <div className={styles.noChild}>

@@ -9,6 +9,14 @@ import { Language, RelationshipTypeEnum, EventParticipantsPerInvite } from "./gl
 // GraphQL query operation: profileQuery
 // ====================================================
 
+export interface profileQuery_myProfile_children_edges_node_project {
+  /**
+   * The ID of the object.
+   */
+  id: string;
+  year: number;
+}
+
 export interface profileQuery_myProfile_children_edges_node_relationships_edges_node {
   /**
    * The ID of the object.
@@ -97,6 +105,7 @@ export interface profileQuery_myProfile_children_edges_node {
   lastName: string;
   birthdate: any;
   postalCode: string;
+  project: profileQuery_myProfile_children_edges_node_project;
   relationships: profileQuery_myProfile_children_edges_node_relationships;
   availableEvents: profileQuery_myProfile_children_edges_node_availableEvents | null;
   occurrences: profileQuery_myProfile_children_edges_node_occurrences;
