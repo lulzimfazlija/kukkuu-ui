@@ -12,6 +12,10 @@ export const childrenQuery = gql`
           lastName
           birthdate
           postalCode
+          project {
+            id
+            year
+          }
           guardians {
             edges {
               node {
@@ -40,6 +44,10 @@ export const childByIdQuery = gql`
       lastName
       birthdate
       postalCode
+      project {
+        id
+        year
+      }
       occurrences(upcoming: true) {
         edges {
           node {

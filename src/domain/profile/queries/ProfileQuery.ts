@@ -17,6 +17,10 @@ const profileQuery = gql`
             lastName
             birthdate
             postalCode
+            project {
+              id
+              year
+            }
             relationships {
               edges {
                 node {
