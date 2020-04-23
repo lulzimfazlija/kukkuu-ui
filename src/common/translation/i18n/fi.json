@@ -122,10 +122,6 @@
     "title": "Tervetuloa Kulttuurin kummilapsiin!"
   },
   "enrollment": {
-    "successToast": {
-      "paragraph": "Lähetimme varmistusviestin sähköpostiisi, löydät sieltä tapahtuman lisätiedot",
-      "heading": "Tapahtumaan ilmoittautuminen onnistui! "
-    },
     "button": {
       "occurenceFull": "Täynnä",
       "queue": "Jonoon",
@@ -151,6 +147,10 @@
     "selectTime": "Valitse kellonaika",
     "showEventInfo": {
       "buttonText": "Näytä tapahtuman tiedot"
+    },
+    "successToast": {
+      "heading": "Tapahtumaan ilmoittautuminen onnistui! ",
+      "paragraph": "Lähetimme varmistusviestin sähköpostiisi, löydät sieltä tapahtuman lisätiedot"
     }
   },
   "event": {
@@ -253,6 +253,9 @@
     },
     "registration": {
       "text": "Aloita syöttämällä toimintaan osallistuvan lapsen kotipaikkakunta ja syntymäpäivä. Tämän jälkeen pääset kirjautumaan palveluun ja täydentämään lapsesi kummilapsiprofiilin. Tähän menee muutama minuutti."
+    },
+    "video": {
+      "youtubeId": "jYteckzo1uA"
     }
   },
   "homePage": {
