@@ -122,10 +122,6 @@
     "title": "Välkommen som kulturens fadderbarn!"
   },
   "enrollment": {
-    "successToast": {
-      "paragraph": "Vi skickade en bekräftelse till din epost, den innehåller mer information om evenemanget",
-      "heading": "Anmälan till evenemanget lyckades!"
-    },
     "button": {
       "occurenceFull": "Fullt",
       "queue": "Ställ dig i kö",
@@ -151,6 +147,10 @@
     "selectTime": "Välj klockslag",
     "showEventInfo": {
       "buttonText": "Visa evenemangets information"
+    },
+    "successToast": {
+      "heading": "Anmälan till evenemanget lyckades!",
+      "paragraph": "Vi skickade en bekräftelse till din epost, den innehåller mer information om evenemanget"
     }
   },
   "event": {
@@ -253,6 +253,9 @@
     },
     "registration": {
       "text": "Börja genom att uppge hemort och födelsedag för barnet som deltar i verksamheten. Därefter kan du logga in i tjänsten och komplettera barnets fadderbarnsprofil. Det tar några minuter."
+    },
+    "video": {
+      "youtubeId": "cDB8iN3bVnY"
     }
   },
   "homePage": {

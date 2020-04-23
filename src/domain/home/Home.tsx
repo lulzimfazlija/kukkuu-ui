@@ -9,6 +9,7 @@ import PageWrapper from '../app/layout/PageWrapper';
 import HomeHero from './hero/HomeHero';
 import HomeInstructions from './instructions/HomeInstructions';
 import HomePartners from './partners/HomePartners';
+import HomeVideo from './video/HomeVideo';
 import HomeContact from './contact/HomeContact';
 import { isAuthenticatedSelector } from '../auth/state/AuthenticationSelectors';
 import { profileQuery as ProfileQueryType } from '../api/generatedTypes/profileQuery';
@@ -60,6 +61,7 @@ const Home: FunctionComponent = () => {
         />
         <HomeInstructions />
         {!userHasProfile && <HomePreliminaryForm forwardRef={formRef} />}
+        <HomeVideo />
         <HomePartners />
         <HomeContact />
       </div>
