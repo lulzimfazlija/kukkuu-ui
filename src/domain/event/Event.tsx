@@ -162,15 +162,13 @@ const Event = () => {
       <div className={styles.description}>
         <Paragraph text={data.event.description || ''} />
       </div>
-      {!past ? (
+      {!past && (
         <EventEnrol
           data={data}
           filterValues={selectedFilterValues}
           options={options}
           onFilterUpdate={updateFilterValues}
         />
-      ) : (
-        <></>
       )}
     </EventPage>
   );

@@ -67,15 +67,13 @@ const EventIsEnrolled = () => {
         {t('event.cancellation.buttonText')}
       </Button>
       <VenueFeatures venue={data.occurrence.venue} />
-      {isOpen ? (
+      {isOpen && (
         <UnenrolModal
           isOpen={isOpen}
           setIsOpen={setIsOpen}
           childId={params.childId}
           occurrenceId={data.occurrence.id}
         />
-      ) : (
-        <></>
       )}
     </EventPage>
   );

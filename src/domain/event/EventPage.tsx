@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from 'react';
+import React, { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ import { occurrenceQuery_occurrence_event as OccurrenceQueryType } from '../api/
 
 type EventProps = {
   event: EventQueryType | OccurrenceQueryType;
-  children?: ReactElement | Array<ReactElement>;
+  children?: ReactElement | Array<ReactElement | false>;
   success?: ReactElement;
 };
 
