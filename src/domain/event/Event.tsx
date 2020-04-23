@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams, useHistory, useLocation } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
@@ -37,7 +37,7 @@ export interface FilterOptions {
   times: Option[];
 }
 
-const Event: FunctionComponent = () => {
+const Event = () => {
   const { t } = useTranslation();
   const history = useHistory();
   const location = useLocation();

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useMutation } from '@apollo/react-hooks';
 import { useHistory } from 'react-router-dom';
@@ -24,12 +24,12 @@ interface UnenrolModalProps {
   occurrenceId: string;
 }
 
-const UnenrolModal: FunctionComponent<UnenrolModalProps> = ({
+const UnenrolModal = ({
   isOpen,
   setIsOpen,
   childId,
   occurrenceId,
-}) => {
+}: UnenrolModalProps) => {
   const history = useHistory();
   const { t } = useTranslation();
   const dispatch = useDispatch();

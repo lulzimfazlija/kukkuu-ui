@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 
@@ -12,15 +12,11 @@ import { occurrenceQuery_occurrence_event as OccurrenceQueryType } from '../api/
 
 type EventProps = {
   event: EventQueryType | OccurrenceQueryType;
-  children: ReactNode;
-  success?: ReactNode;
+  children?: ReactElement | Array<ReactElement | false>;
+  success?: ReactElement;
 };
 
-const EventPage: FunctionComponent<EventProps> = ({
-  event,
-  children,
-  success,
-}) => {
+const EventPage = ({ event, children, success }: EventProps) => {
   const history = useHistory();
   const { t } = useTranslation();
   if (!event) return <></>;
